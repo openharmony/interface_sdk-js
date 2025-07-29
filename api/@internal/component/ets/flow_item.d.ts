@@ -46,6 +46,7 @@ import { CommonMethod } from './common'
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface FlowItemInterface {
   /**
@@ -100,6 +101,7 @@ interface FlowItemInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
 
@@ -123,6 +125,7 @@ declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const FlowItem: FlowItemInterface
 
@@ -146,5 +149,6 @@ declare const FlowItem: FlowItemInterface
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const FlowItemInstance: FlowItemAttribute;

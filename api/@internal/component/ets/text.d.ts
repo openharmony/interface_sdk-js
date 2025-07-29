@@ -112,6 +112,7 @@ declare interface TextOverflowOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface TextInterface {
   /**
@@ -184,6 +185,7 @@ interface TextInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
@@ -1741,6 +1743,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextInstance: TextAttribute;
 
@@ -1773,6 +1776,7 @@ declare const TextInstance: TextAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Text: TextInterface;
 

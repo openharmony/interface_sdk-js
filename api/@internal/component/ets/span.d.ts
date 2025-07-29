@@ -176,6 +176,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SpanInterface {
   /**
@@ -246,6 +247,7 @@ interface SpanInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
@@ -729,6 +731,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Span: SpanInterface;
 
@@ -761,5 +764,6 @@ declare const Span: SpanInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SpanInstance: SpanAttribute;

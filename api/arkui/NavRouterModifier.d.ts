@@ -27,6 +27,7 @@
  * @atomicservice
  * @since 12
  * @deprecated since 20
+ * @noninterop
  */
 export declare class NavRouterModifier extends NavRouterAttribute implements AttributeModifier<NavRouterAttribute> {
 

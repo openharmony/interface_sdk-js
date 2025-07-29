@@ -253,6 +253,7 @@ declare interface ListItemGroupOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ListItemGroupInterface {
   /**
@@ -310,6 +311,7 @@ interface ListItemGroupInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**
@@ -404,6 +406,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
@@ -427,5 +430,6 @@ declare const ListItemGroupInstance: ListItemGroupAttribute;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ListItemGroup: ListItemGroupInterface;

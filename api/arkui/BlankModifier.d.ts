@@ -38,6 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class BlankModifier extends BlankAttribute implements AttributeModifier<BlankAttribute> {
 

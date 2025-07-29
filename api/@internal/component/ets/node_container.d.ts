@@ -40,6 +40,7 @@ import { CommonMethod } from './common';
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface NodeContainerInterface {
   /**
@@ -91,6 +92,7 @@ interface NodeContainerInterface {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 
@@ -108,6 +110,7 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const NodeContainer: NodeContainerInterface;
 
@@ -125,5 +128,6 @@ declare const NodeContainer: NodeContainerInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

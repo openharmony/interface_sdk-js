@@ -182,6 +182,7 @@ interface EllipseOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface EllipseInterface {
   /**
@@ -315,6 +316,7 @@ interface EllipseInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
@@ -347,6 +349,7 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Ellipse: EllipseInterface;
 
@@ -379,6 +382,7 @@ declare const Ellipse: EllipseInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const EllipseInstance: EllipseAttribute;
 
@@ -392,6 +396,7 @@ declare const EllipseInstance: EllipseAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface EllipseInterface {
   /**

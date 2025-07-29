@@ -38,6 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {
 

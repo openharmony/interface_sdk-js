@@ -48,6 +48,7 @@ import { Color } from './enums'
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface HyperlinkInterface {
   /**
@@ -114,6 +115,7 @@ interface HyperlinkInterface {
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -167,6 +169,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const Hyperlink: HyperlinkInterface;
 
@@ -190,5 +193,6 @@ declare const Hyperlink: HyperlinkInterface;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const HyperlinkInterface: HyperlinkAttribute;

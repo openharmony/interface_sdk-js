@@ -304,6 +304,7 @@ declare interface TimePickerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TimePickerInterface {
   /**
@@ -383,6 +384,7 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
@@ -1254,6 +1256,7 @@ declare class TimePickerDialog {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TimePicker: TimePickerInterface;
 
@@ -1277,5 +1280,6 @@ declare const TimePicker: TimePickerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TimePickerInstance: TimePickerAttribute;

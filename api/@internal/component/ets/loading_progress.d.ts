@@ -193,6 +193,7 @@ declare enum LoadingProgressStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface LoadingProgressInterface {
   /**
@@ -267,6 +268,7 @@ interface LoadingProgressInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
   /**
@@ -400,6 +402,7 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LoadingProgress: LoadingProgressInterface;
 
@@ -432,5 +435,6 @@ declare const LoadingProgress: LoadingProgressInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;

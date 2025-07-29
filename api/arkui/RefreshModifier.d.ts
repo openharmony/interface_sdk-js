@@ -30,6 +30,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
 */
 export declare class RefreshModifier extends RefreshAttribute implements AttributeModifier<RefreshAttribute> {
 

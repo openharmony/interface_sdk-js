@@ -377,6 +377,7 @@ declare interface TextPickerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TextPickerInterface {
   /**
@@ -646,6 +647,7 @@ declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], in
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
   /**
@@ -1905,6 +1907,7 @@ declare class TextPickerDialog {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextPicker: TextPickerInterface;
 
@@ -1928,6 +1931,7 @@ declare const TextPicker: TextPickerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextPickerInstance: TextPickerAttribute;
 

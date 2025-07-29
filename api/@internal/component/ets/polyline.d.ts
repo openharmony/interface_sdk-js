@@ -183,6 +183,7 @@ declare interface PolylineOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PolylineInterface {
   /**
@@ -308,6 +309,7 @@ interface PolylineInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
@@ -394,6 +396,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Polyline: PolylineInterface;
 
@@ -426,6 +429,7 @@ declare const Polyline: PolylineInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PolylineInstance: PolylineAttribute;
 
@@ -439,6 +443,7 @@ declare const PolylineInstance: PolylineAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface PolylineInterface {
   /**

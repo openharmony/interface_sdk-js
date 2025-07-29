@@ -815,6 +815,7 @@ declare interface IDataSource {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
 }
@@ -841,6 +842,7 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface LazyForEachInterface {
   /**
@@ -915,5 +917,6 @@ interface LazyForEachInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LazyForEach: LazyForEachInterface;

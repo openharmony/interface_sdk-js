@@ -147,6 +147,7 @@ interface ColumnOptionsV2 {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ColumnInterface {
   /**
@@ -257,6 +258,7 @@ interface ColumnInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
@@ -395,6 +397,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Column: ColumnInterface;
 
@@ -427,5 +430,6 @@ declare const Column: ColumnInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ColumnInstance: ColumnAttribute;

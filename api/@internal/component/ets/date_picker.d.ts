@@ -360,6 +360,7 @@ declare interface DatePickerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface DatePickerInterface {
   /**
@@ -417,6 +418,7 @@ interface DatePickerInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
   /**
@@ -1515,6 +1517,7 @@ declare class DatePickerDialog {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DatePicker: DatePickerInterface;
 
@@ -1538,6 +1541,7 @@ declare const DatePicker: DatePickerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DatePickerInstance: DatePickerAttribute;
 

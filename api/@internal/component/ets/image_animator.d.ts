@@ -51,6 +51,7 @@ import { AnimationStatus,FillMode } from './enums'
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ImageAnimatorInterface {
   /**
@@ -322,6 +323,7 @@ interface ImageFrameInfo {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
   /**
@@ -765,6 +767,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageAnimator: ImageAnimatorInterface;
 
@@ -790,5 +793,6 @@ declare const ImageAnimator: ImageAnimatorInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageAnimatorInstance: ImageAnimatorAttribute;

@@ -102,6 +102,7 @@ declare interface RouteInfo {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare interface NavRouterInterface {
   /**
@@ -252,6 +253,7 @@ declare enum NavRouteMode {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
   /**
@@ -328,6 +330,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare const NavRouter: NavRouterInterface;
 
@@ -352,5 +355,6 @@ declare const NavRouter: NavRouterInterface;
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare const NavRouterInstance: NavRouterAttribute;

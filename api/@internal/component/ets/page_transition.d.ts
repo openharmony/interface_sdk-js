@@ -680,6 +680,7 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEnterInterface> {
   /**
@@ -822,6 +823,7 @@ declare class PageTransitionEnter extends CommonTransition {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PageTransitionExitInterface extends CommonTransition<PageTransitionExitInterface> {
   /**
@@ -957,6 +959,7 @@ declare class PageTransitionExit extends CommonTransition {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PageTransitionEnter: PageTransitionEnterInterface;
 
@@ -980,5 +983,6 @@ declare const PageTransitionEnter: PageTransitionEnterInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PageTransitionExit: PageTransitionExitInterface;

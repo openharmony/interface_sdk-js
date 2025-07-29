@@ -224,6 +224,7 @@ declare interface PathOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PathInterface {
   /**
@@ -365,6 +366,7 @@ interface PathInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
   /**
@@ -448,6 +450,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Path: PathInterface;
 
@@ -480,6 +483,7 @@ declare const Path: PathInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PathInstance: PathAttribute;
 
@@ -493,6 +497,7 @@ declare const PathInstance: PathAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface PathInterface {
   /**

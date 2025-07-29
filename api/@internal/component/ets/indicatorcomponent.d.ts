@@ -96,6 +96,7 @@ declare class IndicatorComponentController {
  * @atomicservice
  * @since arkts {'1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface IndicatorComponentInterface {
    
@@ -124,6 +125,7 @@ interface IndicatorComponentInterface {
  * @atomicservice
  * @since arkts {'1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
@@ -219,6 +221,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
  * @form
  * @atomicservice
  * @since 15
+ * @noninterop
  */
 declare const IndicatorComponent: IndicatorComponentInterface;
 
@@ -230,5 +233,6 @@ declare const IndicatorComponent: IndicatorComponentInterface;
  * @form
  * @atomicservice
  * @since 15
+ * @noninterop
  */
 declare const IndicatorComponentInstance: IndicatorComponentAttribute;

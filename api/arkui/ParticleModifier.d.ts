@@ -26,6 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
 */
 export declare class ParticleModifier extends ParticleAttribute implements AttributeModifier<ParticleAttribute> {
 

@@ -156,6 +156,7 @@ declare interface GridLayoutOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface GridInterface {
   /**
@@ -493,6 +494,7 @@ declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
@@ -1508,6 +1510,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const Grid: GridInterface;
 
@@ -1531,5 +1534,6 @@ declare const Grid: GridInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridInstance: GridAttribute;

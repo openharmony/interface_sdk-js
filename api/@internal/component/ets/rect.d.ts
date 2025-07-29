@@ -509,6 +509,7 @@ declare interface RoundedRectOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface RectInterface {
   /**
@@ -658,6 +659,7 @@ interface RectInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
@@ -851,6 +853,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Rect: RectInterface;
 
@@ -860,6 +863,7 @@ declare const Rect: RectInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7
  * @deprecated since 9
+ * @noninterop
  */
 declare const RectInStance: RectAttribute;
 
@@ -882,6 +886,7 @@ declare const RectInStance: RectAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RectInstance: RectAttribute;
 
@@ -895,6 +900,7 @@ declare const RectInstance: RectAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface RectInterface {
   /**

@@ -183,6 +183,7 @@ declare interface PolygonOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PolygonInterface {
   /**
@@ -315,6 +316,7 @@ interface PolygonInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -401,6 +403,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Polygon: PolygonInterface;
 
@@ -433,6 +436,7 @@ declare const Polygon: PolygonInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PolygonInstance: PolygonAttribute;
 
@@ -446,6 +450,7 @@ declare const PolygonInstance: PolygonAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface PolygonInterface {
   /**

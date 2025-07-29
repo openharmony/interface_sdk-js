@@ -40,6 +40,7 @@ interface RootSceneSession {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RootSceneInterface {
   /**
@@ -63,6 +64,7 @@ interface RootSceneInterface {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
 }
@@ -73,6 +75,7 @@ declare class RootSceneAttribute extends CommonMethod<RootSceneAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const RootScene: RootSceneInterface;
 
@@ -82,5 +85,6 @@ declare const RootScene: RootSceneInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const RootSceneInstance: RootSceneAttribute;

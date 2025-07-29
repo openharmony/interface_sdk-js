@@ -1239,6 +1239,7 @@ declare interface ScrollSnapOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ScrollInterface {
   /**
@@ -1373,6 +1374,7 @@ declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
@@ -2024,6 +2026,7 @@ declare type ScrollOnWillScrollCallback =
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Scroll: ScrollInterface;
 
@@ -2047,5 +2050,6 @@ declare const Scroll: ScrollInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ScrollInstance: ScrollAttribute;

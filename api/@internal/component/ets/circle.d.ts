@@ -184,6 +184,7 @@ declare interface CircleOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CircleInterface {
   /**
@@ -301,6 +302,7 @@ interface CircleInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
@@ -333,6 +335,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Circle: CircleInterface;
 
@@ -365,6 +368,7 @@ declare const Circle: CircleInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CircleInstance: CircleAttribute;
 
@@ -378,6 +382,7 @@ declare const CircleInstance: CircleAttribute;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface CircleInterface {
   /**

@@ -1635,6 +1635,7 @@ declare class CalendarController {
  * @form
  * @since 10
  * @deprecated since 20
+ * @noninterop
  */
 interface CalendarInterface {
   /**
@@ -1677,6 +1678,7 @@ interface CalendarInterface {
  * @form
  * @since 10
  * @deprecated since 20
+ * @noninterop
  */
 declare class CalendarAttribute {
   /**
@@ -1983,6 +1985,7 @@ declare class CalendarAttribute {
  * @form
  * @since 10
  * @deprecated since 20
+ * @noninterop
  */
 declare const Calendar: CalendarInterface;
 
@@ -2001,5 +2004,6 @@ declare const Calendar: CalendarInterface;
  * @form
  * @since 10
  * @deprecated since 20
+ * @noninterop
  */
 declare const CalendarInstance: CalendarAttribute;
