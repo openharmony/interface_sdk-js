@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
- * @arkts 1.1&1.2
  */
 
 import type { AsyncCallback } from './@ohos.base';
@@ -1381,10 +1380,25 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     takeNext(): AppEventPackage;
+    /**
+     * Obtains the subscription event.
+     * <br>The system obtains the subscription event data based on the data size threshold specified by setSize or the 
+     * number of data records specified by setRow. By default, one subscription event data record is obtained. When all 
+     * subscription event data is obtained, null is returned.
+     * <br>When setRow and setSize are called at the same time, only setRow takes effect.
+     *
+     * @returns { AppEventPackage | null } Event package object. If all subscription event data has been retrieved, null is 
+     * returned.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    takeNext(): AppEventPackage | null;
   }
 
   /**
