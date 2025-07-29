@@ -336,6 +336,5 @@ declare namespace onScreen {
    * @since 20
    */
   function sendControlEvent(event: ControlEvent): Promise<void>;
-
 }
 export default onScreen;
