@@ -330,7 +330,7 @@ declare namespace onScreen {
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
    * @throws { BusinessError } 34000001 - Service exception.
-   * @throws { BusinessError } 34000005 - The element is not found.
+   * @throws { BusinessError } 34000005 - The target is not found.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
