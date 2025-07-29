@@ -12,18 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { CustomBuilder } from './builder';
-import { ResourceStr } from './units';
-/*** endif */
-
 /**
  * Defines the option of MenuItemGroup.
  *
@@ -46,65 +38,60 @@ import { ResourceStr } from './units';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface MenuItemGroupOptions {
-  /**
-   * Defines the header display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the header display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the header display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  header?: ResourceStr | CustomBuilder;
-
-  /**
-   * Defines the footer display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the footer display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the footer display info.
-   *
-   * @type { ?(ResourceStr | CustomBuilder) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  footer?: ResourceStr | CustomBuilder;
+    /**
+     * Defines the header display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     */
+    /**
+     * Defines the header display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Defines the header display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    header?: ResourceStr | CustomBuilder;
+    /**
+     * Defines the footer display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     */
+    /**
+     * Defines the footer display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Defines the footer display info.
+     *
+     * @type { ?(ResourceStr | CustomBuilder) }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    footer?: ResourceStr | CustomBuilder;
 }
-
 /**
  * Defines the MenuItemGroup Component.
  *
@@ -127,42 +114,39 @@ declare interface MenuItemGroupOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface MenuItemGroupInterface {
-  /**
-   * Creates the MenuItemGroup component.
-   *
-   * @param { MenuItemGroupOptions } value
-   * @returns { MenuItemGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Creates the MenuItemGroup component.
-   *
-   * @param { MenuItemGroupOptions } value
-   * @returns { MenuItemGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates the MenuItemGroup component.
-   *
-   * @param { MenuItemGroupOptions } value
-   * @returns { MenuItemGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
+    /**
+     * Creates the MenuItemGroup component.
+     *
+     * @param { MenuItemGroupOptions } value
+     * @returns { MenuItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     */
+    /**
+     * Creates the MenuItemGroup component.
+     *
+     * @param { MenuItemGroupOptions } value
+     * @returns { MenuItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Creates the MenuItemGroup component.
+     *
+     * @param { MenuItemGroupOptions } value
+     * @returns { MenuItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    (value?: MenuItemGroupOptions): MenuItemGroupAttribute;
 }
-
 /**
  * Defines the MenuItemGroup component attribute functions.
  *
@@ -185,12 +169,11 @@ interface MenuItemGroupInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
-declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
-
+declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {
+}
 /**
  * Defines MenuItemGroup Component.
  *
@@ -214,7 +197,6 @@ declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute
  * @noninterop
  */
 declare const MenuItemGroup: MenuItemGroupInterface;
-
 /**
  * Defines MenuItemGroup Component instance.
  *

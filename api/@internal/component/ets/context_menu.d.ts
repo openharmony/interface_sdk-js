@@ -12,56 +12,54 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
 /**
  * Defines Close contextMenu.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
  * Defines Close contextMenu.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 10
  */
 /**
  * Defines Close contextMenu.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 11
  */
 declare class ContextMenu {
-  /**
-   * Invoking method close.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Invoking method close.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoking method close.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.ContextMenuController#close
-   */
-  static close();
+    /**
+     * Invoking method close.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 8
+     */
+    /**
+     * Invoking method close.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Invoking method close.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     * @deprecated since 18
+     * @useinstead ohos.arkui.UIContext.ContextMenuController#close
+     */
+    static close();
 }
