@@ -155,8 +155,7 @@ declare namespace backgroundTaskManager {
    *
    * @interface ContinuousTaskCancelInfo
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   interface ContinuousTaskCancelInfo {
     /**
