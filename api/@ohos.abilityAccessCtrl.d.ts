@@ -39,7 +39,8 @@ import type _PermissionRequestResult from './security/PermissionRequestResult';
  * @syscap SystemCapability.Security.AccessToken
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace abilityAccessCtrl {
   /**
@@ -64,7 +65,8 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createAtManager(): AtManager;
 
@@ -81,19 +83,21 @@ declare namespace abilityAccessCtrl {
    * @interface AtManager
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AtManager {
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified. The Permissions type supports only valid permission names.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @syscap SystemCapability.Security.AccessToken
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    verifyAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+    verifyAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission.
@@ -111,20 +115,21 @@ declare namespace abilityAccessCtrl {
     /**
      * Checks whether a specified application has been granted the given permission synchronously.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, or the permissionName exceeds 256 characters.
      * @syscap SystemCapability.Security.AccessToken
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
+    verifyAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
     /**
      * Checks whether a specified application has been granted the given permission.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -136,7 +141,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -149,7 +154,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { Promise<GrantStatus> } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -157,15 +162,16 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    checkAccessToken(tokenID: number, permissionName: Permissions): Promise<GrantStatus>;
+    checkAccessToken(tokenID: int, permissionName: Permissions): Promise<GrantStatus>;
 
     /**
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -178,7 +184,7 @@ declare namespace abilityAccessCtrl {
      * Checks whether a specified application has been granted the given permission.
      * On the cross-platform, this function can be used to check the permission grant status for the current application only.
      *
-     * @param { number } tokenID - Token ID of the application.
+     * @param { int } tokenID - Token ID of the application.
      * @param { Permissions } permissionName - Name of the permission to be verified.
      * @returns { GrantStatus } Returns permission verify result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -186,9 +192,10 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus;
+    checkAccessTokenSync(tokenID: int, permissionName: Permissions): GrantStatus;
 
     /**
      * Requests certain permissions from the user.
@@ -230,7 +237,8 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requestPermissionsFromUser(
       context: Context,
@@ -278,7 +286,8 @@ declare namespace abilityAccessCtrl {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requestPermissionsFromUser(context: Context, permissionList: Array<Permissions>): Promise<PermissionRequestResult>;
 
@@ -602,7 +611,8 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
@@ -656,14 +666,14 @@ declare namespace abilityAccessCtrl {
   /**
    * GrantStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @since 8
    */
   /**
    * GrantStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @since 10
@@ -671,11 +681,12 @@ declare namespace abilityAccessCtrl {
   /**
    * GrantStatus.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum GrantStatus {
     /**
@@ -697,7 +708,8 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PERMISSION_DENIED = -1,
     /**
@@ -719,7 +731,8 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PERMISSION_GRANTED = 0
   }
@@ -925,7 +938,8 @@ export { Permissions };
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type PermissionRequestResult = _PermissionRequestResult;
 /**
@@ -945,6 +959,7 @@ export type PermissionRequestResult = _PermissionRequestResult;
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Context = _Context;
