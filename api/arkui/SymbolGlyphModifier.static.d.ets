@@ -12,20 +12,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
 import { SymbolGlyphAttribute } from './component/symbolglyph';
+import { Resource } from '../global/resource';
 
 /**
  * Defines SymbolGlyph Modifier
  *
  * @implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
 */
-export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {}
+export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
+    /**
+     * constructor
+     *
+     * @param { Resource } [src]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(src?: Resource);
+}
