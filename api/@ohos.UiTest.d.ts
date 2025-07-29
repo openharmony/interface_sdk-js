@@ -1130,7 +1130,8 @@ declare interface Point {
    * @type { ?number }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   displayId?: number;
 }
@@ -1822,8 +1823,9 @@ declare interface TouchPadSwipeOptions {
  * @interface InputTextMode
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 20
+ * @since arkts {'1.1':'20','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface InputTextMode {
   /**
@@ -1831,8 +1833,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   paste?: boolean;
 
@@ -1841,8 +1844,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   addition?: boolean;
 }
@@ -3059,8 +3063,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(text: string, mode: InputTextMode): Promise<void>;
 
@@ -3219,6 +3224,7 @@ declare class Component {
    * @arkts 1.1&1.2
    */ 
   getBounds(): Promise<Rect>;
+
   /**
    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
    *
@@ -3832,8 +3838,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressBack(displayId: number): Promise<void>;
 
@@ -3874,8 +3881,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   triggerKey(keyCode: number, displayId: number): Promise<void>;
 
@@ -4374,8 +4382,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   getDisplaySize(displayId: number): Promise<Point>;
 
@@ -4468,8 +4477,9 @@ declare class Driver {
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   pressHome(displayId: number): Promise<void>;
 
@@ -4631,8 +4641,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   fling(direction: UiDirection, speed: number, displayId: number): Promise<void>;
 
@@ -4931,8 +4942,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(p: Point, text: string, mode: InputTextMode): Promise<void>;
 
@@ -5564,8 +5576,7 @@ declare const ON: On;
    UiComponent,
    UiDriver,
    BY,
-   By,
-   InputTextMode
+   By
  };
  /*** endif */
  
@@ -5587,5 +5598,6 @@ export {
   MouseButton,
   UIElementInfo,
   UIEventObserver,
-  TouchPadSwipeOptions
+  TouchPadSwipeOptions,
+  InputTextMode
 };
