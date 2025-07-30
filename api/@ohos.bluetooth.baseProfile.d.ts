@@ -34,7 +34,8 @@ import type constant from './@ohos.bluetooth.constant';
  * @namespace baseProfile
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace baseProfile {
   /**
@@ -50,7 +51,8 @@ declare namespace baseProfile {
    * @typedef { constant.ProfileConnectionState } ProfileConnectionState
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
 
@@ -169,7 +171,8 @@ declare namespace baseProfile {
    * @typedef StateChangeParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface StateChangeParam {
     /**
@@ -185,7 +188,8 @@ declare namespace baseProfile {
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
 
@@ -202,7 +206,8 @@ declare namespace baseProfile {
      * @type { ProfileConnectionState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: ProfileConnectionState;
 
@@ -237,7 +242,8 @@ declare namespace baseProfile {
    * @typedef BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface BaseProfile {
     /**
