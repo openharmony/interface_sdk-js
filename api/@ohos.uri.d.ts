@@ -301,20 +301,10 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getQueryNames(): string[];
-    /**
-     * Obtains all non-repeated keys in the query component of this URI. 
-     *
-     * @returns { Array<string> } Return a set of decoded names.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getQueryNames(): Array<string>;
     /**
      * Obtains the values of a given key from the query component of this URI.
      *
@@ -326,22 +316,10 @@ declare namespace uri {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getQueryValues(key: string): string[];
-
-    /**
-     * Obtains the values of a given key from the query component of this URI.
-     *
-     * @param { string } key - Key of the URI query parameter.
-     * @returns { Array<string> } Return a set of decoded values.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getQueryValues(key: string): Array<string>;    
     /**
      * Obtains the value of the Boolean type of a query parameter in this URI.
      *
@@ -381,26 +359,16 @@ declare namespace uri {
      */
     getLastSegment(): string;
     /**
-     * Gets the decoded path segments.
+     * Obtains all segments of this URI.
      *
      * @returns { string[] } Return decoded path segments, each without a leading or trailing "/".
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSegment(): string[];
-    /**
-     * Obtains all segments of this URI.
-     *
-     * @returns { Array<string> } Return decoded path segments, each without a leading or trailing "/".
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    getSegment(): Array<string>;
     /**
      * Encodes a given field, appends it to the path component of this URI to create a new URI, and returns the new URI,
      * while keeping the existing URI unchanged.
@@ -864,7 +832,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set scheme(input: string | null);
+    set scheme(input: string);
 
     /**
      * Gets Obtains the user information part of the URI.
@@ -888,7 +856,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set userInfo(input: string | null);
+    set userInfo(input: string);
 
     /**
      * Gets the hostname portion of the URI without a port.
@@ -932,7 +900,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set path(input: string | null);
+    set path(input: string);
 
     /**
      * Gets the query portion of the URI
@@ -956,7 +924,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set query(input: string | null);
+    set query(input: string);
 
     /**
      * Gets the fragment part of the URI.
@@ -980,7 +948,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set fragment(input: string | null);
+    set fragment(input: string);
 
     /**
      * Gets the decoding permission component part of this URI.
@@ -1004,7 +972,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set authority(input: string | null);
+    set authority(input: string);
 
     /**
      * Gets the decoding scheme-specific part of the URI.
@@ -1028,7 +996,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set ssp(input: string | null);
+    set ssp(input: string);
 
     /**
      * Gets Obtains the encoded user information part of the URI.
@@ -1051,7 +1019,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedUserInfo(input: string | null);
+    set encodedUserInfo(input: string);
 
     /**
      * Gets the encoded path portion of the URI.
@@ -1074,7 +1042,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedPath(input: string | null);
+    set encodedPath(input: string);
 
     /**
      * Gets the encoded query component from this URI.
@@ -1097,7 +1065,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedQuery(input: string | null);
+    set encodedQuery(input: string);
 
     /**
      * Gets the encoded fragment part of this URI, everything after the '#'.
@@ -1120,7 +1088,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedFragment(input: string | null);
+    set encodedFragment(input: string);
 
     /**
      * Gets the encoded authority part of this URI.
@@ -1143,7 +1111,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedAuthority(input: string | null);
+    set encodedAuthority(input: string);
 
     /**
      * Gets the scheme-specific part of this URI, i.e. everything between the scheme separator ':' and
@@ -1169,7 +1137,7 @@ declare namespace uri {
      * @since 20
      * @arkts 1.2
      */
-    set encodedSSP(input: string | null);
+    set encodedSSP(input: string);
   }
 }
 export default uri;
