@@ -54,7 +54,7 @@ import { CommonMethod } from './common';
  */
 interface RelativeContainerInterface {
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -62,7 +62,7 @@ interface RelativeContainerInterface {
    * @since 9
    */
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,7 +71,7 @@ interface RelativeContainerInterface {
    * @since 10
    */
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
