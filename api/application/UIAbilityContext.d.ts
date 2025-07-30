@@ -4691,7 +4691,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showAbility(): Promise<void>;
 
@@ -4705,7 +4706,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hideAbility(): Promise<void>;
 
