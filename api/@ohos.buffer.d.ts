@@ -126,6 +126,35 @@ declare namespace buffer {
     | Float64Array
     | BigInt64Array
     | BigUint64Array;
+
+  /**
+   * ArrayUnionType features and methods
+   *
+   * @typedef { Array<Int8Array> | Array<Uint8Array> | Array<Uint8ClampedArray> | Array<Int16Array> | Array<Uint16Array> | Array<Int32Array> |
+   * Array<Uint32Array> | Array<Float32Array> | Array<Float64Array> | Array<BigInt64Array> | Array<BigUint64Array> | Array<string> |
+   * Array<ArrayBuffer> | Array<DataView> | Array<Blob>}
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type ArrayUnionType =  Array<Int8Array>
+    | Array<Uint8Array>
+    | Array<Uint8ClampedArray>
+    | Array<Int16Array>
+    | Array<Uint16Array>
+    | Array<Int32Array>
+    | Array<Uint32Array>
+    | Array<Float32Array>
+    | Array<Float64Array>
+    | Array<BigInt64Array>
+    | Array<BigUint64Array>
+    | Array<string>
+    | Array<ArrayBuffer>
+    | Array<DataView>
+    | Array<Blob>;
+
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
@@ -3701,21 +3730,17 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob> } sources - sources sources An array of string, <ArrayBuffer>,
-     * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
+     * @param { ArrayUnionType } sources - sources sources ArrayUnionType
      * @param { BlobOptions } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    constructor(sources: Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob>, options?: BlobOptions);
+    constructor(sources: ArrayUnionType, options?: BlobOptions);
 
     /**
      * The total size of the Blob in bytes
@@ -3742,7 +3767,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: int;
+    get size(): int;
 
     /**
      * The content-type of the Blob
@@ -3769,7 +3794,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    type: string;
+    get type(): string;
 
     /**
      * Returns a promise that fulfills with an <ArrayBuffer> containing a copy of the Blob data.
