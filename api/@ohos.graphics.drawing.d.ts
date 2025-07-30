@@ -2911,6 +2911,7 @@ declare namespace drawing {
      * @param { number } x - X coordinate of the single character start point.
      * @param { number } y - Y coordinate of the single character start point.
      * @param { Array<FontFeature> } features - Font Feature Array.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -4305,7 +4306,8 @@ declare namespace drawing {
      * Measure a single character with font feature.
      * @param { string } text - A string containing only a single character.
      * @param { Array<FontFeature> } features - Font Feature Array.
-     * @returns { number } The width of the single character.
+     * @returns { number } The width of the single character, in px.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
