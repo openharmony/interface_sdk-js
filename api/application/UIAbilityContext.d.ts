@@ -33,8 +33,8 @@ import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
-/*** if arkts 1.1 */
 import image from '../@ohos.multimedia.image';
+/*** if arkts 1.1 */
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import type UIServiceProxy from './UIServiceProxy';
@@ -4814,7 +4814,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
