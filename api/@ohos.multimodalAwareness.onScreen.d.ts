@@ -113,6 +113,14 @@ declare namespace onScreen {
      */
     hookId?: number,
     /**
+     * Indicates paragraph chapter id if paragraph is splited to chapters
+     * @type { ?number }
+     * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
+     * @since 20
+     */
+    chapterId?: number,
+    /**
      * Indicates paragraph title
      * @type { ?string }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
