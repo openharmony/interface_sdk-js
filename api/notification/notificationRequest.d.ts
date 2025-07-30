@@ -245,13 +245,23 @@ export interface NotificationRequest {
   extraInfo?: { [key: string]: any };
 
   /**
+   * Expand parameters to provide customized services for applications.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   * @arkts 1.2
+   */
+  extraInfo?: Record<string, Object>;
+
+  /**
    * Extended parameter. Recommendation system application usage.
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.2
+   * @arkts 1.1&1.2
    */
   extendInfo?: Record<string, Object>;
 
