@@ -41,12 +41,9 @@ export {
 };
 
 /*** if arkts 1.2 */
-import {
-loadAndSetUpUiTest
-} from '@ohos.UiTest';
 export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
-  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, loadAndSetUpUiTest
+  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions
 };
 /*** endif */
