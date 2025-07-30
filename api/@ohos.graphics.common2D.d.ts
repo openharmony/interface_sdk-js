@@ -31,6 +31,7 @@
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace common2D {
   /**
@@ -45,6 +46,7 @@ declare namespace common2D {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Color {
     /**
@@ -59,6 +61,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     alpha: number;
     /**
@@ -73,6 +76,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     red: number;
     /**
@@ -87,6 +91,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     green: number;
     /**
@@ -101,6 +106,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     blue: number;
   }
@@ -117,6 +123,7 @@ declare namespace common2D {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
@@ -131,6 +138,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     left: number;
     /**
@@ -145,6 +153,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
@@ -159,6 +168,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     right: number;
     /**
@@ -173,6 +183,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     bottom: number;
   }
@@ -189,6 +200,7 @@ declare namespace common2D {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Point {
     /**
@@ -203,6 +215,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     x: number;
 
@@ -218,6 +231,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     y: number;
   }
@@ -262,6 +276,7 @@ declare namespace common2D {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Color4f {
     /**
@@ -270,6 +285,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     alpha: number;
     /**
@@ -278,6 +294,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     red: number;
     /**
@@ -286,6 +303,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     green: number;
     /**
@@ -294,6 +312,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     blue: number;
   }
