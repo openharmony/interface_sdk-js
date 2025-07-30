@@ -3431,7 +3431,7 @@ export declare class NodeAdapter {
   /**
    * Call this callback when reloading or reusing.
    *
-   * @param { number } id - The index value of the reloaded data.
+   * @param { number } id - The child node ID that is about to be reloaded.
    * @param { FrameNode } node - Reused FrameNode nodes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
