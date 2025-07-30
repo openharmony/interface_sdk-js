@@ -311,7 +311,7 @@ declare namespace onScreen {
    * @throws { BusinessError } 34000002 - The application or page is not supported.
    * @throws { BusinessError } 34000003 - The window ID is invalid. Possible causes: 1. window id is not passed
    *     <br> when screen is splited. 2. passed window id is not on screen or floating.
-   * @throws { BusinessError } 34000004 - The Page is not ready.
+   * @throws { BusinessError } 34000004 - The page is not ready.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
