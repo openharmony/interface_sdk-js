@@ -854,7 +854,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the abstract of text
      *
-     * @param { string } the abstract of text
+     * @param { string | undefined} the abstract of text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform
      * @since 20
