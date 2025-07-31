@@ -89,7 +89,8 @@ export {
 };
 
 /*** if arkts 1.2 */
-import { AsyncCallback, BusinessError, Callback, ErrorCallback } from '@ohos.base';
+import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
-export { AsyncCallback, BusinessError, Callback, ErrorCallback, zlib };
+
+export { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib };
 /*** endif */
