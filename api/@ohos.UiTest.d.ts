@@ -3518,6 +3518,7 @@ declare class Driver {
    *
    * @returns { Driver } the {@link Driver} object.
    * @throws { BusinessError } 17000001 - Initialization failed.
+   * @static
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
@@ -5493,6 +5494,7 @@ declare class PointerMatrix {
    * @param { number } steps - The number of steps of each finger trace, ranges from 1 to 1000.
    * @returns { PointerMatrix } the {@link PointerMatrix} object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @static
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform
    * @atomicservice
