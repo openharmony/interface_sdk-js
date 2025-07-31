@@ -40,7 +40,8 @@
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PermissionRequestResult {
   /**
@@ -68,7 +69,8 @@ declare class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   permissions: Array<string>;
 
@@ -76,7 +78,7 @@ declare class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -85,7 +87,7 @@ declare class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -95,14 +97,15 @@ declare class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  authResults: Array<number>;
+  authResults: Array<int>;
 
   /**
    * Specifies whether a dialog box is shown for each requested permission.
@@ -112,7 +115,8 @@ declare class PermissionRequestResult {
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dialogShownResults?: Array<boolean>;
 
@@ -126,14 +130,15 @@ declare class PermissionRequestResult {
    *   5  The permission cannot be requested in a pop-up window.
    *   12 The service is abnormal.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  errorReasons?: Array<number>;
+  errorReasons?: Array<int>;
 }
 
 export default PermissionRequestResult;
