@@ -53,13 +53,13 @@ export interface NfcATag extends TagSession {
   /**
    * Obtains the SAK of an NFC-A tag.
    *
-   * @returns { number } Returns the SAK of the NFC-A tag.
+   * @returns { int } Returns the SAK of the NFC-A tag.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getSak(): number;
+  getSak(): int;
 
   /**
    * Obtains the ATQA of an NFC-A tag.
@@ -71,13 +71,13 @@ export interface NfcATag extends TagSession {
   /**
    * Obtains the ATQA of an NFC-A tag.
    *
-   * @returns { number[] } Returns the ATQA of the NFC-A tag.
+   * @returns { int[] } Returns the ATQA of the NFC-A tag.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getAtqa(): number[];
+  getAtqa(): int[];
 }
 
 /**
@@ -111,13 +111,13 @@ export interface NfcBTag extends TagSession {
   /**
    * Obtains the application data of a tag.
    *
-   * @returns { number[] } Returns the application data of the tag.
+   * @returns { int[] } Returns the application data of the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getRespAppData(): number[];
+  getRespAppData(): int[];
 
   /**
    * Obtains the protocol information of a tag.
@@ -129,13 +129,13 @@ export interface NfcBTag extends TagSession {
   /**
    * Obtains the protocol information of a tag.
    *
-   * @returns { number[] } Returns the protocol information of the tag.
+   * @returns { int[] } Returns the protocol information of the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getRespProtocol(): number[];
+  getRespProtocol(): int[];
 }
 
 /**
@@ -169,13 +169,13 @@ export interface NfcFTag extends TagSession {
   /**
    * Obtains the system code from this {@code NfcFTag} instance.
    *
-   * @returns { number[] } Returns the system code.
+   * @returns { int[] } Returns the system code.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getSystemCode(): number[];
+  getSystemCode(): int[];
 
   /**
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
@@ -187,13 +187,13 @@ export interface NfcFTag extends TagSession {
   /**
    * Obtains the PMm (consisting of the IC code and manufacturer parameters) from this {@code NfcFTag} instance.
    *
-   * @returns { number[] } Returns the PMm.
+   * @returns { int[] } Returns the PMm.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getPmm(): number[];
+  getPmm(): int[];
 }
 
 /**
@@ -227,13 +227,13 @@ export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
-   * @returns { number } Returns the response flags.
+   * @returns { int } Returns the response flags.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getResponseFlags(): number;
+  getResponseFlags(): int;
 
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
@@ -245,13 +245,13 @@ export interface NfcVTag extends TagSession {
   /**
    * Obtains the response flags from this {@code NfcVTag} instance.
    *
-   * @returns { number } Returns the response flags.
+   * @returns { int } Returns the response flags.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getDsfId(): number;
+  getDsfId(): int;
 }
 
 /**
@@ -283,13 +283,13 @@ export interface IsoDepTag extends TagSession {
    * Gets IsoDep Historical bytes of the tag, which is based on NfcA RF technology.
    * It could be null if not based on NfcA.
    *
-   * @returns { number[] } Returns the Historical bytes, the length could be 0.
+   * @returns { int[] } Returns the Historical bytes, the length could be 0.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getHistoricalBytes(): number[];
+  getHistoricalBytes(): int[];
 
   /**
    * Gets IsoDep HiLayer Response bytes of the tag, which is based on NfcB RF technology.
@@ -303,13 +303,13 @@ export interface IsoDepTag extends TagSession {
    * Gets IsoDep HiLayer Response bytes of the tag, which is based on NfcB RF technology.
    * It could be null if not based on NfcB.
    *
-   * @returns { number[] } Returns HiLayer Response bytes, the length could be 0.
+   * @returns { int[] } Returns HiLayer Response bytes, the length could be 0.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getHiLayerResponse(): number[];
+  getHiLayerResponse(): int[];
 
   /**
    * Checks if extended apdu length supported or not.
@@ -778,8 +778,8 @@ export interface MifareClassicTag extends TagSession {
    * Authenticates a sector with the key. Only successful authentication sector can be operated.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } sectorIndex - Index of sector to authenticate.
-   * @param { number[] } key - The key(6-bytes) to authenticate.
+   * @param { int } sectorIndex - Index of sector to authenticate.
+   * @param { int[] } key - The key(6-bytes) to authenticate.
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
@@ -794,7 +794,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<void>;
+  authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean): Promise<void>;
 
   /**
    * Authenticates a sector with the key.Only successful authentication sector can be operated.
@@ -817,8 +817,8 @@ export interface MifareClassicTag extends TagSession {
    * Authenticates a sector with the key. Only successful authentication sector can be operated.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } sectorIndex - Index of sector to authenticate.
-   * @param { number[] } key - The key(6-bytes) to authenticate.
+   * @param { int } sectorIndex - Index of sector to authenticate.
+   * @param { int[] } key - The key(6-bytes) to authenticate.
    * @param { boolean } isKeyA - KeyA flag. true means KeyA, otherwise KeyB.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
@@ -833,7 +833,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback<void>): void;
+  authenticateSector(sectorIndex: int, key: int[], isKeyA: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Reads a block, one block size is 16 bytes.
@@ -854,8 +854,8 @@ export interface MifareClassicTag extends TagSession {
    * Reads a block, one block size is 16 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to read.
-   * @returns { Promise<number[]> } Returns the block data.
+   * @param { int } blockIndex - The index of block to read.
+   * @returns { Promise<int[]> } Returns the block data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -868,7 +868,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readSingleBlock(blockIndex: number): Promise<number[]>;
+  readSingleBlock(blockIndex: int): Promise<int[]>;
 
   /**
    * Reads a block, one block size is 16 bytes.
@@ -889,8 +889,8 @@ export interface MifareClassicTag extends TagSession {
    * Reads a block, one block size is 16 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to read.
-   * @param { AsyncCallback<number[]> } callback The callback.
+   * @param { int } blockIndex - The index of block to read.
+   * @param { AsyncCallback<int[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -903,7 +903,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void;
+  readSingleBlock(blockIndex: int, callback: AsyncCallback<int[]>): void;
 
   /**
    * Writes a block, one block size is 16 bytes.
@@ -925,8 +925,8 @@ export interface MifareClassicTag extends TagSession {
    * Writes a block, one block size is 16 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to write.
-   * @param { number[] } data - The block data to write.
+   * @param { int } blockIndex - The index of block to write.
+   * @param { int[] } data - The block data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -940,7 +940,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  writeSingleBlock(blockIndex: number, data: number[]): Promise<void>;
+  writeSingleBlock(blockIndex: int, data: int[]): Promise<void>;
 
   /**
    * Writes a block, one block size is 16 bytes.
@@ -962,8 +962,8 @@ export interface MifareClassicTag extends TagSession {
    * Writes a block, one block size is 16 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to write.
-   * @param { number[] } data - The block data to write.
+   * @param { int } blockIndex - The index of block to write.
+   * @param { int[] } data - The block data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -977,7 +977,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<void>): void;
+  writeSingleBlock(blockIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
   /**
    * Increments the contents of a block, and stores the result in the internal transfer buffer.
@@ -999,8 +999,8 @@ export interface MifareClassicTag extends TagSession {
    * Increments the contents of a block, and stores the result in the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to increment.
-   * @param { number } value - The value to increment, none-negative.
+   * @param { int } blockIndex - The index of block to increment.
+   * @param { int } value - The value to increment, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1014,7 +1014,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  incrementBlock(blockIndex: number, value: number): Promise<void>;
+  incrementBlock(blockIndex: int, value: int): Promise<void>;
 
   /**
    * Increments the contents of a block, and stores the result in the internal transfer buffer.
@@ -1036,8 +1036,8 @@ export interface MifareClassicTag extends TagSession {
    * Increments the contents of a block, and stores the result in the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to increment.
-   * @param { number } value - The value to increment, none-negative.
+   * @param { int } blockIndex - The index of block to increment.
+   * @param { int } value - The value to increment, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1051,7 +1051,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
+  incrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
   /**
    * Decreases the contents of a block, and stores the result in the internal transfer buffer.
@@ -1073,8 +1073,8 @@ export interface MifareClassicTag extends TagSession {
    * Decreases the contents of a block, and stores the result in the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to decrease.
-   * @param { number } value - The value to decrease, none-negative.
+   * @param { int } blockIndex - The index of block to decrease.
+   * @param { int } value - The value to decrease, none-negative.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1088,7 +1088,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  decrementBlock(blockIndex: number, value: number): Promise<void>;
+  decrementBlock(blockIndex: int, value: int): Promise<void>;
 
   /**
    * Decreases the contents of a block, and stores the result in the internal transfer buffer.
@@ -1110,8 +1110,8 @@ export interface MifareClassicTag extends TagSession {
    * Decreases the contents of a block, and stores the result in the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of block to decrease.
-   * @param { number } value - The value to decrease, none-negative.
+   * @param { int } blockIndex - The index of block to decrease.
+   * @param { int } value - The value to decrease, none-negative.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1125,7 +1125,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void;
+  decrementBlock(blockIndex: int, value: int, callback: AsyncCallback<void>): void;
 
   /**
    * Writes the contents of the internal transfer buffer to a value block.
@@ -1146,7 +1146,7 @@ export interface MifareClassicTag extends TagSession {
    * Writes the contents of the internal transfer buffer to a value block.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of value block to be written.
+   * @param { int } blockIndex - The index of value block to be written.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1160,7 +1160,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  transferToBlock(blockIndex: number): Promise<void>;
+  transferToBlock(blockIndex: int): Promise<void>;
 
   /**
    * Writes the contents of the internal transfer buffer to a value block.
@@ -1181,7 +1181,7 @@ export interface MifareClassicTag extends TagSession {
    * Writes the contents of the internal transfer buffer to a value block.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of value block to be written.
+   * @param { int } blockIndex - The index of value block to be written.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1195,7 +1195,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  transferToBlock(blockIndex: number, callback: AsyncCallback<void>): void;
+  transferToBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
   /**
    * Moves the contents of a block into the internal transfer buffer.
@@ -1216,7 +1216,7 @@ export interface MifareClassicTag extends TagSession {
    * Moves the contents of a block into the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of value block to be moved from.
+   * @param { int } blockIndex - The index of value block to be moved from.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1230,7 +1230,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  restoreFromBlock(blockIndex: number): Promise<void>;
+  restoreFromBlock(blockIndex: int): Promise<void>;
 
   /**
    * Moves the contents of a block into the internal transfer buffer.
@@ -1251,7 +1251,7 @@ export interface MifareClassicTag extends TagSession {
    * Moves the contents of a block into the internal transfer buffer.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } blockIndex - The index of value block to be moved from.
+   * @param { int } blockIndex - The index of value block to be moved from.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1265,7 +1265,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  restoreFromBlock(blockIndex: number, callback: AsyncCallback<void>): void;
+  restoreFromBlock(blockIndex: int, callback: AsyncCallback<void>): void;
 
   /**
    * Gets the number of sectors in MifareClassic tag.
@@ -1277,13 +1277,13 @@ export interface MifareClassicTag extends TagSession {
   /**
    * Gets the number of sectors in MifareClassic tag.
    *
-   * @returns { number } Returns the number of sectors.
+   * @returns { int } Returns the number of sectors.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getSectorCount(): number;
+  getSectorCount(): int;
 
   /**
    * Gets the number of blocks in the sector.
@@ -1300,8 +1300,8 @@ export interface MifareClassicTag extends TagSession {
   /**
    * Gets the number of blocks in the sector.
    *
-   * @param { number } sectorIndex - The index of sector.
-   * @returns { number } Returns the number of blocks.
+   * @param { int } sectorIndex - The index of sector.
+   * @returns { int } Returns the number of blocks.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1311,7 +1311,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getBlockCountInSector(sectorIndex: number): number;
+  getBlockCountInSector(sectorIndex: int): int;
 
   /**
    * Gets the type of the MifareClassic tag.
@@ -1341,13 +1341,13 @@ export interface MifareClassicTag extends TagSession {
   /**
    * Gets size of the tag in bytes.
    *
-   * @returns { number } Returns the size of the tag.
+   * @returns { int } Returns the size of the tag.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getTagSize(): number;
+  getTagSize(): int;
 
   /**
    * Checks if the tag is emulated or not.
@@ -1382,8 +1382,8 @@ export interface MifareClassicTag extends TagSession {
   /**
    * Gets the first block of the specific sector.
    *
-   * @param { number } sectorIndex - The index of sector.
-   * @returns { number } Returns index of first block in the sector.
+   * @param { int } sectorIndex - The index of sector.
+   * @returns { int } Returns index of first block in the sector.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1393,7 +1393,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getBlockIndex(sectorIndex: number): number;
+  getBlockIndex(sectorIndex: int): int;
 
   /**
    * Gets the sector index, that the sector contains the specific block.
@@ -1410,8 +1410,8 @@ export interface MifareClassicTag extends TagSession {
   /**
    * Gets the sector index, that the sector contains the specific block.
    *
-   * @param { number } blockIndex - The index of block.
-   * @returns { number } Returns the sector index.
+   * @param { int } blockIndex - The index of block.
+   * @returns { int } Returns the sector index.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -1421,7 +1421,7 @@ export interface MifareClassicTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getSectorIndex(blockIndex: number): number;
+  getSectorIndex(blockIndex: int): int;
 }
 
 /**
@@ -1460,8 +1460,8 @@ export interface MifareUltralightTag extends TagSession {
    * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } pageIndex - The index of page to read.
-   * @returns { Promise<number[]> } Returns 4 pages data.
+   * @param { int } pageIndex - The index of page to read.
+   * @returns { Promise<int[]> } Returns 4 pages data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1474,7 +1474,7 @@ export interface MifareUltralightTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readMultiplePages(pageIndex: number): Promise<number[]>;
+  readMultiplePages(pageIndex: int): Promise<int[]>;
 
   /**
    * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
@@ -1495,8 +1495,8 @@ export interface MifareUltralightTag extends TagSession {
    * Reads 4 pages, total is 16 bytes. Page size is 4 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } pageIndex - The index of page to read.
-   * @param { AsyncCallback<number[]> } callback The callback.
+   * @param { int } pageIndex - The index of page to read.
+   * @param { AsyncCallback<int[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1509,7 +1509,7 @@ export interface MifareUltralightTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void;
+  readMultiplePages(pageIndex: int, callback: AsyncCallback<int[]>): void;
 
   /**
    * Writes a page, total 4 bytes.
@@ -1531,8 +1531,8 @@ export interface MifareUltralightTag extends TagSession {
    * Writes a page, total 4 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } pageIndex - The index of page to write.
-   * @param { number[] } data - The page data to write.
+   * @param { int } pageIndex - The index of page to write.
+   * @param { int[] } data - The page data to write.
    * @returns { Promise<void> } The void
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1546,7 +1546,7 @@ export interface MifareUltralightTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  writeSinglePage(pageIndex: number, data: number[]): Promise<void>;
+  writeSinglePage(pageIndex: int, data: int[]): Promise<void>;
 
   /**
    * Writes a page, total 4 bytes.
@@ -1568,8 +1568,8 @@ export interface MifareUltralightTag extends TagSession {
    * Writes a page, total 4 bytes.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } pageIndex - The index of page to write.
-   * @param { number[] } data - The page data to write.
+   * @param { int } pageIndex - The index of page to write.
+   * @param { int[] } data - The page data to write.
    * @param { AsyncCallback<void> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1583,7 +1583,7 @@ export interface MifareUltralightTag extends TagSession {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback<void>): void;
+  writeSinglePage(pageIndex: int, data: int[], callback: AsyncCallback<void>): void;
 
   /**
    * Gets the type of the MifareUltralight tag.

@@ -343,7 +343,7 @@ declare namespace cardEmulation {
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { 'hceCmd' } type The type to register.
-     * @param { AsyncCallback<number[]> } callback Callback used to listen to HCE data that local device received.
+     * @param { AsyncCallback<int[]> } callback Callback used to listen to HCE data that local device received.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -352,14 +352,14 @@ declare namespace cardEmulation {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    on(type: 'hceCmd', callback: AsyncCallback<number[]>): void;
+    on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
 
     /**
      * Unsubscribe the event to receive the APDU data.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { 'hceCmd' } type - The type to unregister event.
-     * @param { AsyncCallback<number[]> } callback - The callback used to listen for the event.
+     * @param { AsyncCallback<int[]> } callback - The callback used to listen for the event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
@@ -367,7 +367,7 @@ declare namespace cardEmulation {
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void;
+    off(type: 'hceCmd', callback?: AsyncCallback<int[]>): void;
 
     /**
      * Sends a response APDU to the remote device.
@@ -402,7 +402,7 @@ declare namespace cardEmulation {
      * Sends a response APDU to the remote device.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } response Indicates the response to send, which is a byte array.
+     * @param { int[] } response Indicates the response to send, which is a byte array.
      * @returns { Promise<void> } The void
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -416,7 +416,7 @@ declare namespace cardEmulation {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transmit(response: number[]): Promise<void>;
+    transmit(response: int[]): Promise<void>;
 
     /**
      * Sends a response APDU to the remote device.
@@ -438,7 +438,7 @@ declare namespace cardEmulation {
      * Sends a response APDU to the remote device.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } response Indicates the response to send, which is a byte array.
+     * @param { int[] } response Indicates the response to send, which is a byte array.
      * @param { AsyncCallback<void> } callback The callback
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -452,7 +452,7 @@ declare namespace cardEmulation {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transmit(response: number[], callback: AsyncCallback<void>): void;
+    transmit(response: int[], callback: AsyncCallback<void>): void;
   }
 }
 export default cardEmulation;
