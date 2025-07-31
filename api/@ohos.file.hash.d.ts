@@ -43,8 +43,8 @@ import stream from './@ohos.util.stream';
  *
  * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform 
  * @atomicservice
- * @crossplatform
  * @since 20
  * @arkts 1.1&1.2
  */
@@ -186,29 +186,29 @@ declare namespace hash {
     update(data: ArrayBuffer): void;
   }
 
- /**
-  * Create file read stream.
-  *
-  * @param { string } algorithm - hash algorithm.
-  * @returns { HashStream } Returns the ReadStream object which has been created.
-  * @throws { BusinessError } 401 - Parameter error
-  * @throws { BusinessError } 13900020 - Invalid argument
-  * @throws { BusinessError } 13900042 - Unknown error 
-  * @syscap SystemCapability.FileManagement.File.FileIO
-  * @since 12
-  */
- /**
-  * Create file read stream.
-  *
-  * @param { string } algorithm - hash algorithm.
-  * @returns { HashStream } Returns the ReadStream object which has been created.
-  * @throws { BusinessError } 401 - Parameter error
-  * @throws { BusinessError } 13900020 - Invalid argument
-  * @throws { BusinessError } 13900042 - Unknown error 
-  * @syscap SystemCapability.FileManagement.File.FileIO
-  * @crossplatform
-  * @since 20
-  */
+  /**
+   * Create file read stream.
+   *
+   * @param { string } algorithm - hash algorithm.
+   * @returns { HashStream } Returns the ReadStream object which has been created.
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @since 12
+   */
+  /**
+   * Create file read stream.
+   *
+   * @param { string } algorithm - hash algorithm.
+   * @returns { HashStream } Returns the ReadStream object which has been created.
+   * @throws { BusinessError } 401 - Parameter error
+   * @throws { BusinessError } 13900020 - Invalid argument
+   * @throws { BusinessError } 13900042 - Unknown error 
+   * @syscap SystemCapability.FileManagement.File.FileIO
+   * @crossplatform
+   * @since 20
+   */
   function createHash(algorithm: string): HashStream;
 }
 
