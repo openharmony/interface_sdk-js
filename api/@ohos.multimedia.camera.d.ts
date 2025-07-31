@@ -7846,6 +7846,17 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+     /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -7857,6 +7868,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
@@ -8321,6 +8343,17 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+    /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -8332,6 +8365,17 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @since 11
+     */
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
      */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
 
