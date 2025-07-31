@@ -2030,7 +2030,7 @@ declare namespace i18n {
     /**
      * Get the UTC milliseconds.
      *
-     * @returns { long }  the calendar time as UTC milliseconds.
+     * @returns { number }  the calendar time as UTC milliseconds.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @since 11
@@ -2038,7 +2038,7 @@ declare namespace i18n {
     /**
      * Obtains the timestamp of this Calendar object.
      *
-     * @returns { long } Unix timestamp, which indicates the number of milliseconds that have elapsed since the
+     * @returns { number } Unix timestamp, which indicates the number of milliseconds that have elapsed since the
      *                     Unix epoch.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
@@ -2046,7 +2046,7 @@ declare namespace i18n {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getTimeInMillis(): long;
+    getTimeInMillis(): number;
 
     /**
      * Returns days comparison result.
