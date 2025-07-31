@@ -3208,7 +3208,8 @@ declare namespace buffer {
      * Writes a big-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3256,7 +3257,8 @@ declare namespace buffer {
      * Writes a little-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3544,7 +3546,8 @@ declare namespace buffer {
      * Writes an unsigned big-endian value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3592,7 +3595,8 @@ declare namespace buffer {
      * Writes an unsigned little-endian value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
