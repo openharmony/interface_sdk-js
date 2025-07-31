@@ -683,6 +683,7 @@ declare interface NavigationMenuItem {
    * Whether to enable this menu item.
    *
    * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -823,6 +824,9 @@ declare class NavPathInfo {
    * @param { unknown } param - The detailed parameter of the NavDestination.
    * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { ?boolean } isEntry - Indicates whether it is an entry destination.
+   *                               Default value: **false**.
+   *                               **true**: The navigation destination page is the entry page.
+   *                               **false**: The navigation destination page is not the entry page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1396,6 +1400,9 @@ declare class NavPathStack {
    *
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   *                                 Default value: **true**
+   *                                 **true**: The transition animation is supported.
+   *                                 **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2423,6 +2430,7 @@ declare interface ToolbarItem {
    * The state of navigation toolbar item.
    *
    * @type { ?ToolbarItemStatus }
+   * @default ToolbarItemStatus.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -2431,6 +2439,7 @@ declare interface ToolbarItem {
    * The state of navigation toolbar item.
    *
    * @type { ?ToolbarItemStatus }
+   * @default ToolbarItemStatus.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3089,6 +3098,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *
    * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
    * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
+   *                                            Default value: **back** when the system language is English.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3463,6 +3473,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Enable tool bar adaptation
    *
    * @param { Optional<boolean> } enable - Enable or disable tool bar adaptation.
+   *                                       Default value: **true**.
+   *                                       **true**: Enable toolbar adaptation.
+   *                                       **false**: Disable toolbar adaptation.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3645,6 +3658,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * To enable this attribute, a navigation id must be set.
    * 
    * @param { boolean } recoverable - navigation can be recovered.
+   *                                  Default value: **false**
+   *                                  **true**: The **Navigation** component is recoverable.
+   *                                  **false**: The **Navigation** component is not recoverable.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since arkts {'1.1':'14','1.2':'20'}
@@ -3656,7 +3672,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Enable dragbar
    * 
    * @param { Optional<boolean> } isEnabled - enable dragbar or disable dragbar.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   *                                          Default value: **false**
+   *                                          **true**: Enable the drag bar.
+   *                                          **false**: Disable the drag bar.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.            
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -3669,6 +3688,9 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * whether to enable modeChangeAnimation
    * 
    * @param { Optional<boolean> } isEnabled - enableModeChangeAnimation.
+   *                                          Default value: **true**.
+   *                                          **true**: Enable the animation for switching between stack and split mode.
+   *                                          **false**: Disable the animation for switching between stack and split mode.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
