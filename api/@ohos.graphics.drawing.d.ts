@@ -37,6 +37,7 @@ import { Resource } from './global/resource';
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace drawing {
   /**
@@ -84,6 +85,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum BlendMode {
     /**
@@ -96,6 +98,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     CLEAR = 0,
     /**
@@ -108,6 +111,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SRC = 1,
     /**
@@ -120,6 +124,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DST = 2,
     /**
@@ -132,6 +137,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SRC_OVER = 3,
     /**
@@ -144,6 +150,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DST_OVER = 4,
     /**
@@ -156,6 +163,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SRC_IN = 5,
     /**
@@ -168,6 +176,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DST_IN = 6,
     /**
@@ -180,6 +189,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SRC_OUT = 7,
     /**
@@ -192,6 +202,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DST_OUT = 8,
     /**
@@ -204,6 +215,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SRC_ATOP = 9,
     /**
@@ -216,6 +228,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DST_ATOP = 10,
     /**
@@ -228,6 +241,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     XOR = 11,
     /**
@@ -240,6 +254,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     PLUS = 12,
     /**
@@ -252,6 +267,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     MODULATE = 13,
     /**
@@ -266,6 +282,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SCREEN = 14,
     /**
@@ -278,6 +295,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     OVERLAY = 15,
     /**
@@ -290,6 +308,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DARKEN = 16,
     /**
@@ -302,6 +321,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     LIGHTEN = 17,
     /**
@@ -314,6 +334,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     COLOR_DODGE = 18,
     /**
@@ -326,6 +347,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     COLOR_BURN = 19,
     /**
@@ -338,6 +360,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     HARD_LIGHT = 20,
     /**
@@ -350,6 +373,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SOFT_LIGHT = 21,
     /**
@@ -362,6 +386,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 22,
     /**
@@ -374,6 +399,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     EXCLUSION = 23,
     /**
@@ -386,6 +412,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     MULTIPLY = 24,
     /**
@@ -398,6 +425,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     HUE = 25,
     /**
@@ -410,6 +438,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     SATURATION = 26,
     /**
@@ -422,6 +451,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     COLOR = 27,
     /**
@@ -434,6 +464,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     LUMINOSITY = 28,
   }
@@ -624,6 +655,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class RoundRect {
 
@@ -633,6 +665,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(roundRect: RoundRect);
 
@@ -658,6 +691,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(rect: common2D.Rect, xRadii: number, yRadii: number);
 
@@ -745,6 +779,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum PathOp {
     /**
@@ -757,6 +792,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
 
@@ -770,6 +806,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
 
@@ -783,6 +820,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     UNION = 2,
 
@@ -796,6 +834,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     XOR = 3,
 
@@ -809,6 +848,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     REVERSE_DIFFERENCE = 4,
   }
@@ -931,6 +971,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class PathIterator {
     /**
@@ -945,6 +986,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(path: Path);
 
@@ -1014,6 +1056,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Path {
     /**
@@ -1026,6 +1069,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -1041,6 +1085,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(path: Path);
 
@@ -1127,6 +1172,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     arcTo(x1: number, y1: number, x2: number, y2: number, startDeg: number, sweepDeg: number): void;
 
@@ -1741,6 +1787,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     reset(): void;
 
@@ -2069,6 +2116,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum FilterMode {
     /**
@@ -2081,6 +2129,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     FILTER_MODE_NEAREST = 0,
 
@@ -2094,6 +2143,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     FILTER_MODE_LINEAR = 1,
   }
@@ -2175,6 +2225,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class SamplingOptions {
     /**
@@ -2187,6 +2238,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -2205,6 +2257,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(filterMode: FilterMode);
   }
@@ -2245,6 +2298,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Canvas {
     /**
@@ -2263,6 +2317,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(pixelmap: image.PixelMap);
 
@@ -2282,6 +2337,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     drawRect(rect: common2D.Rect): void;
 
@@ -2307,6 +2363,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     drawRect(left: number, top: number, right: number, bottom: number): void;
 
@@ -2584,6 +2641,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
@@ -2976,6 +3034,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number,
       vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void;
@@ -3015,6 +3074,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     attachPen(pen: Pen): void;
 
@@ -3034,6 +3094,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     attachBrush(brush: Brush): void;
 
@@ -3047,6 +3108,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     detachPen(): void;
 
@@ -3060,6 +3122,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     detachBrush(): void;
 
@@ -3075,6 +3138,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     save(): number;
 
@@ -3102,6 +3166,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number;
 
@@ -3149,6 +3214,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     restore(): void;
 
@@ -3187,6 +3253,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getSaveCount(): number;
 
@@ -3328,6 +3395,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     rotate(degrees: number, sx: number, sy: number) : void;
 
@@ -3567,6 +3635,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum ClipOp {
     /**
@@ -3579,6 +3648,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
     /**
@@ -3591,6 +3661,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
   }
@@ -3860,6 +3931,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class TypefaceArguments {
     /**
@@ -3867,6 +3939,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -3893,6 +3966,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Typeface {
     /**
@@ -3907,6 +3981,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getFamilyName(): string;
 
@@ -3938,6 +4013,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
      static makeFromFile(filePath: string): Typeface;
 
@@ -3975,6 +4051,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
 
@@ -4128,6 +4205,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Font {
     /**
@@ -4211,6 +4289,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setSize(textSize: number): void;
 
@@ -4245,6 +4324,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setTypeface(typeface: Typeface): void;
 
@@ -4260,6 +4340,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getTypeface(): Typeface;
 
@@ -4275,6 +4356,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getMetrics(): FontMetrics;
 
@@ -4899,6 +4981,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface FontMetrics {
     /**
@@ -4928,6 +5011,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     top: number;
     /**
@@ -4942,6 +5026,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     ascent: number;
     /**
@@ -4956,6 +5041,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     descent: number;
     /**
@@ -4970,6 +5056,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     bottom: number;
     /**
@@ -5153,6 +5240,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Lattice {
     /**
@@ -5201,6 +5289,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static createImageLattice(xDivs: Array<number>, yDivs: Array<number>, fXCount: number, fYCount: number,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
@@ -5270,6 +5359,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum RectType {
     /**
@@ -5282,6 +5372,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DEFAULT = 0,
 
@@ -5295,6 +5386,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     TRANSPARENT = 1,
 
@@ -5308,6 +5400,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     FIXEDCOLOR = 2
   }
@@ -5985,6 +6078,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class ColorFilter {
     /**
@@ -6009,6 +6103,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
@@ -6034,6 +6129,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMode): ColorFilter;
 
@@ -6475,6 +6571,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Pen {
     /**
@@ -6487,6 +6584,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -6506,6 +6604,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(pen: Pen);
 
@@ -6782,6 +6881,7 @@ declare namespace drawing {
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
     * @since 20
+    * @arkts 1.1&1.2
     */
     setAlpha(alpha: number): void;
 
@@ -6797,6 +6897,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getAlpha(): number;
 
@@ -6818,6 +6919,7 @@ declare namespace drawing {
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
     * @since 20
+    * @arkts 1.1&1.2
     */
     setColorFilter(filter: ColorFilter): void;
     /**
@@ -6933,6 +7035,7 @@ declare namespace drawing {
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
     * @since 20
+    * @arkts 1.1&1.2
     */
     setBlendMode(mode: BlendMode): void;
 
@@ -7043,6 +7146,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     reset(): void;
     /**
@@ -7081,6 +7185,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Brush {
     /**
@@ -7093,6 +7198,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -7112,6 +7218,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(brush: Brush);
 
@@ -7289,6 +7396,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setAlpha(alpha: number): void;
 
@@ -7304,6 +7412,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getAlpha(): number;
 
@@ -7323,6 +7432,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setColorFilter(filter: ColorFilter): void;
 
@@ -7433,6 +7543,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setBlendMode(mode: BlendMode): void;
 
@@ -7446,6 +7557,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     reset(): void;
   }
@@ -7462,6 +7574,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Matrix {
     /**
@@ -7474,6 +7587,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -7483,6 +7597,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(matrix: Matrix);
 
@@ -7580,6 +7695,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setTranslation(dx: number, dy: number): void;
 
@@ -7768,6 +7884,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     getValue(index: number): number;
     /**
@@ -7968,6 +8085,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     reset(): void;
     /**
@@ -8181,6 +8299,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   class Region {
     /**
@@ -8188,6 +8307,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -8197,6 +8317,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(region: Region);
 
@@ -8209,6 +8330,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     constructor(left: number, top: number, right: number, bottom: number);
 
@@ -8458,6 +8580,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum RegionOp {
     /**
@@ -8470,6 +8593,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DIFFERENCE = 0,
 
@@ -8483,6 +8607,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     INTERSECT = 1,
 
@@ -8496,6 +8621,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     UNION = 2,
 
@@ -8509,6 +8635,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     XOR = 3,
 
@@ -8522,6 +8649,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     REVERSE_DIFFERENCE = 4,
 
@@ -8535,6 +8663,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     REPLACE = 5
   }
