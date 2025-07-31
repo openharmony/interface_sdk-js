@@ -5767,7 +5767,7 @@ declare interface OnTitleReceiveEvent {
   /**
    * Mark the source of the title. If it is true, the title is derived from the H5 title element;
    * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
@@ -7239,7 +7239,7 @@ declare enum AudioSessionType {
 
 /**
  * PDF page load result
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
@@ -10483,6 +10483,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   gestureFocusMode(mode: GestureFocusMode): WebAttribute;
+
+  /**
+   * Set whether to comply with the zoom restrictions set by the<meta name="viewport">tag in the webpage.
+   *
+   * @param { boolean } enable {@code true} means the Web Comply with the zoom restrictions
+   *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
+   *     The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  forceEnableZoom(enable: boolean): WebAttribute;
 }
 
 /**
