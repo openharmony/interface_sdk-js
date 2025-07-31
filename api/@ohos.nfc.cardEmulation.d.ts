@@ -35,7 +35,8 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  * @namespace cardEmulation
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace cardEmulation {
   /**
@@ -89,7 +90,8 @@ declare namespace cardEmulation {
    * @enum { string }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CardType {
     /**
@@ -103,7 +105,8 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PAYMENT = 'payment',
 
@@ -118,7 +121,8 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     OTHER = 'other'
   }
@@ -155,7 +159,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasHceCapability(): boolean;
 
@@ -190,7 +195,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
@@ -204,7 +210,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPaymentServices(): AbilityInfo[];
 
@@ -223,7 +230,8 @@ declare namespace cardEmulation {
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class HceService {
     /**
@@ -270,7 +278,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     start(elementName: ElementName, aidList: string[]): void;
 
@@ -315,7 +324,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     stop(elementName: ElementName): void;
 
@@ -339,7 +349,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'hceCmd', callback: AsyncCallback<number[]>): void;
 
@@ -353,7 +364,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void;
 
@@ -401,7 +413,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transmit(response: number[]): Promise<void>;
 
@@ -436,7 +449,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transmit(response: number[], callback: AsyncCallback<void>): void;
   }
