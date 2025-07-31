@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { LengthMetricsUnit } from '../Graphics';
-/*** endif */
-
 /**
  * 2D transformation matrix, supporting rotation, translation, and scaling of the X-axis and Y-axis
  *
@@ -50,8 +46,7 @@ import { LengthMetricsUnit } from '../Graphics';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class Matrix2D {
   /**
@@ -86,8 +81,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scaleX?: number;
 
@@ -123,8 +117,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rotateY?: number;
 
@@ -160,8 +153,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rotateX?: number;
 
@@ -197,8 +189,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scaleY?: number;
 
@@ -234,8 +225,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   translateX?: number;
 
@@ -271,8 +261,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   translateY?: number;
 
@@ -312,8 +301,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   identity(): Matrix2D;
 
@@ -353,8 +341,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   invert(): Matrix2D;
 
@@ -426,8 +413,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
@@ -471,8 +457,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   translate(tx?: number, ty?: number): Matrix2D;
 
@@ -516,8 +501,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   scale(sx?: number, sy?: number): Matrix2D;
 
@@ -536,8 +520,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -549,8 +532,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(unit: LengthMetricsUnit);
 }
