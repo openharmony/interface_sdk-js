@@ -2937,7 +2937,7 @@ declare namespace relationalStore {
      * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
      * @param { Array<ValueType> } args - Parameters to be used in the conditions.
      * @returns { RdbPredicates } - Returns the RdbPredicates object.
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
      * <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -8049,9 +8049,8 @@ declare namespace relationalStore {
      * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
      * @param { Callback<ProgressDetails> } progress -
      * Callback used to return the {@link ProgressDetails} result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Need 2 - 3  parameter(s)! 2. The RdbStore must be valid.
-     * 3. The event must be a not empty string. 4. The progress must be function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8605,7 +8604,7 @@ declare namespace relationalStore {
      * If valid cryptoParam passed, the cryptoParam is used to rekey.
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9544,7 +9543,7 @@ declare namespace relationalStore {
    * @since 20
    */
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for updating data.
    *
@@ -9570,7 +9569,7 @@ declare namespace relationalStore {
    * @since 20
    */
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for querying data.
    *
