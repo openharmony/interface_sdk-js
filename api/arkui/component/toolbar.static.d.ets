@@ -15,13 +15,13 @@
 /**
  * @file Defines toolbar attributes.
  * @kit ArkUI
+ * @arkts 1.2
  */
 /**
  * Declare the placement of the toolbar item.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 declare enum ToolBarItemPlacement {
@@ -29,7 +29,6 @@ declare enum ToolBarItemPlacement {
      * Place toolbar item at the leading of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     TOP_BAR_LEADING = 0,
@@ -37,7 +36,6 @@ declare enum ToolBarItemPlacement {
      * Place toolbar item at the trailing of top bar.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     TOP_BAR_TRAILING = 1
@@ -47,7 +45,6 @@ declare enum ToolBarItemPlacement {
  *
  * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 interface ToolBarItemOptions {
@@ -56,7 +53,6 @@ interface ToolBarItemOptions {
      *
      * @type { ?ToolBarItemPlacement }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     placement?: ToolBarItemPlacement;
@@ -66,7 +62,6 @@ interface ToolBarItemOptions {
  *
  * @interface ToolBarItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 interface ToolBarItemInterface {
@@ -76,7 +71,6 @@ interface ToolBarItemInterface {
      * @param { ToolBarItemOptions } [options] - column options
      * @returns { ToolBarItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     (options?: ToolBarItemOptions): ToolBarItemAttribute;
@@ -85,7 +79,6 @@ interface ToolBarItemInterface {
  * Defines the ToolBarItem component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 declare class ToolBarItemAttribute {
@@ -95,7 +88,6 @@ declare class ToolBarItemAttribute {
  *
  * @type { ToolBarItemInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 declare const ToolBarItem: ToolBarItemInterface;
@@ -104,7 +96,6 @@ declare const ToolBarItem: ToolBarItemInterface;
  *
  * @type { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
  * @since 20
  */
 declare const ToolBarItemInstance: ToolBarItemAttribute;
