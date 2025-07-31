@@ -334,6 +334,7 @@ declare interface StarStyleOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RatingInterface {
   /**
@@ -510,6 +511,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**
@@ -799,6 +801,7 @@ declare class RatingAttribute extends CommonMethod<RatingAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Rating: RatingInterface;
 
@@ -831,5 +834,6 @@ declare const Rating: RatingInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RatingInstance: RatingAttribute;

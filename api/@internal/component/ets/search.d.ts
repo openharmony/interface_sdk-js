@@ -541,6 +541,7 @@ declare interface SearchOptions {
  * @atomicservice
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SearchInterface {
   /**
@@ -806,6 +807,7 @@ interface CancelButtonOptions {
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface CancelButtonSymbolOptions {
   /**
@@ -881,6 +883,7 @@ declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent)
  * @atomicservice
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
@@ -2253,6 +2256,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Search: SearchInterface;
 
@@ -2276,5 +2280,6 @@ declare const Search: SearchInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SearchInstance: SearchAttribute;

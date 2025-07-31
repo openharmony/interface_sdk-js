@@ -7102,6 +7102,7 @@ declare class DrawingRenderingContext {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface CanvasInterface {
   /**
@@ -7204,6 +7205,7 @@ interface CanvasInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
@@ -7300,6 +7302,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Canvas: CanvasInterface;
 
@@ -7332,5 +7335,6 @@ declare const Canvas: CanvasInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CanvasInstance: CanvasAttribute;

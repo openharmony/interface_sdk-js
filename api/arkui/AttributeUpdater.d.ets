@@ -30,6 +30,7 @@ export type Initializer<T> = (...params:FixedArray<Object>) => T;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    

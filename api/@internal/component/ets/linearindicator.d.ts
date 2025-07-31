@@ -221,6 +221,7 @@ declare interface LinearIndicatorStyle {
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface LinearIndicatorInterface {
   /**
@@ -248,6 +249,7 @@ interface LinearIndicatorInterface {
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class LinearIndicatorAttribute extends CommonMethod<LinearIndicatorAttribute> {
   /**
@@ -311,6 +313,7 @@ declare type OnLinearIndicatorChangeCallback = (index: number, progress: number)
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare const LinearIndicator: LinearIndicatorInterface;
 
@@ -321,5 +324,6 @@ declare const LinearIndicator: LinearIndicatorInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare const LinearIndicatorInstance: LinearIndicatorAttribute

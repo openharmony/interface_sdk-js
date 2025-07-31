@@ -39,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class PolylineModifier extends PolylineAttribute implements AttributeModifier<PolylineAttribute> {
 

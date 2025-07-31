@@ -231,6 +231,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface CheckboxInterface {
   /**
@@ -328,6 +329,7 @@ declare type OnCheckboxChangeCallback = (value: boolean) => void;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
@@ -683,6 +685,7 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Checkbox: CheckboxInterface;
 
@@ -715,5 +718,6 @@ declare const Checkbox: CheckboxInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CheckboxInstance: CheckboxAttribute;

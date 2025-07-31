@@ -334,6 +334,7 @@ interface MarqueeOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface MarqueeInterface {
   /**
@@ -424,6 +425,7 @@ interface MarqueeInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
@@ -837,6 +839,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Marquee: MarqueeInterface;
 
@@ -869,5 +872,6 @@ declare const Marquee: MarqueeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MarqueeInstance: MarqueeAttribute;

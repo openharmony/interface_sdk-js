@@ -119,6 +119,7 @@ declare interface StackOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface StackInterface {
   /**
@@ -201,6 +202,7 @@ interface StackInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
@@ -286,6 +288,7 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Stack: StackInterface;
 
@@ -318,5 +321,6 @@ declare const Stack: StackInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StackInstance: StackAttribute;

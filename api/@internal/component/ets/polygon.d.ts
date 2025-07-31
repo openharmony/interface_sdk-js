@@ -177,6 +177,7 @@ declare interface PolygonOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface PolygonInterface {
   /**
@@ -308,6 +309,7 @@ interface PolygonInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
@@ -380,6 +382,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Polygon: PolygonInterface;
 
@@ -412,5 +415,6 @@ declare const Polygon: PolygonInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const PolygonInstance: PolygonAttribute;

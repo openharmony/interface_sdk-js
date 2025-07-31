@@ -80,6 +80,7 @@ declare interface WithThemeOptions {
 * @crossplatform
 * @atomicservice
 * @since 12
+* @noninterop
 */
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;
 
@@ -92,6 +93,7 @@ declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttrib
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 interface WithThemeInterface {
   /**
@@ -116,6 +118,7 @@ interface WithThemeInterface {
 * @atomicservice
 * @since arkts {'1.1':'12','1.2':'20'}
 * @arkts 1.1&1.2
+* @noninterop
 */
 declare class WithThemeAttribute {
 }
@@ -127,6 +130,7 @@ declare class WithThemeAttribute {
 * @crossplatform
 * @atomicservice
 * @since 12
+* @noninterop
 */
 declare const WithTheme: WithThemeInterface;
 
@@ -137,5 +141,6 @@ declare const WithTheme: WithThemeInterface;
 * @crossplatform
 * @atomicservice
 * @since 12
+* @noninterop
 */
 declare const WithThemeInstance: WithThemeAttribute;

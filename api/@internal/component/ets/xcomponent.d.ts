@@ -563,6 +563,7 @@ declare interface NativeXComponentParameters {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface XComponentInterface {
   /**
@@ -657,6 +658,7 @@ declare type OnNativeLoadCallback = (event?: object) => void;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
   /**
@@ -791,6 +793,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const XComponent: XComponentInterface;
 
@@ -807,5 +810,6 @@ declare const XComponent: XComponentInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const XComponentInstance: XComponentAttribute;

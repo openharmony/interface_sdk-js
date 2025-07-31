@@ -177,6 +177,7 @@ interface LineOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface LineInterface {
   /**
@@ -333,6 +334,7 @@ interface LineInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
@@ -445,6 +447,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Line: LineInterface;
 
@@ -477,5 +480,6 @@ declare const Line: LineInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LineInstance: LineAttribute;

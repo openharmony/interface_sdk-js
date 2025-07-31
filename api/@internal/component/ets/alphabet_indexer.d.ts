@@ -240,6 +240,7 @@ interface AlphabetIndexerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface AlphabetIndexerInterface {
   /**
@@ -352,6 +353,7 @@ declare type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Arra
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttribute> {
   /**
@@ -1092,6 +1094,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
 
@@ -1115,5 +1118,6 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;

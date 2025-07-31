@@ -31,6 +31,7 @@ import { CommonMethod } from './common'
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface WindowSceneInterface {
   /**
@@ -54,6 +55,7 @@ interface WindowSceneInterface {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
   /**
@@ -78,6 +80,7 @@ declare class WindowSceneAttribute extends CommonMethod<WindowSceneAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const WindowScene: WindowSceneInterface;
 
@@ -87,5 +90,6 @@ declare const WindowScene: WindowSceneInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const WindowSceneInstance: WindowSceneAttribute;

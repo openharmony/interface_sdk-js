@@ -30,6 +30,7 @@ import { CommonMethod} from './common';
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface EffectComponentInterface {
   /**
@@ -120,6 +121,7 @@ declare interface EffectComponentOptions {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
   /**
@@ -141,6 +143,7 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const EffectComponent: EffectComponentInterface;
 
@@ -150,5 +153,6 @@ declare const EffectComponent: EffectComponentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const EffectComponentInstance: EffectComponentAttribute;

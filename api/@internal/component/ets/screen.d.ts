@@ -30,6 +30,7 @@ import { CommonMethod} from './common';
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ScreenInterface {
   /**
@@ -53,6 +54,7 @@ interface ScreenInterface {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
 }
@@ -63,6 +65,7 @@ declare class ScreenAttribute extends CommonMethod<ScreenAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const Screen: ScreenInterface;
 
@@ -72,5 +75,6 @@ declare const Screen: ScreenInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const ScreenInstance: ScreenAttribute;

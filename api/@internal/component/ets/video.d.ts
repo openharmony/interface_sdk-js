@@ -825,6 +825,7 @@ declare class VideoController {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface VideoInterface {
   /**
@@ -880,6 +881,7 @@ interface VideoInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
@@ -1467,6 +1469,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Video: VideoInterface;
 
@@ -1490,5 +1493,6 @@ declare const Video: VideoInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const VideoInstance: VideoAttribute;

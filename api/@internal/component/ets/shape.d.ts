@@ -291,6 +291,7 @@ declare interface ViewportRect {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface ShapeInterface {
   /**
@@ -407,6 +408,7 @@ interface ShapeInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
@@ -1012,6 +1014,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Shape: ShapeInterface;
 
@@ -1044,5 +1047,6 @@ declare const Shape: ShapeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ShapeInstance: ShapeAttribute;

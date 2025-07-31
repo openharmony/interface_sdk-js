@@ -1379,6 +1379,7 @@ declare enum TextInputStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TextInputInterface {
   /**
@@ -1564,6 +1565,7 @@ declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
@@ -3596,6 +3598,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextInput: TextInputInterface;
 
@@ -3619,5 +3622,6 @@ declare const TextInput: TextInputInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextInputInstance: TextInputAttribute;

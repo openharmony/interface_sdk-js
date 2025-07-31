@@ -39,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class RowSplitModifier extends RowSplitAttribute implements AttributeModifier<RowSplitAttribute> {
 

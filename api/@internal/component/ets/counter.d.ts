@@ -57,6 +57,7 @@ import { VoidCallback } from './units'
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface CounterInterface {
   /**
@@ -131,6 +132,7 @@ interface CounterInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -313,6 +315,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CounterInstance: CounterAttribute;
 
@@ -345,5 +348,6 @@ declare const CounterInstance: CounterAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Counter: CounterInterface;

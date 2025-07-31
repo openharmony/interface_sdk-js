@@ -27,6 +27,7 @@
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
 }
@@ -64,6 +65,7 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface ForEachInterface {
   /**
@@ -161,5 +163,6 @@ interface ForEachInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ForEach: ForEachInterface;

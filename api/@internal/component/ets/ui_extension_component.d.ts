@@ -364,6 +364,7 @@ declare interface UIExtensionProxy {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface UIExtensionComponentInterface {
   /**
@@ -419,6 +420,7 @@ interface UIExtensionComponentInterface {
  * @systemapi
  * @since arkts {'1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**
@@ -558,6 +560,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const UIExtensionComponent: UIExtensionComponentInterface;
 
@@ -567,5 +570,6 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;

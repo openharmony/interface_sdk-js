@@ -52,6 +52,7 @@ import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SymbolSpanInterface {
   /**
@@ -113,6 +114,7 @@ interface SymbolSpanInterface {
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -320,6 +322,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -345,5 +348,6 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

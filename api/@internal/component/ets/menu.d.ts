@@ -47,6 +47,7 @@ import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOpt
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface MenuInterface {
   /**
@@ -146,6 +147,7 @@ declare enum SubMenuExpandingMode {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
   /**
@@ -301,6 +303,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Menu: MenuInterface;
 
@@ -324,5 +327,6 @@ declare const Menu: MenuInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MenuInstance: MenuAttribute;

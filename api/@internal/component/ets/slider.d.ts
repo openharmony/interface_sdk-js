@@ -1011,6 +1011,7 @@ declare interface SliderConfiguration extends CommonConfiguration<SliderConfigur
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SliderInterface {
   /**
@@ -1176,6 +1177,7 @@ interface SliderSuffixOptions extends SliderCustomContentOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SliderAttribute extends CommonMethod<SliderAttribute> {
   /**
@@ -1831,6 +1833,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Slider: SliderInterface;
 
@@ -1863,5 +1866,6 @@ declare const Slider: SliderInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SliderInstance: SliderAttribute;

@@ -41,6 +41,7 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ContentSlotAttribute {
 }
@@ -54,6 +55,7 @@ declare class ContentSlotAttribute {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ContentSlotInterface {
   /**
@@ -77,5 +79,6 @@ interface ContentSlotInterface {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const ContentSlot: ContentSlotInterface;

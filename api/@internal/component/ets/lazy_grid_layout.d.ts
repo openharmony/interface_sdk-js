@@ -33,6 +33,7 @@ import { LengthMetrics } from '../Graphics';
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface LazyVGridLayoutInterface {
   /**
@@ -95,6 +96,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @atomicservice
  * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
   /**
@@ -118,6 +120,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * @crossplatform
  * @atomicservice
  * @since 19
+ * @noninterop
  */
 declare const LazyVGridLayout: LazyVGridLayoutInterface;
 
@@ -128,6 +131,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * @crossplatform
  * @atomicservice
  * @since 19
+ * @noninterop
  */
 declare const LazyVGridLayoutInstance: LazyVGridLayoutAttribute;
   

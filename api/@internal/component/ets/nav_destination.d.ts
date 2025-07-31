@@ -490,6 +490,7 @@ declare enum NavDestinationActiveReason {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface NavDestinationInterface {
   /**
@@ -769,6 +770,7 @@ declare interface NavDestinationTransition {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
@@ -1514,6 +1516,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const NavDestination: NavDestinationInterface;
 
@@ -1537,6 +1540,7 @@ declare const NavDestination: NavDestinationInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
 

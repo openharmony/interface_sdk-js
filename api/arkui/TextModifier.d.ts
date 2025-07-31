@@ -46,6 +46,7 @@ declare type TextApplyNormalFunction = (textAttribute: TextAttribute) => void;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
 */
 export declare interface TextModifier extends TextAttribute, AttributeModifier<TextAttribute> {
 
@@ -125,6 +126,7 @@ export declare interface TextModifier extends TextAttribute, AttributeModifier<T
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
 

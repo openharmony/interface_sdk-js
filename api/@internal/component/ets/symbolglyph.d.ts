@@ -43,6 +43,7 @@
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 interface SymbolGlyphInterface {
   /**
@@ -1005,6 +1006,7 @@ declare class QuickReplaceSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
@@ -1304,6 +1306,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolGlyph: SymbolGlyphInterface;
 
@@ -1329,5 +1332,6 @@ declare const SymbolGlyph: SymbolGlyphInterface;
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolGlyphInstance: SymbolGlyphAttribute;

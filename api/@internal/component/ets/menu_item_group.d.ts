@@ -129,6 +129,7 @@ declare interface MenuItemGroupOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface MenuItemGroupInterface {
   /**
@@ -186,6 +187,7 @@ interface MenuItemGroupInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
@@ -209,6 +211,7 @@ declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MenuItemGroup: MenuItemGroupInterface;
 
@@ -232,5 +235,6 @@ declare const MenuItemGroup: MenuItemGroupInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MenuItemGroupInstance: MenuItemGroupAttribute;

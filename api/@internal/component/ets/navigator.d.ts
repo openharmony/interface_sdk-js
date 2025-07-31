@@ -141,6 +141,7 @@ declare enum NavigationType {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 interface NavigatorInterface {
   /**
@@ -225,6 +226,7 @@ interface NavigatorInterface {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   /**
@@ -369,6 +371,7 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare const Navigator: NavigatorInterface;
 
@@ -393,5 +396,6 @@ declare const Navigator: NavigatorInterface;
  * @atomicservice
  * @since 11
  * @deprecated since 13
+ * @noninterop
  */
 declare const NavigatorInstance: NavigatorAttribute;

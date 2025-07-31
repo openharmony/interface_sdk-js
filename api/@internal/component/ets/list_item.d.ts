@@ -653,6 +653,7 @@ declare interface ListItemOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ListItemInterface {
   /**
@@ -727,6 +728,7 @@ interface ListItemInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
@@ -934,6 +936,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ListItemInstance: ListItemAttribute;
 
@@ -966,6 +969,7 @@ declare const ListItemInstance: ListItemAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ListItem: ListItemInterface;
 

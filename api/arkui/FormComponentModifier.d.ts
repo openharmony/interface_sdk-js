@@ -29,6 +29,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
 */
 export declare class FormComponentModifier extends FormComponentAttribute implements AttributeModifier<FormComponentAttribute> {
 

@@ -32,6 +32,7 @@ import { Dimension, Length, ResourceColor } from './units';
  * @crossplatform
  * @atomicservice
  * @since 15
+ * @noninterop
  */
 declare type CommonModifier = import('../api/arkui/CommonModifier').CommonModifier;
 
@@ -495,6 +496,7 @@ declare class TabsController {
  * @atomicservice
  * @since arkts {'1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface TabsOptions {
   /**
@@ -624,6 +626,7 @@ declare interface TabsOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TabsInterface {
   /**
@@ -1146,6 +1149,7 @@ declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingInde
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
@@ -2190,6 +2194,7 @@ declare interface TabContentTransitionProxy {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Tabs: TabsInterface;
 
@@ -2213,5 +2218,6 @@ declare const Tabs: TabsInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TabsInstance: TabsAttribute;

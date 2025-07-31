@@ -231,6 +231,7 @@ declare interface ScrollBarOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ScrollBarInterface {
   /**
@@ -288,6 +289,7 @@ interface ScrollBarInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
     /**
@@ -335,6 +337,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ScrollBar: ScrollBarInterface;
 
@@ -358,5 +361,6 @@ declare const ScrollBar: ScrollBarInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ScrollBarInstance: ScrollBarAttribute;

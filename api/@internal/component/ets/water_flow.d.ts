@@ -503,6 +503,7 @@ declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => v
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface WaterFlowInterface {
   /**
@@ -560,6 +561,7 @@ interface WaterFlowInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribute> {
   /**
@@ -1025,6 +1027,7 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const WaterFlow: WaterFlowInterface;
 
@@ -1048,5 +1051,6 @@ declare const WaterFlow: WaterFlowInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const WaterFlowInstance: WaterFlowAttribute;

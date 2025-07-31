@@ -37,6 +37,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class CheckboxModifier extends CheckboxAttribute implements AttributeModifier<CheckboxAttribute> {
 
