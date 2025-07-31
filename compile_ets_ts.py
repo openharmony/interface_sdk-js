@@ -94,7 +94,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         "dependentModuleList": [],
         "isIDE": "false",
         # 工具处理时候的线程数
-        "maxWorkers": 64,
+        "maxWorkers": 16,
         # 工具处理的时候是否跳过检查
         "skipDeclCheck": False,
         "enableDeclgenEts2Ts": True,

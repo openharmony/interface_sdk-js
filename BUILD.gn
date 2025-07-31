@@ -577,6 +577,34 @@ group("ohos_ets_dynamic") {
   ]
 }
 
+action("gen_api_check_plugin") {
+  deps = [
+    "//developtools/ace_ets2bundle/arkui-plugins:ui_plugin"
+  ]
+  npm_path = "//prebuilts/build-tools/common/nodejs/current/bin/npm"
+  script = "build_api_check_plugin.py"
+  args = [
+    "--source_path",
+    rebase_path(get_path_info("./build-tools/compile-plugins/api-check-plugin-static", "abspath")),
+    "--output_path",
+    rebase_path("$target_gen_dir"),
+    "--npm",
+    rebase_path(npm_path),
+  ]
+  outputs = [ "$target_gen_dir" ]
+}
+
+ohos_copy("api_check_plugin") {
+  deps = [
+    ":gen_api_check_plugin"
+  ]
+  sources = [
+    rebase_path("$target_gen_dir")
+  ]
+  outputs = [ target_out_dir + "/$target_name" ]
+  module_source_dir = target_out_dir + "/$target_name"
+  module_install_name = ""
+}
 # ets1.2 interop工具的SDK输入
 group("ohos_ets_static") {
   deps = [

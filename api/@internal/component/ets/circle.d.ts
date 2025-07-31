@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod,CommonMethod } from './common';
-/*** endif */
-
 /**
  * Defines circle options for Circle component.
  *
@@ -54,8 +50,7 @@ import { CommonShapeMethod,CommonMethod } from './common';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface CircleOptions {
   /**
@@ -300,8 +295,7 @@ interface CircleInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
@@ -371,31 +365,3 @@ declare const Circle: CircleInterface;
  * @noninterop
  */
 declare const CircleInstance: CircleAttribute;
-
-/**
- * Defines circle component.
- *
- * @interface CircleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- * @noninterop
- */
-interface CircleInterface {
-  /**
-   * Set the options for circle component.
-   *
-   * @param { CircleOptions } [value] - options to create circle component.
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (value?: CircleOptions): CircleAttribute;
-}

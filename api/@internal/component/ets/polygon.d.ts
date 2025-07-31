@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod } from './common';
-import { ShapePoint } from './line';
-/*** endif */
-
 /**
  * Define options used to construct a polygon.
  *
@@ -31,8 +26,7 @@ import { ShapePoint } from './line';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface PolygonOptions {
   /**
@@ -314,8 +308,7 @@ interface PolygonInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
@@ -358,20 +351,6 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @since 11
    */
   points(value: Array<any>): PolygonAttribute;
-
-  /**
-   * Called when the vertex coordinate list of a polygon is set.
-   *
-   * @param { Array<ShapePoint> } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-   points(value: Array<ShapePoint>): PolygonAttribute;
 }
 
 /**
@@ -439,31 +418,3 @@ declare const Polygon: PolygonInterface;
  * @noninterop
  */
 declare const PolygonInstance: PolygonAttribute;
-
-/**
- * Provides the polygon drawing interface.
- *
- * @interface PolygonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- * @noninterop
- */
-interface PolygonInterface {
-  /**
-   * Called when drawing a polygon.
-   *
-   * @param { PolygonOptions } [options] - Polygon options
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: PolygonOptions): PolygonAttribute;
-}
