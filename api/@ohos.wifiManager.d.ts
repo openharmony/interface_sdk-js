@@ -1581,7 +1581,7 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
+   * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1616,7 +1616,7 @@ declare namespace wifiManager {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of off
+   * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1651,7 +1651,7 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of on, 0: disconnected, 1: connected
+   * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1719,7 +1719,7 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of on, 0: scan fail, 1: scan success
+   * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1752,7 +1752,7 @@ declare namespace wifiManager {
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of off
+   * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2249,7 +2249,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi device address( mac / bssid ) type.
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 10
    */
@@ -3301,7 +3301,7 @@ declare namespace wifiManager {
 
     /**
      * Received signal strength indicator (RSSI)
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
@@ -3399,7 +3399,7 @@ declare namespace wifiManager {
 
   /**
    * Describes the wifi security type.
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 9
    */
@@ -3706,7 +3706,7 @@ declare namespace wifiManager {
 
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 9
      */
