@@ -1685,7 +1685,7 @@ declare namespace wifiManager {
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
-   * @param { Callback<int> } callback - the callback of off
+   * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
