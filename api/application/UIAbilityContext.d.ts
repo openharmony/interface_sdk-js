@@ -4833,7 +4833,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000085 - An error occurred during the interaction between the ability and window.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 17
+   * @since arkts {'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   revokeDelegator(): Promise<void>;
 

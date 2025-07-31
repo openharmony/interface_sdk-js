@@ -137,7 +137,8 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAcceptWant(want: Want): string;
 
@@ -152,6 +153,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20
+  * @arkts 1.1&1.2
   */
   onAcceptWantAsync(want: Want): Promise<string>;
 
@@ -182,6 +184,7 @@ declare class AbilityStage {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onNewProcessRequest(want: Want): string;
 
@@ -195,6 +198,7 @@ declare class AbilityStage {
   * @stagemodelonly
   * @atomicservice
   * @since 20
+  * @arkts 1.1&1.2
   */
   onNewProcessRequestAsync(want: Want): Promise<string>;
 
