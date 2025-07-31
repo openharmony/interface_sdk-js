@@ -5767,7 +5767,7 @@ declare interface OnTitleReceiveEvent {
   /**
    * Mark the source of the title. If it is true, the title is derived from the H5 title element;
    * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
@@ -7174,7 +7174,16 @@ declare enum WebElementType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
-  LINK = 2
+  LINK = 2,
+
+  /**
+   * Text,corresponding textSpan type.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  TEXT = 3
 }
 
 /**
@@ -7191,7 +7200,16 @@ declare enum WebResponseType {
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
-  LONG_PRESS = 1
+  LONG_PRESS = 1,
+
+  /**
+   * Right click.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  RIGHT_CLICK = 2
 }
 
 /**
@@ -7239,7 +7257,7 @@ declare enum AudioSessionType {
 
 /**
  * PDF page load result
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
@@ -7363,6 +7381,26 @@ declare interface SelectionMenuOptionsExt {
    * @since 20
    */
   previewMenuOptions?: PreviewMenuOptions;
+
+  /**
+   * Callback function when the selection is displayed.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  onMenuShow?: Callback<void>;
+
+  /**
+   * Callback function when the selection menu is hidden.
+   *
+   * @type { ?Callback<void> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  onMenuHide?: Callback<void>;
 }
 
 /**
