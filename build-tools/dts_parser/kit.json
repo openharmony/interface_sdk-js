@@ -252,6 +252,11 @@
     { "filePath": "@ohos.application.appManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.BackupExtensionAbility.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.application.CompletionHandler.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    {
+      "filePath": "@ohos.app.ability.CompletionHandlerForAtomicService.d.ts",
+      "kitName": "AbilityKit",
+      "subSystem": "元能力"
+    },
     { "filePath": "@ohos.application.Configuration.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.ConfigurationConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     {
