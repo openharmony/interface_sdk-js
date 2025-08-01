@@ -6877,6 +6877,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.2
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port?: int): void;
 
