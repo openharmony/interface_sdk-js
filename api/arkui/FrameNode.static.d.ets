@@ -64,6 +64,7 @@ import { SliderAttribute, SliderOptions } from './component/slider';
 import { ToggleAttribute, ToggleOptions } from './component/toggle';
 import { CheckboxGroupAttribute, CheckboxGroupOptions } from './component/checkboxgroup';
 import { RatingAttribute, RatingOptions } from './component/rating';
+import { XComponentAttribute, XComponentController, XComponentOptions, XComponentParameters, NativeXComponentParameters } from './component/xcomponent';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -758,7 +759,10 @@ export declare namespace typeNode {
     createGridRowNode,
     createGridColNode,
     createDividerNode,
-    createBlankNode
+    createBlankNode,
+    createXComponentNodeDefault,
+    createXComponentNodeWithOptions,
+    createXComponentNodeWithNativeParameters
   }
 
   /**
@@ -1460,6 +1464,92 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createSwiperNode(context: UIContext, nodeType: 'Swiper'): Swiper;
+
+  /**
+   * Defines the XComponent type of FrameNode.
+   * 
+   * @extends TypedFrameNode<XComponentAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class XComponentFrameNode extends TypedFrameNode<XComponentAttribute> {
+    /**
+     * Initialize XComponent FrameNode.
+     * 
+     * @param { XComponentParameters } value - Indicates the options of the xcomponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: XComponentParameters): XComponentAttribute;
+
+    /**
+     * Initialize XComponent FrameNode.
+     * 
+     * @param { XComponentOptions } value - Indicates the options of the xcomponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: XComponentOptions): XComponentAttribute;
+
+    /**
+     * Initialize XComponent FrameNode.
+     * 
+     * @param { NativeXComponentParameters } params - Indicates the constructor parameters of the
+     *  xcomponent for native developing.
+     *
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(params: NativeXComponentParameters): XComponentAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for XComponent.
+   *
+   * @typedef { XComponentFrameNode } XComponent
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type XComponent = XComponentFrameNode;
+
+  /**
+   * Create a FrameNode of XComponent type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createXComponentNodeDefault(context: UIContext, nodeType: 'XComponent'): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { XComponentOptions } value - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createXComponentNodeWithOptions(context: UIContext, nodeType: 'XComponent', value: XComponentOptions): XComponent;
+
+  /**
+   * Create a FrameNode of XComponent type with options for native developing.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'XComponent' } nodeType - node type.
+   * @param { NativeXComponentParameters } parameters - initialization parameters.
+   * @returns { XComponent } - Return XComponent type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createXComponentNodeWithNativeParameters(
+    context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
 }
 
 /**

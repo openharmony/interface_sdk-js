@@ -13223,155 +13223,122 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * If this attribute is not set, the component does not have any stroke.
      * If the value is invalid, no stroke will be drawn.
      *
-     * @param { ResourceColor } value - Stroke color.
+     * @param { ResourceColor | undefined } value - Stroke color.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    stroke(value: ResourceColor | undefined): this;
+    default stroke(value: ResourceColor | undefined): this;
     /**
      * Sets the color of the fill area.
      * An invalid value is handled as the default value.
      * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
      *
-     * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
+     * @param { ResourceColor | undefined } value - Color of the fill area. Default value: Color.Black.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    fill(value: ResourceColor | undefined): this;
+    default fill(value: ResourceColor | undefined): this;
     /**
      * Sets the offset of the start point for drawing the stroke.
      * An invalid value is handled as the default value.
      *
-     * @param { number | string } value - Offset of the start point for drawing the stroke.
+     * @param { number | string | undefined } value - Offset of the start point for drawing the stroke.
      * Default value: 0
      * Default unit: vp
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeDashOffset(value: number | string | undefined): this;
+    default strokeDashOffset(value: number | string | undefined): this;
     /**
      * Sets the cap style of the stroke.
      *
-     * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
+     * @param { LineCapStyle | undefined } value - Cap style of the stroke. Default value: LineCapStyle.Butt
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeLineCap(value: LineCapStyle | undefined): this;
+    default strokeLineCap(value: LineCapStyle | undefined): this;
     /**
      * Sets the join style of the stroke.
      * This attribute does not work for the Circle component, which does not have corners.
      *
-     * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
+     * @param { LineJoinStyle | undefined } value - Join style of the stroke. Default value: LineJoinStyle.Miter
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeLineJoin(value: LineJoinStyle | undefined): this;
+    default strokeLineJoin(value: LineJoinStyle | undefined): this;
     /**
      * Limits for drawing acute angles as bevels
      *
-     * @param { number | string } value
+     * @param { number | string | undefined } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeMiterLimit(value: number | string | undefined): this;
+    default strokeMiterLimit(value: number | string | undefined): this;
     /**
      * Sets the stroke opacity.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource } value - Stroke opacity. Default value: 1
+     * @param { number | string | Resource | undefined } value - Stroke opacity. Default value: 1
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeOpacity(value: number | string | Resource | undefined): this;
+    default strokeOpacity(value: number | string | Resource | undefined): this;
     /**
      * Sets the opacity of the fill area.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
+     * @param { number | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    fillOpacity(value: number | string | Resource | undefined): this;
+    default fillOpacity(value: number | string | Resource | undefined): this;
     /**
      * Sets the stroke width.
      * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
      *
-     * @param { Length } value - Stroke width.
+     * @param { Length | undefined } value - Stroke width.
      * The value must be greater than or equal to 0.
      * Default value: 1.
      * Default unit: vp.
      * An invalid value is handled as the default value.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeWidth(value: Length | undefined): this;
+    default strokeWidth(value: Length | undefined): this;
     /**
      * Specifies whether anti-aliasing is enabled.
      *
-     * @param { boolean } value - Whether anti-aliasing is enabled.
+     * @param { boolean | undefined } value - Whether anti-aliasing is enabled.
      * true: Anti-aliasing is enabled.
      * false: Anti-aliasing is disabled.
      * Default value: true
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    antiAlias(value: boolean | undefined): this;
+    default antiAlias(value: boolean | undefined): this;
     /**
      * Sets the gap for the border.
      *
-     * @param { Array<Length> } value
+     * @param { Array<Length> | undefined } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeDashArray(value: Array<Length> | undefined): this;
+    default strokeDashArray(value: Array<Length> | undefined): this;
 }
 /**
  * Defines the direction of pixel rounding at the component level.
