@@ -6184,7 +6184,7 @@ declare namespace cert {
      * Used to obtain the CMS final data, such as CMS signed data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
-     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @param { CmsGeneratorOptions } [options] - the configuration options for CMS operation.
      * @returns { Promise<Uint8Array | string> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6202,7 +6202,7 @@ declare namespace cert {
      * Used to obtain the CMS final data, such as CMS signed data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
-     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @param { CmsGeneratorOptions } [options] - the configuration options for CMS operation.
      * @returns { Uint8Array | string } the CMS final data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
