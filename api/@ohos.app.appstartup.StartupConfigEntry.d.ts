@@ -40,10 +40,12 @@ export default class StartupConfigEntry {
   onConfig?(): StartupConfig;
 
   /**
-   * Called when a custom match rule is requested.
-   * The custom match rule returned will be matched against the match rules defined in the appStartup profile.
-   * If any of the specified tasks meets the custom match rule, that task will be initiated;
-   * otherwise, the default automatic startup tasks will be initiated.
+   * Called to obtain a custom match rule during application launch.
+   * Depending on the parameters in the Want passed in, you can return various custom rules to match against the
+   * `customization` field in `matchRules` configured for the startup task. If a match is successful, the task is 
+   * executed automatically.
+   * This interface can be used to further refine matching rules when a startup scenario cannot be matched to
+   * a startup task through URI, action, or intent name rules.
    *
    * @param { Want } want Want information of the started ability.
    * @returns { string } Custom match rule
