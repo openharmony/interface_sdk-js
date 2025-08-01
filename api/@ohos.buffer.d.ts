@@ -436,8 +436,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(array: double[]): Buffer;
 
@@ -495,23 +494,6 @@ declare namespace buffer {
   function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
   /**
-   * This creates a view of the ArrayBuffer without copying the underlying memory.
-   *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-   * @returns { Buffer } Return a view of the ArrayBuffer
-   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function from(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
-
-  /**
    * Copies the passed buffer data onto a new Buffer instance.
    *
    * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
@@ -545,8 +527,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -596,21 +577,6 @@ declare namespace buffer {
   function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
   /**
-   * Creates a Buffer instance based on the specified object.
-   *
-   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { int } length - Length of the Buffer instance to create, in bytes.
-   * @returns { Buffer } Return a new allocated Buffer
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function from(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
-
-  /**
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
    * to be used when converting string into bytes.
    *
@@ -653,11 +619,68 @@ declare namespace buffer {
   function from(string: String, encoding?: BufferEncoding): Buffer;
 
   /**
-   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
-   * to be used when converting string into bytes.
+   * Creates a Buffer instance with the specified array.
    *
-   * @param { string } input - input input  A string to encode
-   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
+   * @param { double[] } array - Array to create a Buffer instance.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithArray(array: double[]): Buffer;
+
+  /**
+   * This creates a view of the ArrayBuffer without copying the underlying memory.
+   *
+   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @returns { Buffer } Return a view of the ArrayBuffer
+   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
+   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithArrayBufferByteOffsetLength(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
+
+  /**
+   * Copies the data of a passed Buffer instance to create a new Buffer instance and returns the new one.
+   *
+   * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithBuffer(buffer: Buffer | Uint8Array): Buffer;
+
+  /**
+   * Creates a Buffer instance based on the specified object.
+   *
+   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
+   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
+   * @param { int } length - Length of the Buffer instance to create, in bytes.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithObjectTypedInputOffsetOrEncodingLength(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
+
+  /**
+   * Creates a Buffer instance based on various types.
+   *
+   * @param { string } input - string.
+   * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
    * @returns { Buffer } Return a new Buffer containing string
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -665,7 +688,21 @@ declare namespace buffer {
    * @since 20
    * @arkts 1.2
    */
-  function from(input: string, encoding?: BufferEncoding): Buffer;
+  function fromWithStringTypedInputEncoding(input: string, encoding?: BufferEncoding): Buffer;
+
+  /**
+   * Creates a Buffer instance based on a string in the given encoding format.
+   *
+   * @overload { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
+                fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export overload from { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
+                  fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
 
   /**
    * Returns true if obj is a Buffer, false otherwise
