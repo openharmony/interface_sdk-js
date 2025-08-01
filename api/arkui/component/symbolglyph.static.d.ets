@@ -442,6 +442,15 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      */
     scope?: EffectScope;
 }
+/**
+ * Defines PulseSymbolEffect class.
+ *
+ * @extends SymbolEffect
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare class PulseSymbolEffect extends SymbolEffect {
+}
 export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph size is set.
