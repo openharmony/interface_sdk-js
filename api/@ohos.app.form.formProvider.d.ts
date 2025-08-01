@@ -426,7 +426,6 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>;
    
@@ -440,7 +439,6 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
 
