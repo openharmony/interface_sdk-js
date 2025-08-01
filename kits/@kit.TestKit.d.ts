@@ -24,14 +24,14 @@ import TestRunner from '@ohos.application.testRunner';
 import {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
-  Rect, TouchPadSwipeOptions
+  Rect, TouchPadSwipeOptions, InputTextMode
 } from '@ohos.UiTest';
 /*** endif */
 
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
 
 import {
-  UiComponent, UiDriver, BY, By, InputTextMode
+  UiComponent, UiDriver, BY, By
 } from '@ohos.UiTest';
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
@@ -41,12 +41,9 @@ export {
 };
 
 /*** if arkts 1.2 */
-import {
-loadAndSetUpUiTest
-} from '@ohos.UiTest';
 export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow,
-  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, loadAndSetUpUiTest
+  TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
+  WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, 
 };
 /*** endif */
