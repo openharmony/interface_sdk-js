@@ -2835,7 +2835,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    SUM_SIZE = 'sum(size)'
+    SUM_SIZE = 'sum(size)',
+    /**
+     * orientation in exif
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    EXIF_ROTATE = 'exif_rotate'
   }
 
   /**
