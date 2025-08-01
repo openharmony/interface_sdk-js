@@ -3577,7 +3577,7 @@ declare namespace buffer {
      * @since 20
      * @arkts 1.2
      */
-    [index: int]: Long;
+    [index: int]: long;
   }
 
   /**
