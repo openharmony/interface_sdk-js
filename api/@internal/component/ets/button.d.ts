@@ -705,6 +705,7 @@ interface ButtonInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface LabelStyle {
     /**

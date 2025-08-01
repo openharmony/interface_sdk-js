@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class EditableTitleBarMenuItem {
   /**
@@ -142,6 +143,7 @@ export declare class EditableTitleBarMenuItem {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
 
@@ -157,6 +159,7 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare enum EditableLeftIconType {
   /**
@@ -194,6 +197,7 @@ export declare enum EditableLeftIconType {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface EditableTitleBarOptions {
   /**
@@ -251,6 +255,7 @@ export declare interface EditableTitleBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct EditableTitleBar {

@@ -36,6 +36,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare enum FilterType {
     /**
@@ -75,6 +76,7 @@ export declare enum FilterType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class FilterParams {
     /**
@@ -119,6 +121,7 @@ export declare class FilterParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class FilterResult {
     /**
@@ -175,6 +178,7 @@ export declare class FilterResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct Filter {

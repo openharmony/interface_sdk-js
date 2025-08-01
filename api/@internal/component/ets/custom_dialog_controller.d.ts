@@ -648,6 +648,7 @@ declare interface CustomDialogControllerOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare interface DismissDialogAction {
   /**

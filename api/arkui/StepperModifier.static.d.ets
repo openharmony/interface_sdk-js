@@ -29,6 +29,7 @@ import { StepperAttribute } from './component/stepper';
  * @implements { StepperAttribute, AttributeModifier<StepperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class StepperModifier implements StepperAttribute, AttributeModifier<StepperAttribute> {
   /**

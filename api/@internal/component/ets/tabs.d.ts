@@ -688,6 +688,7 @@ interface TabsInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface DividerStyle {
   /**

@@ -1308,6 +1308,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare interface DismissDialogAction {
   /**

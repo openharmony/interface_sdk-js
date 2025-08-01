@@ -39,6 +39,7 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 
 export declare enum ChipSize {
@@ -86,6 +87,7 @@ export declare enum ChipSize {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export declare enum AccessibilitySelectedType {
   /**
@@ -135,6 +137,7 @@ export declare enum AccessibilitySelectedType {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface IconCommonOptions {
 
@@ -225,6 +228,7 @@ export interface IconCommonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface SuffixIconOptions extends IconCommonOptions {
 
@@ -300,6 +304,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface PrefixIconOptions extends IconCommonOptions {}
 
@@ -311,6 +316,7 @@ export interface PrefixIconOptions extends IconCommonOptions {}
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export interface AccessibilityOptions {
   /**
@@ -356,6 +362,7 @@ export interface AccessibilityOptions {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export interface CloseOptions extends AccessibilityOptions {}
 
@@ -366,6 +373,7 @@ export interface CloseOptions extends AccessibilityOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipSymbolGlyphOptions {
 
@@ -398,6 +406,7 @@ export interface ChipSymbolGlyphOptions {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export interface ChipSuffixSymbolGlyphOptions {
   /**
@@ -450,6 +459,7 @@ export interface ChipSuffixSymbolGlyphOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface LabelMarginOptions {
 
@@ -500,6 +510,7 @@ export interface LabelMarginOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface LocalizedLabelMarginOptions {
 
@@ -542,6 +553,7 @@ export interface LocalizedLabelMarginOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface LabelOptions {
 
@@ -679,6 +691,7 @@ export interface LabelOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipOptions {
   /**
@@ -989,6 +1002,7 @@ export interface ChipOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Builder
 export declare function Chip(options: ChipOptions): void;

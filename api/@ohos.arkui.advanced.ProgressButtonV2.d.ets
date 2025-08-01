@@ -27,6 +27,7 @@ import { ColorMetrics } from './@ohos.arkui.node';
  * @atomicservice
  * @crossplatform
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct ProgressButtonV2 {
@@ -112,6 +113,7 @@ export declare struct ProgressButtonV2 {
  * @atomicservice
  * @crossplatform
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class ProgressButtonV2Color {
@@ -178,6 +180,7 @@ export declare class ProgressButtonV2Color {
  * @atomicservice
  * @crossplatform
  * @since 18
+ * @noninterop
  */
 export type ClickCallback = () => void;
 
@@ -189,6 +192,7 @@ export type ClickCallback = () => void;
  * @atomicservice
  * @crossplatform
  * @since 18
+ * @noninterop
  */
 export declare interface ProgressButtonV2ColorOptions {
   /**

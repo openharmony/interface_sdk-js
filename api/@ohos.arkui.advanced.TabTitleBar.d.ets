@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class TabTitleBarMenuItem {
   /**
@@ -136,6 +137,7 @@ export declare class TabTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class TabTitleBarTabItem {
   /**
@@ -188,6 +190,7 @@ export declare class TabTitleBarTabItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct TabTitleBar {

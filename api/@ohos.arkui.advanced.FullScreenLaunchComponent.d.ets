@@ -28,6 +28,7 @@ import { ErrorCallback, Callback } from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct FullScreenLaunchComponent {

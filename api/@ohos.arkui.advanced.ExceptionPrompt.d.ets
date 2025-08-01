@@ -32,6 +32,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum MarginType {
   /**
@@ -79,6 +80,7 @@ export declare enum MarginType {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface PromptOptions {
   /**
@@ -205,6 +207,7 @@ export interface PromptOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct ExceptionPrompt {

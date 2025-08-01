@@ -295,6 +295,7 @@ declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) 
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export class FrameNode {
   /**
@@ -1186,6 +1187,7 @@ export class FrameNode {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface TypedFrameNode<C, T> extends FrameNode {
   /**
@@ -1222,6 +1224,7 @@ export interface TypedFrameNode<C, T> extends FrameNode {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export namespace typeNode {
   /**
@@ -3045,6 +3048,7 @@ export namespace typeNode {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class NodeAdapter {
   /**

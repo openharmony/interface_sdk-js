@@ -2149,6 +2149,7 @@ declare namespace promptAction {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare interface DismissDialogAction {
     /**

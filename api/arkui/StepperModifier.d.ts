@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
+ * @noninterop
 */
 export declare class StepperModifier extends StepperAttribute implements AttributeModifier<StepperAttribute> {
 

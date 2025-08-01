@@ -39,6 +39,7 @@ import { Component } from './arkui/component/customComponent';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum GridObjectSortComponentType {
   /**
@@ -89,6 +90,7 @@ export declare enum GridObjectSortComponentType {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface GridObjectSortComponentItem {
   /**
@@ -206,6 +208,7 @@ export interface GridObjectSortComponentItem {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface GridObjectSortComponentOptions {
   /**
@@ -334,6 +337,7 @@ export interface GridObjectSortComponentOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct GridObjectSortComponent {
