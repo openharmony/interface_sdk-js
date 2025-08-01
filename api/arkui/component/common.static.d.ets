@@ -2426,18 +2426,19 @@ export declare interface ScaleOptions {
 /**
  * Defines the align rule options of relative container.
  *
- * @interface AlignRuleParam
+ * @interface VerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
-export declare interface AlignRuleParam<T> {
+export declare interface VerticalAlignParam {
     /**
-     * The param of anchor.
+     * Specifies the anchor component
      *
-     * @type { ?string }
+     * Anonymous Object Rectification
+     * @type { ?string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
@@ -2446,16 +2447,54 @@ export declare interface AlignRuleParam<T> {
      */
     anchor: string;
     /**
-     * The param of align.
+     * Sets the vertical alignment relative to the anchor component.
      *
-     * @type { T }
+     * Anonymous Object Rectification
+     * @type { ?VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    align: T;
+    align: VerticalAlign;
+}
+/**
+ * Defines the horizontal align rule options of relative container.
+ *
+ * @interface HorizontalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface HorizontalAlignParam {
+
+    /**
+     * Specifies the anchor component
+     *
+     * Anonymous Object Rectification
+     * @type { ?string } anchor
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    anchor: string;
+    /**
+     * Sets the horizontal alignment relative to the anchor component.
+     *
+     * Anonymous Object Rectification
+     * @type { ?HorizontalAlign } align
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    align: HorizontalAlign;
 }
 /**
  * Defines the align rule options of relative container.
@@ -2471,68 +2510,68 @@ export declare interface AlignRuleOption {
     /**
      * The param of left align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    left?: AlignRuleParam<HorizontalAlign>;
+    left?: HorizontalAlignParam;
     /**
      * The param of right align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    right?: AlignRuleParam<HorizontalAlign>;
+    right?: HorizontalAlignParam;
     /**
      * The param of middle align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    middle?: AlignRuleParam<HorizontalAlign>;
+    middle?: HorizontalAlignParam;
     /**
      * The param of top align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    top?: AlignRuleParam<VerticalAlign>;
+    top?: VerticalAlignParam;
     /**
      * The param of bottom align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @form
      * @atomicservice
      * @since 20
      */
-    bottom?: AlignRuleParam<VerticalAlign>;
+    bottom?: VerticalAlignParam;
     /**
      * The param of center align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    center?: AlignRuleParam<VerticalAlign>;
+    center?: VerticalAlignParam;
     /**
      * Defines the bias ratio in horizontal and vertical direction.
      *
@@ -11987,7 +12026,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default alignRules(value: AlignRuleOption | undefined): this;
+    default alignRulesWithAlignRuleOptionTypedValue(value: AlignRuleOption | undefined): this;
     /**
      * Sets the alignment rules in the relative container.
      * <br>This API is valid only when the container is RelativeContainer.
@@ -11995,7 +12034,7 @@ export declare interface CommonMethod {
      * left and right for alignment in the horizontal direction. Prioritize this API in aligning
      * child components in the relative container.
      *
-     * @param { LocalizedAlignRuleOptions } alignRule
+     * @param { LocalizedAlignRuleOptions } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -12003,7 +12042,8 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default alignRules(alignRule: LocalizedAlignRuleOptions | undefined): this;
+    default alignRulesWithLocalizedAlignRuleOptionsTypedValue(value: LocalizedAlignRuleOptions | undefined): this;
+    overload alignRules { alignRulesWithAlignRuleOptionTypedValue, alignRulesWithLocalizedAlignRuleOptionsTypedValue }
     /**
      * Sets the parameters of the chain in which the component is the head.
      * <br>This parameter has effect only when the parent container is RelativeContainer.
