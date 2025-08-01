@@ -504,13 +504,13 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?Record<string, Object> }
+     * @type { ?(Record<string, Object> | ESObject) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @since 20
      * @arkts 1.2
      */
-    data?: Record<string, Object>;
+    data?: Record<string, Object> | ESObject;
   }
 
   /**
@@ -768,16 +768,27 @@ declare namespace emitter {
    */
   export interface GenericEventData<T> {
     /**
-     * Data passed in the event. T: generic type.
+     * Data carried by the event.
      *
      * @type { ?T }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     data?: T;
+
+    /**
+     * Data carried by the event.
+     *
+     * @type { ?(T | ESObject) }
+     * @syscap SystemCapability.Notification.Emitter
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    data?: T | ESObject;
   }
 }
 
