@@ -159,7 +159,7 @@ declare namespace buffer {
    * Creates and initializes a Buffer instance of the specified length.
    *
    * @param { int } size - Size of the Buffer instance to create, in bytes.
-   * @param { string | Buffer | double | long } [fill] - Value to be filled in the buffer. The default value is 0.
+   * @param { string | Buffer | int | double | long } [fill] - Value to be filled in the buffer. The default value is 0.
    * @param { BufferEncoding } [encoding] - Encoding format (valid only when fill is a string). The default value is 'utf8'.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -172,7 +172,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function alloc(size: int, fill?: string | Buffer | double | long, encoding?: BufferEncoding): Buffer;
+  function alloc(size: int, fill?: string | Buffer | int | double | long, encoding?: BufferEncoding): Buffer;
 
   /**
    * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
@@ -619,10 +619,24 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
+
+  /**
+   * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
+   * to be used when converting string into bytes.
+   *
+   * @param { string } input - input input  A string to encode
+   * @param { BufferEncoding } [encoding] - encoding [encoding='utf8'] The encoding of string
+   * @returns { Buffer } Return a new Buffer containing string
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function from(input: string, encoding?: BufferEncoding): Buffer;
 
   /**
    * Returns true if obj is a Buffer, false otherwise
@@ -975,7 +989,7 @@ declare namespace buffer {
     /**
      * Fills this Buffer instance at the specified position. By default, data is filled cyclically.
      *
-     * @param { string | Buffer | Uint8Array | double | long } value - Value to fill.
+     * @param { string | Buffer | Uint8Array | int | double | long } value - Value to fill.
      * @param { int } [offset] - Offset to the start position in this Buffer instance where data is filled. The default value is 0.
      * @param { int } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
@@ -991,7 +1005,7 @@ declare namespace buffer {
      * @arkts 1.1&1.2
      */
     fill(
-      value: string | Buffer | Uint8Array | double | long,
+      value: string | Buffer | Uint8Array | int | double | long,
       offset?: int,
       end?: int,
       encoding?: BufferEncoding
@@ -1219,7 +1233,7 @@ declare namespace buffer {
     /**
      * Checks whether this Buffer instance contains the specified value.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * Number of bytes to skip before starting to check data. If the offset is a negative number,
      * data is checked from the end of the Buffer instance. The default value is 0.
@@ -1234,7 +1248,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    includes(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
+    includes(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
 
     /**
      * The index of the first occurrence of value in buf
@@ -1268,7 +1282,7 @@ declare namespace buffer {
     /**
      * Obtains the index of the first occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance. The default value is 0.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
@@ -1282,7 +1296,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    indexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
+    indexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Creates and returns an iterator of buf keys (indices).
@@ -1399,7 +1413,7 @@ declare namespace buffer {
     /**
      * Obtains the index of the last occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance.
      * The default value is the length of this Buffer instance.
@@ -1414,7 +1428,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastIndexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
+    lastIndexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
