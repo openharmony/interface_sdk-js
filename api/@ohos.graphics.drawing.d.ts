@@ -9025,7 +9025,8 @@ declare namespace drawing {
      * Checks if the 2D rectangular object is empty.
      *
      * @param { common2D.Rect } rect - Indicates the Rect object.
-     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom); returns false otherwise.
+     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom);
+     *     returns false otherwise.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -9114,7 +9115,8 @@ declare namespace drawing {
      *
      * @param { common2D.Rect } rect - Indicates the Rect object.
      * @param { common2D.Rect } other - Indicates the other Rect object for comparison.
-     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal; returns false otherwise.
+     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal;
+     *     returns false otherwise.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
