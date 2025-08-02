@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -27,21 +28,17 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  *
  * @interface StepperOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface StepperOptions {
-    /**
-     * Set the stepper index.
-     *
-     * @type { ?(number | Bindable<number>) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    index?: number | Bindable<number>;
+  /**
+   * Set the stepper index.
+   *
+   * @type { ?(number | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  index?: number | Bindable<number>;
 }
 
 /**
@@ -49,9 +46,8 @@ export interface StepperOptions {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare interface StepperAttribute extends CommonMethod {
   /**
@@ -119,7 +115,7 @@ export declare interface StepperAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Stepper(
-    value?: StepperOptions, 
-    @memo
-    content_?: () => void,
+  value?: StepperOptions,
+  @memo
+  content_?: () => void,
 ): StepperAttribute

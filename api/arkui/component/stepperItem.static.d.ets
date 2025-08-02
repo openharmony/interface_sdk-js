@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -27,50 +28,40 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum ItemState {
-    /**
-     * Default State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Normal,
+  /**
+   * Default State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Normal,
 
-    /**
-     * Disabled State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Disabled,
+  /**
+   * Disabled State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Disabled,
 
-    /**
-     * Waiting State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Waiting,
+  /**
+   * Waiting State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Waiting,
 
-    /**
-     * Skip State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Skip
+  /**
+   * Skip State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Skip
 }
 
 /**
@@ -78,9 +69,8 @@ export declare enum ItemState {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare interface StepperItemAttribute extends CommonMethod {
   /**
@@ -128,7 +118,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function StepperItem(
-    
-    @memo
-    content_?: () => void,
+
+  @memo
+  content_?: () => void,
 ): StepperItemAttribute

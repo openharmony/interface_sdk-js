@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,16 +23,11 @@
 import { AttributeModifier } from './component/common';
 import { StepperItemAttribute } from './component/stepperItem';
 
-import { AttributeModifier } from './component/common';
-import { StepperItemAttribute } from './component/stepperItem';
-
 /**
  * Defines StepperItem Modifier
  *
  * @implements { StepperItemAttribute, AttributeModifier<StepperItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {

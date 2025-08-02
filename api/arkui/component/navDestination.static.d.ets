@@ -13,30 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ 
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Resource } from '../../global/resource';
-import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from "../../@internal/component/ets/common";
-import { CustomBuilder } from './builder';
-import { Length, ResourceStr } from "../../@internal/component/ets/units";
-import { TitleHeight, Curve } from "../../@internal/component/ets/enums";
-import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem, NavigationMenuOptions, NavigationOperation, SystemBarStyle } from "../../@internal/component/ets/navigation";
-import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+ 
 import window from '../../@ohos.window';
-import image from '../../@ohos.multimedia.image';
-import { Scroller } from "../../@internal/component/ets/scroll";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { Resource } from '../../global/resource';
+import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from './common';
+import { CustomBuilder } from './builder';
+import { Length, ResourceStr } from './units';
+import { TitleHeight, Curve } from './enums';
+import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem,
+    NavigationMenuOptions, NavigationOperation, SystemBarStyle } from './navigation';
+import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { Scroller } from './scroll';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Import the Orientation type from @ohos.window.
  *
  * @typedef { window.Orientation } Orientation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export type Orientation = window.Orientation;
@@ -46,8 +46,6 @@ export type Orientation = window.Orientation;
  *
  * @interface NavDestinationCommonTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface NavDestinationCommonTitle {
@@ -56,8 +54,6 @@ export declare interface NavDestinationCommonTitle {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     main: string | Resource;
@@ -67,8 +63,6 @@ export declare interface NavDestinationCommonTitle {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     sub: string | Resource;
@@ -79,8 +73,6 @@ export declare interface NavDestinationCommonTitle {
  *
  * @interface NavDestinationCustomTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface NavDestinationCustomTitle {
@@ -89,8 +81,6 @@ export declare interface NavDestinationCustomTitle {
      *
      * @type { CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     builder: CustomBuilder;
@@ -99,8 +89,6 @@ export declare interface NavDestinationCustomTitle {
      *
      * @type { TitleHeight | Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     height: TitleHeight | Length;
@@ -111,8 +99,6 @@ export declare interface NavDestinationCustomTitle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum NavigationSystemTransitionType {
@@ -120,8 +106,6 @@ export declare enum NavigationSystemTransitionType {
      * Default system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     DEFAULT = 0,
@@ -129,8 +113,6 @@ export declare enum NavigationSystemTransitionType {
      * None system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     NONE = 1,
@@ -138,8 +120,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure only titlebar transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     TITLE = 2,
@@ -147,8 +127,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure only content transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     CONTENT = 3,
@@ -156,8 +134,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure fade style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     FADE = 4,
@@ -165,8 +141,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure explode style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     EXPLODE = 5,
@@ -174,8 +148,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure right-side slide style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     SLIDE_RIGHT = 6,
@@ -183,8 +155,6 @@ export declare enum NavigationSystemTransitionType {
      * Configure bottom-side slide style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     SLIDE_BOTTOM = 7
@@ -195,8 +165,6 @@ export declare enum NavigationSystemTransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum NavDestinationMode {
@@ -204,8 +172,6 @@ export declare enum NavDestinationMode {
      * Standard mode is default mode of NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     STANDARD = 0,
@@ -213,8 +179,6 @@ export declare enum NavDestinationMode {
      * Dialog mode is transparent by default and does not affect the life cycle of other NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     DIALOG = 1
@@ -225,8 +189,6 @@ export declare enum NavDestinationMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum NavDestinationActiveReason {
@@ -234,8 +196,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because of page transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     TRANSITION = 0,
@@ -244,8 +204,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because content cover changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     CONTENT_COVER = 1,
@@ -254,8 +212,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because sheet changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     SHEET = 2,
@@ -264,8 +220,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because dialog changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     DIALOG = 3,
@@ -274,8 +228,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because overlay changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     OVERLAY = 4,
@@ -284,8 +236,6 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because app state changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     APP_STATE = 5
@@ -296,8 +246,6 @@ export declare enum NavDestinationActiveReason {
  *
  * @interface RouteMapConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface RouteMapConfig {
@@ -306,8 +254,6 @@ export declare interface RouteMapConfig {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     name: string;
@@ -317,8 +263,6 @@ export declare interface RouteMapConfig {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     pageSourceFile: string;
@@ -328,8 +272,6 @@ export declare interface RouteMapConfig {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     data: Object;
@@ -340,8 +282,6 @@ export declare interface RouteMapConfig {
  *
  * @interface NavDestinationContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface NavDestinationContext {
@@ -350,8 +290,6 @@ export declare interface NavDestinationContext {
      *
      * @type { NavPathInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     pathInfo: NavPathInfo;
@@ -361,8 +299,6 @@ export declare interface NavDestinationContext {
      *
      * @type { NavPathStack }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     pathStack: NavPathStack;
@@ -372,8 +308,6 @@ export declare interface NavDestinationContext {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     navDestinationId?: string;
@@ -381,10 +315,8 @@ export declare interface NavDestinationContext {
     /**
      * Get configuration of current Destination in module.json
      *
-     * @returns {RouteMapConfig | undefined}
+     * @returns { RouteMapConfig | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     getConfigInRouteMap(): RouteMapConfig | undefined;
@@ -395,8 +327,6 @@ export declare interface NavDestinationContext {
  *
  * @interface NestedScrollInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface NestedScrollInfo {
@@ -405,8 +335,6 @@ export declare interface NestedScrollInfo {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     parent: Scroller;
@@ -416,8 +344,6 @@ export declare interface NestedScrollInfo {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     child: Scroller;
@@ -428,8 +354,6 @@ export declare interface NestedScrollInfo {
 *
 * @interface NavDestinationTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
 * @since 20
 */
 export declare interface NavDestinationTransition {
@@ -438,8 +362,6 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     onTransitionEnd?: Callback<void>;
@@ -449,8 +371,6 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     duration?: number;
@@ -460,8 +380,6 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?Curve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     curve?: Curve;
@@ -471,8 +389,6 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     delay?: number;
@@ -482,8 +398,6 @@ export declare interface NavDestinationTransition {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     event: Callback<void>;
@@ -494,9 +408,8 @@ export declare interface NavDestinationTransition {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare interface NavDestinationAttribute extends CommonMethod {
     /**
@@ -506,8 +419,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationTitleOptions | undefined } [options] - Indicates the options of titlebar.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource | undefined, options?: NavigationTitleOptions | undefined): this;
@@ -518,8 +429,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default hideTitleBar(value: boolean | undefined): this;
@@ -531,8 +440,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } animated
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
@@ -543,8 +450,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } hide
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default hideBackButton(hide: boolean | undefined): this;
@@ -555,8 +460,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the navDestination page is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onShown(callback: (() => void) | undefined): this;
@@ -567,8 +470,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onHidden(callback: (() => void) | undefined): this;
@@ -579,8 +480,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the backButton is pressed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onBackPressed(callback: (() => boolean) | undefined): this;
@@ -591,8 +490,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<Object | null | undefined> | undefined } callback - Indicates callback when pop to the navDestination with result.
      * @returns {NavDestinationAttribute}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onResult(callback: Callback<Object | null | undefined> | undefined): this;
@@ -603,8 +500,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavDestinationMode | undefined } value - NavDestinationMode
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default mode(value: NavDestinationMode | undefined): this;
@@ -615,8 +510,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { ResourceStr | PixelMap | SymbolGlyphModifier | undefined } value - Indicates icon of back button.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier | undefined): this;
@@ -628,8 +521,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } [accessibilityText] - Indicates content needs to broadcast.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
@@ -640,8 +531,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<NavigationMenuItem> | CustomBuilder | undefined } value
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
@@ -653,8 +542,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationMenuOptions | undefined } [options] - Indicates the options of menu.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
@@ -666,8 +553,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
       * @param { NavigationToolbarOptions | undefined } [options] - Indicates the options of toolbar.
       * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
       * @since 20
       */
     default toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
@@ -679,8 +564,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } [animated]
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default hideToolBar(hide: boolean | undefined, animated?: boolean | undefined): this;
@@ -688,12 +571,9 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     /**
      * Invoked before sub-components of NavDestination are created.
      *
-     * @param { Callback<NavDestinationContext> | undefined } callback
-     * - Indicates callback that invoked before sub-components of NavDestination are created.
+     * @param { Callback<NavDestinationContext> | undefined } callback - Indicates callback that invoked before sub-components of NavDestination are created.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onReady(callback: Callback<NavDestinationContext> | undefined): this;
@@ -704,8 +584,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is appeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onWillAppear(callback: Callback<void> | undefined): this;
@@ -716,8 +594,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is disappeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onWillDisappear(callback: Callback<void> | undefined): this;
@@ -728,8 +604,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onWillShow(callback: Callback<void> | undefined): this;
@@ -740,8 +614,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onWillHide(callback: Callback<void> | undefined): this;
@@ -753,8 +625,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - Indicates the edges of the safe area.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
@@ -765,7 +635,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { SystemBarStyle | undefined } style - The properties of system bar
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     default systemBarStyle(style: SystemBarStyle | undefined): this;
@@ -787,8 +656,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationSystemTransitionType | undefined } type - Types of system Transition
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default systemTransition(type: NavigationSystemTransitionType | undefined): this;
@@ -799,8 +666,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<Scroller> | undefined } scrollers - The controllers of the scrollable container components.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default bindToScrollable(scrollers: Array<Scroller> | undefined): this;
@@ -811,8 +676,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<NestedScrollInfo> | undefined } scrollInfos - The controllers of the nested scrollable container components.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo> | undefined): this;
@@ -823,8 +686,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<NavDestinationActiveReason> | undefined } callback - Indicates callback when destination is active.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onActive(callback: Callback<NavDestinationActiveReason> | undefined): this;
@@ -835,8 +696,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<NavDestinationActiveReason> | undefined } callback - Indicates callback when destination is inactive.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onInactive(callback: Callback<NavDestinationActiveReason> | undefined): this;
@@ -847,8 +706,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavDestinationTransitionDelegate | undefined } delegate - The delegate of NavDestination custom animation.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default customTransition(delegate: NavDestinationTransitionDelegate | undefined): this;
@@ -859,8 +716,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<Object | null | undefined> | undefined } callback - Indicates callback when destination be pushed with singleton mode.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onNewParam(callback: Callback<Object | null | undefined> | undefined): this;
@@ -871,8 +726,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Orientation | undefined } orientation - The preferred Orientation of NavDestination.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default preferredOrientation(orientation: Orientation | undefined): this;
@@ -885,8 +738,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      *                                 using animation if true or not using animation if false.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default enableStatusBar(enabled: boolean | undefined, animated?: boolean | undefined): this;
@@ -897,8 +748,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled - Show navigationIndicator if true, or hide navigationIndicator if false.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default enableNavigationIndicator(enabled: boolean | undefined): this;
@@ -923,8 +772,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
  * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
  * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;

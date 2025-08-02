@@ -552,15 +552,6 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @atomicservice
  * @since 18
  */
-/**
- * Defines the ArcSwiper Component that can provide the ability for sub components to swipe and display.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @crossplatform
- * @atomicservice
- * @uicomponent
- * @since 20
- */
 declare let ArcSwiper: ArcSwiperInterface;
 
 /**

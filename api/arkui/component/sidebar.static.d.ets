@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
+
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
 import { CommonMethod, PixelMap, Bindable, AttributeModifier } from './common';
@@ -28,39 +30,31 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum SideBarContainerType {
-    /**
-     * The sidebar invisible
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Embed,
+  /**
+   * The sidebar invisible
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Embed,
 
-    /**
-     * The sidebar visible
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Overlay,
+  /**
+   * The sidebar visible
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Overlay,
 
-    /**
-     * The sidebar AUTO
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    AUTO
+  /**
+   * The sidebar AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  AUTO
 }
 
 /**
@@ -68,30 +62,24 @@ export declare enum SideBarContainerType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum SideBarPosition {
-    /**
-     * The sidebar is on the Start of the container
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Start,
+  /**
+   * The sidebar is on the Start of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Start,
 
-    /**
-     * The sidebar is on the End of the container
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    End
+  /**
+   * The sidebar is on the End of the container
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  End
 }
 
 /**
@@ -99,46 +87,38 @@ export declare enum SideBarPosition {
  *
  * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface ButtonIconOptions {
-    /**
-     * Defines whether an icon is shown.
-     *
-     * Anonymous Object Rectification.
-     * @type { string | PixelMap | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    shown: string | PixelMap | Resource;
+  /**
+   * Defines whether an icon is shown.
+   *
+   * Anonymous Object Rectification.
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  shown: string | PixelMap | Resource;
 
-    /**
-     * Defines whether an icon is hidden.
-     *
-     * Anonymous Object Rectification.
-     * @type { string | PixelMap | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    hidden: string | PixelMap | Resource;
+  /**
+   * Defines whether an icon is hidden.
+   *
+   * Anonymous Object Rectification.
+   * @type { string | PixelMap | Resource }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  hidden: string | PixelMap | Resource;
 
-    /**
-     * Defines whether an icon is switching.
-     *
-     * Anonymous Object Rectification.
-     * @type { ?(string | PixelMap | Resource) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    switching?: string | PixelMap | Resource;
+  /**
+   * Defines whether an icon is switching.
+   *
+   * Anonymous Object Rectification.
+   * @type { ?(string | PixelMap | Resource) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  switching?: string | PixelMap | Resource;
 }
 
 /**
@@ -146,69 +126,57 @@ export declare interface ButtonIconOptions {
  *
  * @interface ButtonStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface ButtonStyle {
-    /**
-     * Set the left of control button
-     * default value is 16vp.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    left?: number;
+  /**
+   * Set the left of control button
+   * default value is 16vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  left?: number;
 
-    /**
-     * Set the top of control button
-     * default value is 48vp.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    top?: number;
+  /**
+   * Set the top of control button
+   * default value is 48vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  top?: number;
 
-    /**
-     * Set the width of control button
-     * default value is 24vp.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    width?: number;
+  /**
+   * Set the width of control button
+   * default value is 24vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  width?: number;
 
-    /**
-     * Set the height of control button
-     * default value is 24vp.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    height?: number;
+  /**
+   * Set the height of control button
+   * default value is 24vp.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  height?: number;
 
-    /**
-     * Set the button icon when sidebar status has changed
-     *
-     * @type { ?ButtonIconOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    icons?: ButtonIconOptions;
+  /**
+   * Set the button icon when sidebar status has changed
+   *
+   * @type { ?ButtonIconOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  icons?: ButtonIconOptions;
 }
 
 /**
@@ -217,55 +185,45 @@ export declare interface ButtonStyle {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DividerStyle {
-    /**
-     * Define the stroke width of the divider
-     *
-     * @type { Length }
-     * @default 1vp
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    strokeWidth: Length;
+  /**
+   * Define the stroke width of the divider
+   *
+   * @type { Length }
+   * @default 1vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  strokeWidth: Length;
 
-    /**
-     * Define the color of the divider
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    color?: ResourceColor;
+  /**
+   * Define the color of the divider
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  color?: ResourceColor;
 
-    /**
-     * Define the start margin of the divider
-     *
-     * @type { ?Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    startMargin?: Length;
+  /**
+   * Define the start margin of the divider
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  startMargin?: Length;
 
-    /**
-     * Define the end margin of the divider
-     *
-     * @type { ?Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    endMargin?: Length;
+  /**
+   * Define the end margin of the divider
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  endMargin?: Length;
 }
 
 /**
@@ -273,9 +231,8 @@ export interface DividerStyle {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare interface SideBarContainerAttribute extends CommonMethod {
   /**
@@ -431,7 +388,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function SideBarContainer(
-    type?: SideBarContainerType, 
-    @memo
-    content_?: () => void,
+  type?: SideBarContainerType,
+  @memo
+  content_?: () => void,
 ): SideBarContainerAttribute
