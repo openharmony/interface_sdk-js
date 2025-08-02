@@ -2997,38 +2997,6 @@ function writeSync(
 ): number;
 
 /**
- * Connect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @param { DfsListeners } listeners - The listeners of Distributed File System.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13900045 - Connection failed.
- * @throws { BusinessError } 13900046 - Software caused connection abort.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
-
-/**
- * Disconnect Distributed File System.
- *
- * @permission ohos.permission.DISTRIBUTED_DATASYNC
- * @param { string } networkId - The networkId of device.
- * @returns { Promise<void> } The promise returned by the function.
- * @throws { BusinessError } 201 - Permission denied.
- * @throws { BusinessError } 401 - The parameter check failed.Possible causes:1.Mandatory parameters are left unspecified;
- * <br>2.Incorrect parameter types.
- * @throws { BusinessError } 13600004 - Unmount failed.
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function disconnectDfs(networkId: string): Promise<void>;
-
-/**
  * Set extended attributes information of the file.
  *
  * @param { string } path - path.
@@ -4890,25 +4858,6 @@ export interface WriteStreamOptions {
    * @since 20
    */
   start?: number;
-}
-
-/**
- * The listeners of Distributed File System.
- *
- * @typedef DfsListeners
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-export interface DfsListeners {
-  /**
-   * The Listener of Distributed File System status
-   *
-   * @param { string } networkId - The networkId of device.
-   * @param { number } status - The status code of Distributed File System.
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  onStatus(networkId: string, status: number): void;
 }
 
 /**
