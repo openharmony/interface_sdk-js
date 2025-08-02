@@ -12716,7 +12716,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityGroup(value: boolean | undefined): this;
+    default accessibilityGroupWithValue(value: boolean | undefined): this;
     /**
      * Sets whether to enable accessibility grouping.
      *
@@ -12740,7 +12740,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions: AccessibilityOptions | undefined): this;
+    default accessibilityGroupWithIsGroupAccessibilityOptions(isGroup: boolean | undefined, accessibilityOptions: AccessibilityOptions | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityGroup { accessibilityGroupWithValue, accessibilityGroupWithIsGroupAccessibilityOptions };
     /**
      * Sets the accessibility text.
      * When a component does not contain a text attribute, you can use this API to set an accessibility
@@ -12754,7 +12758,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityText(value: string | undefined): this;
+    default accessibilityTextWithStringTypedValue(value: string | undefined): this;
     /**
      * Sets accessibility next focus id
      * @param { string } nextId - set component next accessibility focus id
@@ -12815,7 +12819,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityText(text: Resource | undefined): this;
+    default accessibilityTextWithResourceTypedText(text: Resource | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityText { accessibilityTextWithStringTypedValue, accessibilityTextWithResourceTypedText };
     /**
      * Sets accessibility role,role indicates the custom type of the component
      * @param { AccessibilityRoleType } role - set accessibility component type
@@ -12861,7 +12869,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityDescription(value: string | undefined): this;
+    default accessibilityDescriptionWithStringTypedValue(value: string | undefined): this;
     /**
      * Sets accessibilityDescription
      *
@@ -12882,7 +12890,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityDescription(description: Resource | undefined): this;
+    default accessibilityDescriptionWithResourceTypedDescription(description: Resource | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityDescription { accessibilityDescriptionWithStringTypedValue, accessibilityDescriptionWithResourceTypedDescription };
     /**
      * Sets the accessibility level.
      * This property determines whether the component can be recognized by accessibility services.
