@@ -12,15 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-
-
-
 /**
  * Defines Select Modifier
  *
@@ -42,15 +37,14 @@
  * @noninterop
  */
 export declare class SelectModifier extends SelectAttribute implements AttributeModifier<SelectAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { SelectAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: SelectAttribute): void;
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @param { SelectAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: SelectAttribute): void;
 }
