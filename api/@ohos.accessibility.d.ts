@@ -1321,6 +1321,7 @@ declare namespace accessibility {
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'touchModeChange', callback: Callback<string>): void;
 
@@ -1391,6 +1392,7 @@ declare namespace accessibility {
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
