@@ -715,6 +715,7 @@ declare interface TabBarIconStyle {
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TabBarSymbol {
   /**
@@ -1441,6 +1442,7 @@ declare class BottomTabBarStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TabContentInterface {
   /**
@@ -1495,6 +1497,7 @@ interface TabContentInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   /**
@@ -1654,6 +1657,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TabContent: TabContentInterface;
 
@@ -1677,5 +1681,6 @@ declare const TabContent: TabContentInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TabContentInstance: TabContentAttribute;

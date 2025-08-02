@@ -58,6 +58,7 @@ import { Resource } from '../../global/resource'
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface QRCodeInterface {
   /**
@@ -147,6 +148,7 @@ interface QRCodeInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
@@ -281,6 +283,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const QRCode: QRCodeInterface;
 
@@ -313,5 +316,6 @@ declare const QRCode: QRCodeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const QRCodeInstance: QRCodeAttribute;

@@ -49,6 +49,7 @@ import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface MenuItemOptions {
   /**
@@ -251,6 +252,7 @@ declare interface MenuItemOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface MenuItemInterface {
   /**
@@ -308,6 +310,7 @@ interface MenuItemInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
@@ -548,6 +551,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MenuItem: MenuItemInterface;
 
@@ -571,5 +575,6 @@ declare const MenuItem: MenuItemInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const MenuItemInstance: MenuItemAttribute;

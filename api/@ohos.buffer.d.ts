@@ -126,6 +126,35 @@ declare namespace buffer {
     | Float64Array
     | BigInt64Array
     | BigUint64Array;
+
+  /**
+   * ArrayUnionType features and methods
+   *
+   * @typedef { Array<Int8Array> | Array<Uint8Array> | Array<Uint8ClampedArray> | Array<Int16Array> | Array<Uint16Array> | Array<Int32Array> |
+   * Array<Uint32Array> | Array<Float32Array> | Array<Float64Array> | Array<BigInt64Array> | Array<BigUint64Array> | Array<string> |
+   * Array<ArrayBuffer> | Array<DataView> | Array<Blob>}
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type ArrayUnionType =  Array<Int8Array>
+    | Array<Uint8Array>
+    | Array<Uint8ClampedArray>
+    | Array<Int16Array>
+    | Array<Uint16Array>
+    | Array<Int32Array>
+    | Array<Uint32Array>
+    | Array<Float32Array>
+    | Array<Float64Array>
+    | Array<BigInt64Array>
+    | Array<BigUint64Array>
+    | Array<string>
+    | Array<ArrayBuffer>
+    | Array<DataView>
+    | Array<Blob>;
+
   /**
    * Allocates a new Buffer for a fixed size bytes. If fill is undefined, the Buffer will be zero-filled.
    *
@@ -159,7 +188,7 @@ declare namespace buffer {
    * Creates and initializes a Buffer instance of the specified length.
    *
    * @param { int } size - Size of the Buffer instance to create, in bytes.
-   * @param { string | Buffer | double | long } [fill] - Value to be filled in the buffer. The default value is 0.
+   * @param { string | Buffer | int | double | long } [fill] - Value to be filled in the buffer. The default value is 0.
    * @param { BufferEncoding } [encoding] - Encoding format (valid only when fill is a string). The default value is 'utf8'.
    * @returns { Buffer } Return a new allocated Buffer
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -172,7 +201,7 @@ declare namespace buffer {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function alloc(size: int, fill?: string | Buffer | double | long, encoding?: BufferEncoding): Buffer;
+  function alloc(size: int, fill?: string | Buffer | int | double | long, encoding?: BufferEncoding): Buffer;
 
   /**
    * Allocates a new Buffer for a fixed size bytes. The Buffer will not be initially filled.
@@ -407,8 +436,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(array: double[]): Buffer;
 
@@ -466,23 +494,6 @@ declare namespace buffer {
   function from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): Buffer;
 
   /**
-   * This creates a view of the ArrayBuffer without copying the underlying memory.
-   *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer, 
-   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
-   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
-   * @returns { Buffer } Return a view of the ArrayBuffer
-   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
-   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function from(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
-
-  /**
    * Copies the passed buffer data onto a new Buffer instance.
    *
    * @param { Buffer | Uint8Array } buffer - buffer buffer An existing Buffer or Uint8Array from which to copy data
@@ -516,8 +527,7 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(buffer: Buffer | Uint8Array): Buffer;
 
@@ -567,21 +577,6 @@ declare namespace buffer {
   function from(object: Object, offsetOrEncoding: int | string, length: int): Buffer;
 
   /**
-   * Creates a Buffer instance based on the specified object.
-   *
-   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
-   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
-   * @param { int } length - Length of the Buffer instance to create, in bytes.
-   * @returns { Buffer } Return a new allocated Buffer
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function from(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
-
-  /**
    * Creates a new Buffer containing string. The encoding parameter identifies the character encoding
    * to be used when converting string into bytes.
    *
@@ -619,10 +614,95 @@ declare namespace buffer {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function from(string: String, encoding?: BufferEncoding): Buffer;
+
+  /**
+   * Creates a Buffer instance with the specified array.
+   *
+   * @param { double[] } array - Array to create a Buffer instance.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithArray(array: double[]): Buffer;
+
+  /**
+   * This creates a view of the ArrayBuffer without copying the underlying memory.
+   *
+   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
+   * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
+   * @returns { Buffer } Return a view of the ArrayBuffer
+   * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
+   * It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithArrayBufferByteOffsetLength(arrayBuffer: ArrayBuffer, byteOffset?: int, length?: int): Buffer;
+
+  /**
+   * Copies the data of a passed Buffer instance to create a new Buffer instance and returns the new one.
+   *
+   * @param { Buffer | Uint8Array } buffer - Buffer or Uint8Array instance.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithBuffer(buffer: Buffer | Uint8Array): Buffer;
+
+  /**
+   * Creates a Buffer instance based on the specified object.
+   *
+   * @param { Object } input - Object that supports Symbol.toPrimitive or valueOf().
+   * @param { int | string } offsetOrEncoding - Byte offset or encoding format.
+   * @param { int } length - Length of the Buffer instance to create, in bytes.
+   * @returns { Buffer } Return a new allocated Buffer
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithObjectTypedInputOffsetOrEncodingLength(input: Object, offsetOrEncoding: int | string, length: int): Buffer;
+
+  /**
+   * Creates a Buffer instance based on various types.
+   *
+   * @param { string } input - string.
+   * @param { BufferEncoding } [encoding] - Encoding format of the string. The default value is 'utf8'.
+   * @returns { Buffer } Return a new Buffer containing string
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  function fromWithStringTypedInputEncoding(input: string, encoding?: BufferEncoding): Buffer;
+
+  /**
+   * Creates a Buffer instance based on a string in the given encoding format.
+   *
+   * @overload { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
+                fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  export overload from { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
+                  fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
 
   /**
    * Returns true if obj is a Buffer, false otherwise
@@ -975,7 +1055,7 @@ declare namespace buffer {
     /**
      * Fills this Buffer instance at the specified position. By default, data is filled cyclically.
      *
-     * @param { string | Buffer | Uint8Array | double | long } value - Value to fill.
+     * @param { string | Buffer | Uint8Array | int | double | long } value - Value to fill.
      * @param { int } [offset] - Offset to the start position in this Buffer instance where data is filled. The default value is 0.
      * @param { int } [end] - Offset to the end position in this Buffer instance (not inclusive). The default value is the length of this Buffer instance.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
@@ -991,7 +1071,7 @@ declare namespace buffer {
      * @arkts 1.1&1.2
      */
     fill(
-      value: string | Buffer | Uint8Array | double | long,
+      value: string | Buffer | Uint8Array | int | double | long,
       offset?: int,
       end?: int,
       encoding?: BufferEncoding
@@ -1219,7 +1299,7 @@ declare namespace buffer {
     /**
      * Checks whether this Buffer instance contains the specified value.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * Number of bytes to skip before starting to check data. If the offset is a negative number,
      * data is checked from the end of the Buffer instance. The default value is 0.
@@ -1234,7 +1314,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    includes(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
+    includes(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): boolean;
 
     /**
      * The index of the first occurrence of value in buf
@@ -1268,7 +1348,7 @@ declare namespace buffer {
     /**
      * Obtains the index of the first occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance. The default value is 0.
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when value is a string). The default value is 'utf8'.
@@ -1282,7 +1362,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    indexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
+    indexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Creates and returns an iterator of buf keys (indices).
@@ -1399,7 +1479,7 @@ declare namespace buffer {
     /**
      * Obtains the index of the last occurrence of the specified value in this Buffer instance.
      *
-     * @param { string | double | long | Buffer | Uint8Array } value - Value to match.
+     * @param { string | int | double | long | Buffer | Uint8Array } value - Value to match.
      * @param { int } [byteOffset] - Number of bytes to skip before starting to check data.
      * If the offset is a negative number, data is checked from the end of the Buffer instance.
      * The default value is the length of this Buffer instance.
@@ -1414,7 +1494,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lastIndexOf(value: string | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
+    lastIndexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
      * Reads a signed, big-endian 64-bit integer from buf at the specified offset
@@ -3165,7 +3245,8 @@ declare namespace buffer {
      * Writes a big-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3213,7 +3294,8 @@ declare namespace buffer {
      * Writes a little-endian signed value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3501,7 +3583,8 @@ declare namespace buffer {
      * Writes an unsigned big-endian value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3549,7 +3632,8 @@ declare namespace buffer {
      * Writes an unsigned little-endian value of the specified length to this Buffer instance at the specified offset.
      *
      * @param { long } value - Data to write.
-     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0. The value range is [0, Buffer.length - byteLength].
+     * @param { int } offset - Number of bytes to skip before starting to write data. The default value is 0.
+     *     The value range is [0, Buffer.length - byteLength].
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } offset plus the number of bytes written
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3577,7 +3661,7 @@ declare namespace buffer {
      * @since 20
      * @arkts 1.2
      */
-    [index: int]: Long;
+    [index: int]: long;
   }
 
   /**
@@ -3687,21 +3771,17 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob> } sources - sources sources An array of string, <ArrayBuffer>,
-     * <TypedArray>, <DataView>, or <Blob> objects, or any mix of such objects, that will be stored within the Blob
+     * @param { ArrayUnionType } sources - sources sources ArrayUnionType
      * @param { BlobOptions } [options] - options options {endings: string, type: string}
      *                 endings:  One of either 'transparent' or 'native'.
      *                 type: The Blob content-type
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    constructor(sources: Array<TypedArray> | Array<string> | Array<ArrayBuffer> | Array<DataView> | Array<Blob>, options?: BlobOptions);
+    constructor(sources: ArrayUnionType, options?: BlobOptions);
 
     /**
      * The total size of the Blob in bytes
@@ -3728,7 +3808,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: int;
+    get size(): int;
 
     /**
      * The content-type of the Blob
@@ -3755,7 +3835,7 @@ declare namespace buffer {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    type: string;
+    get type(): string;
 
     /**
      * Returns a promise that fulfills with an <ArrayBuffer> containing a copy of the Blob data.

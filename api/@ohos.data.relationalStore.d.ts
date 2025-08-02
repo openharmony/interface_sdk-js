@@ -1901,14 +1901,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RebuildType {
     /**
      * The database is not rebuilt or repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE,
 
@@ -1916,7 +1918,8 @@ declare namespace relationalStore {
      * The database is rebuilt.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REBUILT,
 
@@ -1924,7 +1927,8 @@ declare namespace relationalStore {
      * The database is repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPAIRED
   }
@@ -1943,6 +1947,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum TransactionType {
     /**
@@ -1957,6 +1962,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DEFERRED,
 
@@ -1972,6 +1978,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     IMMEDIATE,
 
@@ -1987,6 +1994,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     EXCLUSIVE
   }
@@ -2005,6 +2013,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -2021,6 +2030,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
@@ -2875,7 +2885,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -3013,7 +3024,8 @@ declare namespace relationalStore {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     columnNames: Array<string>;
 
@@ -4121,7 +4133,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     getValue(columnIndex: number): ValueType;
@@ -4493,7 +4505,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: number;
 
@@ -4502,7 +4515,8 @@ declare namespace relationalStore {
      *
      * @type {RebuildType}
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rebuilt: RebuildType;
 
@@ -8424,7 +8438,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     close(): Promise<void>;
@@ -8719,7 +8733,8 @@ declare namespace relationalStore {
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Transaction {
     /**

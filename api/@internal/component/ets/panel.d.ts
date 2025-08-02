@@ -302,6 +302,7 @@ declare enum PanelHeight {
  * @atomicservice
  * @since 11
  * @deprecated since 12
+ * @noninterop
  */
 interface PanelInterface {
   /**
@@ -357,6 +358,7 @@ interface PanelInterface {
  * @atomicservice
  * @since 11
  * @deprecated since 12
+ * @noninterop
  */
 declare class PanelAttribute extends CommonMethod<PanelAttribute> {
   /**
@@ -772,6 +774,7 @@ declare class PanelAttribute extends CommonMethod<PanelAttribute> {
  * @since 11
  * @deprecated since 12
  * @useinstead bindSheet
+ * @noninterop
  */
 declare const Panel: PanelInterface;
 
@@ -796,5 +799,6 @@ declare const Panel: PanelInterface;
  * @atomicservice
  * @since 11
  * @deprecated since 12
+ * @noninterop
  */
 declare const PanelInstance: PanelAttribute;

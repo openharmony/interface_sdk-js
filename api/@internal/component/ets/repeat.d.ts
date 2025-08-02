@@ -174,6 +174,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * @form
  * @atomicservice
  * @since 19
+ * @noninterop
  */
 declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
   /**
@@ -260,6 +261,7 @@ declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
 
@@ -282,5 +284,6 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare const Repeat: RepeatInterface;

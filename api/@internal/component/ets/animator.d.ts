@@ -124,6 +124,7 @@ declare class ScrollMotion {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface AnimatorInterface {
   /**
@@ -147,6 +148,7 @@ interface AnimatorInterface {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
@@ -324,6 +326,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
+ * @noninterop
  */
 declare const Animator: AnimatorInterface;
 
@@ -333,5 +336,6 @@ declare const Animator: AnimatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @noninterop
  */
 declare const AnimatorInstance: AnimatorAttribute;

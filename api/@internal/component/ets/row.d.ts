@@ -146,6 +146,7 @@ interface RowOptionsV2 {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RowInterface {
   /**
@@ -250,6 +251,7 @@ interface RowInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
@@ -388,6 +390,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Row: RowInterface;
 
@@ -420,5 +423,6 @@ declare const Row: RowInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RowInstance: RowAttribute;

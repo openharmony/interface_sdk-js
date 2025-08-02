@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,8 +29,15 @@ import { SideBarContainerAttribute } from './component/sidebar';
  *
  * @implements { SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-export declare class SideBarContainerModifier implements SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> {}
+export declare class SideBarContainerModifier implements SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { SideBarContainerAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  applyNormalAttribute(instance: SideBarContainerAttribute): void;  
+}

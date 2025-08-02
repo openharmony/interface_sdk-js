@@ -13,71 +13,58 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
-import { CommonMethod, Callback, AttributeModifier } from "../../@internal/component/ets/common";
-import { DotIndicator, DigitIndicator } from "../../@internal/component/ets/swiper";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
+import { CommonMethod, Callback } from './common';
+import { DotIndicator, DigitIndicator } from './swiper';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Provides methods for switching components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class IndicatorComponentController {
-    /**
-     * constructor.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    constructor();
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  constructor();
 
-    /**
-     * Called when the next child component is displayed.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    showNext(): void;
+  /**
+   * Called when the next child component is displayed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  showNext(): void;
 
-    /**
-     * Called when the previous subcomponent is displayed.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    showPrevious(): void;
+  /**
+   * Called when the previous subcomponent is displayed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  showPrevious(): void;
 
-    /**
-    * Controlling IndicatorComponent to change to the specified subcomponent.
-    *
-    * @param { number } index - The index of item to be redirected.
-    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
-    *      The default value is false.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 20
-    */
-    changeIndex(index: number, useAnimation?: boolean): void;
+  /**
+   * Controlling IndicatorComponent to change to the specified subcomponent.
+   *
+   * @param { number } index - The index of item to be redirected.
+   * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
+   *      The default value is false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  changeIndex(index: number, useAnimation?: boolean): void;
 }
 
 /**
@@ -85,97 +72,74 @@ export declare class IndicatorComponentController {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare interface IndicatorComponentAttribute extends CommonMethod {
-    /**
-      * Called when the index value of the displayed subcomponent is set in the container.
-      *
-      * @param { number | undefined } index
-      * @returns { IndicatorComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @form
-      * @atomicservice
-      * @since 20
-      */
-    initialIndex(index: number | undefined): this;
+  /**
+   * Called when the index value of the displayed subcomponent is set in the container.
+   *
+   * @param { number | undefined } index
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  initialIndex(index: number | undefined): this;
 
-    /**
-     * Sets the total number of indicator.
-     *
-     * @param { number | undefined } totalCount
-     * @returns { IndicatorComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    count(totalCount: number | undefined): this;
+  /**
+   * Sets the total number of indicator.
+   *
+   * @param { number | undefined } totalCount
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  count(totalCount: number | undefined): this;
 
-    /**
-     * Sets the indicator style.
-     *
-     * @param { DotIndicator | DigitIndicator | undefined } indicatorStyle - the style value
-     * @returns { IndicatorComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
+  /**
+   * Sets the indicator style.
+   *
+   * @param { DotIndicator | DigitIndicator | undefined } indicatorStyle - the style value
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  style(indicatorStyle: DotIndicator | DigitIndicator | undefined): this;
 
-    /**
-     * Called when setting whether to turn on cyclic sliding.
-     *
-     * @param { boolean | undefined } isLoop
-     * @returns { IndicatorComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    loop(isLoop: boolean | undefined): this;
+  /**
+   * Called when setting whether to turn on cyclic sliding.
+   *
+   * @param { boolean | undefined } isLoop
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  loop(isLoop: boolean | undefined): this;
 
-    /**
-     * Called when setting whether to slide vertically.
-     *
-     * @param { boolean | undefined } isVertical
-     * @returns { IndicatorComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    vertical(isVertical: boolean | undefined): this;
+  /**
+   * Called when setting whether to slide vertically.
+   *
+   * @param { boolean | undefined } isVertical
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  vertical(isVertical: boolean | undefined): this;
 
-    /**
-     * Called when the index value changes.
-     *
-     * @param { Callback<number> | undefined } event
-     * @returns { IndicatorComponentAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onChange(event: Callback<number> | undefined): this;
-
-    attributeModifier(modifier: AttributeModifier<IndicatorComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Called when the index value changes.
+   *
+   * @param { Callback<number> | undefined } event
+   * @returns { IndicatorComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onChange(event: Callback<number> | undefined): this;
 }
 
 @memo
 @ComponentBuilder
 export declare function IndicatorComponent(
-    controller?: IndicatorComponentController, 
-    @memo
-    content_?: () => void,
+  controller?: IndicatorComponentController,
+  @memo
+  content_?: () => void,
 ): IndicatorComponentAttribute

@@ -2172,6 +2172,7 @@ interface Particles {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ParticleInterface {
   /**
@@ -2500,6 +2501,7 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
@@ -2541,6 +2543,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Particle: ParticleInterface;
 

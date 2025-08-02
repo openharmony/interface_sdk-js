@@ -256,6 +256,7 @@ declare class PatternLockController {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface PatternLockInterface {
   /**
@@ -313,6 +314,7 @@ interface PatternLockInterface {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
@@ -709,6 +711,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const PatternLock: PatternLockInterface;
 
@@ -732,5 +735,6 @@ declare const PatternLock: PatternLockInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const PatternLockInstance: PatternLockAttribute;

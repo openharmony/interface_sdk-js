@@ -1222,6 +1222,7 @@ interface ListOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ListInterface {
   /**
@@ -1509,6 +1510,7 @@ declare interface ListDividerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
@@ -2766,6 +2768,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const List: ListInterface;
 
@@ -2798,5 +2801,6 @@ declare const List: ListInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ListInstance: ListAttribute;

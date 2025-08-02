@@ -327,6 +327,7 @@ declare interface TextAreaOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TextAreaInterface {
   /**
@@ -524,6 +525,7 @@ declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: Submi
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
@@ -2118,6 +2120,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextArea: TextAreaInterface;
 
@@ -2141,5 +2144,6 @@ declare const TextArea: TextAreaInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextAreaInstance: TextAreaAttribute;

@@ -13,34 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Bindable, CommonMethod, AttributeModifier } from "../../@internal/component/ets/common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
+import { Bindable, CommonMethod } from './common';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Declare the StepperOptions.
  *
  * @interface StepperOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface StepperOptions {
-    /**
-     * Set the stepper index.
-     *
-     * @type { ?(number | Bindable<number>) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    index?: number | Bindable<number>;
+  /**
+   * Set the stepper index.
+   *
+   * @type { ?(number | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  index?: number | Bindable<number>;
 }
 
 /**
@@ -48,78 +46,64 @@ export interface StepperOptions {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface StepperAttribute extends CommonMethod {
-    /**
-     * Callback when the finish label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onFinish(callback: (() => void) | undefined): this;
+  /**
+   * Callback when the finish label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onFinish(callback: (() => void) | undefined): this;
 
-    /**
-     * Callback when the skip label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onSkip(callback: (() => void) | undefined): this;
+  /**
+   * Callback when the skip label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onSkip(callback: (() => void) | undefined): this;
 
-    /**
-     * Callback when the change label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
+  /**
+   * Callback when the change label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
 
-    /**
-     * Callback when the next label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  /**
+   * Callback when the next label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
 
-    /**
-     * Callback when the previous label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
-
-    attributeModifier(modifier: AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Callback when the previous label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
 }
 
 @memo
 @ComponentBuilder
 export declare function Stepper(
-    value?: StepperOptions, 
-    @memo
-    content_?: () => void,
+  value?: StepperOptions,
+  @memo
+  content_?: () => void,
 ): StepperAttribute

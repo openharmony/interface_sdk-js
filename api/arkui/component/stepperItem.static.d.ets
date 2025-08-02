@@ -13,63 +13,55 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
-import { CommonMethod, AttributeModifier } from "../../@internal/component/ets/common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
+import { CommonMethod } from './common';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * ItemState
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum ItemState {
-    /**
-     * Default State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Normal,
+  /**
+   * Default State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Normal,
 
-    /**
-     * Disabled State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Disabled,
+  /**
+   * Disabled State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Disabled,
 
-    /**
-     * Waiting State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Waiting,
+  /**
+   * Waiting State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Waiting,
 
-    /**
-     * Skip State
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    Skip
+  /**
+   * Skip State
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Skip
 }
 
 /**
@@ -77,54 +69,44 @@ export declare enum ItemState {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface StepperItemAttribute extends CommonMethod {
-    /**
-     * Called when the value of stepperItem prevLabel is set
-     *
-     * @param { string | undefined } value
-     * @returns { StepperItemAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    prevLabel(value: string | undefined): this;
+  /**
+   * Called when the value of stepperItem prevLabel is set
+   *
+   * @param { string | undefined } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  prevLabel(value: string | undefined): this;
 
-    /**
-     * Called when the value of stepperItem nextLabel is set
-     *
-     * @param { string | undefined } value
-     * @returns { StepperItemAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    nextLabel(value: string | undefined): this;
+  /**
+   * Called when the value of stepperItem nextLabel is set
+   *
+   * @param { string | undefined } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  nextLabel(value: string | undefined): this;
 
-    /**
-     * Called when the value of stepperItem status is set
-     *
-     * @param { ItemState | undefined } value
-     * @returns { StepperItemAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    status(value?: ItemState | undefined): this;
-
-    attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Called when the value of stepperItem status is set
+   *
+   * @param { ItemState | undefined } value
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  status(value?: ItemState | undefined): this;
 }
 
 @memo
 @ComponentBuilder
 export declare function StepperItem(
-    
-    @memo
-    content_?: () => void,
+
+  @memo
+  content_?: () => void,
 ): StepperItemAttribute

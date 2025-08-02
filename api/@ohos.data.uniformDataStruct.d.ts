@@ -61,6 +61,15 @@ declare namespace uniformDataStruct {
      * @since 12
      */
     abstract?: string;
+
+    /**
+     * Indicates the abstract of the PlainText.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    textAbstract?: string;
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of

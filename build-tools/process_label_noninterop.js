@@ -22,8 +22,6 @@ let componentEtsFiles = [];
 let componentEtsDeleteFiles = [];
 const kitFileNeedDeleteMap = new Map();
 const stmtReplacementMap = new Map();
-const exportElementsMap = new Map();
-let exportElements = [];
 
 
 function start() {
@@ -44,17 +42,20 @@ function start() {
     program.parse(process.argv);
 }
 
-function writeArkuiComponentFile() {
-    let data = '';
-    for (const [file, elements] of exportElementsMap) {
-        if (elements.length > 0) {
-            data += `export {${elements.join(', ')}} from "../component/${file.replace('.d.ts', '')
-                .replace('.d.ets', '')}"\n`;
-        }
-    }
-    fs.writeFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.component.d.ets`, data, undefined, (err) => {
+function initGlobalESValueFile() {
+    fs.writeFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ets`, "'use static';", undefined, (err) => {
         if (err) {
-            console.log(`ERROR FOR CREATE FILE ${err}`);
+            console.error(`ERROR FOR CREATE FILE ${err}`);
+        }
+    });
+}
+
+function writeGlobalESValueFile(content) {
+    content = content.replace("'use static';", '')
+        .replace(/\.\.\/api/g, '.');
+    fs.appendFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ets`, content, undefined, (err) => {
+        if (err) {
+            console.error(`ERROR FOR CREATE FILE ${err}`);
         }
     });
 }
@@ -62,12 +63,12 @@ function writeArkuiComponentFile() {
 function transformFiles(inputDir) {
     // 入口
     try {
+        if (exportFlag) {
+            initGlobalESValueFile();
+        }
         const utFiles = [];
         readFile(inputDir, utFiles); // 读取文件
-        tsTransform(utFiles, deleteSystemApi);
-        if (exportFlag) {
-            writeArkuiComponentFile();
-        }
+        tsTransform(utFiles, deleteNonInteropApi);
     } catch (error) {
         console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
     }
@@ -164,11 +165,10 @@ function preprocessContent(content) {
 /**
  * 遍历所有文件进行处理
  * @param {Array} utFiles 所有文件
- * @param {deleteSystemApi} callback 回调函数
+ * @param {deleteNonInteropApi} callback 回调函数
  */
 function tsTransform(utFiles, callback) {
     utFiles.forEach((url) => {
-        exportElements = [];
         const apiBaseName = path.basename(url);
         let content = fs.readFileSync(url, 'utf-8'); // 文件内容
         let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
@@ -256,13 +256,16 @@ function outputFile(url, node, sourceFile, referencesMessage, copyrightMessage, 
         // 将references写入文件
         result =
             result.substring(0, copyrightMessage.length) +
-                '\n' +
-                referencesMessage +
+            '\n' +
+            referencesMessage +
             result.substring(copyrightMessage.length);
     }
     result = removeNonInteropDoc(result);
-    exportElementsMap.set(path.relative(inputDir, url), exportElements);
-    writeFile(url, postProcessContent(result));
+    result = postProcessContent(result);
+    writeFile(url, result);
+    if (exportFlag) {
+        writeGlobalESValueFile(result);
+    }
 }
 
 function collectAllIdentifier(node, context) {
@@ -511,13 +514,20 @@ function removeNonInteropDoc(result) {
     });
 }
 
+function needProcessLabelNonInterop(fileName, kitName) {
+    if (inputDir.endsWith('component') || fileName.startsWith('@ohos.arkui') || kitName === 'ArkUI') {
+        return true;
+    }
+    return false;
+}
+
 /**
  * 每个文件处理前回调函数第一个
- * @callback deleteSystemApi
+ * @callback deleteNonInteropApi
  * @param {string} url 文件路径
  * @returns {Function}
  */
-function deleteSystemApi(url) {
+function deleteNonInteropApi(url) {
     return (context) => {
         return (node) => {
             const fullText = String(node.getFullText());
@@ -528,13 +538,13 @@ function deleteSystemApi(url) {
             if (fullText.match(/\@kit (.*)\r?\n/g)) {
                 kitName = RegExp.$1.replace(/\s/g, '');
             }
+            const fileName = processFileName(url);
             sourceFile = node;
             const deleteNode = processSourceFile(node, kitName, url); // 处理最外层节点
             node = processVisitEachChild(context, deleteNode.node);
-            if (!isEmptyFile(node)) {
+            if (!isEmptyFile(node) && needProcessLabelNonInterop(fileName, kitName)) {
                 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
                 const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-                const fileName = processFileName(url);
                 ts.transpileModule(result, {
                     compilerOptions: {
                         target: ts.ScriptTarget.ES2017,
@@ -550,7 +560,7 @@ function deleteSystemApi(url) {
     };
 }
 
-exports.deleteSystemApi = deleteSystemApi;
+exports.deleteNonInteropApi = deleteNonInteropApi;
 
 /**
  * 遍历每个文件下的所有节点，然后删除节点
@@ -568,13 +578,13 @@ function processSourceFile(node, kitName, url) {
     let isCopyrightDeleted = false;
     const newStatements = [];
     const newStatementsWithoutExport = [];
-    const deleteSystemApiSet = new Set();
+    const deleteNonInteropApiSet = new Set();
     let needDeleteExport = {
         fileName: '',
         default: '',
         exportName: new Set(),
     };
-    isCopyrightDeleted = addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport);
+    isCopyrightDeleted = addNewStatements(node, newStatements, deleteNonInteropApiSet, needDeleteExport);
     newStatements.forEach((statement) => {
         const names = getExportIdentifierName(statement);
         if (ts.isExportDeclaration(statement) && statement.moduleSpecifier &&
@@ -591,14 +601,14 @@ function processSourceFile(node, kitName, url) {
             newStatementsWithoutExport.push(statement);
             return;
         }
-        if (names.length === 1 && !deleteSystemApiSet.has(names[0])) {
+        if (names.length === 1 && !deleteNonInteropApiSet.has(names[0])) {
             //exports.name = test;
             //export default test1
             //export {test1}
             newStatementsWithoutExport.push(statement);
             return;
         }
-        processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport);
+        processExportNode(statement, node, needDeleteExport, names, deleteNonInteropApiSet, newStatementsWithoutExport);
     });
     if (needDeleteExport.fileName !== '') {
         kitFileNeedDeleteMap.set(needDeleteExport.fileName, needDeleteExport);
@@ -610,7 +620,7 @@ function processSourceFile(node, kitName, url) {
     };
 }
 
-function processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport) {
+function processExportNode(statement, node, needDeleteExport, names, deleteNonInteropApiSet, newStatementsWithoutExport) {
     //删除export节点信息
     if (ts.isExportAssignment(statement)) {
         //export default abilityAccessCtrl;
@@ -622,7 +632,7 @@ function processExportNode(statement, node, needDeleteExport, names, deleteSyste
         const newSpecifiers = [];
         names.forEach((name, index) => {
             const exportSpecifier = statement.exportClause.elements[index];
-            if (!deleteSystemApiSet.has(name)) {
+            if (!deleteNonInteropApiSet.has(name)) {
                 //未被删除的节点
                 newSpecifiers.push(exportSpecifier);
                 needExport = true;
@@ -639,7 +649,7 @@ function processExportNode(statement, node, needDeleteExport, names, deleteSyste
     }
 }
 
-function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport) {
+function addNewStatements(node, newStatements, deleteNonInteropApiSet, needDeleteExport) {
     let isCopyrightDeleted = false;
     node.statements.forEach((statement, index) => {
         if (!isNonInterop(statement)) {
@@ -650,7 +660,7 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
             isCopyrightDeleted = true;
         }
         if (ts.isVariableStatement(statement)) {
-            deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
+            deleteNonInteropApiSet.add(variableStatementGetEscapedText(statement));
         } else if (
             ts.isModuleDeclaration(statement) ||
             ts.isInterfaceDeclaration(statement) ||
@@ -660,19 +670,19 @@ function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExp
             ts.isTypeAliasDeclaration(statement)
         ) {
             if (statement && statement.name && statement.name.escapedText) {
-                deleteSystemApiSet.add(statement.name.escapedText.toString());
+                deleteNonInteropApiSet.add(statement.name.escapedText.toString());
             }
-            setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
+            setDeleteExport(statement, node, needDeleteExport, deleteNonInteropApiSet);
         } else if (ts.isExportAssignment(statement) || ts.isExportDeclaration(statement)) {
-            setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
+            setDeleteExport(statement, node, needDeleteExport, deleteNonInteropApiSet);
         }
     });
 
     return isCopyrightDeleted;
 }
 
-function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) {
-    if (ts.isExportAssignment(statement) && deleteSystemApiSet.has(statement.expression.escapedText.toString())) {
+function setDeleteExport(statement, node, needDeleteExport, deleteNonInteropApiSet) {
+    if (ts.isExportAssignment(statement) && deleteNonInteropApiSet.has(statement.expression.escapedText.toString())) {
         needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
         needDeleteExport.default = statement.expression.escapedText.toString();
     } else if (ts.isExportDeclaration(statement)) {
@@ -681,7 +691,7 @@ function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) 
             const exportName = element.propertyName ?
             element.propertyName.escapedText.toString() :
             element.name.escapedText.toString();
-            if (deleteSystemApiSet.has(exportName)) {
+            if (deleteNonInteropApiSet.has(exportName)) {
                 needDeleteExport.exportName.add(element.name.escapedText.toString());
             }
         });
@@ -773,84 +783,92 @@ function processVisitEachChild(context, node) {
     }
 }
 
+function addExport2Modifiers(modifiers) {
+    modifiers = modifiers || [];
+    const isAlreadyExported = modifiers.some(m => m.kind === ts.SyntaxKind.ExportKeyword);
+    if (!isAlreadyExported) {
+        modifiers = [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...modifiers];
+    }
+    return modifiers;
+}
+
 /**
  * 处理type子节点
  */
 function processTypeAliasDeclaration(node) {
-    exportElements.push(node.name.text);
-    node = ts.factory.updateTypeAliasDeclaration(
-        node,
-        node.decorators,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.type
-    );
-    return node;
+    if (exportFlag) {
+        return ts.factory.updateTypeAliasDeclaration(
+            node,
+            node.decorators,
+            addExport2Modifiers(node.modifiers),
+            node.name,
+            node.typeParameters,
+            node.type
+        );
+    } else {
+        return node;
+    }
 }
 
 /**
  * 处理interface子节点
  */
 function processInterfaceDeclaration(node) {
-    exportElements.push(node.name.text);
     const newMembers = [];
     node.members.forEach((member) => {
         if (!isNonInterop(member)) {
             newMembers.push(member);
         }
     });
-    node = ts.factory.updateInterfaceDeclaration(
+    let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+    return ts.factory.updateInterfaceDeclaration(
         node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
+        modifiers,
         node.name,
         node.typeParameters,
         node.heritageClauses,
         newMembers
     );
-    return node;
 }
 
 /**
  * 处理class子节点
  */
 function processClassDeclaration(node) {
-    exportElements.push(node.name.text);
     const newMembers = [];
     node.members.forEach((member) => {
         if (!isNonInterop(member)) {
             newMembers.push(member);
         }
     });
-    node = ts.factory.updateClassDeclaration(
+    let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+    return ts.factory.updateClassDeclaration(
         node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
+        modifiers,
         node.name,
         node.typeParameters,
         node.heritageClauses,
         newMembers
     );
-    return node;
 }
 
 /**
  * 处理enum子节点
  */
 function processEnumDeclaration(node) {
-    exportElements.push(node.name.text);
     const newMembers = [];
     node.members.forEach((member) => {
         if (!isNonInterop(member)) {
             newMembers.push(member);
         }
     });
-    node = ts.factory.updateEnumDeclaration(
+    let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+    return ts.factory.updateEnumDeclaration(
         node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
+        modifiers,
         node.name,
         newMembers
     );
-    return node;
 }
 
 /**

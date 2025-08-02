@@ -20,6 +20,7 @@
 
 import { LocalStorage } from '@ohos.arkui.stateManagement'
 import { StateContext } from '../runtime-api/@koalaui.runtime.states.State'
+export { MemoState } from './memorize/state'
 // From incremental engine
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};

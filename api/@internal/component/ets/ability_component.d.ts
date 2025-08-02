@@ -27,6 +27,7 @@
  * @since 9
  * @deprecated since 10
  * @useinstead UIExtensionComponentInterface
+ * @noninterop
  */
 interface AbilityComponentInterface {
   /**
@@ -53,6 +54,7 @@ interface AbilityComponentInterface {
  * @since 9
  * @deprecated since 10
  * @useinstead UIExtensionComponentAttribute
+ * @noninterop
  */
 declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAttribute> {
   /**
@@ -88,6 +90,7 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
  * @since 9
  * @deprecated since 10
  * @useinstead UIExtensionComponent
+ * @noninterop
  */
 declare const AbilityComponent: AbilityComponentInterface;
 
@@ -98,5 +101,6 @@ declare const AbilityComponent: AbilityComponentInterface;
  * @since 9
  * @deprecated since 10
  * @useinstead UIExtensionComponentInstance
+ * @noninterop
  */
 declare const AbilityComponentInstance: AbilityComponentAttribute;

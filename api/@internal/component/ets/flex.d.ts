@@ -336,6 +336,7 @@ declare interface FlexSpaceOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface FlexInterface {
   /**
@@ -414,6 +415,7 @@ interface FlexInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {
   /**
@@ -458,6 +460,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Flex: FlexInterface;
 
@@ -490,5 +493,6 @@ declare const Flex: FlexInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const FlexInstance: FlexAttribute;

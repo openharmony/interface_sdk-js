@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,8 +28,15 @@ import { NavDestinationAttribute } from './component/navDestination';
  *
  * @implements { NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-export declare class NavDestinationModifier implements NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> {}
+export declare class NavDestinationModifier implements NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { NavDestinationAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  applyNormalAttribute(instance: NavDestinationAttribute): void;
+}

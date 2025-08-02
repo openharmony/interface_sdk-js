@@ -39,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class ListModifier extends ListAttribute implements AttributeModifier<ListAttribute> {
 

@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,8 +29,16 @@ import { SwiperAttribute } from './component/swiper';
  *
  * @implements { SwiperAttribute, AttributeModifier<SwiperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
+ * @noninterop
  */
-export declare class SwiperModifier implements SwiperAttribute, AttributeModifier<SwiperAttribute> {}
+export declare class SwiperModifier implements SwiperAttribute, AttributeModifier<SwiperAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { SwiperAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  applyNormalAttribute(instance: SwiperAttribute): void;
+}

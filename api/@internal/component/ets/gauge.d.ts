@@ -216,6 +216,7 @@ interface GaugeOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface GaugeInterface {
   /**
@@ -442,6 +443,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
@@ -772,6 +774,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Gauge: GaugeInterface;
 
@@ -804,6 +807,7 @@ declare const Gauge: GaugeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GaugeInstance: GaugeAttribute;
 

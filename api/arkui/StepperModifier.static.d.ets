@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,8 +28,15 @@ import { StepperAttribute } from './component/stepper';
  *
  * @implements { StepperAttribute, AttributeModifier<StepperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
  */
-export declare class StepperModifier implements StepperAttribute, AttributeModifier<StepperAttribute> {}
-  
+export declare class StepperModifier implements StepperAttribute, AttributeModifier<StepperAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { StepperAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  applyNormalAttribute(instance: StepperAttribute): void; 
+}

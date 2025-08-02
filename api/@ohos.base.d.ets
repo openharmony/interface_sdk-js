@@ -175,3 +175,11 @@ export declare class BusinessError<T = void> extends Error {
    */
   data?: T;
 }
+
+/**
+ * Defines RecordData type.
+ * @typedef RecordData
+ * @syscap SystemCapability.Base
+ * @since 20
+ */
+export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

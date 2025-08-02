@@ -47,6 +47,7 @@ import { CommonMethod } from './common';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ColumnSplitInterface {
   /**
@@ -165,6 +166,7 @@ interface ColumnSplitDividerStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
@@ -240,6 +242,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ColumnSplitInstance: ColumnSplitAttribute;
 
@@ -263,5 +266,6 @@ declare const ColumnSplitInstance: ColumnSplitAttribute;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ColumnSplit: ColumnSplitInterface;

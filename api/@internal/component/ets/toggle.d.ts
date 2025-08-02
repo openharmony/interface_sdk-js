@@ -425,6 +425,7 @@ declare interface ToggleOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ToggleInterface {
   /**
@@ -515,6 +516,7 @@ interface ToggleInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
@@ -696,6 +698,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Toggle: ToggleInterface;
 
@@ -728,5 +731,6 @@ declare const Toggle: ToggleInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ToggleInstance: ToggleAttribute;

@@ -26,5 +26,6 @@ import { AttributeModifier, CommonAttribute } from './component/common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 20
+ * @noninterop
 */
 export declare class CommonModifier implements CommonAttribute, AttributeModifier<CommonAttribute> {}

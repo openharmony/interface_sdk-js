@@ -319,14 +319,12 @@ function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-    if (/\.static\.d\.ets$/.test(apiBaseName)) {
-      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), processStaticFile(content));
+    if (apiBaseName === 'common.static.d.ets') {
+      writeFile(url, processStaticFile(content));
       return;
     }
     if (isArkTsSpecialSyntax(content)) {
-      if (!/\@systemapi/.test(content)) {
-        writeFile(url, content);
-      }
+      writeFile(url, content);
       return;
     }
     let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
@@ -472,7 +470,10 @@ function readFile(dir, utFiles) {
 }
 
 function writeFile(url, data, option) {
-  const newFilePath = path.resolve(outputPath, path.relative(inputDir.replace('api', ''), url));
+  const urlPath = url.replace(/\.static\.d\.ets$/, '.d.ets');
+  const urlDirName = path.dirname(inputDir);
+  const relativePath = path.relative(urlDirName, urlPath);
+  const newFilePath = path.resolve(outputPath, relativePath);
   fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
