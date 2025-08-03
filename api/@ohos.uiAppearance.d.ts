@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,14 +28,13 @@ import type { AsyncCallback } from './@ohos.base';
  * @systemapi hide this for inner system use
  * @since 10
  */
- /**
- * Provide APIs to set system uiAppearance.
- *
- * @namespace uiAppearance
- * @syscap SystemCapability.ArkUI.UiAppearance
- * @since arkts {'1.1':'20','1.2':'20'}
- * @arkts 1.1&1.2
- */
+/**
+* Provide APIs to set system uiAppearance.
+*
+* @namespace uiAppearance
+* @syscap SystemCapability.ArkUI.UiAppearance
+* @since 20
+*/
 declare namespace uiAppearance {
   /**
    * Enumerates dark-mode.
@@ -50,8 +49,7 @@ declare namespace uiAppearance {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   enum DarkMode {
     /**
@@ -65,8 +63,7 @@ declare namespace uiAppearance {
      * Always display with dark mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since arkts {'1.1':'20','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 20
      */
     ALWAYS_DARK = 0,
 
@@ -81,8 +78,7 @@ declare namespace uiAppearance {
      * Always display with light mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since arkts {'1.1':'20','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 20
      */
     ALWAYS_LIGHT = 1
   }
@@ -101,8 +97,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
@@ -120,8 +115,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setDarkMode(mode: DarkMode): Promise<void>;
 
@@ -150,8 +144,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function getDarkMode(): DarkMode;
 
@@ -170,8 +163,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function setFontScale(fontScale: number): Promise<void>;
 
@@ -201,8 +193,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function getFontScale(): number;
 
@@ -221,8 +212,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
@@ -252,8 +242,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   function getFontWeightScale(): number;
 }
