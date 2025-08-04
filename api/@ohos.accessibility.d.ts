@@ -1287,9 +1287,24 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the observe of the accessibility state changed.
+   *
+   * @param { 'accessibilityStateChange' } type state event type.
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onAccessibilityStateChange(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the touchGuide state changed.
@@ -1301,10 +1316,24 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the observe of the touchGuide state changed.
+   *
+   * @param { 'touchGuideStateChange' } type state event type.
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Vision
+   * @since 20
+   * @arkts 1.2
+   */
+  function onTouchGuideStateChange(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the screen reader state changed.
@@ -1315,10 +1344,28 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Register the observe of the screen reader state changed.
+   * @param { 'screenReaderStateChange' } type state event type.
+   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 Input parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function onScreenReaderStateChange(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * @arkts 1.2
+   */
+  overload on { onAccessibilityStateChange, onTouchGuideStateChange, onScreenReaderStateChange };
 
   /**
    * Register the observe of the touch mode changed.
@@ -1357,9 +1404,24 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the accessibility state changed.
+   *
+   * @param { 'accessibilityStateChange' } type state event type
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function offAccessibilityStateChange(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the touchGuide state changed.
@@ -1371,10 +1433,24 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the touchGuide state changed.
+   *
+   * @param { 'touchGuideStateChange' } type state event type
+   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function offTouchGuideStateChange(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the screen reader state changed.
@@ -1385,10 +1461,28 @@ declare namespace accessibility {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * Unregister the observe of the screen reader state changed.
+   * @param { 'screenReaderStateChange' } type state event type
+   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types;
+   * 3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function offScreenReaderStateChange(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
+
+  /**
+   * @arkts 1.2
+   */
+  overload off { offAccessibilityStateChange, offTouchGuideStateChange, offScreenReaderStateChange };
 
   /**
    * Unregister the observe of the touch mode changed.
