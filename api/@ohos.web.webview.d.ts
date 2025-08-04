@@ -6719,10 +6719,20 @@ declare namespace webview {
      *
      * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void;
+
+    /**
+     * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
+     * Default is disabled.
+     *
+     * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    static enableBackForwardCache(features?: BackForwardCacheSupportedFeatures): void;
 
     /**
      * Configure the BackForwardCache.
@@ -6731,10 +6741,21 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
+
+    /**
+     * Configure the BackForwardCache.
+     *
+     * @param { BackForwardCacheOptions } options - The configuration of BackForwardCache.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    setBackForwardCacheOptions(options?: BackForwardCacheOptions): void;
 
     /**
      * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
