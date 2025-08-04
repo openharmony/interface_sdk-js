@@ -335,7 +335,7 @@ export enum GeometryType {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export abstract class GeometryDefinition {
+export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
    * 
