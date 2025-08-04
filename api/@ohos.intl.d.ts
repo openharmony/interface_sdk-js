@@ -434,7 +434,7 @@ declare namespace intl {
      * @atomicservice
      * @since 12
      * @deprecated since 20
-     * @useinstead i18n.System.getSystemLocaleObject
+     * @useinstead i18n.System.getSystemLocaleInstance
      */
     constructor();
 
