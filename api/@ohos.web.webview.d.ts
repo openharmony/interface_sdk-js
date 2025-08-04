@@ -6722,7 +6722,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void;
+    static enableBackForwardCache(features?: BackForwardCacheSupportedFeatures): void;
 
     /**
      * Configure the BackForwardCache.
@@ -6734,7 +6734,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
+    setBackForwardCacheOptions(options?: BackForwardCacheOptions): void;
 
     /**
      * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
