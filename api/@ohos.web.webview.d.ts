@@ -6727,7 +6727,8 @@ declare namespace webview {
      * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
      * Default is disabled.
      *
-     * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
+     * @param { BackForwardCacheSupportedFeatures } [features] - The features that supports BackForwardCache.
+     * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      * @arkts 1.2
@@ -6748,7 +6749,7 @@ declare namespace webview {
     /**
      * Configure the BackForwardCache.
      *
-     * @param { BackForwardCacheOptions } options - The configuration of BackForwardCache.
+     * @param { BackForwardCacheOptions } [options] - The configuration of BackForwardCache.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
