@@ -1018,8 +1018,7 @@ declare namespace dlpPermission {
     expireTime?: number;
 
     /**
-     * Action type when the DLP file exceed expire time.
-     *
+     * Defines the action to perform when the DLP file has expired.
      * @type { ?ActionType }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -1467,15 +1466,15 @@ declare namespace dlpPermission {
    */
   function getSandboxAppConfig(): Promise<string>;
 
-   /**
-   * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
-   *
-   * @returns { Promise<boolean> } Promise used to return the result.
-   * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 12
-   */
-   function isDLPFeatureProvided(): Promise<boolean>;
+  /**
+  * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
+  *
+  * @returns { Promise<boolean> } Promise used to return the result.
+  * @throws { BusinessError } 19100011 - The system ability works abnormally.
+  * @syscap SystemCapability.Security.DataLossPrevention
+  * @since 12
+  */
+  function isDLPFeatureProvided(): Promise<boolean>;
 
   /**
    * Enumerates the action types when exceed expiry time.
@@ -1486,7 +1485,7 @@ declare namespace dlpPermission {
    */
   export enum ActionType {
     /**
-     * NOT_OPEN, which not allows DLP files to be opened exceed expire time.
+     * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
@@ -1494,7 +1493,7 @@ declare namespace dlpPermission {
     NOT_OPEN = 0,
 
     /**
-     * OPEN, which allows DLP files to be opened exceed expire time.
+     * OPEN, which allows DLP files to be opened exceed expiry time.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 20
@@ -1503,7 +1502,7 @@ declare namespace dlpPermission {
   }
 
   /**
-   * Represent the DLP file Custom property.
+   * Represents the DLP file Custom property.
    * 
    * @interface CustomProperty
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -1512,7 +1511,7 @@ declare namespace dlpPermission {
    */
   export interface CustomProperty {
     /**
-     * User defined information for enterprise space
+     * User defined information for enterprise space.
      * 
      * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1523,7 +1522,7 @@ declare namespace dlpPermission {
   }
 
   /**
-   * Generates a DLP file. This method uses a promise to return the result.
+   * Generates a DLP file.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { number } plaintextFd - FD of the file in plaintext.
@@ -1548,11 +1547,11 @@ declare namespace dlpPermission {
   function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
 
   /**
-   * Queries the DLP policy. This method uses a promise to return the result.
+   * Queries the DLP file policy.
    * 
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
-   * @returns { Promise<string> }.
+   * @param { number } dlpFd FD of the target DLP file.
+   * @returns { Promise<string> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1571,12 +1570,12 @@ declare namespace dlpPermission {
   function queryDlpPolicy(dlpFd: number): Promise<string>;
 
   /**
-   * Decrypts a DLP file. This method uses a promise to return the result.
+   * Decrypts a DLP file. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd - Indicates the file descriptor of the DLP file.
-   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-   * @returns { Promise<void> }.
+   * @param { number } dlpFd FD of the target DLP file.
+   * @param { number } plaintextFd FD of the file decrypted.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
