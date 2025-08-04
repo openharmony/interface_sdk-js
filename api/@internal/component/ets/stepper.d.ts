@@ -81,6 +81,7 @@ interface StepperOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface StepperInterface {
   /**
@@ -150,6 +151,7 @@ interface StepperInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -323,6 +325,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Stepper: StepperInterface;
 
@@ -346,5 +349,6 @@ declare const Stepper: StepperInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StepperInstance: StepperAttribute;

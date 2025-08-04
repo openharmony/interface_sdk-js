@@ -44,6 +44,7 @@ import image from '../../@ohos.multimedia.image';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ImageSpanInterface {
   /**
@@ -86,6 +87,7 @@ interface ImageSpanInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
@@ -200,6 +202,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageSpan: ImageSpanInterface;
 
@@ -217,6 +220,7 @@ declare const ImageSpan: ImageSpanInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageSpanInstance: ImageSpanAttribute;
 

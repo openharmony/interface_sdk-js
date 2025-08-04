@@ -40,6 +40,7 @@ import { AttributeModifier } from './common';
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ContainerSpanInterface {
   /**
@@ -78,6 +79,7 @@ interface ContainerSpanInterface {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ContainerSpanAttribute {
   /**
@@ -130,6 +132,7 @@ declare class ContainerSpanAttribute {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const ContainerSpan: ContainerSpanInterface;
 
@@ -147,5 +150,6 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

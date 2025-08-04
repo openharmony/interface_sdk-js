@@ -309,6 +309,7 @@ declare interface TextClockOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TextClockInterface {
   /**
@@ -392,6 +393,7 @@ interface TextClockInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
@@ -760,6 +762,7 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextClock: TextClockInterface;
 
@@ -784,5 +787,6 @@ declare const TextClock: TextClockInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextClockInstance: TextClockAttribute;

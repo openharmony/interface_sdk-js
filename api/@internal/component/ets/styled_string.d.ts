@@ -282,26 +282,26 @@ declare interface StyleOptions {
     /**
      * The start position of the StyleOptions.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    start?: number;
+    start?: int;
 
     /**
      * The length of the modifiedStyledString's characters.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    length?: number;
+    length?: int;
 
     /**
      * The attribute key of the StyleOptions.

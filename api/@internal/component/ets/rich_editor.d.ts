@@ -3793,6 +3793,7 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
@@ -4627,6 +4628,7 @@ declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RichEditorInterface {
   /**
@@ -4677,6 +4679,7 @@ interface RichEditorInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RichEditorInstance: RichEditorAttribute;
 
@@ -4693,5 +4696,6 @@ declare const RichEditorInstance: RichEditorAttribute;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RichEditor: RichEditorInterface;

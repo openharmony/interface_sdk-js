@@ -47,6 +47,7 @@ import { CommonMethod } from './common';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RowSplitInterface {
   /**
@@ -95,6 +96,7 @@ interface RowSplitInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
@@ -148,6 +150,7 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RowSplit: RowSplitInterface;
 
@@ -171,5 +174,6 @@ declare const RowSplit: RowSplitInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RowSplitInstance: RowSplitAttribute;

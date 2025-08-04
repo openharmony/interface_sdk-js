@@ -969,6 +969,7 @@ declare interface GridRowOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface GridRowInterface {
   /**
@@ -1032,6 +1033,7 @@ interface GridRowInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
@@ -1115,6 +1117,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridRow: GridRowInterface;
 
@@ -1141,5 +1144,6 @@ declare const GridRow: GridRowInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridRowInstance: GridRowAttribute;

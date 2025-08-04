@@ -167,7 +167,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopVibration(stopMode: VibratorStopMode): Promise<void>;
 
@@ -181,7 +182,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
@@ -202,7 +204,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopVibration(callback: AsyncCallback<void>): void;
 
@@ -223,7 +226,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopVibration(): Promise<void>;
 
@@ -235,7 +239,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopVibrationSync(): void;
 
@@ -357,7 +362,8 @@ declare namespace vibrator {
    * @returns { boolean } Returns whether the high-definition haptic is supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isHdHapticSupported(): boolean;
 
@@ -366,14 +372,16 @@ declare namespace vibrator {
    * 
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EffectId {
   /**
    * Describes the vibration effect of the vibrator when a user adjusts the timer.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     EFFECT_CLOCK_TIMER = 'haptic.clock.timer'
   }
@@ -440,14 +448,16 @@ declare namespace vibrator {
    *
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum VibratorStopMode {
   /**
    * Indicates the mode of stopping a one-shot vibration effect.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     VIBRATOR_STOP_MODE_TIME = 'time',
 
@@ -455,7 +465,8 @@ declare namespace vibrator {
    * Indicates the mode of stopping a preset vibration effect.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     VIBRATOR_STOP_MODE_PRESET = 'preset'
   }
@@ -507,13 +518,13 @@ declare namespace vibrator {
   /**
    * Vibrator id, default is 0.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-    id?: number;
+    id?: int;
 
   /**
    * Unique identifier for the device that contains one or multiple vibrators.
@@ -631,13 +642,13 @@ declare namespace vibrator {
     /**
      * The duration of the vibration, in ms.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration: number; /** The duration of the vibration, in ms */
+    duration: int; /** The duration of the vibration, in ms */
   }
 
   /**
@@ -678,22 +689,22 @@ declare namespace vibrator {
     /**
      * The number of vibration repetitions.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    count?: number;
+    count?: int;
 
     /**
      * The intensity of vibration effect.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    intensity?: number;
+    intensity?: int;
   }
 
   /**
@@ -773,7 +784,7 @@ declare namespace vibrator {
   /**
    * Types of vibration events
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -810,31 +821,31 @@ declare namespace vibrator {
     /**
       * The offset of the starting time of the relative event.
       *
-      * @type { number }
+      * @type { int }
       * @syscap SystemCapability.Sensors.MiscDevice
       * @since arkts {'1.1':'18', '1.2':'20'}
       * @arkts 1.1&1.2
       */
-    time: number;
+    time: int;
 
     /**
       * Gain in relative event vibration intensity
       *
-      * @type { ?number }
+      * @type { ?int }
       * @syscap SystemCapability.Sensors.MiscDevice
       * @since arkts {'1.1':'18', '1.2':'20'}
       * @arkts 1.1&1.2
       */
-    intensity?: number;
+    intensity?: int;
     /**
      * Changes in relative event vibration frequency
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    frequency?: number;
+    frequency?: int;
   }
 
   /**
@@ -859,52 +870,52 @@ declare namespace vibrator {
     /**
      * Relative starting time of vibration
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    time: number;
+    time: int;
 
     /**
      * The duration of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
 
     /**
      * Intensity of vibration events
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    intensity?: number;
+    intensity?: int;
 
     /**
      * Vibration event frequency
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    frequency?: number;
+    frequency?: int;
 
     /**
      * Channel number
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    index?: number;
+    index?: int;
 
     /**
      * An array representing vibration adjustment curves.
@@ -929,12 +940,12 @@ declare namespace vibrator {
     /**
      * Absolute starting time of vibration
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    time: number;
+    time: int;
 
     /**
      * Vibration event array, where each 'events' attribute represents one vibration event.
@@ -952,44 +963,49 @@ declare namespace vibrator {
    *
    * @interface ContinuousParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ContinuousParam {
     /**
      * Intensity of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    intensity?: number;
+    intensity?: int;
 
     /**
      * Frequency of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    frequency?: number;
+    frequency?: int;
 
     /**
      * The points of vibration
      *
      * @type { ?VibratorCurvePoint[] }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     points?: VibratorCurvePoint[];
 
     /**
      * Index of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    index?: number;
+    index?: int;
   }
 
   /**
@@ -997,35 +1013,39 @@ declare namespace vibrator {
    *
    * @interface TransientParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TransientParam {
     /**
      * Intensity of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    intensity?: number;
+    intensity?: int;
 
     /**
      * Frequency of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    frequency?: number;
+    frequency?: int;
 
     /**
      * Index of vibration
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    index?: number;
+    index?: int;
   }
 
   /**

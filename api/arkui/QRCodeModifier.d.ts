@@ -29,6 +29,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
 */
 export declare class QRCodeModifier extends QRCodeAttribute implements AttributeModifier<QRCodeAttribute> {
 

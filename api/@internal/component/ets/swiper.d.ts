@@ -1185,6 +1185,7 @@ declare enum SwiperDisplayMode {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SwiperInterface {
   /**
@@ -1573,6 +1574,7 @@ declare type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAni
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
   /**
@@ -2816,6 +2818,7 @@ declare type ContentWillScrollCallback = (result: SwiperContentWillScrollResult)
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Swiper: SwiperInterface;
 
@@ -2841,5 +2844,6 @@ declare const Swiper: SwiperInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SwiperInstance: SwiperAttribute;

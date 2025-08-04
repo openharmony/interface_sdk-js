@@ -836,6 +836,7 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface BadgeInterface {
   /**
@@ -979,6 +980,7 @@ interface BadgeInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
@@ -1011,6 +1013,7 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Badge: BadgeInterface;
 
@@ -1043,5 +1046,6 @@ declare const Badge: BadgeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const BadgeInstance: BadgeAttribute;

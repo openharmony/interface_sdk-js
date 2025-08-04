@@ -324,6 +324,7 @@ declare interface UIExtensionProxy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 interface UIExtensionComponentInterface {
   /**

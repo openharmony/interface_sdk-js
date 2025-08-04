@@ -41,6 +41,12 @@ const PATT = {
   REFERENCEURL_RIGHTSDK: /(..\/)(\S*)build-tools\/ets-loader\/declarations\/(\S*)/g,
   REFERENCEURL_SDK: /(..\/)(\S*)component\/(\S*)/g,
 };
+const METHOD_KIND = [
+  ts.SyntaxKind.MethodDeclaration,
+  ts.SyntaxKind.FunctionDeclaration,
+  ts.SyntaxKind.MethodSignature,
+  ts.SyntaxKind.Constructor
+];
 
 function start() {
   const program = new commander.Command();
@@ -319,14 +325,12 @@ function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-    if (/\.static\.d\.ets$/.test(apiBaseName)) {
-      writeFile(url.replace(/\.static\.d\.ets$/, '.d.ets'), processStaticFile(content));
+    if (apiBaseName === 'common.static.d.ets') {
+      writeFile(url, processStaticFile(content));
       return;
     }
     if (isArkTsSpecialSyntax(content)) {
-      if (!/\@systemapi/.test(content)) {
-        writeFile(url, content);
-      }
+      writeFile(url, content);
       return;
     }
     let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
@@ -472,7 +476,10 @@ function readFile(dir, utFiles) {
 }
 
 function writeFile(url, data, option) {
-  const newFilePath = path.resolve(outputPath, path.relative(inputDir.replace('api', ''), url));
+  const urlPath = url.replace(/\.static\.d\.ets$/, '.d.ets');
+  const urlDirName = path.dirname(inputDir);
+  const relativePath = path.relative(urlDirName, urlPath);
+  const newFilePath = path.resolve(outputPath, relativePath);
   fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
     if (err) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
@@ -493,6 +500,59 @@ function writeFile(url, data, option) {
 const globalModules = new Map();
 
 /**
+ * 遍历处理overload节点
+ * @param  context 解析过后的内容
+ * @param  node 解析过后的节点
+ * @returns ts.node
+ */
+function visitEachChild(context, node) {
+  return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
+  function processAllNodes(node) {
+    if (ts.isOverloadDeclaration(node)) {
+      node = processInterfaceDeclaration(node);
+    }
+    return ts.visitEachChild(node, processAllNodes, context);
+  }
+  function processInterfaceDeclaration(overloadNode) {
+    // 获取方法类型兄弟节点列表
+    const parentNode = overloadNode.parent;
+    const brotherNodes = [];
+    const brotherFuntionNames = new Set([]);
+    if (ts.isSourceFile(parentNode) || ts.isModuleBlock(parentNode)) {
+      brotherNodes.push(...parentNode.statements);
+    } else if (ts.isInterfaceDeclaration(parentNode) || ts.isClassDeclaration(parentNode)) {
+      brotherNodes.push(...parentNode.members);
+    }
+    if (brotherNodes.length === 0) {
+      return undefined;
+    }
+    brotherNodes.forEach(brotherNode => {
+      if (METHOD_KIND.includes(brotherNode.kind) && brotherNode.name && ts.isIdentifier(brotherNode.name) &&
+        !brotherFuntionNames.has(brotherNode.name.escapedText.toString())) {
+        brotherFuntionNames.add(brotherNode.name.escapedText.toString());
+      }
+    });
+
+    // 更新overload节点
+    const overloadChildren = overloadNode.members;
+    if (overloadChildren.length === 0) {
+      return undefined;
+    }
+    const newChildren = [];
+    overloadChildren.forEach(overloadChild => {
+      if (overloadChild.name && ts.isIdentifier(overloadChild.name) &&
+        brotherFuntionNames.has(overloadChild.name.escapedText.toString())) {
+        newChildren.push(overloadChild);
+      }
+    });
+    if (newChildren.length === 0) {
+      return undefined;
+    }
+    return ts.factory.updateOverloadDeclaration(overloadNode, overloadNode.modifier, overloadNode.name, newChildren);
+  }
+}
+
+/**
  * 每个文件处理前回调函数第二个
  * @param {string} url 文件路径
  * @returns {Function}
@@ -504,7 +564,7 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
       sourceFile = node;
       collectAllIdentifier(node); // 获取所有标识符
       formatValue = formatAllNodes(url, node, allIdentifierSet); // 获取所有节点
-      node = formatValue.node;
+      node = visitEachChild(context, formatValue.node);
       const referencesMessage = formatValue.referencesMessage;
       if (formatValue.isCopyrightDeleted) {
         copyrightMessage = formatValue.copyrightMessage;

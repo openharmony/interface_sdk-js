@@ -58,6 +58,7 @@ import { LineCapStyle } from './enums';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface DividerInterface {
   /**
@@ -132,6 +133,7 @@ interface DividerInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
@@ -332,6 +334,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Divider: DividerInterface;
 
@@ -364,5 +367,6 @@ declare const Divider: DividerInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DividerInstance: DividerAttribute;

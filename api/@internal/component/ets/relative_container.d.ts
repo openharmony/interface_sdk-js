@@ -51,6 +51,7 @@ import { CommonMethod } from './common';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RelativeContainerInterface {
   /**
@@ -397,6 +398,7 @@ declare interface LocalizedBarrierStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
@@ -462,6 +464,7 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RelativeContainer: RelativeContainerInterface;
 
@@ -488,5 +491,6 @@ declare const RelativeContainer: RelativeContainerInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RelativeContainerInstance: RelativeContainerAttribute;

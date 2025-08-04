@@ -1901,14 +1901,16 @@ declare namespace relationalStore {
    *
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RebuildType {
     /**
      * The database is not rebuilt or repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE,
 
@@ -1916,7 +1918,8 @@ declare namespace relationalStore {
      * The database is rebuilt.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REBUILT,
 
@@ -1924,7 +1927,8 @@ declare namespace relationalStore {
      * The database is repaired.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     REPAIRED
   }
@@ -1943,6 +1947,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum TransactionType {
     /**
@@ -1957,6 +1962,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     DEFERRED,
 
@@ -1972,6 +1978,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     IMMEDIATE,
 
@@ -1987,6 +1994,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     EXCLUSIVE
   }
@@ -2005,6 +2013,7 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface TransactionOptions {
     /**
@@ -2021,6 +2030,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     transactionType?: TransactionType;
   }
@@ -2875,7 +2885,8 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -2972,7 +2983,7 @@ declare namespace relationalStore {
      * @param { Array<ValueType> } args - Parameters to be used in the conditions.
      * @returns { RdbPredicates } - Returns the RdbPredicates object.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -3013,7 +3024,8 @@ declare namespace relationalStore {
      * @type { Array<string> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     columnNames: Array<string>;
 
@@ -4121,7 +4133,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     getValue(columnIndex: number): ValueType;
@@ -4493,7 +4505,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     version: number;
 
@@ -4502,7 +4515,8 @@ declare namespace relationalStore {
      *
      * @type {RebuildType}
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rebuilt: RebuildType;
 
@@ -8424,7 +8438,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     close(): Promise<void>;
@@ -8694,7 +8708,7 @@ declare namespace relationalStore {
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * <br>2. Missing GROUP BY clause.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -8719,7 +8733,8 @@ declare namespace relationalStore {
    * @interface Transaction
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Transaction {
     /**
@@ -9641,7 +9656,7 @@ declare namespace relationalStore {
    * @since 20
    */
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for updating data.
    *
@@ -9669,7 +9684,7 @@ declare namespace relationalStore {
    * @since 20
    */
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for querying data.
    *

@@ -5,14 +5,14 @@
   "main": "delete_systemapi_plugin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm run installTS && cd arkui_transformer && npm install",
-    "installTS": "wget https://repo.huaweicloud.com/openharmony/compiler/typescript/ohos-typescript-4.9.5-r4.tgz && npm install typescript@./ohos-typescript-4.9.5-r4.tgz && rm -rf ohos-typescript-4.9.5-r4.tgz"
+    "postinstall": "cd arkui_transformer && npm install && cd ../compile-plugins/api-check-plugin-static && npm install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "commander": "^13.1.0",
     "fs": "^0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "typescript": "npm:ohos-typescript@4.9.5-r8"
   }
 }

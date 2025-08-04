@@ -379,6 +379,7 @@ declare interface GridColOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface GridColInterface {
   /**
@@ -442,6 +443,7 @@ interface GridColInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
   /**
@@ -567,6 +569,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridCol: GridColInterface
 
@@ -593,5 +596,6 @@ declare const GridCol: GridColInterface
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridColInstance: GridColAttribute;

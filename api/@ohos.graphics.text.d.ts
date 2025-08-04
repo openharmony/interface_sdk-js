@@ -282,12 +282,12 @@ declare namespace text {
     /**
      * Scale factor for the thickness of the decoration line. The value is a floating point number.
      * The default value is 1.0.
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    decorationThicknessScale?: number;
+    decorationThicknessScale?: double;
   }
 
   /**
@@ -705,12 +705,12 @@ declare namespace text {
     /**
      * The value sets special effect radius of blurring text.
      * The value is a floating point number. The default value is 0.0px.
-     * @type { ?number } The value about radius of blur, it type is "double"
+     * @type { ?double } The value about radius of blur, it type is "double"
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    blurRadius?: number;
+    blurRadius?: double;
   }
 
   /**
@@ -732,39 +732,39 @@ declare namespace text {
 
     /**
      * Left top radius of the rectangle.
-     * @type { number } it is double type data
+     * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    leftTopRadius: number;
+    leftTopRadius: double;
 
     /**
      * Right top radius of the rectangle.
-     * @type { number } it is double type data
+     * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rightTopRadius: number;
+    rightTopRadius: double;
 
     /**
      * Right bottom radius of the rectangle.
-     * @type { number } it is double type data
+     * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rightBottomRadius: number;
+    rightBottomRadius: double;
 
     /**
      * Left bottom radius of the rectangle.
-     * @type { number } it is double type data
+     * @type { double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    leftBottomRadius: number;
+    leftBottomRadius: double;
   }
 
   /**
@@ -785,12 +785,12 @@ declare namespace text {
     name: string;
     /**
      * 	Value in the font feature key-value pair.
-     * @type { number } feature value
+     * @type { int } feature value
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    value: number;
+    value: int;
   }
 
   /**
@@ -811,12 +811,12 @@ declare namespace text {
     axis: string;
     /**
      * Value in the font variation key-value pair.
-     * @type { number } variation value
+     * @type { double } variation value
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    value: number;
+    value: double;
   }
 
   /**
@@ -913,42 +913,42 @@ declare namespace text {
 
     /**
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fontSize?: number;
+    fontSize?: double;
 
     /**
      * Letter spacing, in units of px. The value is a floating point number.
      * The default value is 0.0. A positive value causes characters to spread farther apart,
      * and a negative value bring characters closer together.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    letterSpacing?: number;
+    letterSpacing?: double;
 
     /**
      * Word spacing, in units of px. The value is a floating point number. The default value is 0.0.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    wordSpacing?: number;
+    wordSpacing?: double;
 
     /**
      * Scale factor of the line height. The value is a floating point number.
      * The default value is 1.0. This parameter is valid only when heightOnly is set to true.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    heightScale?: number;
+    heightScale?: double;
 
     /**
      * Whether half leading is enabled.
@@ -1002,12 +1002,12 @@ declare namespace text {
 
     /**
      * Shift of the baseline. The value is a floating point number. The default value is 0.0px.
-     * @type { ?number } it is double type data.
+     * @type { ?double } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    baselineShift?: number;
+    baselineShift?: double;
 
     /**
      * Text Style available font features.
@@ -1190,30 +1190,30 @@ declare namespace text {
 
     /**
      * Font size, in units of px. The value is a floating point number. The default value is 14.0.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fontSize?: number;
+    fontSize?: double;
 
     /**
      * Scale factor of the line height. The value is a floating point number. The default value is 1.0.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height?: number;
+    height?: double;
 
     /**
      * Custom leading to be applied to the strut. The value is a floating point number. The default value is -1.0.
-     * @type { ?number } it is double type data
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    leading?: number;
+    leading?: double;
 
     /**
      * Whether to forcibly use the strut height for all lines. The value true means to forcibly use the strut height
@@ -1303,12 +1303,12 @@ declare namespace text {
 
     /**
      * Maximum number of lines. The value is an integer. The default value is 1e9.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    maxLines?: number;
+    maxLines?: int;
 
     /**
      * Text break strategy. The default value is GREEDY.
@@ -1452,21 +1452,21 @@ declare namespace text {
   interface PlaceholderSpan {
     /**
      * Width of the placeholder, in units of px. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Height of the placeholder, in units of px. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Vertical alignment of the placeholder relative to the surrounding text.
@@ -1488,12 +1488,12 @@ declare namespace text {
 
     /**
      * Offset to the text baseline, in units of px. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    baselineOffset: number;
+    baselineOffset: double;
   }
 
   /**
@@ -1506,21 +1506,21 @@ declare namespace text {
   interface Range {
     /**
      * Index of the leftmost point of the interval. The value is an integer.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    start: number;
+    start: int;
 
     /**
      * Index of the rightmost point of the interval. The value is an integer.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    end: number;
+    end: int;
   }
 
   /**
@@ -1637,22 +1637,22 @@ declare namespace text {
 
     /**
      * Font width. The value is an integer ranging from 1 to 9. The default value is 0.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'14','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width?: number;
+    width?: int;
 
     /**
      * Whether the font is italic. The value 0 means that the font is not italic, and 1 means the opposite.
      * The default value is 0.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'14','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    italic?: number;
+    italic?: int;
 
     /**
      * Whether the font is monospaced. The value true means that the font is monospaced, and false means the opposite.
@@ -1685,16 +1685,16 @@ declare namespace text {
   class Paragraph {
     /**
      * Performs layout and calculates the positions of all glyphs.
-     * @param { number } width - Maximum width of a single line, in units of px. The value is a floating point number.
+     * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    layoutSync(width: number): void;
+    layoutSync(width: double): void;
 
     /**
      * Performs layout and calculates the positions of all glyphs. This API uses a promise to return the result.
-     * @param { number } width - Maximum width of a single line, in units of px. The value is a floating point number.
+     * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1702,107 +1702,107 @@ declare namespace text {
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    layout(width: number): Promise<void>;
+    layout(width: double): Promise<void>;
 
     /**
      * Paints the text on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
-     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    paint(canvas: drawing.Canvas, x: number, y: number): void;
+    paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
      * Draw the laid out text onto the supplied canvas along the path and offset.
      * @param { drawing.Canvas } canvas - Canvas used to carry the drawn content and drawing status.
      * @param { drawing.Path } path - Path used to determine the position of the text.
-     * @param { number } hOffset - Horizontal offset along the path direction. A positive number indicates a position
+     * @param { double } hOffset - Horizontal offset along the path direction. A positive number indicates a position
      * that is ahead along the path from its start point, and a negative number indicates a position that is behind
      * from the start point.
-     * @param { number } vOffset - Vertical offset along the path direction. A positive number indicates a position
+     * @param { double } vOffset - Vertical offset along the path direction. A positive number indicates a position
      * on the left side of the path, and a negative number indicates a position on the right side of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void;
+    paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: double, vOffset: double): void;
 
     /**
      * Obtains the maximum width of the line in the text.
-     * @returns { number } Maximum line width, in units of px. The value is a floating point number.
+     * @returns { double } Maximum line width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMaxWidth(): number;
+    getMaxWidth(): double;
 
     /**
      * Obtains the total height of the text.
-     * @returns { number } Total height, in units of px. The value is a floating point number.
+     * @returns { double } Total height, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getHeight(): number;
+    getHeight(): double;
 
     /**
      * Obtains the longest line in the text.
-     * @returns { number } Longest line, in units of px. The value is a floating point number.
+     * @returns { double } Longest line, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLongestLine(): number;
+    getLongestLine(): double;
 
     /**
      * Obtains the width of the longest line, including its indentation, in the text.
      * You are advised to round up the return value. If the text content is empty, 0 is returned.
-     * @returns { number } Width of the longest line, including its indentation.
+     * @returns { double } Width of the longest line, including its indentation.
      * The value is a floating point number, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLongestLineWithIndent(): number;
+    getLongestLineWithIndent(): double;
 
     /**
      * Obtains the minimum intrinsic width of the paragraph.
-     * @returns { number } Minimum intrinsic width, in units of px. The value is a floating point number.
+     * @returns { double } Minimum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMinIntrinsicWidth(): number;
+    getMinIntrinsicWidth(): double;
 
     /**
      * Obtains the maximum intrinsic width of the paragraph.
-     * @returns { number } Maximum intrinsic width, in units of px. The value is a floating point number.
+     * @returns { double } Maximum intrinsic width, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getMaxIntrinsicWidth(): number;
+    getMaxIntrinsicWidth(): double;
 
     /**
      * Obtains the alphabetic baseline.
-     * @returns { number } Alphabetic baseline, in units of px. The value is a floating point number.
+     * @returns { double } Alphabetic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getAlphabeticBaseline(): number;
+    getAlphabeticBaseline(): double;
 
     /**
      * Obtains the ideographic baseline.
-     * @returns { number } Ideographic baseline, in units of px. The value is a floating point number.
+     * @returns { double } Ideographic baseline, in units of px. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getIdeographicBaseline(): number;
+    getIdeographicBaseline(): double;
 
     /**
      * Obtains the rectangles occupied by the characters in the range of the text under the given rectangle width and
@@ -1828,53 +1828,53 @@ declare namespace text {
 
     /**
      * Obtains the position of a glyph closest to the given coordinates.
-     * @param { number } x - X coordinate. The value is a floating point number.
-     * @param { number } y - Y coordinate. The value is a floating point number.
+     * @param { double } x - X coordinate. The value is a floating point number.
+     * @param { double } y - Y coordinate. The value is a floating point number.
      * @returns { PositionWithAffinity } Position of the glyph.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
 
     /**
      * Obtains the range of the word where the glyph with a given offset is located.
-     * @param { number } offset - Offset of the glyph. The value is an integer.
+     * @param { int } offset - Offset of the glyph. The value is an integer.
      * @returns { Range } Range of the word.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getWordBoundary(offset: number): Range;
+    getWordBoundary(offset: int): Range;
 
     /**
      * Obtains the number of text lines.
-     * @returns { number } Number of text lines. The value is an integer.
+     * @returns { int } Number of text lines. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineCount(): number;
+    getLineCount(): int;
 
     /**
      * Obtains the height of a given line.
-     * @param { number } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
-     * @returns { number } The line height value returned to the caller.
+     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
+     * @returns { double } The line height value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineHeight(line: number): number;
+    getLineHeight(line: int): double;
 
     /**
      * Obtains the width of a given line.
-     * @param { number } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
-     * @returns { number } The line width value returned to the caller.
+     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
+     * @returns { double } The line width value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineWidth(line: number): number;
+    getLineWidth(line: int): double;
 
     /**
      * Checks whether the number of lines in the paragraph exceeds the maximum.
@@ -1897,7 +1897,7 @@ declare namespace text {
 
     /**
      * Obtains the actually visible text range in the specified line, excluding any overflow ellipsis.
-     * @param { number } lineNumber - Line number of the text range, starting from 0. This API can only be used to
+     * @param { int } lineNumber - Line number of the text range, starting from 0. This API can only be used to
      * obtain the bounds of existing lines. That is, the line number must start from 0, and the maximum line number
      * is getLineCount - 1.
      * @param { boolean } includeSpaces - Whether spaces are included. The value true means that spaces are contained,
@@ -1907,7 +1907,7 @@ declare namespace text {
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getActualTextRange(lineNumber: number, includeSpaces: boolean): Range;
+    getActualTextRange(lineNumber: int, includeSpaces: boolean): Range;
 
     /**
      * Obtains an array of line measurement information.
@@ -1920,7 +1920,7 @@ declare namespace text {
 
     /**
      * Obtains the line measurement information of a line.
-     * @param { number } lineNumber - Line number, starting from 0.
+     * @param { int } lineNumber - Line number, starting from 0.
      * @returns { LineMetrics | undefined } LineMetrics object containing the measurement information if the specified
      * line number is valid and the measurement information exists. If the line number is invalid or
      * the measurement information cannot be obtained, undefined is returned.
@@ -1928,7 +1928,7 @@ declare namespace text {
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineMetrics(lineNumber: number): LineMetrics | undefined;
+    getLineMetrics(lineNumber: int): LineMetrics | undefined;
 
     /**
      * Synchronously updates the text color of the typography.
@@ -1958,23 +1958,23 @@ declare namespace text {
   class LineTypeset {
     /**
      * Obtains the number of characters that can fit in the layout from the specified position within a limited width.
-     * @param { number } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
+     * @param { int } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
      * [0, total number of text characters). If the parameter is invalid, an exception is thrown.
-     * @param { number } width - Layout width. The value is a floating point number greater than 0, in px.
-     * @returns { number } Number of characters.
+     * @param { double } width - Layout width. The value is a floating point number greater than 0, in px.
+     * @returns { int } Number of characters.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLineBreak(startIndex: number, width: number): number;
+    getLineBreak(startIndex: int, width: double): int;
 
     /**
      * Generates a text line object based on the specified layout range.
-     * @param { number } startIndex - Start position for layout calculation. The value is an integer in the
+     * @param { int } startIndex - Start position for layout calculation. The value is an integer in the
      * range [0, total number of text characters).
-     * @param { number } count - 	Number of characters from the specified start position. The value is an integer in
+     * @param { int } count - 	Number of characters from the specified start position. The value is an integer in
      * the range [0, total number of text characters). The sum of startIndex and count cannot be greater than
      * the total number of text characters. When count is 0, the range is [startIndex, end of the text].
      * You can use getLineBreak to obtain the number of characters that can fit in the layout.
@@ -1985,7 +1985,7 @@ declare namespace text {
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    createLine(startIndex: number, count: number): TextLine;
+    createLine(startIndex: int, count: int): TextLine;
   }
 
   /**
@@ -2025,12 +2025,12 @@ declare namespace text {
   interface PositionWithAffinity {
     /**
      * Index of the glyph relative to the paragraph. The value is an integer.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    position: number;
+    position: int;
 
     /**
      * Affinity of the position.
@@ -2230,14 +2230,14 @@ declare namespace text {
 
     /**
      * Inserts a symbol into the paragraph being built.
-     * @param { number } symbolId - Symbol code to insert. The value is a hexadecimal number in the
+     * @param { int } symbolId - Symbol code to insert. The value is a hexadecimal number in the
      * range 0xF0000-0xF0C97. For details about the configurable symbol codes (unicode values in the list view),
      * see <a href="https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/">HarmonyOS Symbol</a>.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    addSymbol(symbolId: number): void;
+    addSymbol(symbolId: int): void;
   }
 
   /**
@@ -2253,39 +2253,39 @@ declare namespace text {
   interface TypographicBounds {
     /**
      * Ascent of a text line. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ascent: number;
+    ascent: double;
 
     /**
      * Descent of a text line. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    descent: number;
+    descent: double;
 
     /**
      * Leading of a text line. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    leading: number;
+    leading: double;
 
     /**
      * Width of the typographic boundaries. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
   }
 
   /**
@@ -2293,8 +2293,8 @@ declare namespace text {
    * as its parameters.
    *
    * @typedef { function } CaretOffsetsCallback
-   * @param { number } offset - Offset of each character in a text line. The value is a floating point number.
-   * @param { number } index - Index of each character in a text line. The value is an integer.
+   * @param { int } offset - Offset of each character in a text line. The value is a floating point number.
+   * @param { int } index - Index of each character in a text line. The value is an integer.
    * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value true means
    * that the cursor is located at the front of the character, that is, the offset does not contain the character
    * width. The value false means that the cursor is located at the rear of the character, that is, the offset
@@ -2306,7 +2306,7 @@ declare namespace text {
    * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean;
+  type CaretOffsetsCallback = (offset: int, index: int, leadingEdge: boolean) => boolean;
 
   /**
    * Implements a carrier that describes the basic text line structure of a paragraph.
@@ -2319,12 +2319,12 @@ declare namespace text {
   class TextLine {
     /**
      * Obtains the number of glyphs in this text line.
-     * @returns { number } Number of glyphs. The value is an integer.
+     * @returns { int } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getGlyphCount(): number;
+    getGlyphCount(): int;
 
     /**
      * Obtains the range of the text in this text line in the entire paragraph.
@@ -2347,17 +2347,17 @@ declare namespace text {
     /**
      * Paints this text line on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
-     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    paint(canvas: drawing.Canvas, x: number, y: number): void;
+    paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
      * Creates a truncated text line object.
-     * @param { number } width - Width of the line after truncation. The value is a floating point number.
+     * @param { double } width - Width of the line after truncation. The value is a floating point number.
      * @param { EllipsisMode } ellipsisMode - Ellipsis mode. Currently, only START and END are supported.
      * @param { string } ellipsis - String used to mark a truncation.
      * @returns { TextLine } Truncated text line object.
@@ -2365,7 +2365,7 @@ declare namespace text {
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
+    createTruncatedLine(width: double, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
     /**
      * Obtains the typographic boundaries of this text line. These boundaries depend on the typographic font and font
@@ -2396,32 +2396,32 @@ declare namespace text {
 
     /**
      * Obtains the width of the spaces at the end of this text line.
-     * @returns { number } Number of spaces at the end of the text line. The value is a floating point number.
+     * @returns { double } Number of spaces at the end of the text line. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getTrailingSpaceWidth(): number;
+    getTrailingSpaceWidth(): double;
 
     /**
      * Obtains the index of a character at the specified position in the original string.
      * @param { common2D.Point } point - Position of the character.
-     * @returns { number } Index of the character in the text line. The value is an integer.
+     * @returns { int } Index of the character in the text line. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringIndexForPosition(point: common2D.Point): number;
+    getStringIndexForPosition(point: common2D.Point): int;
 
     /**
      * Obtains the offset of a character with the specified index in this text line.
-     * @param { number } index - Index of the character. The value is an integer.
-     * @returns { number } Offset of the character with the specified index. The value is a floating point number.
+     * @param { int } index - Index of the character. The value is an integer.
+     * @returns { double } Offset of the character with the specified index. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getOffsetForStringIndex(index: number): number;
+    getOffsetForStringIndex(index: int): double;
 
     /**
      * Enumerates the offset and index of each character in a text line.
@@ -2435,19 +2435,19 @@ declare namespace text {
 
     /**
      * Obtains the offset of this text line after alignment based on the alignment factor and alignment width.
-     * @param { number } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
+     * @param { double } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
      * floating point number. A value less than or equal to 0.0 means that the text is left-aligned; a value
      * between 0.0 and 0.5 means that the text is slightly left-aligned; the value 0.5 means that is text
      * is centered; a value between 0.5 and 1 means that the text is slightly right-aligned; a value greater than
      * or equal to 1.0 means that the text is right-aligned.
-     * @param { number } alignmentWidth - Alignment width, that is, the width of the text line. The value is a floating
+     * @param { double } alignmentWidth - Alignment width, that is, the width of the text line. The value is a floating
      * point number. If the width is less than the actual width of the text line, 0 is returned.
-     * @returns { number } Offset required for alignment. The value is a floating point number.
+     * @returns { double } Offset required for alignment. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number;
+    getAlignmentOffset(alignmentFactor: double, alignmentWidth: double): double;
   }
 
   /**
@@ -2460,21 +2460,21 @@ declare namespace text {
   class Run {
     /**
      * Obtains the number of glyphs in this run.
-     * @returns { number } Number of glyphs. The value is an integer.
+     * @returns { int } Number of glyphs. The value is an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getGlyphCount(): number;
+    getGlyphCount(): int;
 
     /**
      * Obtains the index of each glyph in this run.
-     * @returns { Array<number> } Array holding the index of each glyph in the run.
+     * @returns { Array<int> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getGlyphs(): Array<number>;
+    getGlyphs(): Array<int>;
 
     /**
      * Obtains the index of each glyph in the specified range of this run.
@@ -2482,12 +2482,12 @@ declare namespace text {
      * range. end indicates the length of the range. If the length is 0, the range is from range.start to the end
      * of the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is
      * returned.
-     * @returns { Array<number> } Array holding the index of each glyph in the run.
+     * @returns { Array<int> } Array holding the index of each glyph in the run.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getGlyphs(range: Range): Array<number>;
+    getGlyphs(range: Range): Array<int>;
 
     /**
      * Obtains the position of each glyph relative to the respective line in this run.
@@ -2533,27 +2533,27 @@ declare namespace text {
     /**
      * Paints this run on the canvas with the coordinate point (x, y) as the upper left corner.
      * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { number } x - X coordinate of the upper left corner. The value is a floating point number.
-     * @param { number } y - Y coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } x - X coordinate of the upper left corner. The value is a floating point number.
+     * @param { double } y - Y coordinate of the upper left corner. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    paint(canvas: drawing.Canvas, x: number, y: number): void;
+    paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
      * Obtains an array of character indices for glyphs within a specified range of this run, where the indices are
      * offsets relative to the entire paragraph.
-     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
+     * @param { Range } [range] - Range of the glyphs, where range.start indicates the start position of the range, and
      * range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
      * the run. If range.end or range.start is set to a negative value, null, or undefined, undefined is returned.
      * If this parameter is not passed, the entire run is obtained.
-     * @returns { Array<number> } Array of character indices.
+     * @returns { Array<int> } Array of character indices.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStringIndices(range?: Range): Array<number>;
+    getStringIndices(range?: Range): Array<int>;
 
     /**
      * Obtains the range of glyphs generated by this run.
@@ -2645,104 +2645,104 @@ declare namespace text {
   interface LineMetrics {
     /**
      * Start index of the line in the text buffer.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    startIndex: number;
+    startIndex: int;
 
     /**
      * End index of the line in the text buffer.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endIndex: number;
+    endIndex: int;
 
     /**
      * Ascent, that is, the distance from the baseline to the top of the character.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ascent: number;
+    ascent: double;
 
     /**
      * Descent, that is, the distance from the baseline to the bottom of the character.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    descent: number;
+    descent: double;
 
     /**
      * Height of the line, which is Math.round(ascent + descent).
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: double;
 
     /**
      * Width of the line.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: double;
 
     /**
      * Left edge of the line. The right edge is the value of left plus the value of width.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
 
     /**
      * Y coordinate of the baseline in the line relative to the top of the paragraph.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    baseline: number;
+    baseline: double;
 
     /**
      * Line number, starting from 0.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    lineNumber: number;
+    lineNumber: int;
 
     /**
      * Height from the top to the current line.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    topHeight: number;
+    topHeight: double;
 
     /**
      * Mapping between text index ranges and the FontMetrics associated with
      * them. The first run will be keyed under start_index. The metrics here.
      * are before layout and are the base values we calculate from.
-     * @type { Map<number, RunMetrics> }
+     * @type { Map<int, RunMetrics> }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    runMetrics: Map<number, RunMetrics>;
+    runMetrics: Map<int, RunMetrics>;
   }
 
   /**
@@ -2811,12 +2811,12 @@ declare namespace text {
     /**
      * Alignment position of the text following the tab character. The value is a floating point number, in px.
      * The minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts{ '1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    location: number;
+    location: double;
   }
 
   /**

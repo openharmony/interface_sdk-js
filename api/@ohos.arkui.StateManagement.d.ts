@@ -253,6 +253,7 @@ export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDec
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare const Type: TypeDecorator;
 

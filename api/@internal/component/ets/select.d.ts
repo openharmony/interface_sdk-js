@@ -52,6 +52,7 @@ import { OptionWidthMode } from './enums';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface SelectOption {
   /**
@@ -153,6 +154,7 @@ declare interface SelectOption {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SelectInterface {
   /**
@@ -416,6 +418,7 @@ declare interface MenuOutlineOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
@@ -1351,6 +1354,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
   /**
@@ -1454,6 +1458,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Select: SelectInterface;
 
@@ -1477,5 +1482,6 @@ declare const Select: SelectInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SelectInstance: SelectAttribute;

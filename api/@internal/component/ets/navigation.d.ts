@@ -585,6 +585,7 @@ declare enum NavigationTitleMode {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface NavigationMenuItem {
   /**
@@ -2098,6 +2099,7 @@ declare interface HomePathInfo {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface NavigationInterface {
   /**
@@ -2337,6 +2339,7 @@ declare enum NavigationOperation {
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface ToolbarItem {
   /**
@@ -2489,6 +2492,7 @@ declare interface ToolbarItem {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare interface NavigationTitleOptions {
   /**
@@ -2858,6 +2862,7 @@ declare interface MoreButtonOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   /**
@@ -4060,6 +4065,7 @@ declare interface NavContentInfo {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Navigation: NavigationInterface;
 
@@ -4083,5 +4089,6 @@ declare const Navigation: NavigationInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const NavigationInstance: NavigationAttribute;

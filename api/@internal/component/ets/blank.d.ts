@@ -57,6 +57,7 @@ import { ResourceColor } from './units';
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface BlankInterface {
   /**
@@ -136,6 +137,7 @@ interface BlankInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class BlankAttribute extends CommonMethod<BlankAttribute> {
   /**
@@ -210,6 +212,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Blank: BlankInterface;
 
@@ -242,5 +245,6 @@ declare const Blank: BlankInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const BlankInstance: BlankAttribute;

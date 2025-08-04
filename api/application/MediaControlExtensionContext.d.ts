@@ -27,7 +27,8 @@ import UIExtensionContext from './UIExtensionContext';
  * @syscap SystemCapability.Multimedia.AVSession.Core
  * @systemapi
  * @StageModelOnly
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class MediaControlExtensionContext extends UIExtensionContext {
 }

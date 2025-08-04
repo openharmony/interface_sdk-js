@@ -1450,6 +1450,7 @@ declare interface ProgressStyleMap {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ProgressInterface {
   /**
@@ -1539,6 +1540,7 @@ interface ProgressInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
@@ -1698,6 +1700,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 declare class ProgressAttribute extends CommonMethod<ProgressAttribute> {
   /**
@@ -1836,6 +1839,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Progress: ProgressInterface;
 
@@ -1868,5 +1872,6 @@ declare const Progress: ProgressInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ProgressInstance: ProgressAttribute<keyof ProgressStyleMap>;

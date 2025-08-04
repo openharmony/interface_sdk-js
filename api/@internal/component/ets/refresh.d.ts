@@ -354,6 +354,7 @@ interface RefreshOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RefreshInterface {
   /**
@@ -411,6 +412,7 @@ interface RefreshInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
@@ -559,6 +561,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Refresh: RefreshInterface;
 
@@ -582,5 +585,6 @@ declare const Refresh: RefreshInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const RefreshInstance: RefreshAttribute;

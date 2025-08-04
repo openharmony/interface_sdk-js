@@ -142,6 +142,7 @@ declare interface GridItemOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface GridItemInterface {
   /**
@@ -191,6 +192,7 @@ interface GridItemInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**
@@ -442,6 +444,7 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridItem: GridItemInterface
 
@@ -465,5 +468,6 @@ declare const GridItem: GridItemInterface
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GridItemInstance: GridItemAttribute;

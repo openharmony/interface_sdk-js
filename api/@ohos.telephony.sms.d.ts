@@ -26,7 +26,8 @@ import type Context from './application/BaseContext';
  *
  * @namespace sms
  * @syscap SystemCapability.Telephony.SmsMms
- * @since 6
+ * @since arkts {'1.1':'6','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace sms {
   /**
@@ -342,7 +343,8 @@ declare namespace sms {
    * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
    * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasSmsCapability(): boolean;
 

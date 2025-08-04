@@ -18,24 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonShapeMethod, CommonMethod } from './common';
-import { Length } from './units';
-/*** endif */
-
-/**
- * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
- * 
- * @typedef { [Length, Length] } ShapePoint
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type ShapePoint = [Length, Length];
-
 /**
  * Defines Line constructor options.
  *
@@ -44,8 +26,7 @@ export type ShapePoint = [Length, Length];
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface LineOptions {
   /**
@@ -196,6 +177,7 @@ interface LineOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface LineInterface {
   /**
@@ -351,8 +333,8 @@ interface LineInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
@@ -396,20 +378,6 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   startPoint(value: Array<any>): LineAttribute;
 
   /**
-   * Coordinate of the start point of the line (relative coordinate).
-   *
-   * @param { ShapePoint } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  startPoint(value: ShapePoint): LineAttribute;
-
-  /**
    * Line end coordinates (relative coordinates).
    *
    * @param { Array<any> } value
@@ -448,20 +416,6 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @since 11
    */
   endPoint(value: Array<any>): LineAttribute;
-
-  /**
-   * Line end coordinates (relative coordinates).
-   *
-   * @param { ShapePoint } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  endPoint(value: ShapePoint): LineAttribute;
 }
 
 /**
@@ -493,6 +447,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Line: LineInterface;
 
@@ -525,32 +480,6 @@ declare const Line: LineInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LineInstance: LineAttribute;
-
-/**
- * Line drawing component.
- *
- * @interface LineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-interface LineInterface {
-  /**
-   * The return value of the parameter is Line.
-   *
-   * @param { LineOptions } [options] - Line options
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (options?: LineOptions): LineAttribute;
-}

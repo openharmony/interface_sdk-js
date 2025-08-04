@@ -104,6 +104,7 @@ interface FolderStackOptions {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 
 interface FolderStackInterface {
@@ -223,6 +224,7 @@ declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
@@ -416,6 +418,7 @@ declare interface HoverEventParam {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const FolderStack: FolderStackInterface;
 
@@ -433,5 +436,6 @@ declare const FolderStack: FolderStackInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const FolderStackInstance: FolderStackAttribute;

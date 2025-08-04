@@ -521,6 +521,7 @@ declare interface ButtonStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SideBarContainerInterface {
   /**
@@ -682,6 +683,7 @@ interface DividerStyle {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
   /**
@@ -1157,6 +1159,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SideBarContainer: SideBarContainerInterface;
 
@@ -1180,5 +1183,6 @@ declare const SideBarContainer: SideBarContainerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SideBarContainerInstance: SideBarContainerAttribute;

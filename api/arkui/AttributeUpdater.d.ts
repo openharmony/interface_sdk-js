@@ -38,6 +38,7 @@ declare type Initializer<T> = () => T;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
 
@@ -120,6 +121,7 @@ export type Initializer<T> = (...params: Object[]) => T;
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
   /**

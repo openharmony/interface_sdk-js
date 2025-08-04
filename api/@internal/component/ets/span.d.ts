@@ -176,6 +176,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SpanInterface {
   /**
@@ -246,6 +247,7 @@ interface SpanInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
@@ -443,6 +445,20 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    */
   fontWeight(value: number | FontWeight | ResourceStr): SpanAttribute;
 
+   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontWeight(value: number | FontWeight | string): SpanAttribute;
+
   /**
    * Called when the font list of text is set.
    *
@@ -587,6 +603,20 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    */
   letterSpacing(value: number | ResourceStr): SpanAttribute;
 
+   /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  letterSpacing(value: number | string): SpanAttribute;
+
   /**
    * Called when the type of letter in the text font is set.
    *
@@ -701,6 +731,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Span: SpanInterface;
 
@@ -733,5 +764,6 @@ declare const Span: SpanInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const SpanInstance: SpanAttribute;

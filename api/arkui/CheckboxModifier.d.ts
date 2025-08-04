@@ -12,13 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-
 /**
  * Defines Checkbox Modifier
  *
@@ -37,17 +34,17 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class CheckboxModifier extends CheckboxAttribute implements AttributeModifier<CheckboxAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { CheckboxAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: CheckboxAttribute): void;
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @param { CheckboxAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: CheckboxAttribute): void;
 }

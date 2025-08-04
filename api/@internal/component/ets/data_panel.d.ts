@@ -443,6 +443,7 @@ declare interface DataPanelOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface DataPanelInterface {
   /**
@@ -558,6 +559,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
@@ -732,6 +734,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DataPanel: DataPanelInterface
 
@@ -764,5 +767,6 @@ declare const DataPanel: DataPanelInterface
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DataPanelInstance: DataPanelAttribute;

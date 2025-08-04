@@ -18,6 +18,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { CommonModifier } from './arkui/CommonModifier';
 
@@ -26,6 +27,7 @@ export { CommonModifier } from './arkui/CommonModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
 
@@ -34,6 +36,7 @@ export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { BlankModifier } from './arkui/BlankModifier';
 
@@ -42,6 +45,7 @@ export { BlankModifier } from './arkui/BlankModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ButtonModifier } from './arkui/ButtonModifier';
 
@@ -50,6 +54,7 @@ export { ButtonModifier } from './arkui/ButtonModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { CalendarPickerModifier } from './arkui/CalendarPickerModifier';
 
@@ -58,6 +63,7 @@ export { CalendarPickerModifier } from './arkui/CalendarPickerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { CheckboxModifier } from './arkui/CheckboxModifier';
 
@@ -66,6 +72,7 @@ export { CheckboxModifier } from './arkui/CheckboxModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { CheckboxGroupModifier } from './arkui/CheckboxGroupModifier';
 
@@ -74,6 +81,7 @@ export { CheckboxGroupModifier } from './arkui/CheckboxGroupModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ColumnModifier } from './arkui/ColumnModifier';
 
@@ -82,6 +90,7 @@ export { ColumnModifier } from './arkui/ColumnModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ColumnSplitModifier } from './arkui/ColumnSplitModifier';
 
@@ -90,6 +99,7 @@ export { ColumnSplitModifier } from './arkui/ColumnSplitModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { CounterModifier } from './arkui/CounterModifier';
 
@@ -98,6 +108,7 @@ export { CounterModifier } from './arkui/CounterModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { DataPanelModifier } from './arkui/DataPanelModifier';
 
@@ -106,6 +117,7 @@ export { DataPanelModifier } from './arkui/DataPanelModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { DatePickerModifier } from './arkui/DatePickerModifier';
 
@@ -114,6 +126,7 @@ export { DatePickerModifier } from './arkui/DatePickerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { DividerModifier } from './arkui/DividerModifier';
 
@@ -123,6 +136,7 @@ export { DividerModifier } from './arkui/DividerModifier';
  * @systemapi
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { FormComponentModifier } from './arkui/FormComponentModifier';
 
@@ -131,6 +145,7 @@ export { FormComponentModifier } from './arkui/FormComponentModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { GaugeModifier } from './arkui/GaugeModifier';
 
@@ -139,6 +154,7 @@ export { GaugeModifier } from './arkui/GaugeModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { GridModifier } from './arkui/GridModifier';
 
@@ -147,6 +163,7 @@ export { GridModifier } from './arkui/GridModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { GridColModifier } from './arkui/GridColModifier';
 
@@ -155,6 +172,7 @@ export { GridColModifier } from './arkui/GridColModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { GridItemModifier } from './arkui/GridItemModifier';
 
@@ -163,6 +181,7 @@ export { GridItemModifier } from './arkui/GridItemModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { GridRowModifier } from './arkui/GridRowModifier';
 
@@ -171,6 +190,7 @@ export { GridRowModifier } from './arkui/GridRowModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { HyperlinkModifier } from './arkui/HyperlinkModifier';
 
@@ -179,6 +199,7 @@ export { HyperlinkModifier } from './arkui/HyperlinkModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
 
@@ -187,6 +208,7 @@ export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ImageModifier } from './arkui/ImageModifier';
 
@@ -200,6 +222,7 @@ export { ImageModifier } from './arkui/ImageModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 20
+ * @noninterop
  */
 export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 /**
@@ -207,6 +230,7 @@ export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ImageSpanModifier } from './arkui/ImageSpanModifier';
 
@@ -215,6 +239,7 @@ export { ImageSpanModifier } from './arkui/ImageSpanModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { LineModifier } from './arkui/LineModifier';
 
@@ -223,6 +248,7 @@ export { LineModifier } from './arkui/LineModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ListModifier } from './arkui/ListModifier';
 
@@ -231,6 +257,7 @@ export { ListModifier } from './arkui/ListModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ListItemModifier } from './arkui/ListItemModifier';
 
@@ -239,6 +266,7 @@ export { ListItemModifier } from './arkui/ListItemModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ListItemGroupModifier } from './arkui/ListItemGroupModifier';
 
@@ -247,6 +275,7 @@ export { ListItemGroupModifier } from './arkui/ListItemGroupModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { LoadingProgressModifier } from './arkui/LoadingProgressModifier';
 
@@ -255,6 +284,7 @@ export { LoadingProgressModifier } from './arkui/LoadingProgressModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { MarqueeModifier } from './arkui/MarqueeModifier';
 
@@ -263,6 +293,7 @@ export { MarqueeModifier } from './arkui/MarqueeModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { MenuModifier } from './arkui/MenuModifier';
 
@@ -271,6 +302,7 @@ export { MenuModifier } from './arkui/MenuModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { MenuItemModifier } from './arkui/MenuItemModifier';
 
@@ -279,6 +311,7 @@ export { MenuItemModifier } from './arkui/MenuItemModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { NavDestinationModifier } from './arkui/NavDestinationModifier';
 
@@ -287,6 +320,7 @@ export { NavDestinationModifier } from './arkui/NavDestinationModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { NavigationModifier } from './arkui/NavigationModifier';
 
@@ -295,6 +329,7 @@ export { NavigationModifier } from './arkui/NavigationModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { NavigatorModifier } from './arkui/NavigatorModifier';
 
@@ -303,6 +338,7 @@ export { NavigatorModifier } from './arkui/NavigatorModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { NavRouterModifier } from './arkui/NavRouterModifier';
 
@@ -311,6 +347,7 @@ export { NavRouterModifier } from './arkui/NavRouterModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { PanelModifier } from './arkui/PanelModifier';
 
@@ -319,6 +356,7 @@ export { PanelModifier } from './arkui/PanelModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { PathModifier } from './arkui/PathModifier';
 
@@ -327,6 +365,7 @@ export { PathModifier } from './arkui/PathModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { PatternLockModifier } from './arkui/PatternLockModifier';
 
@@ -335,6 +374,7 @@ export { PatternLockModifier } from './arkui/PatternLockModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { PolygonModifier } from './arkui/PolygonModifier';
 
@@ -343,6 +383,7 @@ export { PolygonModifier } from './arkui/PolygonModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { PolylineModifier } from './arkui/PolylineModifier';
 
@@ -351,6 +392,7 @@ export { PolylineModifier } from './arkui/PolylineModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ProgressModifier } from './arkui/ProgressModifier';
 
@@ -359,6 +401,7 @@ export { ProgressModifier } from './arkui/ProgressModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { QRCodeModifier } from './arkui/QRCodeModifier';
 
@@ -367,6 +410,7 @@ export { QRCodeModifier } from './arkui/QRCodeModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RadioModifier } from './arkui/RadioModifier';
 
@@ -375,6 +419,7 @@ export { RadioModifier } from './arkui/RadioModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RatingModifier } from './arkui/RatingModifier';
 
@@ -383,6 +428,7 @@ export { RatingModifier } from './arkui/RatingModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RectModifier } from './arkui/RectModifier';
 
@@ -391,6 +437,7 @@ export { RectModifier } from './arkui/RectModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RefreshModifier } from './arkui/RefreshModifier';
 
@@ -399,6 +446,7 @@ export { RefreshModifier } from './arkui/RefreshModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RichEditorModifier } from './arkui/RichEditorModifier';
 
@@ -407,6 +455,7 @@ export { RichEditorModifier } from './arkui/RichEditorModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RowModifier } from './arkui/RowModifier';
 
@@ -415,6 +464,7 @@ export { RowModifier } from './arkui/RowModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { RowSplitModifier } from './arkui/RowSplitModifier';
 
@@ -423,6 +473,7 @@ export { RowSplitModifier } from './arkui/RowSplitModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ScrollModifier } from './arkui/ScrollModifier';
 
@@ -431,6 +482,7 @@ export { ScrollModifier } from './arkui/ScrollModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SearchModifier } from './arkui/SearchModifier';
 
@@ -439,6 +491,7 @@ export { SearchModifier } from './arkui/SearchModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SelectModifier } from './arkui/SelectModifier';
 
@@ -447,6 +500,7 @@ export { SelectModifier } from './arkui/SelectModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ShapeModifier } from './arkui/ShapeModifier';
 
@@ -455,6 +509,7 @@ export { ShapeModifier } from './arkui/ShapeModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
 
@@ -463,6 +518,7 @@ export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SliderModifier } from './arkui/SliderModifier';
 
@@ -471,6 +527,7 @@ export { SliderModifier } from './arkui/SliderModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SpanModifier } from './arkui/SpanModifier';
 
@@ -479,6 +536,7 @@ export { SpanModifier } from './arkui/SpanModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { StackModifier } from './arkui/StackModifier';
 
@@ -487,6 +545,7 @@ export { StackModifier } from './arkui/StackModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { StepperItemModifier } from './arkui/StepperItemModifier';
 
@@ -495,6 +554,7 @@ export { StepperItemModifier } from './arkui/StepperItemModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { SwiperModifier } from './arkui/SwiperModifier';
 
@@ -503,6 +563,7 @@ export { SwiperModifier } from './arkui/SwiperModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TabsModifier } from './arkui/TabsModifier';
 
@@ -511,6 +572,7 @@ export { TabsModifier } from './arkui/TabsModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextAreaModifier } from './arkui/TextAreaModifier';
 
@@ -519,6 +581,7 @@ export { TextAreaModifier } from './arkui/TextAreaModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextModifier } from './arkui/TextModifier';
 
@@ -527,6 +590,7 @@ export { TextModifier } from './arkui/TextModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextClockModifier } from './arkui/TextClockModifier';
 
@@ -535,6 +599,7 @@ export { TextClockModifier } from './arkui/TextClockModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextInputModifier } from './arkui/TextInputModifier';
 
@@ -543,6 +608,7 @@ export { TextInputModifier } from './arkui/TextInputModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextPickerModifier } from './arkui/TextPickerModifier';
 
@@ -551,6 +617,7 @@ export { TextPickerModifier } from './arkui/TextPickerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TextTimerModifier } from './arkui/TextTimerModifier';
 
@@ -559,6 +626,7 @@ export { TextTimerModifier } from './arkui/TextTimerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { TimePickerModifier } from './arkui/TimePickerModifier';
 
@@ -567,6 +635,7 @@ export { TimePickerModifier } from './arkui/TimePickerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { ToggleModifier } from './arkui/ToggleModifier';
 
@@ -575,6 +644,7 @@ export { ToggleModifier } from './arkui/ToggleModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { VideoModifier } from './arkui/VideoModifier';
 
@@ -583,6 +653,7 @@ export { VideoModifier } from './arkui/VideoModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { WaterFlowModifier } from './arkui/WaterFlowModifier';
 
@@ -591,6 +662,7 @@ export { WaterFlowModifier } from './arkui/WaterFlowModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 12
+ * @noninterop
  */
 export { AttributeUpdater } from './arkui/AttributeUpdater';
 
@@ -601,6 +673,7 @@ export { AttributeUpdater } from './arkui/AttributeUpdater';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
 
@@ -611,6 +684,7 @@ export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
 
@@ -621,6 +695,7 @@ export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export { ParticleModifier } from './arkui/ParticleModifier';
 
@@ -629,5 +704,6 @@ export { ParticleModifier } from './arkui/ParticleModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @since 20
+ * @noninterop
  */
 export { StepperModifier } from './arkui/StepperModifier';
