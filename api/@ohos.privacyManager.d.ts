@@ -57,7 +57,7 @@ declare namespace privacyManager {
    * @param { Permissions } permissionName - Name of the permission accessed.
    * @param { int } successCount - Number of successful accesses to the permission.
    * @param { int } failCount - Number of failed accesses to the permission.
-   * @param { AddPermissionUsedRecordOptions } options - Options to be added.
+   * @param { AddPermissionUsedRecordOptions } [options] - Options to be added.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
@@ -184,8 +184,8 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { number } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be started.
-   * @param { number } pid - Pid of the application, default -1.
-   * @param { PermissionUsedType } usedType - Used type of the permission accessed, default NORMAL_TYPE.
+   * @param { number } [pid] - Pid of the application, default -1.
+   * @param { PermissionUsedType } [usedType] - Used type of the permission accessed, default NORMAL_TYPE.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
@@ -262,7 +262,7 @@ declare namespace privacyManager {
    * @permission ohos.permission.PERMISSION_USED_STATS
    * @param { number } tokenID - Token ID of the application.
    * @param { Permissions } permissionName - Name of the permission to be stopped.
-   * @param { number } pid - Pid of the application, default -1.
+   * @param { number } [pid] - Pid of the application, default -1.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.PERMISSION_USED_STATS".
@@ -362,7 +362,7 @@ declare namespace privacyManager {
    * Obtains the used type of the permission accessed.
    *
    * @permission ohos.permission.PERMISSION_USED_STATS
-   * @param { number } tokenId - Token ID of the application. By default, all token IDs of the device are returned.
+   * @param { int } tokenId - Token ID of the application. By default, all token IDs of the device are returned.
    * @param { Permissions } permissionName - Name of the permission to query. By default, all permissions of the device are returned.
    * @returns { Promise<Array<PermissionUsedTypeInfo>> } Promise used to return the information obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -375,7 +375,27 @@ declare namespace privacyManager {
    * @systemapi
    * @since 12
    */
-  function getPermissionUsedTypeInfos(tokenId?: number, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
+
+  /**
+   * Obtains the used type of the permission accessed.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int | null } [tokenId] - Token ID of the application. By default, all token IDs of the device
+   *     are returned.
+   * @param { Permissions } [permissionName] - Name of the permission to query. By default, all permissions
+   *     of the device are returned.
+   * @returns { Promise<Array<PermissionUsedTypeInfo>> } Promise used to return the information obtained.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. PermissionName exceeds 256 characters.
+   * @throws { BusinessError } 12100002 - The input tokenId does not exist.
+   * @throws { BusinessError } 12100003 - The input permissionName does not exist.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 20
+   */
+  function getPermissionUsedTypeInfos(tokenId?: int | null, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
   /**
    * Sets the toggle state of permission access records for the current user.
