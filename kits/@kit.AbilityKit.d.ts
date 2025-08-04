@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,6 +43,7 @@ import abilityAccessCtrl, {
 } from '@ohos.abilityAccessCtrl';
 import Ability from '@ohos.app.ability.Ability';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '@ohos.app.ability.InteropAbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
 import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
 import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
@@ -134,7 +135,8 @@ export {
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application, UIServiceExtensionAbility,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
+  InteropAbilityLifecycleCallback
 };
 
 /*** if arkts 1.2 */

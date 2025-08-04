@@ -25,6 +25,7 @@ import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConsta
 import Want from '../@ohos.app.ability.Want';
 import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
 import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
 /*** if arkts 1.1 */
 import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
@@ -106,6 +107,22 @@ declare class ApplicationContext extends Context {
    * @arkts 1.1&1.2
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): int;
+
+  /**
+   * Registers a listener to monitor the ability lifecycle of the application for interoperability.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { 'interopAbilityLifecycle' } type - Event type.
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  on(type: 'interopAbilityLifecycle', callback: InteropAbilityLifecycleCallback): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -197,6 +214,22 @@ declare class ApplicationContext extends Context {
    * @arkts 1.1&1.2
    */
   off(type: 'abilityLifecycle', callbackId: int): Promise<void>;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { 'interopAbilityLifecycle' } type - Event type.
+   * @param { InteropAbilityLifecycleCallback } [callback] - Callback used to be unregistered.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  off(type: 'interopAbilityLifecycle', callback?: InteropAbilityLifecycleCallback): void;
 
   /**
    * Register environment callback.
