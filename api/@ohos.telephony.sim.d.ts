@@ -33,66 +33,66 @@ declare namespace sim {
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking
    * whether the SIM card in a specified slot is activated.
    * Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isSimActive(slotId: number, callback: AsyncCallback<boolean>): void;
+  function isSimActive(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isSimActive(slotId: number): Promise<boolean>;
+  function isSimActive(slotId: int): Promise<boolean>;
 
   /**
    * Checks whether the SIM card in a specified slot is activated.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { boolean } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isSimActiveSync(slotId: number): boolean;
+  function isSimActiveSync(slotId: int): boolean;
 
   /**
    * Obtains the default card slot for the voice service.
    *
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting
+   * @param { AsyncCallback<int> } callback - Indicates the callback for getting
    * the default card slot for the voice service.
    * Returns {@code 0} if card 1 is used as the default card slot for the voice service;
    * returns {@code 1} if card 2 is used as the default card slot for the voice service;
    * returns {@code -1} if no card is available for the voice service.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultVoiceSlotId(callback: AsyncCallback<number>): void;
+  function getDefaultVoiceSlotId(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the default card slot for the voice service.
    *
-   * @returns { Promise<number> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
+   * @returns { Promise<int> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
    * returns {@code 1} if card 2 is used as the default card slot for the voice service;
    * returns {@code -1} if no card is available for the voice service.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultVoiceSlotId(): Promise<number>;
+  function getDefaultVoiceSlotId(): Promise<int>;
 
   /**
    * Checks whether your application (the caller) has been granted the operator permissions.
@@ -135,7 +135,7 @@ declare namespace sim {
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined
    * in ISO 3166-2; returns an empty string if no SIM card is inserted.
@@ -147,15 +147,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'6','1.2':'20'}
+   * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void;
+  function getISOCountryCodeForSim(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
    * returns an empty string if no SIM card is inserted.
@@ -167,10 +167,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'6','1.2':'20'}
+   * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getISOCountryCodeForSim(slotId: number): Promise<string>;
+  function getISOCountryCodeForSim(slotId: int): Promise<string>;
 
   /**
    * Obtains the ISO country code of the SIM card in a specified slot.
@@ -303,7 +303,7 @@ declare namespace sim {
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following SIM card states:
    * <ul>
@@ -321,15 +321,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'6','1.2':'20'}
+   * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSimState(slotId: number, callback: AsyncCallback<SimState>): void;
+  function getSimState(slotId: int, callback: AsyncCallback<SimState>): void;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<SimState> } Returns one of the following SIM card states:
    * <ul>
@@ -347,15 +347,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'6','1.2':'20'}
+   * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSimState(slotId: number): Promise<SimState>;
+  function getSimState(slotId: int): Promise<SimState>;
 
   /**
    * Obtains the state of the SIM card in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slots supported by the device.
    * @returns { SimState } Returns one of the following SIM card states:
    * <ul>
@@ -367,10 +367,10 @@ declare namespace sim {
    * <li>{@code SimState#SIM_STATE_LOADED}
    * </ul>
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSimStateSync(slotId: number): SimState;
+  function getSimStateSync(slotId: int): SimState;
 
   /**
    * Obtains the type of the SIM card installed in a specified slot.
@@ -713,12 +713,12 @@ declare namespace sim {
    * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
    * that is, the maximum number of SIM card slots.
    *
-   * @returns { number } Returns the maximum number of SIM card slots.
+   * @returns { int } Returns the maximum number of SIM card slots.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getMaxSimCount(): number;
+  function getMaxSimCount(): int;
 
   /**
    * Get the international mobile subscriber ID.
@@ -789,7 +789,7 @@ declare namespace sim {
   /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<boolean> } callback - Indicates the callback for hasSimCard.
    * Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
@@ -800,15 +800,15 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void;
+  function hasSimCard(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
    *
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<boolean> } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -818,10 +818,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function hasSimCard(slotId: number): Promise<boolean>;
+  function hasSimCard(slotId: int): Promise<boolean>;
 
   /**
    * Checks whether a SIM card is inserted in a specified slot.
@@ -838,11 +838,12 @@ declare namespace sim {
    * Get account information of SIM card.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
    * getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
    * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -852,19 +853,20 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void;
+  function getSimAccountInfo(slotId: int, callback: AsyncCallback<IccAccountInfo>): void;
 
   /**
    * Get account information of SIM card.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
    * will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -874,10 +876,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSimAccountInfo(slotId: number): Promise<IccAccountInfo>;
+  function getSimAccountInfo(slotId: int): Promise<IccAccountInfo>;
 
   /**
    * Get the list of active SIM card account information.
@@ -1233,7 +1235,7 @@ declare namespace sim {
    * Obtains the operatorconfigs of the SIM card in a specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<Array<OperatorConfig>> } callback - Indicates the callback for
    * getting the operatorconfigs in a specified slot;
@@ -1248,16 +1250,16 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{ '1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getOperatorConfigs(slotId: number, callback: AsyncCallback<Array<OperatorConfig>>): void;
+  function getOperatorConfigs(slotId: int, callback: AsyncCallback<Array<OperatorConfig>>): void;
 
   /**
    * Obtains the operatorconfigs of the SIM card in a specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<Array<OperatorConfig>> } Returns the operatorconfigs in a specified slot;
    * returns empty OperatorConfig if no SIM card is inserted.
@@ -1271,16 +1273,16 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{ '1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getOperatorConfigs(slotId: number): Promise<Array<OperatorConfig>>;
+  function getOperatorConfigs(slotId: int): Promise<Array<OperatorConfig>>;
 
   /**
    * Unlock the SIM card password of the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
@@ -1297,16 +1299,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function unlockPin(slotId: number, pin: string, callback: AsyncCallback<LockStatusResponse>): void;
+  function unlockPin(slotId: int, pin: string, callback: AsyncCallback<LockStatusResponse>): void;
 
   /**
    * Unlock the SIM card password of the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
@@ -1323,16 +1325,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function unlockPin(slotId: number, pin: string): Promise<LockStatusResponse>;
+  function unlockPin(slotId: int, pin: string): Promise<LockStatusResponse>;
 
   /**
    * Unlock the SIM card password in the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
@@ -1350,16 +1352,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function unlockPuk(slotId: number, newPin: string, puk: string, callback: AsyncCallback<LockStatusResponse>): void;
+  function unlockPuk(slotId: int, newPin: string, puk: string, callback: AsyncCallback<LockStatusResponse>): void;
 
   /**
    * Unlock the SIM card password in the specified card slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
@@ -1377,10 +1379,10 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function unlockPuk(slotId: number, newPin: string, puk: string): Promise<LockStatusResponse>;
+  function unlockPuk(slotId: int, newPin: string, puk: string): Promise<LockStatusResponse>;
 
   /**
    * Change Pin Password.
@@ -1841,7 +1843,7 @@ declare namespace sim {
    * Get the lock status of the SIM card in the specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @param { AsyncCallback<LockState> } callback - Indicates the callback for getting the sim card lock status.
@@ -1857,16 +1859,16 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{ '1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLockState(slotId: number, lockType: LockType, callback: AsyncCallback<LockState>): void;
+  function getLockState(slotId: int, lockType: LockType, callback: AsyncCallback<LockState>): void;
 
   /**
    * Get the lock status of the SIM card in the specified slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @returns { Promise<LockState> } Returns the sim card lock status.
@@ -1882,10 +1884,10 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{ '1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLockState(slotId: number, lockType: LockType): Promise<LockState>;
+  function getLockState(slotId: int, lockType: LockType): Promise<LockState>;
 
   /**
    * Send envelope command to SIM card.
@@ -2288,23 +2290,23 @@ declare namespace sim {
     /**
      * Indicates the sim Id for card.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    simId: number;
+    simId: int;
 
     /**
      * Indicates the card slot index number,
      * ranging from 0 to the maximum card slot index number supported by the device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    slotIndex: number;
+    slotIndex: int;
 
     /**
      * Indicates the mark card is eSim or not.
@@ -2370,24 +2372,24 @@ declare namespace sim {
     /**
      * Indicates the current operation result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{ '1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    result: number;
+    result: int;
 
     /**
      * Indicates the operations remaining.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{ '1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    remain?: number;
+    remain?: int;
   }
 
   /**
@@ -2513,7 +2515,7 @@ declare namespace sim {
   /**
    * Indicates the lock types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'8','1.2':'20'}
@@ -2544,7 +2546,7 @@ declare namespace sim {
   /**
    * Indicates the SIM card types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2643,7 +2645,7 @@ declare namespace sim {
   /**
    * Indicates the SIM card states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts {'1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2714,7 +2716,7 @@ declare namespace sim {
   /**
    * Indicates the lock states.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'8','1.2':'20'}
