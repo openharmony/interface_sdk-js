@@ -1762,7 +1762,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
@@ -1777,7 +1777,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
-     * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
+     * @throws { BusinessError } 12300003 - The account indicated by serialNumber does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9
      */
