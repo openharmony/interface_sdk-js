@@ -23,7 +23,6 @@ export * from './arkui/UserView';
 export * from './arkui/component/animation';
 export * from './arkui/component/customComponent';
 export * from './arkui/component/common';
-export * from './arkui/component/column';
 export * from './arkui/component/text';
 export * from './arkui/component/styledString';
 export * from './arkui/component/enums';
