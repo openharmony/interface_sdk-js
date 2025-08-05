@@ -1309,8 +1309,8 @@ declare namespace i18n {
      * localization.
      *
      * @param { string } path - Path to mirror, for example, "/data/out/tmp".
-     * @param [ string ] delimiter - Path delimiter. The default value is "/"".
-     * @param [ intl.Locale ] locale - Locale object. The default value is the current system locale.
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { intl.Locale } [locale] - Locale object. The default value is the current system locale.
      * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
      *                     the processed file path contains a direction control character to ensure that the file path
      *                     is displayed in mirror mode.
@@ -1320,6 +1320,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 18
      * @deprecated since 20
+     * @useinstead getUnicodeWrappedFilePath
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
 
@@ -4244,6 +4245,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleDateTimeFormatByPattern
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -4278,6 +4280,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleDateTimeFormatBySkeleton
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
@@ -4332,6 +4335,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleNumberFormatBySkeleton
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
@@ -4391,6 +4395,7 @@ declare namespace i18n {
      * @atomicservice
      * @since arkts {'1.1':'18','1.2':'20'}
      * @deprecated since 20
+     * @useinstead constructor
      * @arkts 1.1&1.2
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
