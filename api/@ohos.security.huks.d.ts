@@ -1044,8 +1044,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1126,8 +1124,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1205,8 +1201,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1291,8 +1285,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1345,8 +1337,6 @@ declare namespace huks {
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1371,8 +1361,6 @@ declare namespace huks {
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1398,8 +1386,6 @@ declare namespace huks {
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1454,8 +1440,6 @@ declare namespace huks {
    *                                 2. Incorrect parameter types.
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1665,7 +1649,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1692,7 +1676,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1722,7 +1706,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
@@ -1750,7 +1734,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
    * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
@@ -1786,7 +1770,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
    * refined key access control is not performed.
@@ -1815,7 +1799,7 @@ declare namespace huks {
    * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
    * huks.updateSession, and huks.finishSession must be used together.
    *
-   * @param { number } handle - Handle for the updateSession operation.
+   * @param { long } handle - Handle for the updateSession operation.
    * @param { HuksOptions } options - Parameter set used for the updateSession operation.
    * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
    * refined key access control is not performed.
@@ -1937,6 +1921,8 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2024,6 +2010,8 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2119,6 +2107,8 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2258,8 +2248,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2317,8 +2305,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2346,8 +2332,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2373,8 +2357,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -2461,8 +2443,6 @@ declare namespace huks {
    *                                 3. Parameter verification failed.
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
