@@ -1036,6 +1036,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface DeviceState {
     /**
@@ -1045,38 +1046,42 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     readonly deviceId: string;
 
     /**
      * Device connection state.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly deviceState: number;
+    readonly deviceState: int;
 
     /**
      * Reason for connection failure, for example, user cancellation and timeout.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly reasonCode: number;
+    readonly reasonCode: int;
 
     /**
      * System radar error code returned by cast+services.
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    readonly radarErrorCode: number;
+    readonly radarErrorCode: int;
   }
 
   /**
@@ -1090,6 +1095,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'deviceStateChanged', callback: Callback<DeviceState>): void;
 
@@ -1103,6 +1109,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'deviceStateChanged', callback?: Callback<DeviceState>): void;
 
