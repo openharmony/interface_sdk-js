@@ -190,7 +190,7 @@ interface RowInterface {
    * Called when the layout is set in the horizontal direction.
    *
    * Anonymous Object Rectification
-   * @param { ?RowOptions } options - row options
+   * @param { ?RowOptions } [options] - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -204,7 +204,7 @@ interface RowInterface {
    * Called when the layout is set in the horizontal direction.
    *
    * Anonymous Object Rectification
-   * @param { ?(RowOptions | RowOptionsV2) } options - row options
+   * @param { ?(RowOptions | RowOptionsV2) } [options] - row options
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
