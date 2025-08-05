@@ -1244,10 +1244,6 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
@@ -1273,10 +1269,6 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
@@ -1328,10 +1320,6 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
@@ -1358,10 +1346,6 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @since 20
    * @arkts 1.2
@@ -1385,10 +1369,6 @@ declare namespace accessibility {
    * Register the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type.
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Input parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
@@ -1445,10 +1425,6 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
@@ -1475,10 +1451,6 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types;
-   *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
@@ -1502,10 +1474,6 @@ declare namespace accessibility {
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
-   * 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
-   * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
