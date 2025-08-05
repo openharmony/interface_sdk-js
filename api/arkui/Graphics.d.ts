@@ -166,7 +166,8 @@ export declare class DrawContext {
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Get canvas of the DrawContext.
@@ -175,7 +176,8 @@ export declare class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   get canvas(): drawing.Canvas;
 }
@@ -1291,7 +1293,8 @@ export type BorderRadiuses = Corners<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
  */
 export type Rect = common2D.Rect;
 
@@ -1313,7 +1316,8 @@ export interface RoundRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rect: Rect,
 
@@ -1433,7 +1437,8 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setRectShape(rect: Rect): void;
 
@@ -1468,7 +1473,8 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setOvalShape(oval: Rect): void;
 
@@ -1556,7 +1562,8 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setRectShape(rect: Rect): void;
 
@@ -1591,7 +1598,8 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setOvalShape(oval: Rect): void;
 
