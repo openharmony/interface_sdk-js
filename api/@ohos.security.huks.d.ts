@@ -1700,7 +1700,7 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
-  function updateSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+  function updateSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
    * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
@@ -1825,7 +1825,7 @@ declare namespace huks {
    * @atomicservice
    * @since 11
    */
-  function updateSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
+  function updateSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
   /**
    * Finish Operation.
