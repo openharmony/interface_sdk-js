@@ -741,7 +741,15 @@ export declare namespace typeNode {
    * @since 20
    */
   overload createNode {
+    createSwiperNode,
     createListNode,
+    createListItemNode,
+    createListItemGroupNode,
+    createScrollNode,
+    createGridNode,
+    createGridItemNode,
+    createWaterFlowNode,
+    createFlowItemNode,
     createColumnNode,
     createRowNode,
     createStackNode,
@@ -1140,6 +1148,318 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createListNode(context: UIContext, nodeType: 'List'): List;
+
+  /**
+   * Define the ListItem type of FrameNode.
+   *
+   * @extends TypedFrameNode<ListItemAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ListItemFrameNode extends TypedFrameNode<ListItemAttribute> {
+    /**
+     * Initialize ListItem FrameNode.
+     *
+     * @param { ListItemOptions } [options] - list item options.
+     * @returns { ListItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: ListItemOptions): ListItemAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for ListItem.
+   *
+   * @typedef { ListItemFrameNode } ListItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type ListItem = ListItemFrameNode;
+
+  /**
+   * Create a FrameNode of ListItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItem' } nodeType - node type.
+   * @returns { ListItem } - Return ListItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createListItemNode(context: UIContext, nodeType: 'ListItem'): ListItem;
+
+  /**
+   * Define the ListItemGroup type of FrameNode.
+   *
+   * @extends TypedFrameNode<ListItemGroupAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ListItemGroupFrameNode extends TypedFrameNode<ListItemGroupAttribute> {
+    /**
+     * Initialize ListItemGroup FrameNode.
+     *
+     * @param { ListItemGroupOptions } [options] - list item group options.
+     * @returns { ListItemGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: ListItemGroupOptions): ListItemGroupAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for ListItemGroup.
+   *
+   * @typedef { ListItemGroupFrameNode } ListItemGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type ListItemGroup = ListItemGroupFrameNode;
+
+  /**
+   * Create a FrameNode of ListItemGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'ListItemGroup' } nodeType - node type.
+   * @returns { ListItemGroup } - Return ListItemGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createListItemGroupNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
+
+  /**
+   * Define the Scroll type of FrameNode.
+   *
+   * @extends TypedFrameNode<ScrollAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ScrollFrameNode extends TypedFrameNode<ScrollAttribute> {
+    /**
+     * Initialize Scroll FrameNode.
+     *
+     * @param { Scroller } [scroller] - The controller for scroll.
+     * @returns { ScrollAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(scroller?: Scroller): ScrollAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Scroll.
+   *
+   * @typedef { ScrollFrameNode } Scroll
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Scroll = ScrollFrameNode;
+
+  /**
+   * Create a FrameNode of Scroll type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @returns { Scroll } - Return Scroll type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createScrollNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+
+  /**
+   * Define the Grid type of FrameNode.
+   *
+   * @extends TypedFrameNode<GridAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class GridFrameNode extends TypedFrameNode<GridAttribute> {
+    /**
+     * Initialize Grid FrameNode.
+     *
+     * @param { Scroller } [scroller] - The controller for grid.
+     * @param { GridLayoutOptions } [layoutOptions] - Grid layout options.
+     * @returns { GridAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(scroller?: Scroller, layoutOptions?: GridLayoutOptions): GridAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Grid.
+   *
+   * @typedef { GridFrameNode } Grid
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Grid = GridFrameNode;
+
+  /**
+   * Create a FrameNode of Grid type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Grid' } nodeType - node type.
+   * @returns { Grid } - Return Grid type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createGridNode(context: UIContext, nodeType: 'Grid'): Grid;
+
+  /**
+   * Define the GridItem type of FrameNode.
+   *
+   * @extends TypedFrameNode<GridItemAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class GridItemFrameNode extends TypedFrameNode<GridItemAttribute> {
+    /**
+     * Initialize GridItem FrameNode.
+     *
+     * @param { GridItemOptions } [options] - Grid item options.
+     * @returns { GridItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: GridItemOptions): GridItemAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for GridItem.
+   *
+   * @typedef { GridItemFrameNode } GridItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type GridItem = GridItemFrameNode;
+
+  /**
+   * Create a FrameNode of GridItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItem } - Return GridItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createGridItemNode(context: UIContext, nodeType: 'GridItem'): GridItem;
+
+  /**
+   * Define the WaterFlow type of FrameNode.
+   *
+   * @extends TypedFrameNode<WaterFlowAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class WaterFlowFrameNode extends TypedFrameNode<WaterFlowAttribute> {
+    /**
+     * Initialize WaterFlow FrameNode.
+     *
+     * @param { WaterFlowOptions } [options] - WaterFlow options.
+     * @returns { WaterFlowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: WaterFlowOptions): WaterFlowAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for WaterFlow.
+   *
+   * @typedef { WaterFlowFrameNode } WaterFlow
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type WaterFlow = WaterFlowFrameNode;
+
+  /**
+   * Create a FrameNode of WaterFlow type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'WaterFlow' } nodeType - node type.
+   * @returns { WaterFlow } - Return WaterFlow type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createWaterFlowNode(context: UIContext, nodeType: 'WaterFlow'): WaterFlow;
+
+  /**
+   * Define the FlowItem type of FrameNode.
+   *
+   * @extends TypedFrameNode<FlowItemAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class FlowItemFrameNode extends TypedFrameNode<FlowItemAttribute> {
+    /**
+     * Initialize FlowItem FrameNode.
+     *
+     * @returns { FlowItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(): FlowItemAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for FlowItem.
+   *
+   * @typedef { FlowItemFrameNode } FlowItem
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type FlowItem = FlowItemFrameNode;
+
+  /**
+   * Create a FrameNode of FlowItem type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'FlowItem' } nodeType - node type.
+   * @returns { FlowItem } - Return FlowItem type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createFlowItemNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+
+  /**
+   * Define the Swiper type of FrameNode.
+   *
+   * @extends TypedFrameNode<SwiperAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class SwiperFrameNode extends TypedFrameNode<SwiperAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { SwiperController } [controller] - a controller for Swiper container components.
+     * @returns { SwiperAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(controller?: SwiperController): SwiperAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Swiper.
+   *
+   * @typedef { SwiperFrameNode } Swiper
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Swiper = SwiperFrameNode;
+
+  /**
+   * Create a FrameNode of Swiper type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Swiper' } nodeType - node type.
+   * @returns { Swiper } - Return Swiper type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createSwiperNode(context: UIContext, nodeType: 'Swiper'): Swiper;
 }
 
 /**
