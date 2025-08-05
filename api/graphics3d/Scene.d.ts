@@ -121,7 +121,7 @@ export interface RaycastResult {
  */
 export interface RaycastParameters {
   /**
-   * If defined, search only the nodes in the hierarchy under this node.
+   * If defined, search only the nodes in the hierarchy under this node
    * If undefined, search all the nodes in the scene
    *
    * @type { ?Node }
@@ -358,7 +358,7 @@ export interface RenderParameters {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export class Scene {
+export declare class Scene {
   /**
    * Get default render context
    *

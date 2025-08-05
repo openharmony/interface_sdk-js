@@ -335,7 +335,7 @@ export enum GeometryType {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export abstract class GeometryDefinition {
+export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
    * 
@@ -379,7 +379,7 @@ export enum PrimitiveTopology {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export class CustomGeometry extends GeometryDefinition {
+export declare class CustomGeometry extends GeometryDefinition {
   /**
    * How to form mesh triangles from the indexed vertices.
    * 
@@ -453,7 +453,7 @@ export class CustomGeometry extends GeometryDefinition {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export class CubeGeometry extends GeometryDefinition {
+export declare class CubeGeometry extends GeometryDefinition {
   /**
    * The width, height and depth of the cube.
    * 
@@ -471,7 +471,7 @@ export class CubeGeometry extends GeometryDefinition {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export class PlaneGeometry extends GeometryDefinition {
+export declare class PlaneGeometry extends GeometryDefinition {
   /**
    * The width and length of the plane.
    * 
@@ -489,7 +489,7 @@ export class PlaneGeometry extends GeometryDefinition {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
-export class SphereGeometry extends GeometryDefinition {
+export declare class SphereGeometry extends GeometryDefinition {
   /**
    * The raduis of the sphere.
    * 
