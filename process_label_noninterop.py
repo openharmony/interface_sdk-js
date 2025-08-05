@@ -22,6 +22,8 @@ import subprocess
 INTERFACE_PATH = "interface/sdk-js"
 PROCESS_INTEROP = "interface/sdk-js/build-tools/process_label_noninterop.js"
 
+PROCESS_GLOBAL_IMPORT = "interface/sdk-js/build-tools/process_global_import.js"
+
 
 def process_interop(options, sub_input, sub_output, export_flag):
     nodejs = os.path.abspath(options.node_js)
@@ -29,6 +31,38 @@ def process_interop(options, sub_input, sub_output, export_flag):
     cwd_dir = os.path.abspath(os.path.join(
         options.source_root_dir, INTERFACE_PATH))
     intermediates_output = os.path.abspath(options.intermediates_output)
+
+    input_dir = intermediates_output + sub_input
+    output_dir = intermediates_output + sub_output
+    os.makedirs(output_dir, exist_ok=True)
+    process = subprocess.run([nodejs, tool, "--input", input_dir,
+                                "--output", output_dir, "--export", export_flag], shell=False,
+                                cwd=os.path.abspath(os.path.join(
+                                    options.source_root_dir, cwd_dir)),
+                                stdout=subprocess.PIPE)
+    return process
+
+
+def delete_directory(dir_path):
+    if not os.path.exists(dir_path):
+        return
+    if not os.path.isdir(dir_path):
+        return
+    try:
+        shutil.rmtree(dir_path)
+    except OSError as e:
+        return
+
+
+def process_global_import(options, sub_input, sub_output, export_flag):
+    nodejs = os.path.abspath(options.node_js)
+    tool = os.path.abspath(os.path.join(options.source_root_dir, PROCESS_GLOBAL_IMPORT))
+    cwd_dir = os.path.abspath(os.path.join(
+        options.source_root_dir, INTERFACE_PATH))
+    intermediates_output = os.path.abspath(options.intermediates_output)
+
+    delete_path = os.path.join(intermediates_output, "ets1.1interop", "component")
+    delete_directory(delete_path)
 
     input_dir = intermediates_output + sub_input
     output_dir = intermediates_output + sub_output
@@ -49,8 +83,10 @@ def main():
 
     options = parser.parse_args()
     process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
-    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "false")
+    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "true")
     process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
+
+    process_global_import(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
 
 
 if __name__ == '__main__':
