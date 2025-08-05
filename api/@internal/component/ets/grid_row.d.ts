@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ItemAlign } from './enums';
-import { CommonMethod } from './common';
-import { Length } from './units';
-/*** endif */
-
 /**
  * Defines the option in length unit of grid-row component.
  *
@@ -49,8 +43,7 @@ import { Length } from './units';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface GridRowSizeOption {
   /**
@@ -78,8 +71,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xs?: Length,
 
@@ -108,8 +100,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sm?: Length,
 
@@ -138,8 +129,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   md?: Length,
 
@@ -168,8 +158,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lg?: Length,
 
@@ -198,8 +187,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xl?: Length,
 
@@ -228,8 +216,7 @@ declare interface GridRowSizeOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xxl?: Length,
 }
@@ -259,8 +246,7 @@ declare interface GridRowSizeOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface GridRowColumnOption {
   /**
@@ -288,8 +274,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xs?: number,
 
@@ -318,8 +303,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sm?: number,
 
@@ -348,8 +332,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   md?: number,
 
@@ -378,8 +361,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lg?: number,
 
@@ -408,8 +390,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xl?: number,
 
@@ -438,8 +419,7 @@ declare interface GridRowColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   xxl?: number,
 }
@@ -469,8 +449,7 @@ declare interface GridRowColumnOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface GutterOption {
   /**
@@ -498,8 +477,7 @@ declare interface GutterOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   x?: Length | GridRowSizeOption,
 
@@ -528,8 +506,7 @@ declare interface GutterOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   y?: Length | GridRowSizeOption
 }
@@ -559,8 +536,7 @@ declare interface GutterOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum BreakpointsReference {
   /**
@@ -585,8 +561,7 @@ declare enum BreakpointsReference {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   WindowSize,
 
@@ -612,8 +587,7 @@ declare enum BreakpointsReference {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   ComponentSize,
 }
@@ -643,8 +617,7 @@ declare enum BreakpointsReference {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum GridRowDirection {
   /**
@@ -669,8 +642,7 @@ declare enum GridRowDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Row,
 
@@ -696,8 +668,7 @@ declare enum GridRowDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RowReverse,
 }
@@ -727,8 +698,7 @@ declare enum GridRowDirection {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface BreakPoints {
   /**
@@ -756,8 +726,7 @@ declare interface BreakPoints {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value?: Array<string>,
 
@@ -786,8 +755,7 @@ declare interface BreakPoints {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   reference?: BreakpointsReference,
 }
@@ -817,8 +785,7 @@ declare interface BreakPoints {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface GridRowOptions {
   /**
@@ -846,8 +813,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   gutter?: Length | GutterOption;
 
@@ -876,8 +842,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   columns?: number | GridRowColumnOption;
 
@@ -906,8 +871,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   breakpoints?: BreakPoints;
 
@@ -936,8 +900,7 @@ declare interface GridRowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   direction?: GridRowDirection;
 }
@@ -967,8 +930,7 @@ declare interface GridRowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface GridRowInterface {
@@ -1000,8 +962,7 @@ interface GridRowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (option?: GridRowOptions): GridRowAttribute;
 }
@@ -1031,8 +992,7 @@ interface GridRowInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
@@ -1064,8 +1024,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 
@@ -1088,8 +1047,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignItems(value: ItemAlign): GridRowAttribute;
 }
