@@ -149,8 +149,7 @@ declare namespace preferences {
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   const MAX_VALUE_LENGTH: number;
 
@@ -160,8 +159,7 @@ declare namespace preferences {
    * @enum { number }
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum StorageType {
     /**
@@ -169,8 +167,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     XML = 0,
 
@@ -179,8 +176,7 @@ declare namespace preferences {
      *
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     GSKV
   }
@@ -248,8 +244,7 @@ declare namespace preferences {
      * @type { ?(StorageType | null | undefined) }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     storageType?: StorageType | null | undefined;
   }
