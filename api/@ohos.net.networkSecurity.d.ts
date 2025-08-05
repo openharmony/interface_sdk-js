@@ -30,7 +30,7 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace networkSecurity {
   /**
    * Defines the certificate type.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -139,7 +139,7 @@ declare namespace networkSecurity {
    * Certificate verification to the server.
    * @param { CertBlob } cert - Certificates to be verified.
    * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { number } Returns 0 if verify of certification from server succeed, else verify failed.
+   * @returns { int } Returns 0 if verify of certification from server succeed, else verify failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
