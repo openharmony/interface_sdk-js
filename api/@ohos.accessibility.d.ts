@@ -1424,7 +1424,7 @@ declare namespace accessibility {
    * Unregister the observe of the accessibility state changed.
    *
    * @param { 'accessibilityStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @since 20
@@ -1450,7 +1450,7 @@ declare namespace accessibility {
    * Unregister the observe of the touchGuide state changed.
    *
    * @param { 'touchGuideStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
@@ -1473,7 +1473,7 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
    * @arkts 1.2
