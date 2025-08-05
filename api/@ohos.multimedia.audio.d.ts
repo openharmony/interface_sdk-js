@@ -7648,6 +7648,7 @@ declare namespace audio {
    * @typedef StreamVolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface StreamVolumeEvent {
     /**
@@ -7655,20 +7656,23 @@ declare namespace audio {
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     streamUsage: StreamUsage;
     /**
      * Volume level.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
-    volume: number;
+    volume: int;
     /**
      * Whether to show the volume change in UI.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     updateUi: boolean;
   }
