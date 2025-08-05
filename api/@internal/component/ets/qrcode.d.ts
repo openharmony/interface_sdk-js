@@ -111,6 +111,20 @@ interface QRCodeInterface {
    * @arkts 1.1&1.2
    */
   (value: ResourceStr): QRCodeAttribute;
+
+  /**
+   * Called when a QR code is set.
+   *
+   * @param { string } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (value: string): QRCodeAttribute;
 }
 
 /**
