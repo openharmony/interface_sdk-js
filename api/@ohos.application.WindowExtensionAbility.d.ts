@@ -30,6 +30,7 @@ import window from './@ohos.window';
  * @systemapi hide for inner use.
  * @StageModelOnly
  * @since 9
+ * @deprecated since 20
  */
 export default class WindowExtensionAbility {
   /**
@@ -40,6 +41,7 @@ export default class WindowExtensionAbility {
    * @systemapi hide for inner use.
    * @StageModelOnly
    * @since 9
+   * @deprecated since 20
    */
   context: WindowExtensionContext;
 
@@ -51,6 +53,7 @@ export default class WindowExtensionAbility {
    * @systemapi hide for inner use.
    * @StageModelOnly
    * @since 9
+   * @deprecated since 20
    */
   onConnect(want: Want): void;
 
@@ -62,6 +65,7 @@ export default class WindowExtensionAbility {
    * @systemapi hide for inner use.
    * @StageModelOnly
    * @since 9
+   * @deprecated since 20
    */
   onDisconnect(want: Want): void;
 
@@ -73,6 +77,7 @@ export default class WindowExtensionAbility {
    * @systemapi hide for inner use.
    * @StageModelOnly
    * @since 9
+   * @deprecated since 20
    */
   onWindowReady(window: window.Window): void;
 }
@@ -86,5 +91,6 @@ export default class WindowExtensionAbility {
  * @systemapi
  * @stagemodelonly
  * @since 9
+ * @deprecated since 20
  */
 export type WindowExtensionContext = _WindowExtensionContext;
