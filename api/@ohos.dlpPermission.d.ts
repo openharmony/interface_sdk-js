@@ -874,7 +874,7 @@ declare namespace dlpPermission {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    DOMAIN_ACCOUNT = 2,
+    DOMAIN_ACCOUNT = 2
   }
 
   /**
@@ -1574,7 +1574,7 @@ declare namespace dlpPermission {
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
    * @param { number } dlpFd FD of the target DLP file.
-   * @param { number } plaintextFd FD of the file decrypted.
+   * @param { number } plaintextFd FD of the target DLP file.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
