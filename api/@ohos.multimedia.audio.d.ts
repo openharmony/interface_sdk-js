@@ -462,14 +462,26 @@ declare namespace audio {
     AVAILABLE_RUNNING = 1,
   }
 
-  enum AudioLoopbackReverbModes {
+  /**
+   * Enumerates audio loopback reverb mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackReverbMode {
     REVERB_EFFECT_MODE_ORIGINAL = 1,
     REVERB_EFFECT_MODE_KTV = 2,
     REVERB_EFFECT_MODE_THEATRE = 3,
     REVERB_EFFECT_MODE_CONCERT = 4,
   }
 
-  enum AudioLoopbackEqualizerModes {
+  /**
+   * Enumerates audio loopback equalizer mode.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackEqualizerMode {
     EQULIZER_MODE_DEFAULT = 1,
     EQULIZER_MODE_FULL = 2,
     EQULIZER_MODE_BRIGHT = 3,
@@ -11424,9 +11436,27 @@ declare namespace audio {
      */
     enable(enable: boolean): Promise<boolean>;
 
-    setReverberation(mode : AudioLoopbackReverbModes): Promise<boolean>;
+    /**
+     * Configuring the Reverberation Mode.
+     *
+     * @param { AudioLoopbackReverbMode } mode - Reverberation Mode configuring.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setReverbMode(mode : AudioLoopbackReverbMode): Promise<boolean>;
 
-    setEqulizer(mode : AudioLoopbackEqualizerModes): Promise<boolean>;
+    /**
+     * Enable or disable audio loopback.
+     *
+     * @param { AudioLoopbackEqualizerMode } mode - audioLoopbackEqualizer Mode configuring.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setEqMode(mode : AudioLoopbackEqualizerMode): Promise<boolean>;
   }
 }
 
