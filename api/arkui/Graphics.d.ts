@@ -17,10 +17,8 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.1 */
 import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
-/*** endif */
 import { Resource } from '../global/resource';
 
 /*** if arkts 1.2 */
@@ -1293,8 +1291,8 @@ export type BorderRadiuses = Corners<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Rect = common2D.Rect;
 

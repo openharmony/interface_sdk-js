@@ -22,6 +22,7 @@
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle } from './common';
 import { EdgeEffect, PageFlipMode } from './enums';
 import { Dimension, Length, ResourceColor } from './units';
+import { CommonModifier } from "../CommonModifier";
 /*** endif */
 
 /**

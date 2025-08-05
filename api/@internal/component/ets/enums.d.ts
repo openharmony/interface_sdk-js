@@ -9180,8 +9180,8 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   NODE,
 }

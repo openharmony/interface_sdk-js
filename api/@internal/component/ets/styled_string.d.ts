@@ -24,6 +24,7 @@ import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationSty
 import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
 import { TextBackgroundStyle } from './span';
 import { GestureEvent } from "./gesture";
+import { DrawingColorFilter } from './image';
 import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import { DrawContext } from '../../arkui/Graphics';

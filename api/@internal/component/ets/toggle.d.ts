@@ -373,22 +373,10 @@ declare interface ToggleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isOn?: boolean
-
-  /**
-   * Whether the toggle is on.
-   *
-   * @type { ?(boolean | undefined | Bindable<boolean>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  isOn?: boolean | undefined | Bindable<boolean>
 }
 
 /**

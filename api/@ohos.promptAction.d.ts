@@ -29,7 +29,6 @@ import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, Tr
   BackgroundBlurStyleOptions, BackgroundEffectOptions } from './arkui/component/common';
 import { CustomBuilder } from './arkui/component/builder';
 import { DialogAlignment } from './arkui/component/alertDialog';
-import { DismissDialogAction } from './arkui/component/actionSheet';
 import { BorderStyle,Alignment } from './arkui/component/enums';
 import { Resource } from './global/resource';
 import { LengthMetrics } from './arkui/Graphics';

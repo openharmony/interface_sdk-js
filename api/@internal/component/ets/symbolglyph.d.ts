@@ -1191,7 +1191,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
