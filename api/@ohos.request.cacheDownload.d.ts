@@ -236,7 +236,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function download(url: string, options: CacheDownloadOptions);
+    function download(url: string, options: CacheDownloadOptions): void;
 
     /**
      * Cancels an ongoing cache download task based on the target URL.
@@ -248,7 +248,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function cancel(url: string);
+    function cancel(url: string): void;
 
     /**
      * Sets the size of the memory cache used to store downloaded content.
@@ -261,7 +261,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setMemoryCacheSize(bytes: number);
+    function setMemoryCacheSize(bytes: number): void;
 
     /**
      * Sets the size of the file cache used to store downloaded content.
@@ -274,7 +274,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setFileCacheSize(bytes: number);
+    function setFileCacheSize(bytes: number): void;
 
     /**
      * Gets download information of cache downloads based on URL.
