@@ -397,10 +397,29 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     set(value: T): Promise<void>;
+
+    /**
+     * Setting configuration value.
+     *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+     * @param { T } value Indicates the value.
+     * @returns { Promise<void> }
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    setReturnsPromise(value: T): Promise<void>;
 
     /**
      * Setting configuration value.
@@ -417,10 +436,34 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     set(value: T, callback: AsyncCallback<void>): void;
+
+    /**
+     * Setting configuration value.
+     *
+     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+     * @param { T } value Indicates the value.
+     * @param { AsyncCallback<void> } callback
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    setWithCallback(value: T, callback: AsyncCallback<void>): void;
+
+    /**
+     * @arkts 1.2
+     */
+    overload set { setReturnsPromise, setWithCallback };
 
     /**
      * Getting configuration value.
@@ -431,10 +474,23 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     get(): Promise<T>;
+
+    /**
+     * Getting configuration value.
+     *
+     * @returns { Promise<T> }
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    getReturnsPromise(): Promise<T>;
 
     /**
      * Getting configuration value.
@@ -443,10 +499,25 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     get(callback: AsyncCallback<T>): void;
+
+    /**
+     * Getting configuration value.
+     *
+     * @param { AsyncCallback<T> } callback
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @since 20
+     */
+    getWithCallback(callback: AsyncCallback<T>): void;
+
+    /**
+     * @arkts 1.2
+     */
+    overload get { getReturnsPromise, getWithCallback };
 
     /**
      * Register the listener to listen for configuration changes.

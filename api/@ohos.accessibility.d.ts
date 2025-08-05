@@ -1235,10 +1235,24 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
+
+  /**
+   * Send accessibility event.
+   *
+   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
+   * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function sendAccessibilityEventWithCallback(event: EventInfo, callback: AsyncCallback<void>): void;
 
   /**
    * Send accessibility event.
@@ -1250,10 +1264,29 @@ declare namespace accessibility {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function sendAccessibilityEvent(event: EventInfo): Promise<void>;
+
+  /**
+   * Send accessibility event.
+   *
+   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
+   * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
+   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;
+   *     3. Parameter verification failed.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  function sendAccessibilityEventReturnsPromise(event: EventInfo): Promise<void>;
+
+  /**
+   * @arkts 1.2
+   */
+  overload sendAccessibilityEvent { sendAccessibilityEventWithCallback, sendAccessibilityEventReturnsPromise };
 
   /**
    * Gets touch mode type.
