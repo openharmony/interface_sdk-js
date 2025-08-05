@@ -104,6 +104,18 @@ interface LineOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Width of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: string | number;
 
   /**
    * Height of the rectangle where the line resides.
@@ -161,6 +173,18 @@ interface LineOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Height of the rectangle where the line resides.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: string | number;
 }
 
 /**

@@ -167,24 +167,13 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dismiss: Callback<void>;
-
-  /**
-   * Defines dialog dismiss function.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  dismiss(): void;
   
   /**
-   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the
-   * listed actions.
+   * Dismiss reason type.
    *
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -776,7 +765,7 @@ interface ActionSheetOptions
    * <br>A dialog box whose showInSubWindow attribute is true cannot trigger the display of another dialog box whose
    * showInSubWindow attribute is also true.
    * </p>
-   *
+   * 
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full

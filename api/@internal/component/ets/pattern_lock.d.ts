@@ -130,7 +130,7 @@ declare interface CircleStyleOptions {
    * @since arkts {'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
-    enableForeground?: boolean;
+  enableForeground?: boolean;
 }
 
 /**
@@ -648,7 +648,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 12
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
-  
+
   /**
    * Called when connecting to a grid dot.
    * @param { Callback<number> } callback - A callback instance used when connection to a grid dot.
@@ -660,7 +660,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @arkts 1.2
    */
   onDotConnect(callback: Callback<number>): PatternLockAttribute;
-  
+
   /**
    * Sets the background circle style for the dots in a grid when they are in the activated state.
    *

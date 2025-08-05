@@ -255,7 +255,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @arkts 1.1&1.2
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
-  
+
   /**
    * Set the alignment between entry and calendar dialog.
    * @param { Optional<CalendarAlign> } alignType - The type of alignment between entry and calendar dialog.
@@ -331,7 +331,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    */
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 
- /**
+  /**
    * Callback for selected date changed.
    * @param { Optional<Callback<Date>> } callback - callback for selected date changed.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.

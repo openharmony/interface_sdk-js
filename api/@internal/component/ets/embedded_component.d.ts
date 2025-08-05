@@ -51,7 +51,7 @@ interface EmbeddedComponentInterface {
     loader: import('../api/@ohos.app.ability.Want').default,
     type: EmbeddedType
   ): EmbeddedComponentAttribute;
-  
+
   /**
    * Construct the EmbeddedComponent.<br/>
    * Called when the EmbeddedComponent is used.
@@ -120,7 +120,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12
    */
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
-  
+
   /**
    * Called when the provider of the embedded UI is terminated.
    *

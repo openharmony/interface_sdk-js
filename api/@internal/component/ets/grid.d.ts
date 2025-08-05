@@ -1283,7 +1283,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    */
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
-    /**
+  /**
      * Sets the focus wrap mode of the grid.
      *
      * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the grid.

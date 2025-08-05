@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceColor, Length, Position, Resource, ResourceStr } from './units';
+import { ResourceColor, Length, Position, Resource } from './units';
 import { FontWeight } from './enums';
 import { CommonMethod } from './common';
 /*** endif */
@@ -285,9 +285,20 @@ declare interface BadgeStyle {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontSize?: number | ResourceStr;
+  /**
+   * Text size.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontSize?: number | string;
 
   /**
    * Size of a badge.
@@ -341,9 +352,20 @@ declare interface BadgeStyle {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   badgeSize?: number | ResourceStr;
+  /**
+   * Size of a badge.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  badgeSize?: number | string;
 
   /**
    * Color of the badge.
@@ -459,9 +481,19 @@ declare interface BadgeStyle {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontWeight?: number | FontWeight | ResourceStr;
+  /**
+   * Define the font weight of the badge.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontWeight?: number | FontWeight | string;
 }
 
 /**
@@ -797,9 +829,20 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   value: ResourceStr;
+  /**
+   * Text string of the prompt content.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value: string;
 }
 
 /**
@@ -1045,3 +1088,29 @@ declare const Badge: BadgeInterface;
  * @since 11
  */
 declare const BadgeInstance: BadgeAttribute;
+
+/**
+ * Define BadgeParamWithString's property 'value' type
+ * 
+ * @typedef { string | Resource } BadgeParamWithStringType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+declare type BadgeParamWithStringType = string | Resource;
+
+/**
+ * Define BadgeStyle's size-relative properties type
+ * 
+ * @typedef { number | string | Resource } BadgeStyleSizeType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+declare type BadgeStyleSizeType = number | string | Resource;

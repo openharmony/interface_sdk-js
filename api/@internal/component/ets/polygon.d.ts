@@ -69,7 +69,7 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polygon width.
    * Anonymous Object Rectification.
    *
@@ -91,6 +91,18 @@ declare interface PolygonOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Polygon width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: string | number;
 
   /**
    * Polygon height.
@@ -126,7 +138,7 @@ declare interface PolygonOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polygon height.
    * Anonymous Object Rectification.
    *
@@ -148,6 +160,18 @@ declare interface PolygonOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Polygon height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: string | number
 }
 
 /**

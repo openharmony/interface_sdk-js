@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics'
+import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics';
 import { VP, ResourceStr,Dimension,ResourceColor } from './units'
 import { ImageFit, Curve } from './enums'
 import { ICurve, CommonMethod } from './common'
@@ -65,7 +65,7 @@ declare interface VelocityOptions {
    */
   /**
    * Particle speed.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -93,7 +93,7 @@ declare interface VelocityOptions {
    */
   /**
    * Angle of particle's direction.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,7 +135,7 @@ declare interface AccelerationOptions<
    */
   /**
    * Speed property options.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -162,7 +162,7 @@ declare interface AccelerationOptions<
    */
   /**
    * Angle property options.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -326,7 +326,7 @@ interface ParticleOptions<
    */
   /**
    * Particle velocity.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?VelocityOptions }
    * @default {speed:[0,0];angle:[0,0]}
@@ -356,7 +356,7 @@ interface ParticleOptions<
    */
   /**
    * Particle acceleration.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> }
    * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
@@ -571,7 +571,7 @@ interface ImageParticleParameters {
    */
   /**
    * Particle image size.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<Dimension, Dimension> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -735,7 +735,7 @@ interface EmitterProperty {
    * @since 20
    * @arkts 1.1&1.2
    */
-  annulusRegion?: ParticleAnnulusRegion;
+   annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
@@ -765,7 +765,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Particle type.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -791,7 +791,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Particle config.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -818,7 +818,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Particle count.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -847,7 +847,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Particle lifetime.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?number }
    * @default 1000
@@ -871,7 +871,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
    * Particle lifetimeRange,value range [0, ∞).
    * when lifetimeRange>lifetime,minimum lifetime is 0.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?number }
    * @default 0
@@ -991,7 +991,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    */
   /**
    * Set particle config.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { EmitterParticleOptions<PARTICLE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1064,7 +1064,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Position of emitter.
    * The first element means X-axis location.
    * The second element means the Y-axis location.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default [0,0]
@@ -1100,7 +1100,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Size of emitter.
    * The first element means emitter width.
    * The second element means emitter height.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default ['100%','100%']
@@ -1266,7 +1266,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    */
   /**
    * Random effect of particle updater.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<T, T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1303,7 +1303,8 @@ interface ParticlePropertyUpdaterConfigs<T> {
  * @since 20
  * @arkts 1.2
  */
-declare type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<number, number> |  Array<ParticlePropertyAnimation<number>>;
+declare type ParticlePropertyUpdaterConfigs = undefined | ParticleTuple<number, number> | Array<ParticlePropertyAnimation<number>>;
+
 
 /**
  * Defines the particle updater options.
@@ -1332,7 +1333,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle updater type.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1359,7 +1360,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle updater configuration.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1434,7 +1435,7 @@ interface ParticleColorOptions {
    */
   /**
    * Red component of particle color.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1462,7 +1463,7 @@ interface ParticleColorOptions {
    */
   /**
    * Green component of particle color.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1490,7 +1491,7 @@ interface ParticleColorOptions {
    */
   /**
    * Blue component of particle color.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1518,7 +1519,7 @@ interface ParticleColorOptions {
    */
   /**
    * Opacity component of particle color.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1557,7 +1558,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Color updater.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1584,7 +1585,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Color updater configuration.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1664,7 +1665,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Initial range, within which the initial value are randomly generated.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<TYPE, TYPE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1693,7 +1694,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle property updater.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticleUpdaterOptions<TYPE, UPDATER> }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
@@ -1793,7 +1794,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    */
   /**
    * Random effect of particle color property updater.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1867,7 +1868,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Initial color range, within which the initial color is randomly generated.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ParticleTuple<ResourceColor, ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1907,7 +1908,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    */
   /**
    * Particle color property updater.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { ?ParticleColorUpdaterOptions<UPDATER> }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
@@ -2112,7 +2113,7 @@ interface Particles<
    */
   /**
    * Array of particles.
-   * 
+   *
    * Anonymous Object Rectification.
    * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2170,8 +2171,7 @@ interface Particles {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ParticleInterface {
   /**
@@ -2195,7 +2195,7 @@ interface ParticleInterface {
    */
   /**
    * create a particle array.
-   * 
+   *
    * Anonymous Object Rectification.
    * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
    *          SPIN_UPDATER> } particles - Array of particles.
@@ -2222,20 +2222,24 @@ interface ParticleInterface {
       ACC_ANGLE_UPDATER,
       SPIN_UPDATER
     >): ParticleAttribute;
-
-  /**
-   * create a particle array.
-   *
-   * @param { Particles } particles - Array of particles.
-   * @returns { ParticleAttribute } Returns the particle attribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (particles: Particles): ParticleAttribute;
 }
+
+/**
+   * create a particle array.
+ * 
+ * @param { Particles } particles - Array of particles.
+ * @returns { ParticleAttribute } Returns the particle attribute.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+//@memo
+//@ComponentBuilder
+export declare function Particle(
+  particles: Particles
+): ParticleAttribute;
 
 /**
  * Enumerates the particle types.
@@ -2360,7 +2364,7 @@ declare enum ParticleEmitterShape {
    * @since 20
    * @arkts 1.1&1.2
    */
-  ANNULUS = 'annulus',
+   ANNULUS = 'annulus',
 }
 
 /**
@@ -2526,7 +2530,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  emitter(value : Array<EmitterProperty>) : ParticleAttribute;
+  emitter(value: Array<EmitterProperty>): ParticleAttribute;
 }
 
 /**
@@ -2687,9 +2691,9 @@ declare enum DisturbanceFieldShape {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  RECT,
+  RECT = 0,
 
-   /**
+  /**
    * Shape circle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2698,7 +2702,7 @@ declare enum DisturbanceFieldShape {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  CIRCLE,
+  CIRCLE = 1,
 
   /**
    * Shape eclipse.
@@ -2709,7 +2713,7 @@ declare enum DisturbanceFieldShape {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  ELLIPSE
+  ELLIPSE = 2
 
 }
 
