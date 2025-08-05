@@ -41,4 +41,4 @@ type RememberFactory<T> = () => T;
 * @since 20
 */
 @memo
-export declare function memorizeUpdateState<T>(factory: RememberFactory<T>): MemoState<T>;
+export declare function memorizeUpdatedState<T>(factory: RememberFactory<T>): MemoState<T>;
