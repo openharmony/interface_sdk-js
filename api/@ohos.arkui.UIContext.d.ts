@@ -1355,8 +1355,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
@@ -4822,32 +4821,6 @@ export declare class UIContext {
    * @arkts 1.1&1.2
    */
   static destroyUIContextWithoutWindow(): void;
-
-  /**
-   * Thread-safe UI state variables updates interface.
-   *
-   * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  setUIStates(callback: VoidCallback): void;
-
-  /**
-   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
-   * Returns undefined if it does not exist.
-   *
-   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  static getFocusedUIContext(): UIContext | undefined;
 }
 
 /**

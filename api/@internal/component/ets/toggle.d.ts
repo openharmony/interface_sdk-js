@@ -375,20 +375,19 @@ declare interface ToggleOptions {
    * @atomicservice
    * @since 18
    */
-  isOn?: boolean
-
   /**
    * Whether the toggle is on.
+   * Anonymous Object Rectification.
    *
-   * @type { ?(boolean | undefined | Bindable<boolean>) }
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  isOn?: boolean | undefined | Bindable<boolean>
+  isOn?: boolean
 }
 
 /**

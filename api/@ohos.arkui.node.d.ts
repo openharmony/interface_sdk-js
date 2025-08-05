@@ -128,17 +128,16 @@ export { typeNode, NodeAdapter } from './arkui/FrameNode';
  * @since 12
  */
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
-
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since arkts { '1.1':'20','1.2':'20' }
+ * @arkts 1.1&1.2
  */
-export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, /*Rect, */Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
+export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
