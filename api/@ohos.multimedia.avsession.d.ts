@@ -4983,9 +4983,11 @@ declare namespace avSession {
     dataSrc?: media.AVDataSrcDescriptor;
 
     /**
-     * Pcm source type. The app should send pcm data directly to the system.
-     * @type { ?boolean}
+     * Source type that supports PCM casting.
+     * The application can send PCM data directly to the system through audio APIs, without using AVSession to set data.
+     * @type { ?boolean } Boolean type. The value true means that PCM casting is supported.
      * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
      * @since 20
      */
     pcmSrc?: boolean;
@@ -5902,10 +5904,10 @@ declare namespace avSession {
     mediumTypes?: number;
 
     /**
-     * When the device protocol is {@link ProtocolType.TYPE_HIGH_DEFINITION_AUDIO},
-     * the device audio capabilities will be presented to let application choose proper resource to play.
-     * @type { ?AudioCapabilities }
+     * Audio capabilities supported by the device.
+     * @type { ?AudioCapabilities } Audio capabilities supported by the device.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
      * @since 20
      */
     audioCapabilities?: AudioCapabilities;
