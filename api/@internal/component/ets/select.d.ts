@@ -123,7 +123,7 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   symbolIcon?: SymbolGlyphModifier;
@@ -363,7 +363,7 @@ declare type OnSelectCallback = (index: number, selectStr: string) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since arkts {'1.1':'18','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare interface MenuOutlineOptions {
@@ -374,7 +374,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   width?: Dimension | EdgeOutlineWidths;
@@ -386,7 +386,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
   color?: ResourceColor | EdgeColors;
@@ -443,7 +443,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected(value: number | Resource): SelectAttribute;
 
@@ -455,23 +456,10 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selected(numCount: Optional<number | Resource>): SelectAttribute;
-
-  /**
-   * Sets the serial number of the select item, starting from 0.
-   *
-   * @param { number | Resource | undefined | Bindable<number> | Bindable<Resource> } numCount - the serial number of the select item.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): SelectAttribute;
-
 
   /**
    * Sets the text display of the select button itself.
@@ -510,22 +498,10 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   value(resStr: Optional<ResourceStr>): SelectAttribute;
-
-  /**
-   * Sets the text display of the select button itself.
-   *
-   * @param { ResourceStr | undefined | Bindable<string> | Bindable<Resource> } resStr - the text display of the select button itself.
-   * @returns { SelectAttribute } the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  value(resStr: ResourceStr | undefined | Bindable<string> | Bindable<Resource>): SelectAttribute;
 
   /**
    * Sets the text properties of the select button itself.

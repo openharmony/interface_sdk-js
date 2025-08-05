@@ -82,21 +82,10 @@ interface RichTextInterface {
    * @returns { RichTextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (content: string | Resource): RichTextAttribute;
-
-  /**
-   * Set value.
-   *
-   * @param { string } content
-   * @returns { RichTextAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 20
-   * @arkts 1.2
-   */
-  (content: string): RichTextAttribute;
 }
 
 /**

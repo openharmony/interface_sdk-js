@@ -451,6 +451,20 @@ declare class SpanAttribute {
   fontWeight(value: number | FontWeight | ResourceStr): SpanAttribute;
 
   /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontWeight(value: number | FontWeight | string): SpanAttribute;
+
+  /**
    * Called when the font list of text is set.
    *
    * @param { string | Resource } value
@@ -593,6 +607,20 @@ declare class SpanAttribute {
    * @since 20
    */
   letterSpacing(value: number | ResourceStr): SpanAttribute;
+
+  /**
+   * Called when the distance between text fonts is set.
+   *
+   * @param { number | string } value
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  letterSpacing(value: number | string): SpanAttribute;
 
   /**
    * Called when the type of letter in the text font is set.

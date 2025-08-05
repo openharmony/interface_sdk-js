@@ -464,7 +464,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   minFontScale(scale: number | Resource): TextAttribute;
@@ -498,7 +498,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   maxFontScale(scale: number | Resource): TextAttribute;

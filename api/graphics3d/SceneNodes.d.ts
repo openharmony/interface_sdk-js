@@ -461,11 +461,10 @@ export interface Camera extends Node {
   clearColor: Color | null;
 
   /**
-   * Cast a ray to a position on the screen and list what it hits.
-   * 
-   * @param { Vec2 } viewPosition - a position in normalized viewport coordiantes towards which to cast
-   * @param { RaycastParameters } params - options for performing the ray cast
-   * @returns { Promise<RaycastResult[]> } an array of hit results, sorted from closest to farthest, possibly empty
+   * Casts a ray to a position on the screen and lists what the ray hits.
+   * @param { Vec2 } viewPosition - Position to cast in the normalized device coordinates.
+   * @param { RaycastParameters } params - Options used to execute the ray cast.
+   * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
    */

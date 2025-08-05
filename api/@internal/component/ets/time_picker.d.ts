@@ -217,21 +217,10 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected?: Date;
-
-  /**
-   * Specifies the time selector check time.
-   *
-   * @type { ?(Date | Bindable<Date>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selected?: Date | Bindable<Date>;
 
   /**
    * Specifies the format of the TimePicker that need to be displayed.
