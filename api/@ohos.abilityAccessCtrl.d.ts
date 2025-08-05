@@ -311,8 +311,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     grantUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -336,8 +335,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     grantUserGrantedPermission(
       tokenID: int,
@@ -366,8 +364,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     revokeUserGrantedPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
 
@@ -391,8 +388,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     revokeUserGrantedPermission(
       tokenID: int,
@@ -418,8 +414,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getPermissionFlags(tokenID: int, permissionName: Permissions): Promise<int>;
 
@@ -439,8 +434,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus): Promise<void>;
 
@@ -458,8 +452,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getPermissionRequestToggleStatus(permissionName: Permissions): Promise<PermissionRequestToggleStatus>;
 
@@ -470,8 +463,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getVersion(): Promise<int>;
 
@@ -490,8 +482,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getPermissionsStatus(tokenID: int, permissionList: Array<Permissions>): Promise<Array<PermissionStatus>>;
 
@@ -518,8 +509,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     on(
       type: 'permissionStateChange',
@@ -548,8 +538,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     on(
       type: 'selfPermissionStateChange',
@@ -576,8 +565,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100008 - Out of memory.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     off(
       type: 'permissionStateChange',
@@ -599,8 +587,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100007 - The service is abnormal.
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     off(
       type: 'selfPermissionStateChange',
@@ -643,8 +630,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     requestGlobalSwitch(context: Context, type: SwitchType): Promise<boolean>;
 
@@ -659,8 +645,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     requestPermissionOnApplicationSetting(tokenID: int): Promise<void>;
 
@@ -758,8 +743,7 @@ declare namespace abilityAccessCtrl {
    * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export enum PermissionStateChangeType {
     /**
@@ -767,8 +751,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PERMISSION_REVOKED_OPER = 0,
     /**
@@ -776,8 +759,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PERMISSION_GRANTED_OPER = 1
   }
@@ -788,8 +770,7 @@ declare namespace abilityAccessCtrl {
    * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum PermissionRequestToggleStatus {
     /**
@@ -797,8 +778,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CLOSED = 0,
     /**
@@ -806,8 +786,7 @@ declare namespace abilityAccessCtrl {
      *
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     OPEN = 1,
   }
@@ -818,8 +797,7 @@ declare namespace abilityAccessCtrl {
    * @interface PermissionStateChangeInfo
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    * @name PermissionStateChangeInfo
    */
   interface PermissionStateChangeInfo {
@@ -829,8 +807,7 @@ declare namespace abilityAccessCtrl {
      * @type { PermissionStateChangeType }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     change: PermissionStateChangeType;
 
@@ -840,8 +817,7 @@ declare namespace abilityAccessCtrl {
      * @type { int }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     tokenID: int;
 
@@ -851,8 +827,7 @@ declare namespace abilityAccessCtrl {
      * @type { Permissions }
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     permissionName: Permissions;
   }
@@ -864,7 +839,6 @@ declare namespace abilityAccessCtrl {
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   export enum PermissionStatus {
     /**
@@ -873,7 +847,6 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     DENIED = -1,
     /**
@@ -882,7 +855,6 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     GRANTED = 0,
     /**
@@ -891,7 +863,6 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOT_DETERMINED = 1,
     /**
@@ -900,7 +871,6 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     INVALID = 2,
     /**
@@ -909,7 +879,6 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     RESTRICTED = 3
   }
@@ -920,8 +889,7 @@ declare namespace abilityAccessCtrl {
    * @enum { int }
    * @syscap SystemCapability.Security.AccessToken
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
     export enum SwitchType {
       /**
@@ -929,8 +897,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       CAMERA = 0,
       /**
@@ -938,8 +905,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       MICROPHONE = 1,
       /**
@@ -947,8 +913,7 @@ declare namespace abilityAccessCtrl {
        *
        * @syscap SystemCapability.Security.AccessToken
        * @atomicservice
-       * @since arkts {'1.1':'12', '1.2':'20'}
-       * @arkts 1.1&1.2
+       * @since 12
        */
       LOCATION = 2,
     }
