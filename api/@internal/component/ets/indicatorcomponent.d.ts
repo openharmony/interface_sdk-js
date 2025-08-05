@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod, Callback } from './common';
-import { DotIndicator, DigitIndicator } from './swiper';
-/*** endif */
-
 /**
  * Provides methods for switching components.
  *
@@ -30,8 +25,7 @@ import { DotIndicator, DigitIndicator } from './swiper';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare class IndicatorComponentController {
   /**
@@ -41,8 +35,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   constructor();
 
@@ -53,8 +46,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   showNext():void;
 
@@ -65,8 +57,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   showPrevious():void;
 
@@ -80,8 +71,7 @@ declare class IndicatorComponentController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   changeIndex(index: number, useAnimation?: boolean):void;
 }
@@ -94,9 +84,7 @@ declare class IndicatorComponentController {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
- * @noninterop
+ * @since 15
  */
 interface IndicatorComponentInterface {
    
@@ -109,8 +97,7 @@ interface IndicatorComponentInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   (controller?: IndicatorComponentController): IndicatorComponentAttribute;
 }
@@ -123,9 +110,7 @@ interface IndicatorComponentInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
- * @noninterop
+ * @since 15
  */
 declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponentAttribute> {
  /**
@@ -137,8 +122,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   initialIndex(index: number): IndicatorComponentAttribute;
 
@@ -151,8 +135,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   count(totalCount: number): IndicatorComponentAttribute;
 
@@ -165,8 +148,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   style(indicatorStyle: DotIndicator | DigitIndicator): IndicatorComponentAttribute;
 
@@ -179,8 +161,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   loop(isLoop: boolean): IndicatorComponentAttribute;
 
@@ -193,8 +174,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   vertical(isVertical: boolean): IndicatorComponentAttribute;
 
@@ -207,8 +187,7 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onChange(event: Callback<number>): IndicatorComponentAttribute;
 }
@@ -221,7 +200,6 @@ declare class IndicatorComponentAttribute extends CommonMethod<IndicatorComponen
  * @form
  * @atomicservice
  * @since 15
- * @noninterop
  */
 declare const IndicatorComponent: IndicatorComponentInterface;
 
@@ -233,6 +211,5 @@ declare const IndicatorComponent: IndicatorComponentInterface;
  * @form
  * @atomicservice
  * @since 15
- * @noninterop
  */
 declare const IndicatorComponentInstance: IndicatorComponentAttribute;
