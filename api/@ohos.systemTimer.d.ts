@@ -255,7 +255,8 @@ declare namespace systemTimer {
      * @type { ?function }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     callback?: () => void;
 
