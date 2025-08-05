@@ -270,7 +270,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
@@ -285,7 +285,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUidRxBytes(uid: int): Promise<long>;
@@ -300,7 +300,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
@@ -315,7 +315,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getUidTxBytes(uid: int): Promise<long>;

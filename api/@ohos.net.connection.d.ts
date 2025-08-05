@@ -1779,13 +1779,13 @@ declare namespace connection {
 
   /**
    * Defines the network capability.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
   /**
    * Defines the network capability.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
@@ -1882,20 +1882,20 @@ declare namespace connection {
 
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10
    */
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
