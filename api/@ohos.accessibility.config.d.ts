@@ -511,6 +511,7 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 20
+     * @arkts 1.2
      */
     getWithCallback(callback: AsyncCallback<T>): void;
 
