@@ -1760,7 +1760,7 @@ declare namespace huks {
    * @since 12
    */
   function updateSession(
-    handle: number,
+    handle: long,
     options: HuksOptions,
     token: Uint8Array,
     callback: AsyncCallback<HuksReturnResult>
