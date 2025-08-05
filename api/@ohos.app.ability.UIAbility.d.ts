@@ -885,7 +885,8 @@ declare class UIAbility extends Ability {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
@@ -900,6 +901,7 @@ declare class UIAbility extends Ability {
   * @stagemodelonly
   * @atomicservice
   * @since 20
+  * @arkts 1.1&1.2
   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
 
