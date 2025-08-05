@@ -850,18 +850,18 @@ declare namespace observer {
     /**
      * Indicates the ID of the target card slot.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.StateRegistry
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    slotId: number;
+    slotId: int;
   }
 
   /**
    * Enum for SIM card lock type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since arkts {'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
