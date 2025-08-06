@@ -90,6 +90,8 @@ class HandleUIImports {
         const modulePath = moduleSpecifier.text;
         if ([OHOS_ARKUI_STATEMANAGEMENT, OHOS_ARKUI_COMPONENT].includes(modulePath)) {
           return node;
+        } else if (modulePath.includes(COMPONENT + '/')) {
+          return this.updateImportComponentPath(node, modulePath);
         }
       }
     }
@@ -104,6 +106,18 @@ class HandleUIImports {
     }
 
     return result;
+  }
+
+  updateImportComponentPath(node, modulePath) {
+    return ts.factory.updateImportDeclaration(
+      node,
+      node.modifiers,
+      node.importClause,
+      ts.factory.createStringLiteral(
+        modulePath.replace(/\.\.\/component\/.*/, OHOS_ARKUI_COMPONENT)
+      ),
+      node.assertClause
+    );
   }
 
   processTypeWithLongMemberChain(node, moduleName, memberChain) {
@@ -202,9 +216,8 @@ class HandleUIImports {
   }
 
   addUIImports(node) {
-    if (!this.isNeedAddImports(node)) {
-      return;
-    }
+    const newStatements = [...node.statements];
+    this.addForSpecialFiles(node, newStatements);
 
     const compImportSpecifiers = [];
     const stateImportSpecifiers = [];
@@ -222,8 +235,37 @@ class HandleUIImports {
     });
 
     if (compImportSpecifiers.length + stateImportSpecifiers.length > 0) {
-      this.processAddUIImport(node, compImportSpecifiers, stateImportSpecifiers);
+      this.processAddUIImport(node, compImportSpecifiers, stateImportSpecifiers, newStatements);
     }
+
+    this.processSourceFileForUIImport(node, newStatements);
+  }
+
+  addForSpecialFiles(node, newStatements) {
+    const fileName = this.getCoreFilename(path.basename(node.fileName));
+    if (fileName === FRAMENODE) {
+      newStatements.push(this.createFrameNodeTypeNode());
+    }
+  }
+
+  createFrameNodeTypeNode() {
+    return ts.factory.createModuleDeclaration(
+      [
+        ts.factory.createToken(ts.SyntaxKind.ExportKeyword),
+        ts.factory.createToken(ts.SyntaxKind.DeclareKeyword)
+      ],
+      ts.factory.createIdentifier(TYPENODE),
+      ts.factory.createModuleBlock([ts.factory.createTypeAliasDeclaration(
+        undefined,
+        ts.factory.createIdentifier(XCOMPONENT),
+        undefined,
+        ts.factory.createTypeReferenceNode(
+          ts.factory.createIdentifier(ANY),
+          undefined
+        )
+      )]),
+      ts.NodeFlags.Namespace | ts.NodeFlags.ExportContext | ts.NodeFlags.Ambient | ts.NodeFlags.ContextFlags
+    );
   }
 
   processTypeWithoutDefaultOnly(typeName, modulePath) {
@@ -437,8 +479,11 @@ class HandleUIImports {
     return moduleName;
   }
 
-  processAddUIImport(node, compImportSpecifiers, stateImportSpecifiers) {
-    const newStatements = [...node.statements];
+  processAddUIImport(node, compImportSpecifiers, stateImportSpecifiers, newStatements) {
+    if (!this.isNeedAddImports(node)) {
+      return;
+    }
+
     if (compImportSpecifiers.length) {
       const moduleName = this.addArkUIPath(node, OHOS_ARKUI_COMPONENT);
       const compImportDeclaration = ts.factory.createImportDeclaration(
@@ -470,8 +515,6 @@ class HandleUIImports {
       );
       newStatements.splice(this.insertPosition, 0, stateImportDeclaration);
     }
-
-    this.processSourceFileForUIImport(node, newStatements);
   }
 
   getDeclarationNode(node) {
@@ -530,12 +573,30 @@ class HandleUIImports {
     const symbol = this.typeChecker.getSymbolAtLocation(identifier);
     if (symbol) {
       const decl = this.getDeclarationNode(identifier);
-      if (decl?.getSourceFile() === identifier.getSourceFile()) {
+      if (this.isDeclFromSDK(decl, identifier)) {
         return true;
       }
     }
 
     return this.interfacesNeedToImport.has(name);
+  }
+
+  isDeclFromSDK(decl, identifier) {
+    const rootNode = decl?.getSourceFile();
+    if (!rootNode) {
+      return false;
+    }
+
+    if (rootNode === identifier.getSourceFile()) {
+      return true;
+    }
+
+    const fileName = rootNode.fileName;
+    if (fileName.includes(inputDir)) {
+      return true;
+    }
+
+    return false;
   }
 
   extractImportedNames(sourceFile) {
@@ -669,7 +730,7 @@ const whiteList = new Set([
   'ChildrenMainSize', 'Circle', 'CircleAttribute', 'CircleOptions', 'CircleShape',
   'CircleStyleOptions', 'ClickEffect', 'ClickEffectLevel', 'ClickEvent',
   'ClientAuthenticationHandler', 'CloseSwipeActionOptions', 'Color', 'ColorContent',
-  'ColorFilter', 'ColorMetrics', 'ColorMode', 'ColorStop', 'ColoringStrategy', 'Column',
+  'ColorFilter', 'ColorMetrics', 'ColorMode', 'ColorSpace', 'ColorStop', 'ColoringStrategy', 'Column',
   'ColumnAttribute', 'ColumnOptions', 'ColumnOptionsV2', 'ColumnSplit', 'ColumnSplitAttribute',
   'ColumnSplitDividerStyle', 'CommonAttribute', 'CommonConfiguration', 'CommonMethod',
   'CommonProgressStyleOptions', 'CommonShape', 'CommonShapeMethod', 'CommonTransition',
@@ -1005,7 +1066,7 @@ const decoratorsWhiteList = [
 ];
 
 const whiteFileList = [
-  '@ohos.graphics.drawing', '@ohos.web.webview'
+  '@ohos.graphics.drawing', '@ohos.web.webview', 'UIAbilityContext'
 ];
 
 const EXTNAME_D_ETS = '.d.ets';
@@ -1019,6 +1080,11 @@ const ARKUI_STYLES = 'Styles';
 const ARKUI_BUILDER = 'Builder';
 const DEFAULT = 'default';
 const GENERIC_T = 'T';
+const COMPONENT = 'component';
+const FRAMENODE = 'FrameNode';
+const TYPENODE = 'typeNode';
+const XCOMPONENT = 'XComponent';
+const ANY = 'Any';
 
 function start() {
   const program = new commander.Command();
