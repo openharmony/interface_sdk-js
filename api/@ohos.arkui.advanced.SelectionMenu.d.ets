@@ -32,6 +32,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 
 
@@ -127,6 +128,7 @@ export interface EditorMenuOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ExpandedMenuOptions extends MenuItemOptions {
   /**
@@ -165,6 +167,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface EditorEventInfo {
   /**
@@ -203,6 +206,7 @@ export interface EditorEventInfo {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface SelectionMenuOptions {
   /**
@@ -354,6 +358,7 @@ export interface SelectionMenuOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Builder
 export declare function SelectionMenu(options: SelectionMenuOptions): void;

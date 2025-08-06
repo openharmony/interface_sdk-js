@@ -42,6 +42,7 @@ import { Builder } from './arkui/component/builder';
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
+ * @noninterop
  */
 @Component
 export declare struct SwipeRefresher {

@@ -442,7 +442,7 @@ declare namespace access {
   /**
    * The enum of bluetooth state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice

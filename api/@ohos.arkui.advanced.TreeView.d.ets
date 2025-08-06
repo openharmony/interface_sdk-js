@@ -36,6 +36,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare enum TreeListenType {
     /**
@@ -110,6 +111,7 @@ export declare enum TreeListenType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class TreeListener {
     /**
@@ -184,6 +186,7 @@ export declare class TreeListener {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class TreeListenerManager {
     /**
@@ -229,6 +232,7 @@ export declare class TreeListenerManager {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct TreeView {
@@ -260,6 +264,7 @@ export declare struct TreeView {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export interface CallbackParam {
     /**
@@ -320,6 +325,7 @@ export interface CallbackParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export interface NodeParam {
     /**
@@ -495,6 +501,7 @@ export interface NodeParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 export declare class TreeController {
     /**

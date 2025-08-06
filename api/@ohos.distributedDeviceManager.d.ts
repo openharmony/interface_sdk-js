@@ -25,7 +25,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace distributedDeviceManager
  * @syscap SystemCapability.DistributedHardware.DeviceManager
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare namespace distributedDeviceManager {
@@ -764,7 +765,8 @@ declare namespace distributedDeviceManager {
    *
    * @interface DeviceManager
    * @syscap SystemCapability.DistributedHardware.DeviceManager
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DeviceManager {
 

@@ -29,6 +29,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface FormMenuItemStyle {
   /**
@@ -49,6 +50,7 @@ export interface FormMenuItemStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface AddFormOptions {
   /**
@@ -91,6 +93,7 @@ export interface AddFormOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Builder
 export declare function AddFormMenuItem(

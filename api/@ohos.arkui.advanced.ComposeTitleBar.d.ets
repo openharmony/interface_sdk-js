@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declaration of the menu item on the right side.
@@ -218,6 +219,7 @@ export declare class ComposeTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declaration of the composable title bar.

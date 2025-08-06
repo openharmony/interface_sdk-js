@@ -35,6 +35,7 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * @atomicservice
  * @since arkts{ '1.1':'11','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {

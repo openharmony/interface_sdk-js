@@ -429,22 +429,10 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since arkts {'1.1':'11', '1.2':'20'}
+         * @arkts 1.1&1.2
          */
         getAll(name: string): string[];
-
-        /**
-        * Obtains all the values based on the specified key.
-        *
-        * @param { string } name - Target key.
-        * @returns { Array<string> } Array<string> Returns all key-value pairs with the specified name.
-        * @syscap SystemCapability.Utils.Lang
-        * @crossplatform
-        * @atomicservice
-        * @since 20
-        * @arkts 1.2
-        */
-        getAll(name: string): Array<string>;
 
         /**
          * Returns an ES6 iterator. Each item of the iterator is a JavaScript Array.

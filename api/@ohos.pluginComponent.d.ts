@@ -18,9 +18,6 @@
  * @kit ArkUI
  */
 
-import { AsyncCallback } from './@ohos.base';
-import Want from './@ohos.app.ability.Want';
-
 /**
  * Plugin component template property.
  *
@@ -103,7 +100,7 @@ declare namespace pluginComponentManager {
    * @atomicservice
    * @since 12
    */
-  type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject };
 
   /**
    * Plugin component push parameters.

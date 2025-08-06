@@ -3010,6 +3010,7 @@ declare interface SelectionMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare interface PreviewMenuOptions {
   /**

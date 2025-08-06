@@ -30,6 +30,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 
 
@@ -115,6 +116,7 @@ export interface PopupTextOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface PopupButtonOptions {
   /**
@@ -198,6 +200,7 @@ export interface PopupButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface PopupIconOptions {
   /**
@@ -298,6 +301,7 @@ export interface PopupIconOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface PopupOptions {
   /**
@@ -453,6 +457,7 @@ export interface PopupOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Builder
 export declare function Popup(options: PopupOptions): void;

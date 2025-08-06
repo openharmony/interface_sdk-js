@@ -2880,7 +2880,7 @@ declare namespace ble {
      * Set the mtu size of a BLE peripheral device.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { number } mtu - The maximum transmission unit.
+     * @param { int } mtu - The maximum transmission unit.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -2893,7 +2893,7 @@ declare namespace ble {
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setBLEMtuSize(mtu: number): void;
+    setBLEMtuSize(mtu: int): void;
 
     /**
      * Enables or disables notification of a characteristic when value changed.
@@ -4107,14 +4107,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
@@ -4125,13 +4125,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * The UUID of a CharacteristicReadRequest instance
      *
@@ -4256,14 +4256,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
@@ -4274,13 +4274,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Whether this request should be pending for later operation
      *
@@ -4463,14 +4463,14 @@ declare namespace ble {
     /**
      * The Id of the read request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
@@ -4481,13 +4481,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * The UUID of a DescriptorReadRequest instance
      *
@@ -4638,14 +4638,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
@@ -4656,13 +4656,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for writing characteristic value
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Whether this request should be pending for later operation
      *
@@ -4871,14 +4871,14 @@ declare namespace ble {
     /**
      * The Id of the write request
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    transId: number;
+    transId: int;
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
@@ -4897,14 +4897,14 @@ declare namespace ble {
     /**
      * Indicates the status of the read or write request, set this parameter to '0' in normal cases
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    status: number;
+    status: int;
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
@@ -4915,13 +4915,13 @@ declare namespace ble {
     /**
      * Indicates the byte offset of the start position for reading or writing operation
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset: number;
+    offset: int;
     /**
      * Indicates the value to be sent
      *
@@ -5259,13 +5259,13 @@ declare namespace ble {
      * Maximum slot value for the advertising interval, which is {@code 16777215} (10485.759375s)
      * Default slot value for the advertising interval, which is {@code 1600} (1s)
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    interval?: number;
+    interval?: int;
     /**
      * Minimum transmission power level for advertising, which is {@code -127}
      * Maximum transmission power level for advertising, which is {@code 1}
@@ -5280,13 +5280,13 @@ declare namespace ble {
      * Maximum transmission power level for advertising, which is {@code 1}
      * Default transmission power level for advertising, which is {@code -7}
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    txPower?: number;
+    txPower?: int;
     /**
      * Indicates whether the BLE is connectable, default is {@code true}
      *
@@ -5529,12 +5529,12 @@ declare namespace ble {
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
      * If this parameter is not specified or is set to 0, advertisement is continuously sent.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
   }
 
   /**
@@ -5558,12 +5558,12 @@ declare namespace ble {
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
      * If this parameter is not specified or is set to 0, advertise is continuously sent.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duration?: number;
+    duration?: int;
   }
 
   /**
@@ -6154,14 +6154,14 @@ declare namespace ble {
     /**
      * Time of delay for reporting the scan result
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    interval?: number;
+    interval?: int;
     /**
      * Bluetooth LE scan mode
      *
@@ -6432,7 +6432,7 @@ declare namespace ble {
   /**
    * The enum of gatt characteristic write type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6506,7 +6506,7 @@ declare namespace ble {
   /**
    * The enum of scan duty.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6593,7 +6593,7 @@ declare namespace ble {
   /**
    * The enum of BLE match mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}

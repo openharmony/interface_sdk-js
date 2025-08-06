@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { PointLightStyle, Optional, CommonMethod } from './common';
-import { VerticalAlign, FlexAlign } from './enums';
-import { SpaceType } from './column';
-/*** endif */
-
-
 /**
  * Define options used to construct a row.
  *
@@ -33,8 +26,7 @@ import { SpaceType } from './column';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface RowOptions {
   /**
@@ -80,8 +72,7 @@ declare interface RowOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   space?: string | number;
 }
@@ -94,8 +85,7 @@ declare interface RowOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface RowOptionsV2 {
   /**
@@ -106,8 +96,7 @@ interface RowOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   space?: SpaceType;
 }
@@ -144,8 +133,7 @@ interface RowOptionsV2 {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface RowInterface {
@@ -197,8 +185,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options?: RowOptions): RowAttribute;
   /**
@@ -211,8 +198,7 @@ interface RowInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options?: RowOptions | RowOptionsV2): RowAttribute;
 }
@@ -249,8 +235,7 @@ interface RowInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
@@ -290,8 +275,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
@@ -331,8 +315,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   justifyContent(value: FlexAlign): RowAttribute;
   /**
@@ -342,8 +325,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @returns { RowAttribute } The attribute of the row.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pointLight(value: PointLightStyle): RowAttribute;
   /**
@@ -355,8 +337,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reverse(isReversed: Optional<boolean>): RowAttribute;
 }

@@ -34,6 +34,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare enum CounterType {
     /**
@@ -111,6 +112,7 @@ declare enum CounterType {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class CommonOptions {
     /**
@@ -206,6 +208,7 @@ declare class CommonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class InlineStyleOptions extends CommonOptions {
     /**
@@ -326,6 +329,7 @@ declare class InlineStyleOptions extends CommonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class NumberStyleOptions extends InlineStyleOptions {
     /**
@@ -438,6 +442,7 @@ declare class NumberStyleOptions extends InlineStyleOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class DateData {
     /**
@@ -554,6 +559,7 @@ declare class DateData {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class DateStyleOptions extends CommonOptions {
     /**
@@ -654,6 +660,7 @@ declare class DateStyleOptions extends CommonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class CounterOptions {
     /**
@@ -758,6 +765,7 @@ declare class CounterOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 declare struct CounterComponent {

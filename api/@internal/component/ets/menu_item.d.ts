@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceStr, Font, ResourceColor } from './units';
-import { CommonMethod, Bindable } from './common';
-import { CustomBuilder } from './builder';
-import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-/*** endif */
-
 /**
  * Defines the option of MenuItem.
  *
@@ -47,8 +40,7 @@ import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare interface MenuItemOptions {
@@ -74,8 +66,7 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   startIcon?: ResourceStr;
 
@@ -95,7 +86,6 @@ declare interface MenuItemOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolStartIcon?: SymbolGlyphModifier;
 
@@ -121,8 +111,7 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   content?: ResourceStr;
 
@@ -148,8 +137,7 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   endIcon?: ResourceStr;
 
@@ -169,7 +157,6 @@ declare interface MenuItemOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolEndIcon?: SymbolGlyphModifier;
 
@@ -195,8 +182,7 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   labelInfo?: ResourceStr;
 
@@ -222,8 +208,7 @@ declare interface MenuItemOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   builder?: CustomBuilder;
 }
@@ -250,8 +235,7 @@ declare interface MenuItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface MenuItemInterface {
@@ -280,8 +264,7 @@ interface MenuItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (value?: MenuItemOptions | CustomBuilder): MenuItemAttribute;
 }
@@ -308,8 +291,7 @@ interface MenuItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
@@ -341,19 +323,6 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @since 11
    */
   selected(value: boolean): MenuItemAttribute;
-
-    /**
-   * Setting whether menuItem is selected.
-   *
-   * @param { boolean | undefined | Bindable<boolean> } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-    selected(value: boolean | undefined | Bindable<boolean>): MenuItemAttribute;
 
 
   /**
@@ -403,8 +372,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;
 
@@ -433,8 +401,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
@@ -457,8 +424,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   contentFont(value: Font): MenuItemAttribute;
 
@@ -479,8 +445,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   contentFontColor(value: ResourceColor): MenuItemAttribute;
 
@@ -503,8 +468,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   labelFont(value: Font): MenuItemAttribute;
 
@@ -525,8 +489,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;
 }

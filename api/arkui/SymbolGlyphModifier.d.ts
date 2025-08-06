@@ -35,6 +35,7 @@ import { Resource } from '../global/resource'
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyphAttribute) => void;
 /**

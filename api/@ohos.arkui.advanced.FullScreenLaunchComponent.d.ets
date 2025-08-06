@@ -19,7 +19,7 @@
  */
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
-import { Callback, ErrorCallback } from '@ohos.base';
+import { ErrorCallback, Callback } from '@ohos.base';
 
 /**
  * Declares the FullScreenLaunchComponent, a component provided by ArkUI that allows
@@ -28,6 +28,7 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct FullScreenLaunchComponent {

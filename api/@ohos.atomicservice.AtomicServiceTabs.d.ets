@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct AtomicServiceTabs {
@@ -154,6 +155,7 @@ export declare struct AtomicServiceTabs {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare class TabBarOptions {
   /**
@@ -178,6 +180,7 @@ export declare class TabBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum TabBarPosition {
 
@@ -207,6 +210,7 @@ export declare enum TabBarPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type TabContentBuilder = () => void;
 
@@ -220,5 +224,6 @@ export type TabContentBuilder = () => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type OnContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;

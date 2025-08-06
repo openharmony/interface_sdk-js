@@ -29,6 +29,7 @@ import { Resource } from '../global/resource';
  * @implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
 */
 export declare class SymbolGlyphModifier implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
     /**

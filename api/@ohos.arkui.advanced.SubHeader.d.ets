@@ -52,6 +52,7 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * @atomicservice
  * @since arkts{ '1.1':'18','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare enum OperationType {
   /**
@@ -157,6 +158,7 @@ export declare enum OperationType {
  * @atomicservice
  * @since arkts{ '1.1':'18','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class OperationOption {
   /**
@@ -268,6 +270,7 @@ export declare class OperationOption {
  * @atomicservice
  * @since arkts{ '1.1':'18','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class SelectOptions {
   /**
@@ -398,6 +401,7 @@ export declare class SelectOptions {
  * @crossplatform
  * @atomicservice
  * @since 18 
+ * @noninterop
  */
 export declare class SymbolOptions {
   /**
@@ -509,6 +513,7 @@ export declare class SymbolOptions {
  * @atomicservice
  * @since arkts{ '1.1':'18','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 @Component
 export declare struct SubHeader {

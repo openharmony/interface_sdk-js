@@ -30,6 +30,7 @@ import { SizeT } from '@ohos.arkui.node';
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SegmentButtonV2ItemOptions {
     /**
@@ -153,6 +154,7 @@ export interface SegmentButtonV2ItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export type OnSelectedIndexChange = (selectedIndex: number) => void;
 
@@ -165,6 +167,7 @@ export type OnSelectedIndexChange = (selectedIndex: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 
@@ -176,6 +179,7 @@ export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class SegmentButtonV2Item {
@@ -321,6 +325,7 @@ export declare class SegmentButtonV2Item {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
@@ -355,6 +360,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct TabSegmentButtonV2 {
@@ -795,6 +801,7 @@ export declare struct TabSegmentButtonV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct CapsuleSegmentButtonV2 {
@@ -1235,6 +1242,7 @@ export declare struct CapsuleSegmentButtonV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct MultiCapsuleSegmentButtonV2 {

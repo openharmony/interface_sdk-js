@@ -749,6 +749,7 @@ declare enum SliderBlockType {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface SliderBlockStyle {
     /**

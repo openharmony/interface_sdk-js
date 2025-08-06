@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +23,7 @@
 import { UIContext } from '../@ohos.arkui.UIContext';
 import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
-import { TouchEvent } from './component/common';
+import { TouchEvent, MouseEvent, AxisEvent } from './component/common';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
 
 /**
@@ -171,8 +172,8 @@ export declare class BuilderNode<T = undefined> {
    * Dispatch touchEvent to targetNode.
    *
    * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
-   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to
-   * the targetNode,false otherwise.
+   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false
+   * otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -221,6 +222,17 @@ export declare class BuilderNode<T = undefined> {
   isDisposed(): boolean;
 
   /**
+   * Dispatch the event to targetNode.
+   *
+   * @param { InputEventType  } event - The event which will be sent to the targetNode.
+   * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
+   *     false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  postInputEvent(event: InputEventType): boolean;
+
+  /**
    * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,
    * or BuilderNode.
    *
@@ -231,3 +243,12 @@ export declare class BuilderNode<T = undefined> {
    */
   inheritFreezeOptions(enabled: boolean): void;
 }
+
+/**
+ * Defines the event type used for posting.
+ *
+ * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;

@@ -26,6 +26,7 @@ import Callback from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct InnerFullScreenLaunchComponent {
@@ -62,6 +63,7 @@ export declare struct InnerFullScreenLaunchComponent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 export declare class LaunchController {
 
@@ -86,5 +88,6 @@ export declare class LaunchController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  **/
 export declare type LaunchAtomicServiceCallback = (appId: string, options?: AtomicServiceOptions) => void;
