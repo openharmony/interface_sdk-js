@@ -237,7 +237,7 @@ declare namespace tag {
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -367,7 +367,7 @@ declare namespace tag {
   /**
    * NfcForum Type definition. The NDEF tag may use one of them.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -471,7 +471,7 @@ declare namespace tag {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  const RTD_TEXT: number[];
+  const RTD_TEXT: int[];
 
   /**
    * RTD type URI, see NFC Record Type Definition (RTD) Specification.
@@ -489,7 +489,7 @@ declare namespace tag {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  const RTD_URI: number[];
+  const RTD_URI: int[];
 
   /**
    * MifareClassic Type definition
@@ -501,7 +501,7 @@ declare namespace tag {
   /**
    * MifareClassic Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -583,7 +583,7 @@ declare namespace tag {
   /**
    * MifareClassic Tag size.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -665,7 +665,7 @@ declare namespace tag {
   /**
    * MifareUltralight Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -1172,7 +1172,7 @@ declare namespace tag {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1189,7 +1189,7 @@ declare namespace tag {
    */
   function registerForegroundDispatch(
     elementName: ElementName,
-    discTech: number[],
+    discTech: int[],
     callback: AsyncCallback<TagInfo>
   ): void;
 
@@ -1250,7 +1250,7 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerMode' } type - The callback type to be registered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1265,7 +1265,7 @@ declare namespace tag {
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function on(type: 'readerMode', elementName: ElementName, discTech: number[], callback: AsyncCallback<TagInfo>): void;
+  function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
    * Disable foreground reader mode settings explicitly.
@@ -1338,13 +1338,13 @@ declare namespace tag {
      * The uid of this tag, it.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    uid: number[];
+    uid: int[];
 
     /**
      * The supported technology list of this tag.
@@ -1357,13 +1357,13 @@ declare namespace tag {
      * The supported technology list of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    technology: number[];
+    technology: int[];
 
     /**
      * The extra data for each technology of this tag.
@@ -1380,13 +1380,13 @@ declare namespace tag {
      * The the RF discovery id of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    tagRfDiscId: number;
+    tagRfDiscId: int;
 
     /**
      * The extra data for the technology of this tag.
@@ -1438,13 +1438,13 @@ declare namespace tag {
     /**
      * tnf of NdefRecord
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    tnf: number;
+    tnf: int;
 
     /**
      * RTD type of NdefRecord
@@ -1456,13 +1456,13 @@ declare namespace tag {
     /**
      * RTD type of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rtdType: number[];
+    rtdType: int[];
 
     /**
      * id of NdefRecord
@@ -1473,13 +1473,13 @@ declare namespace tag {
     /**
      * id of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number[];
+    id: int[];
 
     /**
      * payload of NdefRecord
@@ -1490,13 +1490,13 @@ declare namespace tag {
     /**
      * payload of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    payload: number[];
+    payload: int[];
   }
 
   /**
@@ -1607,7 +1607,7 @@ declare namespace tag {
      * Creates an NDEF record with mime data.
      *
      * @param { string } mimeType type of mime data for new an NDEF record.
-     * @param { number[] } mimeData mime data for new an NDEF record.
+     * @param { int[] } mimeData mime data for new an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1618,7 +1618,7 @@ declare namespace tag {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    function makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord;
+    function makeMimeRecord(mimeType: string, mimeData: int[]): NdefRecord;
 
     /**
      * Creates an NDEF record with external data.
@@ -1639,7 +1639,7 @@ declare namespace tag {
      *
      * @param { string } domainName - Domain name of issuing organization for the external data.
      * @param { string } type - Domain specific type of data for the external data.
-     * @param { number[] } externalData - Data payload of an NDEF record.
+     * @param { int[] } externalData - Data payload of an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1650,7 +1650,7 @@ declare namespace tag {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    function makeExternalRecord(domainName: string, type: string, externalData: number[]): NdefRecord;
+    function makeExternalRecord(domainName: string, type: string, externalData: int[]): NdefRecord;
     /**
      * Creates an NDEF message with raw bytes.
      *
@@ -1666,7 +1666,7 @@ declare namespace tag {
     /**
      * Creates an NDEF message with raw bytes.
      *
-     * @param { number[] } data - The raw bytes to parse NDEF message.
+     * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1677,7 +1677,7 @@ declare namespace tag {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    function createNdefMessage(data: number[]): NdefMessage;
+    function createNdefMessage(data: int[]): NdefMessage;
 
     /**
      * Creates an NDEF message with record list.
@@ -1720,7 +1720,7 @@ declare namespace tag {
      * Parses an NDEF message into raw bytes.
      *
      * @param { NdefMessage } ndefMessage - An NDEF message to parse.
-     * @returns { number[] } Returns the raw bytes of an NDEF message.
+     * @returns { int[] } Returns the raw bytes of an NDEF message.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -1730,7 +1730,7 @@ declare namespace tag {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    function messageToBytes(ndefMessage: NdefMessage): number[];
+    function messageToBytes(ndefMessage: NdefMessage): int[];
   }
 
  /**
