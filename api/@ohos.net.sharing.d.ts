@@ -511,7 +511,7 @@ declare namespace sharing {
 
   /**
    * Enumerates the network sharing states of an NIC.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -586,7 +586,7 @@ declare namespace sharing {
 
   /**
    * Enumerates the network sharing types of an NIC.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.NetSharing
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'9','1.2':'20'}
