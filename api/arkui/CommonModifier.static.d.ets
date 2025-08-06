@@ -1,5 +1,6 @@
+'use static'
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier, CommonAttribute } from './component/common';
@@ -22,10 +25,9 @@ import { AttributeModifier, CommonAttribute } from './component/common';
 /**
  * Defines Common Modifier
  *
- * @implements CommonAttribute, AttributeModifier<CommonAttribute>
+ * @implements { CommonAttribute, AttributeModifier<CommonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
  * @noninterop
-*/
+ */
 export declare class CommonModifier implements CommonAttribute, AttributeModifier<CommonAttribute> {}
