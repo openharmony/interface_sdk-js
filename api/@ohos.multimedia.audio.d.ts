@@ -11440,23 +11440,23 @@ declare namespace audio {
      * Configuring the Reverberation Mode.
      *
      * @param { AudioLoopbackReverbMode } mode - Reverberation Mode configuring.
-     * @returns { Promise<boolean> } Promise used to return the result.
+     * @returns { boolean } return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    setReverbMode(mode : AudioLoopbackReverbMode): Promise<boolean>;
+    setReverbMode(mode : AudioLoopbackReverbMode): boolean;
 
     /**
      * Enable or disable audio loopback.
      *
      * @param { AudioLoopbackEqualizerMode } mode - audioLoopbackEqualizer Mode configuring.
-     * @returns { Promise<boolean> } Promise used to return the result.
+     * @returns { Promise<boolean> } return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    setEqMode(mode : AudioLoopbackEqualizerMode): Promise<boolean>;
+    setEqMode(mode : AudioLoopbackEqualizerMode): boolean;
   }
 }
 
