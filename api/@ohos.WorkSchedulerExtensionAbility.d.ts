@@ -39,7 +39,7 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * @StageModelOnly
  * @since 9
  */
-export default class WorkSchedulerExtensionAbility {
+declare class WorkSchedulerExtensionAbility {
   /**
    * Indicates work scheduler extension ability context.
    *
@@ -70,3 +70,12 @@ export default class WorkSchedulerExtensionAbility {
    */
   onWorkStop(work: workScheduler.WorkInfo): void;
 }
+
+/**
+ * Class of the work scheduler extension ability.
+ *
+ * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+ * @StageModelOnly
+ * @since 9
+ */
+export default WorkSchedulerExtensionAbility;
