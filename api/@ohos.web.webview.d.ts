@@ -6880,7 +6880,7 @@ declare namespace webview {
      * @since arkts {'1.1':'20', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static setWebDebuggingAccess(webDebuggingAccess: boolean, port?: int): void;
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
 
     /**
      * Gets the loading progress for the current page.
