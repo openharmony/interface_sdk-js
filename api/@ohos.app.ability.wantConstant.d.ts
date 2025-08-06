@@ -407,7 +407,7 @@ declare namespace wantConstant {
     * @atomicservice
     * @since 20
     */
-    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter'
   }
 
   /**
