@@ -15286,11 +15286,11 @@ export declare interface TerminationInfo {
     /**
      * Defines the termination code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    code: number;
+    code: int;
     /**
      * Defines the additional termination information.
      *
