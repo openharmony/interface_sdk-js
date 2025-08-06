@@ -305,6 +305,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
+   * @useinstead ohos.brightness/brightness#setValue
    */
   static setValue(options?: SetBrightnessOptions): void;
 
@@ -335,6 +336,7 @@ export default class Brightness {
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3
    * @deprecated since 7
+   * @useinstead ohos.window/Window#setWindowKeepScreenOn
    */
   static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
 }
