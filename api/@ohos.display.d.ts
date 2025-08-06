@@ -2163,7 +2163,8 @@ declare namespace display {
      * @type { Array<colorSpaceManager.ColorSpace> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     colorSpaces: Array<colorSpaceManager.ColorSpace>;
 
@@ -2180,7 +2181,8 @@ declare namespace display {
      * @type { Array<hdrCapability.HDRFormat> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
 
