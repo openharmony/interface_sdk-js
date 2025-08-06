@@ -446,7 +446,6 @@ declare namespace collections {
      * @param { T } initialValue - Initial value of each element in the ArkTS array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The create method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -471,7 +470,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - Array-like object.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -498,7 +496,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -514,7 +511,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
@@ -530,7 +526,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws  { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
