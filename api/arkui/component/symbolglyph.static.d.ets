@@ -1,6 +1,5 @@
-"use static"
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,24 +12,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
-import { CommonMethod, Optional } from "./common";
+import { CommonMethod, Optional, AttributeModifier } from "./common";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The symbol rendering strategy.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare enum SymbolRenderingStrategy {
@@ -38,9 +35,6 @@ export declare enum SymbolRenderingStrategy {
      * The single rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     SINGLE = 0,
@@ -48,9 +42,6 @@ export declare enum SymbolRenderingStrategy {
      * The multiple color rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     MULTIPLE_COLOR = 1,
@@ -58,9 +49,6 @@ export declare enum SymbolRenderingStrategy {
      * The multiple opacity rendering strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     MULTIPLE_OPACITY = 2
@@ -70,9 +58,6 @@ export declare enum SymbolRenderingStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare enum SymbolEffectStrategy {
@@ -80,9 +65,6 @@ export declare enum SymbolEffectStrategy {
      * There is no effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     NONE = 0,
@@ -90,9 +72,6 @@ export declare enum SymbolEffectStrategy {
      * The scale effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     SCALE = 1,
@@ -100,9 +79,6 @@ export declare enum SymbolEffectStrategy {
      * The hierarchical effect strategy.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     HIERARCHICAL = 2
@@ -112,9 +88,6 @@ export declare enum SymbolEffectStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare enum EffectDirection {
@@ -122,9 +95,6 @@ export declare enum EffectDirection {
      * The scale down animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     DOWN = 0,
@@ -132,9 +102,6 @@ export declare enum EffectDirection {
      * The scale up animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     UP = 1
@@ -144,9 +111,6 @@ export declare enum EffectDirection {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare enum EffectScope {
@@ -154,9 +118,6 @@ export declare enum EffectScope {
      * The layered animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     LAYER = 0,
@@ -164,9 +125,6 @@ export declare enum EffectScope {
      * The whole animation of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     WHOLE = 1
@@ -176,9 +134,6 @@ export declare enum EffectScope {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare enum EffectFillStyle {
@@ -186,9 +141,6 @@ export declare enum EffectFillStyle {
      * The cumulative fill style of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     CUMULATIVE = 0,
@@ -196,9 +148,6 @@ export declare enum EffectFillStyle {
      * The iterative fill style of symbol
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     ITERATIVE = 1
@@ -207,9 +156,6 @@ export declare enum EffectFillStyle {
  * Defines SymbolEffect class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class SymbolEffect {
@@ -219,9 +165,6 @@ export declare class SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class ScaleSymbolEffect extends SymbolEffect {
@@ -231,9 +174,6 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @param { EffectDirection } [direction] - The direction of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(scope?: EffectScope, direction?: EffectDirection);
@@ -242,9 +182,6 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     scope?: EffectScope;
@@ -253,9 +190,6 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     direction?: EffectDirection;
@@ -265,9 +199,6 @@ export declare class ScaleSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class HierarchicalSymbolEffect extends SymbolEffect {
@@ -276,9 +207,6 @@ export declare class HierarchicalSymbolEffect extends SymbolEffect {
      *
      * @param { EffectFillStyle } [fillStyle] -  The fill style of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(fillStyle?: EffectFillStyle);
@@ -287,9 +215,6 @@ export declare class HierarchicalSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectFillStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     fillStyle?: EffectFillStyle;
@@ -299,9 +224,6 @@ export declare class HierarchicalSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class AppearSymbolEffect extends SymbolEffect {
@@ -310,9 +232,6 @@ export declare class AppearSymbolEffect extends SymbolEffect {
      *
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(scope?: EffectScope);
@@ -321,9 +240,6 @@ export declare class AppearSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     scope?: EffectScope;
@@ -333,9 +249,6 @@ export declare class AppearSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class DisappearSymbolEffect extends SymbolEffect {
@@ -344,9 +257,6 @@ export declare class DisappearSymbolEffect extends SymbolEffect {
      *
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(scope?: EffectScope);
@@ -355,9 +265,6 @@ export declare class DisappearSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     scope?: EffectScope;
@@ -367,9 +274,6 @@ export declare class DisappearSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class BounceSymbolEffect extends SymbolEffect {
@@ -379,9 +283,6 @@ export declare class BounceSymbolEffect extends SymbolEffect {
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @param { EffectDirection } [direction] - The direction of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(scope?: EffectScope, direction?: EffectDirection);
@@ -390,9 +291,6 @@ export declare class BounceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     scope?: EffectScope;
@@ -401,9 +299,6 @@ export declare class BounceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     direction?: EffectDirection;
@@ -413,9 +308,6 @@ export declare class BounceSymbolEffect extends SymbolEffect {
  *
  * @extends SymbolEffect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export declare class ReplaceSymbolEffect extends SymbolEffect {
@@ -424,9 +316,6 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      *
      * @param { EffectScope } [scope] -  The scope type of symbol effect.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     constructor(scope?: EffectScope);
@@ -435,9 +324,6 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
      *
      * @type { ?EffectScope }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     scope?: EffectScope;
@@ -451,6 +337,14 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
  */
 export declare class PulseSymbolEffect extends SymbolEffect {
 }
+/**
+ * Provides attribute for SymbolGlyph.
+ *
+ * @extends CommonMethod
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph size is set.
@@ -458,9 +352,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { number | string | Resource } value
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default fontSize(value: number | string | Resource | undefined): this;
@@ -470,9 +361,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { Array<ResourceColor> } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
@@ -482,9 +370,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { number | FontWeight | string } value
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default fontWeight(value: number | FontWeight | string | undefined): this;
@@ -494,9 +379,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { SymbolEffectStrategy } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
@@ -506,9 +388,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { SymbolRenderingStrategy } value
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
@@ -519,9 +398,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { boolean | number } [triggerValue] - The trigger of the effect
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | number | undefined): this;
@@ -531,8 +407,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { Optional<number|Resource> } scale
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default minFontScale(scale: number | Resource | undefined): this;
@@ -542,14 +416,30 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @param { Optional<number|Resource> } scale
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default maxFontScale(scale: number | Resource | undefined): this;
+    /**
+     * Sets the attribute modifier.
+     *
+     * @param { AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
+     * @returns { SymbolGlyphAttribute } the attribute of the SymbolGlyphAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
     default attributeModifier(modifier: AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines SymbolGlyph Component.
+ *
+ * @param { Resource } [value]
+ * @param { function } [content_]
+ * @returns { SymbolGlyphAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function SymbolGlyph(

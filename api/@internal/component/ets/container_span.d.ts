@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { TextBackgroundStyle } from './span';
-import { AttributeModifier } from './common';
-/*** endif */
-
 /**
  * Span container interface.
  *
@@ -38,8 +33,7 @@ import { AttributeModifier } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  * @noninterop
  */
 interface ContainerSpanInterface {
@@ -58,8 +52,7 @@ interface ContainerSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   (): ContainerSpanAttribute;
 }
@@ -77,8 +70,7 @@ interface ContainerSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  * @noninterop
  */
 declare class ContainerSpanAttribute {
@@ -99,8 +91,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 
@@ -112,8 +103,7 @@ declare class ContainerSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute;
 }
