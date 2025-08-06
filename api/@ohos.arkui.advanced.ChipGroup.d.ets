@@ -30,6 +30,7 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface IconOptions {
 
@@ -64,6 +65,7 @@ export interface IconOptions {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export interface SuffixImageIconOptions extends IconOptions {
     /**
@@ -120,6 +122,7 @@ export interface SuffixImageIconOptions extends IconOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface LabelOptions {
 
@@ -144,6 +147,7 @@ export interface LabelOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipGroupItemOptions {
 
@@ -279,6 +283,7 @@ export interface ChipGroupItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipItemStyle {
 
@@ -347,6 +352,7 @@ export interface ChipItemStyle {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipGroupSpaceOptions {
 
@@ -392,6 +398,7 @@ export interface ChipGroupSpaceOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface IconItemOptions {
     /**
@@ -458,6 +465,7 @@ export interface IconItemOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export interface SymbolItemOptions {
     /**
@@ -524,6 +532,7 @@ export interface SymbolItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ChipGroupPaddingOptions {
     /**
@@ -557,6 +566,7 @@ export interface ChipGroupPaddingOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct IconGroupSuffix {
@@ -591,6 +601,7 @@ export declare struct IconGroupSuffix {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct ChipGroup {

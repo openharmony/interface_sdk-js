@@ -26,6 +26,7 @@
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 
 export declare enum ArcSliderPosition {
@@ -59,6 +60,7 @@ export declare enum ArcSliderPosition {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface ArcSliderValueOptionsConstructorOptions {
   /**
@@ -104,6 +106,7 @@ interface ArcSliderValueOptionsConstructorOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 declare class ArcSliderValueOptions {
@@ -165,6 +168,7 @@ declare class ArcSliderValueOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface ArcSliderLayoutOptionsConstructorOptions {
   /**
@@ -197,6 +201,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 declare class ArcSliderLayoutOptions {
@@ -246,6 +251,7 @@ declare class ArcSliderLayoutOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface ArcSliderStyleOptionsConstructorOptions {
   /**
@@ -316,6 +322,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 declare class ArcSliderStyleOptions {
@@ -405,6 +412,7 @@ declare class ArcSliderStyleOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 
@@ -417,6 +425,7 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
@@ -429,6 +438,7 @@ declare type ArcSliderChangeHandler = (progress: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
 
@@ -440,6 +450,7 @@ declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface ArcSliderOptionsConstructorOptions {
   /**
@@ -527,6 +538,7 @@ interface ArcSliderOptionsConstructorOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 declare class ArcSliderOptions {
@@ -633,6 +645,7 @@ declare class ArcSliderOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @Component
 declare struct ArcSlider {

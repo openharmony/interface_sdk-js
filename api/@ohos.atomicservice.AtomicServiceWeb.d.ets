@@ -27,6 +27,7 @@ import { Callback } from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct AtomicServiceWeb {
@@ -180,6 +181,7 @@ export declare struct AtomicServiceWeb {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnMessageEvent {
   /**
@@ -200,6 +202,7 @@ export declare interface OnMessageEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnErrorReceiveEvent {
   /**
@@ -230,6 +233,7 @@ export declare interface OnErrorReceiveEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnHttpErrorReceiveEvent {
   /**
@@ -260,6 +264,7 @@ export declare interface OnHttpErrorReceiveEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnPageBeginEvent {
   /**
@@ -280,6 +285,7 @@ export declare interface OnPageBeginEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnPageEndEvent {
   /**
@@ -300,6 +306,7 @@ export declare interface OnPageEndEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnLoadInterceptEvent {
   /**
@@ -320,6 +327,7 @@ export declare interface OnLoadInterceptEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface OnProgressChangeEvent {
   /**
@@ -339,6 +347,7 @@ export declare interface OnProgressChangeEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Observed
 export declare class AtomicServiceWebController {
@@ -477,6 +486,7 @@ export declare class AtomicServiceWebController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface WebHeader {
   /**
@@ -509,5 +519,6 @@ export declare interface WebHeader {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean;

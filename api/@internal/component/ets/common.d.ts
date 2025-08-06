@@ -20708,6 +20708,7 @@ declare interface BackgroundOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonMethod<T> {
   /**
@@ -28154,6 +28155,7 @@ declare class CommonMethod<T> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
@@ -28190,6 +28192,7 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CommonInterface {
   /**
@@ -28258,6 +28261,7 @@ interface CommonInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -28290,6 +28294,7 @@ declare const CommonInstance: CommonAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Common: CommonInterface;
 
@@ -28549,6 +28554,7 @@ declare type FractionStop = [ number, number ];
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
@@ -30083,6 +30089,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class CustomComponent extends BaseCustomComponent {
   /**
@@ -30152,6 +30159,7 @@ declare class CustomComponent extends BaseCustomComponent {
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
@@ -30175,6 +30183,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class BaseCustomComponent extends CommonAttribute {
     /**
@@ -31280,6 +31289,7 @@ declare enum ContentClipMode {
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**

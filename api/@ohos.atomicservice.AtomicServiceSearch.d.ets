@@ -26,6 +26,7 @@ import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type OnSelectCallback = (index: number, selectValue: string) => void;
 /**
@@ -37,6 +38,7 @@ declare type OnSelectCallback = (index: number, selectValue: string) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
 /**
@@ -48,6 +50,7 @@ declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 /**
@@ -59,6 +62,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
@@ -68,6 +72,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface InputFilterParams {
   /**
@@ -96,6 +101,7 @@ export interface InputFilterParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SearchButtonParams {
   /**
@@ -124,6 +130,7 @@ export interface SearchButtonParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface MenuAlignParams {
   /**
@@ -153,6 +160,7 @@ export interface MenuAlignParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SearchParams {
   /**
@@ -536,6 +544,7 @@ export interface SearchParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SelectParams {
   /**
@@ -735,6 +744,7 @@ export interface SelectParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface OperationParams {
   /**
@@ -763,6 +773,7 @@ export interface OperationParams {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @Component
 export declare struct AtomicServiceSearch {

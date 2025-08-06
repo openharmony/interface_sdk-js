@@ -127,6 +127,7 @@ export enum ArcDirection {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export class ArcDotIndicator {
   /**
@@ -208,6 +209,7 @@ export class ArcDotIndicator {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface ArcSwiperInterface {
   /**
@@ -384,6 +386,7 @@ declare interface SwiperContentTransitionProxy {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
   /**
@@ -560,6 +563,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @atomicservice
  * @uicomponent
  * @since 20
+ * @noninterop
  */
 declare let ArcSwiper: ArcSwiperInterface;
 
@@ -570,5 +574,6 @@ declare let ArcSwiper: ArcSwiperInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare let ArcSwiperInstance: ArcSwiperAttribute;

@@ -27,6 +27,7 @@ import { Callback } from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum MixMode {
   /**
@@ -63,6 +64,7 @@ export declare enum MixMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum GradientAlpha {
   /**
@@ -106,6 +108,7 @@ export declare enum GradientAlpha {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum BackgroundTheme {
   /**
@@ -141,6 +144,7 @@ export declare enum BackgroundTheme {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct AtomicServiceNavigation {
@@ -314,6 +318,7 @@ export declare struct AtomicServiceNavigation {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface TitleOptions {
   /**
@@ -378,6 +383,7 @@ export interface TitleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface GradientBackground {
   /**
@@ -438,6 +444,7 @@ export interface GradientBackground {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SideBarOptions {
   /**
@@ -479,6 +486,7 @@ export interface SideBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum TitleBarType {
   /**
@@ -518,5 +526,6 @@ export declare enum TitleBarType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type NavDestinationBuilder = (name: string, param?: Object) => void;

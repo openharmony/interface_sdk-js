@@ -59,6 +59,7 @@ declare interface ArcScrollBarOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface ArcScrollBarInterface {
   /**
@@ -82,6 +83,7 @@ export interface ArcScrollBarInterface {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttribute> {
 }
@@ -93,6 +95,7 @@ export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttr
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
 
@@ -104,5 +107,6 @@ export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
  * @atomicservice
  * @uicomponent
  * @since 18
+ * @noninterop
  */
 export declare const ArcScrollBar: ArcScrollBarInterface;

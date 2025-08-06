@@ -40,6 +40,7 @@ declare type ArcScrollIndexHandler = (start: number, end: number, center: number
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare interface ArkListOptions {
   /**
@@ -84,6 +85,7 @@ declare interface ArkListOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface ArcListInterface {
   /**
@@ -107,6 +109,7 @@ export interface ArcListInterface {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface ArcListItemInterface {
   /**
@@ -129,6 +132,7 @@ export interface ArcListItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
   /**
@@ -370,6 +374,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
   /**
@@ -404,6 +409,7 @@ export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttrib
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare const ArcListInstance: ArcListAttribute;
 
@@ -414,6 +420,7 @@ export declare const ArcListInstance: ArcListAttribute;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare const ArcListItemInstance: ArcListItemAttribute;
 
@@ -424,6 +431,7 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare const ArcList: ArcListInterface;
 
@@ -434,5 +442,6 @@ export declare const ArcList: ArcListInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare const ArcListItem: ArcListItemInterface;

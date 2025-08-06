@@ -28,6 +28,7 @@ import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum ArcButtonPosition {
     /**
@@ -58,6 +59,7 @@ export declare enum ArcButtonPosition {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum ArcButtonStyleMode {
     /**
@@ -116,6 +118,7 @@ export declare enum ArcButtonStyleMode {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum ArcButtonStatus {
     /**
@@ -155,6 +158,7 @@ export declare enum ArcButtonStatus {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 interface CommonArcButtonOptions {
     /**
@@ -327,6 +331,7 @@ interface CommonArcButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class ArcButtonOptions {
     /**
@@ -510,6 +515,7 @@ export declare class ArcButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @Component
 export declare struct ArcButton {

@@ -38,6 +38,7 @@ import { Builder } from './arkui/component/builder';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare enum IconType
@@ -221,6 +222,7 @@ export declare enum IconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare type OperateIcon
@@ -370,6 +372,7 @@ export declare class OperateIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare type OperateCheck
@@ -501,6 +504,7 @@ export declare class OperateCheck {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare type OperateButton
@@ -608,6 +612,7 @@ export declare class OperateButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare ContentItem
@@ -767,6 +772,7 @@ export declare class ContentItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare OperateItem
@@ -1037,6 +1043,7 @@ export declare class OperateItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declare ComposeListItem
