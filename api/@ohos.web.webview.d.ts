@@ -3949,7 +3949,8 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -6871,13 +6872,13 @@ declare namespace webview {
      * </p>
      *
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-     * @param { int } [port] Indicates the port of the devtools server. After the port is specified, a tcp server
+     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
      * socket is created instead of a unix domain socket.
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.2
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port?: int): void;
 
