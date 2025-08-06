@@ -18,7 +18,7 @@
  * @arkts 1.2
  */
 
-import { IStorageProperties, AbstractProperty, SubscribedAbstractProperty } from './storageProperty';
+import { AbstractProperty, SubscribedAbstractProperty } from './storageProperty';
 
 /**
  * LocalStorage
@@ -37,24 +37,23 @@ export declare class LocalStorage {
    * initialize with all properties and their values that Object.keys(params) returns
    * Property values must not be undefined.
    *
-   * @param { Record<string, IStorageProperties> } [initializingProperties] - Record<string, IStorageProperties> 
+   * @param { Record<string, Any> } [initializingProperties] - Record<string, Any> 
    * containing keys and values. 
    * see set() for valid values
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public constructor(initializingProperties?: Record<string, IStorageProperties>);
+  public constructor(initializingProperties?: Record<string, Any>);
   /**
    * Obtain a handler or an alias to LocalStorage property with given name.
    *
    * @param { string } propName LocalStorage property name
-   * @param {Type} ttype - data type
    * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
    * return undefined otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public ref<T>(propName: string, ttype: Type): AbstractProperty<T> | undefined;
+  public ref<T>(propName: string): AbstractProperty<T> | undefined;
   /**
    * Obtain a handler or an alias to LocalStorage property with given name.
    *
@@ -62,18 +61,16 @@ export declare class LocalStorage {
    *
    * @param { string } propName LocalStorage property name
    * @param { T } defaultValue If property does not exist in LocalStorage,
-   *        create it with given default value.
-   * @param {Type} ttype - data type
+   *        create it with given default value.pe
    * @returns { AbstractProperty<T> } AbstractProperty object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public setAndRef<T>(propName: string, defaultValue: T, ttype: Type): AbstractProperty<T>;
+  public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
   /**
    * Create and return a two-way sync "(link") to named property
    *
    * @param { string } propName - name of source property in LocalStorage
-   * @param { Type } ttype - data type
    * @returns { SubscribedAbstractProperty<T> | undefined } instance of  SubscribedAbstractProperty<T>
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
@@ -81,7 +78,7 @@ export declare class LocalStorage {
    * @crossplatform
    * @since 20
    */
-  public link<T>(propName: string, ttype: Type): SubscribedAbstractProperty<T> | undefined;
+  public link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
   /**
    * Like see link(), but will create and initialize a new source property in LocalStorage if missing
@@ -89,13 +86,12 @@ export declare class LocalStorage {
    * @param { string } propName - name of source property in LocalStorage
    * @param { T } defaultValue - value to be used for initializing new property in LocalStorage
    *        default value must be of type T, can be undefined or null.
-   * @param { Type } ttype - data type
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public setAndLink<T>(propName: string, defaultValue: T, ttype: Type): SubscribedAbstractProperty<T>;
+  public setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
    * Check if LocalStorage has a property with given name
@@ -103,23 +99,21 @@ export declare class LocalStorage {
    * same as ES6 Map.prototype.has()
    *
    * @param { string } propName - searched property
-   * @param { Type } [ttype] - data type
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public has(propName: string, ttype?: Type): boolean;
+  public has(propName: string): boolean;
   /**
    * Returns value of given property
    * return undefined if no property with this name
    *
    * @param { string } propName - property name
-   * @param {Type} ttype - data type
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public get<T>(propName: string, ttype: Type): T | undefined;
+  public get<T>(propName: string): T | undefined;
   /**
    * Set value of given property in LocalStorage
    * Method sets nothing and returns false if property with this name does not exist in LocalStorage
@@ -139,12 +133,11 @@ export declare class LocalStorage {
    *
    * @param { string } propName
    * @param { T } newValue - must be of type T, can be undefined or null
-   * @param { Type } ttype - data type
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public setOrCreate<T>(propName: string, newValue: T, ttype: Type): boolean;
+  public setOrCreate<T>(propName: string, newValue: T): boolean;
   /**
    * Provide names of all properties in LocalStorage
    * same as ES6 Map.prototype.keys()
