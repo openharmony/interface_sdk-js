@@ -6877,7 +6877,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
 
