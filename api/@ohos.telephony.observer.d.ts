@@ -21,9 +21,7 @@
 import type { Callback } from './@ohos.base';
 import type radio from './@ohos.telephony.radio';
 import type data from './@ohos.telephony.data';
-/*** if arkts 1.1 */
 import type call from './@ohos.telephony.call';
-/*** endif */
 import type sim from './@ohos.telephony.sim';
 
 /**
@@ -102,7 +100,8 @@ declare namespace observer {
    *
    * @typedef { call.CallState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CallState = call.CallState;
 
