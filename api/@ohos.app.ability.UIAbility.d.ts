@@ -676,6 +676,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   onWillForeground(): void;
 
@@ -694,6 +695,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   onDidForeground(): void;
 
@@ -740,6 +742,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   onWillBackground(): void;
 
@@ -757,6 +760,7 @@ declare class UIAbility extends Ability {
    * @stagemodelonly
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   onDidBackground(): void;
 
