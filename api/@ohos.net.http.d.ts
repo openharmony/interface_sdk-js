@@ -393,7 +393,7 @@ declare namespace http {
     usingProxy?: boolean | HttpProxy;
 
     /**
-     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system. 
+     * If this parameter is set, the system will use ca path specified by user, or else use preset ca by the system.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @since 10
@@ -453,7 +453,7 @@ declare namespace http {
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?int}
+     * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -461,19 +461,19 @@ declare namespace http {
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?int}
+     * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resumeFrom?: int;
+    resumeFrom?: long;
 
     /**
      * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?int}
+     * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
@@ -481,13 +481,13 @@ declare namespace http {
      * Used to set to uploading or downloading the end bytes. Translate to the end if not set.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
-     * @type {?int}
+     * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resumeTo?: int;
+    resumeTo?: long;
 
     /**
      * Support the application to pass in client certificates, allowing the server to verify the client's identity.
@@ -853,7 +853,7 @@ declare namespace http {
   
     /**
    * Enum for Tls version
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @atomicservice
    * @since arkts {'1.1':'18','1.2':'20'}
@@ -1195,7 +1195,7 @@ declare namespace http {
      * Initiates an HTTP request to a given URL.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
-     * @param { AsyncCallback<HttpResponse> } callback - the callback of request. 
+     * @param { AsyncCallback<HttpResponse> } callback - the callback of request.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1617,7 +1617,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { HttpRequestOptions } [options] - Optional parameters {@link HttpRequestOptions}.
-     * @returns { Promise<HttpResponse> } The promise returned by the function. 
+     * @returns { Promise<HttpResponse> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1657,7 +1657,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { HttpRequestOptions } [options] - Optional parameters {@link HttpRequestOptions}.
-     * @returns { Promise<HttpResponse> } The promise returned by the function. 
+     * @returns { Promise<HttpResponse> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1830,7 +1830,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<int> } callback - Returns the callback of requestInStream {@link ResponseCode},
-     * should use on_headersReceive and on_dataReceive to get http response.
+     *     should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1870,7 +1870,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<int> } callback - Returns the callback of requestInStream {@link ResponseCode},
-     * should use on_headersReceive and on_dataReceive to get http response.
+     *     should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1911,7 +1911,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<int> } callback - Returns the callback of requestInStream {@link ResponseCode},
-     * should use on_headersReceive and on_dataReceive to get http response.
+     *     should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -1953,7 +1953,7 @@ declare namespace http {
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
      * @param { AsyncCallback<int> } callback - Returns the callback of requestInStream {@link ResponseCode},
-     * should use on_headersReceive and on_dataReceive to get http response.
+     *     should use on_headersReceive and on_dataReceive to get http response.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2300001 - Unsupported protocol.
@@ -2122,7 +2122,7 @@ declare namespace http {
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
      * @permission ohos.permission.INTERNET
      * @param { string } url - URL for initiating an HTTP request.
-     * @param { HttpRequestOptions } option - Optional parameters {@link HttpRequestOptions}.
+     * @param { HttpRequestOptions } options - Optional parameters {@link HttpRequestOptions}.
      * @param { AsyncCallback<int> } callback - the callback of requestInStream.
      * @throws { BusinessError } 401 - Parameter error.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2163,7 +2163,7 @@ declare namespace http {
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    requestInStream(url: string, option: HttpRequestOptions, callback: AsyncCallback<int>): void;
+    requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
     /**
      * Initiates an HTTP request to a given URL, applicable to scenarios where http response supports streaming.
@@ -2873,20 +2873,20 @@ declare namespace http {
 
   /**
    * Enumerates the response codes for an HTTP request.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @since 6
    */
   /**
    * Enumerates the response codes for an HTTP request.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
    */
   /**
    * Enumerates the response codes for an HTTP request.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
@@ -3733,20 +3733,20 @@ declare namespace http {
 
   /**
    * Indicates the type of the returned data.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @since 9
    */
   /**
    * Indicates the type of the returned data.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @since 10
    */
   /**
    * Indicates the type of the returned data.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
@@ -4004,163 +4004,163 @@ declare namespace http {
   export interface PerformanceTiming {
     /**
      * Time taken from startup to DNS resolution completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to DNS resolution completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    dnsTiming: int;
+    dnsTiming: double;
 
     /**
      * Time taken from startup to TCP connection completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to TCP connection completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    tcpTiming: int;
+    tcpTiming: double;
 
     /**
      * Time taken from startup to TLS connection completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to TLS connection completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    tlsTiming: int;
+    tlsTiming: double;
 
     /**
      * Time taken from startup to start sending the first byte, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to start sending the first byte, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    firstSendTiming: int;
+    firstSendTiming: double;
 
     /**
      * Time taken from startup to receiving the first byte, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to receiving the first byte, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    firstReceiveTiming: int;
+    firstReceiveTiming: double;
 
     /**
      * Time taken from startup to the completion of the request, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to the completion of the request, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    totalFinishTiming: int;
+    totalFinishTiming: double;
 
     /**
      * Time taken from startup to completion of all redirection steps, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from startup to completion of all redirection steps, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    redirectTiming: int;
+    redirectTiming: double;
 
     /**
      * Time taken from HTTP request to header completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from HTTP request to header completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    responseHeaderTiming: int;
+    responseHeaderTiming: double;
 
     /**
      * Time taken from HTTP Request to body completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from HTTP Request to body completion, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    responseBodyTiming: int;
+    responseBodyTiming: double;
 
     /**
      * Time taken from HTTP Request to callback to the application, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @since 11
      */
     /**
      * Time taken from HTTP Request to callback to the application, in milliseconds.
-     * @type {int}
+     * @type {double}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    totalTiming: int;
+    totalTiming: double;
   }
 
   /**

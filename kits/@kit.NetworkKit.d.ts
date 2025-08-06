@@ -29,7 +29,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1*/
+/*** if arkts 1.1 */
 import ethernet from '@ohos.net.ethernet';
 import mdns from '@ohos.net.mdns';
 import policy from '@ohos.net.policy';
