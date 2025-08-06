@@ -3884,7 +3884,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -4874,6 +4875,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4896,6 +4898,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4920,6 +4923,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -4934,6 +4938,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 }
