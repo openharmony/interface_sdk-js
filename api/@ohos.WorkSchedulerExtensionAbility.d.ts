@@ -36,7 +36,6 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * Class of the work scheduler extension ability.
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @StageModelOnly
  * @since 9
  */
 declare class WorkSchedulerExtensionAbility {
