@@ -2861,6 +2861,14 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Rect
+     *
+     * @type { Rect }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
     rect: Rect,
 
     /**
