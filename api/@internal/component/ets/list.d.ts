@@ -2678,7 +2678,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
-   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation and returns the result.
+   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
+   * and returns the result.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2688,7 +2689,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
+  /**
+   * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
+   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
+   * and returns the result.
+   * Anonymous Object Rectification.
+   *
+   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * @returns { ListAttribute } Returns the instance of the ListAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
 
   /**
    * Called when scrolling begin each frame.
