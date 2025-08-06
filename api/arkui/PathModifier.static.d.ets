@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,18 +13,21 @@
  * limitations under the License.
  */
 
+import { AttributeModifier } from './component/common';
+import { PathAttribute } from './component/path';
+
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 /**
- * Defines the base class for ComponentContent and NodeContent.
+ * Defines Path Modifier
  *
+ * @implements PathAttribute, AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
+ * @since 20
+ * @noninterop
  */
-export abstract class Content{
-}
+export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}

@@ -469,32 +469,11 @@ export interface DataChangeListener {
      *
      * @param { number } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 8
-     * @useinstead onDataAdd
-     */
-    onDataAdded(index: number): void
-    /**
-     * Data added.
-     *
-     * @param { number } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
     onDataAdd(index: number): void
-    /**
-     * Data moved.
-     *
-     * @param { number } from
-     * @param { number } to
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 8
-     * @useinstead onDataMove
-     */
-    onDataMoved(from: number, to: number): void
     /**
      * Data moved.
      *
@@ -511,31 +490,11 @@ export interface DataChangeListener {
      *
      * @param { number } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 8
-     * @useinstead onDataDelete
-     */
-    onDataDeleted(index: number): void
-    /**
-     * Data deleted.
-     *
-     * @param { number } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
     onDataDelete(index: number): void
-    /**
-     * Call when has data change.
-     *
-     * @param { number } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 8
-     * @useinstead onDataChange
-     */
-    onDataChanged(index: number): void
     /**
      * Call when has data change.
      *
