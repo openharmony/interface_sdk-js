@@ -286,7 +286,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   getBackground(): DrawableDescriptor;

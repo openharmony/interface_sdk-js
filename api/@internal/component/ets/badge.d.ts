@@ -1088,29 +1088,3 @@ declare const Badge: BadgeInterface;
  * @since 11
  */
 declare const BadgeInstance: BadgeAttribute;
-
-/**
- * Define BadgeParamWithString's property 'value' type
- * 
- * @typedef { string | Resource } BadgeParamWithStringType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
- */
-declare type BadgeParamWithStringType = string | Resource;
-
-/**
- * Define BadgeStyle's size-relative properties type
- * 
- * @typedef { number | string | Resource } BadgeStyleSizeType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
- */
-declare type BadgeStyleSizeType = number | string | Resource;

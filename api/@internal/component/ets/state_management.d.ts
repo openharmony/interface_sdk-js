@@ -186,7 +186,7 @@ declare class Storage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   set(key: string, val: Object | undefined | null): void;
 

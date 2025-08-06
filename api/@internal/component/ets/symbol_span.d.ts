@@ -81,7 +81,7 @@ interface SymbolSpanInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   (value: Resource): SymbolSpanAttribute;
@@ -141,7 +141,7 @@ declare class SymbolSpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
@@ -173,7 +173,7 @@ declare class SymbolSpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
@@ -205,7 +205,7 @@ declare class SymbolSpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
@@ -237,7 +237,7 @@ declare class SymbolSpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
@@ -269,7 +269,7 @@ declare class SymbolSpanAttribute {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
@@ -291,7 +291,7 @@ declare class SymbolSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;

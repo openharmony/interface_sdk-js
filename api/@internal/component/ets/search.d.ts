@@ -402,10 +402,20 @@ declare interface SearchOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   value?: ResourceStr;
+
+  /**
+   * Text input in the search text box.
+   *
+   * @type { ?string}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value?: string;
 
   /**
    * Text displayed when there is no input.
@@ -794,7 +804,7 @@ interface CancelButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 interface CancelButtonSymbolOptions {
@@ -827,7 +837,7 @@ interface CancelButtonSymbolOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   icon?: SymbolGlyphModifier;
@@ -919,11 +929,22 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
-
+  /**
+   * Set the search button text, fontSize and fontColor
+   *
+   * @param { string } value - indicates the text of the search button.
+   * @param { SearchButtonOptions } [option] - indicates the fontSize and fontColor of the search button.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  searchButton(value: string, option?: SearchButtonOptions): SearchAttribute;
   /**
    * Set the text Color
    *
@@ -1635,7 +1656,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   maxLength(value: number): SearchAttribute;
@@ -1800,7 +1821,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   minFontScale(scale: Optional<number | Resource>): SearchAttribute;
@@ -1836,7 +1857,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18', '1.2':'20'}
+    * @since 20
     * @arkts 1.1&1.2
     */
    maxFontScale(scale: Optional<number | Resource>): SearchAttribute;

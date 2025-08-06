@@ -3445,7 +3445,7 @@ declare class RichEditorController extends RichEditorBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
@@ -3724,7 +3724,7 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   getStyledString(): MutableStyledString;

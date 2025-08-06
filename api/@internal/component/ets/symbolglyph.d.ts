@@ -49,7 +49,7 @@ import { CommonMethod,Optional } from "./common";
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 interface SymbolGlyphInterface {
@@ -80,7 +80,7 @@ interface SymbolGlyphInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   (value?: Resource): SymbolGlyphAttribute;
@@ -110,7 +110,7 @@ interface SymbolGlyphInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare enum SymbolRenderingStrategy {
@@ -135,7 +135,7 @@ declare enum SymbolRenderingStrategy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   SINGLE = 0,
@@ -187,7 +187,7 @@ declare enum SymbolRenderingStrategy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   MULTIPLE_OPACITY = 2,
@@ -217,7 +217,7 @@ declare enum SymbolRenderingStrategy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare enum SymbolEffectStrategy {
@@ -242,7 +242,7 @@ declare enum SymbolEffectStrategy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   NONE = 0,
@@ -268,7 +268,7 @@ declare enum SymbolEffectStrategy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   SCALE = 1,
@@ -294,7 +294,7 @@ declare enum SymbolEffectStrategy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   HIERARCHICAL = 2,
@@ -336,7 +336,7 @@ declare enum EffectDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   DOWN = 0,
@@ -355,7 +355,7 @@ declare enum EffectDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   UP = 1,
@@ -378,7 +378,7 @@ declare enum EffectDirection {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare enum EffectScope {
@@ -397,7 +397,7 @@ declare enum EffectScope {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   LAYER = 0,
@@ -416,7 +416,7 @@ declare enum EffectScope {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   WHOLE = 1,
@@ -439,7 +439,7 @@ declare enum EffectScope {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare enum EffectFillStyle {
@@ -458,7 +458,7 @@ declare enum EffectFillStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   CUMULATIVE = 0,
@@ -478,7 +478,7 @@ declare enum EffectFillStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   ITERATIVE = 1,
@@ -499,7 +499,7 @@ declare enum EffectFillStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class SymbolEffect {
@@ -522,7 +522,7 @@ declare class SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class ScaleSymbolEffect extends SymbolEffect {
@@ -545,7 +545,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
@@ -567,7 +567,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
@@ -589,7 +589,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
@@ -612,7 +612,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class HierarchicalSymbolEffect extends SymbolEffect {
@@ -633,7 +633,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(fillStyle?: EffectFillStyle);
@@ -655,7 +655,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fillStyle?: EffectFillStyle;
@@ -678,7 +678,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class AppearSymbolEffect extends SymbolEffect {
@@ -699,7 +699,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
@@ -721,7 +721,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
@@ -744,7 +744,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
@@ -765,7 +765,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
@@ -787,7 +787,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
@@ -810,7 +810,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class BounceSymbolEffect extends SymbolEffect {
@@ -833,7 +833,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
@@ -855,7 +855,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
@@ -877,7 +877,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
@@ -900,7 +900,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
@@ -921,7 +921,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
@@ -943,7 +943,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
@@ -1052,7 +1052,7 @@ declare class QuickReplaceSymbolEffect extends SymbolEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
@@ -1083,7 +1083,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
@@ -1115,7 +1115,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
@@ -1158,7 +1158,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
@@ -1222,7 +1222,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
@@ -1309,7 +1309,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
@@ -1331,7 +1331,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;

@@ -106,7 +106,6 @@ declare interface SceneOptions {
  * @atomicservice
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
- * @component
  */
 interface Component3DInterface {
   /**

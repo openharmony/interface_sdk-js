@@ -123,7 +123,7 @@ declare interface SelectOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   symbolIcon?: SymbolGlyphModifier;
@@ -363,7 +363,7 @@ declare type OnSelectCallback = (index: number, selectStr: string) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 declare interface MenuOutlineOptions {
@@ -374,7 +374,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   width?: Dimension | EdgeOutlineWidths;
@@ -386,7 +386,7 @@ declare interface MenuOutlineOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   color?: ResourceColor | EdgeColors;
