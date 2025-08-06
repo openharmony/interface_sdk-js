@@ -136,7 +136,6 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -158,7 +157,6 @@ declare namespace formProvider {
    * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
