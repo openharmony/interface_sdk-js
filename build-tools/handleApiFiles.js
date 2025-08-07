@@ -582,7 +582,7 @@ const transformer = (context) => {
 };
 
 function validateExportDeclaration(node) {
-  return ts.isExportDeclaration(node) && node.moduleSpecifier && node.jsDoc && node.jsDoc.length !== 0;
+  return ts.isExportDeclaration(node) && node.jsDoc && node.jsDoc.length !== 0;
 }
 
 /**
