@@ -1336,26 +1336,5 @@ declare namespace formHost {
    * @since 20
    */
   function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
-
-  /**
-   * Notify form lock state update.
-   *
-   * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form id.
-   * @param { boolean } isLocked - Indicates whether locked.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 202 - caller is not system app.
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500060 - Service connection error.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 18
-   */
-  function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>;
 }
 export default formHost;
