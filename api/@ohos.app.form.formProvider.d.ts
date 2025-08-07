@@ -78,6 +78,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   function setFormNextRefreshTime(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
@@ -117,6 +118,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @atomicservice
    * @since 11
+   * @arkts 1.1
    */
   function setFormNextRefreshTime(formId: string, minute: int): Promise<void>;
 
@@ -139,7 +141,7 @@ declare namespace formProvider {
    * @since 20
    * @arkts 1.2
    */
-    function setFormNextRefreshTimeWithCallback(formId: string, minute: int, callback: AsyncCallback<void>): void;
+  function setFormNextRefreshTimeWithCallback(formId: string, minute: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set next update time for a specified form.
