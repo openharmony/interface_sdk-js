@@ -361,6 +361,7 @@ declare class FormExtensionAbility {
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
