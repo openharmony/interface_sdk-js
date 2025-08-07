@@ -97,7 +97,7 @@ declare enum EffectLayer {
  * @since 20
  */
 declare interface EffectComponentOptions {
-  /*
+  /**
    * Use this to determine the component layer level. Default value is none.
    *
    * @type { ?EffectLayer }
