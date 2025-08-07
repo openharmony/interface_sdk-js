@@ -86,6 +86,7 @@ export interface ShowNotificationOptions {
    * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
    * @since 3
+   * @deprecated since 7
    */
   clickAction?: ActionResult;
 }
