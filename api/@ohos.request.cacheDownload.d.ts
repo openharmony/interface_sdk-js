@@ -77,17 +77,6 @@ declare namespace cacheDownload {
      */
     interface NetworkInfo {
         /**
-         * The IP address of a specific URL is used when downloading resources.
-         * If the value is empty, it means that the DNS resolution fails and the IP address cannot be obtained.
-         *
-         * @type { string }
-         * @readonly
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
-         */
-        readonly ip: string;
-        /**
          * The DNS server list is used when downloading resources.
          *
          * @type { string[] }
