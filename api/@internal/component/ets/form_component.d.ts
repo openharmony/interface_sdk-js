@@ -419,6 +419,16 @@ interface FormCallbackInfo {
    * @arkts 1.1&1.2
    */
   idString: string;
+
+  /**
+   * Indicates whether the form is locked.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 18
+   */
+  isLocked: boolean;
 }
 /**
  * Defines the size of Form.
