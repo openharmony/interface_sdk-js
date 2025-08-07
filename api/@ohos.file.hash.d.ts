@@ -43,7 +43,7 @@ import stream from './@ohos.util.stream';
  *
  * @namespace hash
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform 
+ * @crossplatform
  * @atomicservice
  * @since 20
  * @arkts 1.1&1.2
@@ -193,7 +193,7 @@ declare namespace hash {
    * @returns { HashStream } Returns the ReadStream object which has been created.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 12
    */
@@ -204,7 +204,7 @@ declare namespace hash {
    * @returns { HashStream } Returns the ReadStream object which has been created.
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
-   * @throws { BusinessError } 13900042 - Unknown error 
+   * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @since 20
