@@ -1343,9 +1343,9 @@ declare namespace formHost {
    * @permission ohos.permission.REQUIRE_FORM
    * @param { string } formId - Indicates the form id.
    * @param { boolean } isLocked - Indicates whether locked.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500060 - Service connection error.
