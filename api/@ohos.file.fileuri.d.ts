@@ -113,6 +113,7 @@ declare namespace fileUri {
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
      * @since 20
+     * @arkts 1.2
      */
     get name(): string;
 
