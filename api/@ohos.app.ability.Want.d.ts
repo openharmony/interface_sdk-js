@@ -193,7 +193,8 @@ export default class Want {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   flags?: int;
 
