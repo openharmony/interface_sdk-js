@@ -96,18 +96,6 @@ export interface Resource {
   /**
    * Set params.
    *
-   * @type { ?Array<Object | undefined> }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  params?: Array<Object | undefined>;
-
-  /**
-   * Set params.
-   *
    * @type { ?any[] }
    * @syscap SystemCapability.Global.ResourceManager
    * @since 9
@@ -123,6 +111,18 @@ export interface Resource {
    * @since 11
    */
   params?: any[];
+
+  /**
+   * Set params.
+   *
+   * @type { ?Array<Object | undefined> }
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  params?: Array<Object | undefined>;
 
   /**
    * Set type.

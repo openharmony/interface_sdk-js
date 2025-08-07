@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit LocalizationKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -26,7 +25,7 @@
  * @syscap SystemCapability.Global.ResourceManager
  * @since 8
  */
-/**
+ /**
  * Contains rawFile descriptor information.
  *
  * @interface RawFileDescriptor
@@ -42,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RawFileDescriptor {
   /**
@@ -65,6 +65,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fd: number;
 
@@ -89,6 +90,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset: number;
 
@@ -113,6 +115,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   length: number;
 }
