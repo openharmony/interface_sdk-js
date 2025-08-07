@@ -194,6 +194,7 @@ export declare enum NavigationTitleMode {
  * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+* @noninterop
  */
 export declare interface NavigationMenuItem {
     /**
@@ -947,6 +948,7 @@ export declare enum NavigationOperation {
  * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ToolbarItem {
     /**
@@ -1019,6 +1021,7 @@ export declare interface ToolbarItem {
  * @interface NavigationTitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface NavigationTitleOptions {
     /**
@@ -1283,6 +1286,7 @@ export declare interface MoreButtonOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface NavigationAttribute extends CommonMethod {
     /**

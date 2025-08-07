@@ -613,6 +613,7 @@ export type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnim
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface SwiperAttribute extends CommonMethod {
   /**
