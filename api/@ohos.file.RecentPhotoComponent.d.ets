@@ -150,7 +150,6 @@ export declare class RecentPhotoOptions {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   isAutoRefreshSupported?: boolean;
 
@@ -161,7 +160,6 @@ export declare class RecentPhotoOptions {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   colorMode?: PickerColorMode;
 }
