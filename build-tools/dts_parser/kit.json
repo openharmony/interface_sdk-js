@@ -172,6 +172,7 @@
     { "filePath": "@ohos.app.ability.AbilityConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.abilityDelegatorRegistry.d.ts", "kitName": "TestKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.AbilityLifecycleCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.ability.InteropAbilityLifecycleCallback.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.abilityManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.AbilityStage.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.ActionExtensionAbility.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
