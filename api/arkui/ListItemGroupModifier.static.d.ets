@@ -21,7 +21,7 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { ListItemGroupAttribute } from './component/ListItemGroup';
+import { ListItemGroupAttribute } from './component/listItemGroup';
 
 
 /**
