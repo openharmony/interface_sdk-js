@@ -19,7 +19,7 @@
  * @arkts 1.2
  */
 
-import { CommonMethod } from "./common";
+import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 
@@ -28,7 +28,6 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @since 20
  */
 export declare interface EffectComponentAttribute extends CommonMethod {
@@ -46,19 +45,19 @@ export declare interface EffectComponentAttribute extends CommonMethod {
     /**
      * Set the attribute modifier for EffectComponent.
      *
-     * @param { AttributeModifier<EffeceComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @param { AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<EffeceComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
  * Defines EffectComponent Component
  *
  * @param { function } [content_] - EffectComponent
- * @returns { EffeceComponentAttribute }
+ * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
@@ -68,4 +67,4 @@ export declare function EffectComponent(
 
     @memo
     content_?: () => void,
-): EffeceComponentAttribute
+): EffectComponentAttribute
