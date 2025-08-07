@@ -2777,7 +2777,7 @@ declare class PanGestureOptions {
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getDistance(): number;
+    getDistance(): number;
 }
 
 /**

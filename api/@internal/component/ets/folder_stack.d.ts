@@ -199,7 +199,7 @@ declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => voi
 
 /**
  * Callback when onHoverStatusChange.
- * 
+ *
  * Anonymous Object Rectification
  * @typedef { function } OnHoverStatusChangeCallback
  * @param { HoverEventParam } param - hover event param

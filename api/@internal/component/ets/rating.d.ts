@@ -83,19 +83,6 @@ declare interface RatingOptions {
   rating: number;
 
   /**
-   * Rating option.
-   *
-   * @type { number | undefined | Bindable<number> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  rating: number | undefined | Bindable<number>;
-
-  /**
    * Indicator option.
    *
    * @type { ?boolean }
@@ -137,8 +124,7 @@ declare interface RatingOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   indicator?: boolean
 }

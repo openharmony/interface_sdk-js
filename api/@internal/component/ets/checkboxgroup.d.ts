@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, Optional, Bindable } from './common';
+import { CommonMethod, Optional } from './common';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
 /*** endif */
@@ -507,7 +507,8 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectAll(value: boolean): CheckboxGroupAttribute;
 
@@ -520,23 +521,10 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
-
-  /**
-   * setting whether all checkbox is selected.
-   *
-   * @param { boolean| undefined|Bindable<boolean> } isAllSelected
-   * @returns { CheckboxGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): CheckboxGroupAttribute;
 
   /**
    * setting the display color of checkbox.
@@ -703,7 +691,6 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    */
   /**
    * Called when the selection status changes.
-   * Anonymous Object Rectification.
    *
    * @param { OnCheckboxGroupChangeCallback } callback
    * @returns { CheckboxGroupAttribute }

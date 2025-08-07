@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, ContentModifier, CommonConfiguration, Callback, Bindable } from './common';
+import { CommonMethod, ContentModifier, CommonConfiguration, Callback } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor } from './units';
 /*** endif */
@@ -454,7 +454,8 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checked(value: boolean): RadioAttribute;
 
@@ -467,23 +468,10 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   checked(isChecked: Optional<boolean>): RadioAttribute;
-
-  /**
-   * Called when the radio box is selected.
-   *
-   * @param { boolean | undefined | Bindable<boolean> } isChecked
-   * @returns { RadioAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  checked(isChecked: boolean | undefined | Bindable<boolean>): RadioAttribute;
 
   /**
    * Called when the radio box selection status changes.

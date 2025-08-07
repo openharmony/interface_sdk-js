@@ -24,7 +24,7 @@ import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
 import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
-import { Size } from '../Graphics' 
+import { Size } from '../Graphics';
 /*** endif */
 
 /**

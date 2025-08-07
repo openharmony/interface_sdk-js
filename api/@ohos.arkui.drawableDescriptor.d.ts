@@ -132,22 +132,10 @@ export declare class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPixelMap(): image.PixelMap;
-
-  /**
-   * Get pixelMap of drawable image.
-   *
-   * @returns { image.PixelMap | undefined } Return the PixelMap of the calling DrawableDescriptor object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getPixelMap(): image.PixelMap | undefined;
-
   /**
    * Get original width of drawable object.
    *
@@ -262,23 +250,12 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getForeground(): DrawableDescriptor;
 
   /**
-   * Get DrawableDescriptor for the foreground.
-   *
-   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of foreground.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getForeground(): DrawableDescriptor | undefined;
-
-  /**
    * Get DrawableDescriptor for the background.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
@@ -301,22 +278,20 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @crossplatform
    * @atomicservice
    * @since 12
+   */
+  /**
+   * Get DrawableDescriptor for the background.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getBackground(): DrawableDescriptor;
 
   /**
-   * Get DrawableDescriptor for the background.
-   *
-   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of background.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getBackground(): DrawableDescriptor | undefined;
-
-  /**
    * Get DrawableDescriptor for the mask.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
@@ -338,22 +313,10 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getMask(): DrawableDescriptor;
-
-  /**
-   * Get DrawableDescriptor for the mask.
-   *
-   * @returns { DrawableDescriptor | undefined } Return the DrawableDescriptor object of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getMask(): DrawableDescriptor | undefined;
-
 
   /**
    * Get the clip path info of the adaptive icon mask.

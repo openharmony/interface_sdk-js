@@ -24,14 +24,12 @@ import {
   DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions
 } from './common';
 import { CustomBuilder } from './builder';
-import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
 import { CustomBuilder } from './builder';
-import { DismissDialogAction } from './actionSheet';
 /*** endif */
 
 /**
@@ -89,14 +87,14 @@ declare interface CustomDialogControllerOptions {
   /**
    * Custom builder function.
    *
-   * @type { CustomBuilder | ExtendableComponent }
+   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  builder: CustomBuilder | ExtendableComponent;
+  builder: CustomBuilder;
 
   /**
    * Defines the cancel function.
@@ -713,7 +711,8 @@ declare interface CustomDialogControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface DismissDialogAction {
   /**
@@ -723,7 +722,8 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dismiss: Callback<void>;
 
@@ -734,7 +734,8 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   reason: DismissReason;
 }
@@ -855,7 +856,7 @@ declare class CustomDialogController {
    * @since 11
    */
   close();
-  
+
   /**
    * Closes the custom pop-up window. If the window is closed, the window does not take effect.
    *

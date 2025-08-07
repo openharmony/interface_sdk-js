@@ -1386,7 +1386,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
-  
+
   /**
    * Set button label style.
    *

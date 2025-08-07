@@ -956,7 +956,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PulseSymbolEffect extends SymbolEffect {
 }

@@ -20,7 +20,6 @@
 
 /*** if arkts 1.2 */
 import { Resource } from "../../global/resource";
-import image from '../../@ohos.multimedia.image'
 import { CommonMethod, PixelMap } from './common'
 import { AnimationStatus,FillMode } from './enums'
 /*** endif */
