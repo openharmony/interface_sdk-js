@@ -21,7 +21,6 @@ import subprocess
 
 INTERFACE_PATH = "interface/sdk-js"
 PROCESS_INTEROP = "interface/sdk-js/build-tools/process_label_noninterop.js"
-
 PROCESS_GLOBAL_IMPORT = "interface/sdk-js/build-tools/process_global_import.js"
 
 
@@ -30,7 +29,10 @@ def process_interop(options, sub_input, sub_output, export_flag):
     tool = os.path.abspath(os.path.join(options.source_root_dir, PROCESS_INTEROP))
     cwd_dir = os.path.abspath(os.path.join(
         options.source_root_dir, INTERFACE_PATH))
+
     intermediates_output = os.path.abspath(options.intermediates_output)
+    if options.is_pre == "true":
+        intermediates_output = os.path.dirname(os.path.abspath(options.intermediates_output))
 
     input_dir = intermediates_output + sub_input
     output_dir = intermediates_output + sub_output
@@ -59,10 +61,10 @@ def process_global_import(options, sub_input, sub_output, export_flag):
     tool = os.path.abspath(os.path.join(options.source_root_dir, PROCESS_GLOBAL_IMPORT))
     cwd_dir = os.path.abspath(os.path.join(
         options.source_root_dir, INTERFACE_PATH))
-    intermediates_output = os.path.abspath(options.intermediates_output)
 
-    delete_path = os.path.join(intermediates_output, "ets1.1interop", "component")
-    delete_directory(delete_path)
+    intermediates_output = os.path.abspath(options.intermediates_output)
+    if options.is_pre == "true":
+        intermediates_output = os.path.dirname(os.path.abspath(options.intermediates_output))
 
     input_dir = intermediates_output + sub_input
     output_dir = intermediates_output + sub_output
@@ -80,13 +82,18 @@ def main():
     parser.add_argument('--intermediates-output', required=True)
     parser.add_argument('--source-root-dir', required=True)
     parser.add_argument('--node-js', required=True)
+    parser.add_argument('--is-pre', required=True)
 
     options = parser.parse_args()
-    process_interop(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
-    process_interop(options, "/ets1.1interop/component", "/ets1.1interop/component", "true")
-    process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
 
-    process_global_import(options, "/ets1.1interop/api", "/ets1.1interop/api", "false")
+    if options.is_pre == "true":
+        process_interop(options, "/ohos_dynamic/api", "/ohos_dynamic/api", "false")
+        process_interop(options, "/ohos_dynamic/component", "/ohos_dynamic/component", "true")
+        process_global_import(options, "/ohos_dynamic/api", "/ohos_dynamic/api", "false")
+    else:
+        process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
+        delete_path = os.path.join(os.path.abspath(options.intermediates_output), "ets1.1interop", "component")
+        delete_directory(delete_path)
 
 
 if __name__ == '__main__':

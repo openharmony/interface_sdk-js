@@ -217,7 +217,6 @@ class HandleUIImports {
 
   addUIImports(node) {
     const newStatements = [...node.statements];
-    this.addForSpecialFiles(node, newStatements);
 
     const compImportSpecifiers = [];
     const stateImportSpecifiers = [];
@@ -239,33 +238,6 @@ class HandleUIImports {
     }
 
     this.processSourceFileForUIImport(node, newStatements);
-  }
-
-  addForSpecialFiles(node, newStatements) {
-    const fileName = this.getCoreFilename(path.basename(node.fileName));
-    if (fileName === FRAMENODE) {
-      newStatements.push(this.createFrameNodeTypeNode());
-    }
-  }
-
-  createFrameNodeTypeNode() {
-    return ts.factory.createModuleDeclaration(
-      [
-        ts.factory.createToken(ts.SyntaxKind.ExportKeyword),
-        ts.factory.createToken(ts.SyntaxKind.DeclareKeyword)
-      ],
-      ts.factory.createIdentifier(TYPENODE),
-      ts.factory.createModuleBlock([ts.factory.createTypeAliasDeclaration(
-        undefined,
-        ts.factory.createIdentifier(XCOMPONENT),
-        undefined,
-        ts.factory.createTypeReferenceNode(
-          ts.factory.createIdentifier(ANY),
-          undefined
-        )
-      )]),
-      ts.NodeFlags.Namespace | ts.NodeFlags.ExportContext | ts.NodeFlags.Ambient | ts.NodeFlags.ContextFlags
-    );
   }
 
   processTypeWithoutDefaultOnly(typeName, modulePath) {
@@ -429,6 +401,9 @@ class HandleUIImports {
   getCoreFilename(fileName) {
     if (fileName.endsWith(EXTNAME_D_ETS)) {
       return fileName.slice(0, -EXTNAME_D_ETS.length);
+    }
+    if (fileName.endsWith(EXTNAME_D_TS)) {
+      return fileName.slice(0, -EXTNAME_D_TS.length);
     }
     return fileName;
   }
@@ -646,7 +621,7 @@ function getDeclgenFiles(dir, filePaths = []) {
 
     if (stat.isDirectory()) {
       getDeclgenFiles(filePath, filePaths);
-    } else if (stat.isFile() && file.endsWith(EXTNAME_D_ETS)) {
+    } else if (stat.isFile() && (file.endsWith(EXTNAME_D_ETS) || file.endsWith(EXTNAME_D_TS))) {
       filePaths.push(filePath);
     }
   });
@@ -1070,6 +1045,7 @@ const whiteFileList = [
 ];
 
 const EXTNAME_D_ETS = '.d.ets';
+const EXTNAME_D_TS = '.d.ts';
 const OHOS_ARKUI = '@ohos.arkui.';
 const OHOS_KIT_ARKUI = '@kit ArkUI';
 const OHOS_ARKUI_STATEMANAGEMENT = './@ohos.arkui.GlobalESValue';
@@ -1081,10 +1057,6 @@ const ARKUI_BUILDER = 'Builder';
 const DEFAULT = 'default';
 const GENERIC_T = 'T';
 const COMPONENT = 'component';
-const FRAMENODE = 'FrameNode';
-const TYPENODE = 'typeNode';
-const XCOMPONENT = 'XComponent';
-const ANY = 'Any';
 
 function start() {
   const program = new commander.Command();

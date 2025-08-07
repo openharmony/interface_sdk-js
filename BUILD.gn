@@ -428,6 +428,7 @@ group("build_ohos_ets") {
 # 将ets1.1文件处理成ets1.1interop
 action("build_sdk_interop1") {
   deps = [
+    ":build_sdk_interop1_arkui",
     ":ohos_base_split",
     ":ohos_ets_dynamic"
   ]
@@ -628,8 +629,30 @@ action("ohos_ets_process_interop") {
     "--source-root-dir",
     rebase_path("//", root_build_dir),
     "--node-js",
-    rebase_path(nodejs, root_build_dir)
+    rebase_path(nodejs, root_build_dir),
+    "--is-pre",
+    "false"
   ]
 
   outputs = ["${interface_sdk_path}/arkui_dummy_interop"]
+}
+
+action("build_sdk_interop1_arkui") {
+    deps = [
+    ":ohos_base_split",
+    ":ohos_ets_dynamic"  ]
+
+  script = "process_label_noninterop.py"
+  args = [
+    "--intermediates-output",
+    rebase_path("${interface_sdk_path}", root_build_dir),
+    "--source-root-dir",
+    rebase_path("//", root_build_dir),
+    "--node-js",
+    rebase_path(nodejs, root_build_dir),
+    "--is-pre",
+    "true"
+  ]
+
+  outputs = ["${interface_sdk_path}/arkui_dummy_interop_pre"]
 }

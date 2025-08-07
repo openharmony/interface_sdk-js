@@ -23,6 +23,11 @@ let componentEtsDeleteFiles = [];
 const kitFileNeedDeleteMap = new Map();
 const stmtReplacementMap = new Map();
 
+const EXTNAME_TS = '.ts';
+const FRAMENODE = 'FrameNode';
+const TYPENODE = 'typeNode';
+const XCOMPONENT = 'XComponent';
+const ANY = 'Any';
 
 function start() {
     const program = new commander.Command();
@@ -43,7 +48,7 @@ function start() {
 }
 
 function initGlobalESValueFile() {
-    fs.writeFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ets`, "'use static';", undefined, (err) => {
+    fs.writeFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ts`, '', undefined, (err) => {
         if (err) {
             console.error(`ERROR FOR CREATE FILE ${err}`);
         }
@@ -53,7 +58,7 @@ function initGlobalESValueFile() {
 function writeGlobalESValueFile(content) {
     content = content.replace("'use static';", '')
         .replace(/\.\.\/api/g, '.');
-    fs.appendFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ets`, content, undefined, (err) => {
+    fs.appendFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.GlobalESValue.d.ts`, content, undefined, (err) => {
         if (err) {
             console.error(`ERROR FOR CREATE FILE ${err}`);
         }
@@ -242,9 +247,6 @@ function postProcessContent(content) {
 }
 
 function outputFile(url, node, sourceFile, referencesMessage, copyrightMessage, isCopyrightDeleted) {
-    if (isEmptyFile(node)) {
-        return;
-    }
     const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
     let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
     if (isCopyrightDeleted) {
@@ -312,6 +314,40 @@ function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted 
     };
 }
 
+function getCoreFilename(fileName) {
+    if (fileName.endsWith(EXTNAME_TS)) {
+        return fileName.slice(0, -EXTNAME_TS.length);
+    }
+    return fileName;
+}
+
+function createFrameNodeTypeNode() {
+    return ts.factory.createModuleDeclaration(
+        [
+            ts.factory.createToken(ts.SyntaxKind.ExportKeyword),
+            ts.factory.createToken(ts.SyntaxKind.DeclareKeyword)
+        ],
+        ts.factory.createIdentifier(TYPENODE),
+        ts.factory.createModuleBlock([ts.factory.createTypeAliasDeclaration(
+            undefined,
+            ts.factory.createIdentifier(XCOMPONENT),
+            undefined,
+            ts.factory.createTypeReferenceNode(
+            ts.factory.createIdentifier(ANY),
+            undefined
+            )
+        )]),
+        ts.NodeFlags.Namespace | ts.NodeFlags.ExportContext | ts.NodeFlags.Ambient | ts.NodeFlags.ContextFlags
+    );
+}
+
+function addForSpecialFiles(node, newStatements) {
+    const fileName = getCoreFilename(path.basename(node.fileName));
+    if (fileName === FRAMENODE) {
+        newStatements.push(createFrameNodeTypeNode());
+    }
+}
+
 function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
     let referencesMessage = '';
     let currReferencesModule = [];
@@ -348,6 +384,9 @@ function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCo
             newStatements.push(statement);
         }
     });
+
+    addForSpecialFiles(node, newStatements);
+
     currReferencesModule.forEach((item) => {
         if (item.isUsed) {
             referencesMessage += item.reference + '\n';
@@ -542,7 +581,7 @@ function deleteNonInteropApi(url) {
             sourceFile = node;
             const deleteNode = processSourceFile(node, kitName, url); // 处理最外层节点
             node = processVisitEachChild(context, deleteNode.node);
-            if (!isEmptyFile(node) && needProcessLabelNonInterop(fileName, kitName)) {
+            if (needProcessLabelNonInterop(fileName, kitName)) {
                 const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
                 const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
                 ts.transpileModule(result, {
@@ -916,25 +955,6 @@ function isNonInterop(node) {
         }
     }
     return false;
-}
-
-function isEmptyFile(node) {
-    let isEmpty = true;
-    if (ts.isSourceFile(node) && node.statements) {
-        for (let i = 0; i < node.statements.length; i++) {
-            const statement = node.statements[i];
-            if (ts.isImportDeclaration(statement)) {
-                continue;
-            }
-            isEmpty = false;
-            break;
-        }
-    }
-    const fileName = getPureName(node.fileName.replace('.ts', '').replace('.ets', ''));
-    if (isEmpty && componentEtsFiles.includes(fileName)) {
-        componentEtsDeleteFiles.push(fileName);
-    }
-    return isEmpty;
 }
 
 let outputPath = '';
