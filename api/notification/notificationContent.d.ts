@@ -310,6 +310,17 @@ export interface NotificationLiveViewContent extends NotificationBasicContent {
    * @since 12
    */
   isLocalUpdateOnly?: boolean;
+
+  /**
+   * The WantAgent instance of the clickAction field in the live view extension area.
+   *
+   * @type { ?WantAgent }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since arkts{ '1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  extensionWantAgent?: WantAgent;
 }
 
 /**
