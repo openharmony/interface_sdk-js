@@ -3154,7 +3154,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3214,7 +3214,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3250,7 +3250,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3284,7 +3284,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3666,7 +3666,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3728,7 +3728,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3791,7 +3791,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3854,7 +3854,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3903,7 +3903,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3952,7 +3952,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3987,7 +3987,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4021,7 +4021,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4055,7 +4055,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4089,7 +4089,7 @@ declare namespace relationalStore {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4128,7 +4128,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4158,7 +4158,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4192,7 +4192,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4220,7 +4220,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4278,7 +4278,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
