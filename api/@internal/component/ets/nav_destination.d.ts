@@ -436,6 +436,7 @@ declare enum NavDestinationActiveReason {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface NavDestinationInterface {
   /**
@@ -695,6 +696,7 @@ declare interface NavDestinationTransition {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
@@ -1372,6 +1374,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const NavDestination: NavDestinationInterface;
 
@@ -1395,6 +1398,7 @@ declare const NavDestination: NavDestinationInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const NavDestinationInstance: NavDestinationAttribute;
 

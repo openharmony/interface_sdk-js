@@ -72,6 +72,7 @@ export declare class IndicatorComponentController {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface IndicatorComponentAttribute extends CommonMethod {
   /**
