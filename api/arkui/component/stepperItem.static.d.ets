@@ -70,6 +70,7 @@ export declare enum ItemState {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface StepperItemAttribute extends CommonMethod {
   /**
