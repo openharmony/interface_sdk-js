@@ -105,6 +105,18 @@ declare namespace fileUri {
     readonly name: string;
 
     /**
+     * Get the file name of uri.
+     *
+     * @type { string }
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900042 - Unknown error
+     * @syscap SystemCapability.FileManagement.AppFileService
+     * @atomicservice
+     * @since 20
+     */
+    get name(): string;
+
+    /**
      * Get the full directory uri where the file URI is located
      *
      * @returns { string } Return the directory uri
