@@ -353,6 +353,23 @@ export declare interface CustomDialogControllerOptions {
     focusable?: boolean;
 }
 /**
+ * Defines the external options of CustomDialogController.
+ *
+ * @interface CustomDialogControllerExternalOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare interface CustomDialogControllerExternalOptions {
+    /**
+     * Defines if use custom style.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    customStyle?: boolean;
+}
+/**
  * Use the CustomDialogController class to display the custom pop-up window.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -381,4 +398,12 @@ export declare class CustomDialogController {
      * @since 20
      */
     close(): void;
+    /**
+     * Obtains the external options of CustomDialogController.
+     *
+     * @returns { CustomDialogControllerExternalOptions } return the external options of dialog.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    getExternalOptions(): CustomDialogControllerExternalOptions;
 }
