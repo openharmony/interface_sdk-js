@@ -359,7 +359,7 @@ export declare interface CustomDialogControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare interface CustomDialogControllerExternalOptions {
+export declare interface CustomDialogControllerExternalOptions {
     /**
      * Defines if use custom style.
      *
