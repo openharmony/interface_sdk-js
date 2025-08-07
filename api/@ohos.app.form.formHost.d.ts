@@ -1354,7 +1354,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since arkts{ '1.1':'18','1.2':'20'}
+   * @since 18
    */
   function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>;
 }
