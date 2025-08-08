@@ -6358,7 +6358,7 @@ declare namespace window {
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -6375,7 +6375,7 @@ declare namespace window {
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6392,7 +6392,8 @@ declare namespace window {
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -6412,7 +6413,7 @@ declare namespace window {
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -6429,7 +6430,7 @@ declare namespace window {
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6446,7 +6447,8 @@ declare namespace window {
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
+     *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -10981,7 +10983,7 @@ declare namespace window {
    * Window stage lifecycle callback event type
    *
    * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 20
    */
@@ -10989,7 +10991,7 @@ declare namespace window {
     /**
      * The window stage is running in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -10997,7 +10999,7 @@ declare namespace window {
     /**
      * The window stage is interactive in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11005,7 +11007,7 @@ declare namespace window {
     /**
      * The window stage is not interactive in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11013,7 +11015,7 @@ declare namespace window {
     /**
      * The window stage is running in the background.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11494,7 +11496,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
@@ -11511,7 +11513,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11528,7 +11530,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11548,7 +11550,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
@@ -11565,7 +11567,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11582,7 +11584,7 @@ declare namespace window {
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11600,7 +11602,7 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
@@ -11615,7 +11617,7 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11630,7 +11632,7 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     *                                                                  2. Incorrect parameter types;
      *                                                                  3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11803,9 +11805,10 @@ declare namespace window {
      *
      * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
      * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11818,9 +11821,10 @@ declare namespace window {
      * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to return the window stage lifecycle state.
      *                                                    If a value is passed in, the corresponding subscription is canceled.
      *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
