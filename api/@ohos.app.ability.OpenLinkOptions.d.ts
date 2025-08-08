@@ -53,4 +53,17 @@ export default interface OpenLinkOptions {
    * @arkts 1.1&1.2
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * Determines whether to hide a dialog when deep linking fails to match an application.
+   *
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  hideFailureTipDialog?: boolean;
 }
