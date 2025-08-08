@@ -35,12 +35,13 @@ import { WaterFlowAttribute, WaterFlowOptions } from './component/waterFlow';
 import { FlowItemAttribute } from './component/flowItem';
 import { GridAttribute, GridLayoutOptions } from './component/grid';
 import { GridItemAttribute, GridItemOptions } from './component/gridItem';
+import { Resource } from '../global/resource';
 import { TextAttribute, TextOptions } from './component/text';
 import { TextInputAttribute, TextInputOptions } from './component/textInput';
 import { TextAreaAttribute, TextAreaOptions } from './component/textArea';
 import { SearchAttribute, SearchOptions } from './component/search';
-import { MarqueeAttribute, MarqueeOptions } from './component/marquee';
 import { SymbolGlyphAttribute } from './component/symbolglyph';
+import { MarqueeAttribute, MarqueeOptions } from './component/marquee';
 import { ColumnAttribute, ColumnOptions, ColumnOptionsV2 } from './component/column';
 import { RowAttribute, RowOptions, RowOptionsV2 } from './component/row';
 import { StackAttribute, StackOptions } from './component/stack';
@@ -744,6 +745,12 @@ export declare namespace typeNode {
    * @since 20
    */
   overload createNode {
+    createTextNode,
+    createSearchNode,
+    createTextInputNode,
+    createTextAreaNode,
+    createSymbolGlyphNode,
+    createMarqueeNode,
     createSwiperNode,
     createListNode,
     createListItemNode,
@@ -1424,6 +1431,241 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createFlowItemNode(context: UIContext, nodeType: 'FlowItem'): FlowItem;
+
+  /**
+   * Define the Text type of FrameNode.
+   *
+   * @extends TypedFrameNode<TextAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class TextFrameNode extends TypedFrameNode<TextAttribute> {
+    /**
+     * Initialize Text FrameNode.
+     *
+     * @param { string | Resource } [content] - text content
+     * @param { TextOptions } [value] - text options
+     * @returns { TextAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(content?: string | Resource, value?: TextOptions): TextAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Text.
+   *
+   * @typedef { TextFrameNode } Text
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Text = TextFrameNode;
+
+  /**
+   * Create a FrameNode of Text type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Text' } nodeType - node type.
+   * @returns { Text } - Return Text type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createTextNode(context: UIContext, nodeType: 'Text'): Text;
+
+  /**
+   * Define the Search type of FrameNode.
+   *
+   * @extends TypedFrameNode<SearchAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class SearchFrameNode extends TypedFrameNode<SearchAttribute> {
+    /**
+     * Initialize Search FrameNode.
+     *
+     * @param { SearchOptions } [value] - search options
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value?: SearchOptions): SearchAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Search.
+   *
+   * @typedef { SearchFrameNode } Search
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Search = SearchFrameNode;
+
+  /**
+   * Create a FrameNode of Search type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Search' } nodeType - node type.
+   * @returns { Search } - Return Search type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createSearchNode(context: UIContext, nodeType: 'Search'): Search;
+
+  /**
+   * Define the TextInput type of FrameNode.
+   *
+   * @extends TypedFrameNode<TextInputAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class TextInputFrameNode extends TypedFrameNode<TextInputAttribute> {
+    /**
+     * Initialize TextInput FrameNode.
+     *
+     * @param { TextInputOptions } [value] - textInput options
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value?: TextInputOptions): TextInputAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for TextInput.
+   *
+   * @typedef { TextInputFrameNode } TextInput
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type TextInput = TextInputFrameNode;
+
+  /**
+   * Create a FrameNode of TextInput type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextInput' } nodeType - node type.
+   * @returns { TextInput } - Return TextInput type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createTextInputNode(context: UIContext, nodeType: 'TextInput'): TextInput;
+
+  /**
+   * Define the TextArea type of FrameNode.
+   *
+   * @extends TypedFrameNode<TextAreaAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class TextAreaFrameNode extends TypedFrameNode<TextAreaAttribute> {
+    /**
+     * Initialize TextArea FrameNode.
+     *
+     * @param { TextAreaOptions } [value] - textArea options
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value?: TextAreaOptions): TextAreaAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for TextArea.
+   *
+   * @typedef { TextAreaFrameNode } TextArea
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type TextArea = TextAreaFrameNode;
+
+  /**
+   * Create a FrameNode of TextArea type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextArea' } nodeType - node type.
+   * @returns { TextArea } - Return TextArea type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createTextAreaNode(context: UIContext, nodeType: 'TextArea'): TextArea;
+
+  /**
+   * Define the SymbolGlyph type of FrameNode.
+   *
+   * @extends TypedFrameNode<SymbolGlyphAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class SymbolGlyphFrameNode extends TypedFrameNode<SymbolGlyphAttribute> {
+    /**
+     * Initialize SybolGlyph FrameNode.
+     *
+     * @param { Resource } [value] - symbolGlyph resource
+     * @returns { SymbolGlyphAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value?: Resource): SymbolGlyphAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for SymbolGlyph.
+   *
+   * @typedef { SymbolGlyphFrameNode } SymbolGlyph
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type SymbolGlyph = SymbolGlyphFrameNode;
+
+  /**
+   * Create a FrameNode of SymbolGlyph type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'SymbolGlyph' } nodeType - node type.
+   * @returns { SymbolGlyph } - Return SymbolGlyph type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createSymbolGlyphNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+
+  /**
+   * Define the Marquee type of FrameNode.
+   *
+   * @extends TypedFrameNode<MarqueeAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class MarqueeFrameNode extends TypedFrameNode<MarqueeAttribute> {
+    /**
+     * Initialize Marquee FrameNode.
+     *
+     * @param { MarqueeOptions } value
+     * @returns { MarqueeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: MarqueeOptions): MarqueeAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Marquee.
+   *
+   * @typedef { MarqueeFrameNode } Marquee
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Marquee = MarqueeFrameNode;
+
+  /**
+   * Create a FrameNode of Marquee type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Marquee' } nodeType - node type.
+   * @returns { Marquee } - Return Marquee type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createMarqueeNode(context: UIContext, nodeType: 'Marquee'): Marquee;
 
   /**
    * Define the Swiper type of FrameNode.
