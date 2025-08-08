@@ -1,4 +1,4 @@
-"use static"
+'use static'
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -9770,61 +9770,59 @@ export declare interface MenuElement {
      */
     action: () => void;
 }
+
 /**
  * Defines the attribute modifier.
  *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface AttributeModifier<T> {
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyNormalAttribute(instance: T) : void;
-    /**
-     * Defines the pressed update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyPressedAttribute(instance: T) : void;
-    /**
-     * Defines the focused update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyFocusedAttribute(instance: T) : void;
-    /**
-     * Defines the disabled update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyDisabledAttribute(instance: T) : void;
-    /**
-     * Defines the selected update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applySelectedAttribute(instance: T) : void;
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyNormalAttribute(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyPressedAttribute(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyFocusedAttribute(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyDisabledAttribute(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applySelectedAttribute(instance: T) : void;
 }
 /**
  * Defines the content modifier.
