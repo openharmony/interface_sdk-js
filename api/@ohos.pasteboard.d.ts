@@ -638,7 +638,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(callback: AsyncCallback<string>): void;
 
@@ -648,7 +648,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(): Promise<string>;
 
