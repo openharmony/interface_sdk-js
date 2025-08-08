@@ -15,7 +15,7 @@
 
 import { Plugins, PluginContext } from '../common/plugin-context';
 import { GlobalObject, ProjectConfig } from './utils/api_check_plugin_typedef';
-import { createOrCleanProjectConfig } from './utils/api_check_plugin_utils';
+import { createOrCleanProjectConfig, readCardPageSet, readPermissions, readSyscapInfo, readSystemModules, creatApiCheckConfig } from './utils/api_check_plugin_utils';
 import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
@@ -44,7 +44,7 @@ export function apiCheckPlugin(): Plugins {
 }
 
 /**
- * 入口回调
+ * 入口回调方法，调用ApiCheckWrapper启动插件校验功能。
  * 
  * @param { PluginContext } this PluginContext对象
  */
@@ -53,19 +53,36 @@ function apiCheckCallback(this: PluginContext): void {
   try {
     const currentProjectConfig: ProjectConfig | undefined = this.getProjectConfig() as ProjectConfig | undefined;
     if (currentProjectConfig) {
+      initApiCheckConfig(currentProjectConfig);
       Object.assign(globalObject.projectConfig, currentProjectConfig);
       const ContextPtr = this.getContextPtr();
       const apiCheckHost: ApiCheckWrapperServiceHost = getApiCheckWrapperServiceHost();
       checkApiExpression(apiCheckHost, ContextPtr);
     }
     else {
-      throw new Error('Get ProjectConfig Fail')
+      throw new Error('[API_CHECK_PLUGIN] Get ProjectConfig Fail');
     }
   }
   catch (error) {
     if (error) {
-      console.error(`[API_CHECK_PLUGIN] ${error}`)
+      console.error(`[API_CHECK_PLUGIN] ${error}`);
     }
   }
   console.info('[API_CHECK_PLUGIN] AFTER CHECKED EXIT');
+}
+
+/**
+ * 初始化projectConfig，通过调用各方法改装该对象，新增插件需要的各属性。
+ * 
+ * @param { ProjectConfig } projectConfig 获取的系统配置信息
+ */
+export function initApiCheckConfig(projectConfig: ProjectConfig): void {
+  if (projectConfig.initApiCheckTag) {
+    return;
+  }
+  Object.assign(projectConfig, creatApiCheckConfig());
+  readPermissions(projectConfig);
+  readCardPageSet(projectConfig);
+  readSystemModules(projectConfig);
+  readSyscapInfo(projectConfig);
 }
