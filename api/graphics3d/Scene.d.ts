@@ -133,7 +133,7 @@ export interface RaycastParameters {
 
 /** 
  * The render resource factory. RenderResourceFactory is used to create resources that can be shared
- * across Scences that share a RenderContext
+ * across Scenes that share a RenderContext
  * 
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
