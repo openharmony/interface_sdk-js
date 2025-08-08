@@ -25,6 +25,7 @@ import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
 import { Builder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
+import { CustomDialogController } from './customDialogController';
 
 /**
  * Defines Entry Annotation.
