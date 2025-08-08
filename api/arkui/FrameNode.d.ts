@@ -1269,6 +1269,21 @@ export declare class FrameNode {
    * @since 20
    */
   getNodePropertyValue(property: AnimationPropertyType): number[];
+  
+  /**
+   * Triggers node updates in the current frame.
+   * 
+   * When node attributes are modified after the current frame's build phase (i.e., after
+   * the unified processing of dirty nodes), the node updates will be deferred to the next
+   * frame. This function forces immediate node updates within the current frame to
+   * ensure rendering effects are applied synchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  invalidateAttributes(): void;
 }
 
 /**
@@ -3239,22 +3254,6 @@ export declare namespace typeNode {
    * @since 20
    */
   export function getAttribute(node: FrameNode, nodeType: 'GridItem'): GridItemAttribute | undefined;
-
-    /**
-   * Get the attribute instance of FrameNode to set attributes.
-   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
-   * This API does not support declaratively created nodes.
-   * 
-   * @param { FrameNode } node - the target FrameNode.
-   * @param { 'GridItem' } nodeType - node type.
-   * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
-   * does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @arkts 1.1&1.2
-   */
-  export function applyAttributesFinish(): void
 }
 
 /**
