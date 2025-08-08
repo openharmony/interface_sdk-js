@@ -3500,6 +3500,10 @@ declare class WebContextMenuResult {
   /**
    * Executes the paste and match style operation related to this context menu.
    *
+   * <p><strong>API Note</strong>:<br>
+   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
+   * </p>
+   * 
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
