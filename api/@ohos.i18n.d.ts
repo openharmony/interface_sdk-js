@@ -2467,7 +2467,7 @@ declare namespace i18n {
      *     checked.
      * @returns { boolean } true if the input character is a white space, and false otherwise.
      * @syscap SystemCapability.Global.I18n
-     * @since arkts 8
+     * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isWhitespace
      */
@@ -2480,7 +2480,7 @@ declare namespace i18n {
      *     checked.
      * @returns { boolean } true if the input character is of the RTL language, and false otherwise.
      * @syscap SystemCapability.Global.I18n
-     * @since arkts 8
+     * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isRTL
      */
