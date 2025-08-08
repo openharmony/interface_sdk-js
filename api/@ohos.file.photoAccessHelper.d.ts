@@ -2060,7 +2060,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>);
+    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>): void;
     /**
      * Commits the edited image or video asset. This API uses a promise to return the result.
      *
@@ -2092,7 +2092,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    revertToOriginal(callback: AsyncCallback<void>);
+    revertToOriginal(callback: AsyncCallback<void>): void;
     /**
      * Reverts to the state of the file before being edited. This API uses a promise to return the result.
      *
