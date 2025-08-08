@@ -228,7 +228,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    guideLine(value: Array<GuideLineStyle> | undefined): this;
+    default guideLine(value: Array<GuideLineStyle> | undefined): this;
     /**
      * Specifies barriers of relativeContainer
      *
@@ -237,7 +237,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    barrier(value: Array<BarrierStyle> | undefined): this;
+    default barrier(value: Array<BarrierStyle> | undefined): this;
     /**
      * Specifies barriers of relativeContainer
      *
@@ -246,9 +246,17 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    barrier(barrierStyle: Array<LocalizedBarrierStyle> | undefined): this;
-    attributeModifier(modifier: AttributeModifier<RelativeContainerAttribute>
-        | AttributeModifier<CommonMethod> | undefined): this;
+    default barrier(barrierStyle: Array<LocalizedBarrierStyle> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<RelativeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { RelativeContainerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<RelativeContainerAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo

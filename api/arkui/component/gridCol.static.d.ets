@@ -118,7 +118,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    span(value: number | GridColColumnOption | undefined): this;
+    default span(value: number | GridColColumnOption | undefined): this;
     /**
      * Sets the offset of current gird-container item.
      *
@@ -127,7 +127,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    gridColOffset(value: number | GridColColumnOption | undefined): this;
+    default gridColOffset(value: number | GridColColumnOption | undefined): this;
     /**
      * Sets the order of current gird-container item.
      *
@@ -136,9 +136,17 @@ export declare interface GridColAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    order(value: number | GridColColumnOption | undefined): this;
-    attributeModifier(modifier: AttributeModifier<GridColAttribute>
-        | AttributeModifier<CommonMethod> | undefined): this;
+    default order(value: number | GridColColumnOption | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { GridColAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo

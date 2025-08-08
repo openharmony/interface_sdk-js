@@ -30,8 +30,16 @@ export declare interface BlankAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color(value: ResourceColor | undefined): this;
-    attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default color(value: ResourceColor | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { BlankAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 @memo
