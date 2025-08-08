@@ -866,9 +866,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
-   * @deprecated since 20
-   * @useinstead ohos.resourceManager.getSystemResourceManager
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getSystemResourceManager(): ResourceManager;
 
