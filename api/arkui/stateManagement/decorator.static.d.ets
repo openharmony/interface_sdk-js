@@ -1241,14 +1241,6 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
   executeOnSubscribingWatches(propertyName: string): void;
 }
 
-export declare interface AbstractProperty<T> extends IDecoratedMutableVariable<T> {
-    info(): string;
-}
-
-export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
-    aboutToBeDeleted(): void;
-}
-
 /**
  * Defines Computed decoration variable interface.
  *
