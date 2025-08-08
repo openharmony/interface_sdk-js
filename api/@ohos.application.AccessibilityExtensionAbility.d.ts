@@ -27,6 +27,7 @@ import type {
   FocusType as _FocusType,
   WindowType as _WindowType,
   Rect as _Rect,
+  Parameter as _Parameter,
 } from './application/AccessibilityExtensionContext';
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 import { AccessibilityEventType } from './@ohos.accessibility';
@@ -97,13 +98,13 @@ export type WindowType = _WindowType;
 export type Rect = _Rect;
 
 /**
- * Indicates the parameter of the AccessibiltyAction.
+ * Indicates executeAction parameter.
  *
+ * @typedef {_Parameter}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @systemapi
  * @since 20
  */
-export { Parameter } from './application/AccessibilityExtensionContext';
+export type Parameter = _Parameter;
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
