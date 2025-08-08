@@ -3239,6 +3239,22 @@ export declare namespace typeNode {
    * @since 20
    */
   export function getAttribute(node: FrameNode, nodeType: 'GridItem'): GridItemAttribute | undefined;
+
+    /**
+   * Get the attribute instance of FrameNode to set attributes.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, undefined is returned.
+   * This API does not support declaratively created nodes.
+   * 
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { 'GridItem' } nodeType - node type.
+   * @returns { GridItemAttribute | undefined } - Return the attribute instance of FrameNode, and return undefined if it
+   * does not exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @arkts 1.1&1.2
+   */
+  export function applyAttributesFinish(): void
 }
 
 /**
