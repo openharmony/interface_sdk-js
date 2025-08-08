@@ -1768,7 +1768,7 @@ export declare interface NavContentInfo {
 @memo
 @ComponentBuilder
 export declare function Navigation(
-    pathInfos: NavPathStack, 
+    pathInfos?: NavPathStack, 
     @memo
     content_?: () => void,
 ): NavigationAttribute
