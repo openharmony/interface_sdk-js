@@ -533,6 +533,7 @@
     { "filePath": "@ohos.pluginComponent.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.power.d.ts", "kitName": "BasicServicesKit", "subSystem": "电源服务" },
     { "filePath": "@ohos.print.d.ts", "kitName": "BasicServicesKit", "subSystem": "打印" },
+    { "filePath": "@ohos.scan.d.ets", "kitName": "BasicServicesKit", "subSystem": "打印" },
     { "filePath": "@ohos.privacyManager.d.ts", "kitName": "AbilityKit", "subSystem": "安全基础能力" },
     { "filePath": "@ohos.process.d.ts", "kitName": "ArkTS", "subSystem": "公共基础类库" },
     { "filePath": "@ohos.prompt.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
