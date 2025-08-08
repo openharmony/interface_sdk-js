@@ -6357,9 +6357,10 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6374,9 +6375,10 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -6391,9 +6393,10 @@ declare namespace window {
      * @param { string } path - Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -6412,9 +6415,10 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -6429,9 +6433,10 @@ declare namespace window {
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -6446,9 +6451,10 @@ declare namespace window {
      * @param { string } path - 	Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11495,9 +11501,10 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11512,9 +11519,10 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11529,9 +11537,10 @@ declare namespace window {
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11549,9 +11558,10 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11566,9 +11576,10 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11583,9 +11594,10 @@ declare namespace window {
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11601,9 +11613,10 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -11616,9 +11629,10 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -11631,9 +11645,10 @@ declare namespace window {
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
