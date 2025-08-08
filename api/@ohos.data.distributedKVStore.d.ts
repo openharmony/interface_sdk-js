@@ -1439,7 +1439,7 @@ declare namespace distributedKVStore {
      * @StageModelOnly
      * @since 10
      */
-    delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
+    delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): void;
 
     /**
      * Deletes the key-value pairs based on the dataSharePredicates.
