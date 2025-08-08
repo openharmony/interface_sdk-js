@@ -11486,7 +11486,7 @@ declare namespace audio {
      * Enable or disable audio loopback.
      *
      * @param { AudioLoopbackEqualizerMode } mode - audioLoopbackEqualizer Mode configuring.
-     * @returns { Promise<boolean> } return the result.
+     * @returns { boolean } return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
