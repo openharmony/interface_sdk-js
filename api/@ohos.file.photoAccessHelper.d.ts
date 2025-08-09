@@ -1561,6 +1561,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -1579,6 +1580,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string): Promise<number>;
     /**
@@ -1594,6 +1596,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(callback: AsyncCallback<number>): void;
     /**
@@ -1609,6 +1612,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(): Promise<number>;
     /**
@@ -1623,6 +1627,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -1637,6 +1642,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number): Promise<void>;
     /**
