@@ -39,10 +39,11 @@ import Stack from '@ohos.util.Stack';
 import TreeMap from '@ohos.util.TreeMap';
 import TreeSet from '@ohos.util.TreeSet';
 import xml from '@ohos.xml';
+import transfer from '@ohos.transfer';
 import collections from '@arkts.collections';
 import Decimal from '@arkts.math.Decimal';
 
 export {
   ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,
-  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, JSON, stream, xml, collections, Decimal
+  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, JSON, stream, xml, transfer, collections, Decimal
 };
