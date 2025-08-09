@@ -4523,7 +4523,7 @@ declare namespace audio {
      * @returns { boolean } Check result. The value <b>true</b> means that the system VOIP scene supports intelligent noise reduction, and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
-     * @since 20
+     * @since 21
      */
     isEnableIntelligentNoiseReduction(sourceType: SourceType): boolean;
   }
