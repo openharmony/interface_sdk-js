@@ -128,7 +128,6 @@ declare namespace unifiedDataChannel {
    * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkTs 1.2
    */
@@ -155,7 +154,6 @@ declare namespace unifiedDataChannel {
      * extra property data. key-value pairs.
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
      * @since 20
      * @arkTs 1.2
      */
@@ -2088,12 +2086,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @param { Record<string, int | long | double | string | Uint8Array> } the details of system defined data
+     * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, int | long | double | string | Uint8Array>);
+    set details(value: Record<string, int | long | double | string | Uint8Array> | undefined);
   }
 
   /**
