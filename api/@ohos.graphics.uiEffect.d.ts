@@ -111,16 +111,16 @@ declare namespace uiEffect {
     /**
      * Adds the content radius gradient blurring effect for the current component. The input parameter is the blurring radius.
      *
-     * @param { number } value - the blurring radius.
+     * @param { number } radius - the blurring radius.
      * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
-     * @param { LinearGradientBlurOptions } options - the radius gradient blur options.
+     * @param { LinearGradientBlurOptions } gradientParam - the radius gradient blur options.
      * @returns { Filter } - Returns radius gradient blur Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 19
      */
-    radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
+    radiusGradientBlur(radius: number, gradientParam: LinearGradientBlurOptions): Filter;
 
     /**
      * Sets the deformation effect controlled by bezier curves of the component.
@@ -636,7 +636,7 @@ declare namespace uiEffect {
      * @param { common2D.Point } center
      * @param { number } radiusX
      * @param { number } radiusY
-     * @param { Array<[number, number]> } values
+     * @param { Array<[number, number]> } gradients
      * @returns { Mask }
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @static
@@ -645,7 +645,7 @@ declare namespace uiEffect {
      * @since 20
      */
     static createRadialGradientMask(center: common2D.Point, radiusX: number, radiusY: number,
-      values: Array<[number, number]>): Mask;
+      gradients: Array<[number, number]>): Mask;
 
     /**
      * Create a Mask of single wave gradient.
