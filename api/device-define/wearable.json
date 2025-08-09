@@ -187,6 +187,7 @@
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Gnss",
     "SystemCapability.Test.UiTest",
-    "SystemCapability.Resourceschedule.BackgroundProcessManager"
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }
