@@ -692,8 +692,8 @@ declare namespace curves {
    * @param { function } interpolate - Custom interpolation callback.fraction: input x value for interpolation.
    * when the animation starts. Value range: [0, 1]The return value is the y value of the curve. Value range: [0, 1].
    * <p>**NOTE**:
-   * <br>If fraction is 0, the return value 0 corresponds to the animation start point; any other return value means that
-   * <br>the animation jumps at the start point.If fraction is 1, the return value 1 corresponds to the animation
+   * <br>If fraction is 0, the return value 0 corresponds to the animation start point; any other return value means
+   * <br>that the animation jumps at the start point.If fraction is 1, the return value 1 corresponds to the animation
    * <br>end point; any other return value means that the end value of the animation is not the value of the state
    * <br>variable, which will result in an effect of transition from that end value to the value of the state variable.
    * </p>
