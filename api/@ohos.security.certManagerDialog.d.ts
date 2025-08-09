@@ -26,8 +26,7 @@ import type common from '@ohos.app.ability.common';
  * @namespace certificateManagerDialog
  * @syscap SystemCapability.Security.CertificateManagerDialog
  * @stagemodelonly
- * @since arkts {'1.1':'13', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare namespace certificateManagerDialog {
   /**
@@ -36,8 +35,7 @@ declare namespace certificateManagerDialog {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   export enum CertificateDialogErrorCode {
 
@@ -46,8 +44,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     ERROR_GENERIC = 29700001,
 
@@ -56,8 +53,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     ERROR_OPERATION_CANCELED = 29700002,
     
@@ -66,8 +62,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     ERROR_OPERATION_FAILED = 29700003,
 
@@ -76,8 +71,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     ERROR_DEVICE_NOT_SUPPORTED = 29700004,
 
@@ -86,8 +80,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
   }
@@ -99,8 +92,7 @@ declare namespace certificateManagerDialog {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   export enum CertificateDialogPageType {
     /**
@@ -108,8 +100,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     PAGE_MAIN = 1,
 
@@ -118,8 +109,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     PAGE_CA_CERTIFICATE = 2,
     
@@ -128,8 +118,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     PAGE_CREDENTIAL = 3,
 
@@ -138,8 +127,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     PAGE_INSTALL_CERTIFICATE = 4
   }
@@ -158,8 +146,7 @@ declare namespace certificateManagerDialog {
    * <br>2. Memory operation error; 3. File operation error.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   function openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>;
 
@@ -171,8 +158,7 @@ declare namespace certificateManagerDialog {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   export enum CertificateType {
     /**
@@ -180,8 +166,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     CA_CERT = 1
   }
@@ -192,8 +177,7 @@ declare namespace certificateManagerDialog {
    * @enum { int }
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   export enum CertificateScope {
     /**
@@ -201,8 +185,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     NOT_SPECIFIED = 0,
 
@@ -211,8 +194,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     CURRENT_USER = 1,
 
@@ -221,8 +203,7 @@ declare namespace certificateManagerDialog {
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     GLOBAL_USER = 2,
   }
@@ -268,8 +249,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
@@ -292,8 +272,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>;
 
@@ -303,8 +282,7 @@ declare namespace certificateManagerDialog {
    * @typedef CertificateDialogProperty
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export interface CertificateDialogProperty {
     /**
@@ -313,8 +291,7 @@ declare namespace certificateManagerDialog {
      * @type { boolean }
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     showInstallButton: boolean;
   }
@@ -336,8 +313,7 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700004 - The API is not supported on this device.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
@@ -359,7 +335,6 @@ declare namespace certificateManagerDialog {
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 }
