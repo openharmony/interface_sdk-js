@@ -19,49 +19,75 @@
  */
 
 /**
-   * Specific failure codes indicating failure to open atomicservice.
+  * Specific failure codes indicating failure to open atomicservice.
+  *
+  * @enum { number }
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @atomicservice
+  * @since 20
+  * @arkts 1.1&1.2
+*/
+declare enum FailureCode {
+  /**
+   * Indicates fail to open atomicservice due to the system error, such as redirect dialog crash, alloc memory failed.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
+   */
+  FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
+
+  /**
+   * Indicates the user cancelled the redirection.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  FAILURE_CODE_USER_CANCEL = 1,
+
+  /**
+   * Indicates the user refused the redirection.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  FAILURE_CODE_USER_REFUSE = 2,
+}
+
+/**
+  * Notify the success result of openAtomicService.
+  *
+  * @typedef { function }
+  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 22
+  * @arkts 1.2
   */
-  enum FailureCode {
-    /**
-     * Indicates faile to open atomicservice due to the system error, such as redirect dialog crahs, alloc memory failed.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
-    
-    /**
-     * Indicates the user cancelled the redirection.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    FAILURE_CODE_USER_CANCEL = 1,
-    
-    /**
-     * Indicates the user refused the redirection.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    FAILURE_CODE_USER_REFUSE = 2,
-  }
+type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
+
+/**
+  * Notify the failure result of openAtomicService.
+  *
+  * @typedef { function }
+  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
+  * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
+  * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 22
+  * @arkts 1.2
+  */
+type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
 
 /**
  * CompletionHandlerForAtomicService is a handler to handle the completion events of openAtomicService.
@@ -69,7 +95,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since arkts {'1.1':'20', '1.2':'22'}
  * @arkts 1.1&1.2
  */
 declare class CompletionHandlerForAtomicService {
@@ -81,7 +107,6 @@ declare class CompletionHandlerForAtomicService {
    * @stagemodelonly
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onAtomicServiceRequestSuccess(appId: string): void;
 
@@ -95,9 +120,32 @@ declare class CompletionHandlerForAtomicService {
    * @stagemodelonly
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void;
+
+  /*** if arkts 1.2 */
+  /**
+   * Notify the success result of openAtomicService.
+   *
+   * @type { OnAtomicServiceRequestSuccessFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  onAtomicServiceRequestSuccess: OnAtomicServiceRequestSuccessFn;
+
+  /**
+   * Notify the failure result of openAtomicService.
+   *
+   * @type { OnAtomicServiceRequestFailureFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  onAtomicServiceRequestFailure: OnAtomicServiceRequestFailureFn;
+  /*** endif */
 }
 
 export { FailureCode };
