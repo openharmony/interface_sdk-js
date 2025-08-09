@@ -17,6 +17,7 @@
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.MessageDigest",
     "SystemCapability.Security.CryptoFramework.Rand",
-    "SystemCapability.Resourceschedule.BackgroundProcessManager"
+    "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }
