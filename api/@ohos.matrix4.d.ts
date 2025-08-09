@@ -664,14 +664,14 @@ declare namespace matrix4 {
 
   }
   /**
-   * Implements a **Matrix4Transit** object.
+   * Matrix4Transit.
    *
    * @interface Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Implements a **Matrix4Transit** object.
+   * Matrix4Transit.
    *
    * @interface Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -679,7 +679,7 @@ declare namespace matrix4 {
    * @since 10
    */
   /**
-   * Implements a **Matrix4Transit** object.
+   * Matrix4Transit.
    *
    * @interface Matrix4Transit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -705,9 +705,9 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Copies this matrix object.
+     * Copy function of Matrix, which can copy a copy of the current matrix object.
      *
-     * @returns { Matrix4Transit } Copy object of the current matrix.
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -732,9 +732,9 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Inverts this matrix object. The original matrix that calls this API will be changed.
+     * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
      *
-     * @returns { Matrix4Transit } Inverse matrix object of the current matrix.
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -761,10 +761,10 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Combines the effects of two matrices to generate a new matrix object. The original matrix that calls this API will be changed.
+     * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
      *
-     * @param { Matrix4Transit } options - Matrix object to be combined.
-     * @returns { Matrix4Transit } Object after matrix combination.
+     * @param { Matrix4Transit } options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -791,10 +791,10 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Translates this matrix object along the x, y, and z axes. The original matrix that calls this API will be changed.
+     * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
      *
-     * @param { TranslateOption } options - Translation configuration.
-     * @returns { Matrix4Transit } Matrix object after the translation.
+     * @param { TranslateOption } options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -821,10 +821,10 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Scales this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
+     * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
      *
-     * @param { ScaleOption } options - Scaling configuration.
-     * @returns { Matrix4Transit } Matrix object after the scaling.
+     * @param { ScaleOption } options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -834,11 +834,13 @@ declare namespace matrix4 {
     scale(options: ScaleOption): Matrix4Transit;
 
     /**
-     * Skews this matrix object along the x and y axes. The matrix that calls this API will be changed.
+     * Skew function of the Matrix, which can add the x-axis, y-axis skew effect to the current matrix.
+     * Skew function takes a generic point with coordinates (x0, y0, z0) to the point (x0 + x*y0, y0 + y*x0, z0),
+     * where x, y are fixed parameters, called the shear factors.
      *
-     * @param { number } x - Amount of skewing on the x-axis.
-     * @param { number } y - Amount of skewing on the y-axis.
-     * @returns { Matrix4Transit } Matrix object after the skewing.
+     * @param { number } x - the shear factor of x-axis.
+     * @param { number } y - the shear factor of y-axis.
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -865,10 +867,10 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Rotates this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
+     * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
      *
-     * @param { RotateOption } options - Rotation configuration.
-     * @returns { Matrix4Transit } Matrix object after the rotation.
+     * @param { RotateOption } options
+     * @returns { Matrix4Transit } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -895,10 +897,10 @@ declare namespace matrix4 {
      * @since 10
      */
     /**
-     * Applies the current transformation effect to a coordinate point.
+     * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
      *
-     * @param { [number, number] } options - Point to be transformed.
-     * @returns { [number, number] } Point object after matrix transformation
+     * @param { [number, number] } options
+     * @returns { [number, number] } Return to Matrix4Transit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
@@ -918,8 +920,7 @@ declare namespace matrix4 {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit
-
+    setPolyToPoly(options: PolyToPolyOptions): Matrix4Transit;
   }
 
   /**
