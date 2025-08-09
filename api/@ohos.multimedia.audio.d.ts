@@ -4516,6 +4516,16 @@ declare namespace audio {
      * @since 20
      */
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
+
+    /**
+     * Checks whether the system VOIP scene supports intelligent noise reduction
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the system VOIP scene supports intelligent noise reduction, and <b>false</b> means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    isEnableIntelligentNoiseReduction(sourceType: SourceType): boolean;
   }
 
   /**
