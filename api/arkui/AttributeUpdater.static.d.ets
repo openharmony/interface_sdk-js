@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,83 +17,65 @@
 /**
  * @file Defines a modifier which can update attributes to native side.
  * @kit ArkUI
+ * @arkts 1.2
  */
 
+import { AttributeModifier } from './component/common'
+
+
 /**
- * function that returns a default param of AttributeUpdater.
+ * function that returns by the function updateConstructorParams.
  *
  * @typedef { function } Initializer<T>
+ * @param { FixedArray<Object> } params
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
+ * @since 20
  */
-declare type Initializer<T> = () => T;
+export type Initializer<T> = (...params:FixedArray<Object>) => T;
 
 /**
  * Defines a modifier which can update attributes to native side.
  *
- * @implements AttributeModifier<T>
+ * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12
+ * @since 20
  */
-export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
-
+export declare class AttributeUpdater<T> implements AttributeModifier<T> {
+   
   /**
-   * Defines the normal update attribute function.
+   * Get attribute of the modifier.
    *
-   * @param { T } instance
+   * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @since 20
    */
-  applyNormalAttribute?(instance: T): void;
+   get attribute(): T | undefined;
 
   /**
    * Defines a function for initialization.
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @since 20
    */
-  initializeModifier(instance: T): void;
-
-  /**
-   * Get attribute of the modifier.
-   *
-   * @returns { T | undefined } The attribute of the modifier.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  get attribute(): T | undefined;
+   initializeModifier(instance: T): void;
 
   /**
    * Used to update constructor params.
    *
-   * @type { C }
+   * @type { Initializer<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @since 20
    */
-  updateConstructorParams: C;
+   get updateConstructorParams(): Initializer<T>;
 
-  /**
+     /**
    * Defines a function executed when component changed.
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
+   * @since 20
    */
-  onComponentChanged(component: T): void;
+   onComponentChanged(component: T): void;
 }
