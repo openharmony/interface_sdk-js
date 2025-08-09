@@ -90,7 +90,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
-   * @arkTs 1.2
+   * @arkts 1.2
    */
   type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
@@ -129,7 +129,7 @@ declare namespace unifiedDataChannel {
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @since 20
-   * @arkTs 1.2
+   * @arkts 1.2
    */
   type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined;
 
@@ -155,7 +155,7 @@ declare namespace unifiedDataChannel {
      * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
-     * @arkTs 1.2
+     * @arkts 1.2
      */
     extras?: Record<string, RecordData>;
 
