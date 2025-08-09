@@ -62,7 +62,7 @@ import Want from "./@ohos.app.ability.Want";
 declare namespace unifiedDataChannel {
   /**
    * Types of scope that UnifiedData can be used.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
@@ -3055,7 +3055,7 @@ declare namespace unifiedDataChannel {
   /**
    * Describe the visibility range of data
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 20
@@ -3451,12 +3451,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the maximum number of data records to be loaded.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
      */
-    recordCount?: number;
+    recordCount?: long;
   }
 
   /**
