@@ -30,6 +30,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @interface LazyGridLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface LazyGridLayoutAttribute extends CommonMethod {
     /**
@@ -59,6 +60,7 @@ export declare interface LazyGridLayoutAttribute extends CommonMethod {
  * @interface LazyVGridLayoutAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribute {
     /**
@@ -88,6 +90,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
  * @returns { LazyVGridLayoutAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

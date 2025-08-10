@@ -20237,7 +20237,6 @@ declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').Sy
  * @crossplatform
  * @atomicservice
  * @since 18
- * @noninterop
  */
 declare interface DragPreviewOptions {
   /**
@@ -20283,6 +20282,7 @@ declare interface DragPreviewOptions {
   * @crossplatform
   * @atomicservice
   * @since 18
+  * @noninterop
   */
   modifier?: ImageModifier;
 

@@ -5367,6 +5367,7 @@ declare interface IntelligentTrackingPreventionDetails {
  * @atomicservice
  * @since arkts {'1.1':'12', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface WebInterface {
   /**
@@ -7634,6 +7635,7 @@ declare interface SelectionMenuOptionsExt {
  * @atomicservice
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
@@ -10822,6 +10824,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Web: WebInterface;
 
@@ -10837,6 +10840,7 @@ declare const Web: WebInterface;
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const WebInstance: WebAttribute;
 

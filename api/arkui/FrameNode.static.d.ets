@@ -160,7 +160,6 @@ export enum ExpandMode {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class FrameNode {
   /**
@@ -521,6 +520,7 @@ export declare class FrameNode {
    * FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   get commonAttribute(): CommonAttribute;
 
@@ -717,7 +717,6 @@ export declare class FrameNode {
  * @extends FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare abstract class TypedFrameNode<T> extends FrameNode {
     /**
@@ -1802,7 +1801,6 @@ export declare namespace typeNode {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class NodeAdapter {
   /**

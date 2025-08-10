@@ -29,6 +29,7 @@ import { NavDestinationAttribute } from './component/navDestination';
  * @implements { NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class NavDestinationModifier implements NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> {
   /**
