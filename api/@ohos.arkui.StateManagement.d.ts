@@ -499,5 +499,5 @@ export declare class MutableBinding<T> {
    * @atomicservice
    * @since 20
    */
-  set value(newValue: T): void;
+  set value(newValue: T);
 }
