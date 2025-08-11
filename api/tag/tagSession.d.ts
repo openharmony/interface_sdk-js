@@ -38,7 +38,8 @@ import { AsyncCallback } from '../@ohos.base';
  * @typedef TagSession
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface TagSession {
   /**
@@ -85,7 +86,8 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connect(): void;
 
@@ -119,7 +121,8 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resetConnection(): void;
 
@@ -150,7 +153,8 @@ export interface TagSession {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isConnected(): boolean;
 
@@ -187,7 +191,7 @@ export interface TagSession {
    * Sets the timeout duration (ms) for sending data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } timeout Indicates the timeout duration to be set.
+   * @param { int } timeout Indicates the timeout duration to be set.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -197,9 +201,10 @@ export interface TagSession {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  setTimeout(timeout: number): void;
+  setTimeout(timeout: int): void;
 
   /**
    * Queries the timeout duration (ms) for sending data to a tag.
@@ -228,15 +233,16 @@ export interface TagSession {
    * Obtains the timeout duration (ms) for sending data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the timeout duration.
+   * @returns { int } Returns the timeout duration.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getTimeout(): number;
+  getTimeout(): int;
 
   /**
    * Writes data to a tag.
@@ -287,8 +293,8 @@ export interface TagSession {
    * Writes data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
+   * @param { int[] } data Indicates the data to be written to the tag.
+   * @returns { Promise<int[]> } Returns bytes received in response. Or bytes with a length of 0 if the
    * data fails to be written to the tag.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -300,9 +306,10 @@ export interface TagSession {
    * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  transmit(data: number[]): Promise<number[]>;
+  transmit(data: int[]): Promise<int[]>;
 
   /**
    * Writes data to a tag.
@@ -324,8 +331,8 @@ export interface TagSession {
    * Writes data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @param { AsyncCallback<number[]> } callback The callback.
+   * @param { int[] } data Indicates the data to be written to the tag.
+   * @param { AsyncCallback<int[]> } callback The callback.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
@@ -336,9 +343,10 @@ export interface TagSession {
    * @throws { BusinessError } 3100204 - The tag I/O operation failed.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  transmit(data: number[], callback: AsyncCallback<number[]>): void;
+  transmit(data: int[], callback: AsyncCallback<int[]>): void;
 
   /**
    * Queries the maximum length of data that can be sent to a tag.
@@ -367,13 +375,14 @@ export interface TagSession {
    * Obtains the maximum length of data that can be sent to a tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the maximum length of the data to be sent to the tag.
+   * @returns { int } Returns the maximum length of the data to be sent to the tag.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getMaxTransmitSize(): number;
+  getMaxTransmitSize(): int;
 }
