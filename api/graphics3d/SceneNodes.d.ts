@@ -58,7 +58,8 @@ export interface LayerMask {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum NodeType {
   /**
