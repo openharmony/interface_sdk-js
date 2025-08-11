@@ -16,40 +16,44 @@
 /**
  * @file
  * @kit ArkGraphics2D
+ * @arkts 1.1&1.2
  */
 
 import type { Callback } from './@ohos.base';
+/*** if arkts 1.2 */
+import { ExpectedFrameRateRange } from './arkui/component/common';
+/*** endif */
 
 /**
  * Provides functions of applying an independent draw frame rate used for drawing the UI.
  *
  * @namespace displaySync
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 11
+ * @since arkts {'1.1': '11', '1.2': '20'}
  */
 declare namespace displaySync {
   /**
    * Provides the IntervalInfo interface, which includes timestamp and targetTimestamp.
    * @interface IntervalInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since arkts {'1.1': '11', '1.2': '20'}
    */
   interface IntervalInfo {
     /**
      * The timestamp means the current drawing frame time.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * The timestamp means the next drawing frame time.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
-    targetTimestamp: number;
+    targetTimestamp: long;
   }
 
   /**
@@ -57,7 +61,7 @@ declare namespace displaySync {
    * the frequency of triggering callback function.
    * @interface DisplaySync
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since arkts {'1.1': '11', '1.2': '20'}
    */
   interface DisplaySync {
     /**
@@ -71,7 +75,7 @@ declare namespace displaySync {
      * <br> 3. Parameter verification failed.
      * or check ExpectedFrameRateRange if valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void;
 
@@ -81,7 +85,7 @@ declare namespace displaySync {
      * @param { 'frame' } type - The type of event to remove the listener for. Must be 'frame'.
      * @param { Callback<IntervalInfo> } callback - The callback function to be called when DisplaySync dispatching.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
 
@@ -92,7 +96,7 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
      *                                                will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
 
@@ -100,7 +104,7 @@ declare namespace displaySync {
      * Add DisplaySync to Pipeline. It means that
      * the callback function be enabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
     start(): void;
 
@@ -108,7 +112,7 @@ declare namespace displaySync {
      * Delete DisplaySync from Pipeline. It means that
      * the callback function be disabled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 11
+     * @since arkts {'1.1': '11', '1.2': '20'}
      */
     stop(): void;
   }
@@ -117,7 +121,7 @@ declare namespace displaySync {
    * Create a new DisplaySync object.
    * @returns { DisplaySync } DisplaySync
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 11
+   * @since arkts {'1.1': '11', '1.2': '20'}
    */
   function create(): DisplaySync;
 }
