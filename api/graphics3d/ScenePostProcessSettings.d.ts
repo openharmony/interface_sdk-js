@@ -131,7 +131,8 @@ export interface BloomSettings {
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PostProcessSettings {
   /**
