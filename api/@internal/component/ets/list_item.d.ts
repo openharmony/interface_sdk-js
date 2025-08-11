@@ -244,6 +244,77 @@ declare enum SwipeActionState {
 }
 
 /**
+ * Declare enum ListItemSwipeActionDirection.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare enum ListItemSwipeActionDirection {
+  /**
+   * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
+   * When the List direction is horizontal, it indicates the top.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  START = 0,
+  /**
+   * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
+   * When the List direction is horizontal, it indicates the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  END = 1,
+}
+
+/**
+ * The swipe action manager.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare class ListItemSwipeActionManager {
+  /**
+   * Expend the swipe action
+   *
+   * @param { FrameNode } node - The ListItem FrameNode.
+   * @param { ListItemSwipeActionDirection } direction - The direction to expend
+   * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+   * @throws { BusinessError } 106203 - The node not mounted to component tree.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
+
+  /**
+   * Collapse the swipe action
+   *
+   * @param { FrameNode } node - The ListItem FrameNode.
+   * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+   * @throws { BusinessError } 106203 - The node not mounted to component tree.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static collapse(node: FrameNode): void;
+}
+
+/**
  * Defines the swipe action item for SwipeActionOptions.
  *
  * @interface SwipeActionItem
