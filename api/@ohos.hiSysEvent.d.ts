@@ -140,10 +140,20 @@ declare namespace hiSysEvent {
      * @type { ?object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     params?: object;
+
+    /**
+     * The params of the event.
+     *
+     * @type { ?Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    params?: Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]>;
   }
 
   /**
