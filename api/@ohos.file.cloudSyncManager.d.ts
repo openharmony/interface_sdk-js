@@ -316,7 +316,6 @@ declare namespace cloudSyncManager {
    * @enum { number } DownloadStopReason
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum DownloadStopReason {
 
@@ -324,7 +323,6 @@ declare namespace cloudSyncManager {
      * download task is not stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     NO_STOP = 0,
 
@@ -332,7 +330,6 @@ declare namespace cloudSyncManager {
      * Network is unavailable.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     NETWORK_UNAVAILABLE = 1,
 
@@ -340,7 +337,6 @@ declare namespace cloudSyncManager {
      * The local storage space is full.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     LOCAL_STORAGE_FULL = 2,
 
@@ -348,7 +344,6 @@ declare namespace cloudSyncManager {
      * Temperature control Limits.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     TEMPERATURE_LIMIT = 3,
 
@@ -356,7 +351,6 @@ declare namespace cloudSyncManager {
      * User stopped the download task.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     USER_STOPPED = 4,
 
@@ -364,7 +358,6 @@ declare namespace cloudSyncManager {
      * The local application has been unloaded.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     APP_UNLOAD = 5,
 
@@ -372,7 +365,6 @@ declare namespace cloudSyncManager {
      * Other reasons of some internal error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     OTHER_REASON = 6
   }
@@ -382,7 +374,6 @@ declare namespace cloudSyncManager {
    * @enum { number } DownloadState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum DownloadState {
 
@@ -390,7 +381,6 @@ declare namespace cloudSyncManager {
      * Indicates that the download task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     RUNNING = 0,
 
@@ -398,7 +388,6 @@ declare namespace cloudSyncManager {
      * Indicates that the download task finished.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     COMPLETED = 1,
 
@@ -406,7 +395,6 @@ declare namespace cloudSyncManager {
      * Indicates that the download task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     STOPPED = 2
   }
@@ -416,7 +404,6 @@ declare namespace cloudSyncManager {
    * @typedef CloudFileInfo
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface CloudFileInfo {
 
@@ -425,7 +412,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     cloudFileCount: number;
 
@@ -434,7 +420,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     cloudFileTotalSize: number;
 
@@ -443,7 +428,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     localFileCount: number;
 
@@ -452,7 +436,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     localFileTotalSize: number;
 
@@ -461,7 +444,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     bothFileCount: number;
 
@@ -470,7 +452,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     bothFileTotalSize: number;
   }
@@ -479,7 +460,6 @@ declare namespace cloudSyncManager {
    * Defines DownloadProgress object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
-   * @arkts 1.1&1.2
    */
   class DownloadProgress {
 
@@ -488,7 +468,6 @@ declare namespace cloudSyncManager {
      * @type { DownloadState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     state: DownloadState;
 
@@ -497,7 +476,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     successfulCount: number;
 
@@ -506,7 +484,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     failedCount: number;
 
@@ -515,7 +492,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     totalCount: number;
 
@@ -524,7 +500,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     downloadedSize: number;
 
@@ -533,7 +508,6 @@ declare namespace cloudSyncManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     totalSize: number;
 
@@ -542,7 +516,6 @@ declare namespace cloudSyncManager {
      * @type { DownloadStopReason }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     stopReason: DownloadStopReason;
   }
@@ -553,7 +526,6 @@ declare namespace cloudSyncManager {
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   class DowngradeDownload {
 
@@ -572,7 +544,6 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     constructor(bundleName: string);
 
@@ -592,7 +563,6 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
 
@@ -616,7 +586,6 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
 
@@ -635,7 +604,6 @@ declare namespace cloudSyncManager {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     stopDownload(): Promise<void>;
   }

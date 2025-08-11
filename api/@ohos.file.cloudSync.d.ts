@@ -1311,7 +1311,6 @@ declare namespace cloudSync {
    * @typedef HistoryVersion
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface HistoryVersion {
     /**
@@ -1319,7 +1318,6 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     editedTime: number;
     /**
@@ -1327,7 +1325,6 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     fileSize: number;
     /**
@@ -1335,7 +1332,6 @@ declare namespace cloudSync {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     versionId: string;
     /**
@@ -1343,7 +1339,6 @@ declare namespace cloudSync {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     originalFileName: string;
     /**
@@ -1351,7 +1346,6 @@ declare namespace cloudSync {
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     sha256: string;
     /**
@@ -1359,7 +1353,6 @@ declare namespace cloudSync {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     autoResolved: boolean;
   }
@@ -1369,7 +1362,6 @@ declare namespace cloudSync {
    * @typedef VersionDownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface VersionDownloadProgress {
     /**
@@ -1377,7 +1369,6 @@ declare namespace cloudSync {
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     state: State;
     /**
@@ -1385,7 +1376,6 @@ declare namespace cloudSync {
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     progress: number;
     /**
@@ -1393,7 +1383,6 @@ declare namespace cloudSync {
      * @type { DownloadErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     errType: DownloadErrorType;
   }
@@ -1402,7 +1391,6 @@ declare namespace cloudSync {
    * FileVersion object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   class FileVersion {
     /**
@@ -1413,7 +1401,6 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -1436,7 +1423,6 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     getHistoryVersionList(uri: string, versionNumLimit: number): Promise<Array<HistoryVersion>>;
     /**
@@ -1460,7 +1446,6 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     downloadHistoryVersion(uri: string, versionId: string, callback: Callback<VersionDownloadProgress>): Promise<string>;
     /**
@@ -1485,7 +1470,6 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400007 - The version file specified to replace the original file does not exist.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     replaceFileWithHistoryVersion(originalUri: string, versionUri: string): Promise<void>;
     /**
@@ -1506,7 +1490,6 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isFileConflict(uri: string): Promise<boolean>;
     /**
@@ -1527,7 +1510,6 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     clearFileConflict(uri: string): Promise<void>;
   }
