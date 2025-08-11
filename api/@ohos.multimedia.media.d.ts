@@ -3063,13 +3063,12 @@ declare namespace media {
      */
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
-     * @param { 'mediaKeySystemInfoUpdate' } type - Event type, which is **'mediaKeySystemInfoUpdate'** in this case.
-     * This event is triggered when the copyright protection information of the media asset being played changes.
-     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
-     * It reports a **MediaKeySystemInfo** array.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3729,11 +3728,8 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Subscribes to AVPlayer errors. This event is used only for error prompt and does not require the user to stop
-     * playback control. If AVPlayerState is also switched to error, call {@link #reset()} or {@link #release()}
-     * to exit the playback.
-     * @param { 'error' } type - Event type, which is **'error'** in this case. This event can be triggered by
-     * both user operations and the system.
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -3758,6 +3754,36 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14
+     */
+    /**
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @throws { BusinessError } 5410002 - Seek continuous unsupported.
+     * @throws { BusinessError } 5411001 - IO can not find host.
+     * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
+     * @throws { BusinessError } 5411004 - IO network unavailable.
+     * @throws { BusinessError } 5411005 - IO no permission.
+     * @throws { BusinessError } 5411006 - IO request denied.
+     * @throws { BusinessError } 5411007 - IO resource not found.
+     * @throws { BusinessError } 5411008 - IO SSL client cert needed.
+     * @throws { BusinessError } 5411009 - IO SSL connect fail.
+     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
+     * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since arkts{ '1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
