@@ -1368,6 +1368,53 @@ declare namespace geoLocationManager {
   function getPoiInfo(): Promise<PoiInfo>;
 
   /**
+   * Add a beacon fence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { BeaconFenceRequest } fenceRequest - Indicates the details of the beacon fence.
+   * @returns { Promise<number> } The promise returned by the function, for reporting the ID of beacon fence.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   * permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.addBeaconFence}
+   * due to limited device capabilities.
+   * @throws { BusinessError } 3501100 - Failed to add a beacon fence because the location switch is off.
+   * @throws { BusinessError } 3501101 - Failed to add a beacon fence because the bluetooth switch is off.
+   * @throws { BusinessError } 3501601 - The number of beacon fence exceeds the maximum.
+   * @throws { BusinessError } 3501603 - Duplicate beacon fence information.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<number>;
+
+  /**
+   * Remove a beacon fence.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeBeaconFence}
+   * due to limited device capabilities.
+   * @throws { BusinessError } 3501602 - Failed to delete the fence due to incorrect beacon fence information.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  function removeBeaconFence(beaconFence?: BeaconFence): Promise<void>;
+
+  /**
+   * Check whether the BeaconFence service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if BeaconFence service is available, returns {@code false} otherwise.
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  function isBeaconFenceSupported(): boolean;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo
@@ -2252,6 +2299,15 @@ declare namespace geoLocationManager {
      * @since 12
      */
     transitionEvent: GeofenceTransitionEvent;
+
+    /**
+     * Indicate the beaconFence which transitionEvent occurs.
+     *
+     * @type { ?BeaconFence }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @since 20
+     */
+    beaconFence?: BeaconFence;
   }
 
   /**
@@ -3053,6 +3109,126 @@ declare namespace geoLocationManager {
      * @since 19
      */
     timestamp: number;
+  }
+
+  /**
+   * Beacon equipment manufacturer data.
+   *
+   * @typedef BeaconManufactureData
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  export interface BeaconManufactureData {
+    /**
+     * Manufacture id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    manufactureId: number;
+
+    /**
+     * Manufacture data.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    manufactureData: ArrayBuffer;
+
+    /**
+     * Manufacture data mask.
+     *
+     * @type { ArrayBuffer }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    manufactureDataMask: ArrayBuffer;
+  }
+
+  /**
+   * Beacon fence details.
+   *
+   * @typedef BeaconFence
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  export interface BeaconFence {
+    /**
+     * Identifier of the beacon fence.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    identifier: string;
+
+    /**
+     * Beacon fence information type.
+     *
+     * @type { BeaconFenceInfoType }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    beaconFenceInfoType: BeaconFenceInfoType;
+
+    /**
+     * Beacon equipment manufacture data.
+     *
+     * @type { ?BeaconManufactureData }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    manufactureData?: BeaconManufactureData;
+  }
+
+  /**
+   * Configuring parameters in BeaconFence request.
+   *
+   * @typedef BeaconFenceRequest
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  export interface BeaconFenceRequest {
+    /**
+     * Beacon fence information.
+     *
+     * @type { BeaconFence }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    beacon: BeaconFence;
+
+    /**
+     * Indicates the callback for reporting the BeaconFence transition status.
+     *
+     * @type { ?Callback<GeofenceTransition> }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    transitionCallback?: Callback<GeofenceTransition>;
+
+    /**
+     * Indicates the name of FenceExtensionAbility.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    fenceExtensionAbilityName?: string;
   }
 
   /**
@@ -3939,6 +4115,25 @@ declare namespace geoLocationManager {
      * @arkts 1.1&1.2
      */
     BLUETOOTH
+  }
+
+  /**
+   * Enum for the beacon fence information type.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Location.Location.Geofence
+   * @atomicservice
+   * @since 20
+   */
+  export enum BeaconFenceInfoType {
+    /**
+     * Identifies a beacon device using beacon device manufacture data.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @atomicservice
+     * @since 20
+     */
+    BEACON_MANUFACTURE_DATA = 1
   }
 }
 
