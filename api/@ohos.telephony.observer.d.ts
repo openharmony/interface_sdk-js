@@ -21,9 +21,7 @@
 import type { Callback } from './@ohos.base';
 import type radio from './@ohos.telephony.radio';
 import type data from './@ohos.telephony.data';
-/*** if arkts 1.1 */
 import type call from './@ohos.telephony.call';
-/*** endif */
 import type sim from './@ohos.telephony.sim';
 
 /**
@@ -102,7 +100,8 @@ declare namespace observer {
    *
    * @typedef { call.CallState }
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CallState = call.CallState;
 
@@ -552,7 +551,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Callback when the call state corresponding to the default sim card is updated.
@@ -567,7 +567,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'callStateChange', callback: Callback<CallStateInfo>): void;
 
@@ -585,7 +586,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Callback when the call state corresponding to the monitored {@code slotId} is updated.
@@ -601,7 +603,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'callStateChange', options: ObserverOptions, callback: Callback<CallStateInfo>): void;
 
@@ -617,7 +620,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * Cancel callback when the call state is updated.
@@ -632,7 +636,8 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
@@ -786,7 +791,8 @@ declare namespace observer {
    *
    * @interface CallStateInfo
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CallStateInfo {
     /**
@@ -794,7 +800,8 @@ declare namespace observer {
      *
      * @type { CallState }
      * @syscap SystemCapability.Telephony.StateRegistry
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: CallState;
 
