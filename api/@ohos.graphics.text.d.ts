@@ -768,6 +768,31 @@ declare namespace text {
   }
 
   /**
+   * Enumerates line height scaling type.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum LineHeightStyle {
+    /**
+     * Use the font size as the base for line height scaling.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    FONT_SIZE,
+
+    /**
+     * Use the text height after shaping as the base for line height scaling.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    FONT_HEIGHT
+  }
+
+  /**
    * Describes font feature of text.
    * @typedef FontFeature
    * @syscap SystemCapability.Graphics.Drawing
@@ -939,6 +964,42 @@ declare namespace text {
      * @arkts 1.1&1.2
      */
     wordSpacing?: number;
+
+    /**
+     * Maximum line height. The value is a floating point number.
+     * @type { ?number } it is double type data
+     * @syscap systemcapability.graphics.drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    lineHeightMaximum?: number;
+
+    /**
+     * Minimum line height. The value is a floating point number.
+     * @type { ?number } it is double type data
+     * @syscap systemcapability.graphics.drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    lineHeightMinimum?: number;
+
+    /**
+     * Line spacing. The value is a floating point number.
+     * @type { ?number } it is double type data
+     * @syscap systemcapability.graphics.drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    lineSpacing?: number;
+
+    /**
+     * Line height scaling base style. The default value is FONT_SIZE.
+     * @type { ?LineHeightStyle } Line height scaling style.
+     * @syscap systemcapability.graphics.drawing
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    lineHeightStyle?: LineHeightStyle;
 
     /**
      * Scale factor of the line height. The value is a floating point number.
