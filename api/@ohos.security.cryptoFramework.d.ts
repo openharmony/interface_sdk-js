@@ -3589,10 +3589,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     update(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @param { AsyncCallback<DataBlob | null> } callback - the callback of the update function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    update(data: DataBlob, callback: AsyncCallback<DataBlob | null>): void;
 
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3637,10 +3655,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     update(data: DataBlob): Promise<DataBlob>;
+
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @returns { Promise<DataBlob | null> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    update(data: DataBlob): Promise<DataBlob | null>;
 
     /**
      * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
@@ -3656,10 +3692,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     updateSync(data: DataBlob): DataBlob;
+
+    /**
+     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
+     * this time. RSA is not supported in this function.
+     *
+     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    updateSync(data: DataBlob): DataBlob | null;
 
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -3751,10 +3805,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
+
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @param { AsyncCallback<DataBlob | null> } callback - the callback of the doFinal function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob | null>): void;
 
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -3846,10 +3918,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     doFinal(data: DataBlob | null): Promise<DataBlob>;
+
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { Promise<DataBlob | null> } the promise returned by the function.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    doFinal(data: DataBlob | null): Promise<DataBlob | null>;
 
     /**
      * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
@@ -3865,10 +3955,28 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     doFinalSync(data: DataBlob | null): DataBlob;
+
+    /**
+     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
+     * Data cannot be updated after the crypto operation is finished.
+     *
+     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    doFinalSync(data: DataBlob | null): DataBlob | null;
 
     /**
      * Set the specified parameter to the cipher object.
