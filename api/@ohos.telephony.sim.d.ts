@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace sim
  * @syscap SystemCapability.Telephony.CoreService
- * @since arkts {'1.1':'6','1.2':'20'}
+ * @since arkts{'1.1':'6','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace sim {
@@ -896,7 +896,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
@@ -912,7 +912,7 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card found.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
@@ -2385,7 +2385,7 @@ declare namespace sim {
    * @interface OperatorConfig
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface OperatorConfig {
@@ -2395,7 +2395,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     field: string;
@@ -2406,7 +2406,7 @@ declare namespace sim {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     value: string;
@@ -2417,7 +2417,7 @@ declare namespace sim {
    *
    * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface IccAccountInfo {
@@ -2447,7 +2447,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     isEsim: boolean;
@@ -2457,7 +2457,7 @@ declare namespace sim {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     isActive: boolean;
@@ -2467,7 +2467,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     iccId: string;
@@ -2477,7 +2477,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     showName: string;
@@ -2487,7 +2487,7 @@ declare namespace sim {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     showNumber: string;
@@ -2499,7 +2499,7 @@ declare namespace sim {
    * @interface LockStatusResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface LockStatusResponse {
@@ -2652,7 +2652,7 @@ declare namespace sim {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum LockType {
@@ -2661,7 +2661,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     PIN_LOCK = 1,
@@ -2671,7 +2671,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     FDN_LOCK = 2
@@ -2682,7 +2682,7 @@ declare namespace sim {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'7','1.2':'20'}
+   * @since arkts{'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum CardType {
@@ -2690,7 +2690,7 @@ declare namespace sim {
      * Icc card type: unknown type Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     UNKNOWN_CARD = -1,
@@ -2699,7 +2699,7 @@ declare namespace sim {
      * Icc card type: Single sim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SINGLE_MODE_SIM_CARD = 10,
@@ -2708,7 +2708,7 @@ declare namespace sim {
      * Icc card type: Single usim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SINGLE_MODE_USIM_CARD = 20,
@@ -2717,7 +2717,7 @@ declare namespace sim {
      * Icc card type: Single ruim card type.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SINGLE_MODE_RUIM_CARD = 30,
@@ -2726,7 +2726,7 @@ declare namespace sim {
      * Icc card type: Double card C+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DUAL_MODE_CG_CARD = 40,
@@ -2735,7 +2735,7 @@ declare namespace sim {
      * Icc card type: China Telecom Internal Roaming Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     CT_NATIONAL_ROAMING_CARD = 41,
@@ -2744,7 +2744,7 @@ declare namespace sim {
      * Icc card type: China Unicom Dual Mode Card.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     CU_DUAL_MODE_CARD = 42,
@@ -2753,7 +2753,7 @@ declare namespace sim {
      * Icc card type: China Telecom LTE Card (Dual Mode).
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DUAL_MODE_TELECOM_LTE_CARD = 43,
@@ -2762,7 +2762,7 @@ declare namespace sim {
      * Icc card type: Double card U+G.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'7','1.2':'20'}
+     * @since arkts{'1.1':'7','1.2':'20'}
      * @arkts 1.1&1.2
      */
     DUAL_MODE_UG_CARD = 50,
@@ -2770,7 +2770,7 @@ declare namespace sim {
     /**
      * Icc card type: Single isim card type.
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SINGLE_MODE_ISIM_CARD = 60
@@ -2781,7 +2781,7 @@ declare namespace sim {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
-   * @since arkts {'1.1':'6','1.2':'20'}
+   * @since arkts{'1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum SimState {
@@ -2790,7 +2790,7 @@ declare namespace sim {
      * obtained.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_UNKNOWN = 0,
@@ -2800,7 +2800,7 @@ declare namespace sim {
      * no SIM card is inserted into the card slot.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_NOT_PRESENT = 1,
@@ -2811,7 +2811,7 @@ declare namespace sim {
      * unblocking key (PUK) or network.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_LOCKED = 2,
@@ -2821,7 +2821,7 @@ declare namespace sim {
      * the SIM card is in position but cannot work properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_NOT_READY = 3,
@@ -2831,7 +2831,7 @@ declare namespace sim {
      * SIM card is in position and is working properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_READY = 4,
@@ -2841,7 +2841,7 @@ declare namespace sim {
      * SIM card is in position and is working properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @since arkts {'1.1':'6','1.2':'20'}
+     * @since arkts{'1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
     SIM_STATE_LOADED = 5
@@ -2853,7 +2853,7 @@ declare namespace sim {
    * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum LockState {
@@ -2862,7 +2862,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LOCK_OFF = 0,
@@ -2872,7 +2872,7 @@ declare namespace sim {
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LOCK_ON = 1
