@@ -15419,7 +15419,7 @@ declare interface DragEvent {
    * @param { DataSyncOptions } options - the data sync options.
    * @returns { string } The data key returned by system, which can be used as the identify of the request.
    * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 190003 - Operation not allowed for current pharse.
+   * @throws { BusinessError } 190003 - Operation not allowed for current phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 15
