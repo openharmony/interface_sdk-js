@@ -44,7 +44,7 @@ import type socket from './@ohos.net.socket';
  * @syscap SystemCapability.Communication.NetManager.Core
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
+ * @since arkts{'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace connection {
@@ -127,7 +127,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function createNetConnection(netSpecifier?: NetSpecifier, timeout?: int): NetConnection;
@@ -155,7 +155,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getDefaultNet(callback: AsyncCallback<NetHandle>): void;
@@ -182,7 +182,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getDefaultNet(): Promise<NetHandle>;
@@ -209,7 +209,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getDefaultNetSync(): NetHandle;
@@ -224,7 +224,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllNets(callback: AsyncCallback<Array<NetHandle>>): void;
@@ -238,7 +238,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllNets(): Promise<Array<NetHandle>>;
@@ -252,7 +252,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllNetsSync(): Array<NetHandle>;
@@ -269,7 +269,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getConnectionProperties(netHandle: NetHandle, callback: AsyncCallback<ConnectionProperties>): void;
@@ -286,7 +286,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getConnectionProperties(netHandle: NetHandle): Promise<ConnectionProperties>;
@@ -303,7 +303,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getConnectionPropertiesSync(netHandle: NetHandle): ConnectionProperties;
@@ -335,7 +335,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getNetCapabilities(netHandle: NetHandle, callback: AsyncCallback<NetCapabilities>): void;
@@ -367,7 +367,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getNetCapabilities(netHandle: NetHandle): Promise<NetCapabilities>;
@@ -399,7 +399,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getNetCapabilitiesSync(netHandle: NetHandle): NetCapabilities;
@@ -475,7 +475,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
@@ -488,7 +488,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function isDefaultNetMetered(): Promise<boolean>;
@@ -501,7 +501,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function isDefaultNetMeteredSync(): boolean;
@@ -529,7 +529,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function hasDefaultNet(callback: AsyncCallback<boolean>): void;
@@ -554,7 +554,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function hasDefaultNet(): Promise<boolean>;
@@ -567,7 +567,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function hasDefaultNetSync(): boolean;
@@ -584,7 +584,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error. 
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function enableAirplaneMode(callback: AsyncCallback<void>): void;
@@ -600,7 +600,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function enableAirplaneMode(): Promise<void>;
@@ -617,7 +617,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function disableAirplaneMode(callback: AsyncCallback<void>): void;
@@ -633,7 +633,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function disableAirplaneMode(): Promise<void>;
@@ -649,7 +649,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
@@ -665,7 +665,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
@@ -681,7 +681,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
@@ -697,7 +697,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
@@ -713,7 +713,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
@@ -729,7 +729,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -742,7 +742,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAppNet(callback: AsyncCallback<NetHandle>): void;
@@ -753,7 +753,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAppNet(): Promise<NetHandle>;
@@ -764,7 +764,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAppNetSync(): NetHandle;
@@ -782,7 +782,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setAppNet(netHandle: NetHandle, callback: AsyncCallback<void>): void;
@@ -800,7 +800,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'9','1.2':'20'}
+   * @since arkts{'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setAppNet(netHandle: NetHandle): Promise<void>;
@@ -817,7 +817,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getDefaultHttpProxy(callback: AsyncCallback<HttpProxy>): void;
@@ -834,7 +834,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getDefaultHttpProxy(): Promise<HttpProxy>;
@@ -848,7 +848,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getGlobalHttpProxy(callback: AsyncCallback<HttpProxy>): void;
@@ -861,7 +861,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getGlobalHttpProxy(): Promise<HttpProxy>;
@@ -872,7 +872,7 @@ declare namespace connection {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid http proxy.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setAppHttpProxy(httpProxy: HttpProxy): void;
@@ -890,7 +890,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy, callback: AsyncCallback<void>): void;
@@ -908,7 +908,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setGlobalHttpProxy(httpProxy: HttpProxy): Promise<void>;
@@ -923,7 +923,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function setPacUrl(pacUrl: string): void;
@@ -934,7 +934,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getPacUrl(): string;
@@ -966,7 +966,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
@@ -998,7 +998,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
@@ -1028,7 +1028,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
@@ -1058,7 +1058,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function removeCustomDnsRule(host: string): Promise<void>;
@@ -1073,7 +1073,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
@@ -1087,7 +1087,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function clearCustomDnsRules(): Promise<void>;
@@ -1104,7 +1104,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function factoryReset(): Promise<void>;
@@ -1128,7 +1128,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetConnection {
@@ -1154,7 +1154,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netAvailable', callback: Callback<NetHandle>): void;
@@ -1171,7 +1171,7 @@ declare namespace connection {
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
      * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
@@ -1198,7 +1198,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netCapabilitiesChange', callback: Callback<NetCapabilityInfo>): void;
@@ -1215,7 +1215,7 @@ declare namespace connection {
      * @param { 'netConnectionPropertiesChange' } type - Indicates Event name.
      * @param { Callback<NetConnectionPropertyInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netConnectionPropertiesChange', callback: Callback<NetConnectionPropertyInfo>): void;
@@ -1242,7 +1242,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
@@ -1269,7 +1269,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
@@ -1314,7 +1314,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     register(callback: AsyncCallback<void>): void;
@@ -1365,7 +1365,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     unregister(callback: AsyncCallback<void>): void;
@@ -1382,7 +1382,7 @@ declare namespace connection {
    * @interface NetSpecifier
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetSpecifier {
@@ -1397,7 +1397,7 @@ declare namespace connection {
      * @type {NetCapabilities}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netCapabilities: NetCapabilities;
@@ -1413,7 +1413,7 @@ declare namespace connection {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     bearerPrivateIdentifier?: string;
@@ -1432,7 +1432,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetCapabilityInfo {
@@ -1449,7 +1449,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netHandle: NetHandle;
@@ -1467,7 +1467,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netCap: NetCapabilities;
@@ -1492,7 +1492,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * @since arkts{'1.1': '11', '1.2': '20'}
    * @arkts 1.1&1.2
    */
   export interface NetHandle {
@@ -1515,7 +1515,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netId: int;
@@ -1575,7 +1575,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
+     * @since arkts{'1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
@@ -1605,7 +1605,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
+     * @since arkts{'1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
@@ -1621,7 +1621,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
@@ -1637,7 +1637,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAddressByName(host: string): Promise<NetAddress>;
@@ -1662,7 +1662,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetCapabilities {
@@ -1670,7 +1670,7 @@ declare namespace connection {
      * Uplink (device-to-network) bandwidth.
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     linkUpBandwidthKbps?: int;
@@ -1679,7 +1679,7 @@ declare namespace connection {
      * Downstream (network-to-device) bandwidth.
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     linkDownBandwidthKbps?: int;
@@ -1695,7 +1695,7 @@ declare namespace connection {
      * @type {?Array<NetCap>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     networkCap?: Array<NetCap>;
@@ -1719,7 +1719,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     bearerTypes: Array<NetBearType>;
@@ -1729,7 +1729,7 @@ declare namespace connection {
    * Get information about network connections.
    * @interface NetConnectionPropertyInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetConnectionPropertyInfo {
@@ -1737,7 +1737,7 @@ declare namespace connection {
      * Defines the handle of the data network.
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netHandle: NetHandle;
@@ -1745,7 +1745,7 @@ declare namespace connection {
      * Defines the network connection properties.
      * @type { ConnectionProperties }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     connectionProperties: ConnectionProperties;
@@ -1755,7 +1755,7 @@ declare namespace connection {
    * Get network status information.
    * @interface NetBlockStatusInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetBlockStatusInfo {
@@ -1763,7 +1763,7 @@ declare namespace connection {
      * Defines the handle of the data network.
      * @type { NetHandle }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     netHandle: NetHandle;
@@ -1771,7 +1771,7 @@ declare namespace connection {
      * Check whether the current state is blocked.
      * @type { boolean }
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     blocked: boolean;
@@ -1779,16 +1779,16 @@ declare namespace connection {
 
   /**
    * Defines the network capability.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
   /**
    * Defines the network capability.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum NetCap {
@@ -1801,7 +1801,7 @@ declare namespace connection {
      * Indicates that the network can access the carrier's MMSC to send and receive multimedia messages.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_MMS = 0,
@@ -1815,7 +1815,7 @@ declare namespace connection {
      * Indicates that the network traffic is not metered.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_NOT_METERED = 11,
@@ -1829,7 +1829,7 @@ declare namespace connection {
      * Indicates that the network can access the Internet.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_INTERNET = 12,
@@ -1843,7 +1843,7 @@ declare namespace connection {
      * Indicates that the network does not use a VPN.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_NOT_VPN = 15,
@@ -1857,7 +1857,7 @@ declare namespace connection {
      * Indicates that the network is available.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_VALIDATED = 16,
@@ -1865,7 +1865,7 @@ declare namespace connection {
      * Indicates that the network is portal.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_PORTAL = 17,
@@ -1874,7 +1874,7 @@ declare namespace connection {
      * Indicates that the network is checking connectivity.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NET_CAPABILITY_CHECKING_CONNECTIVITY = 31
@@ -1882,24 +1882,24 @@ declare namespace connection {
 
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 8
    */
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @since 10
    */
   /**
    * Enumerates network types.
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.Communication.NetManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum NetBearType {
@@ -1919,7 +1919,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BEARER_CELLULAR = 0,
@@ -1940,7 +1940,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BEARER_WIFI = 1,
@@ -1950,7 +1950,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BEARER_BLUETOOTH = 2,
@@ -1964,7 +1964,7 @@ declare namespace connection {
      * Indicates that the network is an Ethernet network.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BEARER_ETHERNET = 3,
@@ -1972,7 +1972,7 @@ declare namespace connection {
     /**
      * Indicates that the network is based on a VPN network.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     BEARER_VPN = 4,
@@ -1982,7 +1982,7 @@ declare namespace connection {
    * Defines the network connection properties.
    * @interface ConnectionProperties
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface ConnectionProperties {
@@ -1990,7 +1990,7 @@ declare namespace connection {
      * Network card name.
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     interfaceName: string;
@@ -1998,7 +1998,7 @@ declare namespace connection {
      * Domain. The default value is "".
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     domains: string;
@@ -2006,7 +2006,7 @@ declare namespace connection {
      * Link information.
      * @type {Array<LinkAddress>}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     linkAddresses: Array<LinkAddress>;
@@ -2015,7 +2015,7 @@ declare namespace connection {
      * Network address, refer to [NetAddress].
      * @type {Array<NetAddress>}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     dnses: Array<NetAddress>;
@@ -2024,7 +2024,7 @@ declare namespace connection {
      * Routing information.
      * @type {Array<RouteInfo>}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     routes: Array<RouteInfo>;
@@ -2033,7 +2033,7 @@ declare namespace connection {
      * Maximum transmission unit.
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     mtu: int;
@@ -2043,7 +2043,7 @@ declare namespace connection {
    * Defines network route information.
    * @interface RouteInfo
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface RouteInfo {
@@ -2059,7 +2059,7 @@ declare namespace connection {
      * Destination Address
      * @type {LinkAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     destination: LinkAddress;
@@ -2068,7 +2068,7 @@ declare namespace connection {
      * Gateway address.
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     gateway: NetAddress;
@@ -2077,7 +2077,7 @@ declare namespace connection {
      * Whether a gateway is present.
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     hasGateway: boolean;
@@ -2086,7 +2086,7 @@ declare namespace connection {
      * Whether the route is the default route.
      * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     isDefaultRoute: boolean;
@@ -2096,7 +2096,7 @@ declare namespace connection {
    * Defines network link information.
    * @interface LinkAddress
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since arkts{'1.1':'8','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface LinkAddress {
@@ -2104,7 +2104,7 @@ declare namespace connection {
      * Link address.
      * @type {NetAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     address: NetAddress;
@@ -2112,7 +2112,7 @@ declare namespace connection {
      * The length of the link address prefix.
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'8','1.2':'20'}
+     * @since arkts{'1.1':'8','1.2':'20'}
      * @arkts 1.1&1.2
      */
     prefixLength: int;
@@ -2129,7 +2129,7 @@ declare namespace connection {
    * @interface NetAddress
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetAddress {
@@ -2144,7 +2144,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     address: string;
@@ -2160,7 +2160,7 @@ declare namespace connection {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     family?: int; 
@@ -2176,7 +2176,7 @@ declare namespace connection {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     port?: int; 
@@ -2193,7 +2193,7 @@ declare namespace connection {
    * @interface HttpProxy
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface HttpProxy {
@@ -2208,7 +2208,7 @@ declare namespace connection {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     host: string;
@@ -2224,7 +2224,7 @@ declare namespace connection {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     port: int;
@@ -2233,7 +2233,7 @@ declare namespace connection {
      * Http proxy username.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     username?: string;
@@ -2242,7 +2242,7 @@ declare namespace connection {
      * Http proxy password.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     password?: string;
@@ -2258,7 +2258,7 @@ declare namespace connection {
      * @type {Array<string>}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     exclusionList: Array<string>;
