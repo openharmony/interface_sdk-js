@@ -9404,7 +9404,7 @@ declare namespace window {
     /**
      * Sets the aspect ratio of window
      *
-     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { number } ratio - The aspect ratio of window except decoration.
      * @param { boolean } isPersistent - The parameter determines whether the ratio should be persistently saved.
      * @param { boolean } needUpdateRect - The parameter determines whether the window should be resized immediately with the given aspect ratio.
      * @returns { Promise<void> } - The promise returned by the function.
