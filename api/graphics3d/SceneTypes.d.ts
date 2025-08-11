@@ -491,7 +491,7 @@ export declare class PlaneGeometry extends GeometryDefinition {
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
-   * The raduis of the sphere.
+   * The radius of the sphere.
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -500,7 +500,7 @@ export declare class SphereGeometry extends GeometryDefinition {
   radius: number;
 
   /**
-   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this mant segments.
+   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
    * 
    * @type { number }
    * @syscap SystemCapability.ArkUi.Graphics3D
