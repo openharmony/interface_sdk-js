@@ -20,9 +20,9 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr } from '../arkui/component/units';
-import { Animation, Environment } from './SceneResources';
+import { Animation, Environment, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
-import { Position3, Color } from './SceneTypes';
+import { Position3, Color, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 /*** if arkts 1.1 */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';

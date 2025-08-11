@@ -20,15 +20,13 @@
 
 /*** if arkts 1.2 */
 import { SceneResource } from './SceneResources';
-import { Position3, Quaternion, Scale3, Color } from './SceneTypes';
-import { PostProcessSettings } from './ScenePostProcessSettings';
 /*** endif */
 /*** if arkts 1.1 */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
-import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
-import { PostProcessSettings } from './ScenePostProcessSettings';
 import { RaycastParameters, RaycastResult } from './Scene';
 /*** endif */
+import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
+import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
  * Defines the layer mask of the node.
