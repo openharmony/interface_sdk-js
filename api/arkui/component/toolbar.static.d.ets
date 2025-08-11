@@ -58,24 +58,6 @@ interface ToolBarItemOptions {
     placement?: ToolBarItemPlacement;
 }
 /**
- * Defines the ToolBarItem Component.
- *
- * @interface ToolBarItemInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-interface ToolBarItemInterface {
-    /**
-     * Set the options.
-     *
-     * @param { ToolBarItemOptions } [options] - column options
-     * @returns { ToolBarItemAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    (options?: ToolBarItemOptions): ToolBarItemAttribute;
-}
-/**
  * Defines the ToolBarItem component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -83,19 +65,20 @@ interface ToolBarItemInterface {
  */
 declare class ToolBarItemAttribute {
 }
+
 /**
  * Defines ToolBarItem Component.
  *
- * @type { ToolBarItemInterface }
+ * @param { ToolBarItemOptions } options - column options
+ * @param { function } [content_] - container
+ * @returns { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare const ToolBarItem: ToolBarItemInterface;
-/**
- * Defines ToolBarItem Component instance.
- *
- * @type { ToolBarItemAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-declare const ToolBarItemInstance: ToolBarItemAttribute;
+@memo
+@ComponentBuilder
+export declare function ToolBarItem(
+    options?: ToolBarItemOptions,
+    @memo
+    content_?: () => void,
+): ToolBarItemAttribute
