@@ -9839,6 +9839,21 @@ declare namespace window {
     setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise<WindowLimits>;
 
     /**
+     * Set the window limits of a window in vp.
+     *
+     * @param { WindowLimits } windowLimits - Window limits of the window in vp.
+     * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     */
+    setWindowLimitsVP(windowLimitsVP: WindowLimits): Promise<WindowLimits>;
+
+    /**
      * Set whether to enable the single frame composer.
      *
      * @param { boolean } enable - Enable the single frame composer if true, otherwise means the opposite.
