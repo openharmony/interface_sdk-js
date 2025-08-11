@@ -9402,6 +9402,23 @@ declare namespace window {
     setAspectRatio(ratio: number): Promise<void>;
 
     /**
+     * Sets the aspect ratio of window
+     *
+     * @param { number } ratio - The aspect ratio of window except decoration
+     * @param { boolean } isPersistent - The parameter determines whether the ratio should be persistently saved.
+     * @param { boolean } needUpdateRect - The parameter determines whether the window should be resized immediately with the given aspect ratio.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invaild parameter range. 2. Invalid parameter length.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     */
+    setContentAspectRatio(ratio: number, isPersistent?: boolean, needUpdateRect?: boolean): Promise<void>;
+
+    /**
      * Resets the aspect ratio of window
      *
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
