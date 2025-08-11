@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import curves from '../../@ohos.curves';
-/*** endif */
-
 /**
  * common enum of the checkbox shape
  *
@@ -39,8 +35,7 @@ import curves from '../../@ohos.curves';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum CheckBoxShape {
   /**
@@ -58,8 +53,7 @@ declare enum CheckBoxShape {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CIRCLE = 0,
 
@@ -78,8 +72,7 @@ declare enum CheckBoxShape {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ROUNDED_SQUARE = 1,
 }
@@ -116,8 +109,7 @@ declare enum CheckBoxShape {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Color {
   /**
@@ -148,8 +140,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   White,
 
@@ -181,8 +172,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Black,
 
@@ -214,8 +204,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Blue,
 
@@ -247,8 +236,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Brown,
 
@@ -280,8 +268,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Gray,
 
@@ -313,8 +300,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Green,
 
@@ -346,8 +332,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Grey,
 
@@ -379,8 +364,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Orange,
 
@@ -412,8 +396,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Pink,
 
@@ -445,8 +428,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Red,
 
@@ -478,8 +460,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Yellow,
 
@@ -505,8 +486,7 @@ declare enum Color {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Transparent,
 }
@@ -526,8 +506,7 @@ declare enum Color {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ColoringStrategy {
   /**
@@ -543,8 +522,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   INVERT = 'invert',
 
@@ -561,8 +539,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   AVERAGE = 'average',
 
@@ -579,8 +556,7 @@ declare enum ColoringStrategy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PRIMARY = 'primary',
 }
@@ -617,8 +593,7 @@ declare enum ColoringStrategy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ImageFit {
   /**
@@ -649,26 +624,28 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Contain,
 
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -676,14 +653,14 @@ declare enum ImageFit {
    * @since 10
    */
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Cover,
 
@@ -715,8 +692,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 
@@ -748,8 +724,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Fill,
 
@@ -781,8 +756,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   ScaleDown,
 
@@ -814,11 +788,10 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
-    
+
   /**
    * Top Start.
    *
@@ -826,8 +799,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   TOP_START = 7,
 
@@ -838,8 +810,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   TOP = 8,
 
@@ -850,8 +821,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   TOP_END = 9,
 
@@ -862,8 +832,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   START = 10,
 
@@ -874,8 +843,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CENTER = 11,
 
@@ -886,8 +854,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   END = 12,
 
@@ -898,8 +865,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BOTTOM_START = 13,
 
@@ -910,8 +876,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BOTTOM = 14,
 
@@ -922,8 +887,7 @@ declare enum ImageFit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BOTTOM_END = 15,
 
@@ -933,8 +897,7 @@ declare enum ImageFit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   MATRIX = 16,
 }
@@ -971,8 +934,7 @@ declare enum ImageFit {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum BorderStyle {
   /**
@@ -1003,8 +965,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Dotted,
 
@@ -1036,8 +997,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Dashed,
 
@@ -1069,8 +1029,7 @@ declare enum BorderStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Solid,
 }
@@ -1107,8 +1066,7 @@ declare enum BorderStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum LineJoinStyle {
   /**
@@ -1139,8 +1097,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Miter,
 
@@ -1172,8 +1129,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Round,
 
@@ -1205,8 +1161,7 @@ declare enum LineJoinStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bevel,
 }
@@ -1233,8 +1188,7 @@ declare enum LineJoinStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TouchType {
   /**
@@ -1256,8 +1210,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Down,
 
@@ -1280,8 +1233,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Up,
 
@@ -1304,8 +1256,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Move,
 
@@ -1328,8 +1279,7 @@ declare enum TouchType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Cancel,
 
@@ -1381,8 +1331,7 @@ declare enum TouchType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare enum InteractionHand {
   /**
@@ -1391,8 +1340,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   NONE = 0,
 
@@ -1402,8 +1350,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   LEFT = 1,
 
@@ -1413,8 +1360,7 @@ declare enum InteractionHand {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   RIGHT = 2,
 }
@@ -1441,8 +1387,7 @@ declare enum InteractionHand {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum MouseButton {
   /**
@@ -1464,8 +1409,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Left,
 
@@ -1488,8 +1432,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Right,
 
@@ -1512,8 +1455,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Middle,
 
@@ -1536,8 +1478,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Back,
 
@@ -1560,8 +1501,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Forward,
 
@@ -1584,8 +1524,7 @@ declare enum MouseButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -1612,8 +1551,7 @@ declare enum MouseButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum MouseAction {
   /**
@@ -1635,8 +1573,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Press,
 
@@ -1659,8 +1596,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Release,
 
@@ -1683,8 +1619,7 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Move,
 
@@ -1707,18 +1642,16 @@ declare enum MouseAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Hover,
-  
+
   /**
    * Triggered when the mouse event is canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   CANCEL = 13
 }
@@ -1747,8 +1680,7 @@ declare enum MouseAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum AnimationStatus {
   /**
@@ -1772,8 +1704,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Initial,
 
@@ -1798,8 +1729,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Running,
 
@@ -1824,8 +1754,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Paused,
 
@@ -1850,8 +1779,7 @@ declare enum AnimationStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Stopped,
 }
@@ -1924,20 +1852,23 @@ declare enum Curve {
   Linear,
 
   /**
-   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends,
+   * CubicBezier(0.25, 0.1, 0.25, 1.0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends,
+   * CubicBezier(0.25, 0.1, 0.25, 1.0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends,
+   * CubicBezier(0.25, 0.1, 0.25, 1.0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1945,7 +1876,8 @@ declare enum Curve {
    * @since 10
    */
   /**
-   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends, CubicBezier(0.25, 0.1, 0.25, 1.0).
+   * Indicates that the animation starts at a low speed, then accelerates, and then slows down before it ends,
+   * CubicBezier(0.25, 0.1, 0.25, 1.0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2309,19 +2241,6 @@ declare enum Curve {
 }
 
 /**
- * enum Curve.
- *
- * @typedef { curves.Curve } Curve
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type Curve = curves.Curve;
-
-/**
  * Sets the state before and after the animation starts.
  *
  * @enum { number }
@@ -2345,8 +2264,7 @@ export type Curve = curves.Curve;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FillMode {
   /**
@@ -2370,8 +2288,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 
@@ -2396,8 +2313,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Forwards,
 
@@ -2422,8 +2338,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Backwards,
 
@@ -2448,8 +2363,7 @@ declare enum FillMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Both,
 }
@@ -2486,8 +2400,7 @@ declare enum FillMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum PlayMode {
   /**
@@ -2518,8 +2431,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Normal,
 
@@ -2551,8 +2463,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Reverse,
 
@@ -2584,8 +2495,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Alternate,
 
@@ -2617,8 +2527,7 @@ declare enum PlayMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   AlternateReverse,
 }
@@ -2645,8 +2554,7 @@ declare enum PlayMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum KeyType {
   /**
@@ -2668,8 +2576,7 @@ declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Down,
 
@@ -2692,8 +2599,7 @@ declare enum KeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Up,
 }
@@ -2720,8 +2626,7 @@ declare enum KeyType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum KeySource {
   /**
@@ -2743,8 +2648,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Unknown,
 
@@ -2767,8 +2671,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Keyboard,
 
@@ -2778,8 +2681,7 @@ declare enum KeySource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   JOYSTICK,
 }
@@ -2806,8 +2708,7 @@ declare enum KeySource {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Edge {
   /**
@@ -2829,8 +2730,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -2862,8 +2762,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 
@@ -2895,8 +2794,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -2928,8 +2826,7 @@ declare enum Edge {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 }
@@ -2956,8 +2853,7 @@ declare enum Edge {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Week {
   /**
@@ -2979,8 +2875,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Mon,
 
@@ -3003,8 +2898,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Tue,
 
@@ -3027,8 +2921,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Wed,
 
@@ -3051,8 +2944,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Thur,
 
@@ -3075,8 +2967,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Fri,
 
@@ -3099,8 +2990,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Sat,
 
@@ -3123,8 +3013,7 @@ declare enum Week {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Sun,
 }
@@ -3161,8 +3050,7 @@ declare enum Week {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Direction {
   /**
@@ -3193,8 +3081,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Ltr,
 
@@ -3226,8 +3113,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Rtl,
 
@@ -3259,8 +3145,7 @@ declare enum Direction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 }
@@ -3297,8 +3182,7 @@ declare enum Direction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum BarState {
   /**
@@ -3329,8 +3213,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Off,
 
@@ -3362,8 +3245,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 
@@ -3395,8 +3277,7 @@ declare enum BarState {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   On,
 }
@@ -3433,25 +3314,27 @@ declare enum BarState {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum EdgeEffect {
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
+   * touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
+   * touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
+   * touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3459,14 +3342,14 @@ declare enum EdgeEffect {
    * @since 10
    */
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
+   * touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Spring,
 
@@ -3498,8 +3381,7 @@ declare enum EdgeEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Fade,
 
@@ -3531,8 +3413,7 @@ declare enum EdgeEffect {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -3569,8 +3450,7 @@ declare enum EdgeEffect {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Alignment {
   /**
@@ -3601,8 +3481,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopStart,
 
@@ -3634,8 +3513,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -3667,8 +3545,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopEnd,
 
@@ -3700,8 +3577,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -3733,8 +3609,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -3766,8 +3641,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 
@@ -3799,8 +3673,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomStart,
 
@@ -3832,8 +3705,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 
@@ -3865,8 +3737,7 @@ declare enum Alignment {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomEnd,
 }
@@ -4006,8 +3877,7 @@ declare enum LocalizedAlignment {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TransitionType {
   /**
@@ -4038,8 +3908,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   All,
 
@@ -4071,8 +3940,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Insert,
 
@@ -4104,8 +3972,7 @@ declare enum TransitionType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Delete,
 }
@@ -4132,8 +3999,7 @@ declare enum TransitionType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum RelateType {
   /**
@@ -4155,8 +4021,7 @@ declare enum RelateType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   FILL,
 
@@ -4179,8 +4044,7 @@ declare enum RelateType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   FIT,
 }
@@ -4217,8 +4081,7 @@ declare enum RelateType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Visibility {
   /**
@@ -4249,8 +4112,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Visible,
 
@@ -4282,8 +4144,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Hidden,
 
@@ -4315,8 +4176,7 @@ declare enum Visibility {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -4353,8 +4213,7 @@ declare enum Visibility {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum LineCapStyle {
   /**
@@ -4385,8 +4244,7 @@ declare enum LineCapStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Butt,
 
@@ -4418,26 +4276,28 @@ declare enum LineCapStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Round,
 
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the
+   * line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the
+   * line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the
+   * line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4445,14 +4305,14 @@ declare enum LineCapStyle {
    * @since 10
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the
+   * line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Square,
 }
@@ -4489,8 +4349,7 @@ declare enum LineCapStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Axis {
   /**
@@ -4521,8 +4380,7 @@ declare enum Axis {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Vertical,
 
@@ -4554,8 +4412,7 @@ declare enum Axis {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Horizontal,
 }
@@ -4592,8 +4449,7 @@ declare enum Axis {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum HorizontalAlign {
   /**
@@ -4624,8 +4480,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -4657,8 +4512,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -4690,8 +4544,7 @@ declare enum HorizontalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 }
@@ -4728,8 +4581,7 @@ declare enum HorizontalAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FlexAlign {
   /**
@@ -4764,21 +4616,22 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
   /**
    * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * and the first element is the same distance from the beginning of the row as the last element is from the end of
+   * the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
    * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * and the first element is the same distance from the beginning of the row as the last element is from the end of
+   * the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -4786,7 +4639,8 @@ declare enum FlexAlign {
    */
   /**
    * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * and the first element is the same distance from the beginning of the row as the last element is from the end of
+   * the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4795,14 +4649,14 @@ declare enum FlexAlign {
    */
   /**
    * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * and the first element is the same distance from the beginning of the row as the last element is from the end of
+   * the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -4838,8 +4692,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 
@@ -4879,14 +4732,14 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SpaceBetween,
 
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
+   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance
+   * between
    * the first element and the distance between the last element and the end of the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4894,7 +4747,8 @@ declare enum FlexAlign {
    */
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
+   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance
+   * between
    * the first element and the distance between the last element and the end of the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4903,7 +4757,8 @@ declare enum FlexAlign {
    */
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
+   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance
+   * between
    * the first element and the distance between the last element and the end of the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4913,15 +4768,15 @@ declare enum FlexAlign {
    */
   /**
    * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
+   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance
+   * between
    * the first element and the distance between the last element and the end of the row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SpaceAround,
 
@@ -4961,8 +4816,7 @@ declare enum FlexAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SpaceEvenly,
 }
@@ -4999,8 +4853,7 @@ declare enum FlexAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ItemAlign {
   /**
@@ -5031,8 +4884,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 
@@ -5064,8 +4916,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -5097,8 +4948,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -5130,8 +4980,7 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 
@@ -5163,26 +5012,28 @@ declare enum ItemAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Baseline,
 
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container
+   * size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container
+   * size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container
+   * size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5190,14 +5041,14 @@ declare enum ItemAlign {
    * @since 10
    */
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container
+   * size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Stretch,
 }
@@ -5234,8 +5085,7 @@ declare enum ItemAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FlexDirection {
   /**
@@ -5266,8 +5116,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Row,
 
@@ -5299,8 +5148,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Column,
 
@@ -5332,8 +5180,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RowReverse,
 
@@ -5365,8 +5212,7 @@ declare enum FlexDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   ColumnReverse,
 }
@@ -5379,8 +5225,7 @@ declare enum FlexDirection {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum PixelRoundCalcPolicy {
   /**
@@ -5390,8 +5235,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NO_FORCE_ROUND = 0,
   /**
@@ -5401,8 +5245,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   FORCE_CEIL = 1,
   /**
@@ -5412,8 +5255,7 @@ declare enum PixelRoundCalcPolicy {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   FORCE_FLOOR = 2,
 }
@@ -5426,8 +5268,7 @@ declare enum PixelRoundCalcPolicy {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum PixelRoundMode {
   /**
@@ -5437,8 +5278,7 @@ declare enum PixelRoundMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
@@ -5448,8 +5288,7 @@ declare enum PixelRoundMode {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   PIXEL_ROUND_AFTER_MEASURE = 1,
 }
@@ -5486,8 +5325,7 @@ declare enum PixelRoundMode {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FlexWrap {
   /**
@@ -5518,26 +5356,28 @@ declare enum FlexWrap {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NoWrap,
 
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5545,32 +5385,35 @@ declare enum FlexWrap {
    * @since 10
    */
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Wrap,
 
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5578,14 +5421,14 @@ declare enum FlexWrap {
    * @since 10
    */
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to
+   * exceed the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   WrapReverse,
 }
@@ -5622,8 +5465,7 @@ declare enum FlexWrap {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum VerticalAlign {
   /**
@@ -5654,8 +5496,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -5687,8 +5528,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -5720,8 +5560,7 @@ declare enum VerticalAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 }
@@ -5758,8 +5597,7 @@ declare enum VerticalAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ImageRepeat {
   /**
@@ -5790,8 +5628,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NoRepeat,
 
@@ -5823,8 +5660,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   X,
 
@@ -5856,8 +5692,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Y,
 
@@ -5889,8 +5724,7 @@ declare enum ImageRepeat {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   XY,
 }
@@ -5927,8 +5761,7 @@ declare enum ImageRepeat {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ImageSize {
   /**
@@ -5959,26 +5792,28 @@ declare enum ImageSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5986,14 +5821,14 @@ declare enum ImageSize {
    * @since 10
    */
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the
+   * display boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Cover,
 
@@ -6025,8 +5860,7 @@ declare enum ImageSize {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Contain,
 
@@ -6036,8 +5870,7 @@ declare enum ImageSize {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FILL = 3,
 }
@@ -6074,8 +5907,7 @@ declare enum ImageSize {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum GradientDirection {
   /**
@@ -6106,8 +5938,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Left,
 
@@ -6139,8 +5970,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -6172,8 +6002,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Right,
 
@@ -6205,8 +6034,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 
@@ -6238,8 +6066,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LeftTop,
 
@@ -6271,8 +6098,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LeftBottom,
 
@@ -6304,8 +6130,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RightTop,
 
@@ -6337,8 +6162,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RightBottom,
 
@@ -6370,8 +6194,7 @@ declare enum GradientDirection {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -6398,19 +6221,20 @@ declare enum GradientDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SharedTransitionEffectType {
   /**
-   * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
+   * The location of the destination page element remains unchanged, and you can configure the transparency animation.
+   * Currently,
    * only the static effect configured for redirecting to the target page takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
+   * The location of the destination page element remains unchanged, and you can configure the transparency animation.
+   * Currently,
    * only the static effect configured for redirecting to the target page takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6418,14 +6242,14 @@ declare enum SharedTransitionEffectType {
    * @since 10
    */
   /**
-   * The location of the destination page element remains unchanged, and you can configure the transparency animation. Currently,
+   * The location of the destination page element remains unchanged, and you can configure the transparency animation.
+   * Currently,
    * only the static effect configured for redirecting to the target page takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Static,
 
@@ -6448,8 +6272,7 @@ declare enum SharedTransitionEffectType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Exchange,
 }
@@ -6486,8 +6309,7 @@ declare enum SharedTransitionEffectType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FontStyle {
   /**
@@ -6518,8 +6340,7 @@ declare enum FontStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Normal,
 
@@ -6551,8 +6372,7 @@ declare enum FontStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Italic,
 }
@@ -6589,8 +6409,7 @@ declare enum FontStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FontWeight {
   /**
@@ -6621,8 +6440,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Lighter,
 
@@ -6654,8 +6472,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Normal,
 
@@ -6687,8 +6504,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Regular,
 
@@ -6720,8 +6536,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Medium,
 
@@ -6753,8 +6568,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bold,
 
@@ -6786,8 +6600,7 @@ declare enum FontWeight {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bolder,
 }
@@ -6824,8 +6637,7 @@ declare enum FontWeight {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextAlign {
   /**
@@ -6856,8 +6668,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -6889,8 +6700,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Start,
 
@@ -6922,8 +6732,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   End,
 
@@ -6942,8 +6751,7 @@ declare enum TextAlign {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   JUSTIFY,
 }
@@ -6980,8 +6788,7 @@ declare enum TextAlign {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextOverflow {
   /**
@@ -7012,8 +6819,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 
@@ -7045,8 +6851,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Clip,
 
@@ -7078,8 +6883,7 @@ declare enum TextOverflow {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Ellipsis,
 
@@ -7096,8 +6900,7 @@ declare enum TextOverflow {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MARQUEE,
 }
@@ -7134,8 +6937,7 @@ declare enum TextOverflow {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextDecorationType {
   /**
@@ -7166,8 +6968,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 
@@ -7199,8 +7000,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Underline,
 
@@ -7232,8 +7032,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Overline,
 
@@ -7265,8 +7064,7 @@ declare enum TextDecorationType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LineThrough,
 }
@@ -7303,8 +7101,7 @@ declare enum TextDecorationType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextCase {
   /**
@@ -7335,8 +7132,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Normal,
 
@@ -7368,8 +7164,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LowerCase,
 
@@ -7401,8 +7196,7 @@ declare enum TextCase {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   UpperCase,
 }
@@ -7422,8 +7216,7 @@ declare enum TextCase {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextHeightAdaptivePolicy {
   /**
@@ -7443,8 +7236,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MAX_LINES_FIRST,
 
@@ -7465,8 +7257,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MIN_FONT_SIZE_FIRST,
 
@@ -7489,8 +7280,7 @@ declare enum TextHeightAdaptivePolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LAYOUT_CONSTRAINT_FIRST,
 }
@@ -7517,8 +7307,7 @@ declare enum TextHeightAdaptivePolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ResponseType {
   /**
@@ -7540,8 +7329,7 @@ declare enum ResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RightClick,
 
@@ -7564,8 +7352,7 @@ declare enum ResponseType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LongPress,
 }
@@ -7592,8 +7379,7 @@ declare enum ResponseType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum HoverEffect {
   /**
@@ -7615,8 +7401,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Auto,
 
@@ -7639,8 +7424,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Scale,
 
@@ -7663,8 +7447,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Highlight,
 
@@ -7687,8 +7470,7 @@ declare enum HoverEffect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -7715,8 +7497,7 @@ declare enum HoverEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum Placement {
   /**
@@ -7738,8 +7519,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Left,
 
@@ -7762,8 +7542,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Right,
 
@@ -7786,8 +7565,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -7810,8 +7588,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 
@@ -7834,8 +7611,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopLeft,
 
@@ -7858,8 +7634,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopRight,
 
@@ -7882,8 +7657,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomLeft,
 
@@ -7906,8 +7680,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomRight,
 
@@ -7930,8 +7703,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LeftTop,
 
@@ -7954,8 +7726,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LeftBottom,
 
@@ -7978,8 +7749,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RightTop,
 
@@ -8002,8 +7772,7 @@ declare enum Placement {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RightBottom,
 }
@@ -8023,8 +7792,7 @@ declare enum Placement {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ArrowPointPosition {
   /**
@@ -8040,8 +7808,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   START = 'Start',
 
@@ -8058,8 +7825,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CENTER = 'Center',
 
@@ -8076,8 +7842,7 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   END = 'End',
 }
@@ -8107,8 +7872,7 @@ declare enum ArrowPointPosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum CopyOptions {
   /**
@@ -8133,8 +7897,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None = 0,
 
@@ -8160,8 +7923,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   InApp = 1,
 
@@ -8187,8 +7949,7 @@ declare enum CopyOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LocalDevice = 2,
 
@@ -8226,8 +7987,7 @@ declare enum CopyOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum HitTestMode {
   /**
@@ -8252,8 +8012,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Default,
 
@@ -8279,8 +8038,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Block,
 
@@ -8306,8 +8064,7 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Transparent,
 
@@ -8333,13 +8090,11 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
-
   /**
-   * Blocks all lower priority siblings and parents node from receiving the event.
+   * Blocks all lower-priority siblings and parent nodes from receiving the event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8347,10 +8102,9 @@ declare enum HitTestMode {
    * @since 20
    */
   BLOCK_HIERARCHY,
-
   /**
    * Self not respond to the hit test for touch events,
-   * and all descebdants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8382,8 +8136,7 @@ declare enum HitTestMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TitleHeight {
   /**
@@ -8405,8 +8158,7 @@ declare enum TitleHeight {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MainOnly,
 
@@ -8429,8 +8181,7 @@ declare enum TitleHeight {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MainWithSub,
 }
@@ -8450,8 +8201,7 @@ declare enum TitleHeight {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ModifierKey {
   /**
@@ -8467,8 +8217,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CTRL,
 
@@ -8485,8 +8234,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SHIFT,
 
@@ -8503,8 +8251,7 @@ declare enum ModifierKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   ALT,
 }
@@ -8524,8 +8271,7 @@ declare enum ModifierKey {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum FunctionKey {
   /**
@@ -8541,8 +8287,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   ESC,
 
@@ -8559,8 +8304,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F1,
 
@@ -8577,8 +8321,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F2,
 
@@ -8595,8 +8338,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F3,
 
@@ -8613,8 +8355,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F4,
 
@@ -8631,8 +8372,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F5,
 
@@ -8649,8 +8389,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F6,
 
@@ -8667,8 +8406,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F7,
 
@@ -8685,8 +8423,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F8,
 
@@ -8703,8 +8440,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F9,
 
@@ -8721,8 +8457,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F10,
 
@@ -8739,8 +8474,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F11,
 
@@ -8757,19 +8491,17 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   F12,
-    
+
   /**
    * Tab key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   TAB,
 
@@ -8779,8 +8511,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DPAD_UP,
 
@@ -8790,8 +8521,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DPAD_DOWN,
 
@@ -8801,8 +8531,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DPAD_LEFT,
 
@@ -8812,8 +8541,7 @@ declare enum FunctionKey {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DPAD_RIGHT,
 }
@@ -8833,8 +8561,7 @@ declare enum FunctionKey {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ImageSpanAlignment {
   /**
@@ -8850,8 +8577,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BASELINE,
 
@@ -8868,8 +8594,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BOTTOM,
 
@@ -8886,8 +8611,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CENTER,
 
@@ -8904,8 +8628,7 @@ declare enum ImageSpanAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TOP,
 
@@ -8934,8 +8657,7 @@ declare enum ImageSpanAlignment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ObscuredReasons {
   /**
@@ -8950,8 +8672,7 @@ declare enum ObscuredReasons {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PLACEHOLDER = 0,
 }
@@ -8970,8 +8691,7 @@ declare enum ObscuredReasons {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextContentStyle {
   /**
@@ -8986,8 +8706,7 @@ declare enum TextContentStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   DEFAULT,
 
@@ -9003,8 +8722,7 @@ declare enum TextContentStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   INLINE
 }
@@ -9024,15 +8742,14 @@ declare enum TextContentStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ClickEffectLevel {
   /**
    * Click effect level1.
    * The default scale number of this click effect level1 is 0.90.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9041,12 +8758,11 @@ declare enum ClickEffectLevel {
    * Click effect level1.
    * The default scale number of this click effect level1 is 0.90.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:410, damping:38.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   LIGHT,
 
@@ -9054,7 +8770,7 @@ declare enum ClickEffectLevel {
    * Click effect level2.
    * The default scale number of this click effect level2 is 0.95.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9063,12 +8779,11 @@ declare enum ClickEffectLevel {
    * Click effect level2.
    * The default scale number of this click effect level2 is 0.95.
    * The animation type is interpolatingSpring, velocity:10, mass:1, stiffness:350, damping:35.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   MIDDLE,
 
@@ -9076,7 +8791,7 @@ declare enum ClickEffectLevel {
    * Click effect level3.
    * The default scale number of this click effect level3 is 0.95.
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9085,12 +8800,11 @@ declare enum ClickEffectLevel {
    * Click effect level3.
    * The default scale number of this click effect level3 is 0.95.
    * The animation type is interpolatingSpring, velocity:0, mass:1, stiffness:240, damping:28.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HEAVY,
 }
@@ -9117,8 +8831,7 @@ declare enum ClickEffectLevel {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum XComponentType {
   /**
@@ -9140,8 +8853,7 @@ declare enum XComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SURFACE,
 
@@ -9172,8 +8884,7 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TEXTURE,
 
@@ -9202,8 +8913,7 @@ declare enum XComponentType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum NestedScrollMode {
   /**
@@ -9218,8 +8928,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SELF_ONLY,
 
@@ -9235,8 +8944,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SELF_FIRST,
 
@@ -9252,8 +8960,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PARENT_FIRST,
 
@@ -9269,8 +8976,7 @@ declare enum NestedScrollMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PARALLEL,
 }
@@ -9281,8 +8987,7 @@ declare enum NestedScrollMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ScrollSource {
   /**
@@ -9290,8 +8995,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DRAG = 0,
 
@@ -9300,8 +9004,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FLING,
 
@@ -9310,8 +9013,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   EDGE_EFFECT,
 
@@ -9320,8 +9022,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   OTHER_USER_INPUT,
 
@@ -9330,8 +9031,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SCROLL_BAR,
 
@@ -9340,8 +9040,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SCROLL_BAR_FLING,
 
@@ -9350,8 +9049,7 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SCROLLER,
 
@@ -9360,15 +9058,14 @@ declare enum ScrollSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SCROLLER_ANIMATION,
 }
 
 /**
  * Enum of RenderFit
- * 
+ *
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9376,7 +9073,7 @@ declare enum ScrollSource {
  */
 /**
  * Enum of RenderFit
- * 
+ *
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -9385,26 +9082,25 @@ declare enum ScrollSource {
  */
 /**
  * Enum of RenderFit
- * 
+ *
  * @enum { number } RenderFit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum RenderFit {
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9412,25 +9108,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   CENTER = 0,
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9438,25 +9133,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TOP = 1,
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9464,25 +9158,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   BOTTOM = 2,
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9490,25 +9183,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the left center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LEFT = 3,
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9516,25 +9208,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the right center of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RIGHT = 4,
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9542,25 +9233,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TOP_LEFT = 5,
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9568,25 +9258,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the top right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TOP_RIGHT = 6,
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9594,25 +9283,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom left of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   BOTTOM_LEFT = 7,
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9620,25 +9308,24 @@ declare enum RenderFit {
    */
   /**
    * Without scaling the content area, the content area is drawn in the bottom right of the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   BOTTOM_RIGHT = 8,
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9646,29 +9333,28 @@ declare enum RenderFit {
    */
   /**
    * Scale the length and width of the content area to the node size to fill the node.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_FILL = 9,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
    * is centered.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
    * is centered.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9676,15 +9362,14 @@ declare enum RenderFit {
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is less than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is less than or equal to the corresponding side of the node, and the content after scaling
    * is centered.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_CONTAIN = 10,
   /**
@@ -9693,7 +9378,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9704,7 +9389,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9716,13 +9401,12 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the top; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the left.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
@@ -9731,7 +9415,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9742,7 +9426,7 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9754,29 +9438,28 @@ declare enum RenderFit {
    * is less than or equal to the height of the node, the scaled content area is displayed at the bottom; otherwise,
    * the width of the scaled content is less than or equal to the width of the node, the scaled content area is
    * displayed at the right.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
    * displays the center area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
    * displays the center area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9784,15 +9467,14 @@ declare enum RenderFit {
    */
   /**
    * Scale the length or width of the content to the length or width of the node, ensuring that one side is equal,
-   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling 
+   * the other side is greater than or equal to the corresponding side of the node, and the content after scaling
    * displays the center area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_COVER = 13,
   /**
@@ -9801,7 +9483,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9812,7 +9494,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9824,13 +9506,12 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the top area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the left area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
@@ -9839,7 +9520,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -9850,7 +9531,7 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -9862,13 +9543,12 @@ declare enum RenderFit {
    * is greater than or equal to the height of the node, the scaled content area displays the bottom area; otherwise,
    * the width of the scaled content is greater than or equal to the width of the node, the scaled content area
    * displays the right area.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   RESIZE_COVER_BOTTOM_RIGHT = 15,
 }
@@ -9886,8 +9566,7 @@ declare enum RenderFit {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum DialogButtonStyle {
   /**
@@ -9901,8 +9580,7 @@ declare enum DialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   DEFAULT = 0,
 
@@ -9917,8 +9595,7 @@ declare enum DialogButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HIGHLIGHT = 1
 }
@@ -9930,8 +9607,7 @@ declare enum DialogButtonStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum WordBreak {
   /**
@@ -9940,8 +9616,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NORMAL = 0,
 
@@ -9951,8 +9626,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BREAK_ALL = 1,
 
@@ -9963,8 +9637,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BREAK_WORD = 2,
 
@@ -9974,8 +9647,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   HYPHENATION = 3,
 }
@@ -9987,8 +9659,7 @@ declare enum WordBreak {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum LineBreakStrategy  {
   /**
@@ -9998,8 +9669,7 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   GREEDY = 0,
 
@@ -10010,10 +9680,9 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  HIGH_QUALITY  = 1,
+  HIGH_QUALITY = 1,
 
   /**
    * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
@@ -10022,10 +9691,9 @@ declare enum LineBreakStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  BALANCED  = 2,
+  BALANCED = 2,
 }
 
 /**
@@ -10034,8 +9702,7 @@ declare enum LineBreakStrategy  {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum IlluminatedType {
   /**
@@ -10043,8 +9710,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NONE = 0,
   /**
@@ -10052,8 +9718,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BORDER = 1,
   /**
@@ -10061,8 +9726,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CONTENT = 2,
   /**
@@ -10070,8 +9734,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BORDER_CONTENT = 3,
   /**
@@ -10079,8 +9742,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BLOOM_BORDER = 4,
   /**
@@ -10088,8 +9750,7 @@ declare enum IlluminatedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BLOOM_BORDER_CONTENT = 5
 }
@@ -10109,8 +9770,7 @@ declare enum IlluminatedType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum EllipsisMode {
   /**
@@ -10126,8 +9786,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   START = 0,
 
@@ -10144,8 +9803,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CENTER = 1,
 
@@ -10162,8 +9820,7 @@ declare enum EllipsisMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   END = 2,
 }
@@ -10183,14 +9840,13 @@ declare enum EllipsisMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type Nullable<T> = T | undefined;
 
 
 /**
- * Decide whether the width of select menu fit the trigger or content 
+ * Decide whether the width of select menu fit the trigger or content
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10198,14 +9854,13 @@ declare type Nullable<T> = T | undefined;
  * @since 11
  */
 /**
- * Decide whether the width of select menu fit the trigger or content 
+ * Decide whether the width of select menu fit the trigger or content
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum OptionWidthMode {
   /**
@@ -10221,8 +9876,7 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FIT_CONTENT = 'fit_content',
 
@@ -10239,8 +9893,7 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FIT_TRIGGER = 'fit_trigger',
 }
@@ -10260,8 +9913,7 @@ declare enum OptionWidthMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum FoldStatus {
   /**
@@ -10277,8 +9929,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
@@ -10294,8 +9945,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FOLD_STATUS_EXPANDED = 1,
   /**
@@ -10311,8 +9961,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FOLD_STATUS_FOLDED = 2,
   /**
@@ -10328,8 +9977,7 @@ declare enum FoldStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FOLD_STATUS_HALF_FOLDED = 3,
 }
@@ -10340,8 +9988,7 @@ declare enum FoldStatus {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum AppRotation {
 
@@ -10350,8 +9997,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ROTATION_0 = 0,
 
@@ -10360,8 +10006,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ROTATION_90 = 1,
 
@@ -10370,8 +10015,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ROTATION_180 = 2,
 
@@ -10380,8 +10024,7 @@ declare enum AppRotation {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ROTATION_270 = 3
 }
@@ -10392,8 +10035,7 @@ declare enum AppRotation {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum EmbeddedType {
   /**
@@ -10401,8 +10043,7 @@ declare enum EmbeddedType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   EMBEDDED_UI_EXTENSION = 0,
 }
@@ -10414,18 +10055,16 @@ declare enum EmbeddedType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-declare enum MarqueeUpdateStrategy  {
+declare enum MarqueeUpdateStrategy {
   /**
    * Reset scroll position and restart scroll.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DEFAULT = 0,
 
@@ -10435,75 +10074,68 @@ declare enum MarqueeUpdateStrategy  {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PRESERVE_POSITION = 1
 }
 
 /**
  * Type of text decoration line style.
- * 
+ *
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum TextDecorationStyle {
   /**
    * Solid line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SOLID = 0,
 
   /**
    * Double lines.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DOUBLE = 1,
 
   /**
    * Dotted line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DOTTED = 2,
 
   /**
    * Dashed line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DASHED = 3,
 
   /**
    * Wavy line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   WAVY = 4,
 }
@@ -10515,8 +10147,7 @@ declare enum TextDecorationStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum TextSelectableMode {
   /**
@@ -10525,8 +10156,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SELECTABLE_UNFOCUSABLE = 0,
 
@@ -10536,8 +10166,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SELECTABLE_FOCUSABLE = 1,
 
@@ -10547,8 +10176,7 @@ declare enum TextSelectableMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   UNSELECTABLE = 2,
 }
@@ -10560,8 +10188,7 @@ declare enum TextSelectableMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum AccessibilityHoverType {
   /**
@@ -10570,8 +10197,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOVER_ENTER = 0,
 
@@ -10581,8 +10207,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOVER_MOVE = 1,
 
@@ -10592,8 +10217,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOVER_EXIT = 2,
 
@@ -10603,8 +10227,7 @@ declare enum AccessibilityHoverType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOVER_CANCEL = 3,
 }
@@ -10615,8 +10238,7 @@ declare enum AccessibilityHoverType {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare enum WidthBreakpoint {
   /**
@@ -10624,8 +10246,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   WIDTH_XS = 0,
 
@@ -10634,8 +10255,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   WIDTH_SM = 1,
 
@@ -10644,8 +10264,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   WIDTH_MD = 2,
 
@@ -10654,8 +10273,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   WIDTH_LG = 3,
 
@@ -10664,8 +10282,7 @@ declare enum WidthBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   WIDTH_XL = 4,
 }
@@ -10676,8 +10293,7 @@ declare enum WidthBreakpoint {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare enum HeightBreakpoint {
   /**
@@ -10685,8 +10301,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   HEIGHT_SM = 0,
 
@@ -10695,8 +10310,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   HEIGHT_MD = 1,
 
@@ -10705,8 +10319,7 @@ declare enum HeightBreakpoint {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   HEIGHT_LG = 2,
 }
@@ -10717,8 +10330,7 @@ declare enum HeightBreakpoint {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare enum AxisModel {
   /**
@@ -10726,19 +10338,16 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_X = 0,
 
   /**
-  
    * ABS_Y axis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_Y = 1,
 
@@ -10747,8 +10356,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_Z = 2,
 
@@ -10757,8 +10365,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_RZ = 3,
 
@@ -10767,8 +10374,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_GAS = 4,
 
@@ -10777,8 +10383,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_BRAKE = 5,
 
@@ -10787,8 +10392,7 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_HAT0X = 6,
 
@@ -10797,47 +10401,9 @@ declare enum AxisModel {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   ABS_HAT0Y = 7,
-}
-
-/**
- * Page flip mode of Swiper and Tabs on mouse wheel event.
-
- * @enum { number } PageFlipMode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
- */
-declare enum PageFlipMode {
-  /**
-   * Turn pages continuously according to the number of mouse wheel events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  CONTINUOUS = 0,
-
-  /**
-   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SINGLE = 1,
 }
 
 /**
@@ -10877,8 +10443,7 @@ declare enum FocusWrapMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum CrownAction {
   /**
@@ -10886,8 +10451,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   BEGIN = 0,
 
@@ -10896,8 +10460,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   UPDATE = 1,
 
@@ -10906,8 +10469,7 @@ declare enum CrownAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   END = 2
 }
@@ -10918,8 +10480,7 @@ declare enum CrownAction {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare enum CrownSensitivity {
   /**
@@ -10927,8 +10488,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LOW = 0,
 
@@ -10937,8 +10497,7 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   MEDIUM = 1,
 
@@ -10947,10 +10506,43 @@ declare enum CrownSensitivity {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   HIGH = 2
+}
+
+/**
+ * Page flip mode of Swiper and Tabs on mouse wheel event.
+
+ * @enum { number } PageFlipMode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 15
+ */
+declare enum PageFlipMode {
+  /**
+   * Turn pages continuously according to the number of mouse wheel events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  CONTINUOUS = 0,
+
+  /**
+   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 15
+   */
+  SINGLE = 1,
 }
 
 /**
@@ -10959,8 +10551,7 @@ declare enum CrownSensitivity {
  * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'17','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 17
  */
 declare enum AxisAction {
   /**
@@ -10968,8 +10559,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   NONE = 0,
 
@@ -10978,8 +10568,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   BEGIN = 1,
 
@@ -10988,8 +10577,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   UPDATE = 2,
 
@@ -10998,8 +10586,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   END = 3,
 
@@ -11008,8 +10595,7 @@ declare enum AxisAction {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   CANCEL = 4,
 }
@@ -11022,10 +10608,9 @@ declare enum AxisAction {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
- declare enum FocusDrawLevel {
+declare enum FocusDrawLevel {
   /**
    * Draw focus on node self level.
    *
@@ -11033,8 +10618,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   SELF = 0,
 
@@ -11045,8 +10629,7 @@ declare enum AxisAction {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   TOP = 1,
 }
@@ -11058,8 +10641,7 @@ declare enum AxisAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare enum DividerMode {
   /**
@@ -11068,8 +10650,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   FLOATING_ABOVE_MENU = 0,
 
@@ -11079,8 +10660,7 @@ declare enum DividerMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   EMBEDDED_IN_MENU = 1,
 }
@@ -11107,7 +10687,7 @@ declare enum EventQueryType {
 }
 
 /**
- * Follow position type.
+ * Tips show position type.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
