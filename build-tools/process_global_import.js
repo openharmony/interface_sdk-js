@@ -19,12 +19,13 @@ const ts = require('typescript');
 const commander = require('commander');
 
 class HandleUIImports {
-  constructor(program, context, outPath) {
+  constructor(program, context, outPath, path) {
     this.context = context;
     this.typeChecker = program.getTypeChecker();
     this.printer = ts.createPrinter();
 
     this.outPath = outPath;
+    this.inputDir = path;
     this.insertPosition = 0;
 
     this.importedInterfaces = new Set();
@@ -39,6 +40,9 @@ class HandleUIImports {
     if (sourceFile?.fileName) {
       const name = path.basename(sourceFile.fileName, path.extname(sourceFile.fileName));
       if (name.includes(OHOS_ARKUI_GLOBAL_ESVALUE)) {
+        if (this.outPath) {
+          this.writeSourceFileToOutPut(sourceFile);
+        }
         if (exportFlag) {
           return ts.visitNode(sourceFile, this.visitGlobalESValueNode.bind(this));
         }
@@ -209,7 +213,7 @@ class HandleUIImports {
 
     const updatedCode = this.printer.printFile(updatedSourceFile);
     if (this.outPath) {
-      fs.writeFileSync(this.outPath, updatedCode);
+      this.writeSourceFileToOutPut(updatedSourceFile, updatedCode);
     } else {
       fs.writeFileSync(updatedSourceFile.fileName, updatedCode);
     }
@@ -435,20 +439,33 @@ class HandleUIImports {
 
     const updatedCode = this.printer.printFile(updatedSourceFile);
     if (this.outPath) {
-      fs.writeFileSync(this.outPath, updatedCode);
+      this.writeSourceFileToOutPut(updatedSourceFile, updatedCode);
     } else {
       fs.writeFileSync(updatedSourceFile.fileName, updatedCode);
     }
   }
 
+  writeSourceFileToOutPut(sourceFile, context = sourceFile.text) {
+    const outFile = path.resolve(sourceFile.fileName.replace(this.inputDir,
+      this.outPath));
+    this.safeWriteFileSync(outFile, context);
+  }
+
+  safeWriteFileSync(filePath, content) {
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, content);
+  }
+
   addArkUIPath(node, moduleName) {
     if (ts.isSourceFile(node)) {
       const fileName = node.fileName;
-      const paths = ['ability', 'advertising', 'app', 'application', 'arkui', 'bundle',
-        'bundleManager', 'commonEvent', 'continuation', 'data', 'global', 'graphics3d',
-        'multimedia', 'notification', 'security', 'tag', 'wantAgent'];
-      if (paths.some(path => fileName.includes('/api/' + path + '/'))) {
+      if (apiDir.some(path => fileName.includes(API_PATH + path + '/'))) {
         return '.' + moduleName;
+      } else if (apiInternalDir.some(path => fileName.includes(API_PATH + path + '/'))) {
+        return '../.' + moduleName;
       }
     }
     return moduleName;
@@ -567,7 +584,7 @@ class HandleUIImports {
     }
 
     const fileName = rootNode.fileName;
-    if (fileName.includes(inputDir)) {
+    if (!fileName.includes('node_modules') && fileName.includes(inputDir)) {
       return true;
     }
 
@@ -605,11 +622,11 @@ function processInteropUI(path, outPath = '') {
 
   const createTransformer = (ctx) => {
     return (sourceFile) => {
-      const handleUIImports = new HandleUIImports(program, ctx, outPath);
+      const handleUIImports = new HandleUIImports(program, ctx, outPath, path);
       return handleUIImports.createCustomTransformer(sourceFile);
     };
   };
-  ts.transform(sourceFiles, [createTransformer]);
+  return ts.transform(sourceFiles, [createTransformer]);
 }
 
 function getDeclgenFiles(dir, filePaths = []) {
@@ -657,6 +674,8 @@ class ImportType {
   static ALIAS = 2;
   static DEFAULT_AND_NAMED = 3;
 }
+
+exports.processInteropUI = processInteropUI;
 
 let outputPath = '';
 let inputDir = '';
@@ -954,7 +973,7 @@ const whiteList = new Set([
   'SearchSubmitCallback', 'SearchType', 'SectionOptions', 'SecurityComponentLayoutDirection',
   'SecurityComponentMethod', 'SeekMode', 'Select', 'SelectAttribute', 'SelectOption',
   'SelectStatus', 'SelectedMode', 'SelectionMenuOptions', 'SelectionMenuOptionsExt',
-  'SelectionOptions', 'Sendable', 'Serializer', 'ShadowOptions', 'ShadowStyle', 'ShadowType',
+  'SelectionOptions', 'Serializer', 'ShadowOptions', 'ShadowStyle', 'ShadowType',
   'Shape', 'ShapeAttribute', 'ShapeSize', 'SharedTransitionEffectType', 'SheetDismiss',
   'SheetInfo', 'SheetKeyboardAvoidMode', 'SheetMode', 'SheetOptions', 'SheetSize',
   'SheetTitleOptions', 'SheetType', 'ShouldBuiltInRecognizerParallelWithCallback',
@@ -1041,9 +1060,34 @@ const decoratorsWhiteList = [
 ];
 
 const whiteFileList = [
-  '@ohos.graphics.drawing', '@ohos.web.webview', 'UIAbilityContext'
+  '@ohos.app.ability.continueManager',
+  '@ohos.app.ability.InsightIntentDecorator',
+  '@ohos.app.ability.UIExtensionContentSession',
+  '@ohos.distributedsched.proxyChannelManager',
+  '@ohos.graphics.displaySync',
+  '@ohos.graphics.drawing',
+  '@ohos.graphics.text',
+  '@ohos.i18n',
+  '@ohos.inputMethodEngine',
+  '@ohos.userIAM.userAuth',
+  '@ohos.web.webview',
+  'LiveFormExtensionContext',
+  'Scene',
+  'SceneResources',
+  'UIAbilityContext',
 ];
 
+const apiDir = [
+  'ability', 'advertising', 'app', 'application', 'arkui', 'bundle', 'bundleManager', 'commonEvent',
+  'continuation', 'data', 'global', 'graphics3d', 'multimedia', 'notification', 'security', 'tag',
+  'wantAgent'
+];
+
+const apiInternalDir = [
+  '@internal/full'
+];
+
+const API_PATH = '/api/';
 const EXTNAME_D_ETS = '.d.ets';
 const EXTNAME_D_TS = '.d.ts';
 const OHOS_ARKUI = '@ohos.arkui.';
