@@ -8622,6 +8622,22 @@ declare namespace relationalStore {
      * @since 20
      */
     rekey(cryptoParam?: CryptoParam): Promise<void>;
+
+    /**
+     * Support for collations in different languages.
+     * @param { string } locale - Language related to the locale.
+     * for example, zh. The value complies with the ISO 639 standard.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid args. Possible causes: 1. Non-standard parameters.
+     * @throws { BusinessError } 14800014 - Already closed.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+    setLocale(locale: string) : Promise<void>
   }
 
   /**
