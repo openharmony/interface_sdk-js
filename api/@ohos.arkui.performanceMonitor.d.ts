@@ -21,7 +21,8 @@
 /**
  * Provides interfaces to monitor a scene for performance measurement.
  *
- * <p>These interfaces are used to monitor the begin, end, and value changes of finger processes that last for at least 3 ms.
+ * <p>These interfaces are used to monitor the begin, end, and value changes of finger processes that last for at least
+ * 3 ms.
  *
  * <p>Example:
  * import "@ohos.arkui.performanceMonitor.d.ts"
@@ -37,8 +38,7 @@
  * @namespace performanceMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare namespace performanceMonitor {
   /**
@@ -47,16 +47,14 @@ declare namespace performanceMonitor {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
    */
   export enum ActionType {
     /**
      * The user presses the finger on the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     LAST_DOWN = 0,
 
@@ -64,8 +62,7 @@ declare namespace performanceMonitor {
      * The user lifts up the finger from the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     LAST_UP = 1,
 
@@ -73,8 +70,7 @@ declare namespace performanceMonitor {
      * The user first moves the finger after pressing down the screen.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     FIRST_MOVE = 2
   }
@@ -85,16 +81,14 @@ declare namespace performanceMonitor {
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export enum SourceType {
     /**
      * The user touches the screen to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PERF_TOUCH_EVENT = 0,
 
@@ -102,8 +96,7 @@ declare namespace performanceMonitor {
      * TThe user uses the mouse to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PERF_MOUSE_EVENT = 1,
 
@@ -111,8 +104,7 @@ declare namespace performanceMonitor {
      * The user uses the touchpad to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PERF_TOUCHPAD_EVENT = 2,
     
@@ -120,8 +112,7 @@ declare namespace performanceMonitor {
      * The user uses the joystick to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PERF_JOYSTICK_EVENT = 3,
 
@@ -129,8 +120,7 @@ declare namespace performanceMonitor {
      * The user uses the keyboard to trigger the scene.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PERF_KEY_EVENT = 4
   }
@@ -143,10 +133,9 @@ declare namespace performanceMonitor {
    * @param { string } note Indicates the app expected info delivered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  function begin(scene: string, startInputType: ActionType, note?: string): void;   
+  function begin(scene: string, startInputType: ActionType, note?: string): void;
 
   /**
    * End monitoring an application scene.
@@ -154,8 +143,7 @@ declare namespace performanceMonitor {
    * @param { string } scene Indicates the scene name. It must be the same with the {@code scene} of start.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function end(scene: string): void;
   
@@ -165,11 +153,10 @@ declare namespace performanceMonitor {
    * @param { ActionType } type - Indicates the scene input event type.
    * @param { SourceType } sourceType - Indicates the scene input source type.
    * @param { number } time - Indicates the scene input time.
-   * @throws { BusinessError } 202 - not system application. 
+   * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function recordInputEventTime(type: ActionType, sourceType: SourceType, time: number): void;  
 }
