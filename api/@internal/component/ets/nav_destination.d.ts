@@ -467,6 +467,47 @@ declare enum NavDestinationActiveReason {
 }
 
 /**
+ * The reason of navDestination be shown or hidden.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare enum VisibilityChangeReason {
+  /**
+   * The visibility lifecycle changes through page navigation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  TRANSITION = 0,
+
+  /**
+   * The visibility lifecycle changes through bindContentCover.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  CONTENT_COVER = 1,
+
+  /**
+   * The visibility lifecycle changes through the states of application (foreground or background).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  APP_STATE = 2,
+}
+
+/**
  * The construct function of NavDestination.
  *
  * @interface NavDestinationInterface
@@ -902,10 +943,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  onShown(callback: () => void): NavDestinationAttribute;
+  /**
+   * Called when the navigation destination page is displayed.
+   *
+   * @param { Callback<VisibilityChangeReason> } callback - Indicates callback when the navDestination page is displayed.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  onShown(callback: Callback<VisibilityChangeReason>): NavDestinationAttribute;
 
   /**
    * Called when the navigation destination page is hidden.
@@ -924,10 +974,19 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  onHidden(callback: () => void): NavDestinationAttribute;
+  /**
+   * Called when the navigation destination page is hidden.
+   *
+   * @param { Callback<VisibilityChangeReason> } callback - Indicates callback when the navDestination is hidden.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  onHidden(callback: Callback<VisibilityChangeReason>): NavDestinationAttribute;
 
   /**
    * Called when the navigation destination is about
