@@ -49,15 +49,6 @@ export interface AbstractProperty<T> {
    * @since 20
    */
    info(): string { return ""; };
-  
-  /**
-   * Returns the type of the referenced property
-   *
-   * @returns { Type } type of the referenced property
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-   ttype(): Type { return Type.of(undefined); };
 
   /**
    * Reads value of the referenced AppStorage/LocalStorage property.
@@ -115,30 +106,4 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
    * @since 20
    */
   aboutToBeDeleted(): void {};
-}
-
-/**
- * Define IStorageProperties interface
- *
- * @interface IStorageProperties
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export interface IStorageProperties {
- /**
-  * Storage value.
-  *
-  * @type { NullishType }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 20
-  */
-  value: NullishType;
- /**
-  * Storage variable ttype.
-  *
-  * @type { Type }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 20
-  */
-  ttype: Type;
 }
