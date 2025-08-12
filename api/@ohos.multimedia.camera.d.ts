@@ -15896,7 +15896,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraConcurrentType {
     /**
@@ -15910,7 +15911,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_LIMITED_CAPABILITY = 0,
 
@@ -15925,7 +15927,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FULL_CAPABILITY = 1,
   }
