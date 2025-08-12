@@ -3967,13 +3967,14 @@ declare namespace window {
   /**
    * Get all main window info on device
    *
-   * @returns { Promise<MainWindowInfo> } Promise used to return the MainWindowInfo.
-   * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+   * @returns { Promise<Array<MainWindowInfo>> } Promise used to return the list of main window info.
+   * @throws { BusinessError } 202 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 21
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since arkte {'1.1':'21', '1.2':'21}
+   * @arkts 1.1&1.2
    */
   function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
 
@@ -3984,12 +3985,13 @@ declare namespace window {
    * @param { WindowSnapshotOptions } options - Configuration for capturing window screenshots.
    * @returns { Promise<Array<image.PixelMap>> } Capture the list of PixelMaps,
    *     arranged in the order of the provided window ID array.
-   * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 202 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 21
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since arkte {'1.1':'21', '1.2':'21}
+   * @arkts 1.1&1.2
    */
   function getMainWindowSnapshot(windowId: Array<number>, options: WindowSnapshotOptions): Promise<Array<image.PixelMap>>;
 
