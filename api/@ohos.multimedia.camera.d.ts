@@ -14469,8 +14469,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -14491,10 +14490,39 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     start(): Promise<void>;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload start { startWithCallback, startReturnsPromise };
+
+    /**
+     * Start video output.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    startWithCallback(callback: AsyncCallback<void>): void;
+
+    /**
+     * Start video output.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    startReturnsPromise(): Promise<void>;
 
     /**
      * Stop video output.
@@ -14509,8 +14537,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -14527,10 +14554,35 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     stop(): Promise<void>;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload stop { stopWithCallback, stopReturnsPromise };
+
+    /**
+     * Stop video output.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    stopWithCallback(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop video output.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    stopReturnsPromise(): Promise<void>;
 
     /**
      * Determine whether video mirror is supported.
@@ -14789,12 +14841,11 @@ declare namespace camera {
      * Subscribes deferred video enhancement info callback.
      *
      * @param { 'deferredVideoEnhancementInfo' } type - Event type.
-     * @param { AsyncCallback<DeferredVideoEnhanceInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } callback - Callback used to return the result.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'deferredVideoEnhancementInfo', callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -14806,8 +14857,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'deferredVideoEnhancementInfo', callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
 
@@ -14830,8 +14880,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     on(type: 'frameStart', callback: AsyncCallback<void>): void;
 
@@ -14850,8 +14899,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     off(type: 'frameStart', callback?: AsyncCallback<void>): void;
 
@@ -14870,8 +14918,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     on(type: 'frameEnd', callback: AsyncCallback<void>): void;
 
@@ -14890,8 +14937,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     off(type: 'frameEnd', callback?: AsyncCallback<void>): void;
 
@@ -14914,8 +14960,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -14934,10 +14979,121 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+    * @since 20
+    * @arkts 1.2
+    */
+    overload on { onDeferredVideoEnhancementInfo, onFrameStart, onFrameEnd, onError };
+
+    /**
+     * Subscribes deferred video enhancement info callback.
+     *
+     * @param { 'deferredVideoEnhancementInfo' } type - Event type.
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onDeferredVideoEnhancementInfo(type: 'deferredVideoEnhancementInfo', callback: AsyncCallback<DeferredVideoEnhancementInfo>): void;
+
+    /**
+     * Registers a listener for the start of the video recording to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
+     *
+     * @param { 'frameStart' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 19
+     * @arkts 1.2
+     */
+    onFrameStart(type: 'frameStart', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribes frame end event callback.
+     *
+     * @param { 'frameEnd' } type - Event type.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 19
+     * @arkts 1.2
+     */
+    onFrameEnd(type: 'frameEnd', callback: AsyncCallback<void>): void;
+
+    /**
+     * Registers a listener for errors in the metadata stream to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 19
+     * @arkts 1.2
+     */
+    onError(type: 'error', callback: ErrorCallback): void;
+
+    /**
+    * @since 20
+    * @arkts 1.2
+    */
+    overload off { offDeferredVideoEnhancementInfo, offFrameStart, offFrameEnd, offError };
+
+    /**
+     * Unsubscribes from deferred video enhancement info callback.
+     *
+     * @param { 'deferredVideoEnhancementInfo' } type - Event type.
+     * @param { AsyncCallback<DeferredVideoEnhancementInfo> } [callback] - Callback used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offDeferredVideoEnhancementInfo(type: 'deferredVideoEnhancementInfo', callback?: AsyncCallback<DeferredVideoEnhancementInfo>): void;
+
+    /**
+     * Unsubscribes from frame start event callback.
+     * 
+     * @param { 'frameStart' } type - Event type.
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    offFrameStart(type: 'frameStart', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from frame end event callback.
+     *
+     * @param { 'frameEnd' } type - Event type.
+     * @param { AsyncCallback<void> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    offFrameEnd(type: 'frameEnd', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    offError(type: 'error', callback?: ErrorCallback): void;
 
     /**
      * Gets the current preconfig type if you had already call preconfig interface.
@@ -15004,6 +15160,117 @@ declare namespace camera {
      * @arkts 1.1&1.2
      */
     VIDEO_META_MAKER_INFO = 0
+  }
+
+  /**
+   * Video capability object
+   *
+   * @typedef VideoCapability
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface VideoCapability {  
+    /**
+     * Determine whether BFrame is supported.
+     *
+     * @returns { boolean } Is BFrame supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    isBFrameSupported(): boolean;
+  }
+
+  /**
+   * Movie settings object
+   *
+   * @typedef MovieSettings
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface MovieSettings {
+    /**
+     * Movie codec type.
+     *
+     * @type { VideoCodecType }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    videoCodec: VideoCodecType;
+
+    /**
+     * Video rotation.
+     *
+     * @type { ?ImageRotation }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    rotation?: ImageRotation;
+
+    /**
+     * Movie location.
+     *
+     * @type { ?Location }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    location?: Location;
+
+    /**
+     * Configure whether to enable B-frame, default false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    isBFrameEnabled?: boolean;
+  }
+
+  /**
+   * Movie info object
+   *
+   * @typedef MovieInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface MovieInfo {
+    /**
+     * Capture identity value.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    captureId: int;
+
+    /**
+     * ID of the photo taken.
+     *
+     * @type { ?photoAccessHelper.PhotoAsset }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    asset?: photoAccessHelper.PhotoAsset;
   }
 
   /**
@@ -15400,8 +15667,8 @@ declare namespace camera {
   /**
    * Metadata object for face.
    *
-   * @typedef MetadataFaceObject
    * @extends MetadataObject
+   * @typedef MetadataFaceObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15496,8 +15763,8 @@ declare namespace camera {
   /**
    * Metadata object for human body.
    *
-   * @typedef MetadataHumanBodyObject
    * @extends MetadataObject
+   * @typedef MetadataHumanBodyObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15509,8 +15776,8 @@ declare namespace camera {
   /**
    * Metadata object for cat face.
    *
-   * @typedef MetadataCatFaceObject
    * @extends MetadataObject
+   * @typedef MetadataCatFaceObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15545,8 +15812,8 @@ declare namespace camera {
   /**
    * Metadata object for cat body.
    *
-   * @typedef MetadataCatBodyObject
    * @extends MetadataObject
+   * @typedef MetadataCatBodyObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15558,8 +15825,8 @@ declare namespace camera {
   /**
    * Metadata object for dog face.
    *
-   * @typedef MetadataDogFaceObject
    * @extends MetadataObject
+   * @typedef MetadataDogFaceObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15594,8 +15861,8 @@ declare namespace camera {
   /**
    * Metadata object for dog body.
    *
-   * @typedef MetadataDogBodyObject
    * @extends MetadataObject
+   * @typedef MetadataDogBodyObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15607,8 +15874,8 @@ declare namespace camera {
   /**
    * Metadata object for salient detection.
    *
-   * @typedef MetadataSalientDetectionObject
    * @extends MetadataObject
+   * @typedef MetadataSalientDetectionObject
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -15701,8 +15968,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     start(callback: AsyncCallback<void>): void;
 
@@ -15723,10 +15989,39 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     start(): Promise<void>;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload start { startWithCallback, startReturnsPromise };
+
+    /**
+     * Start output metadata
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    startWithCallback(callback: AsyncCallback<void>): void;
+
+    /**
+     * Start output metadata
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    startReturnsPromise(): Promise<void>;
 
     /**
      * Stop output metadata
@@ -15741,8 +16036,7 @@ declare namespace camera {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     stop(callback: AsyncCallback<void>): void;
 
@@ -15759,10 +16053,35 @@ declare namespace camera {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     stop(): Promise<void>;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload stop { stopWithCallback, stopReturnsPromise };
+
+    /**
+     * Stop output metadata
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    stopWithCallback(callback: AsyncCallback<void>): void;
+
+    /**
+     * Stop output metadata
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    stopReturnsPromise(): Promise<void>;
 
     /**
      * Add metadata object types.
@@ -15813,8 +16132,7 @@ declare namespace camera {
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void;
 
@@ -15833,8 +16151,7 @@ declare namespace camera {
      * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void;
 
@@ -15857,8 +16174,7 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -15877,10 +16193,73 @@ declare namespace camera {
      * @param { ErrorCallback } callback - Callback used to get the video output errors.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload on { onMetadataObjectsAvailable, onError };
+
+    /**
+     * Registers a listener for the detected metadata object to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
+     *
+     * @param { 'metadataObjectsAvailable' } type - Event type.
+     * @param { AsyncCallback<Array<MetadataObject>> } callback - Callback used to get the available metadata objects.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    onMetadataObjectsAvailable(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void;
+
+    /**
+     * Registers a listener for errors in the video output to get the result by registering
+     * a callback function. This API uses an asynchronous callback to return the result.
+     * 
+     * Description: Currently, it is not allowed to use off() to unregister the callback
+     * within the callback method of on().
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    onError(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload off { offmetadataObjectsAvailable, offError };
+
+    /**
+     * Unsubscribes from metadata objects available event callback.
+     *
+     * @param { 'metadataObjectsAvailable' } type - Event type.
+     * @param { AsyncCallback<Array<MetadataObject>> } [callback] - Callback used to get the available metadata objects.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    offmetadataObjectsAvailable(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void;
+    
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    offError(type: 'error', callback?: ErrorCallback): void;
   }
 
   /**
@@ -16163,8 +16542,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -16176,8 +16554,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -16189,8 +16566,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
 
@@ -16202,8 +16578,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
 
@@ -16215,8 +16590,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
 
@@ -16228,8 +16602,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
 
@@ -16241,8 +16614,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
 
@@ -16254,8 +16626,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
 
@@ -16267,8 +16638,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
 
@@ -16280,8 +16650,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
 
@@ -16332,8 +16701,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
 
@@ -16345,10 +16713,179 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload on { onError, onFocusStateChange, onIsoInfoChange, onExposureInfoChange, onLuminationInfoChange,
+      onTryAEInfoChange };
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onError(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * Subscribes focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } callback - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onFocusStateChange(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void;
+
+    /**
+     * Subscribes ISO info event callback.
+     *
+     * @param { 'isoInfoChange' } type - Event type.
+     * @param { AsyncCallback<IsoInfo> } callback - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onIsoInfoChange(type: 'isoInfoChange', callback: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info event callback.
+     *
+     * @param { 'exposureInfoChange' } type - Event type.
+     * @param { AsyncCallback<ExposureInfo> } callback - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onExposureInfoChange(type: 'exposureInfoChange', callback: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Subscribes lumination info event callback.
+     *
+     * @param { 'luminationInfoChange' } type - Event type.
+     * @param { AsyncCallback<LuminationInfo> } callback - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onLuminationInfoChange(type: 'luminationInfoChange', callback: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Subscribes try AE info event callback.
+     *
+     * @param { 'tryAEInfoChange' } type - Event type.
+     * @param { AsyncCallback<TryAEInfo> } callback - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onTryAEInfoChange(type: 'tryAEInfoChange', callback: AsyncCallback<TryAEInfo>): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload off { offError, offFocusStateChange, offIsoInfoChange, offExposureInfoChange, offLuminationInfoChange,
+      offTryAEInfoChange };
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } [callback] - Callback used to get the capture session errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offError(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * Unsubscribes from focus state change event callback.
+     *
+     * @param { 'focusStateChange' } type - Event type.
+     * @param { AsyncCallback<FocusState> } [callback] - Callback used to get the focus state change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offFocusStateChange(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void;
+
+    /**
+     * Unsubscribes from ISO info event callback.
+     *
+     * @param { 'isoInfoChange' } type - Event type.
+     * @param { AsyncCallback<IsoInfo> } [callback] - Callback used to get the ISO info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offIsoInfoChange(type: 'isoInfoChange', callback?: AsyncCallback<IsoInfo>): void;
+
+    /**
+     * Unsubscribes from exposure info event callback.
+     *
+     * @param { 'exposureInfoChange' } type - Event type.
+     * @param { AsyncCallback<ExposureInfo> } [callback] - Callback used to get the exposure info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offExposureInfoChange(type: 'exposureInfoChange', callback?: AsyncCallback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes from lumination info event callback.
+     *
+     * @param { 'luminationInfoChange' } type - Event type.
+     * @param { AsyncCallback<LuminationInfo> } [callback] - Callback used to get the lumination info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offLuminationInfoChange(type: 'luminationInfoChange', callback?: AsyncCallback<LuminationInfo>): void;
+
+    /**
+     * Unsubscribes from try AE info event callback.
+     *
+     * @param { 'tryAEInfoChange' } type - Event type.
+     * @param { AsyncCallback<TryAEInfo> } [callback] - Callback used to get the try AE info.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offTryAEInfoChange(type: 'tryAEInfoChange', callback?: AsyncCallback<TryAEInfo>): void;
 
     /**
      * Gets supported timelapse interval range.
@@ -16680,8 +17217,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'depthDataAvailable', callback: AsyncCallback<DepthData>): void;
 
@@ -16693,8 +17229,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'depthDataAvailable', callback?: AsyncCallback<DepthData>): void;
 
@@ -16706,8 +17241,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -16719,10 +17253,73 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     off(type: 'error', callback?: ErrorCallback): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload on { onDepthDataAvailable, onError };
+
+    /**
+     * Subscribes to depth data objects available event callback.
+     *
+     * @param { 'depthDataAvailable' } type - Event type.
+     * @param { AsyncCallback<DepthData> } callback - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onDepthDataAvailable(type: 'depthDataAvailable', callback: AsyncCallback<DepthData>): void;
+
+    /**
+     * Subscribes to error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } callback - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    onError(type: 'error', callback: ErrorCallback): void;
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload off { offDepthDataAvailable, offError };
+
+    /**
+     * Unsubscribes from depth data objects available event callback.
+     *
+     * @param { 'depthDataAvailable' } type - Event type.
+     * @param { AsyncCallback<DepthData> } [callback] - Callback used to get the available DepthData objects.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offDepthDataAvailable(type: 'depthDataAvailable', callback?: AsyncCallback<DepthData>): void;
+
+    /**
+     * Unsubscribes from error events.
+     *
+     * @param { 'error' } type - Event type.
+     * @param { ErrorCallback } [callback] - Callback used to get the video output errors.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.2
+     */
+    offError(type: 'error', callback?: ErrorCallback): void;
   }
 
   /**
