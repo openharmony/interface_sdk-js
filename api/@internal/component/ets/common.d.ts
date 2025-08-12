@@ -18107,6 +18107,7 @@ declare interface PopupCommonOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18145,6 +18146,7 @@ declare interface PopupCommonOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18246,7 +18248,7 @@ declare interface PopupCommonOptions {
    * Set popup focusable
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18893,6 +18895,7 @@ declare interface PopupOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19010,6 +19013,7 @@ declare interface PopupOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19711,6 +19715,7 @@ declare interface CustomPopupOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19892,7 +19897,7 @@ declare interface CustomPopupOptions {
    * Set popup focusable
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
