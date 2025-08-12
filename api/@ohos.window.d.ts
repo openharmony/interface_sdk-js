@@ -2983,7 +2983,7 @@ declare namespace window {
    *
    * @interface MainWindowInfo
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkts {'1.1':'21', '1.2':'21'}
+   * @since 21
    * @arkts 1.1&1.2
    */
   interface MainWindowInfo {
@@ -2992,7 +2992,7 @@ declare namespace window {
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     displayId: number,
@@ -3001,7 +3001,7 @@ declare namespace window {
      *
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     windowId: number,
@@ -3010,7 +3010,7 @@ declare namespace window {
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     showing: boolean,
@@ -3019,7 +3019,7 @@ declare namespace window {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     label: string
@@ -3030,7 +3030,7 @@ declare namespace window {
    *
    * @interface WindowSnapshotOptions
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkts {'1.1':'21', '1.2':'21'}
+   * @since 21
    * @arkts 1.1&1.2
    */
   interface WindowSnapshotOptions {
@@ -3038,7 +3038,7 @@ declare namespace window {
      * Whether use cached windows' snapshot.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     useCache?: boolean
@@ -3970,7 +3970,7 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkte {'1.1':'21', '1.2':'21}
+   * @since 21
    * @arkts 1.1&1.2
    */
   function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
@@ -3987,7 +3987,7 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkte {'1.1':'21', '1.2':'21}
+   * @since 21
    * @arkts 1.1&1.2
    */
   function getMainWindowSnapshot(windowId: Array<number>, options: WindowSnapshotOptions): Promise<Array<image.PixelMap>>;
