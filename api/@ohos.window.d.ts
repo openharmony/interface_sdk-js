@@ -3026,14 +3026,14 @@ declare namespace window {
   }
 
   /**
-   * Options for getting windows' snapshot.
+   * Configuration for getting windows' snapshot.
    *
-   * @interface WindowSnapshotOptions
+   * @interface WindowSnapshotConfiguration
    * @syscap SystemCapability.Window.SessionManager
    * @since 21
    * @arkts 1.1&1.2
    */
-  interface WindowSnapshotOptions {
+  interface WindowSnapshotConfiguration {
     /**
      * Whether use cached windows' snapshot.
      *
@@ -3981,7 +3981,7 @@ declare namespace window {
    *
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @param { Array<number> } windowId - List of main window IDs to be obtained.
-   * @param { WindowSnapshotOptions } options - Configuration for getting windows' snapshot.
+   * @param { WindowSnapshotConfiguration } options - Configuration for getting windows' snapshot.
    * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
    *     arranged in the order of the provided window ID array.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -3991,7 +3991,7 @@ declare namespace window {
    * @since 21
    * @arkts 1.1&1.2
    */
-  function getMainWindowSnapshot(windowId: Array<number>, options: WindowSnapshotOptions): Promise<Array<image.PixelMap>>;
+  function getMainWindowSnapshot(windowId: Array<number>, options: WindowSnapshotConfiguration): Promise<Array<image.PixelMap>>;
 
   /**
    * Display orientation
