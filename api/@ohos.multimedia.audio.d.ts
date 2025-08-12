@@ -4952,6 +4952,7 @@ declare namespace audio {
      * @param { DeviceUsage } deviceUsage - Audio device usage.
      * @returns { AudioDeviceDescriptors } The device list.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -4997,7 +4998,7 @@ declare namespace audio {
      * Gets the selected media input device. If never set, it returns an device descriptor
      * with INVALID DeviceType.
      * @returns { AudioDeviceDescriptor } - Audio device description.
-     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5025,7 +5026,7 @@ declare namespace audio {
     /**
      * Gets whether prefer bluetooth and nearlink device to record.
      * @returns { boolean } - Indicates whether prefer wireless device to record. 
-     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
