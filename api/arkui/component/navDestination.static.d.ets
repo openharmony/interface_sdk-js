@@ -510,7 +510,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource | undefined, options?: NavigationTitleOptions | undefined): this;
+    default title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource | undefined, options?: NavigationTitleOptions | undefined): this;
 
     /**
      * Hide navigation title bar
@@ -522,7 +522,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    hideTitleBar(value: boolean | undefined): this;
+    default hideTitleBar(value: boolean | undefined): this;
 
     /**
      * Hide navigation title bar
@@ -535,7 +535,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
+    default hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
 
     /**
      * Hide navDestination back button
@@ -547,7 +547,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    hideBackButton(hide: boolean | undefined): this;
+    default hideBackButton(hide: boolean | undefined): this;
 
     /**
      * Invoked when the navDestination page is displayed.
@@ -559,7 +559,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onShown(callback: (() => void) | undefined): this;
+    default onShown(callback: (() => void) | undefined): this;
 
     /**
      * Invoked when the navDestination is hidden.
@@ -571,7 +571,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onHidden(callback: (() => void) | undefined): this;
+    default onHidden(callback: (() => void) | undefined): this;
 
     /**
      * Invoked when the backButton is pressed.
@@ -583,7 +583,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onBackPressed(callback: (() => boolean) | undefined): this;
+    default onBackPressed(callback: (() => boolean) | undefined): this;
 
     /**
      * Invoked when pop to the navDestination with result.
@@ -595,7 +595,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onResult(callback: Callback<Object | null | undefined> | undefined): this;
+    default onResult(callback: Callback<Object | null | undefined> | undefined): this;
 
     /**
      * Sets the different mode of NavDestination.
@@ -607,7 +607,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    mode(value: NavDestinationMode | undefined): this;
+    default mode(value: NavDestinationMode | undefined): this;
 
     /**
      * Set back button icon.
@@ -619,7 +619,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier | undefined): this;
+    default backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier | undefined): this;
 
     /**
      * Set back button icon and accessibility broadcast content.
@@ -632,7 +632,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
+    default backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
 
     /**
      * NavDestination title bar's menus
@@ -644,7 +644,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
+    default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
 
     /**
      * NavDestination title bar's menus
@@ -657,7 +657,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
+    default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
 
     /**
       * Configure toolbar with default style parameter or custom parameter.
@@ -670,7 +670,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
       * @atomicservice
       * @since 20
       */
-    toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
+    default toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
 
     /**
      * Hide tool bar
@@ -683,7 +683,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    hideToolBar(hide: boolean | undefined, animated?: boolean | undefined): this;
+    default hideToolBar(hide: boolean | undefined, animated?: boolean | undefined): this;
 
     /**
      * Invoked before sub-components of NavDestination are created.
@@ -696,7 +696,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onReady(callback: Callback<NavDestinationContext> | undefined): this;
+    default onReady(callback: Callback<NavDestinationContext> | undefined): this;
 
     /**
      * Invoked before the navDestination is appeared.
@@ -708,7 +708,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onWillAppear(callback: Callback<void> | undefined): this;
+    default onWillAppear(callback: Callback<void> | undefined): this;
 
     /**
      * Invoked before the navDestination is disappeared.
@@ -720,7 +720,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onWillDisappear(callback: Callback<void> | undefined): this;
+    default onWillDisappear(callback: Callback<void> | undefined): this;
 
     /**
      * Invoked before the navDestination is displayed.
@@ -732,7 +732,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onWillShow(callback: Callback<void> | undefined): this;
+    default onWillShow(callback: Callback<void> | undefined): this;
 
     /**
      * Invoked before the navDestination is hidden.
@@ -744,7 +744,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onWillHide(callback: Callback<void> | undefined): this;
+    default onWillHide(callback: Callback<void> | undefined): this;
 
     /**
      * Set navDestination content expand types and edges.
@@ -757,7 +757,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
+    default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
 
     /**
      * Set the style of system bar
@@ -768,7 +768,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    systemBarStyle(style: SystemBarStyle | undefined): this;
+    default systemBarStyle(style: SystemBarStyle | undefined): this;
 
     /**
      * Set the NavDestination can be restored after the application is terminated.
@@ -779,7 +779,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    recoverable(recoverable: boolean | undefined): this;
+    default recoverable(recoverable: boolean | undefined): this;
 
     /**
      * Configuration of system transition
@@ -791,7 +791,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    systemTransition(type: NavigationSystemTransitionType | undefined): this;
+    default systemTransition(type: NavigationSystemTransitionType | undefined): this;
 
     /**
      * Bind NavDestination to scrollable container components to automatically hide titlebar and toolbar.
@@ -803,7 +803,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    bindToScrollable(scrollers: Array<Scroller> | undefined): this;
+    default bindToScrollable(scrollers: Array<Scroller> | undefined): this;
 
     /**
      * Bind NavDestination to nested scrollable container components to automatically hide titlebar and toolbar.
@@ -815,7 +815,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo> | undefined): this;
+    default bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo> | undefined): this;
 
     /**
      * Invoked when destination is active.
@@ -827,7 +827,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onActive(callback: Callback<NavDestinationActiveReason> | undefined): this;
+    default onActive(callback: Callback<NavDestinationActiveReason> | undefined): this;
 
     /**
      * Invoked when destination is inactive.
@@ -839,7 +839,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onInactive(callback: Callback<NavDestinationActiveReason> | undefined): this;
+    default onInactive(callback: Callback<NavDestinationActiveReason> | undefined): this;
 
     /**
      * Set NavDestination custom animation.
@@ -851,7 +851,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    customTransition(delegate: NavDestinationTransitionDelegate | undefined): this;
+    default customTransition(delegate: NavDestinationTransitionDelegate | undefined): this;
 
     /**
      * Invoked when destination be pushed with singleton mode.
@@ -863,7 +863,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    onNewParam(callback: Callback<Object | null | undefined> | undefined): this;
+    default onNewParam(callback: Callback<Object | null | undefined> | undefined): this;
 
     /**
      * Set NavDestination's preferred Orientation.
@@ -875,7 +875,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    preferredOrientation(orientation: Orientation | undefined): this;
+    default preferredOrientation(orientation: Orientation | undefined): this;
 
     /**
      * Set statusBar to visible or invisible.
@@ -889,7 +889,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    enableStatusBar(enabled: boolean | undefined, animated?: boolean | undefined): this;
+    default enableStatusBar(enabled: boolean | undefined, animated?: boolean | undefined): this;
 
     /**
      * Set navigationIndicator to visible or invisible.
@@ -901,9 +901,18 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @atomicservice
      * @since 20
      */
-    enableNavigationIndicator(enabled: boolean | undefined): this;
+    default enableNavigationIndicator(enabled: boolean | undefined): this;
 
-    attributeModifier(modifier: AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set the attribute modifier of navDestination.
+     *
+     * @param { AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     *     The attribute modifier of navDestination.
+     * @returns { NavDestinationAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**

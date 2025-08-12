@@ -19,6 +19,8 @@
  * @arkts 1.2
  */
 
+import { AttributeModifier } from './component/common';
+import { StepperItemAttribute } from './component/stepperItem';
 
 import { AttributeModifier } from './component/common';
 import { StepperItemAttribute } from './component/stepperItem';
@@ -32,4 +34,13 @@ import { StepperItemAttribute } from './component/stepperItem';
  * @atomicservice
  * @since 20
  */
-export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {}
+export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { StepperItemAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  applyNormalAttribute(instance: StepperItemAttribute): void;  
+}

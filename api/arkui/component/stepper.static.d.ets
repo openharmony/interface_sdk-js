@@ -18,8 +18,9 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Bindable, CommonMethod, AttributeModifier } from "../../@internal/component/ets/common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
+import { Bindable, CommonMethod, AttributeModifier } from './common';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Declare the StepperOptions.
@@ -53,67 +54,66 @@ export interface StepperOptions {
  * @since 20
  */
 export declare interface StepperAttribute extends CommonMethod {
-    /**
-     * Callback when the finish label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onFinish(callback: (() => void) | undefined): this;
+  /**
+   * Callback when the finish label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onFinish(callback: (() => void) | undefined): this;
 
-    /**
-     * Callback when the skip label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onSkip(callback: (() => void) | undefined): this;
+  /**
+   * Callback when the skip label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onSkip(callback: (() => void) | undefined): this;
 
-    /**
-     * Callback when the change label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
+  /**
+   * Callback when the change label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
 
-    /**
-     * Callback when the next label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  /**
+   * Callback when the next label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
 
-    /**
-     * Callback when the previous label is clicked.
-     *
-     * @param { function | undefined } callback
-     * @returns { StepperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  /**
+   * Callback when the previous label is clicked.
+   *
+   * @param { function | undefined } callback
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
 
-    attributeModifier(modifier: AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Set the attribute modifier of stepper.
+   *
+   * @param { AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of stepper.
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 @memo

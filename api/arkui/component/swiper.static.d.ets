@@ -18,11 +18,12 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { IndicatorComponentController } from "../../@internal/component/ets/indicatorcomponent";
-import { CommonMethod, Callback, ICurve, Optional, Bindable, AttributeModifier } from "../../@internal/component/ets/common";
-import { EdgeEffect, Curve, PageFlipMode } from "../../@internal/component/ets/enums";
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from "../../@internal/component/ets/units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+
+import { IndicatorComponentController } from './indicatorcomponent';
+import { CommonMethod, Callback, ICurve, Optional, Bindable, AttributeModifier } from './common';
+import { EdgeEffect, Curve, PageFlipMode } from './enums';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Provides methods for switching components.
@@ -774,410 +775,338 @@ export type OnSwiperGestureSwipeCallback = (index: number, extraInfo: SwiperAnim
  * @since 20
  */
 export declare interface SwiperAttribute extends CommonMethod {
-    /**
-     * Called when the index value of the displayed subcomponent is set in the container.
-     *
-     * @param { number | Bindable<number> | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    index(value: number | Bindable<number> | undefined): this;
+  /**
+   * Called when the index value of the displayed subcomponent is set in the container.
+   *
+   * @param { number | Bindable<number> | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default index(value: number | Bindable<number> | undefined): this;
 
-    /**
-     * Set whether the subcomponent plays automatically.
-     *
-     * @param { boolean | undefined } autoPlay - whether the subcomponent plays automatically
-     * @param { AutoPlayOptions | undefined } options - autoPlay related options
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
+  /**
+   * Set whether the subcomponent plays automatically.
+   *
+   * @param { boolean | undefined } autoPlay - whether the subcomponent plays automatically
+   * @param { AutoPlayOptions | undefined } options - autoPlay related options
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
 
-    /**
-     * Called when the time interval for automatic playback is set.
-     *
-     * @param { number | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    interval(value: number | undefined): this;
+  /**
+   * Called when the time interval for automatic playback is set.
+   *
+   * @param { number | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default interval(value: number | undefined): this;
 
-    /**
-     * Use indicator component controller.
-     *
-     * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined } indicator -
-     * the style value or show indicator of the swiper indicator.
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
+  /**
+   * Use indicator component controller.
+   *
+   * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined } indicator -
+   * the style value or show indicator of the swiper indicator.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
 
-    /**
-     * Set arrow is enabled, or set the arrow style.
-     *
-     * @param { ArrowStyle | boolean | undefined } value - arrow is displayed or set the arrow style.
-     * @param { boolean | undefined } [isHoverShow] - arrow is display when mouse hover in indicator hotspot.
-     * @returns { SwiperAttribute } return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
+  /**
+   * Set arrow is enabled, or set the arrow style.
+   *
+   * @param { ArrowStyle | boolean | undefined } value - arrow is displayed or set the arrow style.
+   * @param { boolean | undefined } [isHoverShow] - arrow is display when mouse hover in indicator hotspot.
+   * @returns { SwiperAttribute } return the component attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
 
-    /**
-     * Called when setting whether to turn on cyclic sliding.
-     *
-     * @param { boolean | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    loop(value: boolean | undefined): this;
+  /**
+   * Called when setting whether to turn on cyclic sliding.
+   *
+   * @param { boolean | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default loop(value: boolean | undefined): this;
 
-    /**
-     * Called when the animation duration of the switch is set.
-     *
-     * @param { number | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    duration(value: number | undefined): this;
+  /**
+   * Called when the animation duration of the switch is set.
+   *
+   * @param { number | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default duration(value: number | undefined): this;
 
-    /**
-     * Called when setting whether to slide vertically.
-     *
-     * @param { boolean | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    vertical(value: boolean | undefined): this;
+  /**
+   * Called when setting whether to slide vertically.
+   *
+   * @param { boolean | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default vertical(value: boolean | undefined): this;
 
-    /**
-     * Sets the space between child components.
-     *
-     * @param { number | string | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    itemSpace(value: number | string | undefined): this;
+  /**
+   * Sets the space between child components.
+   *
+   * @param { number | string | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default itemSpace(value: number | string | undefined): this;
 
-    /**
-     * Called when setting the size of the swiper container on the spindle.
-     *
-     * @param { SwiperDisplayMode | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    displayMode(value: SwiperDisplayMode | undefined): this;
+  /**
+   * Called when setting the size of the swiper container on the spindle.
+   *
+   * @param { SwiperDisplayMode | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default displayMode(value: SwiperDisplayMode | undefined): this;
 
-    /**
-     * Sets the number of child components to be preloaded(cached).
-     *
-     * @param { number | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    cachedCount(value: number | undefined): this;
+  /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * @param { number | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default cachedCount(value: number | undefined): this;
 
-    /**
-     * Sets the number of child components to be preloaded(cached).
-     *
-     * @param { number | undefined } count - Number of child components to be preloaded (cached).
-     * @param { boolean | undefined } isShown - whether to show the nodes in the cache.
-     * @returns { SwiperAttribute } the attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    cachedCount(count: number | undefined, isShown: boolean | undefined): this;
+  /**
+   * Sets the number of child components to be preloaded(cached).
+   *
+   * @param { number | undefined } count - Number of child components to be preloaded (cached).
+   * @param { boolean | undefined } isShown - whether to show the nodes in the cache.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default cachedCount(count: number | undefined, isShown: boolean | undefined): this;
 
-    /**
-     * Sets the number of elements to display per page.
-     *
-     * If swipeByGroup is set to true:
-     * 1、All sub-items are grouped from index 0.
-     * 2、The number of sub-items in each group is the value of displayCount.
-     * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
-     * 4、Placeholder items do not display any content and are only used as placeholders.
-     * 5、When turning pages, turn pages by group.
-     *
-     * @param { number | string | SwiperAutoFill | undefined } value
-     * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
+  /**
+   * Sets the number of elements to display per page.
+   *
+   * If swipeByGroup is set to true:
+   * 1、All sub-items are grouped from index 0.
+   * 2、The number of sub-items in each group is the value of displayCount.
+   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
+   * 4、Placeholder items do not display any content and are only used as placeholders.
+   * 5、When turning pages, turn pages by group.
+   *
+   * @param { number | string | SwiperAutoFill | undefined } value
+   * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
 
-    /**
-     * Invoked when setting the sliding effect
-     *
-     * @param { EdgeEffect | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    effectMode(value: EdgeEffect | undefined): this;
+  /**
+   * Invoked when setting the sliding effect
+   *
+   * @param { EdgeEffect | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default effectMode(value: EdgeEffect | undefined): this;
 
-    /**
-     * Sets whether to disable the swipe feature
-     *
-     * @param { boolean | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    disableSwipe(value: boolean | undefined): this;
+  /**
+   * Sets whether to disable the swipe feature
+   *
+   * @param { boolean | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default disableSwipe(value: boolean | undefined): this;
 
-    /**
-     * Sets the animation curve
-     * Curve is an enumeration type for common curves
-     * ICurve is a curve object
-     *
-     * @param { Curve | string | ICurve | undefined } value
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    curve(value: Curve | string | ICurve | undefined): this;
+  /**
+   * Sets the animation curve
+   * Curve is an enumeration type for common curves
+   * ICurve is a curve object
+   *
+   * @param { Curve | string | ICurve | undefined } value
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default curve(value: Curve | string | ICurve | undefined): this;
 
-    /**
-     * Called when the index value changes.
-     *
-     * @param { Callback<number> | undefined } event
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onChange(event: Callback<number> | undefined): this;
+  /**
+   * Called when the index value changes.
+   *
+   * @param { Callback<number> | undefined } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onChange(event: Callback<number> | undefined): this;
 
-    /**
-     * Called when a new index becomes selected. Animation is not necessarily complete.
-     *
-     * @param { Callback<number> | undefined } event - callback to notify which index has been selected
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onSelected(event: Callback<number> | undefined): this;
+  /**
+   * Called when a new index becomes selected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> | undefined } event - callback to notify which index has been selected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onSelected(event: Callback<number> | undefined): this;
 
-    /**
-     * The previous margin which can be used to expose a small portion of the previous item.
-     * When the previous item is empty, do not display blank space.
-     *
-     * @param { Length | undefined } value - The length of previous margin.
-     * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
-     * @returns { SwiperAttribute } The attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+  /**
+   * The previous margin which can be used to expose a small portion of the previous item.
+   * When the previous item is empty, do not display blank space.
+   *
+   * @param { Length | undefined } value - The length of previous margin.
+   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
-    /**
-     * The next margin which can be used to expose a small portion of the latter item.
-     * When the next item is empty, do not display blank space.
-     *
-     * @param { Length | undefined } value - The length of next margin.
-     * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
-     * @returns { SwiperAttribute } The attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+  /**
+   * The next margin which can be used to expose a small portion of the latter item.
+   * When the next item is empty, do not display blank space.
+   *
+   * @param { Length | undefined } value - The length of next margin.
+   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
+   * @returns { SwiperAttribute } The attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
-    /**
-     * Called when a new index becomes unselected. Animation is not necessarily complete.
-     *
-     * @param { Callback<number> | undefined } event - callback to notify which index has been unselected
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onUnselected(event: Callback<number> | undefined): this;
+  /**
+   * Called when a new index becomes unselected. Animation is not necessarily complete.
+   *
+   * @param { Callback<number> | undefined } event - callback to notify which index has been unselected
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onUnselected(event: Callback<number> | undefined): this;
 
-    /**
-     * Called when the swiper animation start.
-     *
-     * @param { OnSwiperAnimationStartCallback | undefined } event
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
+  /**
+   * Called when the swiper animation start.
+   *
+   * @param { OnSwiperAnimationStartCallback | undefined } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
 
-    /**
-     * Called when the swiper animation end.
-     *
-     * @param { OnSwiperAnimationEndCallback | undefined } event
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
+  /**
+   * Called when the swiper animation end.
+   *
+   * @param { OnSwiperAnimationEndCallback | undefined } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
 
-    /**
-     * Called when the swiper swipe with the gesture.
-     *
-     * @param { OnSwiperGestureSwipeCallback | undefined } event
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
+  /**
+   * Called when the swiper swipe with the gesture.
+   *
+   * @param { OnSwiperGestureSwipeCallback | undefined } event
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
 
-    /**
-     * Called to setting the nested scroll mode.
-     *
-     * @param { SwiperNestedScrollMode | undefined } value - mode for nested scrolling.
-     * @returns { SwiperAttribute } the attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    nestedScroll(value: SwiperNestedScrollMode | undefined): this;
+  /**
+   * Called to setting the nested scroll mode.
+   *
+   * @param { SwiperNestedScrollMode | undefined } value - mode for nested scrolling.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default nestedScroll(value: SwiperNestedScrollMode | undefined): this;
 
-    /**
-     * Custom swiper content transition animation.
-     *
-     * @param { SwiperContentAnimatedTransition | undefined } transition - custom content transition animation.
-     * @returns { SwiperAttribute } the attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
+  /**
+   * Custom swiper content transition animation.
+   *
+   * @param { SwiperContentAnimatedTransition | undefined } transition - custom content transition animation.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
 
-    /**
-     * Called when the swiper content did scroll.
-     *
-     * @param { ContentDidScrollCallback | undefined } handler - callback of scroll,
-     * selectedIndex is the index value of the swiper content selected before animation start.
-     * index is the index value of the swiper content.
-     * position is the moving ratio of the swiper content from the start position of the swiper main axis.
-     * mainAxisLength is the swiper main axis length for calculating position.
-     * @returns { SwiperAttribute } the attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
+  /**
+   * Called when the swiper content did scroll.
+   *
+   * @param { ContentDidScrollCallback | undefined } handler - callback of scroll,
+   * selectedIndex is the index value of the swiper content selected before animation start.
+   * index is the index value of the swiper content.
+   * position is the moving ratio of the swiper content from the start position of the swiper main axis.
+   * mainAxisLength is the swiper main axis length for calculating position.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
 
-    /**
-     * Setting whether the indicator is interactive.
-     *
-     * @param { boolean | undefined } value - Whether the indicator is interactive.
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    indicatorInteractive(value: boolean | undefined): this;
+  /**
+   * Setting whether the indicator is interactive.
+   *
+   * @param { boolean | undefined } value - Whether the indicator is interactive.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default indicatorInteractive(value: boolean | undefined): this;
 
-    /**
-     * Setting page flip mode on mouse wheel event.
-     *
-     * @param { PageFlipMode | undefined } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
-     * @returns { SwiperAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    pageFlipMode(mode: PageFlipMode | undefined): this;
+  /**
+   * Setting page flip mode on mouse wheel event.
+   *
+   * @param { PageFlipMode | undefined } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default pageFlipMode(mode: PageFlipMode | undefined): this;
 
-    /**
-     * Called when the swiper content will scroll.
-     *
-     * @param { ContentWillScrollCallback | undefined } handler - callback of will scroll.
-     * @returns { SwiperAttribute } the attribute of the swiper.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 20
-     */
-    onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+  /**
+   * Called when the swiper content will scroll.
+   *
+   * @param { ContentWillScrollCallback | undefined } handler - callback of will scroll.
+   * @returns { SwiperAttribute } the attribute of the swiper.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
 
-    attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Set the attribute modifier of swiper.
+   *
+   * @param { AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of swiper.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**

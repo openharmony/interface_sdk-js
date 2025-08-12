@@ -19,9 +19,9 @@
  * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
-import { Length, ResourceColor, Dimension } from "../../@internal/component/ets/units";
-import { CommonMethod, PixelMap, Bindable, AttributeModifier } from "../../@internal/component/ets/common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { Length, ResourceColor, Dimension } from './units';
+import { CommonMethod, PixelMap, Bindable, AttributeModifier } from './common';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Sets the sidebar style of showing
@@ -278,183 +278,154 @@ export interface DividerStyle {
  * @since 20
  */
 export declare interface SideBarContainerAttribute extends CommonMethod {
-    /**
-     * Callback showControlButton function when setting the status of sidebar
-     *
-     * @param { boolean | Bindable<boolean> | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    showSideBar(value: boolean | Bindable<boolean> | undefined): this;
+  /**
+   * Callback showControlButton function when setting the status of sidebar
+   *
+   * @param { boolean | Bindable<boolean> | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default showSideBar(value: boolean | Bindable<boolean> | undefined): this;
 
-    /**
-     * Callback controlButton function when setting the style of button
-     *
-     * @param { ButtonStyle | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    controlButton(value: ButtonStyle | undefined): this;
+  /**
+   * Callback controlButton function when setting the style of button
+   *
+   * @param { ButtonStyle | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default controlButton(value: ButtonStyle | undefined): this;
 
-    /**
-     * Callback showControlButton function when setting the status of button
-     *
-     * @param { boolean | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    showControlButton(value: boolean | undefined): this;
+  /**
+   * Callback showControlButton function when setting the status of button
+   *
+   * @param { boolean | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default showControlButton(value: boolean | undefined): this;
 
-    /**
-     * Trigger callback when sidebar style of showing change finished.
-     *
-     * @param { function | undefined } callback
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    onChange(callback: ((value: boolean) => void) | undefined): this;
+  /**
+   * Trigger callback when sidebar style of showing change finished.
+   *
+   * @param { function | undefined } callback
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default onChange(callback: ((value: boolean) => void) | undefined): this;
 
-    /**
-     * Sets the length of sidebar.
-     * default value is 240vp.
-     *
-     * @param { number | Bindable<number> | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    sideBarWidth(value: number | Bindable<number> | undefined): this;
+  /**
+   * Sets the length of sidebar.
+   * default value is 240vp.
+   *
+   * @param { Length | Bindable<Length> | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default sideBarWidth(value: Length | Bindable<Length> | undefined): this;
 
-    /**
-     * Sets the min length of sidebar.
-     * default value is 240vp.
-     *
-     * @param { number | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    minSideBarWidth(value: number | undefined): this;
+  /**
+   * Sets the min length of sidebar.
+   * default value is 240vp.
+   *
+   * @param { number | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default minSideBarWidth(value: number | undefined): this;
 
-    /**
-     * Sets the max length of sidebar.
-     * default value is 280vp.
-     *
-     * @param { number | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    maxSideBarWidth(value: number | undefined): this;
+  /**
+   * Sets the max length of sidebar.
+   * default value is 280vp.
+   *
+   * @param { number | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default maxSideBarWidth(value: number | undefined): this;
 
-    /**
-     * Sets the length of sidebar.
-     *
-     * @param { Length | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    sideBarWidth(value: Length | undefined): this;
+  /**
+   * Sets the min length of sidebar.
+   * default value is 200vp.
+   *
+   * @param { Length | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default minSideBarWidth(value: Length | undefined): this;
 
-    /**
-     * Sets the min length of sidebar.
-     * default value is 200vp.
-     *
-     * @param { Length | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    minSideBarWidth(value: Length | undefined): this;
+  /**
+   * Sets the max length of sidebar.
+   * default value is 280vp.
+   *
+   * @param { Length | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default maxSideBarWidth(value: Length | undefined): this;
 
-    /**
-     * Sets the max length of sidebar.
-     * default value is 280vp.
-     *
-     * @param { Length | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    maxSideBarWidth(value: Length | undefined): this;
+  /**
+   * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
+   * default value is true.
+   *
+   * @param { boolean | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default autoHide(value: boolean | undefined): this;
 
-    /**
-     * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
-     * default value is true.
-     *
-     * @param { boolean | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    autoHide(value: boolean | undefined): this;
+  /**
+   * Called when determining the location of the sidebar.
+   * default value is SideBarPosition.Start.
+   *
+   * @param { SideBarPosition | undefined } value
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default sideBarPosition(value: SideBarPosition | undefined): this;
 
-    /**
-     * Called when determining the location of the sidebar.
-     * default value is Start.
-     *
-     * @param { SideBarPosition | undefined } value
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    sideBarPosition(value: SideBarPosition | undefined): this;
+  /**
+   * Set divider style for sideBarContainer
+   *
+   * @param { DividerStyle | null | undefined } value - indicates the style of the divider or whether to show the divider.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default divider(value: DividerStyle | null | undefined): this;
 
-    /**
-     * Set divider style for sideBarContainer
-     *
-     * @param { DividerStyle | null | undefined } value - indicates the style of the divider or whether to show the divider.
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    divider(value: DividerStyle | null | undefined): this;
+  /**
+   * Sets the min length of content.
+   * default value is 360vp.
+   *
+   * @param { Dimension | undefined } value - min length of content.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default minContentWidth(value: Dimension | undefined): this;
 
-    /**
-     * Sets the min length of content.
-     * default value is 360vp.
-     *
-     * @param { Dimension | undefined } value - min length of content.
-     * @returns { SideBarContainerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    minContentWidth(value: Dimension | undefined): this;
-
-    attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+  /**
+   * Set the attribute modifier of sidebar.
+   *
+   * @param { AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of sidebar.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 @memo
