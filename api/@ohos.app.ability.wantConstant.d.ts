@@ -378,7 +378,8 @@ declare namespace wantConstant {
     * Indicates the dest ability refers to a plugin ability.
     *
     * @syscap SystemCapability.Ability.AbilityBase
-    * @since 19
+    * @since arkts {'1.1':'19', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
@@ -387,7 +388,8 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
-    * @since 17
+    * @since arkts {'1.1':'17', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
 
@@ -406,6 +408,7 @@ declare namespace wantConstant {
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20
+    * @arkts 1.1&1.2
     */
     ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
   }
