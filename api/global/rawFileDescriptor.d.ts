@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit LocalizationKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -65,6 +64,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fd: int;
 
@@ -89,6 +89,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset: long;
 
@@ -113,6 +114,7 @@ export interface RawFileDescriptor {
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   length: long;
 }
