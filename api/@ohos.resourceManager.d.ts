@@ -872,6 +872,21 @@ declare namespace resourceManager {
   export function getSystemResourceManager(): ResourceManager;
 
   /**
+   * Obtains a global shared system ResourceManager object that provides access to only system resource, in which the
+   *     resConfig is current system resConfig(contains resLocale, screenDensityDpi, direction, etc).
+   *
+   * @returns { ResourceManager } The System ResourceManager object is returned.
+   * @throws { BusinessError } 9001009 - Failed to access the system resource.
+   *     which is not mapped to application sandbox, This error code will be thrown.
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  export function getSysResourceManager(): ResourceManager;
+
+  /**
    * Provides the capability of accessing application resources.
    *
    * @interface ResourceManager
@@ -2551,6 +2566,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getStringSync
      */
     getStringSync(resource: Resource, ...args: Array<string | number>): string;
 
@@ -2807,7 +2824,7 @@ declare namespace resourceManager {
      *
      * @param { number } resId - Indicates the resource ID.
      * @returns { number } The number resource corresponding to the resource ID.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -2926,7 +2943,7 @@ declare namespace resourceManager {
      *
      * @param { string } resName - Indicates the resource name.
      * @returns { number } The number resource corresponding to the resource name.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
@@ -3325,6 +3342,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
     getIntPluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
@@ -3428,6 +3447,8 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 18
+     * @deprecated since 20
+     * @useinstead ohos.resourceManager.getDoublePluralStringValueSync
      */
     getDoublePluralStringValueSync(resource: Resource, num: number, ...args: Array<string | number>): string;
 
@@ -4786,7 +4807,7 @@ declare namespace resourceManager {
      * @param { number } num - Indicates the number.
      * @returns { string } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessError } 9001006 - The resource is referenced cyclically.
