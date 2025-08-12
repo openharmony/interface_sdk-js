@@ -433,6 +433,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
       let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -458,6 +459,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
       let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -503,6 +505,7 @@ function handlehasTagFile(sourceFile, outputPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
   newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
 }
@@ -533,9 +536,73 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
   newContent = deleteArktsTag(newContent);
   newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, newContent);
+}
+
+/**
+ * 获取删除overload节点后的文件内容
+ * @param {*} sourceFile 
+ * @returns 
+ */
+function getFileContent(newContent, filePath) {
+  if (isArkTsSpecialSyntax(newContent)) {
+    return newContent;
+  }
+  let sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const printer = ts.createPrinter();
+  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc]);
+  const output = printer.printFile(result.transformed[0]);
+  sourceFile = '';
+  return output;
+}
+
+function isArkTsSpecialSyntax(content) {
+  return /\@memo|(?<!\*\s*)\s*\@interface/.test(content);
+}
+
+/**
+ * 递归去除overload节点jsDoc
+ * @param {*} context 
+ * @returns 
+ */
+function deleteOverLoadJsDoc(context) {
+  return (sourceFile) => {
+    const visitNode = (node) => {
+      if (ts.isStructDeclaration(node)) {
+        return processStructDeclaration(node);
+      }
+      if (ts.isOverloadDeclaration(node)) {
+        return ts.factory.createOverloadDeclaration(node.modifiers, node.name, node.members);
+      }
+      return ts.visitEachChild(node, visitNode, context);
+    };
+    const newSourceFile = ts.visitNode(sourceFile, visitNode);
+    return newSourceFile;
+  };
+}
+
+/**
+ * 处理struct子节点 
+ */
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
 }
 
 /**
