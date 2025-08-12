@@ -9402,11 +9402,12 @@ declare namespace window {
     setAspectRatio(ratio: number): Promise<void>;
 
     /**
-     * Sets the aspect ratio of window
+     * Sets the aspect ratio of window.
      *
      * @param { number } ratio - The aspect ratio of window except decoration.
      * @param { boolean } [isPersistent] - The parameter determines whether the ratio should be persistently saved.
-     * @param { boolean } [needUpdateRect] - The parameter determines whether the window should be resized immediately with the given aspect ratio.
+     * @param { boolean } [needUpdateRect] - The parameter determines whether the window should be resized immediately 
+     *                                       with the given aspect ratio.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
