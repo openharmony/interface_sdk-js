@@ -9417,7 +9417,7 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invaild parameter range. 
      *     2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     setContentAspectRatio(ratio: number, isPersistent?: boolean, needUpdateRect?: boolean): Promise<void>;
@@ -9855,7 +9855,7 @@ declare namespace window {
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 
      *     2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'21', '1.2':'21'}
+     * @since 21
      * @arkts 1.1&1.2
      */
     setWindowLimitsVP(windowLimitsVP: WindowLimits): Promise<WindowLimits>;
