@@ -533,7 +533,8 @@ declare class UIExtensionContentSession {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -549,7 +550,8 @@ declare class UIExtensionContentSession {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
