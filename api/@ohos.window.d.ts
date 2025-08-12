@@ -3030,7 +3030,7 @@ declare namespace window {
    *
    * @interface WindowSnapshotOptions
    * @syscap SystemCapability.Window.SessionManager
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since arkts {'1.1':'21', '1.2':'21'}
    * @arkts 1.1&1.2
    */
   interface WindowSnapshotOptions {
@@ -3038,7 +3038,7 @@ declare namespace window {
      * Whether use cached windows' snapshot.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since arkts {'1.1':'21', '1.2':'21'}
      * @arkts 1.1&1.2
      */
     useCache?: boolean
