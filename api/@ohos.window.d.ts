@@ -9406,7 +9406,7 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration.
      * @param { boolean } [isPersistent] - The parameter determines whether the ratio should be persistently saved.
-     * @param { boolean } [needUpdateRect] - The parameter determines whether the window should be resized immediately 
+     * @param { boolean } [needUpdateRect] - The parameter determines whether the window should be resized immediately
      *     with the given aspect ratio.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -9414,7 +9414,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invaild parameter range. 
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invaild parameter range. 
      *     2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @since 21
@@ -9852,7 +9853,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid parameter range.
      *     2. Invalid parameter length.
      * @syscap SystemCapability.Window.SessionManager
      * @since 21
