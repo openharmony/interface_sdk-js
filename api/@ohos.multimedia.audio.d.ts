@@ -4761,6 +4761,29 @@ declare namespace audio {
   }
 
   /**
+   * Audio session input device change info.
+   * @typedef CurrentInputDeviceChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 21
+   */
+  interface CurrentInputDeviceChangedEvent {
+    /**
+     * Audio input device descriptors after change.
+     * @type { AudioDeviceDescriptors }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio input device change reason.
+     * @type { AudioStreamDeviceChangeReason }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+  }
+
+  /**
    * Implements audio session management.
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4923,6 +4946,111 @@ declare namespace audio {
      * @since 20
      */
     off(type: 'currentOutputDeviceChanged', callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * Obtains all the available audio devices with a specific device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @returns { AudioDeviceDescriptors } The device list.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
+     * the callback.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * UnSubscribes available device change events.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * @param { Callback<DeviceChangeAction> } [callback] - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Select the media input device. It uses an asynchronous callback to return the result.
+     * This function is not valid for call recording, whose SourceType is
+     * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
+     * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Gets the selected media input device. If never set, it returns an device descriptor
+     * with INVALID DeviceType.
+     * @returns { AudioDeviceDescriptor } - Audio device description.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getSelectedMediaInputDevice(): AudioDeviceDescriptor;
+
+    /**
+     * clear the selected media input device.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    clearSelectedMediaInputDevice(): Promise<void>;
+
+    /**
+     * prefer bluetooth and nearlink device to record.
+     * @param { boolean } enable - Indicates whether prefer wireless device to record. 
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    preferBluetoothAndNearlinkRecord(enable: boolean): Promise<void>;
+
+    /**
+     * Gets whether prefer bluetooth and nearlink device to record.
+     * @returns { boolean } - Indicates whether prefer wireless device to record. 
+     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getPreferBluetoothAndNearlinkRecord(): boolean;
+
+    /**
+     * Subscribes input device change event callback. The event is triggered when current input device change.
+     * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen input device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    on(type: 'currentInputDeviceChanged', callback: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Unsubscribes current input device change events.
+     * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used to listen input device change event.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
 
   /**
