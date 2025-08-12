@@ -11483,7 +11483,7 @@ declare namespace audio {
     setReverbMode(mode: AudioLoopbackReverbMode): boolean;
 
     /**
-     * Enable or disable audio loopback.
+     * Configuring the Equalizer Mode.
      *
      * @param { AudioLoopbackEqualizerMode } mode - audioLoopbackEqualizer Mode configuring.
      * @returns { boolean } return the result.
