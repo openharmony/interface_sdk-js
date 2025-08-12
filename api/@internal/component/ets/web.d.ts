@@ -5903,6 +5903,7 @@ declare interface OnPageBeginEvent {
  * @typedef OnLoadStartedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface OnLoadStartedEvent {
   /**
@@ -5911,6 +5912,7 @@ declare interface OnLoadStartedEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   url: string;
 }
@@ -5921,6 +5923,7 @@ declare interface OnLoadStartedEvent {
  * @typedef OnLoadFinishedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface OnLoadFinishedEvent {
   /**
@@ -5929,7 +5932,8 @@ declare interface OnLoadFinishedEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-    */
+   * @arkts 1.1&1.2
+   */
    url: string;
  }
 
@@ -5987,6 +5991,7 @@ declare interface OnTitleReceiveEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   isRealTitle?: boolean;
 }
@@ -6161,6 +6166,7 @@ declare interface OnBeforeUnloadEvent {
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   isReload?: boolean;
 }
@@ -8376,6 +8382,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
 
@@ -8390,6 +8397,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 

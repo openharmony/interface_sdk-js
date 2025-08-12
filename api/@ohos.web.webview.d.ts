@@ -6826,6 +6826,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -6844,6 +6845,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
 
@@ -8496,6 +8498,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
   }
