@@ -67,6 +67,16 @@ function hasTsFile(path) {
   return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ts'));
 }
 
+function hasStaticFile(path) {
+  // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
+  if (path.includes('StateManagement.d.ts')) {
+    console.log('StateManagement.d.ts is in white list, return true. path = ', path);
+    return true;
+  } else {
+    return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.static.d.ets'));
+  }
+}
+
 /**
  * 配置参数
  */
@@ -171,11 +181,54 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     writeFile(outputPath, fileContent);
     return;
   }
-  if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
-    handleFileInSecondType(apiRelativePath, fullPath, type, output);
-  } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
-    handleFileInFirstType(apiRelativePath, fullPath, type, output);
+  const handleFullpath = getHandleFullPath(fullPath, apiRelativePath, type);
+  if (type === 'ets2' && handleFullpath !== undefined) {
+    handleFileInSecondType(apiRelativePath, handleFullpath, type, output);
+  } else if (type === 'ets' && handleFullpath !== undefined) {
+    handleFileInFirstType(apiRelativePath, handleFullpath, type, output);
   }
+}
+
+function getHandleFullPath(fullPath, apiRelativePath, type) {
+  const isEndWithEts = isEtsFile(apiRelativePath);
+  const isEndWithTs = isTsFile(apiRelativePath);
+  const isEndWithStatic = isStaticFile(apiRelativePath);
+  // 处理.ts文件逻辑
+  if (isEndWithTs) {
+    if (!(hasEtsFile(fullPath)) && !(hasStaticFile(fullPath))) {
+      return fullPath;
+    } else {
+      if (type === 'ets') {
+        return fullPath;
+      }
+    }
+  }
+  // 处理.ets文件逻辑
+  if (isEndWithEts) {
+    if (!(hasTsFile(fullPath)) && !(hasStaticFile(fullPath))) {
+      return fullPath;
+    }
+    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath))) {
+      if (type === 'ets2') {
+        return fullPath;
+      }
+    }
+    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath))) {
+      if (type === 'ets') {
+        return fullPath;
+      }
+    }
+    if (hasStaticFile(fullPath) && hasTsFile(fullPath)) {
+      return undefined;
+    }
+  }
+  // 处理.static文件逻辑
+  if (isEndWithStatic) {
+    if (type === 'ets2') {
+      return fullPath;
+    }
+  }
+  return undefined;
 }
 
 /**
@@ -326,6 +379,21 @@ function deleteArktsTag(fileContent) {
 }
 
 /**
+ * 删除1.2未支持标签
+ * 
+ * @param {*} fileContent 文件内容
+ * @param {*} regx 删除的正则表达式
+ * @returns 
+ */
+function deleteUnsportedTag(fileContent) {
+  const arktsTagRegx = /\*\s*@crossplatform\s*(\r|\n)\s*|\*\s*@form\s*(\r|\n)\s*|\*\s*@atomicservice\s*(\r|\n)\s*/g;
+  fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
+    return '';
+  });
+  return fileContent;
+}
+
+/**
  * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
  * 
  * @param {*} sourceFile 
@@ -364,7 +432,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -388,7 +457,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     }
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -433,6 +503,7 @@ function handlehasTagFile(sourceFile, outputPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
 }
 
@@ -463,6 +534,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
   newContent = deleteArktsTag(newContent);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, newContent);
 }
 
