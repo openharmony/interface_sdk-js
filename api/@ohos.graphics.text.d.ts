@@ -968,7 +968,7 @@ declare namespace text {
     /**
      * Maximum line height. The value is a floating point number.
      * @type { ?number } it is double type data
-     * @syscap systemcapability.graphics.drawing
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
@@ -977,7 +977,7 @@ declare namespace text {
     /**
      * Minimum line height. The value is a floating point number.
      * @type { ?number } it is double type data
-     * @syscap systemcapability.graphics.drawing
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
@@ -986,7 +986,7 @@ declare namespace text {
     /**
      * Line spacing. The value is a floating point number.
      * @type { ?number } it is double type data
-     * @syscap systemcapability.graphics.drawing
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
@@ -995,7 +995,7 @@ declare namespace text {
     /**
      * Line height scaling base style. The default value is FONT_SIZE.
      * @type { ?LineHeightStyle } Line height scaling style.
-     * @syscap systemcapability.graphics.drawing
+     * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
