@@ -39,7 +39,6 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
-import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
@@ -56,6 +55,7 @@ import _EventHub from './application/EventHub';
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 
 /**
  * This module provides application context classes and common data structures.
@@ -430,7 +430,8 @@ declare namespace common {
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PacMap = _PacMap;
 
