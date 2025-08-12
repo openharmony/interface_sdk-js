@@ -26,8 +26,9 @@ import { Callback } from './@ohos.base';
 import type cert from './@ohos.security.cert';
 import type image from './@ohos.multimedia.image';
 import type print from './@ohos.print';
-
+/*** if arkts 1.1 */
 import { WebNetErrorList } from './@ohos.web.netErrorList';
+/*** endif */
 
 /**
  * This module provides the capability to manage web modules.
@@ -274,8 +275,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enum SecureDnsMode {
     /**
@@ -287,8 +287,7 @@ declare namespace webview {
      * Do not use HttpDns, can be used to revoke previously used HttpDns configuration.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     OFF = 0,
     /**
@@ -302,8 +301,7 @@ declare namespace webview {
      * the system dns is used for resolution.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     AUTO = 1,
     /**
@@ -317,8 +315,7 @@ declare namespace webview {
      * fall back to the system dns, which will directly cause the page to fail to load.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SECURE_ONLY = 2,
   }
@@ -329,8 +326,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enum SecurityLevel {
     /**
@@ -338,8 +334,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NONE = 0,
 
@@ -348,8 +343,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SECURE = 1,
 
@@ -359,8 +353,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     WARNING = 2,
 
@@ -369,8 +362,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     DANGEROUS = 3,
   }
@@ -532,8 +524,7 @@ declare namespace webview {
    * @typedef WebCustomScheme
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface WebCustomScheme {
 
@@ -549,8 +540,7 @@ declare namespace webview {
      * @type { string }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     schemeName: string;
 
@@ -566,8 +556,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isSupportCORS: boolean;
 
@@ -583,8 +572,7 @@ declare namespace webview {
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isSupportFetch: boolean;
 
@@ -596,8 +584,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isStandard?: boolean;
 
@@ -608,8 +595,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isLocal?: boolean;
 
@@ -620,8 +606,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isDisplayIsolated?: boolean;
 
@@ -632,8 +617,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isSecure?: boolean;
 
@@ -644,8 +628,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isCspBypassing?: boolean;
 
@@ -654,8 +637,7 @@ declare namespace webview {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isCodeCacheSupported?: boolean;
   }
@@ -1769,8 +1751,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static fetchCookie(url: string): Promise<string>;
 
@@ -1785,8 +1766,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static fetchCookie(url: string, incognito: boolean): Promise<string>;
 
@@ -1801,8 +1781,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static fetchCookie(url: string, callback: AsyncCallback<string>): void;
 
@@ -1876,8 +1855,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static configCookie(url: string, value: string): Promise<void>;
 
@@ -1897,8 +1875,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100005 - The provided cookie value is invalid. It must follow the format specified
      * <br>in RFC 6265.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>;
 
@@ -1916,16 +1893,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static configCookie(url: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
      * Save the cookies synchronously.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     static saveCookieSync(): void;
 
@@ -1982,8 +1957,7 @@ declare namespace webview {
      * @returns { boolean } True if the instance can send and accept cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static isCookieAllowed(): boolean;
 
@@ -2005,8 +1979,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static putAcceptCookieEnabled(accept: boolean): void;
 
@@ -2023,8 +1996,7 @@ declare namespace webview {
      * @returns { boolean } True if the instance can send and accept thirdparty cookies else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static isThirdPartyCookieAllowed(): boolean;
 
@@ -2047,8 +2019,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static putAcceptThirdPartyCookieEnabled(accept: boolean): void;
 
@@ -2078,8 +2049,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static existCookie(incognito?: boolean): boolean;
 
@@ -2142,8 +2112,7 @@ declare namespace webview {
      * Delete the session cookies.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static clearSessionCookieSync(): void;
 
@@ -2153,8 +2122,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static clearSessionCookie(): Promise<void>;
 
@@ -2175,8 +2143,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static clearSessionCookie(callback: AsyncCallback<void>): void;
   }
@@ -2203,8 +2170,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum WebMessageType {
     /**
@@ -2218,8 +2184,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NOT_SUPPORT,
 
@@ -2242,8 +2207,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     STRING,
 
@@ -2266,8 +2230,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     NUMBER,
 
@@ -2290,8 +2253,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     BOOLEAN,
 
@@ -2306,8 +2268,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     ARRAY_BUFFER,
 
@@ -2330,8 +2291,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ARRAY,
 
@@ -2354,8 +2314,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ERROR
   }
@@ -2379,8 +2338,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   class WebMessageExt {
     /**
@@ -2402,8 +2360,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getType(): WebMessageType;
 
@@ -2432,8 +2389,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getString(): string;
 
@@ -2462,8 +2418,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getNumber(): number;
 
@@ -2492,8 +2447,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getBoolean(): boolean;
 
@@ -2512,8 +2466,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getArrayBuffer(): ArrayBuffer;
 
@@ -2542,8 +2495,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getArray(): Array<string | number | boolean>;
 
@@ -2572,8 +2524,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getError(): Error;
 
@@ -2607,8 +2558,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setType(type: WebMessageType): void;
 
@@ -2642,8 +2592,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setString(message: string): void;
 
@@ -2677,8 +2626,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setNumber(message: number): void;
 
@@ -2712,8 +2660,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setBoolean(message: boolean): void;
 
@@ -2735,8 +2682,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setArrayBuffer(message: ArrayBuffer): void;
 
@@ -2767,8 +2713,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setArray(message: Array<string | number | boolean>): void;
 
@@ -2803,8 +2748,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setError(message: Error): void;
   }
@@ -2861,8 +2805,7 @@ declare namespace webview {
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isExtentionType?: boolean;
 
@@ -2952,8 +2895,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     postMessageEventExt(message: WebMessageExt): void;
 
@@ -2984,8 +2926,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     onMessageEventExt(callback: (result: WebMessageExt) => void): void;
   }
@@ -3024,8 +2965,7 @@ declare namespace webview {
      * @type { image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     icon: image.PixelMap;
 
@@ -3910,8 +3850,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static setHttpDns(secureDnsMode: SecureDnsMode, secureDnsConfig: string): void;
 
@@ -3949,8 +3888,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean): void;
 
@@ -3962,8 +3900,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     enableSafeBrowsing(enable: boolean): void;
 
@@ -3972,8 +3909,7 @@ declare namespace webview {
      * @returns { boolean } True if enable the ability to check website security risks else false.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isSafeBrowsingEnabled(): boolean;
 
@@ -4042,8 +3978,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     accessStep(step: number): boolean;
 
@@ -4327,8 +4262,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     storeWebArchive(baseName: string, autoName: boolean): Promise<string>;
 
@@ -4368,8 +4302,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100003 - Invalid resource path or file type.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
@@ -4609,8 +4542,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     backOrForward(step: number): void;
 
@@ -4666,8 +4598,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     createWebMessagePorts(isExtentionType?: boolean): Array<WebMessagePort>;
 
@@ -4696,8 +4627,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     postMessage(name: string, ports: Array<WebMessagePort>, uri: string): void;
 
@@ -4880,8 +4810,7 @@ declare namespace webview {
      *                         The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     searchAllAsync(searchString: string): void;
 
@@ -4900,8 +4829,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     clearMatches(): void;
 
@@ -4925,8 +4853,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     searchNext(forward: boolean): void;
 
@@ -4945,8 +4872,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     clearSslCache(): void;
 
@@ -4965,8 +4891,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     clearClientAuthenticationCache(): void;
 
@@ -5360,8 +5285,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getFavicon(): image.PixelMap;
 
@@ -5385,8 +5309,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setNetworkAvailable(enable: boolean): void;
 
@@ -5489,8 +5412,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     removeCache(clearRom: boolean): void;
 
@@ -5503,8 +5425,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static removeAllCache(clearRom: boolean): void;
 
@@ -5665,8 +5586,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     restoreWebState(state: Uint8Array): void;
 
@@ -5693,8 +5613,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100020 - Failed to register custom schemes.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
 
@@ -5713,8 +5632,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
 
@@ -5737,8 +5655,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
@@ -5786,8 +5703,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
 
@@ -5812,8 +5728,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
 
@@ -5836,8 +5751,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     setCustomUserAgent(userAgent: string): void;
 
@@ -5869,8 +5783,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static setConnectionTimeout(timeout: number): void;
 
@@ -5980,8 +5893,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getSecurityLevel(): SecurityLevel;
 
@@ -5993,8 +5905,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isIncognitoMode(): boolean;
 
@@ -6204,8 +6115,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -6227,8 +6137,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void;
 
@@ -6236,8 +6145,7 @@ declare namespace webview {
      * Clear all web service worker scheme handlers.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static clearServiceWorkerWebSchemeHandler(): void;
 
@@ -6264,8 +6172,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     enableIntelligentTrackingPrevention(enable: boolean): void;
 
@@ -6288,8 +6195,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isIntelligentTrackingPreventionEnabled(): boolean;
 
@@ -6312,8 +6218,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static addIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -6336,8 +6241,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static removeIntelligentTrackingPreventionBypassingList(hostList: Array<string>): void;
 
@@ -6354,8 +6258,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static clearIntelligentTrackingPreventionBypassingList(): void;
 
@@ -6364,8 +6267,7 @@ declare namespace webview {
      *
      * @returns {string} The default user agent string.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static getDefaultUserAgent(): string;
 
@@ -6527,8 +6429,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static setHostIP(hostName: string, address: string, aliveTime: number): void;
 
@@ -6540,8 +6441,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static clearHostIP(hostName: string): void;
 
@@ -6552,8 +6452,7 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static warmupServiceWorker(url: string): void;
 
@@ -6598,8 +6497,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     enableAdsBlock(enable: boolean): void;
 
@@ -6618,8 +6516,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isAdsBlockEnabled(): boolean;
 
@@ -6638,8 +6535,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     isAdsBlockEnabledForCurPage(): boolean;
 
@@ -6666,8 +6562,7 @@ declare namespace webview {
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setUrlTrustList(urlTrustList: string): void;
 
@@ -6996,8 +6891,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum WebDownloadState {
     /**
@@ -7011,8 +6905,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     IN_PROGRESS = 0,
 
@@ -7027,8 +6920,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     COMPLETED,
 
@@ -7043,8 +6935,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     CANCELED,
 
@@ -7059,8 +6950,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     INTERRUPTED,
 
@@ -7075,8 +6965,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PENDING,
 
@@ -7091,8 +6980,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     PAUSED,
 
@@ -7107,8 +6995,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     UNKNOWN,
   }
@@ -7126,16 +7013,14 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum WebDownloadErrorCode {
     /**
      * Unknown error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     ERROR_UNKNOWN = 0,
 
@@ -7143,8 +7028,7 @@ declare namespace webview {
      * Generic file operation failure.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_FAILED = 1,
 
@@ -7152,8 +7036,7 @@ declare namespace webview {
      * The file cannot be accessed due to certain restrictions.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_ACCESS_DENIED = 2,
 
@@ -7161,8 +7044,7 @@ declare namespace webview {
      * There is not enough disk space.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_NO_SPACE = 3,
 
@@ -7170,8 +7052,7 @@ declare namespace webview {
      * The file name is too long.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_NAME_TOO_LONG = 5,
 
@@ -7179,8 +7060,7 @@ declare namespace webview {
      * The file is too large.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_TOO_LARGE = 6,
 
@@ -7188,8 +7068,7 @@ declare namespace webview {
      * Some temporary problems occurred, such as not enough memory, files in use, and too many files open at the same time.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_TRANSIENT_ERROR = 10,
 
@@ -7197,8 +7076,7 @@ declare namespace webview {
      * The file is blocked from accessing because of some local policy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_BLOCKED = 11,
 
@@ -7206,8 +7084,7 @@ declare namespace webview {
      * When trying to resume the download, Found that the file is not long enough, maybe the file no longer exists.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_TOO_SHORT = 13,
 
@@ -7215,8 +7092,7 @@ declare namespace webview {
      * Hash mismatch.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_HASH_MISMATCH = 14,
 
@@ -7224,8 +7100,7 @@ declare namespace webview {
      * The file already exists.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     FILE_SAME_AS_SOURCE = 15,
 
@@ -7233,8 +7108,7 @@ declare namespace webview {
      * Generic network error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NETWORK_FAILED = 20,
 
@@ -7242,8 +7116,7 @@ declare namespace webview {
      * The network operation timed out.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NETWORK_TIMEOUT = 21,
 
@@ -7251,8 +7124,7 @@ declare namespace webview {
      * The network was disconnected.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NETWORK_DISCONNECTED = 22,
 
@@ -7260,8 +7132,7 @@ declare namespace webview {
      * Server down.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NETWORK_SERVER_DOWN = 23,
 
@@ -7269,8 +7140,7 @@ declare namespace webview {
      * Invalid network requests，may redirect to unsupported scheme or an invalid URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     NETWORK_INVALID_REQUEST = 24,
 
@@ -7278,8 +7148,7 @@ declare namespace webview {
      * The server returned a generic error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_FAILED = 30,
 
@@ -7287,8 +7156,7 @@ declare namespace webview {
      * The server does not support range requests.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_NO_RANGE = 31,
 
@@ -7296,8 +7164,7 @@ declare namespace webview {
      * The server does not have the requested data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_BAD_CONTENT = 33,
 
@@ -7305,8 +7172,7 @@ declare namespace webview {
      * The server does not allow the file to be downloaded.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_UNAUTHORIZED = 34,
 
@@ -7314,8 +7180,7 @@ declare namespace webview {
      * Server certificate error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_CERT_PROBLEM = 35,
 
@@ -7323,8 +7188,7 @@ declare namespace webview {
      * Server access forbidden.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_FORBIDDEN = 36,
 
@@ -7332,8 +7196,7 @@ declare namespace webview {
      * Server unreachable.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_UNREACHABLE = 37,
 
@@ -7341,8 +7204,7 @@ declare namespace webview {
      * The received data does not match content-length.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_CONTENT_LENGTH_MISMATCH = 38,
 
@@ -7350,8 +7212,7 @@ declare namespace webview {
      * An unexpected cross-origin redirect happened.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     SERVER_CROSS_ORIGIN_REDIRECT = 39,
 
@@ -7359,16 +7220,14 @@ declare namespace webview {
      * User cancel.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * User cancel.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     USER_CANCELED = 40,
 
@@ -7376,8 +7235,7 @@ declare namespace webview {
      * User shut down the application.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     USER_SHUTDOWN = 41,
 
@@ -7385,8 +7243,7 @@ declare namespace webview {
      * Application crash.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     CRASH = 50,
   }
@@ -7419,8 +7276,7 @@ declare namespace webview {
     * @syscap SystemCapability.Web.Webview.Core
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18
     */
     getGuid(): string;
 
@@ -7437,8 +7293,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getCurrentSpeed(): number;
 
@@ -7455,8 +7310,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getPercentComplete(): number;
 
@@ -7473,8 +7327,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getTotalBytes(): number;
 
@@ -7491,8 +7344,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getState(): WebDownloadState;
 
@@ -7509,8 +7361,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getLastErrorCode(): WebDownloadErrorCode;
 
@@ -7527,8 +7378,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getMethod(): string;
 
@@ -7545,8 +7395,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getMimeType(): string;
 
@@ -7581,8 +7430,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getSuggestedFileName(): string;
 
@@ -7605,8 +7453,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     start(downloadPath: string): void;
 
@@ -7621,8 +7468,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     cancel(): void;
 
@@ -7639,8 +7485,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     pause(): void;
 
@@ -7661,8 +7506,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     resume(): void;
 
@@ -7679,8 +7523,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getReceivedBytes(): number;
 
@@ -7697,8 +7540,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getFullPath(): string;
 
@@ -7707,8 +7549,7 @@ declare namespace webview {
      * @returns { Uint8Array } - Returns the serialized data.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     serialize(): Uint8Array;
 
@@ -7720,8 +7561,7 @@ declare namespace webview {
      * <br>2. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static deserialize(serializedData: Uint8Array): WebDownloadItem;
   }
@@ -7772,8 +7612,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     onDownloadUpdated(callback: Callback<WebDownloadItem>): void;
 
@@ -7790,8 +7629,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     onDownloadFinish(callback: Callback<WebDownloadItem>): void;
 
@@ -7808,8 +7646,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     onDownloadFailed(callback: Callback<WebDownloadItem>): void;
   }
@@ -7825,8 +7662,7 @@ declare namespace webview {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   class WebDownloadManager {
     /**
@@ -7842,8 +7678,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static setDownloadDelegate(delegate: WebDownloadDelegate): void;
 
@@ -7853,8 +7688,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100018 - No WebDownloadDelegate has been set yet.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static resumeDownload(webDownloadItem: WebDownloadItem): void;
   }
@@ -7864,8 +7698,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class WebHttpBodyStream {
     /**
@@ -7875,8 +7708,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100022 - Failed to initialize the HTTP body stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     initialize(): Promise<void>;
     /**
@@ -7888,8 +7720,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     read(size: number): Promise<ArrayBuffer>;
     /**
@@ -7898,8 +7729,7 @@ declare namespace webview {
      * @returns { number } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getSize(): number;
     /**
@@ -7908,8 +7738,7 @@ declare namespace webview {
      * @returns { number } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getPosition(): number;
     /**
@@ -7918,8 +7747,7 @@ declare namespace webview {
      * @returns { boolean } Whether data stream is chunked.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isChunked(): boolean;
     /**
@@ -7929,8 +7757,7 @@ declare namespace webview {
      * @returns { boolean } Whether data stream has been consumed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isEof(): boolean;
     /**
@@ -7940,8 +7767,7 @@ declare namespace webview {
      * @returns { boolean } Whether the data stream is in memory.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isInMemory(): boolean;
   }
@@ -7950,16 +7776,14 @@ declare namespace webview {
    * Defines the resource type of request.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum WebResourceType {
     /**
      * Top level page.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     MAIN_FRAME = 0,
 
@@ -7967,8 +7791,7 @@ declare namespace webview {
      * Frame or Iframe.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUB_FRAME = 1,
 
@@ -7976,8 +7799,7 @@ declare namespace webview {
      * CSS stylesheet.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     STYLE_SHEET = 2,
 
@@ -7985,8 +7807,7 @@ declare namespace webview {
      * External script.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SCRIPT = 3,
 
@@ -7994,8 +7815,7 @@ declare namespace webview {
      * Image (jpg/gif/png/etc).
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     IMAGE = 4,
 
@@ -8003,8 +7823,7 @@ declare namespace webview {
      * Font.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FONT_RESOURCE = 5,
 
@@ -8012,8 +7831,7 @@ declare namespace webview {
      * Some other subresource. This is the default type if the actual type is unknown.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUB_RESOURCE = 6,
 
@@ -8021,8 +7839,7 @@ declare namespace webview {
      * Object (or embed) tag for a plugin, or a resource that a plugin requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     OBJECT = 7,
 
@@ -8030,8 +7847,7 @@ declare namespace webview {
      * Media resource.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     MEDIA = 8,
 
@@ -8039,8 +7855,7 @@ declare namespace webview {
      * Main resource of a dedicated worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     WORKER = 9,
 
@@ -8048,8 +7863,7 @@ declare namespace webview {
      * Main resource of a shared worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SHARED_WORKER = 10,
 
@@ -8057,8 +7871,7 @@ declare namespace webview {
      * Explicitly requested prefetch.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PREFETCH = 11,
 
@@ -8066,8 +7879,7 @@ declare namespace webview {
      * Favicon.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FAVICON = 12,
 
@@ -8075,8 +7887,7 @@ declare namespace webview {
      * XMLHttpRequest.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     XHR = 13,
 
@@ -8084,8 +7895,7 @@ declare namespace webview {
      * Ping request for <a ping>/sendBeacon.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PING = 14,
 
@@ -8093,8 +7903,7 @@ declare namespace webview {
      * The main resource of a service worker.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SERVICE_WORKER = 15,
 
@@ -8102,8 +7911,7 @@ declare namespace webview {
      * Report of Content Security Policy violations.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CSP_REPORT = 16,
 
@@ -8111,8 +7919,7 @@ declare namespace webview {
      * Resource that a plugin requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PLUGIN_RESOURCE = 17,
 
@@ -8120,8 +7927,7 @@ declare namespace webview {
      * A main-frame service worker navigation preload request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NAVIGATION_PRELOAD_MAIN_FRAME = 19,
 
@@ -8129,8 +7935,7 @@ declare namespace webview {
      * A sub-frame service worker navigation preload request.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     NAVIGATION_PRELOAD_SUB_FRAME = 20,
   }
@@ -8140,8 +7945,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class WebSchemeHandlerRequest {
     /**
@@ -8150,8 +7954,7 @@ declare namespace webview {
      * @returns { Array<WebHeader> } Return the request headers.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getHeader(): Array<WebHeader>;
     /**
@@ -8160,8 +7963,7 @@ declare namespace webview {
      * @returns { string } Return the request URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getRequestUrl(): string;
     /**
@@ -8170,8 +7972,7 @@ declare namespace webview {
      * @returns { string } Return the request method.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getRequestMethod(): string;
     /**
@@ -8180,8 +7981,7 @@ declare namespace webview {
      * @returns { string } Return referrer of request.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getReferrer(): string;
     /**
@@ -8190,8 +7990,7 @@ declare namespace webview {
      * @returns { boolean } Whether request is main frame.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     isMainFrame(): boolean;
     /**
@@ -8200,8 +7999,7 @@ declare namespace webview {
      * @returns { boolean } Whether request has user gesture.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     hasGesture(): boolean;
     /**
@@ -8210,8 +8008,7 @@ declare namespace webview {
      * @returns { WebHttpBodyStream | null } Return http body stream. If request has no http body stream, return null.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getHttpBodyStream(): WebHttpBodyStream | null;
     /**
@@ -8219,8 +8016,7 @@ declare namespace webview {
      *
      * @returns { WebResourceType } Return the request's resource type.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getRequestResourceType(): WebResourceType;
     /**
@@ -8228,8 +8024,7 @@ declare namespace webview {
      *
      * @returns { string } Return the URL of frame which trigger this request.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getFrameUrl(): string;
   }
@@ -8239,8 +8034,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class WebSchemeHandlerResponse {
     /**
@@ -8248,8 +8042,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor();
     /**
@@ -8259,8 +8052,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setUrl(url: string): void;
     /**
@@ -8269,8 +8061,7 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getUrl(): string;
     /**
@@ -8280,8 +8071,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setNetErrorCode(code: WebNetErrorList): void;
     /**
@@ -8290,8 +8080,7 @@ declare namespace webview {
      * @returns { WebNetErrorList } Return response error code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getNetErrorCode(): WebNetErrorList;
     /**
@@ -8301,8 +8090,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setStatus(code: number): void;
     /**
@@ -8311,8 +8099,7 @@ declare namespace webview {
      * @returns { number } Return http status code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getStatus(): number;
     /**
@@ -8322,8 +8109,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setStatusText(text: string): void;
     /**
@@ -8332,8 +8118,7 @@ declare namespace webview {
      * @returns { string } Return http status text.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getStatusText(): string;
     /**
@@ -8343,8 +8128,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setMimeType(type: string): void;
     /**
@@ -8353,8 +8137,7 @@ declare namespace webview {
      * @returns { string } Return mime type of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getMimeType(): string;
     /**
@@ -8364,8 +8147,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setEncoding(encoding: string): void;
     /**
@@ -8374,8 +8156,7 @@ declare namespace webview {
      * @returns { string } Return encoding of response.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getEncoding(): string;
     /**
@@ -8388,8 +8169,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setHeaderByName(name: string, value: string, overwrite: boolean): void;
     /**
@@ -8399,8 +8179,7 @@ declare namespace webview {
      * @returns { string } Return header value by name.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getHeaderByName(name: string): string
   }
@@ -8411,8 +8190,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class WebResourceHandler {
     /**
@@ -8423,8 +8201,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     didReceiveResponse(response: WebSchemeHandlerResponse): void;
     /**
@@ -8435,8 +8212,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     didReceiveResponseBody(data: ArrayBuffer): void;
     /**
@@ -8445,8 +8221,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     didFinish(): void;
     /**
@@ -8457,8 +8232,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     didFail(code: WebNetErrorList): void;
     /**
@@ -8482,8 +8256,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class WebSchemeHandler {
     /**
@@ -8495,8 +8268,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onRequestStart(
       callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void;
@@ -8508,8 +8280,7 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onRequestStop(callback: Callback<WebSchemeHandlerRequest>): void;
   }
@@ -9411,8 +9182,7 @@ declare namespace webview {
    * This class is used to set adblock config.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   class AdsBlockManager {
     /**
@@ -9434,8 +9204,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static setAdsBlockRules(rulesFile: string, replace: boolean): void;
 
@@ -9458,8 +9227,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -9488,8 +9256,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static addAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -9510,8 +9277,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void;
 
@@ -9532,8 +9298,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void;
 
@@ -9548,8 +9313,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static clearAdsBlockDisallowedList(): void;
 
@@ -9564,8 +9328,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static clearAdsBlockAllowedList(): void;
   }
@@ -9657,8 +9420,7 @@ declare namespace webview {
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   enum ProxySchemeFilter {
     /**
@@ -9670,8 +9432,7 @@ declare namespace webview {
      * This indicates all the schemes will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     MATCH_ALL_SCHEMES = 0,
     /**
@@ -9683,8 +9444,7 @@ declare namespace webview {
      * This indicates only the HTTP requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     MATCH_HTTP = 1,
     /**
@@ -9696,8 +9456,7 @@ declare namespace webview {
      * This indicates only the HTTPS requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     MATCH_HTTPS = 2,
   }
@@ -9713,8 +9472,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   class ProxyConfig {
     /**
@@ -9738,8 +9496,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     insertBypassRule(bypassRule: string): void;
 
@@ -9760,8 +9517,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     insertDirectRule(schemeFilter?: ProxySchemeFilter): void;
 
@@ -9810,8 +9566,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
 
@@ -9828,8 +9583,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     bypassHostnamesWithoutPeriod(): void;
 
@@ -9848,8 +9602,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     clearImplicitRules(): void;
 
@@ -9876,8 +9629,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     enableReverseBypass(reverse: boolean): void;
 
@@ -9894,8 +9646,7 @@ declare namespace webview {
      * @returns { Array<string> } The bypass rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     getBypassRules(): Array<string>;
 
@@ -9912,8 +9663,7 @@ declare namespace webview {
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     getProxyRules(): Array<ProxyRule>;
 
@@ -9930,8 +9680,7 @@ declare namespace webview {
      * @returns { boolean } If reverse bypass enabled.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     isReverseBypassEnabled(): boolean;
   }
@@ -9947,8 +9696,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   class ProxyRule {
     /**
@@ -9964,8 +9712,7 @@ declare namespace webview {
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     getSchemeFilter(): ProxySchemeFilter;
 
@@ -9982,8 +9729,7 @@ declare namespace webview {
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     getUrl(): string;
   }
@@ -10001,8 +9747,7 @@ declare namespace webview {
    * @typedef { function }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   type OnProxyConfigChangeCallback = () => void;
 
@@ -10017,8 +9762,7 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   class ProxyController {
     /**
@@ -10046,8 +9790,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void;
 
@@ -10070,8 +9813,7 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
   }
