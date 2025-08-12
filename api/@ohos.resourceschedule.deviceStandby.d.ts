@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  * including the methods for querying standby status and exemption list.
  *
  * @namespace deviceStandby
- * @since arkts {'1.1': '11', '1.2': '20'}
+ * since arkts{ '1.1':'10','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace deviceStandby {
@@ -47,7 +47,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getExemptedApps(resourceTypes: int, callback: AsyncCallback<Array<ExemptedAppInfo>>): void;
@@ -69,7 +69,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getExemptedApps(resourceTypes: int): Promise<Array<ExemptedAppInfo>>;
@@ -90,7 +90,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function requestExemptionResource(request: ResourceRequest): void;
@@ -111,7 +111,7 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function releaseExemptionResource(request: ResourceRequest): void;
@@ -122,7 +122,7 @@ declare namespace deviceStandby {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export enum ResourceType {
@@ -131,7 +131,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     NETWORK = 1,
@@ -141,7 +141,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     RUNNING_LOCK = 1 << 1,
@@ -151,7 +151,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     TIMER = 1 << 2,
@@ -161,7 +161,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     WORK_SCHEDULER = 1 << 3,
@@ -171,7 +171,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     AUTO_SYNC = 1 << 4,
@@ -181,7 +181,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     PUSH = 1 << 5,
@@ -191,7 +191,7 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     FREEZE = 1 << 6
@@ -203,7 +203,7 @@ declare namespace deviceStandby {
    * @interface ExemptedAppInfo
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface ExemptedAppInfo {
@@ -213,7 +213,7 @@ declare namespace deviceStandby {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     resourceTypes: int;
@@ -224,7 +224,7 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     name: string;
@@ -235,7 +235,7 @@ declare namespace deviceStandby {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     duration: int;
@@ -247,7 +247,7 @@ declare namespace deviceStandby {
    * @interface ResourceRequest
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1': '11', '1.2': '20'}
+   * since arkts{ '1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface ResourceRequest {
@@ -257,7 +257,7 @@ declare namespace deviceStandby {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     resourceTypes: int;
@@ -268,7 +268,7 @@ declare namespace deviceStandby {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     uid: int;
@@ -279,7 +279,7 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     name: string;
@@ -290,7 +290,7 @@ declare namespace deviceStandby {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     duration: int;
@@ -301,7 +301,7 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1': '11', '1.2': '20'}
+     * since arkts{ '1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     reason: string;
