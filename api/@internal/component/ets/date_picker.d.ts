@@ -805,7 +805,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * 
    * @type { ?LunarSwitchStyle }
    * @default { selectedColor: $r('sys.color.ohos_id_color_text_primary_actived'),
-   * <br>unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
+   *    unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -957,7 +957,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * Font color, font size, and font width of the selected item.
    *
    * @type { ?PickerTextStyle }
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}
+   * @default { color: '#ff007dff', font: { size: '20vp', weight: FontWeight.Medium } }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
