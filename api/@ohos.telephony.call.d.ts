@@ -4431,6 +4431,7 @@ declare namespace call {
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
      * @since 22
+     * @arkts 1.2
      */
     teleNumber: string;
 
