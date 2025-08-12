@@ -691,13 +691,6 @@ declare namespace buffer {
   function fromWithStringTypedInputEncoding(input: string, encoding?: BufferEncoding): Buffer;
 
   /**
-   * Creates a Buffer instance based on a string in the given encoding format.
-   *
-   * @overload { fromWithArray, fromWithArrayBufferByteOffsetLength, fromWithBuffer,
-                fromWithObjectTypedInputOffsetOrEncodingLength, fromWithStringTypedInputEncoding }
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
