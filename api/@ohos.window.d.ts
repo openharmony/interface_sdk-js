@@ -9844,7 +9844,7 @@ declare namespace window {
     /**
      * Set the window limits of a window in vp.
      *
-     * @param { WindowLimits } windowLimits - Window limits of the window in vp.
+     * @param { WindowLimits } windowLimitsVP - Window limits of the window in vp.
      * @returns { Promise<WindowLimits> } - Promise is used to return the limits of window.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
