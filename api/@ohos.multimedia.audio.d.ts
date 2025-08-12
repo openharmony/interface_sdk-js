@@ -11480,7 +11480,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    setReverbMode(mode : AudioLoopbackReverbMode): boolean;
+    setReverbMode(mode: AudioLoopbackReverbMode): boolean;
 
     /**
      * Enable or disable audio loopback.
@@ -11491,7 +11491,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    setEqMode(mode : AudioLoopbackEqualizerMode): boolean;
+    setEqMode(mode: AudioLoopbackEqualizerMode): boolean;
   }
 }
 
