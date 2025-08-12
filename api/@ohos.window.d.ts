@@ -2983,44 +2983,43 @@ declare namespace window {
    *
    * @interface MainWindowInfo
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since arkts {'1.1':'21', '1.2':'21'}
    * @arkts 1.1&1.2
    */
   interface MainWindowInfo {
     /**
      * Display id of the window.
      *
+     * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since arkts {'1.1':'21', '1.2':'21'}
      * @arkts 1.1&1.2
      */
     displayId: number,
     /**
      * Window id.
      *
+     * @type { number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since arkts {'1.1':'21', '1.2':'21'}
      * @arkts 1.1&1.2
      */
     windowId: number,
     /**
      * Showing state of the window.
      *
+     * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since arkts {'1.1':'21', '1.2':'21'}
      * @arkts 1.1&1.2
      */
     showing: boolean,
     /**
      * Label of the window.
      *
+     * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since arkts {'1.1':'21', '1.2':'21'}
      * @arkts 1.1&1.2
      */
     label: string
@@ -3031,7 +3030,6 @@ declare namespace window {
    *
    * @interface WindowSnapshotOptions
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
@@ -3040,7 +3038,6 @@ declare namespace window {
      * Whether use cached windows' snapshot.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since arkts {'1.1':'20', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -3967,29 +3964,29 @@ declare namespace window {
   /**
    * Get all main window info on device
    *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @returns { Promise<Array<MainWindowInfo>> } Promise used to return the list of main window info.
-   * @throws { BusinessError } 202 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since arkte {'1.1':'21', '1.2':'21}
    * @arkts 1.1&1.2
    */
   function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
 
   /**
-   * Capture a screenshot of the specified main window
+   * Get snapshot of the specified windows
    *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @param { Array<number> } windowId - List of main window IDs to be obtained.
-   * @param { WindowSnapshotOptions } options - Configuration for capturing window screenshots.
-   * @returns { Promise<Array<image.PixelMap>> } Capture the list of PixelMaps,
+   * @param { WindowSnapshotOptions } options - Configuration for getting windows' snapshot.
+   * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
    *     arranged in the order of the provided window ID array.
-   * @throws { BusinessError } 202 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since arkte {'1.1':'21', '1.2':'21}
    * @arkts 1.1&1.2
    */
