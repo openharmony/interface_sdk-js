@@ -2979,6 +2979,75 @@ declare namespace window {
   }
 
   /**
+   * Main window info
+   *
+   * @interface MainWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  interface MainWindowInfo {
+    /**
+     * Display id of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    displayId: number,
+    /**
+     * Window id.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    windowId: number,
+    /**
+     * Showing state of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    showing: boolean,
+    /**
+     * Label of the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    label: string
+  }
+
+  /**
+   * Options for getting windows' snapshot.
+   *
+   * @interface WindowSnapshotOptions
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  interface WindowSnapshotOptions {
+    /**
+     * Whether use cached windows' snapshot.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    useCache?: boolean
+  }
+
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -3894,6 +3963,35 @@ declare namespace window {
    * @since 20
    */
   function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
+
+  /**
+   * Get all main window info on device
+   *
+   * @returns { Promise<MainWindowInfo> } Promise used to return the MainWindowInfo.
+   * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 21
+   */
+  function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
+
+  /**
+   * Capture a screenshot of the specified main window
+   *
+   * @param { Array<number> } windowId - List of main window IDs to be obtained.
+   * @param { WindowSnapshotOptions } options - Configuration for capturing window screenshots.
+   * @returns { Promise<Array<image.PixelMap>> } Capture the list of PixelMaps,
+   *     arranged in the order of the provided window ID array.
+   * @throws { BusinessError } 201 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 21
+   */
+  function getMainWindowSnapshot(windowId: Array<number>, options: WindowSnapshotOptions): Promise<Array<image.PixelMap>>;
 
   /**
    * Display orientation
