@@ -332,6 +332,7 @@ declare namespace calendarManager {
      * @param { number } id - Indicates the ID of an event.
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
      * @since 10
      */
     deleteEvent(id: number): Promise<void>;
@@ -341,6 +342,7 @@ declare namespace calendarManager {
      * @param { number } id - Indicates the ID of an event.
      * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
      * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
      * @since 10
      */
     deleteEvent(id: number, callback: AsyncCallback<void>): void;
@@ -350,6 +352,7 @@ declare namespace calendarManager {
      * @param { number[] } ids - The id array of multiple events.
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
      * @since 10
      */
     deleteEvents(ids: number[]): Promise<void>;
@@ -359,6 +362,7 @@ declare namespace calendarManager {
      * @param { number[] } ids - Indicates the IDs of multiple events.
      * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
      * @since 10
      */
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
