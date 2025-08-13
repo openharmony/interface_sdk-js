@@ -776,7 +776,7 @@ declare namespace text {
    */
   enum LineHeightStyle {
     /**
-     * Use the font size as the base for line height scaling.
+     * Use the font size as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
@@ -966,31 +966,31 @@ declare namespace text {
     wordSpacing?: number;
 
     /**
-     * Maximum line height. The value is a floating point number.
-     * @type { ?number } it is double type data
+     * Maximum line height. The value is a double number.
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
-    lineHeightMaximum?: number;
+    lineHeightMaximum?: double;
 
     /**
-     * Minimum line height. The value is a floating point number.
-     * @type { ?number } it is double type data
+     * Minimum line height. The value is a double number.
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
-    lineHeightMinimum?: number;
+    lineHeightMinimum?: double;
 
     /**
-     * Line spacing. The value is a floating point number.
-     * @type { ?number } it is double type data
+     * Line spacing. The value is a double number.
+     * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
      */
-    lineSpacing?: number;
+    lineSpacing?: double;
 
     /**
      * Line height scaling base style. The default value is FONT_SIZE.
