@@ -10291,10 +10291,10 @@ declare namespace webview {
   }
 
   /**
-   * The function with zero parameter
+   * The function with zero parameter.
    * 
    * @typedef { function } zeroParamFn
-   * @return { V } The return value.
+   * @returns { V } The return value.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    * @arkts 1.2
@@ -10302,11 +10302,11 @@ declare namespace webview {
   type ZeroParamFn<V=void> = () => V;
 
   /**
-   * The function with one parameter
+   * The function with one parameter.
    * 
    * @typedef { function } oneParamFn
    * @param { T } param - the first param.
-   * @return { V } The return value.
+   * @returns { V } The return value.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    * @arkts 1.2
@@ -10314,12 +10314,12 @@ declare namespace webview {
   type OneParamFn<T,V=void> = (param: T) => V;
 
   /**
-   * The function with two parameter
+   * The function with two parameter.
    * 
    * @typedef { function } twoParamFn
    * @param { T } paramA - the first param.
-   * @param { C } paramB - the second param
-   * @return { V } The return value.
+   * @param { C } paramB - the second param.
+   * @returns { V } The return value.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    * @arkts 1.2
