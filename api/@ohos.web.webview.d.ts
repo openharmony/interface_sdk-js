@@ -5433,7 +5433,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11zz 
+     * @since 11
      */
     hasImage(callback: AsyncCallback<boolean>): void;
 
