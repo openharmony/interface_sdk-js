@@ -8744,7 +8744,7 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
-    handleStatusChanged(status: PlaybackStatus):  void;
+    handleStatusChanged(status: PlaybackStatus): void;
 
     /**
      * Handle native media player playback status.
