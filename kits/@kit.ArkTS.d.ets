@@ -27,6 +27,7 @@ import util from '@ohos.util';
 import Deque from '@ohos.util.Deque';
 import LightWeightMap from '@ohos.util.LightWeightMap';
 import Queue from '@ohos.util.Queue';
+import JSON from '@ohos.util.json';
 import stream from '@ohos.util.stream';
 import HashMap from '@ohos.util.HashMap';
 import HashSet from '@ohos.util.HashSet';
@@ -44,5 +45,5 @@ import Decimal from '@arkts.math.Decimal';
 
 export {
   ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,
-  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, stream, xml, transfer, collections, Decimal
+  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, JSON, stream, xml, transfer, collections, Decimal
 };
