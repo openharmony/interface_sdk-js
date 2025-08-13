@@ -18,24 +18,43 @@
  * @arkts 1.2
  */
 
+import { Builder } from './builder';
 
-import { memo, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+/**
+ * Define item generator function.
+ *
+ * @typedef { function } ItemGeneratorFunc<T>
+ * @param { T } item - item in an array
+ * @param { number } index - index corresponding to an array item.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Builder
+declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+
+/**
+ * Define key generator function.
+ *
+ * @typedef { function } KeyGeneratorFunc<T>
+ * @param { T } item - item in an array
+ * @param { number } index - index corresponding to an array item.
+ * @returns {string} Character string generated based on item and index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
 
 /**
  * Defines ForEach Component.
  *
- * @param { Array<T> } arr
- * @param { function } itemGenerator
- * @param { function } keyGenerator
+ * @param { Array<T> } arr - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
-@memo
+@Builder
 export declare function ForEach<T>(arr: Array<T>,
-    @memo
-    itemGenerator: (item: T, index: number) => void,
-    keyGenerator?: (item: T, index: number) => string,
-): void
+    itemGenerator: ItemGeneratorFunc<T>,
+    keyGenerator?: KeyGeneratorFunc<T>,
+): void;
