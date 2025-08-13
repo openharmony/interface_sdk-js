@@ -470,25 +470,25 @@ declare namespace audio {
    */
   enum AudioLoopbackReverbMode {
     /**
-     * Default reverberation mode.
+     * Do not preset the environment.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     ORIGINAL = 1,
     /**
-     * Karaoke reverberation mode.
+     * A preset that represents a reverb with the acoustic characteristics of a KTV environment.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     KTV = 2,
     /**
-     * Theatre reverberation mode.
+     * A preset that represents a reverb with the acoustic characteristics of a theatre environment.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     THEATRE = 3,
     /**
-     * concert reverberation mode.
+     * A preset that represents a reverb with the acoustic characteristics of a concert environment.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
@@ -11492,6 +11492,24 @@ declare namespace audio {
      * @since 21
      */
     setEqMode(mode: AudioLoopbackEqualizerMode): boolean;
+
+    /**
+     * Get the current Reverberation Mode.
+     *
+     * @returns { AudioLoopbackReverbMode  } return Reverberation Mode configuring.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getReverbMode(): AudioLoopbackReverbMode;
+
+    /**
+     * Get the current Equalizer Mode.
+     *
+     * @returns { AudioLoopbackEqualizerMode } return audioLoopbackEqualizer Mode configuring.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getEqMode(): AudioLoopbackEqualizerMode;
   }
 }
 
