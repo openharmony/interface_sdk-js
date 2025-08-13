@@ -281,7 +281,7 @@ export declare interface GridRowAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onBreakpointChange(callback: ((breakpoints: string) => void) | undefined): this;
+    default onBreakpointChange(callback: ((breakpoints: string) => void) | undefined): this;
     /**
      * Cross axis alignment of each line in GridRow.
      *
@@ -290,9 +290,17 @@ export declare interface GridRowAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alignItems(value: ItemAlign | undefined): this;
-    attributeModifier(modifier: AttributeModifier<GridRowAttribute>
-        | AttributeModifier<CommonMethod> | undefined): this;
+    default alignItems(value: ItemAlign | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { GridRowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo

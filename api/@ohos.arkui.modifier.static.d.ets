@@ -41,6 +41,102 @@ export { CommonModifier } from './arkui/CommonModifier';
 export { AttributeUpdater } from './arkui/AttributeUpdater';
 
 /**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { BlankModifier } from './arkui/BlankModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ColumnModifier } from './arkui/ColumnModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { ColumnSplitModifier } from './arkui/ColumnSplitModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { DividerModifier } from './arkui/DividerModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { FlexModifier } from './arkui/FlexModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { FolderStackModifier } from './arkui/FolderStackModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { GridColModifier } from './arkui/GridColModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { GridRowModifier } from './arkui/GridRowModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { RelativeContainerModifier } from './arkui/RelativeContainerModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { RowModifier } from './arkui/RowModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { RowSplitModifier } from './arkui/RowSplitModifier';
+
+/**
+ * Export AttributeUpdater, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 20
+ */
+export { StackModifier } from './arkui/StackModifier';
+
+/**
  * Export GridModifier, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -109,7 +205,6 @@ export { ButtonModifier } from './arkui/ButtonModifier';
  * @since 20
  */
 export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-
 
 /**
  * Export LineModifier, which is used to update attributes to native side.

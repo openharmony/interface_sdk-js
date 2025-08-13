@@ -48,8 +48,17 @@ export declare interface StackAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alignContent(value: Alignment | undefined): this;
-    attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default alignContent(value: Alignment | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { StackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo
