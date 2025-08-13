@@ -62,7 +62,7 @@ import Want from "./@ohos.app.ability.Want";
 declare namespace unifiedDataChannel {
   /**
    * Types of scope that UnifiedData can be used.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
@@ -85,6 +85,16 @@ declare namespace unifiedDataChannel {
   }
 
   /**
+   * RrcordData is used for input parameter obj of the equal function
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
    * Indicated delay get UnifiedData
    * 
    * @typedef {function} GetDelayData
@@ -98,21 +108,30 @@ declare namespace unifiedDataChannel {
 
   /**
    * Indicates type of value.
-   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 12
    */
   /**
    * Indicates type of value.
-   * @typedef {number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
-  type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
+  type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined;
+
+  /**
+   * Indicates type of value.
+   * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined}
+   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined;
 
   /**
    * Describe the unified data properties.
@@ -130,6 +149,15 @@ declare namespace unifiedDataChannel {
      * @since 12
      */
     extras?: Record<string, object>;
+
+    /**
+     * extra property data. key-value pairs.
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    extras?: Record<string, RecordData>;
 
     /**
      * the user-defined tag of a UnifiedData object.
@@ -381,13 +409,13 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { Record<string, number> }
+     * @type { Record<string, long> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    summary: Record<string, number>;
+    summary: Record<string, long>;
     /**
      * Total data size of data in Bytes
      *
@@ -397,13 +425,13 @@ declare namespace unifiedDataChannel {
     /**
      * Total data size of data in Bytes
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    totalSize: number;
+    totalSize: long;
   }
 
   /**
@@ -2010,12 +2038,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
      */
-    details?: Record<string, number | string | Uint8Array>;
+    details?: Record<string, int | long | double | string | Uint8Array>;
 
     /**
      * Indicates the details of system defined data
@@ -2026,7 +2054,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -2034,12 +2062,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @returns { Record<string, number | string | Uint8Array> | undefined } the details of system defined data
+     * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    get details(): Record<string, number | string | Uint8Array> | undefined;
+    get details(): Record<string, int | long | double | string | Uint8Array> | undefined;
   
     /**
      * Indicates the details of system defined data
@@ -2050,7 +2078,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -2058,12 +2086,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @param { Record<string, number | string | Uint8Array> } the details of system defined data
+     * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, number | string | Uint8Array>);
+    set details(value: Record<string, int | long | double | string | Uint8Array> | undefined);
   }
 
   /**
@@ -2094,12 +2122,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
      */
-    formId: number;
+    formId: int;
 
     /**
      * Indicates the id of form
@@ -2110,7 +2138,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -2118,12 +2146,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @returns { number } the id of form
+     * @returns { int } the id of form
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    get formId(): number;
+    get formId(): int;
 
     /**
      * Indicates the id of form
@@ -2134,7 +2162,7 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 11
@@ -2142,12 +2170,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @param { number } the id of form
+     * @param { int } the id of form
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set formId(value: number);
+    set formId(value: int);
 
     /**
      * Indicates the name of form
@@ -3131,7 +3159,7 @@ declare namespace unifiedDataChannel {
   /**
    * Describe the visibility range of data
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since 20
@@ -3243,7 +3271,7 @@ declare namespace unifiedDataChannel {
   /**
    * Defines the types of file conflict options when getting data from the UDMF.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
@@ -3274,7 +3302,7 @@ declare namespace unifiedDataChannel {
   /**
    * Defines the types of progress indicator when getting data from the UDMF.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
@@ -3305,7 +3333,7 @@ declare namespace unifiedDataChannel {
   /**
    * Defines the listener status of obtaining progress and data.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice
    * @since arkts {'1.1':'15', '1.2':'20'}
@@ -3406,13 +3434,13 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the UDMF processing progress.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    progress: number;
+    progress: int;
 
     /**
      * Indicates the status of obtaining progress and data.
@@ -3527,12 +3555,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the maximum number of data records to be loaded.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
      * @since 20
      */
-    recordCount?: number;
+    recordCount?: long;
   }
 
   /**
