@@ -84,7 +84,8 @@ declare namespace fileUri {
     /**
      * Obtains the file name of uri.
      *
-     * @type { string }
+     * @returns { string }
+     * string: Return the file name of uri.
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
@@ -94,15 +95,17 @@ declare namespace fileUri {
     /**
      * Obtains the file name of uri.
      *
-     * @type { string }
+     * @returns { string }
+     * string: Return the file name of uri.
      * @readonly
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    readonly name: string;
+    get name(): string;
 
     /**
      * Get the full directory uri where the file URI is located
