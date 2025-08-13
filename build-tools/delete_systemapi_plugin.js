@@ -22,7 +22,7 @@ let lastNoteStr = '';
 let lastNodeName = '';
 let etsType = 'ets';
 let componentEtsFiles = [];
-let componentEtsDeleteFiles = [];
+let componentEtsDeleteFiles = ['plugincomponent', 'uiextensioncomponent'];
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
 const kitFileNeedDeleteMap = new Map();
@@ -47,6 +47,39 @@ const METHOD_KIND = [
   ts.SyntaxKind.MethodSignature,
   ts.SyntaxKind.Constructor
 ];
+
+const regJSDOCStr = `\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?`;
+
+const STATIC_API_DELETE_RULES = new Map([[
+  'arkui/component/common.static.d.ets', [
+    `${regJSDOCStr}declare enum TransitionHierarchyStrategy.*ADAPTIVE = 1.*?\\n\\}.*?\\n`,
+    `${regJSDOCStr}declare interface PixelMapMock.*release\\(\\): void.*?\\n\\}.*?\\n`,
+    `${regJSDOCStr}declare interface PointLightStyle.*bloom\\?: number.*?\\n\\}.*?\\n`,
+    `${regJSDOCStr}declare interface LightSource.*color\\?: ResourceColor.*?\\n\\}.*?\\n`
+  ]], [
+  'arkui/component/embeddedComponent.static.d.ets', [
+    `${regJSDOCStr}@memo.*\\): EmbeddedComponentAttribute`
+  ]], [
+  'arkui/component/list.static.d.ets', [
+    `${regJSDOCStr}export declare enum ChainEdgeEffect.*STRETCH.*?\\n\\}.*?\\n`,
+    `${regJSDOCStr}export declare interface ChainAnimationOptions.*damping\\?: number.*?\\n\\}.*?\\n`
+  ]], [
+  'arkui/component/pluginComponent.static.d.ets', []], [
+  'arkui/component/richEditor.static.d.ets', []], [
+  'arkui/component/textInput.static.d.ets', []], [
+  'arkui/component/uiExtensionComponent.static.d.ets', []], [
+  'arkui/component/xcomponent.static.d.ets', []]]);
+
+const STATIC_IMPORT_DELETE_RULES = new Map([[
+  'arkui/component/common.static.d.ets', [{
+    reg: /(import\s*\{.*)IlluminatedType(,\s)?(.*from.*enums)/g, replaceValue: '$1$3'
+  }]], [
+  'arkui/component/pluginComponent.static.d.ets', [{
+    reg: /.*/sg, replaceValue: ''
+  }]], [
+  'arkui/component/uiExtensionComponent.static.d.ets', [{
+    reg: /.*/sg, replaceValue: ''
+  }]]]);
 
 function start() {
   const program = new commander.Command();
@@ -323,12 +356,14 @@ function isArkTsSpecialSyntax(content) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
-    const apiBaseName = path.basename(url);
-    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-    if (apiBaseName === 'common.static.d.ets') {
-      writeFile(url, processStaticFile(content));
+    const relativePath = path.relative(inputDir, url);
+    if (STATIC_API_DELETE_RULES.has(relativePath.replace(/\\/g, '/'))) {
+      const content = processStaticFile(url);
+      writeFile(url, content);
       return;
     }
+    const apiBaseName = path.basename(url);
+    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     if (isArkTsSpecialSyntax(content)) {
       writeFile(url, content);
       return;
@@ -367,25 +402,28 @@ function tsTransform(utFiles, callback) {
   });
 }
 
-function processStaticFile(content) {
-  const regJSDOCStr = `\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?`;
-  const regNodeList = [
-    { start: 'declare enum TransitionHierarchyStrategy', end: 'ADAPTIVE = 1' },
-    { start: 'declare interface PixelMapMock', end: 'release\\(\\): void' },
-    { start: 'declare interface PointLightStyle', end: 'bloom\\?: number' },
-    { start: 'declare interface LightSource', end: 'color\\?: ResourceColor' }
-  ];
-  regNodeList.forEach(regNode => {
-    const replaceDeclareNode = `${regJSDOCStr}${regNode.start}.*${regNode.end}.*?\\n}.*?\\n`;
-    const regJSDOC = new RegExp(replaceDeclareNode, 'sg');
-    content = content.replace(regJSDOC, '\n');
+/**
+ * 
+ * @param {string} url 
+ * @returns 
+ */
+function processStaticFile(url) {
+  const relativePath = path.relative(inputDir, url).replace(/\\/g, '/');
+  let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+  const regNodeList = STATIC_API_DELETE_RULES.get(relativePath);
+  regNodeList.forEach(regRule => {
+    const regSystemApi = new RegExp(regRule, 'sg');
+    content = content.replace(regSystemApi, '\n');
   });
   const replaceSignNode = new RegExp(
     '\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?@systemapi[\\s\\S]*?\\*\\/.*?\\r?\\n.*?\\r?\\n',
     'g'
   );
   content = content.replace(replaceSignNode, '\n');
-  content = content.replace(/(import\s*\{.*)IlluminatedType(,\s)?(.*from.*enums)/g, '$1$3');
+  const regImportList = STATIC_IMPORT_DELETE_RULES.get(relativePath) || [];
+  regImportList.forEach(regNode => {
+    content = content.replace(regNode.reg, regNode.replaceValue);
+  });
   return content;
 }
 
@@ -485,7 +523,7 @@ function writeFile(url, data, option) {
       console.log(`ERROR FOR CREATE PATH ${err}`);
     } else {
       if (data === '') {
-        fs.rmSync(newFilePath);
+        fs.rmSync(newFilePath, { force: true });
         return;
       }
       fs.writeFileSync(newFilePath, data, option, (err) => {
