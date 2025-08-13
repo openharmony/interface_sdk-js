@@ -759,7 +759,7 @@ declare namespace text {
 
     /**
      * Left bottom radius of the rectangle.
-     * @type { number } it is double type data
+     * @type { number } it is double type data.
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
@@ -784,7 +784,7 @@ declare namespace text {
     FONT_SIZE = 0,
 
     /**
-     * Use the text height after shaping as the base for line height scaling.
+     * Use the text height after shaping as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
