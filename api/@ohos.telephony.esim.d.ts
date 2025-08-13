@@ -465,7 +465,15 @@ declare namespace eSIM {
    *
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @systemapi Hide this for inner system use.
    * @since 18
+   */
+  /**
+   * Establishes a single UICC access rule pursuant to the GlobalPlatform Secure Element Access Control specification.
+   *
+   * @interface AccessRule
+   * @syscap SystemCapability.Telephony.CoreService.Esim
+   * @since 20
    */
   export interface AccessRule {
     /**
@@ -473,7 +481,15 @@ declare namespace eSIM {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
      * @since 18
+     */
+    /**
+     * Certificate hash hexadecimal string.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @since 20
      */
     certificateHashHexStr: string;
 
@@ -482,7 +498,15 @@ declare namespace eSIM {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
      * @since 18
+     */
+    /**
+     * The name of package.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @since 20
      */
     packageName: string;
 
@@ -491,7 +515,15 @@ declare namespace eSIM {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @systemapi Hide this for inner system use.
      * @since 18
+     */
+    /**
+     * The type of access.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @since 20
      */
     accessType: number;
   }
