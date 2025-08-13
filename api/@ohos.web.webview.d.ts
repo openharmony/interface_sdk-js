@@ -6509,6 +6509,7 @@ declare namespace webview {
      * And the unit is virtual pixel.
      *
      * @returns { ScrollOffset } page offset
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
