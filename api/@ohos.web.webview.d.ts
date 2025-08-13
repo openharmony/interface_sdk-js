@@ -10324,8 +10324,7 @@ declare namespace webview {
    * @since 20
    * @arkts 1.2
    */
-  type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;  
-
+  type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;
 }
 
 export default webview;
