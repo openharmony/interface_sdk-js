@@ -386,7 +386,7 @@ declare namespace a2dp {
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @param { number } duration - Restricted duration <milliseconds>. Valid range is from 3000ms to 20000ms.
+     * @param { int } duration - Restricted duration <milliseconds>. Valid range is from 3000ms to 20000ms.
      * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -401,7 +401,7 @@ declare namespace a2dp {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    disableAutoPlay(deviceId: string, duration: number): Promise<void>;
+    disableAutoPlay(deviceId: string, duration: int): Promise<void>;
 
     /**
      * Allow devices to automatically play music when connected.
@@ -429,7 +429,7 @@ declare namespace a2dp {
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
      * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @returns { Promise<number> } Returns the duration <milliseconds>; 
+     * @returns { Promise<int> } Returns the duration <milliseconds>; 
      *                              If returns { @code -1 } means allow devices automatic play music when connected.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -444,7 +444,7 @@ declare namespace a2dp {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getAutoPlayDisabledDuration(deviceId: string): Promise<number>;
+    getAutoPlayDisabledDuration(deviceId: string): Promise<int>;
   }
 
   /**
@@ -571,7 +571,7 @@ declare namespace a2dp {
   /**
    * The enum of a2dp playing state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
@@ -598,7 +598,7 @@ declare namespace a2dp {
   /**
    * Describes the codec type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -657,7 +657,7 @@ declare namespace a2dp {
   /**
    * Describes the codec channel mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -692,7 +692,7 @@ declare namespace a2dp {
   /**
    * Describes the codec bits per sample.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -735,7 +735,7 @@ declare namespace a2dp {
   /**
    * Describes the codec sample rate.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2

@@ -54,7 +54,7 @@ declare namespace constant {
   /**
    * The enum of profile id.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -1684,7 +1684,7 @@ declare namespace constant {
   /**
    * Enum for the PBAP or MAP access authorization.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'11','1.2':'20'}

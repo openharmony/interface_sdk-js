@@ -361,7 +361,7 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void;
@@ -455,7 +455,7 @@ declare namespace ble {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { AdvertisingParams } advertisingParams - Indicates the params for BLE advertising.
-   * @param { AsyncCallback<number> } callback - the callback of advertise ID.
+   * @param { AsyncCallback<int> } callback - the callback of advertise ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -467,10 +467,10 @@ declare namespace ble {
    * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  function startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback<number>): void;
+  function startAdvertising(advertisingParams: AdvertisingParams, callback: AsyncCallback<int>): void;
 
   /**
    * Starts BLE advertising.
@@ -519,7 +519,7 @@ declare namespace ble {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { AdvertisingParams } advertisingParams - Indicates the param for BLE advertising.
-   * @returns { Promise<number> } Returns the promise object.
+   * @returns { Promise<int> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -531,10 +531,10 @@ declare namespace ble {
    * @throws { BusinessError } 2902054 - The length of the advertising data exceeds the upper limit.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  function startAdvertising(advertisingParams: AdvertisingParams): Promise<number>;
+  function startAdvertising(advertisingParams: AdvertisingParams): Promise<int>;
 
   /**
    * Enable the advertising with a specific ID temporarily.
@@ -567,7 +567,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams, callback: AsyncCallback<void>): void;
@@ -603,7 +603,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function enableAdvertising(advertisingEnableParams: AdvertisingEnableParams): Promise<void>;
@@ -639,7 +639,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams, callback: AsyncCallback<void>): void;
@@ -675,7 +675,7 @@ declare namespace ble {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @throws { BusinessError } 2902055 - Invalid advertising id.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function disableAdvertising(advertisingDisableParams: AdvertisingDisableParams): Promise<void>;
@@ -2219,7 +2219,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback<BLECharacteristic>): void;
@@ -2297,7 +2297,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     readCharacteristicValue(characteristic: BLECharacteristic): Promise<BLECharacteristic>;
@@ -2375,7 +2375,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback<BLEDescriptor>): void;
@@ -2453,7 +2453,7 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     readDescriptorValue(descriptor: BLEDescriptor): Promise<BLEDescriptor>;
@@ -3087,7 +3087,7 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     setCharacteristicChangeIndication(
@@ -3149,7 +3149,7 @@ declare namespace ble {
      * @throws { BusinessError } 2901003 - The connection is not established.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     setCharacteristicChangeIndication(characteristic: BLECharacteristic, enable: boolean): Promise<void>;
@@ -3765,14 +3765,14 @@ declare namespace ble {
     /**
      * The characteristic value handle of a BLECharacteristic instance
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    characteristicValueHandle?: number;
+    characteristicValueHandle?: int;
 
     /**
      * The permissions of a BLECharacteristic instance. The default value is Readable and Writable.
@@ -3919,14 +3919,14 @@ declare namespace ble {
     /**
      * The descriptor handle of the BLEDescriptor instance
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    descriptorHandle?: number;
+    descriptorHandle?: int;
 
 
     /**
@@ -5133,14 +5133,14 @@ declare namespace ble {
     /**
      * RSSI of the remote device
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
     /**
      * The raw data of broadcast packet
      *
@@ -5588,12 +5588,12 @@ declare namespace ble {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    advertisingId: number;
+    advertisingId: int;
     /**
      * Indicates the duration for advertising continuously.
      * The duration, in 10ms unit. Valid range is from 1 (10ms) to 65535 (655,350 ms).
@@ -5619,12 +5619,12 @@ declare namespace ble {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    advertisingId: number;
+    advertisingId: int;
   }
 
   /**
@@ -5654,13 +5654,13 @@ declare namespace ble {
     /**
      * Indicates the ID of current advertising.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    advertisingId: number;
+    advertisingId: int;
     /**
      * Indicates the advertising state.
      *
@@ -5724,14 +5724,14 @@ declare namespace ble {
     /**
      * Indicates the manufacturer ID assigned by Bluetooth SIG
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    manufactureId: number;
+    manufactureId: int;
     /**
      * Indicates the manufacturer data to add
      *
@@ -6100,14 +6100,14 @@ declare namespace ble {
     /**
      * Manufacture id.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    manufactureId?: number;
+    manufactureId?: int;
 
     /**
      * Manufacture data.
@@ -6700,7 +6700,7 @@ declare namespace ble {
   /**
    * The enum of BLE advertising state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -6766,7 +6766,7 @@ declare namespace ble {
   /**
    * Phy type used during scan.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6813,7 +6813,7 @@ declare namespace ble {
   /**
    * Report mode used during scan.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -6866,7 +6866,7 @@ declare namespace ble {
   /**
    * Scan report type used during scan.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice

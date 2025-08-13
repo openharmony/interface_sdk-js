@@ -138,7 +138,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function enableBluetoothAsync(): Promise<void>;
@@ -157,7 +157,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function disableBluetoothAsync(): Promise<void>;
@@ -175,7 +175,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   function notifyDialogResult(notifyDialogResultParams: NotifyDialogResultParams): Promise<void>;
@@ -658,7 +658,7 @@ declare namespace access {
    * @typedef NotifyDialogResultParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   interface NotifyDialogResultParams {
@@ -668,7 +668,7 @@ declare namespace access {
      * @type { DialogType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     dialogType: DialogType;
@@ -679,7 +679,7 @@ declare namespace access {
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     dialogResult: boolean;
@@ -688,10 +688,10 @@ declare namespace access {
   /**
    * The enum of bluetooth dialog type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since arkts {'1.1':'20','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   enum DialogType {
@@ -700,7 +700,7 @@ declare namespace access {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
-     * @since arkts {'1.1':'20','1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     BLUETOOTH_SWITCH = 0

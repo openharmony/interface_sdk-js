@@ -59,7 +59,7 @@ declare namespace baseProfile {
   /**
    * Enum for connection strategy of the profile
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'10','1.2':'20'}
@@ -105,7 +105,7 @@ declare namespace baseProfile {
   /**
    * Enum for cause of disconnect.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}

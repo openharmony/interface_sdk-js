@@ -1330,7 +1330,7 @@ declare namespace connection {
    * Get latest connection time of device.
    *
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<number> } Returns latest connection time.
+   * @returns { Promise<long> } Returns latest connection time.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1341,7 +1341,7 @@ declare namespace connection {
    * @since arkts {'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getLastConnectionTime(deviceId: string): Promise<number>;
+  function getLastConnectionTime(deviceId: string): Promise<long>;
 
   /**
    * update cloud devices.
@@ -1801,19 +1801,19 @@ declare namespace connection {
     /**
      * Class of the device.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @since arkts {'1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    classOfDevice: number;
+    classOfDevice: int;
   }
 
   /**
    * Enum for the transport of a remote device
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2025,7 +2025,7 @@ declare namespace connection {
   /**
    * Enum for the type of pairing to a remote device
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'10','1.2':'20'}
@@ -2151,12 +2151,12 @@ declare namespace connection {
     /**
      * RSSI of the remote device
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
     /**
      * The local name of the device
      *
@@ -2215,21 +2215,21 @@ declare namespace connection {
     /**
      * Electricity value of the general device. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batteryLevel: number;
+    batteryLevel: int;
     /**
      * Electricity value of the left ear. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    leftEarBatteryLevel: number;
+    leftEarBatteryLevel: int;
     /**
      * The charge state of the left ear.
      *
@@ -2242,12 +2242,12 @@ declare namespace connection {
     /**
      * Electricity value of the right ear. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rightEarBatteryLevel: number;
+    rightEarBatteryLevel: int;
     /**
      * The charge state of the right ear.
      *
@@ -2260,12 +2260,12 @@ declare namespace connection {
     /**
      * Electricity value of the box. {@code -1} means no power information.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    boxBatteryLevel: number;
+    boxBatteryLevel: int;
     /**
      * The charge state of the box.
      *
@@ -2280,7 +2280,7 @@ declare namespace connection {
   /**
    * Enum for the charge state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2323,7 +2323,7 @@ declare namespace connection {
   /**
    * Enum for the custom type of remote device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -2414,7 +2414,7 @@ declare namespace connection {
   /**
    * Enum for cause of unbond.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -2524,7 +2524,7 @@ declare namespace connection {
   /**
    * Describes the control type.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'15','1.2':'20'}
@@ -2581,7 +2581,7 @@ declare namespace connection {
   /**
    * Describes the control type value.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'15','1.2':'20'}
@@ -2620,7 +2620,7 @@ declare namespace connection {
   /**
    * Describes the control object.
    * 
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since arkts {'1.1':'15','1.2':'20'}
@@ -2801,13 +2801,13 @@ declare namespace connection {
     /**
      * Indicates the bluetoothClass of the peripheral.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since arkts {'1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    bluetoothClass: number;
+    bluetoothClass: int;
     /**
      * Indicates the token of the peripheral.
      *
@@ -2821,13 +2821,13 @@ declare namespace connection {
     /**
      * Indicates the deviceNameTime of the peripheral.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since arkts {'1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deviceNameTime: number;
+    deviceNameTime: long;
     /**
      * Indicates the securityAdvInfo of the peripheral.
      *
@@ -2841,13 +2841,13 @@ declare namespace connection {
     /**
      * Indicates the pairState of the peripheral.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since arkts {'1.1':'15','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pairState: number;
+    pairState: int;
   }
 }
 export default connection;
