@@ -1669,7 +1669,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Used for network voice call, such as WeChat voice call, QQ voice call, etc.
+     * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -1842,7 +1842,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
-     * Used for network video call.
+     * Video communication or video conference usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12
@@ -9341,7 +9341,7 @@ declare namespace audio {
      */
     SOURCE_TYPE_UNPROCESSED = 14,
     /**
-     * live broadcast source type.
+     * Live broadcast source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -9934,11 +9934,11 @@ declare namespace audio {
     getOverflowCountSync(): number;
 
     /**
-     * Set if capturer want to be muted instead of interrupted. should be set before start
+     * Set if capturer want to be muted instead of interrupted, should be set before start.
      * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
      *     instead of interrupted.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @throws { BusinessError } 6800103 - Operation not permitted at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
