@@ -485,6 +485,54 @@ declare enum EffectFillStyle {
 }
 
 /**
+ * The replace effect type of symbol.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum ReplaceEffectType {
+  /**
+   * The default replace effect of symbol, the current symbol fully disappears before the new symbol fades in.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  SEQUENTIAL = 0,
+ 
+  /**
+   * The current symbol fades out while the new symbol fades in at the same time,
+   * producing a smoother and faster transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  CROSS_FADE = 1,
+
+  /**
+   * Replaces the current symbol with a symbol that includes a diagonal slash overlay,
+   * typically used to indicate a disabled or inactive state.
+   * If a corresponding slashed symbol variant is not available, the symbol is replaced without animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  SLASH_OVERLAY = 2,
+}
+
+/**
  * Defines SymbolEffect class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -925,6 +973,18 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
+
+  /**
+   * constructor.
+   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
   
   /**
    * The scope type of symbol effect
@@ -947,6 +1007,18 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @arkts 1.1&1.2
    */
   scope?: EffectScope;
+
+  /**
+   * The replace effect type of symbol effect.
+   *
+   * @type { ?ReplaceEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  replaceType?: ReplaceEffectType;
 }
 
 /**
@@ -960,72 +1032,6 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  * @arkts 1.1&1.2
  */
 declare class PulseSymbolEffect extends SymbolEffect {
-}
-
-/**
- * Defines DisableSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 20
- */
-declare class DisableSymbolEffect extends SymbolEffect {
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  constructor(scope?: EffectScope);
-
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  scope?: EffectScope;
-}
-
-/**
- * Defines QuickReplaceSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 20
- */
-declare class QuickReplaceSymbolEffect extends SymbolEffect {
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  constructor(scope?: EffectScope);
-
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  scope?: EffectScope;
 }
 
 /**
