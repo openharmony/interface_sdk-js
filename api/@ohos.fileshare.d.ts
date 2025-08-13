@@ -410,7 +410,7 @@ declare namespace fileShare {
    * Check permissions for the path.
    * 
    * @permission ohos.permission.CHECK_SANDBOX_POLICY
-   * @param { number } tokenID - Token ID of the application.
+   * @param { int } tokenID - Token ID of the application.
    * @param { Array<PathPolicyInfo> } policies - Policy information to check on paths.
    * @param { PolicyType } policyType - Persistent or temporary type.
    * @returns { Promise<Array<boolean>> } Returns the permission state of paths.
@@ -423,7 +423,7 @@ declare namespace fileShare {
    * @systemapi
    * @since 15
    */
-  function checkPathPermission(tokenID: number, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
+  function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }
 
 export default fileShare;
