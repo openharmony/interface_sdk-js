@@ -162,20 +162,11 @@ declare interface TextDataDetectorConfig {
   /**
    * Text data detect result callback.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12
-   */
-  onDetectResultUpdate?: (result: string) => void
-  /**
-   * Text data detect result callback.
-   *
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDetectResultUpdate?: Callback<string>
   /**
