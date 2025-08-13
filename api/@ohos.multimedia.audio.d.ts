@@ -11496,7 +11496,7 @@ declare namespace audio {
     /**
      * Get the current Reverberation Mode.
      *
-     * @returns { AudioLoopbackReverbMode  } return Reverberation Mode configuring.
+     * @returns { AudioLoopbackReverbMode  } return current Reverberation Mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
@@ -11505,7 +11505,7 @@ declare namespace audio {
     /**
      * Get the current Equalizer Mode.
      *
-     * @returns { AudioLoopbackEqualizerMode } return audioLoopbackEqualizer Mode configuring.
+     * @returns { AudioLoopbackEqualizerMode } return current Equalizer Mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
