@@ -463,32 +463,32 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates audio loopback reverb mode.
+   * Enumerates audio loopback reverb preset.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21
    */
-  enum AudioLoopbackReverbMode {
+  enum AudioLoopbackReverbPreset {
     /**
-     * Do not preset the environment.
+     * the default reverb preset.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     ORIGINAL = 1,
     /**
-     * A preset that represents a reverb with the acoustic characteristics of a KTV environment.
+     * A preset representing a reverberation effect with karaoke_like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     KTV = 2,
     /**
-     * A preset that represents a reverb with the acoustic characteristics of a theatre environment.
+     * A preset representing a reverberation effect with theater_like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     THEATRE = 3,
     /**
-     * A preset that represents a reverb with the acoustic characteristics of a concert environment.
+     * A preset representing a reverberation effect with concert_like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
@@ -11474,13 +11474,13 @@ declare namespace audio {
     /**
      * Configuring the Reverberation Mode.
      *
-     * @param { AudioLoopbackReverbMode } mode - Reverberation Mode configuring.
+     * @param { AudioLoopbackReverbPreset } mode - Reverberation Mode configuring.
      * @returns { boolean } return the result.
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    setReverbMode(mode: AudioLoopbackReverbMode): boolean;
+    setReverbMode(mode: AudioLoopbackReverbPreset): boolean;
 
     /**
      * Configuring the Equalizer Mode.
@@ -11496,11 +11496,11 @@ declare namespace audio {
     /**
      * Get the current Reverberation Mode.
      *
-     * @returns { AudioLoopbackReverbMode  } return current Reverberation Mode.
+     * @returns { AudioLoopbackReverbPreset  } return current Reverberation Mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    getReverbMode(): AudioLoopbackReverbMode;
+    getReverbMode(): AudioLoopbackReverbPreset;
 
     /**
      * Get the current Equalizer Mode.
