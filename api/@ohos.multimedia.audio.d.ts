@@ -470,25 +470,25 @@ declare namespace audio {
    */
   enum AudioLoopbackReverbMode {
     /**
-     * Default reverberation mode
+     * Default reverberation mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     ORIGINAL = 1,
     /**
-     * Karaoke reverberation mode
+     * Karaoke reverberation mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     KTV = 2,
     /**
-     * Theatre reverberation mode
+     * Theatre reverberation mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     THEATRE = 3,
     /**
-     * concert reverberation mode
+     * concert reverberation mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
@@ -503,19 +503,19 @@ declare namespace audio {
    */
   enum AudioLoopbackEqualizerMode {
     /**
-     * Default equalizer mode
+     * Default equalizer mode.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     DEFAULT = 1,
     /**
-     * Full equalizer mode
+     * Full equalizer mode. Can make the voice fuller
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
     FULL = 2,
     /**
-     * Bright equalizer mode
+     * Bright equalizer mode. Can make the voice brighter
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
