@@ -1802,7 +1802,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onReady(callback: VoidCallback | undefined): this;
+    default onReady(callback: VoidCallback | undefined): this;
     /**
      * Called when the content is selected.
      *
@@ -1811,7 +1811,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onSelect(callback: Callback<RichEditorSelection> | undefined): this;
+    default onSelect(callback: Callback<RichEditorSelection> | undefined): this;
     /**
      * Called when selection range or caret position is changed.
      *
@@ -1821,7 +1821,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onSelectionChange(callback: Callback<RichEditorRange> | undefined): this;
+    default onSelectionChange(callback: Callback<RichEditorRange> | undefined): this;
     /**
      * Get text value information when about to input.
      *
@@ -1831,7 +1831,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean> | undefined): this;
+    default aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean> | undefined): this;
     /**
      * Get text value information when completed input.
      *
@@ -1841,7 +1841,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onIMEInputComplete(callback: Callback<RichEditorTextSpanResult> | undefined): this;
+    default onIMEInputComplete(callback: Callback<RichEditorTextSpanResult> | undefined): this;
     /**
      * Called when ime input complete.
      *
@@ -1850,7 +1850,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDidIMEInput(callback: Callback<TextRange> | undefined): this;
+    default onDidIMEInput(callback: Callback<TextRange> | undefined): this;
     /**
      * Get text value information when about to delete.
      *
@@ -1860,7 +1860,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean> | undefined): this;
+    default aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean> | undefined): this;
     /**
      * Notify that the deletion has been completed
      *
@@ -1869,7 +1869,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDeleteComplete(callback: VoidCallback | undefined): this;
+    default onDeleteComplete(callback: VoidCallback | undefined): this;
     /**
      * Allow replication.
      *
@@ -1878,7 +1878,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    copyOptions(value: CopyOptions | undefined): this;
+    default copyOptions(value: CopyOptions | undefined): this;
     /**
      * Bind to the selection menu.
      *
@@ -1891,7 +1891,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    bindSelectionMenu(spanType: RichEditorSpanType | undefined, content: CustomBuilder | undefined,
+    default bindSelectionMenu(spanType: RichEditorSpanType | undefined, content: CustomBuilder | undefined,
         responseType: ResponseType | RichEditorResponseType | undefined,
         options?: SelectionMenuOptions | undefined): this;
     /**
@@ -1903,7 +1903,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
+    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
     /**
      * Defines onPaste callback.
      *
@@ -1912,7 +1912,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onPaste(callback: PasteEventCallback | undefined): this;
+    default onPaste(callback: PasteEventCallback | undefined): this;
     /**
      * Enable data detector.
      *
@@ -1921,7 +1921,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableDataDetector(enable: boolean | undefined): this;
+    default enableDataDetector(enable: boolean | undefined): this;
     /**
      * Enable preview text.
      *
@@ -1930,7 +1930,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enablePreviewText(enable: boolean | undefined): this;
+    default enablePreviewText(enable: boolean | undefined): this;
     /**
      * Data detector with config.
      *
@@ -1939,7 +1939,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    dataDetectorConfig(config: TextDataDetectorConfig | undefined): this;
+    default dataDetectorConfig(config: TextDataDetectorConfig | undefined): this;
     /**
      * Set richEditor placeholder.
      *
@@ -1949,7 +1949,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    placeholder(value: ResourceStr | undefined, style?: PlaceholderStyle | undefined): this;
+    default placeholder(value: ResourceStr | undefined, style?: PlaceholderStyle | undefined): this;
     /**
      * Set caret color of rich editor.
      *
@@ -1958,7 +1958,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    caretColor(value: ResourceColor | undefined): this;
+    default caretColor(value: ResourceColor | undefined): this;
     /**
      * Set background color of selected text in rich editor.
      *
@@ -1967,7 +1967,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedBackgroundColor(value: ResourceColor | undefined): this;
+    default selectedBackgroundColor(value: ResourceColor | undefined): this;
     /**
      * Called when edit status is changed
      *
@@ -1976,7 +1976,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onEditingChange(callback: Callback<boolean> | undefined): this;
+    default onEditingChange(callback: Callback<boolean> | undefined): this;
     /**
      * Set enter key type of soft keyboard.
      *
@@ -1985,7 +1985,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enterKeyType(value: EnterKeyType | undefined): this;
+    default enterKeyType(value: EnterKeyType | undefined): this;
     /**
      * Called when submitted.
      *
@@ -1994,7 +1994,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onSubmit(callback: SubmitCallback | undefined): this;
+    default onSubmit(callback: SubmitCallback | undefined): this;
     /**
      * Called before text changed.
      *
@@ -2004,7 +2004,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onWillChange(callback: Callback<RichEditorChangeValue, boolean> | undefined): this;
+    default onWillChange(callback: Callback<RichEditorChangeValue, boolean> | undefined): this;
     /**
      * Called after text changed.
      *
@@ -2013,7 +2013,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDidChange(callback: OnDidChangeCallback | undefined): this;
+    default onDidChange(callback: OnDidChangeCallback | undefined): this;
     /**
      * Called before the cut event.
      *
@@ -2022,7 +2022,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCut(callback: Callback<CutEvent> | undefined): this;
+    default onCut(callback: Callback<CutEvent> | undefined): this;
     /**
      * Called before the copy event.
      *
@@ -2031,7 +2031,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCopy(callback: Callback<CopyEvent> | undefined): this;
+    default onCopy(callback: Callback<CopyEvent> | undefined): this;
     /**
      * Set the custom text menu.
      *
@@ -2040,7 +2040,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    editMenuOptions(editMenu: EditMenuOptions | undefined): this;
+    default editMenuOptions(editMenu: EditMenuOptions | undefined): this;
     /**
      * Sets whether request keyboard or not when on focus.
      *
@@ -2049,7 +2049,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableKeyboardOnFocus(isEnabled: boolean | undefined): this;
+    default enableKeyboardOnFocus(isEnabled: boolean | undefined): this;
     /**
      * Enable or disable haptic feedback.
      *
@@ -2058,7 +2058,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableHapticFeedback(isEnabled: boolean | undefined): this;
+    default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
      * Define bar state of the RichEditor.
      *
@@ -2067,7 +2067,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    barState(state: BarState | undefined): this;
+    default barState(state: BarState | undefined): this;
     /**
      * Define the max length content of the richEditor.
      *
@@ -2076,7 +2076,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    maxLength(maxLength: number | undefined): this;
+    default maxLength(maxLength: number | undefined): this;
     /**
      * Define max lines of the richEditor.
      *
@@ -2085,7 +2085,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    maxLines(maxLines: number | undefined): this;
+    default maxLines(maxLines: number | undefined): this;
     /**
      * Set the keyboard appearance.
      *
@@ -2094,7 +2094,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
+    default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
     /**
      * Set whether stop backPressed callback event or not.
      *
@@ -2103,7 +2103,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stopBackPress(isStopped: boolean | undefined): this;
+    default stopBackPress(isStopped: boolean | undefined): this;
     /**
      * Sets the attribute modifier.
      *
@@ -2112,7 +2112,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */    
-    attributeModifier(modifier: AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> |
+    default attributeModifier(modifier: AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> |
         undefined): this;
 }
 /**
