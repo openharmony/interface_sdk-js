@@ -35,8 +35,7 @@ import Context from './application/Context';
  * @namespace settings
  * @syscap SystemCapability.Applications.Settings.Core
  * @atomicservice
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare namespace settings {
 
@@ -45,8 +44,7 @@ declare namespace settings {
    *
    * @namespace domainName
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   namespace domainName {
     /**
@@ -56,8 +54,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     const DEVICE_SHARED: string;
 
@@ -68,8 +65,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     const USER_PROPERTY: string;
 
@@ -91,8 +87,7 @@ declare namespace settings {
    *
    * @namespace date
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace date {
 
@@ -103,8 +98,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DATE_FORMAT: string
 
@@ -116,8 +110,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const TIME_FORMAT: string
 
@@ -130,8 +123,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_GAIN_TIME: string
 
@@ -143,8 +135,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_GAIN_TIME_ZONE: string
   }
@@ -155,8 +146,7 @@ declare namespace settings {
    *
    * @namespace display
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace display {
     /**
@@ -164,8 +154,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const FONT_SCALE: string
 
@@ -174,8 +163,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SCREEN_BRIGHTNESS_STATUS: string
 
@@ -187,8 +175,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_SCREEN_BRIGHTNESS: string
 
@@ -197,8 +184,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_SCREEN_BRIGHTNESS_MODE: number
 
@@ -207,8 +193,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const MANUAL_SCREEN_BRIGHTNESS_MODE: number
 
@@ -218,8 +203,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SCREEN_OFF_TIMEOUT: string
 
@@ -238,8 +222,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_SCREEN_ROTATION: string
 
@@ -251,8 +234,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ANIMATOR_DURATION_SCALE: string
 
@@ -262,8 +244,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const TRANSITION_ANIMATION_SCALE: string
 
@@ -273,8 +254,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WINDOW_ANIMATION_SCALE: string
 
@@ -286,8 +266,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DISPLAY_INVERSION_STATUS: string
   }
@@ -298,8 +277,7 @@ declare namespace settings {
    *
    * @namespace general
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace general {
     /**
@@ -310,8 +288,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SETUP_WIZARD_FINISHED: string
 
@@ -328,8 +305,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const END_BUTTON_ACTION: string
 
@@ -342,8 +318,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ACCELEROMETER_ROTATION_STATUS: string
 
@@ -354,8 +329,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AIRPLANE_MODE_STATUS: string
 
@@ -367,8 +341,7 @@ declare namespace settings {
      * the screen lock.
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEVICE_PROVISION_STATUS: string
 
@@ -379,8 +352,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const HDC_STATUS: string
 
@@ -389,8 +361,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const BOOT_COUNTING: string
 
@@ -402,8 +373,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const CONTACT_METADATA_SYNC_STATUS: string
 
@@ -415,8 +385,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEVELOPMENT_SETTINGS_STATUS: string
 
@@ -425,8 +394,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEVICE_NAME: string
 
@@ -438,8 +406,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const USB_STORAGE_STATUS: string
 
@@ -451,8 +418,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEBUGGER_WAITING: string
 
@@ -461,8 +427,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEBUG_APP_PACKAGE: string
 
@@ -474,8 +439,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ACCESSIBILITY_STATUS: string
 
@@ -484,8 +448,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ACTIVATED_ACCESSIBILITY_SERVICES: string
 
@@ -495,8 +458,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const GEOLOCATION_ORIGINS_ALLOWED: string
 
@@ -509,8 +471,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SKIP_USE_HINTS: string
 
@@ -522,8 +483,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const TOUCH_EXPLORATION_STATUS: string
   }
@@ -534,8 +494,7 @@ declare namespace settings {
    *
    * @namespace input
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace input {
     /**
@@ -543,8 +502,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_INPUT_METHOD: string
 
@@ -553,8 +511,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ACTIVATED_INPUT_METHOD_SUB_MODE: string
 
@@ -568,8 +525,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ACTIVATED_INPUT_METHODS: string
 
@@ -581,8 +537,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SELECTOR_VISIBILITY_FOR_INPUT_METHOD: string
 
@@ -594,8 +549,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_CAPS_TEXT_INPUT: string
 
@@ -608,8 +562,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_PUNCTUATE_TEXT_INPUT: string
 
@@ -621,8 +574,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AUTO_REPLACE_TEXT_INPUT: string
 
@@ -635,8 +587,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SHOW_PASSWORD_TEXT_INPUT: string
   }
@@ -647,8 +598,7 @@ declare namespace settings {
    *
    * @namespace network
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace network {
     /**
@@ -659,8 +609,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DATA_ROAMING_STATUS: string
 
@@ -670,8 +619,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const HTTP_PROXY_CFG: string
 
@@ -680,8 +628,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const NETWORK_PREFERENCE_USAGE: string
   }
@@ -691,8 +638,7 @@ declare namespace settings {
    *
    * @namespace phone
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace phone {
     /**
@@ -702,8 +648,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const RTT_CALLING_STATUS: string
   }
@@ -714,8 +659,7 @@ declare namespace settings {
    *
    * @namespace sound
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace sound {
     /**
@@ -727,8 +671,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const VIBRATE_WHILE_RINGING: string
 
@@ -739,8 +682,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_ALARM_ALERT: string
 
@@ -752,8 +694,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DTMF_TONE_TYPE_WHILE_DIALING: string
 
@@ -765,8 +706,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DTMF_TONE_WHILE_DIALING: string
 
@@ -778,8 +718,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AFFECTED_MODE_RINGER_STREAMS: string
 
@@ -790,8 +729,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AFFECTED_MUTE_STREAMS: string
 
@@ -802,8 +740,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_NOTIFICATION_SOUND: string
 
@@ -814,8 +751,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_RINGTONE: string
 
@@ -827,8 +763,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const SOUND_EFFECTS_STATUS: string
 
@@ -840,8 +775,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const VIBRATE_STATUS: string
 
@@ -852,8 +786,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const HAPTIC_FEEDBACK_STATUS: string
   }
@@ -864,8 +797,7 @@ declare namespace settings {
    *
    * @namespace TTS
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace TTS {
     /**
@@ -875,8 +807,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_TTS_PITCH: string
 
@@ -885,8 +816,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_TTS_RATE: string
 
@@ -895,8 +825,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const DEFAULT_TTS_SYNTH: string
 
@@ -906,8 +835,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const ENABLED_TTS_PLUGINS: string
   }
@@ -918,8 +846,7 @@ declare namespace settings {
    *
    * @namespace wireless
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   namespace wireless {
     /**
@@ -931,8 +858,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
 
@@ -943,8 +869,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const BLUETOOTH_DISCOVER_TIMEOUT: string
 
@@ -961,8 +886,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const AIRPLANE_MODE_RADIOS: string
 
@@ -973,8 +897,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const BLUETOOTH_STATUS: string
 
@@ -983,8 +906,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const BLUETOOTH_RADIO: string
 
@@ -993,8 +915,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const CELL_RADIO: string
 
@@ -1003,8 +924,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const NFC_RADIO: string
 
@@ -1013,8 +933,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WIFI_RADIO: string
 
@@ -1027,8 +946,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const OWNER_LOCKDOWN_WIFI_CFG: string
 
@@ -1037,8 +955,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WIFI_DHCP_MAX_RETRY_COUNT: string
 
@@ -1048,8 +965,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WIFI_TO_MOBILE_DATA_AWAKE_TIMEOUT: string
 
@@ -1060,8 +976,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WIFI_STATUS: string
 
@@ -1073,8 +988,7 @@ declare namespace settings {
      *
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     const WIFI_WATCHDOG_STATUS: string
   }
@@ -1143,8 +1057,7 @@ declare namespace settings {
    * @param { AsyncCallback<string> } [callback] - The callback of getValue result.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getValue(context: Context, name: string, callback: AsyncCallback<string>): void;
 
@@ -1157,8 +1070,7 @@ declare namespace settings {
    * null} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getValue(context: Context, name: string): Promise<string>;
 
@@ -1173,8 +1085,7 @@ declare namespace settings {
    * null} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getValue(context: Context, name: string, domainName: string): Promise<string>;
 
@@ -1222,8 +1133,7 @@ declare namespace settings {
    * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setValue(context: Context, name: string, value: string, callback: AsyncCallback<boolean>): void;
 
@@ -1237,8 +1147,7 @@ declare namespace settings {
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setValue(context: Context, name: string, value: string): Promise<boolean>;
 
@@ -1256,8 +1165,7 @@ declare namespace settings {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function setValue(context: Context, name: string, value: string, domainName: string): Promise<boolean>;
 
@@ -1268,8 +1176,7 @@ declare namespace settings {
    * airplane mode, and {@code false} means to disable airplane mode.
    * @param { AsyncCallback<void> } [callback] - The callback of enableAirplaneMode result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1280,8 +1187,7 @@ declare namespace settings {
    * airplane mode, and {@code false} means to disable airplane mode.
    * @returns { Promise<void> } - Return Promise.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function enableAirplaneMode(enable: boolean): Promise<void>;
 
@@ -1290,8 +1196,7 @@ declare namespace settings {
    *
    * @param { AsyncCallback<boolean> } [callback] - The callback of canShowFloating result.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
 
@@ -1301,8 +1206,7 @@ declare namespace settings {
    * @returns { Promise<boolean> } Returns {@code true} if the application can draw over other applications; returns
    * {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7
    */
   function canShowFloating(): Promise<boolean>;
 
@@ -1312,8 +1216,7 @@ declare namespace settings {
    * @param { string } name - Indicates the name of the setting to set.
    * @returns { string } Returns settingsdata uri.
    * @syscap SystemCapability.Applications.Settings.Core
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function getUriSync(name: string): string;
 
@@ -1341,8 +1244,7 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getValueSync(context: Context, name: string, defValue: string): string;
 
@@ -1357,8 +1259,7 @@ declare namespace settings {
    * @returns { string } Returns settingsdata value.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getValueSync(context: Context, name: string, defValue: string, domainName: string): string;
 
@@ -1388,8 +1289,7 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function setValueSync(context: Context, name: string, value: string): boolean;
 
@@ -1407,8 +1307,7 @@ declare namespace settings {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function setValueSync(context: Context, name: string, value: string, domainName: string): boolean;
 
@@ -1423,8 +1322,7 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function registerKeyObserver(context: Context, name: string, domainName: string, observer: AsyncCallback<void>): boolean;
 
@@ -1438,8 +1336,7 @@ declare namespace settings {
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
    * @syscap SystemCapability.Applications.Settings.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function unregisterKeyObserver(context: Context, name: string, domainName: string): boolean;
 
@@ -1451,8 +1348,7 @@ declare namespace settings {
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   function openNetworkManagerSettings(context: Context): Promise<boolean>;
 }
