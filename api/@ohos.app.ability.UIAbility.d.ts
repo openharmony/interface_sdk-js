@@ -27,103 +27,41 @@ import rpc from './@ohos.rpc';
 
 /**
  * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-export interface OnReleaseCallback {
-/**
- * Defines the callback that is invoked when the stub on the target UIAbility is disconnected.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (msg: string): void;
-}
-
-/**
- * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRelease.
  *
- * @typedef OnReleaseCallback
+ * @typedef { function } OnReleaseCallback
  * @param { string } msg - The notification event string listened to by the OnRelease.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type OnReleaseCallback = (msg: string) => void;
-
-
-/**
- * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnRemoteStateChangeCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 10
- */
-export interface OnRemoteStateChangeCallback {
-/**
- * Defines the callback that is invoked when the remote UIAbility state changes in the collaboration scenario.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 10
- */
-  (msg: string): void;
-}
 
 /**
  * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRemoteStateChange.
  *
- * @typedef OnRemoteStateChangeCallback
+ * @typedef { function } OnRemoteStateChangeCallback
  * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type OnRemoteStateChangeCallback = (msg: string) => void;
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of Callee.
  *
- * @typedef CalleeCallback
+ * @typedef { function } CalleeCallback
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
- */
-export interface CalleeCallback {
-/**
- * Defines the callback of the registration message notification of the UIAbility.
- *
- * @param { rpc.MessageSequence } indata - Data to be transferred.
- * @returns { rpc.Parcelable } Returned data object.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (indata: rpc.MessageSequence): rpc.Parcelable;
-}
-
-/**
- * The prototype of the message listener function interface registered by the Callee.
- * Defines the callback of the registration message notification of the UIAbility.
- *
- * @typedef CalleeCallback
- * @param { rpc.MessageSequence } indata - Data to be transferred.
- * @returns { rpc.Parcelable } Returned data object.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
