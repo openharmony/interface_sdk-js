@@ -876,6 +876,16 @@ declare namespace hidebug {
   type GcStats = Record<string, number>;
 
   /**
+   * Obtains the memory usage of ArkTS objects in the virtual machine.
+   *
+   * @returns { bigint } Returns the memory usage of ArkTS objects.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 21
+   * @arkts 1.1
+   */
+  function getAppVMObjectUsed(): bigint;
+
+  /**
    * Obtains all system GC statistics.
    *
    * @returns { GcStats } Returns the system GC statistics.
