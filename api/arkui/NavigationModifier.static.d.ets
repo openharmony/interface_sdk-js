@@ -28,6 +28,7 @@ import { NavigationAttribute } from './component/navigation';
  * @implements { NavigationAttribute, AttributeModifier<NavigationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class NavigationModifier implements NavigationAttribute, AttributeModifier<NavigationAttribute> {
   /**

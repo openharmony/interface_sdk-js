@@ -9754,6 +9754,7 @@ export declare interface NestedScrollOptions {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare interface MenuElement {
     /**
