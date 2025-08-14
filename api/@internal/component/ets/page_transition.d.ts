@@ -541,20 +541,20 @@ declare class CommonTransition {
  */
 declare interface PageTransitionOptions {
   /**
-   * RouteType in which the pageTransition can work.
+   * RouteType in which the pageTransition can work. default value is RouteType.None.
    * @type { ?RouteType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * RouteType in which the pageTransition can work.
+   * RouteType in which the pageTransition can work. default value is RouteType.None.
    * @type { ?RouteType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * RouteType in which the pageTransition can work.
+   * RouteType in which the pageTransition can work. default value is RouteType.None.
    * @type { ?RouteType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -564,20 +564,20 @@ declare interface PageTransitionOptions {
    */
   type?: RouteType;
   /**
-   * PageTransition animation duration, in ms.
+   * PageTransition animation duration, in ms. default value is 1000.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * PageTransition animation duration, in ms.
+   * PageTransition animation duration, in ms. default value is 1000.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * PageTransition animation duration, in ms.
+   * PageTransition animation duration, in ms. default value is 1000.
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -613,14 +613,14 @@ declare interface PageTransitionOptions {
    */
   curve?: Curve | string | ICurve;
   /**
-   * PageTransition animation delay time, in ms.
+   * PageTransition animation delay time, in ms. default value is 0.
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * PageTransition animation delay time, in ms.
+   * PageTransition animation delay time, in ms. default value is 0.
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -628,7 +628,7 @@ declare interface PageTransitionOptions {
    * @since 10
    */
   /**
-   * PageTransition animation delay time, in ms.
+   * PageTransition animation delay time, in ms. default value is 0.
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
