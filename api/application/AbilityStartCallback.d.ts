@@ -21,6 +21,7 @@
 /*** if arkts 1.1 */
 import type { AbilityResult } from '../ability/abilityResult';
 /*** endif */
+import { CompletionHandlerForAbilityStartCallback } from '../@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 
 /**
  * The callback of UIAbility or UIExtensionAbility.
@@ -44,7 +45,7 @@ export default class AbilityStartCallback {
    * @since 11
    */
   onError(code: number, name: string, message: string): void;
-  
+
   /**
    * Called when UIExtensionAbility terminate with result.
    *
@@ -55,4 +56,16 @@ export default class AbilityStartCallback {
    * @since 12
    */
   onResult?(parameter: AbilityResult): void;
+
+  /**
+   * The completion handler of startAbilityByType.
+   *
+   * @type { ?CompletionHandlerForAbilityStartCallback }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  completionHandler?: CompletionHandlerForAbilityStartCallback;
 }
