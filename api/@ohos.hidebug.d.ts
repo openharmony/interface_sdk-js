@@ -988,7 +988,7 @@ declare namespace hidebug {
   /**
    * Obtains the size of the GPU memory summary. This API uses a promise to return the result.
    *
-   * @param { number } [interval] If the cache of graphics memory is older than interval (unit: second), than the latest
+   * @param { number } [interval] If the cache of graphics memory is older than interval (unit: second), the latest
    *     graphics memory data will be obtained. The interval value range is 2 seconds to
    *     3600 seconds, If interval is an invalid value, the default value is 300 seconds.
    * @returns { Promise<GraphicsMemorySummary> } Returns the size of the GPU memory summary, in KB.
