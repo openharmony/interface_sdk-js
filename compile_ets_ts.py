@@ -120,7 +120,6 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
     tool_path = os.path.join(tool_dir, "build-tools/driver/build-system/dist/entry.js")
-    json_path = Path(config_json_path).resolve()
     node_path = os.path.abspath(node_path)
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
@@ -129,14 +128,13 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
         interop_path_bridge = os.path.join(out_interop_path, "ets1.2interop/bridge")
         os.makedirs(interop_path_declaration, exist_ok=True)
         os.makedirs(interop_path_bridge, exist_ok=True)
-        cmd = [node_path, tool_path, json_path]
+        cmd = [node_path, tool_path, config_json_path]
         result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
             f.write("=== Output from interop1.2 tool ===\n")
             f.write(result.stdout)
         print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
-        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
     except Exception as e:
