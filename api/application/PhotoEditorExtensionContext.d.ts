@@ -28,9 +28,10 @@ import image from '../@ohos.multimedia.image';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class PhotoEditorExtensionContext extends ExtensionContext {
+declare class PhotoEditorExtensionContext extends ExtensionContext {
     /**
      * Save image data by uri.
      *
@@ -42,7 +43,8 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600002 - Image input error.
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     saveEditedContentWithUri(uri: string): Promise<AbilityResult>;
 
@@ -58,7 +60,10 @@ export default class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600002 - Image input error.
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>;
 }
+
+export default PhotoEditorExtensionContext;
