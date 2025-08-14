@@ -1158,6 +1158,7 @@ declare interface WebMediaOptions {
    * Whether the audio of multiple Web instances in an application is exclusive.
    *
    * @type { ?boolean }
+   *    {@code true} means audio exclusivity for multiple web instances within the application, {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
@@ -4701,7 +4702,7 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Sets the event consumption result.
    *
    * @param { boolean } result -  Whether to consume the gesture event.
    *    {@code true} Indicates the consumption of the gesture event.
@@ -8227,6 +8228,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
+   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
@@ -10197,7 +10199,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
    *   which can affect the user experience.
    * - Waterfall web pages are not supported (drop down to the bottom to load more).
-   * - Only height adaptation is supported(VH units are not supported). Width adaptation is not supported.
+   * - Only height adaptation is supported. Width adaptation is not supported.
    * - Because the height is adaptive to the web page height,
    *   the component height cannot be changed by modifying the component height attribute.
    * </p>
