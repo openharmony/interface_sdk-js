@@ -565,6 +565,7 @@ declare class Context extends BaseContext {
    * Obtains the context of this application.
    *
    * @returns { ApplicationContext } Application context obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform

@@ -375,15 +375,6 @@ declare namespace wantConstant {
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
 
     /**
-    * Indicates the dest ability refers to a plugin ability.
-    *
-    * @syscap SystemCapability.Ability.AbilityBase
-    * @since arkts {'1.1':'19', '1.2':'20'}
-    * @arkts 1.1&1.2
-    */
-    DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
-
-    /**
     * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
     *
     * @syscap SystemCapability.Ability.AbilityBase
@@ -392,6 +383,15 @@ declare namespace wantConstant {
     * @arkts 1.1&1.2
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
+
+    /**
+    * Indicates the dest ability refers to a plugin ability.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since arkts {'1.1':'19', '1.2':'20'}
+    * @arkts 1.1&1.2
+    */
+    DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
     /**
     * Indicates the unified data key used to share file uri.
@@ -404,13 +404,13 @@ declare namespace wantConstant {
 
     /**
     * Indicates the key of the page route upon sharing atomic service.
-    *
+    * 
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
     * @since 20
     * @arkts 1.1&1.2
     */
-    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter',
+    ATOMIC_SERVICE_SHARE_ROUTER = 'ohos.params.atomicservice.shareRouter'
   }
 
   /**
