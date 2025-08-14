@@ -166,46 +166,46 @@ declare namespace screenshot {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left: number;
+    left: long;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top: number;
+    top: long;
 
     /**
      * Width of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
     /**
      * Height of the rectangle.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
   }
 
   /**
@@ -221,24 +221,24 @@ declare namespace screenshot {
     /**
      * Defines the width property.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'7', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
     /**
      * Defines the height property.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'7', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
   }
 
   /**
@@ -253,12 +253,12 @@ declare namespace screenshot {
     /**
      * ID of the screen to be captured.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 14
      */
-    displayId?: number;
+    displayId?: long;
   }
 
   /**
@@ -294,23 +294,23 @@ declare namespace screenshot {
     /**
      * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'7', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rotation?: number;
+    rotation?: int;
     /**
      * ID of the screen to be captured.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
     /**
      * The capture action is need notification.
      *
