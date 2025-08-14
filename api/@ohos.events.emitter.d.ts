@@ -977,7 +977,6 @@ declare namespace emitter {
      * @type { ?(T | ESObject) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */
