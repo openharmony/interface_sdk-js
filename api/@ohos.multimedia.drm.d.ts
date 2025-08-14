@@ -2043,7 +2043,7 @@ declare namespace drm {
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
