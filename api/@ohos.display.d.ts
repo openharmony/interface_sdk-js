@@ -2138,6 +2138,7 @@ declare namespace display {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     yDPI: number;
 
