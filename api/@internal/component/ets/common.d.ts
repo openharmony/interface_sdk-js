@@ -27558,19 +27558,6 @@ declare class CommonMethod<T> {
   align(alignment: Alignment | LocalizedAlignment): T;
 
   /**
-   * Defines the align rules of child component in Stack container.
-   *
-   * @param { LocalizedAlignment } alignment
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  layoutGravity(alignment: LocalizedAlignment): T;
-
-  /**
    * position
    *
    * @param { Position } value
