@@ -21,7 +21,7 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
 /**
  * Enumerates the form card types.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 20
  */
@@ -82,22 +82,22 @@ declare struct ContentFormCard {
   /**
    * Width of the form card.
    *
-   * @type { ?double }
+   * @type { ?number }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
    */
   @Prop
-  formWidth?: double;
+  formWidth?: number;
 
   /**
    * Height of the form card.
    *
-   * @type { ?double }
+   * @type { ?number }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 20
    */
   @Prop
-  formHeight?: double;
+  formHeight?: number;
 
   /**
    * Callback to be invoked when the form card is tapped.
