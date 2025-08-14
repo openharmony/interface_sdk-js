@@ -881,7 +881,6 @@ declare namespace hidebug {
    * @returns { bigint } Returns the memory usage of ArkTS objects.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 21
-   * @arkts 1.1
    */
   function getAppVMObjectUsed(): bigint;
 
