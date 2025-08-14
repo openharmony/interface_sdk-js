@@ -29,16 +29,18 @@ import type Want from './@ohos.app.ability.Want';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class PhotoEditorExtensionAbility extends ExtensionAbility {
+declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      /**
       * Indicates configuration information about an Photo editor extension ability context.
       *
       * @type { PhotoEditorExtensionContext }
       * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
       * @StageModelOnly
-      * @since 12
+      * @since arkts {'1.1':'12', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     context: PhotoEditorExtensionContext;
 
@@ -47,7 +49,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onCreate(): void;
 
@@ -56,7 +59,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onForeground(): void;
 
@@ -65,7 +69,8 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onBackground(): void;
 
@@ -80,6 +85,28 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
     onDestroy(): void | Promise<void>;
 
     /**
+     * Called back before an UI extension is destroyed.
+     *
+     * @returns { void } the promise returned by the function.
+     * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+     * @StageModelOnly
+     * @since 20
+     * @arkts 1.2
+     */
+    onDestroy(): void;
+
+    /**
+     * Called back before an UI extension is destroyed.
+     *
+     * @returns { Promise<void> } the promise returned by the function.
+     * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+     * @StageModelOnly
+     * @since 20
+     * @arkts 1.2
+     */
+    onDestroyAsync(): Promise<void>;
+
+    /**
      * Called back when an UI extension session is created and original image is ready.
      *
      * @param { string } uri - Indicates the uri info of the original image.
@@ -87,7 +114,10 @@ export default class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void;
 }
+
+export default PhotoEditorExtensionAbility;
