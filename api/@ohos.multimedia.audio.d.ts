@@ -4518,14 +4518,15 @@ declare namespace audio {
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
 
     /**
-     * Checks whether the system recording supports intelligent noise reduction
+     * Checks whether the system recording supports ANR for current device
      * @param { SourceType } sourceType Type of audio source.
-     * @returns { boolean } Check result. The value <b>true</b> means that the system recording supports intelligent noise reduction, and <b>false</b> means the opposite.
+     * @returns { boolean } Check result. The value <b>true</b> means that the system recording supports ANR for current device,
+     *          and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
-    isEnableIntelligentNoiseReduction(sourceType: SourceType): boolean;
+    isCurrentDeviceEnableAnr(sourceType: SourceType): boolean;
   }
 
   /**
