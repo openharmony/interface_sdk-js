@@ -66,6 +66,11 @@ import { ToggleAttribute, ToggleOptions } from './component/toggle';
 import { CheckboxGroupAttribute, CheckboxGroupOptions } from './component/checkboxgroup';
 import { RatingAttribute, RatingOptions } from './component/rating';
 import { XComponentAttribute, XComponentController, XComponentOptions, XComponentParameters, NativeXComponentParameters } from './component/xcomponent';
+import image from '../@ohos.multimedia.image';
+import { ImageAIOptions } from './component/imageCommon';
+import { ResourceStr } from './component/units';
+import { LoadingProgressAttribute } from './component/loadingProgress';
+
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -772,7 +777,14 @@ export declare namespace typeNode {
     createBlankNode,
     createXComponentNodeDefault,
     createXComponentNodeWithOptions,
-    createXComponentNodeWithNativeParameters
+    createXComponentNodeWithNativeParameters,
+    createImageNode,
+    createQRCodeNode,
+    createTextTimerNode,
+    createTextClockNode,
+    createLoadingProgressNode,
+    createProgressNode,
+    createBadgeNode,
   }
 
   /**
@@ -1085,6 +1097,44 @@ export declare namespace typeNode {
    */
   export function createDividerNode(context: UIContext, nodeType: 'Divider'): Divider;
 
+/**
+   * Define the LoadingProgress type of FrameNode.
+   *
+   * @extends TypedFrameNode<LoadingProgressAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class LoadingProgressFrameNode extends TypedFrameNode<LoadingProgressAttribute> {  
+    /**
+     * Initialize LoadingProgress FrameNode.
+     *
+     * @returns { LoadingProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(): LoadingProgressAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for LoadingProgress.
+   *
+   * @typedef { LoadingProgressFrameNode } LoadingProgress
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type LoadingProgress = LoadingProgressFrameNode;
+
+  /**
+   * Create a FrameNode of LoadingProgress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'LoadingProgress' } nodeType - node type.
+   * @returns { LoadingProgress } - Return LoadingProgress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createLoadingProgressNode(context: UIContext, nodeType: 'LoadingProgress'): LoadingProgress;
+
   /**
    * Define the Blank type of FrameNode.
    *
@@ -1123,6 +1173,66 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createBlankNode(context: UIContext, nodeType: 'Blank'): Blank;
+
+  /**
+   * Define the Image type of FrameNode.
+   *
+   * @extends TypedFrameNode<ImageAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ImageFrameNode extends TypedFrameNode<ImageAttribute> {  
+    /**
+     * Initialize Image FrameNode.
+     *
+     * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor): ImageAttribute;
+    
+    /**
+     * Initialize Image FrameNode.
+     *
+     * @param { image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor | ImageContent): ImageAttribute;
+    
+    /**
+     * Initialize Image FrameNode.
+     *
+     * @param { image.PixelMap | ResourceStr | DrawableDescriptor } src
+     * @param { ImageAIOptions } value
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(src: image.PixelMap | ResourceStr | DrawableDescriptor, value: ImageAIOptions): ImageAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Image.
+   *
+   * @typedef { ImageFrameNode } Image
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Image = ImageFrameNode;
+
+  /**
+   * Create a FrameNode of Image type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Image' } nodeType - node type.
+   * @returns { Image } - Return Image type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createImageNode(context: UIContext, nodeType: 'Image'): Image;
 
   /**
    * Define the List type of FrameNode.
@@ -1242,6 +1352,45 @@ export declare namespace typeNode {
   export function createListItemGroupNode(context: UIContext, nodeType: 'ListItemGroup'): ListItemGroup;
 
   /**
+   * Define the Progress type of FrameNode.
+   *
+   * @extends TypedFrameNode<ProgressAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ProgressFrameNode extends TypedFrameNode<ProgressAttribute> {  
+    /**
+     * Initialize Progress FrameNode.
+     *
+     * @param { ProgressOptions } value
+     * @returns { ProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: ProgressOptions): ProgressAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Progress.
+   *
+   * @typedef { ProgressFrameNode } Progress
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Progress = ProgressFrameNode;
+
+  /**
+   * Create a FrameNode of Progress type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Progress' } nodeType - node type.
+   * @returns { Progress } - Return Progress type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createProgressNode(context: UIContext, nodeType: 'Progress'): Progress;
+
+  /**
    * Define the Scroll type of FrameNode.
    *
    * @extends TypedFrameNode<ScrollAttribute>
@@ -1279,6 +1428,84 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createScrollNode(context: UIContext, nodeType: 'Scroll'): Scroll;
+
+  /**
+   * Define the TextClock type of FrameNode.
+   *
+   * @extends TypedFrameNode<TextClockAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class TextClockFrameNode extends TypedFrameNode<TextClockAttribute> {  
+    /**
+     * Initialize TextClock FrameNode.
+     *
+     * @param { TextClockOptions } [options]
+     * @returns { TextClockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: TextClockOptions): TextClockAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for TextClock.
+   *
+   * @typedef { TextClockFrameNode } TextClock
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type TextClock = TextClockFrameNode;
+
+  /**
+   * Create a FrameNode of TextClock type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextClock' } nodeType - node type.
+   * @returns { TextClock } - Return TextClock type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createTextClockNode(context: UIContext, nodeType: 'TextClock'): TextClock;
+
+  /**
+   * Define the TextTimer type of FrameNode.
+   *
+   * @extends TypedFrameNode<TextTimerAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class TextTimerFrameNode extends TypedFrameNode<TextTimerAttribute> {  
+    /**
+     * Initialize TextTimer FrameNode.
+     *
+     * @param { TextTimerOptions } [options]
+     * @returns { TextTimerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: TextTimerOptions): TextTimerAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for TextTimer.
+   *
+   * @typedef { TextTimerFrameNode } TextTimer
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type TextTimer = TextTimerFrameNode;
+
+  /**
+   * Create a FrameNode of TextTimer type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'TextTimer' } nodeType - node type.
+   * @returns { TextTimer } - Return TextTimer type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createTextTimerNode(context: UIContext, nodeType: 'TextTimer'): TextTimer;
 
   /**
    * Define the Grid type of FrameNode.
@@ -1631,6 +1858,94 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createSymbolGlyphNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph;
+
+/**
+   * Define the QRCode type of FrameNode.
+   *
+   * @extends TypedFrameNode<QRCodeAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class QRCodeFrameNode extends TypedFrameNode<QRCodeAttribute> {  
+    /**
+     * Initialize QRCode FrameNode.
+     *
+     * @param { string } value
+     * @returns { QRCodeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: string): QRCodeAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for QRCode.
+   *
+   * @typedef { QRCodeFrameNode } QRCode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type QRCode = QRCodeFrameNode;
+
+  /**
+   * Create a FrameNode of QRCode type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'QRCode' } nodeType - node type.
+   * @returns { QRCode } - Return QRCode type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createQRCodeNode(context: UIContext, nodeType: 'QRCode'): QRCode;
+
+/**
+   * Define the Badge type of FrameNode.
+   *
+   * @extends TypedFrameNode<BadgeAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class BadgeFrameNode extends TypedFrameNode<BadgeAttribute> {  
+    /**
+     * Initialize Badge FrameNode.
+     *
+     * @param { BadgeParamWithNumber } value
+     * @returns { BadgeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: BadgeParamWithNumber): BadgeAttribute;
+    
+    /**
+     * Initialize Badge FrameNode.
+     *
+     * @param { BadgeParamWithString } value
+     * @returns { BadgeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(value: BadgeParamWithString): BadgeAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Badge.
+   *
+   * @typedef { BadgeFrameNode } Badge
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Badge = BadgeFrameNode;
+
+  /**
+   * Create a FrameNode of Badge type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Badge' } nodeType - node type.
+   * @returns { Badge } - Return Badge type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createBadgeNode(context: UIContext, nodeType: 'Badge'): Badge;
 
   /**
    * Define the Marquee type of FrameNode.
