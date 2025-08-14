@@ -831,7 +831,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * use the Text component's TextOverflow.MARQUEE as a substitute.
  * <br>The text is scrolled only when its width exceeds the width of the Marquee component.
  * </p>
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form

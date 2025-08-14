@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common'
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions } from './common'
 import { ResourceColor, Offset, VoidCallback } from './units'
 import { DialogAlignment } from './alertDialog'
 import { CrownSensitivity } from './enums'
@@ -300,29 +300,13 @@ declare interface DatePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected?: Date;
-  
-  /**
-   * Specifies the date selector check date or time selector check time.
-   *
-   * @type { ?(Date | Bindable<Date>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selected?: Date | Bindable<Date>;
 
   /**
-   * Date columns to be displayed.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>In DatePickerDialog, with showTime=true, this parameter has no effect and the default three columns for year,
-   * <br>month, and day are displayed.
-   * </p>
+   * Defines the mode of the date picker.
    *
    * @type { ?DatePickerMode }
    * @default DatePickerMode.DATE - which means to display three columns: year, month, and day.
@@ -560,7 +544,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * Sets the text style for the selected item.
    *
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
+   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20fp', <br>weight: FontWeight.Medium<br>}<br>}
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -575,7 +559,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * this API supports the undefined type for the style parameter.
    *
    * @param { Optional<PickerTextStyle> } style - Font color, font size, and font weight of the selected item.
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
+   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20fp', <br>weight: FontWeight.Medium<br>}<br>}
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -672,7 +656,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    */
   enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
 
-  /**
+/**
    * Can scroll loop if true is set, on the contrary it can not.
    *
    * @param { Optional<boolean> } isLoop
@@ -805,7 +789,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
   /**
    * Whether to display the lunar calendar switch.
    * The value true means to display the lunar calendar switch, and false means the opposite.
-   *
+   * 
    * @type { ?boolean } value - indicates whether to show the switch to display the lunar.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -821,7 +805,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * 
    * @type { ?LunarSwitchStyle }
    * @default { selectedColor: $r('sys.color.ohos_id_color_text_primary_actived'),
-   * <br>unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
+   *    unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -846,7 +830,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * <br>With showTime=true, the mode parameter has no effect and the default three columns for year,
    * <br>month, and day are displayed.
    * </p>
-   * 
+   *
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -973,7 +957,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * Font color, font size, and font width of the selected item.
    *
    * @type { ?PickerTextStyle }
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}
+   * @default { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

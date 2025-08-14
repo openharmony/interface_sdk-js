@@ -826,7 +826,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @arkts 1.1&1.2
    */
   title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource,
-        options?: NavigationTitleOptions): NavDestinationAttribute;
+    options?: NavigationTitleOptions): NavDestinationAttribute;
 
   /**
    * Hide navigation title bar
@@ -966,19 +966,6 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
   onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute;
 
   /**
-   * Invoked when pop to the navDestination with result.
-   * 
-   * @param {Optional<Callback<Object | null | undefined>>} callback - Indicates callback when pop to the navDestination with result.
-   * @returns {NavDestinationAttribute}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onResult(callback: Optional<Callback<Object | null | undefined>>): NavDestinationAttribute;
-
-  /**
    * Sets the mode of the **NavDestination** component. Dynamic modification is not supported.
    *
    * @param { NavDestinationMode } value - Mode of the **NavDestination** component.
@@ -1037,7 +1024,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute,
    * or change the type of animation effects through the **symbolEffect** attribute.
    * </p>
-   * 
+   *
    * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Icon of the back button on the title bar.
    * @param { ResourceStr } accessibilityText - Accessibility text for the back button.
    * <br>Default value: **back** when the system language is English.
@@ -1049,7 +1036,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @arkts 1.1&1.2
    */
   backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavDestinationAttribute;
-  
+
   /**
    * Sets the menu items in the upper right corner of the page.
    * If this attribute is not set, no menu item is displayed.
@@ -1146,7 +1133,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 11
    */
   onReady(callback: import('../api/@ohos.base').Callback<NavDestinationContext>): NavDestinationAttribute;
-  
+
   /**
    * Invoked before sub-components of NavDestination are created.
    *

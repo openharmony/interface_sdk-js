@@ -333,9 +333,8 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
  * Defines the BorderRadiusMode type.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20

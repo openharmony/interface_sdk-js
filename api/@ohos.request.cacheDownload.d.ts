@@ -77,17 +77,6 @@ declare namespace cacheDownload {
      */
     interface NetworkInfo {
         /**
-         * The IP address of a specific URL is used when downloading resources.
-         * If the value is empty, it means that the DNS resolution fails and the IP address cannot be obtained.
-         *
-         * @type { string }
-         * @readonly
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
-         */
-        readonly ip: string;
-        /**
          * The DNS server list is used when downloading resources.
          *
          * @type { string[] }
@@ -236,7 +225,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function download(url: string, options: CacheDownloadOptions);
+    function download(url: string, options: CacheDownloadOptions): void;
 
     /**
      * Cancels an ongoing cache download task based on the target URL.
@@ -248,7 +237,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function cancel(url: string);
+    function cancel(url: string): void;
 
     /**
      * Sets the size of the memory cache used to store downloaded content.
@@ -261,7 +250,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setMemoryCacheSize(bytes: number);
+    function setMemoryCacheSize(bytes: number): void;
 
     /**
      * Sets the size of the file cache used to store downloaded content.
@@ -274,7 +263,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setFileCacheSize(bytes: number);
+    function setFileCacheSize(bytes: number): void;
 
     /**
      * Gets download information of cache downloads based on URL.

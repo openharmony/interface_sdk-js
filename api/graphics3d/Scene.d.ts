@@ -121,7 +121,7 @@ export interface RaycastResult {
  */
 export interface RaycastParameters {
   /**
-   * If defined, search only the nodes in the hierarchy under this node.
+   * If defined, search only the nodes in the hierarchy under this node
    * If undefined, search all the nodes in the scene
    *
    * @type { ?Node }
@@ -133,7 +133,7 @@ export interface RaycastParameters {
 
 /** 
  * The render resource factory. RenderResourceFactory is used to create resources that can be shared
- * across Scences that share a RenderContext
+ * across Scenes that share a RenderContext
  * 
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -358,7 +358,7 @@ export interface RenderParameters {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export class Scene {
+export declare class Scene {
   /**
    * Get default render context
    *

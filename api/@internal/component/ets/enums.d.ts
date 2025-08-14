@@ -18,10 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import curves from '../../@ohos.curves';
-/*** endif */
-
 /**
  * common enum of the checkbox shape
  *
@@ -1888,7 +1884,8 @@ declare enum AnimationStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum Curve {
   /**
@@ -1919,7 +1916,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Linear,
 
@@ -1951,7 +1949,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Ease,
 
@@ -1983,7 +1982,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EaseIn,
 
@@ -2015,7 +2015,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EaseOut,
 
@@ -2047,7 +2048,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   EaseInOut,
 
@@ -2079,7 +2081,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FastOutSlowIn,
 
@@ -2111,7 +2114,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LinearOutSlowIn,
 
@@ -2143,7 +2147,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FastOutLinearIn,
 
@@ -2175,7 +2180,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ExtremeDeceleration,
 
@@ -2207,7 +2213,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Sharp,
 
@@ -2239,7 +2246,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Rhythm,
 
@@ -2271,7 +2279,8 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Smooth,
 
@@ -2303,23 +2312,11 @@ declare enum Curve {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Friction,
 }
-
-/**
- * enum Curve.
- *
- * @typedef { curves.Curve } Curve
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type Curve = curves.Curve;
 
 /**
  * Sets the state before and after the animation starts.
@@ -9182,8 +9179,9 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   NODE,
 }

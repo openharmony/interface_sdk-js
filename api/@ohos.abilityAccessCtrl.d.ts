@@ -555,7 +555,7 @@ declare namespace abilityAccessCtrl {
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "permissionStateChange".
-     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -580,7 +580,7 @@ declare namespace abilityAccessCtrl {
      * @param { 'selfPermissionStateChange' } type - Event type.
      * @param { Array<Permissions> } permissionList - A list of permissions that specify the permissions to be listened on.
      *  It should correspond to the value registered by function of "on", whose type is "selfPermissionStateChange".
-     * @param { Callback<PermissionStateChangeInfo> } callback - Callback for the result from unregistering permissions.
+     * @param { Callback<PermissionStateChangeInfo> } [callback] - Callback for the result from unregistering permissions.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionNames in the list are all invalid.
      * @throws { BusinessError } 12100004 - The API is not used in pair with 'on'.

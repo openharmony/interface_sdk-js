@@ -409,13 +409,13 @@ declare interface SearchOptions {
   /**
    * Text input in the search text box.
    *
-   * @type { ?(string | Bindable<string>)}
+   * @type { ?string}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  value?: string | Bindable<string>;
+  value?: string;
 
   /**
    * Text displayed when there is no input.
@@ -930,10 +930,21 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
-
+  /**
+   * Set the search button text, fontSize and fontColor
+   *
+   * @param { string } value - indicates the text of the search button.
+   * @param { SearchButtonOptions } [option] - indicates the fontSize and fontColor of the search button.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  searchButton(value: string, option?: SearchButtonOptions): SearchAttribute;
   /**
    * Set the text Color
    *
@@ -2137,7 +2148,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   autoCapitalizationMode(mode: AutoCapitalizationMode): SearchAttribute;

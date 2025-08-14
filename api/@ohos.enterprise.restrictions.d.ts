@@ -413,6 +413,24 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 14
    */
+  /**
+   * Disallows the specific feature of the device for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } feature - feature indicates the specific feature to be disallowed or allowed,
+   *                             the supported device features are as follows:
+   *                             fingerprint, print, mtpClient, usbStorageDeviceWrite, diskRecoveryKey, sudo, distributedTransmissionOutgoing.
+   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
   function setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void;
 
   /**
@@ -432,7 +450,24 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 14
    */
-  function getDisallowedPolicyForAccount(admin: Want, feature: string, accountId: number): boolean;
+  /**
+   * Queries whether the specific feature of the device is disallowed for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } feature - feature indicates the specific feature to be queried.
+   *                             the supported device features are as follows:
+   *                             fingerprint, print, mtpClient, usbStorageDeviceWrite, diskRecoveryKey, sudo, distributedTransmissionOutgoing.
+   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number): boolean;
 
   /**
    * Adds applications or bundles or other contents to the list to restrict them from using a specific feature.

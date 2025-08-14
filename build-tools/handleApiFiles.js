@@ -306,6 +306,21 @@ function deleteArktsTag(fileContent) {
 }
 
 /**
+ * 删除1.2未支持标签
+ * 
+ * @param {*} fileContent 文件内容
+ * @param {*} regx 删除的正则表达式
+ * @returns 
+ */
+function deleteUnsportedTag(fileContent) {
+  const arktsTagRegx = /\*\s*@crossplatform\s*(\r|\n)\s*|\*\s*@form\s*(\r|\n)\s*|\*\s*@atomicservice\s*(\r|\n)\s*/g;
+  fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
+    return '';
+  });
+  return fileContent;
+}
+
+/**
  * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
  * 
  * @param {*} sourceFile 
@@ -344,7 +359,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -368,7 +384,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     }
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -413,6 +430,7 @@ function handlehasTagFile(sourceFile, outputPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
 }
 
@@ -443,6 +461,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
   newContent = deleteArktsTag(newContent);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, newContent);
 }
 
@@ -582,7 +601,7 @@ const transformer = (context) => {
 };
 
 function validateExportDeclaration(node) {
-  return ts.isExportDeclaration(node) && node.moduleSpecifier && node.jsDoc && node.jsDoc.length !== 0;
+  return ts.isExportDeclaration(node) && node.jsDoc && node.jsDoc.length !== 0;
 }
 
 /**
@@ -836,6 +855,7 @@ const apiNodeTypeArr = [
   ts.SyntaxKind.GetAccessor,
   ts.SyntaxKind.SetAccessor,
   ts.SyntaxKind.IndexSignature,
+  ts.SyntaxKind.OverloadDeclaration
 ];
 
 start();

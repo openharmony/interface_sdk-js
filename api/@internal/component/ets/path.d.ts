@@ -85,6 +85,17 @@ declare interface PathOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Width option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: number | string;
 
   /**
    * Height option.
@@ -137,6 +148,17 @@ declare interface PathOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Height option.
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: number | string;
 
   /**
    * Commands option.
@@ -189,6 +211,17 @@ declare interface PathOptions {
    * @since 20
    */
   commands?: ResourceStr;
+  /**
+   * Commands option.
+   * @type { ?string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  commands?: string
 }
 
 /**
@@ -417,6 +450,19 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
    * @since 20
    */
   commands(value: ResourceStr): PathAttribute;
+  /**
+   * Called when the command string drawn by the path is set.
+   *
+   * @param { string } value
+   * @returns { PathAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  commands(value: string): PathAttribute;
 }
 
 /**

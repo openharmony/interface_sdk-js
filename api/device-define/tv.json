@@ -194,6 +194,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.USB.USBManager",
-    "SystemCapability.Advertising.OAID"
+    "SystemCapability.Advertising.OAID",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

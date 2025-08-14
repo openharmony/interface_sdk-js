@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import image from '../../@ohos.multimedia.image';
+import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4'
 import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
@@ -27,7 +28,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics } from './units';
 import { ImageFit, ImageRepeat, CopyOptions } from './enums';
 import { Resource } from '../../global/resource';
-import { CommonMethod, PointLightStyle, PixelMap } from './common'
+import { CommonMethod, PointLightStyle, PixelMap } from './common';
 /*** endif */
 
 /**
@@ -56,6 +57,18 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
  * @since 12
  */
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
+
+/**
+ * Import the DrawingColorFilter type object for image color filter setting.
+ *
+ * @typedef { drawing.ColorFilter } DrawingColorFilter
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DrawingColorFilter = drawing.ColorFilter;
 
 /**
  * Enumerates all the levels available for the image resolution quality.
@@ -87,7 +100,19 @@ declare type ResolutionQuality = image.ResolutionQuality;
  * @atomicservice
  * @since 12
  */
-declare type DrawingLattice  = import('../api/@ohos.graphics.drawing').default.Lattice;
+declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice;
+
+/**
+ * Lattice for dividing an image into grids.
+ *
+ * @typedef { drawing.Lattice } DrawingLattice
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare type DrawingLattice = drawing.Lattice;
 
 /**
  * Object matrix used for setting image transformations.
@@ -980,7 +1005,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <p><strong>NOTE</strong>:
    * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
    * </p>
-   * 
+   *
    * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading, Default value is null.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1125,7 +1150,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillColor(value: ResourceColor): ImageAttribute;
 
@@ -1144,7 +1170,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fillColor(color: ResourceColor | ColorContent): ImageAttribute;
 
@@ -1591,7 +1618,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   colorFilter(value: ColorFilter | DrawingColorFilter): ImageAttribute;
 
@@ -2281,7 +2309,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * 
  * <p>If image loading takes a long time, follow the steps in [Reducing the Loading Time of Preset Images]{@link
  * https://developer.huawei.com/consumer/en/doc/best-practices/bpta-texture-compression-improve-performance}</p>
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
@@ -2464,7 +2492,7 @@ declare interface ImageError {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  message: string
+  message: string;
 
   /**
    * Business Error.
@@ -2526,7 +2554,8 @@ declare interface ResizableOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lattice?: DrawingLattice;
 }

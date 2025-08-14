@@ -98,7 +98,7 @@ declare namespace display {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getDefaultDisplaySync(): Display;
+  function getDefaultDisplaySync(): Display;
 
   /**
    * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
@@ -127,7 +127,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getDisplayByIdSync(displayId: number): Display;
+  function getDisplayByIdSync(displayId: number): Display;
 
   /**
    * Obtain all displays.
@@ -138,7 +138,7 @@ declare namespace display {
    * @deprecated since 9
    * @useinstead ohos.display#getAllDisplays
    */
-  export function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
+  function getAllDisplay(callback: AsyncCallback<Array<Display>>): void;
 
   /**
    * Obtain all displays.
@@ -169,7 +169,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
+  function getAllDisplays(callback: AsyncCallback<Array<Display>>): void;
 
   /**
    * Obtain all displays.
@@ -201,7 +201,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-   export function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
+  function getAllDisplayPhysicalResolution(): Promise<Array<DisplayPhysicalResolution>>;
 
   /**
    * Check whether there is a privacy window on the current display.
@@ -217,7 +217,7 @@ declare namespace display {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function hasPrivateWindow(displayId: number): boolean;
+  function hasPrivateWindow(displayId: number): boolean;
 
   /**
    * Register the callback for display changes.
@@ -250,10 +250,10 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
+  function on(type: 'add' | 'remove' | 'change', callback: Callback<number>): void;
 
   /**
    * Unregister the callback for display changes.
@@ -286,10 +286,10 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
+  function off(type: 'add' | 'remove' | 'change', callback?: Callback<number>): void;
 
   /**
    * Register the callback for private mode changes.
@@ -304,7 +304,7 @@ declare namespace display {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'privateModeChange', callback: Callback<boolean>): void;
+  function on(type: 'privateModeChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for private mode changes.
@@ -319,7 +319,7 @@ declare namespace display {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
+  function off(type: 'privateModeChange', callback?: Callback<boolean>): void;
 
   /**
    * Check whether the device is foldable.
@@ -346,10 +346,10 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function isFoldable(): boolean;
+  function isFoldable(): boolean;
 
   /**
    * Get the current fold status of the foldable device.
@@ -376,10 +376,10 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function getFoldStatus(): FoldStatus;
+  function getFoldStatus(): FoldStatus;
 
   /**
    * Register the callback for fold status changes.
@@ -415,10 +415,10 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
+  function on(type: 'foldStatusChange', callback: Callback<FoldStatus>): void;
 
   /**
    * Unregister the callback for fold status changes.
@@ -454,10 +454,10 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
+  function off(type: 'foldStatusChange', callback?: Callback<FoldStatus>): void;
 
   /**
    * Register the callback for fold angle changes.
@@ -465,14 +465,27 @@ declare namespace display {
    * @param { 'foldAngleChange' } type the event of fold angle changes.
    * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Register the callback for fold angle changes.
+   *
+   * @param { 'foldAngleChange' } type the event of fold angle changes.
+   * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function on(type: 'foldAngleChange', callback: Callback<Array<number>>): void;
+  function on(type: 'foldAngleChange', callback: Callback<Array<number>>): void;
 
   /**
    * Unregister the callback for fold angle changes.
@@ -480,14 +493,27 @@ declare namespace display {
    * @param { 'foldAngleChange' } type the event of fold angle changes.
    * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Unregister the callback for fold angle changes.
+   *
+   * @param { 'foldAngleChange' } type the event of fold angle changes.
+   * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function off(type: 'foldAngleChange', callback?: Callback<Array<number>>): void;
+  function off(type: 'foldAngleChange', callback?: Callback<Array<number>>): void;
 
   /**
    * Register the callback for device capture, casting, or recording status changes.
@@ -502,7 +528,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
+  function on(type: 'captureStatusChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for device capture, casting, or recording status changes.
@@ -517,7 +543,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
+  function off(type: 'captureStatusChange', callback?: Callback<boolean>): void;
 
 
   /**
@@ -530,7 +556,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function isCaptured(): boolean;
+  function isCaptured(): boolean;
 
   /**
    * Get the display mode of the foldable device.
@@ -547,10 +573,20 @@ declare namespace display {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Get the display mode of the foldable device.
+   *
+   * @returns { FoldDisplayMode } display mode of the foldable device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function getFoldDisplayMode(): FoldDisplayMode;
+  function getFoldDisplayMode(): FoldDisplayMode;
 
   /**
    * Change the display mode of the foldable device.
@@ -565,7 +601,7 @@ declare namespace display {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function setFoldDisplayMode(mode: FoldDisplayMode): void;
+  function setFoldDisplayMode(mode: FoldDisplayMode): void;
 
   /**
    * Change the display mode of the foldable device.
@@ -579,7 +615,7 @@ declare namespace display {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
+  function setFoldDisplayMode(mode: FoldDisplayMode, reason: string): void;
 
   /**
    * Register the callback for fold display mode changes.
@@ -587,7 +623,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -598,14 +634,27 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Register the callback for fold display mode changes.
+   *
+   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
+   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
+  function on(type: 'foldDisplayModeChange', callback: Callback<FoldDisplayMode>): void;
 
   /**
    * Unregister the callback for fold display mode changes.
@@ -613,7 +662,7 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
@@ -624,14 +673,27 @@ declare namespace display {
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
    * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 12
+   */
+  /**
+   * Unregister the callback for fold display mode changes.
+   *
+   * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
+   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @crossplatform
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
+  function off(type: 'foldDisplayModeChange', callback?: Callback<FoldDisplayMode>): void;
 
   /**
    * Get the fold crease region in the current display mode.
@@ -651,7 +713,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
+  function getCurrentFoldCreaseRegion(): FoldCreaseRegion;
 
   /**
    * set fold status locked or not.
@@ -666,7 +728,7 @@ declare namespace display {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function setFoldStatusLocked(locked: boolean): void;
+  function setFoldStatusLocked(locked: boolean): void;
 
     /**
    * Create virtual screen.
@@ -853,14 +915,16 @@ declare namespace display {
   }
 
   /**
-   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
+   * the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
    */
   /**
-   * Enumerates the fold status.For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
+   * the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -868,16 +932,17 @@ declare namespace display {
    * @since 12
    */
   /**
-   * Enumerates the fold status.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
+   * the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export enum FoldStatus {
+  enum FoldStatus {
     /**
      * Fold Status Unknown.
      *
@@ -897,30 +962,33 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     FOLD_STATUS_UNKNOWN = 0,
     /**
-     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
+     * and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open, and the second fold axis is folded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
+     * and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
      */
     /**
-     * Fold Status Expanded.
+     * Fold Status Expanded. For dual-fold axis devices, the first fold axis is fully open,
+     * and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     FOLD_STATUS_EXPANDED = 1,
@@ -940,25 +1008,28 @@ declare namespace display {
      */
     FOLD_STATUS_FOLDED = 2,
     /**
-     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * Fold Status Half Folded. Somehow between fully open and completely closed.
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * Fold Status Half Folded. Somehow between fully open and completely closed.
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12
      */
     /**
-     * Fold Status Half Folded.
+     * Fold Status Half Folded. Somehow between fully open and completely closed.
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     FOLD_STATUS_HALF_FOLDED = 3,
@@ -1040,10 +1111,10 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  export enum FoldDisplayMode {
+  enum FoldDisplayMode {
     /**
      * Unknown Display.
      *
@@ -1137,7 +1208,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum DisplayState {
+  enum DisplayState {
     /**
      * Unknown.
      *
@@ -1434,7 +1505,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface FoldCreaseRegion {
+  interface FoldCreaseRegion {
     /**
      * The display ID is used to identify the screen where the crease is located.
      *
@@ -1582,7 +1653,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WaterfallDisplayAreaRects {
+  interface WaterfallDisplayAreaRects {
     /**
      * Indicates the size of left side curved area of the waterfall screen.
      *
@@ -1680,7 +1751,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface CutoutInfo {
+  interface CutoutInfo {
     /**
      * Bounding rectangles of the cutout areas of the display.
      *
@@ -1732,7 +1803,7 @@ declare namespace display {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface DisplayPhysicalResolution {
+  interface DisplayPhysicalResolution {
     /**
      * fold display mode.
      *
@@ -1794,7 +1865,7 @@ declare namespace display {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Display {
+  interface Display {
     /**
      * Display ID.
      *
@@ -2109,7 +2180,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     xDPI: number;
@@ -2137,6 +2208,7 @@ declare namespace display {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     yDPI: number;
 
@@ -2163,7 +2235,8 @@ declare namespace display {
      * @type { Array<colorSpaceManager.ColorSpace> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     colorSpaces: Array<colorSpaceManager.ColorSpace>;
 
@@ -2180,7 +2253,8 @@ declare namespace display {
      * @type { Array<hdrCapability.HDRFormat> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
 

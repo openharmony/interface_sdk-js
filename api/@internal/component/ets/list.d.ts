@@ -871,7 +871,7 @@ declare class ListScroller extends Scroller {
    * @param { number } index - Index of the ListItemGroup in List.
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -892,11 +892,11 @@ declare class ListScroller extends Scroller {
    * visible in the display area. Otherwise, the value is considered invalid.
    * <br>- When <em>index</em> or <em>indexInGroup</em> is set to an invalid value, the returned size and position are both <em>0</em>.
    * </p>
-   * 
+   *
    * @param { number } index - Index of the list item group in the list.
    * @param { number } indexInGroup - Index of the list item in the list item group.
    * @returns { RectResult } - Size of the list item in the list item group and its position relative to the list.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -916,7 +916,7 @@ declare class ListScroller extends Scroller {
    * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
    * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
    * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -939,7 +939,7 @@ declare class ListScroller extends Scroller {
    * @param { boolean } smooth - Whether to enable the smooth animation for scrolling to the item with the specified index.
    * The value <em>true</em> means to enable that the smooth animation, and <em>false</em> means the opposite.<br>Default value: <em>false</em>
    * @param { ScrollAlign } align - How the list item to scroll to is aligned with the container.<br>Default value: <em>ScrollAlign.START</em>
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -956,7 +956,7 @@ declare class ListScroller extends Scroller {
    * Collapse all listItem.
    *
    * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -971,9 +971,9 @@ declare class ListScroller extends Scroller {
    * <p><strong>NOTE</strong>:
    * <br>- A <em>ListScroller</em> must be bound to the <em>List</em> component.
    * </p>
-   * 
+   *
    * @param { CloseSwipeActionOptions } options - Callback events for collapsing list items in the EXPANDED state.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
@@ -1018,7 +1018,7 @@ declare class ListScroller extends Scroller {
  * <p><strong>NOTE</strong>:
  * <br>- The default value of the universal attribute clip is <em>true</em> for the <em>List</em> component.
  * </p>
- * 
+ *
  * @interface ListOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -1700,7 +1700,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * To produce a bounce effect when there is less than one screen of content,
    * use the <em>options</em> parameter of the <em>edgeEffect</em> attribute.
    * </p>
-   * 
+   *
    * @param { EdgeEffect } value - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
    * <br>Default value: <em>EdgeEffect.Spring</em>
    * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
@@ -2271,7 +2271,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Triggered when a child component enters or leaves the list display area.
-   * 
+   *
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2452,7 +2452,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
 
   /**
    * Triggered when a list item is deleted.
-   * 
+   *
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2678,7 +2678,8 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    */
   /**
    * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
-   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation and returns the result.
+   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
+   * and returns the result.
    *
    * @param { function } event
    * @returns { ListAttribute }
@@ -2688,7 +2689,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): ListAttribute;
+  /**
+   * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
+   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
+   * and returns the result.
+   * Anonymous Object Rectification.
+   *
+   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * @returns { ListAttribute } Returns the instance of the ListAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
 
   /**
    * Called when scrolling begin each frame.

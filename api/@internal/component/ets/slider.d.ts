@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
+import { CommonMethod, CommonConfiguration, ContentModifier, Optional } from './common';
 import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleAttribute } from './circle';
@@ -479,22 +479,10 @@ declare interface SliderOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value?: number;
-
-  /**
-   * Current value of Slider.
-   *
-   * @type { ?(number| undefined | Bindable<number>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  value?: number | undefined | Bindable<number>;
 
   /**
    * Sets the min value of Slider.

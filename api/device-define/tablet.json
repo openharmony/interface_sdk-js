@@ -227,6 +227,7 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.DistributedHardware.DistributedHardwareFWK"
+    "SystemCapability.DistributedHardware.DistributedHardwareFWK",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

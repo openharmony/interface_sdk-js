@@ -578,7 +578,7 @@ export enum SamplerAddressMode {
  */
 export interface Sampler {
   /**
-   * Mag filiter
+   * Mag filter
    * 
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -587,7 +587,7 @@ export interface Sampler {
   magFilter?: SamplerFilter;
 
   /**
-   * Min filiter
+   * Min filter
    * 
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D

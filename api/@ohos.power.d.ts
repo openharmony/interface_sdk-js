@@ -290,6 +290,24 @@ declare namespace power {
   function setScreenOffTime(timeout: long): void;
 
   /**
+   * Refresh the device activity (such as resetting the screen-off time, etc).
+   * Available only when the device is active, see {@link isActive}
+   *
+   * @permission ohos.permission.REFRESH_USER_ACTION
+   * @param { string } reason Indicates the reason of refreshing activity. The reason parameter must be of type string.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 4900201 - The device activity is being refreshed too frequently; the minimum time
+   *     interval is 100 ms.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 20
+   */
+  function refreshActivity(reason: string): void;
+
+  /**
    * Power mode of a device.
    *
    * @enum { int }

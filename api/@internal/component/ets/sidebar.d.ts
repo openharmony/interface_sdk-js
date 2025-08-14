@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import { Resource } from '../../global/resource'
 import { Length, ResourceColor, Dimension } from './units'
-import { CommonMethod, PixelMap, Bindable } from './common'
+import { CommonMethod, PixelMap } from './common'
 /*** endif */
 
 /**
@@ -709,22 +709,10 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showSideBar(value: boolean): SideBarContainerAttribute;
-
-  /**
-   * Callback showControlButton function when setting the status of sidebar
-   * 
-   * @param { boolean | Bindable<boolean> } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  showSideBar(value: boolean | Bindable<boolean>): SideBarContainerAttribute;
 
   /**
    * Callback controlButton function when setting the style of button
@@ -844,23 +832,10 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sideBarWidth(value: number): SideBarContainerAttribute;
-
-  /**
-   * Sets the length of sidebar.
-   * default value is 240vp.
-   *
-   * @param { number | Bindable<number> } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  sideBarWidth(value: number | Bindable<number>): SideBarContainerAttribute;
 
   /**
    * Sets the min length of sidebar.

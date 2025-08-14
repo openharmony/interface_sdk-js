@@ -2060,7 +2060,7 @@ declare namespace formInfo {
   /**
    * Defines the FormLocation enum.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 12
@@ -2068,8 +2068,9 @@ declare namespace formInfo {
   /**
    * Defines the FormLocation enum.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Ability.Form
+   * @atomicservice
    * @since 20
    * @arkts 1.1&1.2
    */
@@ -2095,6 +2096,7 @@ declare namespace formInfo {
      * Form is on the desktop
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -2111,6 +2113,7 @@ declare namespace formInfo {
      * Form is on the form center.
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -2127,6 +2130,7 @@ declare namespace formInfo {
      * Form is on the form manager.
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -2143,6 +2147,7 @@ declare namespace formInfo {
      * Form is on the negative screen.
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -2179,6 +2184,7 @@ declare namespace formInfo {
      * Form is on the screen lock.
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */
@@ -2195,6 +2201,7 @@ declare namespace formInfo {
      * Form is on the ai suggestion.
      *
      * @syscap SystemCapability.Ability.Form
+     * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
      */

@@ -72,7 +72,7 @@ export interface ShapeSize {
 export interface RectShapeOptions extends ShapeSize {
   /**
    * Defines the corner radius of the RectShape.
-   * @type { ? (number | string | Array<number | string>) } 
+   * @type { ? (number | string | Array<number | string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice

@@ -981,6 +981,16 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
 /**
+ * The Paragraph type provide detailed information about a paragraph,
+ * including properties such as line count, line height and other relevant metrics.
+ * 
+ * @typedef { import('../api/@ohos.graphics.text').default.Paragraph } Paragraph
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
+
+/**
  * Defines the cursor style
  *
  * @interface CaretStyle

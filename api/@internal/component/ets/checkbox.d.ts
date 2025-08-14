@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional, Bindable } from './common';
+import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Optional } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
@@ -366,7 +366,8 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   select(value: boolean): CheckboxAttribute;
 
@@ -379,23 +380,10 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   select(isSelected: Optional<boolean>): CheckboxAttribute;
-
-  /**
-   * setting whether checkbox is selected.
-   *
-   * @param { boolean | undefined | Bindable<boolean> } isSelected
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  select(isSelected: boolean | undefined | Bindable<boolean>): CheckboxAttribute;
 
   /**
    * setting the display color of checkbox.

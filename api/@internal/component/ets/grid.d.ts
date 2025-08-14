@@ -1283,7 +1283,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    */
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
-    /**
+  /**
      * Sets the focus wrap mode of the grid.
      *
      * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the grid.
@@ -1440,7 +1440,18 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @atomicservice
    * @since 11
    */
-  onScrollFrameBegin(event: (offset: number, state: ScrollState) => { offsetRemain: number }): GridAttribute;
+  /**
+   * Called when scrolling begin each frame.
+   * Anonymous Object Rectification.
+   *
+   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * @returns { GridAttribute } Returns the instance of the GridAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onScrollFrameBegin(event: OnScrollFrameBeginCallback): GridAttribute;
 
   /**
    * Called when scrolling begin each frame.

@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+import CompletionHandlerForAtomicService from './@ohos.app.ability.CompletionHandlerForAtomicService';
 import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
@@ -51,4 +52,16 @@ export default class AtomicServiceOptions extends StartOptions {
    * @since 12
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The completion handler of openAtomicService.
+   *
+   * @type { ?CompletionHandlerForAtomicService }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  completionHandlerForAtomicService?: CompletionHandlerForAtomicService;
 }

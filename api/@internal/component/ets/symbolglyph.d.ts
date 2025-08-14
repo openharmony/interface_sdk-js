@@ -956,7 +956,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PulseSymbolEffect extends SymbolEffect {
 }
@@ -1122,13 +1123,21 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Set the shader style of the symbol, such as lineargradient or radialgradient.
    *
-   * @param { Array<ShaderStyle> } shaders - The shaders style of the symbol.
+   * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
+   * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
+   * - If an array item is `undefined`, that layer will use its default color.
+   * - Any layers beyond the length of the array will also use their default color.
+   *
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
+   *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
+   *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
+   *     color for that layer.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    */
-  shaderStyle(shaders: Array<ShaderStyle>): SymbolGlyphAttribute;
+  shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
    * Called when the font symbolGlyph weight is set.

@@ -559,7 +559,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 declare let ArcSwiper: ArcSwiperInterface;
 

@@ -198,7 +198,7 @@ declare interface CalendarOptions {
 interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
-   * @param { CalendarOptions } options - the option of th calendarPicker.
+   * @param { CalendarOptions } options - the option of the calendarPicker.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -206,7 +206,7 @@ interface CalendarPickerInterface {
    */
   /**
    * Defines the CalendarPicker constructor.
-   * @param { CalendarOptions } options - the option of th calendarPicker.
+   * @param { CalendarOptions } options - the option of the calendarPicker.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -255,7 +255,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @arkts 1.1&1.2
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
-  
+
   /**
    * Set the alignment between entry and calendar dialog.
    * @param { Optional<CalendarAlign> } alignType - The type of alignment between entry and calendar dialog.
@@ -331,7 +331,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    */
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 
- /**
+  /**
    * Callback for selected date changed.
    * @param { Optional<Callback<Date>> } callback - callback for selected date changed.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
@@ -706,14 +706,14 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 declare class CalendarPickerDialog {
   /**
    * Invoking method display.
-   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+   * @param { CalendarDialogOptions } options - the option of the calendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Invoking method display.
-   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+   * @param { CalendarDialogOptions } options - the option of the calendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

@@ -69,7 +69,7 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polyline width.
    * Anonymous Object Rectification.
    *
@@ -91,6 +91,18 @@ declare interface PolylineOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Polyline width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: string | number;
 
   /**
    * Polyline height.
@@ -126,7 +138,7 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polyline height.
    * Anonymous Object Rectification.
    *
@@ -148,6 +160,18 @@ declare interface PolylineOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Polyline height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: string | number
 }
 
 /**

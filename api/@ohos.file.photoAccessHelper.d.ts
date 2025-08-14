@@ -1561,6 +1561,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -1579,6 +1580,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string): Promise<number>;
     /**
@@ -1594,6 +1596,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(callback: AsyncCallback<number>): void;
     /**
@@ -1609,6 +1612,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(): Promise<number>;
     /**
@@ -1623,6 +1627,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -1637,6 +1642,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number): Promise<void>;
     /**
@@ -2060,7 +2066,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>);
+    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>): void;
     /**
      * Commits the edited image or video asset. This API uses a promise to return the result.
      *
@@ -2092,7 +2098,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    revertToOriginal(callback: AsyncCallback<void>);
+    revertToOriginal(callback: AsyncCallback<void>): void;
     /**
      * Reverts to the state of the file before being edited. This API uses a promise to return the result.
      *
@@ -2835,7 +2841,16 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    SUM_SIZE = 'sum(size)'
+    SUM_SIZE = 'sum(size)',
+    /**
+     * orientation in exif
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    EXIF_ROTATE = 'exif_rotate'
   }
 
   /**

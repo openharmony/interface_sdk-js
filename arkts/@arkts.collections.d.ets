@@ -446,7 +446,6 @@ declare namespace collections {
      * @param { T } initialValue - Initial value of each element in the ArkTS array.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The create method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -471,7 +470,6 @@ declare namespace collections {
      * @param { ArrayLike<T> } arrayLike - Array-like object.
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -498,7 +496,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -514,7 +511,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
@@ -530,7 +526,6 @@ declare namespace collections {
      * @returns { Array<T> } A new Array instance
      * @throws { BusinessError } 401 - Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws  { BusinessError } 10200011 - The from method cannot be bound.
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
@@ -1487,7 +1482,6 @@ declare namespace collections {
      *     If the index is greater than or equal to the length of the ArkTS array, -1 is returned.
      *     If a negative number is passed in, it refers to the index of fromIndex + array.length.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
@@ -3460,8 +3454,8 @@ declare namespace collections {
      *     If the index is greater than or equal to the length of the ArkTS Int8Array, -1 is returned.
      *     If a negative number is passed in, the search starts from the end of the ArkTS Int8Array.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -4612,8 +4606,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint8ClampedArray.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -5792,8 +5786,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint8Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -6970,8 +6964,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Int16Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -8146,8 +8140,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint16Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -9324,8 +9318,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Int32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -10500,8 +10494,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Uint32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18
@@ -11646,8 +11640,8 @@ declare namespace collections {
      * @param { number } fromIndex - The index at which to start the search. If provided:
      *	   <br>If this index is negative, it is treated as Float32Array.length + fromIndex.
      * @returns { number } Returns the last index of the specified element if found; otherwise, returns -1.
-     * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 18

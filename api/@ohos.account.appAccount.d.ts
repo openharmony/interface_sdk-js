@@ -2175,6 +2175,7 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
+     * @useinstead appAccount.AuthTokenInfo.authType
      */
     authType: string;
 
@@ -2185,6 +2186,7 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
+     * @useinstead appAccount.AuthTokenInfo.token
      */
     token: string;
   }
@@ -2798,6 +2800,7 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
+     * @useinstead AppAccount.AuthCallback.onResult
      */
     onResult: (code: number, result: { [key: string]: any }) => void;
 
@@ -2808,6 +2811,7 @@ declare namespace appAccount {
      * @syscap SystemCapability.Account.AppAccount
      * @since 8
      * @deprecated since 9
+     * @useinstead AppAccount.AuthCallback.onRequestRedirected
      */
     onRequestRedirected: (request: Want) => void;
   }

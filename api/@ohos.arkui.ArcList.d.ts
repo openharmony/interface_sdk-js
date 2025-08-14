@@ -432,7 +432,7 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 export declare const ArcList: ArcListInterface;
 
@@ -451,6 +451,6 @@ export declare const ArcList: ArcListInterface;
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 export declare const ArcListItem: ArcListItemInterface;

@@ -5027,6 +5027,16 @@ declare namespace ble {
      * @arkts 1.1&1.2
      */
     state: ProfileConnectionState;
+    /**
+     * Reason of the disconnection of the gatt connection.
+     *
+     * @type { ?GattDisconnectReason }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    reason?: GattDisconnectReason;
   }
 
   /**
@@ -6835,6 +6845,58 @@ declare namespace ble {
     ON_BATCH = 3,
   }
 
+  /**
+   * The enum of gatt disconnection reasons.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum GattDisconnectReason {
+
+    /**
+     * Disconnection due to timeout.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TIMEOUT = 1,
+
+    /**
+     * The connection is disconnected due to the peer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TERMINATE_PEER_USER = 2,
+
+    /**
+     * The connection is disconnected due to the local host.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TERMINATE_LOCAL_HOST = 3,
+
+    /**
+     * Disconnection due to unknown reason.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_UNKNOWN = 4
+  }
+  
   /**
    * Describes the permission of a att attribute item.
    *

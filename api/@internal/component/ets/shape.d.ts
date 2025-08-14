@@ -91,11 +91,23 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   x?: Length;
 
   /**
+   * Viewport X coordinate.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  x?: number | string;
+
+  /**
    * Viewport Y coordinate.
    *
    * @type { ?(number | string) }
@@ -149,11 +161,23 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   y?: Length;
 
   /**
+   * Viewport Y coordinate.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  y?: number | string;
+
+  /**
    * Viewport width.
    *
    * @type { ?(number | string) }
@@ -207,9 +231,21 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   width?: Length;
+
+  /**
+   * Viewport width.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: number | string;
 
   /**
    * Viewport height.
@@ -265,9 +301,21 @@ declare interface ViewportRect {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   height?: Length;
+
+  /**
+   * Viewport height.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: number | string
 }
 
 /**
@@ -605,9 +653,22 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   strokeDashOffset(value: Length): ShapeAttribute;
+
+  /**
+   * Called when the offset of the starting point of border drawing is set.
+   *
+   * @param { number | string } value
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  strokeDashOffset(value: number | string): ShapeAttribute;
 
   /**
    * Called when the gap of the border is set.
@@ -793,9 +854,22 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   strokeMiterLimit(value: Length): ShapeAttribute;
+
+  /**
+   * Called when the limit value for drawing acute angles as oblique angles is set.
+   *
+   * @param { number | string } value
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  strokeMiterLimit(value: number | string): ShapeAttribute;
 
   /**
    * Called when the opacity of the border is set.
@@ -927,9 +1001,22 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   strokeWidth(value: Length): ShapeAttribute;
+
+  /**
+   * Called when the width of the border is set.
+   *
+   * @param { number | string } value
+   * @returns { ShapeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  strokeWidth(value: number | string): ShapeAttribute;
 
   /**
    * Called when setting whether anti aliasing is on.

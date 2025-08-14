@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,7 +20,7 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr, Font, ResourceColor } from './units';
-import { CommonMethod, Bindable } from './common';
+import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 /*** endif */
@@ -335,23 +335,10 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected(value: boolean): MenuItemAttribute;
-
-  /**
-   * Setting whether menuItem is selected.
-   *
-   * @param { boolean | undefined | Bindable<boolean> } value
-   * @returns { MenuItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-    selected(value: boolean | undefined | Bindable<boolean>): MenuItemAttribute;
-
 
   /**
    * Whether the relevant check icon is displayed when a menu item is selected.

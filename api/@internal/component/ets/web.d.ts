@@ -2670,25 +2670,7 @@ declare enum ContextMenuMediaType {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  Image = 1,
-
-  /**
-   * Video.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'20', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  VIDEO = 2,
-
-  /**
-   * Audio.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since arkts {'1.1':'20', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  AUDIO = 3
+  Image = 1
 }
 
 /**
@@ -3518,6 +3500,10 @@ declare class WebContextMenuResult {
   /**
    * Executes the paste and match style operation related to this context menu.
    *
+   * <p><strong>API Note</strong>:<br>
+   * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
+   * </p>
+   * 
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -5945,7 +5931,8 @@ declare interface OnBeforeUnloadEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnConfirmEvent {
   /**
@@ -5955,7 +5942,8 @@ declare interface OnConfirmEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   url: string;
 
@@ -5966,7 +5954,8 @@ declare interface OnConfirmEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   message: string;
 
@@ -5977,7 +5966,8 @@ declare interface OnConfirmEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   result: JsResult;
 }
@@ -5989,7 +5979,8 @@ declare interface OnConfirmEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnPromptEvent {
   /**
@@ -5999,7 +5990,8 @@ declare interface OnPromptEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   url: string;
 
@@ -6010,7 +6002,8 @@ declare interface OnPromptEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   message: string;
 
@@ -6021,7 +6014,8 @@ declare interface OnPromptEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
 
@@ -6032,7 +6026,8 @@ declare interface OnPromptEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   result: JsResult;
 }
@@ -6461,7 +6456,8 @@ declare interface OnPermissionRequestEvent {
  * @typedef OnScreenCaptureRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnScreenCaptureRequestEvent {
   /**
@@ -6470,7 +6466,8 @@ declare interface OnScreenCaptureRequestEvent {
    * @type { ScreenCaptureHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   handler: ScreenCaptureHandler;
 }
@@ -8156,7 +8153,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
@@ -8365,7 +8363,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConfirm(callback: Callback<OnConfirmEvent, boolean>): WebAttribute;
 
@@ -8398,7 +8397,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onPrompt(callback: Callback<OnPromptEvent, boolean>): WebAttribute;
 
@@ -8940,7 +8940,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onScreenCaptureRequest(callback: Callback<OnScreenCaptureRequestEvent>): WebAttribute;
 

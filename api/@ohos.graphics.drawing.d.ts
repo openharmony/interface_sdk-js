@@ -2969,6 +2969,7 @@ declare namespace drawing {
      * @param { number } x - X coordinate of the single character start point.
      * @param { number } y - Y coordinate of the single character start point.
      * @param { Array<FontFeature> } features - Font Feature Array.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -4387,7 +4388,8 @@ declare namespace drawing {
      * Measure a single character with font feature.
      * @param { string } text - A string containing only a single character.
      * @param { Array<FontFeature> } features - Font Feature Array.
-     * @returns { number } The width of the single character.
+     * @returns { number } The width of the single character, in px.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
@@ -9023,7 +9025,8 @@ declare namespace drawing {
      * Checks if the 2D rectangular object is empty.
      *
      * @param { common2D.Rect } rect - Indicates the Rect object.
-     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom); returns false otherwise.
+     * @returns { boolean } - Returns true if the rectangle is empty (left >= right or top >= bottom);
+     *     returns false otherwise.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
@@ -9112,7 +9115,8 @@ declare namespace drawing {
      *
      * @param { common2D.Rect } rect - Indicates the Rect object.
      * @param { common2D.Rect } other - Indicates the other Rect object for comparison.
-     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal; returns false otherwise.
+     * @returns { boolean } Returns true if left, top, right and bottom of rect and other are equal;
+     *     returns false otherwise.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform

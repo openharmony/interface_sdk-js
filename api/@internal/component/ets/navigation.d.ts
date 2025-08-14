@@ -2903,23 +2903,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   navBarWidth(value: Length): NavigationAttribute;
-
-  /**
-
-   * Sets the width of navigation bar.
-   *
-   * @param { Length | Bindable<Length> } value
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  navBarWidth(value: Length | Bindable<Length>): NavigationAttribute;
 
   /**
    * Sets the position of the navigation bar. This attribute takes effect
