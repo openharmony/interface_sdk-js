@@ -540,8 +540,6 @@ export declare class LengthMetrics {
    *
    * @param { Resource } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
-   * @throws { BusinessError } 180001 - System resources does not exist.
-   * @throws { BusinessError } 180002 - The type of system resources is incorrect.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
