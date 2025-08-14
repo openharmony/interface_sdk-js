@@ -157,7 +157,6 @@
     "SystemCapability.FileManagement.DistributedFileService.CloudSyncManager",
     "SystemCapability.FileManagement.DistributedFileService.CloudSync.Core",
     "SystemCapability.USB.USBManager",
-    "SystemCapability.USB.USBManager.Serial",
     "SystemCapability.Sensors.Sensor",
     "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Startup.SystemInfo",
