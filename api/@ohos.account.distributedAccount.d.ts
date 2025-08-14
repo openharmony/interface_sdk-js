@@ -130,7 +130,6 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
@@ -164,7 +163,6 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getOsAccountDistributedInfoByLocalId(localId: int): Promise<DistributedInfo>;
 
@@ -208,8 +206,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -227,8 +224,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
@@ -249,8 +245,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300008 - Restricted OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -271,8 +266,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300008 - Restricted OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo): Promise<void>;
   }
