@@ -171,6 +171,7 @@ export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: a
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_PARAMETER_PROPERTY, handleTSParameterProperty],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_WILDCARD_TYPE, handleETSWildcardType],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_THIS_TYPE, handleTSThisType],
+  [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ARRAY_EXPRESSION, handleArrayExpression]
 ])
 
 type NodeTuple = [string, number];
@@ -183,7 +184,7 @@ let exporssionCount = 0;
  * 根节点处理
  * @param { arkts.AstNode } node 
  */
-export function traverseProgram(node: arkts.AstNode) {
+export function traverseProgram(node: arkts.AstNode):void {
   // 处理Identifier
   if (!!node.statements) {
     node.statements.forEach((item: arkts.AstNode) => handleAstNode(item));
@@ -205,7 +206,7 @@ export function getJSDocInformation(node: arkts.AstNode): string {
  * @param { arkts.AstNode } node 节点
  * @param { (node: any, ...args: any[]) => void } func 实际方法
  */
-function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) => void) {
+function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) => void):void {
   if (isDebug) {
     items.push([func.name, node.peer.toString()]);
   }
@@ -242,8 +243,6 @@ export function handleAstNode(node: arkts.AstNode) {
   let kind: number = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer)
   if (nodeHandleFunctionMap.has(kind) && nodeHandleFunctionMap.get(kind) !== undefined) {
     handleFunction(node, nodeHandleFunctionMap.get(kind)!)
-  } else {
-    console.error(`[API_CHECK_PLUGIN] debug handleAstNode ${node.constructor.name} error!`)
   }
 }
 
@@ -460,9 +459,28 @@ export function handleClassProperty(node: arkts.AstNode) {
   if (!!node.annotations) {
     node.annotations.forEach((item: arkts.AstNode) => handleFunction(item, handleAnnotationUsage));
   }
+  if (!!node.key) {
+    handleAstNode(node.key);
+  }
+  if (!!node.value) {
+    handleAstNode(node.value);
+  }
+  if (!!node.decorators) {
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
+  }
 }
 
-export function handleClassStaticBlock(node: arkts.AstNode) { }
+export function handleClassStaticBlock(node: arkts.AstNode) {
+  if (!!node.key) {
+    handleAstNode(node.key);
+  }
+  if (!!node.value) {
+    handleAstNode(node.value);
+  }
+  if (!!node.decorators) {
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
+  }
+}
 
 export function handleConditionalExpression(node: arkts.AstNode) {
   if (!!node.test) {
@@ -954,6 +972,15 @@ export function handleMethodDefinition(node: arkts.AstNode) {
   }
   if (!!node.name) {
     handleFunction(node.name, handleIdentifier);
+  }
+  if (!!node.key) {
+    handleAstNode(node.key);
+  }
+  if (!!node.value) {
+    handleAstNode(node.value);
+  }
+  if (!!node.decorators) {
+    node.decorators.forEach((item: arkts.AstNode) => handleFunction(item, handleDecorator));
   }
 }
 

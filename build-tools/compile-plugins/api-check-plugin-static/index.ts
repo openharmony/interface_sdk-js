@@ -44,7 +44,7 @@ export function apiCheckPlugin(): Plugins {
 }
 
 /**
- * 入口回调
+ * 入口回调方法，调用ApiCheckWrapper启动插件校验功能。
  * 
  * @param { PluginContext } this PluginContext对象
  */
@@ -72,10 +72,9 @@ function apiCheckCallback(this: PluginContext): void {
 }
 
 /**
- * 初始化projectConfig
+ * 初始化projectConfig，通过调用各方法改装该对象，新增插件需要的各属性。
  * 
- * @param { ProjectConfig } projectConfig 
- * @returns 
+ * @param { ProjectConfig } projectConfig 获取的系统配置信息
  */
 export function initApiCheckConfig(projectConfig: ProjectConfig): void {
   if (projectConfig.initApiCheckTag) {
