@@ -725,7 +725,7 @@ declare namespace appManager {
    * @permission ohos.permission.KILL_APP_PROCESSES or ohos.permission.CLEAN_BACKGROUND_PROCESSES
    * @param { string } bundleName - bundle name.
    * @param { boolean } clearPageStack - The flag that indicates whether the page stack need to be cleared.
-   * @param { int } [appIndex] - The index of clone app.
+   * @param { int } [appIndex] - The application index.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
@@ -1355,14 +1355,14 @@ declare namespace appManager {
    */
   export type AbilityStateData = _AbilityStateData.default;
 
-  /**
-   * The ability or extension state data.
+ /**
+  * The ability state data.
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
-   */
+  */
   export type AbilityStateData = _AbilityStateData;
 
   /**
