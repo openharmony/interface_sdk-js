@@ -118,10 +118,18 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     header?: Object;
+
+    /**
+     * HTTP request header.
+     * @type {?Record<string, string>}
+     * @syscap SystemCapability.Communication.NetStack
+     * @since 20
+     * @arkts 1.2
+     */
+    header?: Record<string, string>;
 
     /**
      * File path for client cert.
