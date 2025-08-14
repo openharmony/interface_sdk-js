@@ -286,23 +286,23 @@ export enum UIState {
   SELECTED = 1 << 3,
 }
 
-/**
- * UI state change handling function, it returns the current UI states, the value is the result
- * of all current state enumeration values or calculations, and you can determine the state
- * by performing the & operation as follows.
- *    if (currentStates & UIState.PRESSED == UIState.PRESSEED)
- * But, please be awared, for the normal state check, the equal should be used directly.
- *    if (currentStates== UIState.NORMAL)
- * 
- * @typedef { function } UIStatesChangeHandler
- * @param { FrameNode } node - Current node which istriggering the state change.
- * @param { number } currentUIStates - Current UI states when the handler is triggered.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
+  /**
+   * UI state change handling function, it returns the current UI states, the value is the result
+   * of all current state enumeration values or calculations, and you can determine the state
+   * by performing the & operation as follows。
+   *    if (currentStates & UIState.PRESSED == UIState.PRESSED)
+   * But, please be awared, for the normal state check, the equal should be used directly.
+   *    if (currentStates == UIState.NORMAL)
+   *
+   * @typedef { function } UIStatesChangeHandler
+   * @param { FrameNode } node - Current node which is triggering the state change.
+   * @param { number } currentUIStates - Current UI states when the handler is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void;
 
 /**
