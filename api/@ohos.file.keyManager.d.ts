@@ -24,6 +24,7 @@
  * @namespace keyManager
  * @syscap SystemCapability.FileManagement.StorageService.Encryption
  * @since arkts {'1.1':'15', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace keyManager {
    /**
@@ -41,6 +42,7 @@ declare namespace keyManager {
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
     * @since arkts {'1.1':'15', '1.2':'20'}
+    * @arkts 1.1&1.2
     */
    function deactivateUserKey(userId: long):void;
  }
