@@ -32,14 +32,16 @@ import { Callback } from '../@ohos.base';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum SceneResourceType {
   /**
    * The resource is an Unknown.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UNKNOWN = 0,
 
@@ -47,7 +49,8 @@ export enum SceneResourceType {
    * The resource is a Node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NODE = 1,
 
@@ -55,7 +58,8 @@ export enum SceneResourceType {
    * The resource is an Environment.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ENVIRONMENT = 2,
 
@@ -63,7 +67,8 @@ export enum SceneResourceType {
    * The resource is a Material.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MATERIAL = 3,
 
@@ -71,7 +76,8 @@ export enum SceneResourceType {
    * The resource is a Mesh.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MESH = 4,
 
@@ -79,7 +85,8 @@ export enum SceneResourceType {
    * The resource is an Animation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ANIMATION = 5,
 
@@ -87,7 +94,8 @@ export enum SceneResourceType {
    * The resource is a Shader.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SHADER = 6,
 
@@ -95,7 +103,8 @@ export enum SceneResourceType {
    * The resource is an Image.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE = 7,
 
@@ -103,7 +112,8 @@ export enum SceneResourceType {
    * The resource is a mesh resource
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MESH_RESOURCE = 8,
 }

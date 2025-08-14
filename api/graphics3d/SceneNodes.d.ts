@@ -223,7 +223,8 @@ export interface Node extends SceneResource {
    * @type { NodeType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly nodeType: NodeType;
 
@@ -263,7 +264,8 @@ export interface Node extends SceneResource {
    * @param { string } path - the path of the node queried
    * @returns { Node | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getNodeByPath(path: string): Node | null;
 

@@ -352,7 +352,8 @@ export interface RenderParameters {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alwaysRender?: boolean;
 }
