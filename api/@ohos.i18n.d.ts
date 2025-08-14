@@ -22,6 +22,9 @@
 import { BusinessError } from './@ohos.base';
 import intl from './@ohos.intl';
 /*** endif */
+/*** if arkts 1.2 */
+import { StyledString, TextStyle } from './arkui/component/styledString';
+/*** endif */
 
 /**
  * Provides international settings related APIs.
@@ -407,10 +410,9 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
      * @deprecated since 20
      * @useinstead ohos.System.getSystemLocaleInstance
-     * @arkts 1.1&1.2
      */
     static getSystemLocale(): string;
 
@@ -423,6 +425,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemLocaleInstance(): Intl.Locale;
 
@@ -438,9 +441,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9','1.2':'20'}
+     * @since 9
      * @deprecated since 20
-     * @arkts 1.1&1.2
      */
     static setSystemLocale(locale: string): void;
 
@@ -509,7 +511,6 @@ declare namespace i18n {
      *                             of the preferred language list.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *                                 required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -528,7 +529,6 @@ declare namespace i18n {
      * @param { int } index - Position of the preferred language to delete.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *                                 required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -967,6 +967,18 @@ declare namespace i18n {
      * @since 20
      */
     static getUsingNumericalDatePattern(): string;
+
+    /**
+     * Gets temperatures used by system locale.
+     *
+     * @returns { Map<TemperatureType, string> } a map containing the type and name of temperatures
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
+     * @since 20
+     */
+    static getSystemTemperatures(): Map<TemperatureType, string>;
   }
 
   /**
@@ -1297,8 +1309,8 @@ declare namespace i18n {
      * localization.
      *
      * @param { string } path - Path to mirror, for example, "/data/out/tmp".
-     * @param [ string ] delimiter - Path delimiter. The default value is "/"".
-     * @param [ intl.Locale ] locale - Locale object. The default value is the current system locale.
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { intl.Locale } [locale] - Locale object. The default value is the current system locale.
      * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
      *                     the processed file path contains a direction control character to ensure that the file path
      *                     is displayed in mirror mode.
@@ -1306,21 +1318,22 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since 18
      * @deprecated since 20
-     * @arkts 1.1&1.2
+     * @useinstead getUnicodeWrappedFilePath
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
 
     /**
-     * Get the localized file path.
-     * Return the mirrored file path if the locale is RTL. Otherwise return the input file path.
-     * The default value of locale is current system locale.
+     * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
+     * localization.
      *
-     * @param { string } path - the file path that needs to be localized.
-     * @param { string } [delimiter] - the file path's delimiter.
-     * @param { Intl.Locale } [locale] - the locale object used to localized file path.
-     * @returns { string } the localized file path.
+     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
+     *                     the processed file path contains a direction control character to ensure that the file path
+     *                     is displayed in mirror mode.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
@@ -1731,21 +1744,21 @@ declare namespace i18n {
      * @since 10
      */
     /**
-     * Set the time
+     * Sets the year, month, day, hour, minute, and second for this Calendar object.
      *
-     * @param { int } year - The year field of the calendar, ranges from 0 to 9999.
-     * @param { int } month - The month field of the calendar, ranges from 0 to 11.
-     * @param { int } date - The day field of the calendar, ranges from 1 to 31.
-     * @param { int } hour - The hour field of the calendar, ranges from 0 to 23.
-     * @param { int } minute - The minute field of the calendar, ranges from 0 to 59.
-     * @param { int } second - the second field of the calendar, ranges from 0 to 59.
+     * @param { int } year - Year to set.
+     * @param { int } month - Month to set. Note: The month starts from 0. For example, 0 indicates January.
+     * @param { int } date - Day to set.
+     * @param { int } hour - Hour to set. The default value is the current system time.
+     * @param { int } minute - Minute to set. The default value is the current system time.
+     * @param { int } second - Second to set. The default value is the current system time.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    set(year: int, month: int, date: int, hour?: int, minute?: int, second?: int): void;
+    set(year: int, month: int, date:int, hour?: int, minute?: int, second?: int): void;
 
     /**
      * Set the timezone of this calendar.
@@ -2437,112 +2450,121 @@ declare namespace i18n {
    */
   export class Character {
     /**
-     * Determines whether the specified code point is a digit character
+     * Checks whether the input character is a digit.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a digit character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character is a digit, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isDigit
      */
-    isDigit(char: string): boolean;
+    isDigit(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a space character or not.
+     * Checks whether the input character is a space.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a space character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character is a space, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isSpaceChar
      */
-    isSpaceChar(char: string): boolean;
+    isSpaceChar(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a whitespace character
+     * Checks whether the input character is a whitespace.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a whitespace character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character is a white space, and false otherwise.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
+     * @since arkts 8
      * @deprecated since 9
      * @useinstead Unicode.isWhitespace
      */
-    isWhitespace(char: string): boolean;
+    isWhitespace(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a RTL character or not.
+     * Checks whether the input character is of the right to left (RTL) language.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a RTL character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character is of the RTL language, and false otherwise.
      * @syscap SystemCapability.Global.I18n
-     * @since 8
+     * @since arkts 8
      * @deprecated since 9
      * @useinstead Unicode.isRTL
      */
-    isRTL(char: string): boolean;
+    isRTL(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a Ideographic character or not.
+     * Checks whether the input character is an ideographic character.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a Ideographic character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character an ideographic character, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isIdeograph
      */
-    isIdeograph(char: string): boolean;
+    isIdeograph(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a Letter or not.
+     * Checks whether the input character is a letter.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a Letter
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character a letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLetter
      */
-    isLetter(char: string): boolean;
+    isLetter(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a LowerCase character or not.
+     * Checks whether the input character is a lowercase letter.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a LowerCase character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character a lowercase letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLowerCase
      */
-    isLowerCase(char: string): boolean;
+    isLowerCase(ch: string): boolean;
 
     /**
-     * Determines if the specified character is a UpperCase character or not.
+     * Checks whether the input character is an uppercase letter.
      *
-     * @param { string } char - the character to be tested
-     * @returns { boolean } true if the character is a UpperCase character
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { boolean } true if the input character an uppercase letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isUpperCase
      */
-    isUpperCase(char: string): boolean;
+    isUpperCase(ch: string): boolean;
 
     /**
-     * Get the general category value of the specified character.
+     * Obtains the type of the input character.
      *
-     * @param { string } char - the character to be tested
-     * @returns { string } the general category of the specified character.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
+     * @returns { string } Type of the input character.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.getType
      */
-    getType(char: string): string;
+    getType(ch: string): string;
   }
 
   /**
@@ -3688,7 +3710,7 @@ declare namespace i18n {
 
     /**
      * Offset of the time zone ID.
-     * 
+     *
      * @type { int }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -3710,7 +3732,7 @@ declare namespace i18n {
 
     /**
      * Fixed offset of the time zone ID.
-     * 
+     *
      * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
@@ -4221,19 +4243,22 @@ declare namespace i18n {
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 20
-   * @arkts 1.1&1.2
+   * @useinstead getSimpleDateTimeFormatByPattern
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
   /**
-   * Create a SimpleDateTimeFormat object by pattern and locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleDateTimeFormat object based on the specified pattern string. For details about the display
+   * differences between the objects obtained by this API and getSimpleDateTimeFormatBySkeleton,
+   * see SimpleDateTimeFormat.
    *
-   * @param { string } pattern - the pattern used to create SimpleDateTimeFormat object.
-   * @param { Intl.Locale } [locale] - the Intl.Locale object used to create Intl.SimpleDateTimeFormat object.
-   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from pattern.
+   * @param { string } pattern - Valid pattern. For details about the supported characters and their meanings, see
+   *                             [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *                             This parameter also supports custom text enclosed in single quotation marks ('').
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleDateTimeFormat } SimpleDateTimeFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -4253,20 +4278,21 @@ declare namespace i18n {
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 20
-   * @arkts 1.1&1.2
+   * @useinstead getSimpleDateTimeFormatBySkeleton
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
   /**
-   * Create a SimpleDateTimeFormat object by skeleton and locale. This method create a pattern by locale and skeleton, the pattern
-   * includes locale specific separators, and the fields'order will be adjust for that locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleDateTimeFormat object based on the specified skeleton. For details about the display differences
+   * between the objects obtained by this API and getSimpleDateTimeFormatByPattern, see SimpleDateTimeFormat.
    *
-   * @param { string } skeleton - the skeleton used to create SimpleDateTimeFormat object.
-   * @param { Intl.Locale } [locale] - the Intl.Locale object used to create SimpleDateTimeFormat object.
-   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from skeleton.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *                              [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *                              This parameter does not support custom text.
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleDateTimeFormat } SimpleDateTimeFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -4307,19 +4333,19 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 20
-   * @arkts 1.1&1.2
+   * @useinstead getSimpleNumberFormatBySkeleton
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
   /**
-   * Create a SimpleNumberFormat object by pattern and locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleNumberFormat object based on the specified skeleton.
    *
-   * @param { string } skeleton - the skeleton used to create SimpleNumberFormat object.
-   * @param { Intl.Locale } [locale] - the Intl.Locale object used to create SimpleNumberFormat object.
-   * @returns { SimpleNumberFormat } a SimpleNumberFormat object created from pattern.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *                              [Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons).
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleNumberFormat } SimpleNumberFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
@@ -4355,7 +4381,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class StyledNumberFormat {
     /**
@@ -4366,8 +4393,10 @@ declare namespace i18n {
      *                                                    The default value is the default text style.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
      * @deprecated since 20
+     * @useinstead constructor
+     * @arkts 1.1&1.2
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
@@ -4390,7 +4419,8 @@ declare namespace i18n {
      * @returns { StyledString } Rich text object after formatting.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     format(value: double): StyledString;
   }
@@ -4401,7 +4431,8 @@ declare namespace i18n {
    * @interface StyledNumberFormatOptions
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface StyledNumberFormatOptions {
     /**
@@ -4410,7 +4441,8 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     integer?: TextStyle;
 
@@ -4420,7 +4452,8 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     decimal?: TextStyle;
 
@@ -4430,7 +4463,8 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fraction?: TextStyle;
 
@@ -4440,7 +4474,8 @@ declare namespace i18n {
      * @type { ?TextStyle }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unit?: TextStyle;
   }

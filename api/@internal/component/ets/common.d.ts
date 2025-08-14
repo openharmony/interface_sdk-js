@@ -218,6 +218,7 @@ declare interface TextDecorationOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
@@ -229,6 +230,7 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
@@ -333,6 +335,7 @@ declare interface EntryOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
@@ -365,6 +368,7 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Observed: ClassDecorator;
 
@@ -376,6 +380,7 @@ declare const Observed: ClassDecorator;
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const ObservedV2: ClassDecorator;
 
@@ -408,6 +413,7 @@ declare const ObservedV2: ClassDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
@@ -419,6 +425,7 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Require: PropertyDecorator;
 
@@ -451,6 +458,7 @@ declare const Require: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const BuilderParam: PropertyDecorator;
 
@@ -461,6 +469,7 @@ declare const BuilderParam: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Local: PropertyDecorator;
 
@@ -471,6 +480,7 @@ declare const Local: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Param: PropertyDecorator;
 
@@ -481,6 +491,7 @@ declare const Param: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Once: PropertyDecorator;
 
@@ -491,6 +502,7 @@ declare const Once: PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Event: PropertyDecorator;
 
@@ -523,6 +535,7 @@ declare const Event: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const State: PropertyDecorator;
 
@@ -542,6 +555,7 @@ declare const State: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Track: PropertyDecorator;
 
@@ -553,6 +567,7 @@ declare const Track: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Trace: PropertyDecorator;
 
@@ -585,6 +600,7 @@ declare const Trace: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Prop: PropertyDecorator;
 
@@ -617,6 +633,7 @@ declare const Prop: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Link: PropertyDecorator;
 
@@ -649,6 +666,7 @@ declare const Link: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ObjectLink: PropertyDecorator;
 
@@ -706,6 +724,7 @@ declare interface ProvideOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
@@ -715,6 +734,7 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
@@ -747,6 +767,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
@@ -757,6 +778,7 @@ declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator
 * @crossplatform
 * @atomicservice
 * @since 12
+* @noninterop
 */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
@@ -767,6 +789,7 @@ declare const Consumer: (aliasName?: string) => PropertyDecorator;
 * @crossplatform
 * @atomicservice
 * @since 12
+* @noninterop
 */
 declare const Computed: MethodDecorator;
 
@@ -790,6 +813,7 @@ declare const Computed: MethodDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StorageProp: (value: string) => PropertyDecorator;
 
@@ -813,6 +837,7 @@ declare const StorageProp: (value: string) => PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StorageLink: (value: string) => PropertyDecorator;
 
@@ -845,6 +870,7 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
@@ -877,6 +903,7 @@ declare const Watch: (value: string) => PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Builder: MethodDecorator;
 
@@ -888,6 +915,7 @@ declare const Builder: MethodDecorator;
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const LocalBuilder: MethodDecorator;
 
@@ -920,6 +948,7 @@ declare const LocalBuilder: MethodDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Styles: MethodDecorator;
 
@@ -952,6 +981,7 @@ declare const Styles: MethodDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
@@ -969,6 +999,7 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
  declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
@@ -979,6 +1010,7 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const Monitor: MonitorDecorator;
 
@@ -993,6 +1025,7 @@ declare const Monitor: MonitorDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type MonitorDecorator = (value: string, ...args: string[]) => MethodDecorator;
 
@@ -1210,6 +1243,7 @@ declare interface IMonitorValue<T> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Concurrent: MethodDecorator;
 
@@ -1225,6 +1259,7 @@ declare const Concurrent: MethodDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Sendable: ClassDecorator;
 
@@ -1248,6 +1283,7 @@ declare const Sendable: ClassDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CustomDialog: ClassDecorator;
 
@@ -1271,6 +1307,7 @@ declare const CustomDialog: ClassDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
@@ -1297,6 +1334,7 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -1369,6 +1407,7 @@ declare function getContext(component?: Object): Context;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Reusable: ClassDecorator;
 
@@ -1379,6 +1418,7 @@ declare const Reusable: ClassDecorator;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare const ReusableV2: ClassDecorator;
 
@@ -19566,6 +19606,7 @@ declare interface NestedScrollOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface MenuElement {
   /**
@@ -20149,6 +20190,7 @@ declare enum MenuPolicy {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
@@ -20168,6 +20210,7 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
@@ -20194,6 +20237,7 @@ declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').Sy
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare interface DragPreviewOptions {
   /**
@@ -20664,6 +20708,7 @@ declare interface BackgroundOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonMethod<T> {
   /**
@@ -28110,6 +28155,7 @@ declare class CommonMethod<T> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
@@ -28146,6 +28192,7 @@ declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CommonInterface {
   /**
@@ -28214,6 +28261,7 @@ interface CommonInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -28246,6 +28294,7 @@ declare const CommonInstance: CommonAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Common: CommonInterface;
 
@@ -28505,6 +28554,7 @@ declare type FractionStop = [ number, number ];
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
@@ -30039,6 +30089,7 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class CustomComponent extends BaseCustomComponent {
   /**
@@ -30108,6 +30159,7 @@ declare class CustomComponent extends BaseCustomComponent {
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
   /**
@@ -30131,6 +30183,7 @@ declare class CustomComponentV2 extends BaseCustomComponent {
  * @form
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare class BaseCustomComponent extends CommonAttribute {
     /**
@@ -31236,6 +31289,7 @@ declare enum ContentClipMode {
  * @form
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**

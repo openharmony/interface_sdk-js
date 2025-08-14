@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,22 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1&1.2 */
+import common from '@ohos.app.ability.common';
+import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
+import { Configuration } from '@ohos.app.ability.Configuration';
+import Want from '@ohos.app.ability.Want';
+import StartOptions from '@ohos.app.ability.StartOptions';
+import contextConstant from '@ohos.app.ability.contextConstant';
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
+import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
+import wantConstant from '@ohos.app.ability.wantConstant';
+import AbilityStage from '@ohos.app.ability.AbilityStage';
+import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
+import uriPermissionManager from '@ohos.application.uriPermissionManager';
+import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
+/*** endif */
+
 import ability from '@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
 import featureAbility from '@ohos.ability.featureAbility';
@@ -26,10 +42,9 @@ import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
 import Ability from '@ohos.app.ability.Ability';
-import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
+import InteropAbilityLifecycleCallback from '@ohos.app.ability.InteropAbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
-import AbilityStage from '@ohos.app.ability.AbilityStage';
 import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
 import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
 import appManager from '@ohos.app.ability.appManager';
@@ -41,10 +56,6 @@ import ChildProcess from '@ohos.app.ability.ChildProcess';
 import childProcessManager from '@ohos.app.ability.childProcessManager';
 import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
 import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
-import common from '@ohos.app.ability.common';
-import { Configuration } from '@ohos.app.ability.Configuration';
-import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
-import contextConstant from '@ohos.app.ability.contextConstant';
 import dataUriUtils from '@ohos.app.ability.dataUriUtils';
 import dialogRequest from '@ohos.app.ability.dialogRequest';
 import dialogSession from '@ohos.app.ability.dialogSession';
@@ -61,19 +72,12 @@ import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExec
 import missionManager from '@ohos.app.ability.missionManager';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
-import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
 import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
-import StartOptions from '@ohos.app.ability.StartOptions';
 import UIAbility, {
   Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '@ohos.app.ability.UIAbility';
-import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
-import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
-import Want from '@ohos.app.ability.Want';
-import wantConstant from '@ohos.app.ability.wantConstant';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
-import uriPermissionManager from '@ohos.application.uriPermissionManager';
 import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
@@ -105,10 +109,10 @@ import screenLockFileManager from '@ohos.ability.screenLockFileManager';
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
-import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
+import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import application from '@ohos.app.ability.application';
-import appDomainVerify from '@ohos.bundle.appDomainVerify';
+import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 import kioskManager from '@ohos.app.ability.kioskManager';
@@ -129,12 +133,19 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
+  sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application, UIServiceExtensionAbility,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
+  InteropAbilityLifecycleCallback
 };
 
 /*** if arkts 1.2 */
+import UIAbility from '@ohos.app.ability.UIAbility';
+import {
+  Callee, Caller, OnReleaseCallback
+} from '@ohos.app.ability.UIAbility';
+import wantAgent from '@ohos.app.ability.wantAgent';
+import { WantAgent } from '@ohos.app.ability.wantAgent';
 import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
@@ -148,6 +159,9 @@ import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
+  common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
+  UIExtensionContentSession, wantConstant, UIAbility, Callee, Caller, OnReleaseCallback, AbilityStage,
+  UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
   freeInstall, installer, launcherBundleManager, overlay, shortcutManager
 };

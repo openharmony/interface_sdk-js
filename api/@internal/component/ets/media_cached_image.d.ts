@@ -59,6 +59,7 @@ interface ASTCResource {
  * @systemapi
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface MediaCachedImageInterface {
   /**
@@ -92,6 +93,7 @@ interface MediaCachedImageInterface {
  * @systemapi
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class MediaCachedImageAttribute extends ImageAttribute {}
 
@@ -101,6 +103,7 @@ declare class MediaCachedImageAttribute extends ImageAttribute {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare const MediaCachedImage: MediaCachedImageInterface;
 
@@ -110,5 +113,6 @@ declare const MediaCachedImage: MediaCachedImageInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare const MediaCachedImageInstance: MediaCachedImageAttribute;

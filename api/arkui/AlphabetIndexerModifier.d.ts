@@ -24,11 +24,11 @@
  * Defines AlphabetIndexer Modifier
  *
  * @extends AlphabetIndexerAttribute
- * @implements AttributeModifier<AlphabetIndexerAttribute>
+ * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
-*/
+ */
 /**
  * Defines AlphabetIndexer Modifier
  *
@@ -38,6 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class AlphabetIndexerModifier extends AlphabetIndexerAttribute implements AttributeModifier<AlphabetIndexerAttribute> {
 

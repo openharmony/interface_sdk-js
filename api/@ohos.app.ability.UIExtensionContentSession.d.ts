@@ -21,10 +21,10 @@
 import type AbilityStartCallback from './application/AbilityStartCallback';
 import type { AsyncCallback } from './@ohos.base';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
+import type uiExtension from './@ohos.arkui.uiExtension';
 /*** if arkts 1.1 */
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
-import type uiExtension from './@ohos.arkui.uiExtension';
 import type { AbilityResult } from './ability/abilityResult';
 /*** endif */
 /*** if arkts 1.2 */
@@ -533,7 +533,8 @@ declare class UIExtensionContentSession {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>;
 
@@ -549,7 +550,8 @@ declare class UIExtensionContentSession {
    * 2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void;
 
@@ -654,7 +656,8 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getUIExtensionWindowProxy(): uiExtension.WindowProxy;
 }

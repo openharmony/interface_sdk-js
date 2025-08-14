@@ -307,7 +307,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTitle(): string;
 
@@ -320,7 +321,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTitle(title: string): void;
 
@@ -330,7 +332,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getFileName(): string;
 
@@ -343,7 +346,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setFileName(name: string): void;
 
@@ -353,7 +357,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUri(): string;
 
@@ -363,13 +368,14 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCustomizedType(): ToneCustomizedType;
 
     /**
      * Sets tone category.
-     * @param { number } category - tone category. This parameter can be one of {@link TONE_CATEGORY_RINGTONE},
+     * @param { long } category - tone category. This parameter can be one of {@link TONE_CATEGORY_RINGTONE},
      * {@link TONE_CATEGORY_TEXT_MESSAGE}, {@link TONE_CATEGORY_NOTIFICATION}, {@link TONE_CATEGORY_ALARM}.
      * In addition, this parameter can be result of OR logical operator of these constants.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -378,21 +384,23 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setCategory(category: number): void;
+    setCategory(category: long): void;
 
     /**
      * Gets tone category.
-     * @returns { number } Tone category. This value can be one of {@link TONE_CATEGORY_RINGTONE},
+     * @returns { long } Tone category. This value can be one of {@link TONE_CATEGORY_RINGTONE},
      * {@link TONE_CATEGORY_TEXT_MESSAGE}, {@link TONE_CATEGORY_NOTIFICATION}, {@link TONE_CATEGORY_ALARM}.
      * In addition, this value can be result of OR logical operator of these constants.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getCategory(): number;
+    getCategory(): long;
 
     /**
      * Sets media type.
@@ -433,7 +441,8 @@ declare namespace systemSoundManager {
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createCustomizedToneAttrs(): ToneAttrs;
 
@@ -599,7 +608,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUri(): string;
 
@@ -609,7 +619,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTitle(): string;
 
@@ -619,7 +630,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getFileName(): string;
   }
@@ -696,7 +708,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setRingtoneUri(context: BaseContext, uri: string, type: RingtoneType): Promise<void>;
 
@@ -738,7 +751,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingtoneUri(context: BaseContext, type: RingtoneType): Promise<string>;
 
@@ -766,7 +780,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDefaultRingtoneAttrs(context: BaseContext, type: RingtoneType): Promise<ToneAttrs>;
 
@@ -782,7 +797,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingtoneAttrList(context: BaseContext, type: RingtoneType): Promise<ToneAttrsArray>;
 
@@ -823,7 +839,8 @@ declare namespace systemSoundManager {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer>;
 
@@ -840,7 +857,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSystemToneUri(context: BaseContext, uri: string, type: SystemToneType): Promise<void>;
 
@@ -874,7 +892,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDefaultSystemToneAttrs(context: BaseContext, type: SystemToneType): Promise<ToneAttrs>;
 
@@ -890,7 +909,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSystemToneAttrList(context: BaseContext, type: SystemToneType): Promise<ToneAttrsArray>;
 
@@ -922,7 +942,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDefaultAlarmToneAttrs(context: BaseContext): Promise<ToneAttrs>;
 
@@ -940,7 +961,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of input uri is not an alarm tone.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setAlarmToneUri(context: BaseContext, uri: string): Promise<void>;
 
@@ -956,7 +978,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAlarmToneUri(context: BaseContext): Promise<string>;
 
@@ -971,7 +994,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getAlarmToneAttrList(context: BaseContext): Promise<ToneAttrsArray>;
 
@@ -979,7 +1003,7 @@ declare namespace systemSoundManager {
      * Open alarm tone file.
      * @param { BaseContext } context - Current application context.
      * @param { string } uri - Uri of alarm tone to open.
-     * @returns { Promise<number> } Promise used to return fd.
+     * @returns { Promise<int> } Promise used to return fd.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -988,9 +1012,10 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700001 - Tone type mismatch, e.g. tone of uri is notification instead of alarm.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    openAlarmTone(context: BaseContext, uri: string): Promise<number>;
+    openAlarmTone(context: BaseContext, uri: string): Promise<int>;
 
     /**
      * Open tone list in batch.
@@ -1008,7 +1033,7 @@ declare namespace systemSoundManager {
 
     /**
      * Close fd.
-     * @param { number } fd - File descriptor to close.
+     * @param { int } fd - File descriptor to close.
      * @returns { Promise<void> } Promise used to return the result of close fd.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1017,9 +1042,10 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    close(fd: number): Promise<void>;
+    close(fd: int): Promise<void>;
 
     /**
      * Add customized tone into ringtone library.
@@ -1059,6 +1085,7 @@ declare namespace systemSoundManager {
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string): Promise<string>;
 
@@ -1089,10 +1116,10 @@ declare namespace systemSoundManager {
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { BaseContext } context - Current application context.
      * @param { ToneAttrs } toneAttr - Tone attributes created by {@link createCustomizedToneAttrs}.
-     * @param { number } fd - File descriptor.
-     * @param { number } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
+     * @param { int } fd - File descriptor.
+     * @param { long } [offset] - The offset in the file where the data to be read, in bytes. By default, the offset
      * is zero.
-     * @param { number } [length] - The length in bytes of the data to be read. By default, the length is the rest of
+     * @param { long } [length] - The length in bytes of the data to be read. By default, the length is the rest of
      * bytes in the file from the offset.
      * @returns { Promise<string> } Tone uri after adding into ringtone library.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1108,8 +1135,9 @@ declare namespace systemSoundManager {
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
-    addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: number, offset?: number, length?: number)
+    addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, fd: int, offset?: long, length?: long)
       : Promise<string>;
 
     /**
@@ -1127,7 +1155,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 5400103 - I/O error.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeCustomizedTone(context: BaseContext, uri:string): Promise<void>;
 
@@ -1159,7 +1188,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getToneHapticsSettings(context: BaseContext, type: ToneHapticsType): Promise<ToneHapticsSettings>;
 
@@ -1178,7 +1208,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setToneHapticsSettings(context: BaseContext, type: ToneHapticsType, settings: ToneHapticsSettings): Promise<void>;
 
@@ -1195,7 +1226,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getToneHapticsList(context: BaseContext, isSynced: boolean): Promise<ToneHapticsAttrsArray>;
 
@@ -1214,7 +1246,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getHapticsAttrsSyncedWithTone(context: BaseContext, toneUri: string): Promise<ToneHapticsAttrs>;
 
@@ -1222,7 +1255,7 @@ declare namespace systemSoundManager {
      * Open haptics.
      * @param { BaseContext } context - Current application context.
      * @param { string } hapticsUri - Uri of haptics to open.
-     * @returns { Promise<number> } Promise used to return fd.
+     * @returns { Promise<int> } Promise used to return fd.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -1232,9 +1265,10 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    openToneHaptics(context: BaseContext, hapticsUri: string): Promise<number>;
+    openToneHaptics(context: BaseContext, hapticsUri: string): Promise<int>;
   }
 
   /**

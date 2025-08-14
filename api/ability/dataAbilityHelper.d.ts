@@ -18,12 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import { AsyncCallback } from '../@ohos.base';
 import { ResultSet } from '../data/rdb/resultSet';
 import { DataAbilityOperation } from './dataAbilityOperation';
 import { DataAbilityResult } from './dataAbilityResult';
 import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
+/*** endif */
 
 /**
  * DataAbilityHelper
@@ -522,3 +524,17 @@ export interface PacMap {
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;
 }
+
+/**
+ * Indicates the parameter of the PacMap type.
+ * If a custom Sequenceable object is put in the PacMap object and will be transferred across processes,
+ * you must call BasePacMap.setClassLoader(ClassLoader) to set a class loader for the custom object.
+ * If the PacMap object is to be transferred to a non-OHOS process,
+ * values of primitive types are supported, but not custom Sequenceable objects.
+ *
+ * @typedef { Record<string, number | string | boolean | Array<string | number | boolean> | null> }
+ * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @since 20
+ * @arkts 1.2
+ */
+export type PacMap = Record<string, number | string | boolean | Array<string | number | boolean> | null>;

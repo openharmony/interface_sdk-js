@@ -38,6 +38,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 
 interface SegmentButtonTextItem {
@@ -101,6 +102,7 @@ interface SegmentButtonTextItem {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface SegmentButtonIconItem {
   /**
@@ -206,6 +208,7 @@ interface SegmentButtonIconItem {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface SegmentButtonIconTextItem {
   /**
@@ -328,6 +331,7 @@ interface SegmentButtonIconTextItem {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
@@ -338,6 +342,7 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare enum BorderRadiusMode {
   /**
@@ -373,6 +378,7 @@ declare enum BorderRadiusMode {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface CommonSegmentButtonOptions {
   /**
@@ -709,6 +715,7 @@ interface CommonSegmentButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type ItemRestriction<T> = [T, T, T?, T?, T?];
 
@@ -726,6 +733,7 @@ declare type ItemRestriction<T> = [T, T, T?, T?, T?];
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
 
@@ -743,6 +751,7 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
@@ -764,6 +773,7 @@ declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<Segme
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -804,6 +814,7 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
   /**
@@ -865,6 +876,7 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
   /**
@@ -905,6 +917,7 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
   /**
@@ -941,6 +954,7 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 interface SegmentButtonItemOptionsConstructorOptions {
   /**
@@ -1063,6 +1077,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Observed
 declare class SegmentButtonItemOptions {
@@ -1207,6 +1222,7 @@ declare class SegmentButtonItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Observed
 declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
@@ -1370,6 +1386,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Observed
 declare class SegmentButtonOptions {
@@ -1807,6 +1824,7 @@ declare class SegmentButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 declare struct SegmentButton {

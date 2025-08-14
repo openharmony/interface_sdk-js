@@ -26,6 +26,7 @@ import { ComponentContent } from '@ohos.arkui.node';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum IconStyle {
     /**
@@ -52,6 +53,7 @@ export declare enum IconStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum TitlePosition {
     /**
@@ -78,6 +80,7 @@ export declare enum TitlePosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum BottomOffset {
     /**
@@ -104,6 +107,7 @@ export declare enum BottomOffset {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare interface DialogOptions {
     /**
@@ -221,6 +225,7 @@ export declare interface DialogOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare class InterstitialDialogAction {
     /**

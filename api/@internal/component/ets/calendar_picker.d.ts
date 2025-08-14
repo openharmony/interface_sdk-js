@@ -194,6 +194,7 @@ declare interface CalendarOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface CalendarPickerInterface {
   /**
@@ -232,6 +233,7 @@ interface CalendarPickerInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
   /**
@@ -735,6 +737,7 @@ declare class CalendarPickerDialog {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CalendarPicker: CalendarPickerInterface;
 
@@ -750,5 +753,6 @@ declare const CalendarPicker: CalendarPickerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CalendarPickerInstance: CalendarPickerAttribute;

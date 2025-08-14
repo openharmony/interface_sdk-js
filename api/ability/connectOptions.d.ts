@@ -22,6 +22,40 @@ import { ElementName } from '../bundleManager/ElementName';
 import rpc from './../@ohos.rpc';
 
 /**
+ * The callback interface was connect successfully.
+ *
+ * @typedef { Function }
+ * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+ * @param { rpc.IRemoteObject } remote - The remote object instance
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void;
+
+/**
+ * The callback interface was disconnect successfully.
+ *
+ * typedef { Function }
+ * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+type OnDisconnectFn = (elementName: ElementName) => void;
+
+/**
+ * The callback interface was connect failed.
+ *
+ * @typedef { Function }
+ * @param { int } code - The error code of the failed.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+type OnFailedFn = (code: int) => void;
+
+/**
  * As an input parameter when connecting a specified background service, it is used to receive
  * state changes during the connection.
  *
@@ -42,13 +76,12 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
    *
-   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
-   * @param { rpc.IRemoteObject } remote - The remote object instance
+   * @type { OnConnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void;
+  onConnect: OnConnectFn;
 
   /**
    * The callback interface was disconnect successfully.
@@ -60,20 +93,20 @@ export interface ConnectOptions {
   /**
    * The callback interface was disconnect successfully.
    *
-   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+   * @type { OnDisconnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onDisconnect(elementName: ElementName): void;
+  onDisconnect: OnDisconnectFn;
 
   /**
    * The callback interface was connect failed.
    *
-   * @param { number } code - The error code of the failed.
+   * @typedef { OnFailedFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onFailed(code: number): void;
+  onFailed: OnFailedFn;
 }

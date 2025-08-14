@@ -42,6 +42,7 @@ import { Theme, CustomTheme } from '@ohos.arkui.theme';
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class ButtonOptions {
   /**
@@ -180,6 +181,7 @@ export declare class ButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @CustomDialog
 export declare struct TipsDialog {
@@ -473,6 +475,7 @@ export declare struct TipsDialog {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @CustomDialog
 export declare struct SelectDialog {
@@ -647,6 +650,7 @@ export declare struct SelectDialog {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @CustomDialog
 export declare struct ConfirmDialog {
@@ -859,6 +863,7 @@ export declare struct ConfirmDialog {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @CustomDialog
 export declare struct AlertDialog {
@@ -1007,6 +1012,7 @@ export declare struct AlertDialog {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @CustomDialog
 export declare struct LoadingDialog {
@@ -1082,6 +1088,7 @@ export declare struct LoadingDialog {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @CustomDialog
 export declare struct CustomContentDialog {
@@ -1177,6 +1184,7 @@ export declare struct CustomContentDialog {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 @Component
 export declare struct PopoverDialog {
@@ -1224,6 +1232,7 @@ export declare struct PopoverDialog {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export declare interface PopoverOptions extends CustomPopupOptions {
 }

@@ -50,6 +50,7 @@ import { FontWeight } from './arkui/component/enums';
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum OperationType {
   /**
@@ -155,6 +156,7 @@ export declare enum OperationType {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class OperationOption {
   /**
@@ -262,6 +264,7 @@ export declare class OperationOption {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare class SelectOptions {
   /**
@@ -391,6 +394,7 @@ export declare class SelectOptions {
  * @crossplatform
  * @atomicservice
  * @since 18 
+ * @noninterop
  */
 export declare class SymbolOptions {
   /**
@@ -497,6 +501,7 @@ export declare class SymbolOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @Component
 export declare struct SubHeader {

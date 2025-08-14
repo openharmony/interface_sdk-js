@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { NodeController } from '../../@ohos.arkui.node';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
@@ -38,8 +33,7 @@ import { CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface NodeContainerInterface {
   /**
@@ -51,29 +45,17 @@ interface NodeContainerInterface {
   * @crossplatform
   * @since 11
   */
- /**
-  * Constructor parameters
-  *
-  * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
-  * @returns { NodeContainerAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since 12
-  */
-  (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
   /**
    * Constructor parameters
    *
-   * @param { NodeController } controller - Indicates the controller of the NodeContainer.
+   * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
    * @returns { NodeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 12
    */
-  (controller: NodeController): NodeContainerAttribute;
+  (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
 }
 
 /**
@@ -89,8 +71,8 @@ interface NodeContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ * @noninterop
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 
@@ -108,6 +90,7 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const NodeContainer: NodeContainerInterface;
 
@@ -125,5 +108,6 @@ declare const NodeContainer: NodeContainerInterface;
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

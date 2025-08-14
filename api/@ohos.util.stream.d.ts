@@ -407,10 +407,25 @@ declare namespace stream {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(options: ReadableOptions);
+
+    /**
+     * The Readable constructor.
+     *
+     * @param { ReadableOptions } options - Provide options.
+     * @syscap SystemCapability.Utils.Lang
+     * @since 20
+     * @arkts 1.2
+     */
+    constructor fromOptions(options: ReadableOptions);
+
+    /**
+     * @since 20
+     * @arkts 1.2
+     */
+    overload constructor { fromOptions };
 
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result

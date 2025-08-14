@@ -28,6 +28,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct ProgressButton {
@@ -143,6 +144,7 @@ export declare struct ProgressButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare interface ProgressButtonColorOptions {
 

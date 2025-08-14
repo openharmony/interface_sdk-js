@@ -5,7 +5,7 @@
   "main": "delete_systemapi_plugin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd arkui_transformer && npm install"
+    "postinstall": "cd arkui_transformer && npm install && cd ../compile-plugins/api-check-plugin-static && npm install"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,6 @@
     "commander": "^13.1.0",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "typescript": "npm:ohos-typescript@4.9.5-r5"
+    "typescript": "npm:ohos-typescript@4.9.5-r9"
   }
 }

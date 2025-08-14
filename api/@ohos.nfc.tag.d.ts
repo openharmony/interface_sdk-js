@@ -29,7 +29,9 @@ import {
 } from './tag/nfctech';
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
+/*** if arkts 1.1 */
 import type { PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -48,7 +50,8 @@ import type { ElementName } from './bundleManager/ElementName';
  * @namespace tag
  * @syscap SystemCapability.Communication.NFC.Tag
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace tag {
   /**
@@ -64,7 +67,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_A = 1;
 
@@ -81,7 +85,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_B = 2;
 
@@ -98,7 +103,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const ISO_DEP = 3;
 
@@ -115,7 +121,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_F = 4;
 
@@ -132,7 +139,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_V = 5;
 
@@ -149,7 +157,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NDEF = 6;
 
@@ -166,7 +175,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NDEF_FORMATABLE = 7;
 
@@ -183,7 +193,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MIFARE_CLASSIC = 8;
 
@@ -200,7 +211,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MIFARE_ULTRALIGHT = 9;
 
@@ -210,7 +222,8 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const NFC_BARCODE = 10;
 
@@ -224,10 +237,11 @@ declare namespace tag {
   /**
    * TNF types definitions, see NFCForum-TS-NDEF_1.0.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum TnfType {
     /**
@@ -241,7 +255,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_EMPTY = 0x0,
 
@@ -256,7 +271,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_WELL_KNOWN = 0x1,
 
@@ -271,7 +287,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_MEDIA = 0x2,
 
@@ -286,7 +303,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_ABSOLUTE_URI = 0x3,
 
@@ -301,7 +319,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_EXT_APP = 0x4,
 
@@ -316,7 +335,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_UNKNOWN = 0x5,
 
@@ -331,7 +351,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TNF_UNCHANGED = 0x6
   }
@@ -346,10 +367,11 @@ declare namespace tag {
   /**
    * NfcForum Type definition. The NDEF tag may use one of them.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum NfcForumType {
     /**
@@ -363,7 +385,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFC_FORUM_TYPE_1 = 1,
 
@@ -378,7 +401,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFC_FORUM_TYPE_2 = 2,
 
@@ -393,7 +417,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFC_FORUM_TYPE_3 = 3,
 
@@ -408,7 +433,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFC_FORUM_TYPE_4 = 4,
 
@@ -423,7 +449,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIFARE_CLASSIC = 101
   }
@@ -441,9 +468,10 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const RTD_TEXT: number[];
+  const RTD_TEXT: int[];
 
   /**
    * RTD type URI, see NFC Record Type Definition (RTD) Specification.
@@ -458,9 +486,10 @@ declare namespace tag {
    * @constant
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  const RTD_URI: number[];
+  const RTD_URI: int[];
 
   /**
    * MifareClassic Type definition
@@ -472,10 +501,11 @@ declare namespace tag {
   /**
    * MifareClassic Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MifareClassicType {
     /**
@@ -489,7 +519,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_UNKNOWN = 0,
 
@@ -504,7 +535,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_CLASSIC = 1,
 
@@ -519,7 +551,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_PLUS = 2,
 
@@ -534,7 +567,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_PRO = 3
   }
@@ -549,10 +583,11 @@ declare namespace tag {
   /**
    * MifareClassic Tag size.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MifareClassicSize {
     /**
@@ -566,7 +601,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MC_SIZE_MINI = 320,
 
@@ -581,7 +617,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MC_SIZE_1K = 1024,
 
@@ -596,7 +633,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MC_SIZE_2K = 2048,
 
@@ -611,7 +649,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MC_SIZE_4K = 4096
   }
@@ -626,10 +665,11 @@ declare namespace tag {
   /**
    * MifareUltralight Type definition
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MifareUltralightType {
     /**
@@ -643,7 +683,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_UNKNOWN = 0,
 
@@ -658,7 +699,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_ULTRALIGHT = 1,
 
@@ -673,7 +715,8 @@ declare namespace tag {
      *
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_ULTRALIGHT_C = 2
   }
@@ -723,7 +766,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNfcA(tagInfo: TagInfo): NfcATag;
 
@@ -772,7 +816,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNfcB(tagInfo: TagInfo): NfcBTag;
 
@@ -821,7 +866,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNfcF(tagInfo: TagInfo): NfcFTag;
 
@@ -870,7 +916,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNfcV(tagInfo: TagInfo): NfcVTag;
 
@@ -905,7 +952,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getIsoDep(tagInfo: TagInfo): IsoDepTag;
 
@@ -940,7 +988,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNdef(tagInfo: TagInfo): NdefTag;
 
@@ -975,7 +1024,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMifareClassic(tagInfo: TagInfo): MifareClassicTag;
 
@@ -1010,7 +1060,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMifareUltralight(tagInfo: TagInfo): MifareUltralightTag;
 
@@ -1045,7 +1096,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getNdefFormatable(tagInfo: TagInfo): NdefFormatableTag;
 
@@ -1064,7 +1116,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getBarcodeTag(tagInfo: TagInfo): BarcodeTag;
 
@@ -1093,7 +1146,8 @@ declare namespace tag {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTagInfo(want: Want): TagInfo;
 
@@ -1118,7 +1172,7 @@ declare namespace tag {
    *
    * @permission ohos.permission.NFC_TAG
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1130,11 +1184,12 @@ declare namespace tag {
    * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function registerForegroundDispatch(
     elementName: ElementName,
-    discTech: number[],
+    discTech: int[],
     callback: AsyncCallback<TagInfo>
   ): void;
 
@@ -1166,7 +1221,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unregisterForegroundDispatch(elementName: ElementName): void;
 
@@ -1194,7 +1250,7 @@ declare namespace tag {
    * @permission ohos.permission.NFC_TAG
    * @param { 'readerMode' } type - The callback type to be registered.
    * @param { ElementName } elementName - The element name of application, must include the bundleName and abilityName.
-   * @param { number[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
+   * @param { int[] } discTech - The technologies list to set for discovering. From {@link NFC_A} to {@link MIFARE_ULTRALIGHT}.
    * @param { AsyncCallback<TagInfo> } callback - The callback to dispatched the TagInfo object for application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -1206,9 +1262,10 @@ declare namespace tag {
    * @throws { BusinessError } 3100202 - The element state is invalid.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'readerMode', elementName: ElementName, discTech: number[], callback: AsyncCallback<TagInfo>): void;
+  function on(type: 'readerMode', elementName: ElementName, discTech: int[], callback: AsyncCallback<TagInfo>): void;
 
   /**
    * Disable foreground reader mode settings explicitly.
@@ -1244,7 +1301,8 @@ declare namespace tag {
    * @throws { BusinessError } 3100203 - The off() API can be called only when the on() has been called.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'readerMode', elementName: ElementName, callback?: AsyncCallback<TagInfo>): void;
 
@@ -1265,7 +1323,8 @@ declare namespace tag {
    * @typedef TagInfo
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface TagInfo {
     /**
@@ -1279,12 +1338,13 @@ declare namespace tag {
      * The uid of this tag, it.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    uid: number[];
+    uid: int[];
 
     /**
      * The supported technology list of this tag.
@@ -1297,12 +1357,13 @@ declare namespace tag {
      * The supported technology list of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    technology: number[];
+    technology: int[];
 
     /**
      * The extra data for each technology of this tag.
@@ -1319,12 +1380,13 @@ declare namespace tag {
      * The the RF discovery id of this tag.
      *
      * @permission ohos.permission.NFC_TAG
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    tagRfDiscId: number;
+    tagRfDiscId: int;
 
     /**
      * The extra data for the technology of this tag.
@@ -1333,7 +1395,8 @@ declare namespace tag {
      * @type { rpc.RemoteObject }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @systemapi hide for inner use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     remoteTagService: rpc.RemoteObject;
 
@@ -1362,7 +1425,8 @@ declare namespace tag {
    * @typedef NdefRecord
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NdefRecord {
     /**
@@ -1374,12 +1438,13 @@ declare namespace tag {
     /**
      * tnf of NdefRecord
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    tnf: number;
+    tnf: int;
 
     /**
      * RTD type of NdefRecord
@@ -1391,12 +1456,13 @@ declare namespace tag {
     /**
      * RTD type of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rtdType: number[];
+    rtdType: int[];
 
     /**
      * id of NdefRecord
@@ -1407,12 +1473,13 @@ declare namespace tag {
     /**
      * id of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    id: number[];
+    id: int[];
 
     /**
      * payload of NdefRecord
@@ -1423,12 +1490,13 @@ declare namespace tag {
     /**
      * payload of NdefRecord
      *
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    payload: number[];
+    payload: int[];
   }
 
   /**
@@ -1444,7 +1512,8 @@ declare namespace tag {
    * @namespace ndef
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   namespace ndef {
     /**
@@ -1470,7 +1539,8 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function makeUriRecord(uri: string): NdefRecord;
 
@@ -1499,7 +1569,8 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function makeTextRecord(text: string, locale: string): NdefRecord;
 
@@ -1514,7 +1585,8 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function makeApplicationRecord(bundleName: string): NdefRecord;
 
@@ -1535,7 +1607,7 @@ declare namespace tag {
      * Creates an NDEF record with mime data.
      *
      * @param { string } mimeType type of mime data for new an NDEF record.
-     * @param { number[] } mimeData mime data for new an NDEF record.
+     * @param { int[] } mimeData mime data for new an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1543,9 +1615,10 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord;
+    function makeMimeRecord(mimeType: string, mimeData: int[]): NdefRecord;
 
     /**
      * Creates an NDEF record with external data.
@@ -1566,7 +1639,7 @@ declare namespace tag {
      *
      * @param { string } domainName - Domain name of issuing organization for the external data.
      * @param { string } type - Domain specific type of data for the external data.
-     * @param { number[] } externalData - Data payload of an NDEF record.
+     * @param { int[] } externalData - Data payload of an NDEF record.
      * @returns { NdefRecord } The instance of NdefRecord.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1574,9 +1647,10 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function makeExternalRecord(domainName: string, type: string, externalData: number[]): NdefRecord;
+    function makeExternalRecord(domainName: string, type: string, externalData: int[]): NdefRecord;
     /**
      * Creates an NDEF message with raw bytes.
      *
@@ -1592,7 +1666,7 @@ declare namespace tag {
     /**
      * Creates an NDEF message with raw bytes.
      *
-     * @param { number[] } data - The raw bytes to parse NDEF message.
+     * @param { int[] } data - The raw bytes to parse NDEF message.
      * @returns { NdefMessage } The instance of NdefMessage.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
@@ -1600,9 +1674,10 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function createNdefMessage(data: number[]): NdefMessage;
+    function createNdefMessage(data: int[]): NdefMessage;
 
     /**
      * Creates an NDEF message with record list.
@@ -1627,7 +1702,8 @@ declare namespace tag {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     function createNdefMessage(ndefRecords: NdefRecord[]): NdefMessage;
 
@@ -1644,16 +1720,17 @@ declare namespace tag {
      * Parses an NDEF message into raw bytes.
      *
      * @param { NdefMessage } ndefMessage - An NDEF message to parse.
-     * @returns { number[] } Returns the raw bytes of an NDEF message.
+     * @returns { int[] } Returns the raw bytes of an NDEF message.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Communication.NFC.Tag
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    function messageToBytes(ndefMessage: NdefMessage): number[];
+    function messageToBytes(ndefMessage: NdefMessage): int[];
   }
 
  /**
@@ -1668,7 +1745,8 @@ declare namespace tag {
   * @typedef { _NfcATag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NfcATag = _NfcATag;
 
@@ -1684,7 +1762,8 @@ declare namespace tag {
   * @typedef { _NfcBTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NfcBTag = _NfcBTag;
 
@@ -1700,7 +1779,8 @@ declare namespace tag {
   * @typedef { _NfcFTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NfcFTag = _NfcFTag;
 
@@ -1716,7 +1796,8 @@ declare namespace tag {
   * @typedef { _NfcVTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NfcVTag = _NfcVTag;
 
@@ -1732,7 +1813,8 @@ declare namespace tag {
   * @typedef { _IsoDepTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type IsoDepTag = _IsoDepTag;
 
@@ -1748,7 +1830,8 @@ declare namespace tag {
   * @typedef { _NdefTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NdefTag = _NdefTag;
 
@@ -1764,7 +1847,8 @@ declare namespace tag {
   * @typedef { _MifareClassicTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type MifareClassicTag = _MifareClassicTag;
 
@@ -1780,7 +1864,8 @@ declare namespace tag {
   * @typedef { _MifareUltralightTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type MifareUltralightTag = _MifareUltralightTag;
 
@@ -1796,7 +1881,8 @@ declare namespace tag {
   * @typedef { _NdefFormatableTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NdefFormatableTag = _NdefFormatableTag;
 
@@ -1806,7 +1892,8 @@ declare namespace tag {
   * @typedef { _BarcodeTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 18
+  * @since arkts {'1.1':'18','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type BarcodeTag = _BarcodeTag;
 
@@ -1822,7 +1909,8 @@ declare namespace tag {
   * @typedef { _NdefMessage }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type NdefMessage = _NdefMessage;
 
@@ -1838,7 +1926,8 @@ declare namespace tag {
   * @typedef { _TagSession }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since 12
+  * @since arkts {'1.1':'12','1.2':'20'}
+  * @arkts 1.1&1.2
   */
   export type TagSession = _TagSession;
 }

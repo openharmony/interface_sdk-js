@@ -32,7 +32,7 @@ declare namespace cloudSync {
   /**
    * Describes the Sync state type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -91,7 +91,7 @@ declare namespace cloudSync {
   /**
    * Describes the Sync Error type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -330,7 +330,7 @@ declare namespace cloudSync {
   /**
    * Describes the State type of download.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -373,7 +373,7 @@ declare namespace cloudSync {
   /**
    * Describes the download Error type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -450,21 +450,21 @@ declare namespace cloudSync {
     /**
      * The processed data size for current file.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    processed: number;
+    processed: long;
     /**
      * The size of current file.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: long;
     /**
      * The uri of current file.
      *
@@ -732,18 +732,18 @@ declare namespace cloudSync {
     /**
      * Get the last synchronization time.
      *
-     * @returns { Promise<number> } - Return the date of last synchronization.
+     * @returns { Promise<long> } - Return the date of last synchronization.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLastSyncTime(): Promise<number>;
+    getLastSyncTime(): Promise<long>;
     /**
      * Get the last synchronization time.
      *
-     * @param { AsyncCallback<number> } callback - Callback function.
+     * @param { AsyncCallback<long> } callback - Callback function.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
@@ -751,7 +751,7 @@ declare namespace cloudSync {
      * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getLastSyncTime(callback: AsyncCallback<number>): void;
+    getLastSyncTime(callback: AsyncCallback<long>): void;
   }
   /**
    * CloudFileCache object.
@@ -896,7 +896,7 @@ declare namespace cloudSync {
   /**
    * Describes the sync state of file.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since arkts{ '1.1':'11','1.2':'20'}
@@ -1063,7 +1063,7 @@ declare namespace cloudSync {
   /**
    * Enumeration types of data change.
    *
-   * @enum { number } NotifyType
+   * @enum { int } NotifyType
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since arkts{ '1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1195,7 +1195,7 @@ declare namespace cloudSync {
 
   /**
    * Describes the state type of optimize space task.
-   * @enum { number } OptimizeState
+   * @enum { int } OptimizeState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
    * @since arkts{ '1.1':'17','1.2':'20'}
@@ -1264,13 +1264,13 @@ declare namespace cloudSync {
     /**
      * The percentage of clearing files.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    progress: number;
+    progress: int;
   }
 
   /**
@@ -1286,24 +1286,24 @@ declare namespace cloudSync {
     /**
      * The total size(Unit:byte) of clean space.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    totalSize: number;
+    totalSize: long;
 
     /**
      * Clean files that are not accessed agingDays(unit:day) ago.
      * @permission ohos.permission.CLOUDFILE_SYNC
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since arkts{ '1.1':'17','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    agingDays: number;
+    agingDays: int;
   }
 
   /**

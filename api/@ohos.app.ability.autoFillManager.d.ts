@@ -18,6 +18,7 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { UIContext } from './@ohos.arkui.UIContext';
 import type * as _ViewData from './application/ViewData';
 import type * as _PageNodeInfo from './application/PageNodeInfo';
@@ -27,6 +28,10 @@ import type * as _CustomData from './application/CustomData';
 import type * as _AutoFillRect from './application/AutoFillRect';
 import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
+/*** endif */
+/*** if arkts 1.2 */
+import { UIContext } from './@ohos.arkui.UIContext';
+/*** endif */
 
 /**
  * This module provides the function of auto fill manager.
@@ -43,9 +48,34 @@ import { PopupPlacement } from './application/AutoFillPopupConfig';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace autoFillManager {
+  /**
+   * Called when auto save request is successfully handled.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  type OnSuccessFn = () => void;
+
+  /**
+   * Called when auto save request is failed to be handled.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  type OnFailureFn = () => void;
+
   /**
    * Auto save callback.
    *
@@ -61,7 +91,8 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface AutoSaveCallback {
     /**
@@ -74,12 +105,14 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is successfully handled.
      *
+     * @type { OnSuccessFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onSuccess(): void;
+    onSuccess: OnSuccessFn;
 
     /**
      * Called when auto save request is failed to be handled.
@@ -91,12 +124,14 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is failed to be handled.
      *
+     * @type { OnFailureFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    onFailure(): void;
+    onFailure: OnFailureFn;
   }
 
   /**
@@ -122,7 +157,8 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void;
 

@@ -254,9 +254,20 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   readonly appInfo: ApplicationInfo;
+
+  /**
+   * Obtains configuration information about an application
+   *
+   * @type { ApplicationInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly appInfo: ApplicationInfo | null;
 
   /**
    * Obtains configuration information about a module
@@ -374,9 +385,20 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   readonly signatureInfo: SignatureInfo;
+
+  /**
+   * Indicates the SignatureInfo of the bundle
+   *
+   * @type { SignatureInfo | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly signatureInfo: SignatureInfo | null;
 
   /**
    * Indicates the hap install time
@@ -842,6 +864,7 @@ export interface AppCloneIdentity {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
 export interface DynamicIconInfo {
   /**
@@ -852,6 +875,7 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly bundleName: string;
 
@@ -863,30 +887,33 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   readonly moduleName: string;
 
   /**
    * Indicates the user id of the bundle.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  readonly userId: number;
+  readonly userId: int;
 
   /**
    * Indicates the index of the bundle.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  readonly appIndex: number;
+  readonly appIndex: int;
 }
 
 /**
@@ -896,25 +923,28 @@ export interface DynamicIconInfo {
   * @syscap SystemCapability.BundleManager.BundleFramework.Core
   * @systemapi
   * @since 20
+  * @arkts 1.1&1.2
   */
 export interface BundleOptions {
     /**
    * Indicates the user id.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  userId?: number;
+  userId?: int;
 
   /**
    * Indicates the app index.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
-  appIndex?: number;
+  appIndex?: int;
 }

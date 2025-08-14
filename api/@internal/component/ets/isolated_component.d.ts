@@ -84,6 +84,7 @@ declare interface IsolatedOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare type IsolatedComponentInterface = (options: IsolatedOptions) => IsolatedComponentAttribute;
 
@@ -94,6 +95,7 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
   /**
@@ -115,6 +117,7 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare const IsolatedComponent: IsolatedComponentInterface;
 
@@ -124,5 +127,6 @@ declare const IsolatedComponent: IsolatedComponentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
+ * @noninterop
  */
 declare const IsolatedComponentInstance: IsolatedComponentAttribute;

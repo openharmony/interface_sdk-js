@@ -568,6 +568,7 @@ declare interface ButtonOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface ButtonInterface {
     /**
@@ -704,6 +705,7 @@ interface ButtonInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface LabelStyle {
     /**
@@ -848,6 +850,7 @@ declare interface LabelStyle {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
@@ -1294,6 +1297,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Button: ButtonInterface;
 /**
@@ -1325,5 +1329,6 @@ declare const Button: ButtonInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ButtonInstance: ButtonAttribute;

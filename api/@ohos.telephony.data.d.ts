@@ -50,12 +50,12 @@ declare namespace data {
   /**
    * Get the default cellular data card.
    *
-   * @returns { number } Returns default cellular data slot id.
+   * @returns { int } Returns default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
    * @since arkts {'1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDefaultCellularDataSlotIdSync(): number;
+  function getDefaultCellularDataSlotIdSync(): int;
 
   /**
    * Switch cellular data services to another card, without changing the default settings.
@@ -559,7 +559,7 @@ declare namespace data {
   /**
    * Describes the cellular data flow type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
@@ -614,7 +614,7 @@ declare namespace data {
   /**
    * Describes the cellular data link connection state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2

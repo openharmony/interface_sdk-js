@@ -587,11 +587,11 @@ declare namespace wifiManager {
   /**
    * Calculate the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } rssi - Indicates the Wi-Fi RSSI.
-   * @param { number } band - Indicates the Wi-Fi frequency band.
-   * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
+   * @param { int } rssi - Indicates the Wi-Fi RSSI.
+   * @param { int } band - Indicates the Wi-Fi frequency band.
+   * @returns { int } Returns Wi-Fi signal level ranging from 0 to 4.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -599,7 +599,7 @@ declare namespace wifiManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSignalLevel(rssi: number, band: number): number;
+  function getSignalLevel(rssi: int, band: int): int;
 
   /**
    * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
@@ -1583,7 +1583,7 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1596,18 +1596,19 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
+   * @param { Callback<int> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'wifiStateChange', callback: Callback<number>): void;
+  function on(type: 'wifiStateChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi status change events.
@@ -1617,7 +1618,7 @@ declare namespace wifiManager {
    * @param { 'wifiStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1631,18 +1632,19 @@ declare namespace wifiManager {
    * <p>All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'wifiStateChange', callback?: Callback<number>): void;
+  function off(type: 'wifiStateChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi connection change events.
@@ -1651,7 +1653,7 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1664,18 +1666,19 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 0: disconnected, 1: connected
+   * @param { Callback<int> } callback - the callback of on, 0: disconnected, 1: connected
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
+  function on(type: 'wifiConnectionChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi connection change events.
@@ -1684,7 +1687,7 @@ declare namespace wifiManager {
    * @param { 'wifiConnectionChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1697,18 +1700,19 @@ declare namespace wifiManager {
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiConnectionChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
+  function off(type: 'wifiConnectionChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi scan status change events.
@@ -1717,7 +1721,7 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1730,17 +1734,18 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 0: scan fail, 1: scan success
+   * @param { Callback<int> } callback - the callback of on, 0: scan fail, 1: scan success
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
+  function on(type: 'wifiScanStateChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi scan status change events.
@@ -1749,7 +1754,7 @@ declare namespace wifiManager {
    * @param { 'wifiScanStateChange' } type - event name.
    * @param { Callback<number> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1762,152 +1767,159 @@ declare namespace wifiManager {
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiScanStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
+  function off(type: 'wifiScanStateChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi rssi change events.
    * When the service exits, call off(type: 'wifiRssiChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiRssiChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on
+   * @param { Callback<int> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'wifiRssiChange', callback: Callback<number>): void;
+  function on(type: 'wifiRssiChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi rssi change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'wifiRssiChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'wifiRssiChange', callback?: Callback<number>): void;
+  function off(type: 'wifiRssiChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi stream change events.
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
    * @param { 'streamChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
+   * @param { Callback<int> } callback - the callback of on, 1: stream down, 2: stream up, 3: stream bidirectional
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'streamChange', callback: Callback<number>): void;
+  function on(type: 'streamChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi stream change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
    * @param { 'streamChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'streamChange', callback?: Callback<number>): void;
+  function off(type: 'streamChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi device config change events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'deviceConfigChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 0: config is added, 1: config is changed, 2: config is removed.
+   * @param { Callback<int> } callback - the callback of on, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'deviceConfigChange', callback: Callback<number>): void;
+  function on(type: 'deviceConfigChange', callback: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi device config change events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'deviceConfigChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
+   * @param { Callback<int> } callback - the callback of off, 0: config is added, 1: config is changed, 2: config is removed.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'deviceConfigChange', callback?: Callback<number>): void;
+  function off(type: 'deviceConfigChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi hotspot state change events.
    * When the service exits, call off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'hotspotStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
+   * @param { Callback<int> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'hotspotStateChange', callback: Callback<number>): void;
+  function on(type: 'hotspotStateChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe Wi-Fi hotspot state change events.
    * All callback functions will be deregistered If there is no specific callback parameter.</p>
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'hotspotStateChange'} type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { 'hotspotStateChange' } type - event name.
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'hotspotStateChange', callback?: Callback<number>): void;
+  function off(type: 'hotspotStateChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe Wi-Fi hotspot sta join events.
@@ -1922,7 +1934,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
@@ -1940,7 +1953,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'hotspotStaJoin', callback?: Callback<StationInfo>): void;
 
@@ -1958,7 +1972,8 @@ declare namespace wifiManager {
    * @syscap SystemCapability.Communication.WiFi.AP.Core
 
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
@@ -1975,7 +1990,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'hotspotStaLeave', callback?: Callback<StationInfo>): void;
 
@@ -1984,31 +2000,33 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'p2pStateChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
+   * @param { Callback<int> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'p2pStateChange', callback: Callback<number>): void;
+  function on(type: 'p2pStateChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe P2P status change events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pStateChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'p2pStateChange', callback?: Callback<number>): void;
+  function off(type: 'p2pStateChange', callback?: Callback<int>): void;
 
   /**
    * Subscribe P2P connection change events.
@@ -2022,7 +2040,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
@@ -2037,7 +2056,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'p2pConnectionChange', callback?: Callback<WifiP2pLinkedInfo>): void;
 
@@ -2067,7 +2087,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
@@ -2094,7 +2115,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'p2pDeviceChange', callback?: Callback<WifiP2pDevice>): void;
 
@@ -2124,7 +2146,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
@@ -2151,7 +2174,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void;
 
@@ -2167,7 +2191,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
@@ -2182,7 +2207,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'p2pPersistentGroupChange', callback?: Callback<void>): void;
 
@@ -2191,31 +2217,33 @@ declare namespace wifiManager {
    * When the service exits, call off(type: 'p2pDiscoveryChange', callback?: Callback&lt;number&gt;) to unregister the callback registered.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pDiscoveryChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of on
+   * @param { Callback<int> } callback - the callback of on
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
+  function on(type: 'p2pDiscoveryChange', callback: Callback<int>): void;
 
   /**
    * Unsubscribe P2P discovery events.
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { 'p2pDiscoveryChange' } type - event name.
-   * @param { Callback<number> } callback - the callback of off
+   * @param { Callback<int> } callback - the callback of off
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function off(type: 'p2pDiscoveryChange', callback?: Callback<number>): void;
+  function off(type: 'p2pDiscoveryChange', callback?: Callback<int>): void;
 
   /**
    * Wi-Fi device address( mac / bssid ) type.
@@ -2226,7 +2254,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi device address( mac / bssid ) type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -2419,7 +2447,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi detail state.
-   * @enum { number } WifiDetailState
+   * @enum { int } WifiDetailState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -2525,7 +2553,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi Category.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -3277,22 +3305,22 @@ declare namespace wifiManager {
      */
     /**
      * Received signal strength indicator (RSSI)
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
 
     /**
      * Frequency band, 1: 2.4G, 2: 5G
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * Frequency
@@ -3375,7 +3403,7 @@ declare namespace wifiManager {
    */
   /**
    * Describes the wifi security type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -3682,22 +3710,22 @@ declare namespace wifiManager {
      */
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
 
     /**
      * The frequency band of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * The speed of a Wi-Fi access point.
@@ -3875,12 +3903,12 @@ declare namespace wifiManager {
   interface IpInfo {
     /**
      * The IP address of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ipAddress: number;
+    ipAddress: int;
 
     /**
      * The gateway of the Wi-Fi connection
@@ -4044,13 +4072,13 @@ declare namespace wifiManager {
 
     /**
      * The frequency band of the Wi-Fi hotspot
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * The channel of the Wi-Fi hotspot.
@@ -4280,7 +4308,7 @@ declare namespace wifiManager {
   /**
    * The state of Wi-Fi connection enumeration.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -4415,12 +4443,12 @@ declare namespace wifiManager {
 
     /**
      * Device group capabilities
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    groupCapabilities: number;
+    groupCapabilities: int;
   }
 
   /**
@@ -4565,7 +4593,7 @@ declare namespace wifiManager {
   /**
    * P2P connection status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -4628,7 +4656,7 @@ declare namespace wifiManager {
   /**
    * P2P device status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2

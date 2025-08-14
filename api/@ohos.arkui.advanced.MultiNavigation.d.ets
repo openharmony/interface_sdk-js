@@ -28,6 +28,7 @@ import base from '@ohos.base';
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export declare enum SplitPolicy {
   /**
@@ -69,6 +70,7 @@ export declare enum SplitPolicy {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 @Component
 export declare struct MultiNavigation {
@@ -127,6 +129,7 @@ export declare struct MultiNavigation {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 export declare class MultiNavPathStack extends NavPathStack {
   /**
@@ -511,6 +514,7 @@ export declare class MultiNavPathStack extends NavPathStack {
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 declare type NavDestinationBuildFunction = (name: string, param?: object) => void;
 
@@ -523,6 +527,7 @@ declare type NavDestinationBuildFunction = (name: string, param?: object) => voi
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
 
@@ -535,5 +540,6 @@ declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  * @crossplatform
  * @atomicservice
  * @since 14
+ * @noninterop
  */
 declare type OnHomeShowOnTopCallback = (name: string) => void;

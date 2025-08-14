@@ -135,6 +135,7 @@ interface WindowAnimationTarget {
  * @systemapi
  * @since arkts {'1.1':'9','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface RemoteWindowInterface {
   /**
@@ -158,6 +159,7 @@ interface RemoteWindowInterface {
  * @systemapi
  * @since arkts {'1.1':'9','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> {}
 
@@ -167,6 +169,7 @@ declare class RemoteWindowAttribute extends CommonMethod<RemoteWindowAttribute> 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @noninterop
  */
 declare const RemoteWindow: RemoteWindowInterface;
 
@@ -176,5 +179,6 @@ declare const RemoteWindow: RemoteWindowInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @noninterop
  */
 declare const RemoteWindowInstance: RemoteWindowAttribute;

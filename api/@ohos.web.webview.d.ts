@@ -4794,7 +4794,7 @@ declare namespace webview {
      * otherwise, this registration will fail.
      *  <p>
      *
-     * @param { object } object - Application side JavaScript objects participating in registration.
+     * @param { object } jsObject - Application side JavaScript objects participating in registration.
      * @param { string } name - The name of the registered object, which is consistent with the
      *                          object name called in the window.
      * @param { Array<string> } methodList - The method of the application side JavaScript object participating
@@ -4813,7 +4813,7 @@ declare namespace webview {
      * @since 20
      * @arkts 1.1&1.2
      */
-    registerJavaScriptProxy(object: object, name: string, methodList: Array<string>,
+    registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>,
         asyncMethodList?: Array<string>, permission?: string): void;
 
     /**
@@ -5713,7 +5713,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
 
@@ -5736,7 +5737,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
@@ -6717,10 +6719,21 @@ declare namespace webview {
      *
      * @param { BackForwardCacheSupportedFeatures } features - The features that supports BackForwardCache.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void;
+
+    /**
+     * Enable the BackForwardCache and indicate features that are allowed to enter BackForwardCache.
+     * Default is disabled.
+     *
+     * @param { BackForwardCacheSupportedFeatures } [features] - The features that supports BackForwardCache.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    static enableBackForwardCache(features?: BackForwardCacheSupportedFeatures): void;
 
     /**
      * Configure the BackForwardCache.
@@ -6729,10 +6742,21 @@ declare namespace webview {
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
+
+    /**
+     * Configure the BackForwardCache.
+     *
+     * @param { BackForwardCacheOptions } [options] - The configuration of BackForwardCache.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    setBackForwardCacheOptions(options?: BackForwardCacheOptions): void;
 
     /**
      * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
@@ -6875,7 +6899,8 @@ declare namespace webview {
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
 

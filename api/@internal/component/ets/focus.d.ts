@@ -12,16 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file Provide some common interface for focus.
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { LengthMetrics , ColorMetrics } from '../Graphics';
-/*** endif */
-
 /**
  * Focus box style.
  *
@@ -29,45 +23,40 @@ import { LengthMetrics , ColorMetrics } from '../Graphics';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface FocusBoxStyle {
-  /**
-   * Describes the focus-box margin.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  margin?: LengthMetrics;
-  /**
-   * Describes the focus-box color.
-   *
-   * @type { ?ColorMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  strokeColor?: ColorMetrics;
-  /**
-   * Describes the focus-box stroke width.
-   *
-   * @type { ?LengthMetrics }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  strokeWidth?: LengthMetrics;
+    /**
+     * Describes the focus-box margin.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    margin?: LengthMetrics;
+    /**
+     * Describes the focus-box color.
+     *
+     * @type { ?ColorMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    strokeColor?: ColorMetrics;
+    /**
+     * Describes the focus-box stroke width.
+     *
+     * @type { ?LengthMetrics }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    strokeWidth?: LengthMetrics;
 }
-
 /**
  * Focus Priority
  *
@@ -75,44 +64,37 @@ declare interface FocusBoxStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum FocusPriority {
-  /**
-   * Default priority.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  AUTO = 0,
-
-  /**
-   * Prior priority.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  PRIOR = 2000,
-
-  /**
-   * Previous focus priority.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  PREVIOUS = 3000,
+    /**
+     * Default priority.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    AUTO = 0,
+    /**
+     * Prior priority.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    PRIOR = 2000,
+    /**
+     * Previous focus priority.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    PREVIOUS = 3000
 }
-
 /**
  * Key processing mode.
  * Determines the priority of key event processing when component cannot handle the key event.
@@ -121,29 +103,25 @@ declare enum FocusPriority {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare enum KeyProcessingMode {
-  /**
-   * Key events are used to move focus.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  FOCUS_NAVIGATION = 0,
-
-  /**
-   * Key events bubble up to ancestors.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  ANCESTOR_EVENT = 1,
+    /**
+     * Key events are used to move focus.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    FOCUS_NAVIGATION = 0,
+    /**
+     * Key events bubble up to ancestors.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 15
+     */
+    ANCESTOR_EVENT = 1
 }

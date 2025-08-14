@@ -27,6 +27,7 @@ import { TextModifier as TextModifier } from '@ohos.arkui.modifier';
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
 
@@ -38,6 +39,7 @@ declare type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SubHeaderV2TitleOptions {
   /**
@@ -84,6 +86,7 @@ export interface SubHeaderV2TitleOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2Title {
@@ -145,6 +148,7 @@ export declare class SubHeaderV2Title {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
 
@@ -156,6 +160,7 @@ export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SubHeaderV2SelectOptions {
   /**
@@ -225,6 +230,7 @@ export interface SubHeaderV2SelectOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2Select {
@@ -306,6 +312,7 @@ export declare class SubHeaderV2Select {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare enum SubHeaderV2OperationType {
   /**
@@ -350,6 +357,7 @@ export declare enum SubHeaderV2OperationType {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export type SubHeaderV2OperationItemAction = () => void;
 
@@ -361,6 +369,7 @@ export type SubHeaderV2OperationItemAction = () => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
 
@@ -372,6 +381,7 @@ declare type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface SubHeaderV2OperationItemOptions {
   /**
@@ -443,6 +453,7 @@ export interface SubHeaderV2OperationItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class SubHeaderV2OperationItem {
@@ -527,6 +538,7 @@ export declare class SubHeaderV2OperationItem {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export type SubHeaderV2TitleBuilder = () => void;
 
@@ -538,6 +550,7 @@ export type SubHeaderV2TitleBuilder = () => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct SubHeaderV2 {

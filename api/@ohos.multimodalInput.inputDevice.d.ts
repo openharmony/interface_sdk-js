@@ -181,12 +181,12 @@ declare namespace inputDevice {
      * Unique ID of the input device.
      * If a physical device is repeatedly reinstalled or restarted, its ID may change.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    deviceId: number;
+    deviceId: int;
   }
 
   /**

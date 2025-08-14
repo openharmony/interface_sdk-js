@@ -4703,6 +4703,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      * @arkts 1.1&1.2
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
@@ -4722,6 +4724,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      * @arkts 1.1&1.2
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
@@ -4747,6 +4751,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      * @arkts 1.1&1.2
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
@@ -5217,6 +5223,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      * @arkts 1.1&1.2
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
@@ -5231,6 +5239,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      * @arkts 1.1&1.2
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
@@ -5303,6 +5313,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     on(type: 'activeVolumeTypeChange', callback: Callback<AudioVolumeType>): void;
 
@@ -5316,6 +5327,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
 
@@ -5392,6 +5404,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     on(type: 'systemVolumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -5405,6 +5418,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     off(type: 'systemVolumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -5504,6 +5518,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
 
@@ -5515,6 +5530,7 @@ declare namespace audio {
      * If there is no callback parameter, all callbacks will be unregistered.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
   }
@@ -5606,6 +5622,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      * @arkts 1.1&1.2
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
@@ -5623,6 +5641,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      * @arkts 1.1&1.2
      */
     getVolume(volumeType: AudioVolumeType): Promise<int>;
@@ -5648,6 +5668,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      * @arkts 1.1&1.2
      */
     getVolumeSync(volumeType: AudioVolumeType): int;
@@ -5666,6 +5688,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      * @arkts 1.1&1.2
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
@@ -5683,6 +5707,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      * @arkts 1.1&1.2
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<int>;
@@ -5708,6 +5734,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      * @arkts 1.1&1.2
      */
     getMinVolumeSync(volumeType: AudioVolumeType): int;
@@ -5726,6 +5754,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      * @arkts 1.1&1.2
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>): void;
@@ -5743,6 +5773,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      * @arkts 1.1&1.2
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<int>;
@@ -5768,6 +5800,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      * @arkts 1.1&1.2
      */
     getMaxVolumeSync(volumeType: AudioVolumeType): int;
@@ -5813,6 +5847,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      * @arkts 1.1&1.2
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
@@ -5832,6 +5868,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      * @arkts 1.1&1.2
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
@@ -5859,6 +5897,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      * @arkts 1.1&1.2
      */
     isMuteSync(volumeType: AudioVolumeType): boolean;
@@ -6234,6 +6274,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      * @arkts 1.1&1.2
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType, callback: AsyncCallback<double>): void;
@@ -6267,6 +6309,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      * @arkts 1.1&1.2
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType): Promise<double>;
@@ -6296,6 +6340,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      * @arkts 1.1&1.2
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: int, device: DeviceType): double;
@@ -7602,6 +7648,7 @@ declare namespace audio {
    * @typedef StreamVolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface StreamVolumeEvent {
     /**
@@ -7609,20 +7656,23 @@ declare namespace audio {
      * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     streamUsage: StreamUsage;
     /**
      * Volume level.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
-    volume: number;
+    volume: int;
     /**
      * Whether to show the volume change in UI.
      * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
+     * @arkts 1.1&1.2
      */
     updateUi: boolean;
   }

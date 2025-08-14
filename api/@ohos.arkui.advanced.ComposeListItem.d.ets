@@ -40,6 +40,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare enum IconType {
   /**
@@ -213,6 +214,7 @@ export declare enum IconType {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class OperateIcon {
   /**
@@ -355,6 +357,7 @@ export declare class OperateIcon {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class OperateCheck {
   /**
@@ -480,6 +483,7 @@ export declare class OperateCheck {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class OperateButton {
   /**
@@ -582,6 +586,7 @@ export declare class OperateButton {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class ContentItem {
   /**
@@ -734,6 +739,7 @@ export declare class ContentItem {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class OperateItem {
   /**
@@ -984,6 +990,7 @@ export declare class OperateItem {
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 @Component
 export declare struct ComposeListItem {

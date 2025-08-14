@@ -47,11 +47,11 @@ export interface LoopObserver {
   /**
    * Will be called when the application main thread loop execute timeout.
    *
-   * @param { number } timeout - the actual executing time of loop event.
+   * @param { int } timeout - the actual executing time of loop event.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
    * @since 19
    */
-  onLoopTimeOut?(timeout: number): void;
+  onLoopTimeOut?(timeout: int): void;
 }

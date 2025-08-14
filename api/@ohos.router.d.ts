@@ -37,8 +37,7 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace router {
   /**
@@ -63,8 +62,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   export enum RouterMode {
     /**
@@ -89,8 +87,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     Standard,
 
@@ -122,8 +119,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     Single,
   }
@@ -144,8 +140,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   interface RouterOptions {
     /**
@@ -185,8 +180,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     url: string;
 
@@ -218,8 +212,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     params?: Object;
 
@@ -229,8 +222,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     recoverable?: boolean;
   }
@@ -251,8 +243,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface RouterState {
     /**
@@ -280,8 +271,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     index: number;
 
@@ -307,8 +297,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     name: string;
 
@@ -334,8 +323,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     path: string;
     
@@ -346,8 +334,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     params: Object;
   }
@@ -368,8 +355,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface EnableAlertOptions {
     /**
@@ -394,8 +380,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     message: string;
   }
@@ -1051,8 +1036,7 @@ declare namespace router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   interface NamedRouterOptions {
     /**
@@ -1070,8 +1054,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     name: string;
 
@@ -1090,8 +1073,7 @@ declare namespace router {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     params?: Object;
 
@@ -1101,8 +1083,7 @@ declare namespace router {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     recoverable?: boolean;
   }

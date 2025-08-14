@@ -18,14 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from './../../../api/global/resource';
-import { CommonMethod, AttributeModifier } from './common';
-import { ResourceColor } from './units';
-import { FontWeight } from './enums';
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-/*** endif */
-
 /**
  * Provides an interface for SymbolSpan.
  *
@@ -51,7 +43,7 @@ import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
  * @form
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 interface SymbolSpanInterface {
   /**
@@ -82,7 +74,6 @@ interface SymbolSpanInterface {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   (value: Resource): SymbolSpanAttribute;
 }
@@ -112,7 +103,7 @@ interface SymbolSpanInterface {
  * @form
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   /**
@@ -143,7 +134,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
@@ -175,7 +165,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
@@ -207,7 +196,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
@@ -239,7 +227,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
@@ -271,7 +258,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 
@@ -293,7 +279,6 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }
@@ -320,6 +305,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -345,5 +331,6 @@ declare const SymbolSpan: SymbolSpanInterface;
  * @form
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

@@ -72,7 +72,7 @@ declare class ServiceExtensionAbility {
    * Called back when a service extension is started.
    *
    * @param { Want } want - Indicates the want of service extension to start.
-   * @param { number } startId - Indicates the number of times the service extension has been started.
+   * @param { int } startId - Indicates the number of times the service extension has been started.
    *                             The {@code startId} is incremented by 1 every time the service extension is started.
    *                             For example, if the service extension has been started for six times.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -81,7 +81,7 @@ declare class ServiceExtensionAbility {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  onRequest(want: Want, startId: number): void;
+  onRequest(want: Want, startId: int): void;
 
   /**
    * Called back when a service extension is first connected to an ability.

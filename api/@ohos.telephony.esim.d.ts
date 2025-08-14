@@ -288,21 +288,24 @@ declare namespace eSIM {
    * Erase all specific profiles and reset the eUICC.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { number } slotId - Indicates the card slot index number.
-   * @param { ResetOption } options - Options for resetting eUICC memory.
+   * @param { int } slotId - Indicates the card slot index number.
+   * @param { ResetOption } [options] - Options for resetting eUICC memory.
    * @returns { Promise<ResultCode> } Returns the result of the reset operation.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3120001 - Service connection failed.
    * @throws { BusinessError } 3120002 - System internal error.
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since arkts{ '1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function resetMemory(slotId: number, options?:ResetOption): Promise<ResultCode>;
+  function resetMemory(slotId: int, options?:ResetOption): Promise<ResultCode>;
 
   /**
    * Ensure that profiles will be retained on the next factory reset.
@@ -849,7 +852,7 @@ declare namespace eSIM {
   /**
    * Options for resetting eUICC memory.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18','1.2':'20'}
@@ -945,7 +948,7 @@ declare namespace eSIM {
   /**
    * Result state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'18','1.2':'20'}

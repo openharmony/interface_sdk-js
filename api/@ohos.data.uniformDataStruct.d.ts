@@ -61,6 +61,15 @@ declare namespace uniformDataStruct {
      * @since 12
      */
     abstract?: string;
+
+    /**
+     * Indicates the abstract of the PlainText.
+     * @type { ?string }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    textAbstract?: string;
     /**
      * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
      * object are of the string type. For example, the following is a details object used to describe the properties of
@@ -247,11 +256,11 @@ declare namespace uniformDataStruct {
      * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12
      */
-    details?: Record<string, number | string | Uint8Array>;
+    details?: Record<string, int | long | double | string | Uint8Array>;
   }
 
   /**
@@ -348,11 +357,11 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the form id of form.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    formId: number;
+    formId: int;
 
     /**
      * Indicates the form name of form.
@@ -393,11 +402,11 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of form.
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    details?: Record<string, number | string | Uint8Array>;
+    details?: Record<string, int | long | double | string | Uint8Array>;
   }
 
   /**
@@ -439,11 +448,11 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of fileUri.
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    details?: Record<string, number | string | Uint8Array>;
+    details?: Record<string, int | long | double | string | Uint8Array>;
   }
 
   /**
@@ -476,11 +485,11 @@ declare namespace uniformDataStruct {
     /**
      * Indicates the details of pixelMap.
      *
-     * @type { ?Record<string, number | string | Uint8Array> }
+     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15
      */
-    details?: Record<string, number | string | Uint8Array>;
+    details?: Record<string, int | long | double | string | Uint8Array>;
   }
 }
 

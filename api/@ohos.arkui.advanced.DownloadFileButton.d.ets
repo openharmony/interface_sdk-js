@@ -26,6 +26,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum DownloadIconStyle {
   /**
@@ -57,6 +58,7 @@ export declare enum DownloadIconStyle {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum DownloadDescription {
 
@@ -149,6 +151,7 @@ export declare enum DownloadDescription {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum DownloadLayoutDirection {
 
@@ -181,6 +184,7 @@ export declare enum DownloadLayoutDirection {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface DownloadContentOptions {
   /**
@@ -214,6 +218,7 @@ export interface DownloadContentOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface DownloadStyleOptions {
 
@@ -324,6 +329,7 @@ export interface DownloadStyleOptions {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct DownloadFileButton {

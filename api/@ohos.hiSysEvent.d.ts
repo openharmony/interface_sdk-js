@@ -35,7 +35,7 @@ declare namespace hiSysEvent {
   /**
    * Enumerate system event types.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -140,10 +140,20 @@ declare namespace hiSysEvent {
      * @type { ?object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     params?: object;
+
+    /**
+     * The params of the event.
+     *
+     * @type { ?Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    params?: Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]>;
   }
 
   /**
@@ -197,7 +207,7 @@ declare namespace hiSysEvent {
   /**
    * Enumerate search system event rule type.
    *
-   * @enum {number}
+   * @enum {int}
    * @syscap SystemCapability.HiviewDFX.HiSysEvent
    * @systemapi hide for inner use
    * @since arkts {'1.1':'9','1.2':'20'}
@@ -355,57 +365,57 @@ declare namespace hiSysEvent {
     /**
      * Begin time
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    beginTime: number;
+    beginTime: long;
 
     /**
      * End time
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endTime: number;
+    endTime: long;
 
     /**
      * Max number of receive system event
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    maxEvents: number;
+    maxEvents: long;
 
     /**
      * Begin sequence
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fromSeq?: number;
+    fromSeq?: long;
 
     /**
      * End sequence
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    toSeq?: number;
+    toSeq?: long
   }
 
   /**
@@ -482,7 +492,7 @@ declare namespace hiSysEvent {
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onComplete: (reason: number, total: number) => void;
+    onComplete: (reason: int, total: int) => void;
   }
 
   /**
@@ -554,7 +564,7 @@ declare namespace hiSysEvent {
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {QueryArg} queryArg common arguments of query system event
    * @param {QueryRule[]} rules rule of query system event
-   * @returns {number} return hiview receive task time.
+   * @returns {long} return hiview receive task time.
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
@@ -569,14 +579,14 @@ declare namespace hiSysEvent {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): number;
+  function exportSysEvents(queryArg: QueryArg, rules: QueryRule[]): long;
 
   /**
    * Subscribe system event
    *
    * @permission ohos.permission.READ_DFX_SYSEVENT
    * @param {QueryRule[]} rules rule of subscribe system event
-   * @returns {number} return hiview receive task time.
+   * @returns {long} return hiview receive task time.
    * @throws {BusinessError} 201 - Permission denied. An attempt was made to read system event forbidden by permission: ohos.permission.READ_DFX_SYSEVENT.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Parameter error. Possible causes:
@@ -590,7 +600,7 @@ declare namespace hiSysEvent {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function subscribe(rules: QueryRule[]): number;
+  function subscribe(rules: QueryRule[]): long;
 
   /**
    * Unsubscribe system event

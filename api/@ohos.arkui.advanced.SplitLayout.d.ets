@@ -19,7 +19,7 @@
  */
 /*** if arkts 1.2 */
 import { ResourceStr } from './arkui/component/units';
-import { State, Prop } from './arkui/stateManagement/decorator';
+import { State, PropRef } from './arkui/stateManagement/decorator';
 import { Component } from './arkui/component/customComponent';
 import { BuilderParam, Builder } from './arkui/component/builder';
 /*** endif */
@@ -33,8 +33,9 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts{ '1.1':'11','1.2':'20'}
+ * @since arkts{ '1.1':'11','1.2':'20' }
  * @arkts 1.1&1.2
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -49,7 +50,7 @@ export declare struct SplitLayout {
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @since arkts{ '1.1':'11','1.2':'20' }
    * @arkts 1.1&1.2
    */
   @BuilderParam container: () => void;
@@ -65,7 +66,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
+   * @since arkts{ '1.1':'11','1.2':'20' }
    * @arkts 1.1&1.2
    */
   @State mainImage: ResourceStr;
@@ -81,10 +82,20 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @arkts 1.1
    */
   @Prop primaryText: ResourceStr;
+
+    /**
+   * Title text in the layout.
+   * @type { ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  @PropRef primaryText: ResourceStr;
 
   /**
    * Description text in the layout.
@@ -97,12 +108,22 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @arkts 1.1
    */
   @Prop secondaryText?: ResourceStr;
 
   /**
+   * Description text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  @PropRef secondaryText?: ResourceStr;
+
+  /**
    * Auxiliary text in the layout.
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,10 +134,20 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   * @arkts 1.1
    */
   @Prop tertiaryText?: ResourceStr;
+
+  /**
+   * Auxiliary text in the layout.
+   * @type { ?ResourceStr }.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  @PropRef tertiaryText?: ResourceStr;
 
   /**
    * The method to build component.

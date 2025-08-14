@@ -133,6 +133,7 @@ declare interface GridContainerOptions {
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
+ * @noninterop
  */
 interface GridContainerInterface {
   /**
@@ -155,6 +156,7 @@ interface GridContainerInterface {
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
+ * @noninterop
  */
 declare class GridContainerAttribute extends ColumnAttribute {}
 
@@ -165,6 +167,7 @@ declare class GridContainerAttribute extends ColumnAttribute {}
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/GridColColumnOption and grid_row/GridRowColumnOption
+ * @noninterop
  */
 declare const GridContainer: GridContainerInterface
 
@@ -175,5 +178,6 @@ declare const GridContainer: GridContainerInterface
  * @since 7
  * @deprecated since 9
  * @useinstead grid_col/GridColAttribute and grid_row/GridRowAttribute
+ * @noninterop
  */
 declare const GridContainerInstance: GridContainerAttribute;

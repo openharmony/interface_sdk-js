@@ -35,6 +35,7 @@ import { Resource } from '../global/resource'
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
  */
 declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyphAttribute) => void;
 /**
@@ -46,6 +47,7 @@ declare type SymbolGlyphApplyNormalFunction = (symbolGlyphAttribute: SymbolGlyph
  * @atomicservice
  * @since 20
  * @arkts 1.2
+ * @noninterop
 */
 export declare interface SymbolGlyphModifier extends SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> {
   /**
@@ -124,6 +126,7 @@ export declare interface SymbolGlyphModifier extends SymbolGlyphAttribute, Attri
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
     /**

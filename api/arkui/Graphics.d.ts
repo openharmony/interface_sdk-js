@@ -21,11 +21,6 @@ import drawing from '../@ohos.graphics.drawing';
 import type common2D from '../@ohos.graphics.common2D';
 import { Resource } from '../global/resource';
 
-/*** if arkts 1.2 */
-import { ResourceColor } from './component/units'
-import { BorderStyle } from './component/enums'
-/*** endif */
-
 /**
  * Size info.
  * Returns the width and height of the component. The default unit is vp, but APIs that use the Size type may specify a
@@ -45,8 +40,7 @@ import { BorderStyle } from './component/enums'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Size {
   /**
@@ -68,8 +62,7 @@ export interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width: number;
 
@@ -92,8 +85,7 @@ export interface Size {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height: number;
 }
@@ -114,16 +106,7 @@ export interface Size {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines DrawContext.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class DrawContext {
+export class DrawContext {
 
   /**
    * Get size of the DrawContext.
@@ -131,8 +114,7 @@ export declare class DrawContext {
    * @returns { Size } The size of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Get size of the DrawContext.
@@ -141,8 +123,7 @@ export declare class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get size(): Size;
 
@@ -153,8 +134,7 @@ export declare class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get sizeInPixel(): Size;
 
@@ -164,8 +144,7 @@ export declare class DrawContext {
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   /**
    * Get canvas of the DrawContext.
@@ -174,8 +153,7 @@ export declare class DrawContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get canvas(): drawing.Canvas;
 }
@@ -195,8 +173,7 @@ export declare class DrawContext {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
 interface Vector2 {
   /**
@@ -216,109 +193,7 @@ interface Vector2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  x: number
-
-  /**
-   * Value for y-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for y-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  y: number
-}
-
- /**
-  * Defined a vector with two T type values.
-  *
-  * @interface Vector2T
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
- interface Vector2T<T> {
-
-  /**
-   * Value for x-axis of the vector.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  x: T
-
-  /**
-   * Value for y-axis of the vector.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  y: T
-}
-
-/**
- * Defined a vector with three values.
- *
- * @interface Vector3
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- */
-/**
- * Defined a vector with three values.
- *
- * @interface Vector3
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
- */
-interface Vector3 {
-  /**
-   * Value for x-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for x-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
 
@@ -339,8 +214,102 @@ interface Vector3 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  y: number;
+}
+
+ /**
+  * Defined a vector with two T type values.
+  *
+  * @interface Vector2T
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 12
+  */
+ interface Vector2T<T> {
+
+  /**
+   * Value for x-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: T;
+
+  /**
+   * Value for y-axis of the vector.
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  y: T;
+}
+
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @since 11
+ */
+/**
+ * Defined a vector with three values.
+ *
+ * @interface Vector3
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 12
+ */
+interface Vector3 {
+  /**
+   * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Value for x-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  x: number;
+
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Value for y-axis of the vector.
+   * Value range: (-∞, +∞).
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
    */
   y: number;
 
@@ -361,8 +330,7 @@ interface Vector3 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   z: number;
 }
@@ -384,8 +352,7 @@ interface Vector3 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Matrix4 = [
   number,
@@ -423,8 +390,7 @@ export type Matrix4 = [
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Offset = Vector2;
 
@@ -445,8 +411,7 @@ export type Offset = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Position = Vector2;
 
@@ -457,8 +422,7 @@ export type Position = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type PositionT<T> = Vector2T<T>;
 
@@ -481,8 +445,7 @@ export type PositionT<T> = Vector2T<T>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Pivot = Vector2;
 
@@ -503,8 +466,7 @@ export type Pivot = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Scale = Vector2;
 
@@ -525,8 +487,7 @@ export type Scale = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Translation = Vector2;
 
@@ -547,8 +508,7 @@ export type Translation = Vector2;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Rotation = Vector3;
 
@@ -567,8 +527,7 @@ export type Rotation = Vector3;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface Frame {
   /**
@@ -590,8 +549,7 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   x: number;
 
@@ -614,8 +572,7 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   y: number;
 
@@ -638,8 +595,7 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width: number;
 
@@ -662,8 +618,7 @@ export declare interface Frame {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height: number;
 }
@@ -675,8 +630,7 @@ export declare interface Frame {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Edges<T> {
   /**
@@ -686,8 +640,7 @@ export interface Edges<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   left: T,
 
@@ -698,8 +651,7 @@ export interface Edges<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   right: T,
 
@@ -710,8 +662,7 @@ export interface Edges<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   top: T,
 
@@ -722,10 +673,9 @@ export interface Edges<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  bottom: T
+  bottom: T,
 }
 
 /**
@@ -737,17 +687,7 @@ export interface Edges<T> {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the Length Unit.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare enum LengthUnit {
+declare enum LengthUnit {
   /**
    * Logical pixel used in Ace1.0. It's based on frontend design width.
    * For example, when a frontend with 750px design width running on a
@@ -756,8 +696,7 @@ export declare enum LengthUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PX = 0,
 
@@ -767,8 +706,7 @@ export declare enum LengthUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   VP = 1,
 
@@ -779,8 +717,7 @@ export declare enum LengthUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FP = 2,
 
@@ -791,8 +728,7 @@ export declare enum LengthUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERCENT = 3,
 
@@ -802,8 +738,7 @@ export declare enum LengthUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   LPX = 4,
 }
@@ -815,8 +750,7 @@ export declare enum LengthUnit {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface SizeT<T> {
   /**
@@ -826,8 +760,7 @@ export interface SizeT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width: T;
 
@@ -838,8 +771,7 @@ export interface SizeT<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height: T;
 }
@@ -851,8 +783,7 @@ export interface SizeT<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export enum LengthMetricsUnit {
 
@@ -862,8 +793,7 @@ export enum LengthMetricsUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DEFAULT = 0,
 
@@ -873,8 +803,7 @@ export enum LengthMetricsUnit {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PX = 1
 }
@@ -888,16 +817,7 @@ export enum LengthMetricsUnit {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the Length Metrics.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class LengthMetrics {
+declare class LengthMetrics {
   /**
    * Constructor.
    * If the unit parameter is omitted or explicitly set to undefined, the default unit VP is used.
@@ -909,8 +829,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(value: number, unit?:LengthUnit);
 
@@ -924,8 +843,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static px(value: number): LengthMetrics;
 
@@ -939,8 +857,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static vp(value: number): LengthMetrics;
 
@@ -954,8 +871,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static fp(value: number): LengthMetrics;
 
@@ -970,8 +886,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static percent(value: number): LengthMetrics;
 
@@ -985,8 +900,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static lpx(value: number): LengthMetrics;
 
@@ -1001,8 +915,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static resource(value: Resource): LengthMetrics;
   
@@ -1014,8 +927,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   public unit: LengthUnit;
 
@@ -1026,8 +938,7 @@ export declare class LengthMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   public value: number;
 }
@@ -1040,16 +951,7 @@ export declare class LengthMetrics {
  * @atomicservice
  * @since 12
  */
-/**
- * Defines the ColorMetrics class.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class ColorMetrics {
+declare class ColorMetrics {
   /**
    * Instantiate the ColorMetrics class using color number
    *
@@ -1059,8 +961,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static numeric(value: number): ColorMetrics;
 
@@ -1079,8 +980,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
@@ -1114,8 +1014,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static resourceColor(color: ResourceColor): ColorMetrics;
 	
@@ -1128,8 +1027,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
 	
@@ -1142,8 +1040,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    get color(): string;
 
@@ -1155,8 +1052,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
    get red(): number;
 
@@ -1168,8 +1064,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get green(): number;
 
@@ -1181,8 +1076,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get blue(): number;
 
@@ -1194,8 +1088,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get alpha(): number;
 }
@@ -1207,8 +1100,7 @@ export declare class ColorMetrics {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface Corners<T> {
   /**
@@ -1218,8 +1110,7 @@ interface Corners<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topLeft: T,
 
@@ -1230,8 +1121,7 @@ interface Corners<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   topRight: T,
 
@@ -1242,8 +1132,7 @@ interface Corners<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   bottomLeft: T,
 
@@ -1254,10 +1143,9 @@ interface Corners<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  bottomRight: T
+  bottomRight: T,
 }
 
 /**
@@ -1267,8 +1155,7 @@ interface Corners<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type CornerRadius = Corners<Vector2>;
 
@@ -1279,8 +1166,7 @@ export type CornerRadius = Corners<Vector2>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type BorderRadiuses = Corners<number>;
 
@@ -1291,8 +1177,7 @@ export type BorderRadiuses = Corners<number>;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Rect = common2D.Rect;
 
@@ -1303,8 +1188,7 @@ export type Rect = common2D.Rect;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface RoundRect {
   /**
@@ -1314,8 +1198,7 @@ export interface RoundRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   rect: Rect,
 
@@ -1326,10 +1209,9 @@ export interface RoundRect {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  corners: CornerRadius
+  corners: CornerRadius,
 }
 
 /**
@@ -1339,8 +1221,7 @@ export interface RoundRect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Circle {
   /**
@@ -1350,8 +1231,7 @@ export interface Circle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   centerX: number,
 
@@ -1362,8 +1242,7 @@ export interface Circle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   centerY: number,
 
@@ -1375,10 +1254,9 @@ export interface Circle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  radius: number
+  radius: number,
 }
 
 /**
@@ -1388,8 +1266,7 @@ export interface Circle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface CommandPath {
   /**
@@ -1401,8 +1278,7 @@ export interface CommandPath {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   commands: string
 }
@@ -1413,8 +1289,7 @@ export interface CommandPath {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class ShapeMask {
   /**
@@ -1423,8 +1298,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor();
 
@@ -1435,8 +1309,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRectShape(rect: Rect): void;
 
@@ -1447,8 +1320,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRoundRectShape(roundRect: RoundRect): void;
 
@@ -1459,8 +1331,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCircleShape(circle: Circle): void;
 
@@ -1471,8 +1342,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOvalShape(oval: Rect): void;
 
@@ -1483,8 +1353,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCommandPath(path: CommandPath): void;
 
@@ -1497,8 +1366,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fillColor: number;
 
@@ -1511,8 +1379,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   strokeColor: number;
 
@@ -1525,8 +1392,7 @@ export declare class ShapeMask {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   strokeWidth: number;
 }
@@ -1538,8 +1404,7 @@ export declare class ShapeMask {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class ShapeClip {
   /**
@@ -1548,8 +1413,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor();
 
@@ -1560,8 +1424,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRectShape(rect: Rect): void;
 
@@ -1572,8 +1435,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setRoundRectShape(roundRect: RoundRect): void;
 
@@ -1584,8 +1446,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCircleShape(circle: Circle): void;
 
@@ -1596,8 +1457,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setOvalShape(oval: Rect): void;
 
@@ -1608,8 +1468,7 @@ export declare class ShapeClip {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCommandPath(path: CommandPath): void;
 }
@@ -1625,18 +1484,7 @@ export declare class ShapeClip {
  * @atomicservice
  * @since 12
  */
-/**
- * Obtain a object with all edges are set to the same color.
- *
- * @param { number } all - The edge color will be set.
- * @returns { Edges<number> } - The object with all edges are set to the same color.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare function edgeColors(all: number): Edges<number>;
+export function edgeColors(all: number): Edges<number>;
 
 /**
  * Obtain a object with all edges are set to the same width.
@@ -1649,18 +1497,7 @@ export declare function edgeColors(all: number): Edges<number>;
  * @atomicservice
  * @since 12
  */
-/**
- * Obtain a object with all edges are set to the same width.
- *
- * @param { number } all - The edge width will be set.
- * @returns { Edges<number> } - The object with all edges are set to the same width.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare function edgeWidths(all: number): Edges<number>;
+export function edgeWidths(all: number): Edges<number>;
 
 /**
  * Obtain a object with all edges are set to the same style.
@@ -1672,18 +1509,7 @@ export declare function edgeWidths(all: number): Edges<number>;
  * @atomicservice
  * @since 12
  */
-/**
- * Obtain a object with all edges are set to the same style.
- *
- * @param { BorderStyle } all - The edge style will be set.
- * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
+export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
 
 /**
  * Obtain a BorderRadiuses object with all edges are set to the same radius.
@@ -1697,15 +1523,4 @@ export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * @atomicservice
  * @since 12
  */
-/**
- * Obtain a BorderRadiuses object with all edges are set to the same radius.
- *
- * @param { number } all - The edge radius will be set.
- * @returns { BorderRadiuses } - The BorderRadiuses object.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare function borderRadiuses(all: number): BorderRadiuses;
+export function borderRadiuses(all: number): BorderRadiuses;

@@ -260,6 +260,7 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
     locale?: Intl.Locale;
 }

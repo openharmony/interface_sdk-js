@@ -353,7 +353,8 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   count?: number;
 
@@ -413,6 +414,7 @@ interface TextTimerOptions {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface TextTimerInterface {
   /**
@@ -473,6 +475,7 @@ interface TextTimerInterface {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
@@ -788,6 +791,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextTimer: TextTimerInterface;
 
@@ -813,5 +817,6 @@ declare const TextTimer: TextTimerInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TextTimerInstance: TextTimerAttribute;

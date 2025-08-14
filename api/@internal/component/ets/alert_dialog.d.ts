@@ -18,18 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import {
-  ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths,
-  LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles
-} from './units';
-import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
-import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason,
-  BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
-import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
-import { DismissDialogAction } from './actionSheet';
-/*** endif */
-
 /**
  * The alignment of dialog,
  *
@@ -52,8 +40,7 @@ import { DismissDialogAction } from './actionSheet';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum DialogAlignment {
   /**
@@ -75,8 +62,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Top,
 
@@ -99,8 +85,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Center,
 
@@ -123,8 +108,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Bottom,
 
@@ -147,8 +131,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Default,
 
@@ -171,8 +154,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopStart,
 
@@ -195,8 +177,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   TopEnd,
 
@@ -219,8 +200,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CenterStart,
 
@@ -243,8 +223,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   CenterEnd,
 
@@ -267,8 +246,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomStart,
 
@@ -291,8 +269,7 @@ declare enum DialogAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   BottomEnd,
 }
@@ -312,8 +289,7 @@ declare enum DialogAlignment {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since arkts {'1.1':'11','1.2':'20'}
-* @arkts 1.1&1.2
+* @since 11
 */
 declare enum DialogButtonDirection {
   /**
@@ -329,8 +305,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   AUTO = 0,
 
@@ -347,8 +322,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   HORIZONTAL = 1,
 
@@ -365,8 +339,7 @@ declare enum DialogButtonDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   VERTICAL = 2,
 }
@@ -378,8 +351,7 @@ declare enum DialogButtonDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
@@ -410,8 +382,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enabled?: boolean;
 
@@ -443,8 +414,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   defaultFocus?: boolean;
 
@@ -476,8 +446,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   style?: DialogButtonStyle;
 
@@ -506,8 +475,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   value: ResourceStr;
 
@@ -536,8 +504,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   fontColor?: ResourceColor;
 
@@ -566,8 +533,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   backgroundColor?: ResourceColor;
 
@@ -596,8 +562,7 @@ declare interface AlertDialogButtonBaseOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   action: VoidCallback;
 }
@@ -629,8 +594,7 @@ declare interface AlertDialogButtonBaseOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
@@ -650,8 +614,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   primary?: boolean;
 }
@@ -663,8 +626,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextStyle {
   /**
@@ -674,8 +636,7 @@ declare interface TextStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   wordBreak?: WordBreak;
 }
@@ -713,8 +674,7 @@ declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface AlertDialogParam {
   /**
@@ -739,8 +699,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   title?: ResourceStr;
   
@@ -757,8 +716,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   subtitle?: ResourceStr;
 
@@ -784,8 +742,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   message: ResourceStr;
 
@@ -811,8 +768,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   autoCancel?: boolean;
 
@@ -848,8 +804,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   cancel?: VoidCallback;
 
@@ -875,8 +830,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignment?: DialogAlignment;
 
@@ -902,8 +856,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offset?: Offset;
 
@@ -929,8 +882,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   gridCount?: number;
 
@@ -949,8 +901,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maskRect?: Rectangle;
   
@@ -971,8 +922,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showInSubWindow?: boolean;
 
@@ -991,8 +941,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   isModal?: boolean;
 
@@ -1013,8 +962,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundColor?: ResourceColor;
 
@@ -1035,8 +983,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -1047,8 +994,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -1059,8 +1005,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -1071,8 +1016,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDismiss?: Callback<DismissDialogAction>;
 
@@ -1083,8 +1027,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   transition?: TransitionEffect;
 
@@ -1095,8 +1038,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -1107,8 +1049,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width?: Dimension;
 
@@ -1119,8 +1060,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height?: Dimension;
 
@@ -1131,8 +1071,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
@@ -1143,8 +1082,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
@@ -1155,8 +1093,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   borderStyle?: BorderStyle | EdgeStyles;
 
@@ -1167,8 +1104,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -1179,8 +1115,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textStyle?: TextStyle;
 
@@ -1192,8 +1127,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enableHoverMode?: boolean;
 
@@ -1205,8 +1139,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -1217,8 +1150,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onDidAppear?: Callback<void>;
 
@@ -1229,8 +1161,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onDidDisappear?: Callback<void>;
 
@@ -1241,8 +1172,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onWillAppear?: Callback<void>;
 
@@ -1253,8 +1183,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19
    */
   onWillDisappear?: Callback<void>;
 
@@ -1266,8 +1195,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   levelMode?: LevelMode;
 
@@ -1278,8 +1206,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   levelUniqueId?: number;
 
@@ -1291,8 +1218,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   immersiveMode?: ImmersiveMode;
 
@@ -1304,8 +1230,7 @@ declare interface AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   levelOrder?: LevelOrder;
 }
@@ -1335,8 +1260,7 @@ declare interface AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
@@ -1371,8 +1295,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   confirm?: AlertDialogButtonBaseOptions;
 }
@@ -1385,6 +1308,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare interface DismissDialogAction {
   /**
@@ -1435,8 +1359,7 @@ declare interface DismissDialogAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
@@ -1471,8 +1394,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   primaryButton: AlertDialogButtonBaseOptions;
 
@@ -1508,8 +1430,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   secondaryButton: AlertDialogButtonBaseOptions;
 }
@@ -1531,8 +1452,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   /**
@@ -1548,8 +1468,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   buttons: Array<AlertDialogButtonOptions>;
 
@@ -1568,8 +1487,7 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   buttonDirection?: DialogButtonDirection;
 }

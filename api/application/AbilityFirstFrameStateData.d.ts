@@ -24,7 +24,8 @@
  * @typedef AbilityFirstFrameStateData
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityFirstFrameStateData {
   /**
@@ -33,7 +34,8 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -43,7 +45,8 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -53,7 +56,8 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
@@ -64,7 +68,8 @@ export interface AbilityFirstFrameStateData {
    * @default 0
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appIndex: int;
 
@@ -75,7 +80,8 @@ export interface AbilityFirstFrameStateData {
    * @default false
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isColdStart: boolean;
 }

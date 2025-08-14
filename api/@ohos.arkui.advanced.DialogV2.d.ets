@@ -26,6 +26,7 @@
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare type AdvancedDialogV2ButtonAction = () => void;
 
@@ -37,6 +38,7 @@ export declare type AdvancedDialogV2ButtonAction = () => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ObservedV2
 export declare class AdvancedDialogV2Button {
@@ -152,6 +154,7 @@ export declare class AdvancedDialogV2Button {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare interface AdvancedDialogV2ButtonOptions {
   /**
@@ -249,6 +252,7 @@ export declare interface AdvancedDialogV2ButtonOptions {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
 
@@ -260,6 +264,7 @@ export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct TipsDialogV2 {
@@ -394,6 +399,7 @@ export declare struct TipsDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct SelectDialogV2 {
@@ -463,6 +469,7 @@ export declare struct SelectDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct ConfirmDialogV2 {
@@ -554,6 +561,7 @@ export declare struct ConfirmDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct AlertDialogV2 {
@@ -623,6 +631,7 @@ export declare struct AlertDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct LoadingDialogV2 {
@@ -647,6 +656,7 @@ export declare struct LoadingDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct CustomContentDialogV2 {
@@ -714,6 +724,7 @@ export declare struct CustomContentDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 @ComponentV2
 export declare struct PopoverDialogV2 {
@@ -774,6 +785,7 @@ export declare struct PopoverDialogV2 {
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
 
@@ -786,6 +798,7 @@ export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export declare interface PopoverDialogV2Options extends CustomPopupOptions {
 }

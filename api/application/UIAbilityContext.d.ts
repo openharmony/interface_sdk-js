@@ -32,11 +32,11 @@ import { HapModuleInfo } from '../bundleManager/HapModuleInfo';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
-/*** if arkts 1.1 */
+import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import image from '../@ohos.multimedia.image';
+/*** if arkts 1.1 */
 import dialogRequest from '../@ohos.app.ability.dialogRequest';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
@@ -3082,7 +3082,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -3168,7 +3169,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -3216,7 +3218,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -3262,7 +3265,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -3313,7 +3317,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int, callback: AsyncCallback<void>): void;
 
@@ -3364,7 +3369,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stopServiceExtensionAbilityWithAccount(want: Want, accountId: int): Promise<void>;
 
@@ -3661,7 +3667,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
 
@@ -3776,7 +3783,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setMissionIcon(icon: image.PixelMap, callback: AsyncCallback<void>): void;
 
@@ -3805,7 +3813,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setMissionIcon(icon: image.PixelMap): Promise<void>;
 
@@ -3884,7 +3893,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restoreWindowStage(localStorage: LocalStorage): void;
 
@@ -4659,7 +4669,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>;
 
@@ -4690,7 +4701,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showAbility(): Promise<void>;
 
@@ -4704,7 +4716,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000067 - The StartOptions check failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hideAbility(): Promise<void>;
 
@@ -4718,7 +4731,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setRestoreEnabled(enabled: boolean): void;
 
@@ -4813,7 +4827,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
@@ -4829,7 +4844,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000085 - An error occurred during the interaction between the ability and window.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 17
+   * @since arkts {'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   revokeDelegator(): Promise<void>;
 
@@ -4869,6 +4885,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   startAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4891,6 +4908,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   stopAppServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4915,6 +4933,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): long;
 
@@ -4929,6 +4948,7 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   disconnectAppServiceExtensionAbility(connection: long): Promise<void>;
 }

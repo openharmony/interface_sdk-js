@@ -728,6 +728,7 @@ export interface ImageCompleteEvent {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface ImageInterface {
   /**
@@ -959,6 +960,7 @@ declare class ColorContent {
  * @atomicservice
  * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
@@ -2302,6 +2304,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Image: ImageInterface;
 
@@ -2334,6 +2337,7 @@ declare const Image: ImageInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageInstance: ImageAttribute;
 

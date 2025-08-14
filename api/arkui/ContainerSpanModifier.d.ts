@@ -27,6 +27,7 @@
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
 */
 export declare class ContainerSpanModifier extends ContainerSpanAttribute implements AttributeModifier<ContainerSpanAttribute> {
 

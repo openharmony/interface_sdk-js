@@ -30,6 +30,7 @@ import { Callback } from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum ExtraRegionPosition {
     /**
@@ -56,6 +57,7 @@ export declare enum ExtraRegionPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface ExpandedRegionLayoutOptions {
     /**
@@ -102,6 +104,7 @@ export interface ExpandedRegionLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface HoverModeRegionLayoutOptions {
     /**
@@ -139,6 +142,7 @@ export interface HoverModeRegionLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface FoldedRegionLayoutOptions {
     /**
@@ -158,6 +162,7 @@ export interface FoldedRegionLayoutOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export declare enum PresetSplitRatio {
     /**
@@ -192,6 +197,7 @@ export declare enum PresetSplitRatio {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export interface HoverModeStatus {
     /**
@@ -240,6 +246,7 @@ export interface HoverModeStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 /**
@@ -249,6 +256,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 @Component
 export declare struct FoldSplitContainer {

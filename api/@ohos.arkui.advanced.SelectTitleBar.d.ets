@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declaration of the menu item on the right side.
@@ -208,6 +209,7 @@ export declare class SelectTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 /**
  * Declaration of the selectable title bar.

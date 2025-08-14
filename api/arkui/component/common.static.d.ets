@@ -1,4 +1,4 @@
-"use static"
+'use static'
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2426,18 +2426,19 @@ export declare interface ScaleOptions {
 /**
  * Defines the align rule options of relative container.
  *
- * @interface AlignRuleParam
+ * @interface VerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
  * @since 20
  */
-export declare interface AlignRuleParam<T> {
+export declare interface VerticalAlignParam {
     /**
-     * The param of anchor.
+     * Specifies the anchor component
      *
-     * @type { ?string }
+     * Anonymous Object Rectification
+     * @type { ?string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
@@ -2446,16 +2447,54 @@ export declare interface AlignRuleParam<T> {
      */
     anchor: string;
     /**
-     * The param of align.
+     * Sets the vertical alignment relative to the anchor component.
      *
-     * @type { T }
+     * Anonymous Object Rectification
+     * @type { ?VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    align: T;
+    align: VerticalAlign;
+}
+/**
+ * Defines the horizontal align rule options of relative container.
+ *
+ * @interface HorizontalAlignParam
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+export declare interface HorizontalAlignParam {
+
+    /**
+     * Specifies the anchor component
+     *
+     * Anonymous Object Rectification
+     * @type { ?string } anchor
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    anchor: string;
+    /**
+     * Sets the horizontal alignment relative to the anchor component.
+     *
+     * Anonymous Object Rectification
+     * @type { ?HorizontalAlign } align
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @form
+     * @atomicservice
+     * @since 20
+     */
+    align: HorizontalAlign;
 }
 /**
  * Defines the align rule options of relative container.
@@ -2471,68 +2510,68 @@ export declare interface AlignRuleOption {
     /**
      * The param of left align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    left?: AlignRuleParam<HorizontalAlign>;
+    left?: HorizontalAlignParam;
     /**
      * The param of right align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    right?: AlignRuleParam<HorizontalAlign>;
+    right?: HorizontalAlignParam;
     /**
      * The param of middle align.
      *
-     * @type { ?AlignRuleParam<HorizontalAlign> }
+     * @type { ?HorizontalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    middle?: AlignRuleParam<HorizontalAlign>;
+    middle?: HorizontalAlignParam;
     /**
      * The param of top align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    top?: AlignRuleParam<VerticalAlign>;
+    top?: VerticalAlignParam;
     /**
      * The param of bottom align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @form
      * @atomicservice
      * @since 20
      */
-    bottom?: AlignRuleParam<VerticalAlign>;
+    bottom?: VerticalAlignParam;
     /**
      * The param of center align.
      *
-     * @type { ?AlignRuleParam<VerticalAlign> }
+     * @type { ?VerticalAlignParam }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @form
      * @atomicservice
      * @since 20
      */
-    center?: AlignRuleParam<VerticalAlign>;
+    center?: VerticalAlignParam;
     /**
      * Defines the bias ratio in horizontal and vertical direction.
      *
@@ -9770,61 +9809,59 @@ export declare interface MenuElement {
      */
     action: () => void;
 }
+
 /**
  * Defines the attribute modifier.
  *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface AttributeModifier<T> {
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyNormalAttribute(instance: T) : void;
-    /**
-     * Defines the pressed update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyPressedAttribute(instance: T) : void;
-    /**
-     * Defines the focused update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyFocusedAttribute(instance: T) : void;
-    /**
-     * Defines the disabled update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyDisabledAttribute(instance: T) : void;
-    /**
-     * Defines the selected update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applySelectedAttribute(instance: T) : void;
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyNormalAttribute(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyPressedAttribute(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyFocusedAttribute(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyDisabledAttribute(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applySelectedAttribute(instance: T) : void;
 }
 /**
  * Defines the content modifier.
@@ -10328,6 +10365,16 @@ export declare interface BackgroundOptions {
      */
     align?: Alignment;
 }
+/**
+ * Defines the value of the custom property..
+ *
+ * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+export declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
 export declare interface CommonMethod {
     /**
      * Sets the width of the component or its horizontal layout policy. By default, the
@@ -10377,14 +10424,14 @@ export declare interface CommonMethod {
      * This API does not work for custom components.
      *
      * @param { string } name - the name of the custom property.
-     * @param { Optional<Object> } value - the value of the custom property.
+     * @param { CustomProperty } value - the value of the custom property.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20
      */
-    default customProperty(name: string | undefined, value: Object | undefined): this;
+    default customProperty(name: string, value: CustomProperty): this;
     /**
      * Sets the safe area to be expanded to.
      * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
@@ -11977,7 +12024,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default alignRules(value: AlignRuleOption | undefined): this;
+    default alignRulesWithAlignRuleOptionTypedValue(value: AlignRuleOption | undefined): this;
     /**
      * Sets the alignment rules in the relative container.
      * <br>This API is valid only when the container is RelativeContainer.
@@ -11985,7 +12032,7 @@ export declare interface CommonMethod {
      * left and right for alignment in the horizontal direction. Prioritize this API in aligning
      * child components in the relative container.
      *
-     * @param { LocalizedAlignRuleOptions } alignRule
+     * @param { LocalizedAlignRuleOptions } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -11993,7 +12040,8 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default alignRules(alignRule: LocalizedAlignRuleOptions | undefined): this;
+    default alignRulesWithLocalizedAlignRuleOptionsTypedValue(value: LocalizedAlignRuleOptions | undefined): this;
+    overload alignRules { alignRulesWithAlignRuleOptionTypedValue, alignRulesWithLocalizedAlignRuleOptionsTypedValue }
     /**
      * Sets the parameters of the chain in which the component is the head.
      * <br>This parameter has effect only when the parent container is RelativeContainer.
@@ -12190,16 +12238,13 @@ export declare interface CommonMethod {
     /**
      * Add mask text to the current component. The layout is the same as that of the current component.
      *
-     * @param { string | CustomBuilder | ComponentContent } value
-     * @param { OverlayOptions } options
-     * @returns { T }
+     * @param { string | CustomBuilder | ComponentContent<T> | undefined } value
+     * @param { OverlayOptions } [options]
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    default overlay(value: string | CustomBuilder | ComponentContent | undefined, options?: OverlayOptions | undefined): this;
+    default overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T> | undefined, options?: OverlayOptions): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
@@ -12706,7 +12751,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityGroup(value: boolean | undefined): this;
+    default accessibilityGroupWithValue(value: boolean | undefined): this;
     /**
      * Sets whether to enable accessibility grouping.
      *
@@ -12722,7 +12767,7 @@ export declare interface CommonMethod {
      * <br>If a child component lacks both, it will be ignored.</p>
      *
      * @param { boolean } isGroup - set group with accessibility, default value is false.
-     * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
+     * @param { AccessibilityOptions } config - accessibilityOptions for accessibility, default value is false.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
@@ -12730,7 +12775,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions: AccessibilityOptions | undefined): this;
+    default accessibilityGroupWithConfig(isGroup: boolean | undefined, config: AccessibilityOptions | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityGroup { accessibilityGroupWithValue, accessibilityGroupWithConfig };
     /**
      * Sets the accessibility text.
      * When a component does not contain a text attribute, you can use this API to set an accessibility
@@ -12744,7 +12793,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityText(value: string | undefined): this;
+    default accessibilityTextOfStringType(value: string | undefined): this;
     /**
      * Sets accessibility next focus id
      * @param { string } nextId - set component next accessibility focus id
@@ -12805,7 +12854,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityText(text: Resource | undefined): this;
+    default accessibilityTextOfResourceType(text: Resource | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityText { accessibilityTextOfStringType, accessibilityTextOfResourceType };
     /**
      * Sets accessibility role,role indicates the custom type of the component
      * @param { AccessibilityRoleType } role - set accessibility component type
@@ -12851,7 +12904,7 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityDescription(value: string | undefined): this;
+    default accessibilityDescriptionOfStringType(value: string | undefined): this;
     /**
      * Sets accessibilityDescription
      *
@@ -12872,7 +12925,11 @@ export declare interface CommonMethod {
      * @atomicservice
      * @since 20
      */
-    default accessibilityDescription(description: Resource | undefined): this;
+    default accessibilityDescriptionOfResourceType(description: Resource | undefined): this;
+    /**
+     * @since 20
+     */
+    overload accessibilityDescription { accessibilityDescriptionOfStringType, accessibilityDescriptionOfResourceType };
     /**
      * Sets the accessibility level.
      * This property determines whether the component can be recognized by accessibility services.
@@ -13213,155 +13270,122 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * If this attribute is not set, the component does not have any stroke.
      * If the value is invalid, no stroke will be drawn.
      *
-     * @param { ResourceColor } value - Stroke color.
+     * @param { ResourceColor | undefined } value - Stroke color.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    stroke(value: ResourceColor | undefined): this;
+    default stroke(value: ResourceColor | undefined): this;
     /**
      * Sets the color of the fill area.
      * An invalid value is handled as the default value.
      * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
      *
-     * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
+     * @param { ResourceColor | undefined } value - Color of the fill area. Default value: Color.Black.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    fill(value: ResourceColor | undefined): this;
+    default fill(value: ResourceColor | undefined): this;
     /**
      * Sets the offset of the start point for drawing the stroke.
      * An invalid value is handled as the default value.
      *
-     * @param { number | string } value - Offset of the start point for drawing the stroke.
+     * @param { number | string | undefined } value - Offset of the start point for drawing the stroke.
      * Default value: 0
      * Default unit: vp
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeDashOffset(value: number | string | undefined): this;
+    default strokeDashOffset(value: number | string | undefined): this;
     /**
      * Sets the cap style of the stroke.
      *
-     * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
+     * @param { LineCapStyle | undefined } value - Cap style of the stroke. Default value: LineCapStyle.Butt
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeLineCap(value: LineCapStyle | undefined): this;
+    default strokeLineCap(value: LineCapStyle | undefined): this;
     /**
      * Sets the join style of the stroke.
      * This attribute does not work for the Circle component, which does not have corners.
      *
-     * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
+     * @param { LineJoinStyle | undefined } value - Join style of the stroke. Default value: LineJoinStyle.Miter
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeLineJoin(value: LineJoinStyle | undefined): this;
+    default strokeLineJoin(value: LineJoinStyle | undefined): this;
     /**
      * Limits for drawing acute angles as bevels
      *
-     * @param { number | string } value
+     * @param { number | string | undefined } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeMiterLimit(value: number | string | undefined): this;
+    default strokeMiterLimit(value: number | string | undefined): this;
     /**
      * Sets the stroke opacity.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource } value - Stroke opacity. Default value: 1
+     * @param { number | string | Resource | undefined } value - Stroke opacity. Default value: 1
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeOpacity(value: number | string | Resource | undefined): this;
+    default strokeOpacity(value: number | string | Resource | undefined): this;
     /**
      * Sets the opacity of the fill area.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
+     * @param { number | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    fillOpacity(value: number | string | Resource | undefined): this;
+    default fillOpacity(value: number | string | Resource | undefined): this;
     /**
      * Sets the stroke width.
      * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
      *
-     * @param { Length } value - Stroke width.
+     * @param { Length | undefined } value - Stroke width.
      * The value must be greater than or equal to 0.
      * Default value: 1.
      * Default unit: vp.
      * An invalid value is handled as the default value.
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeWidth(value: Length | undefined): this;
+    default strokeWidth(value: Length | undefined): this;
     /**
      * Specifies whether anti-aliasing is enabled.
      *
-     * @param { boolean } value - Whether anti-aliasing is enabled.
+     * @param { boolean | undefined } value - Whether anti-aliasing is enabled.
      * true: Anti-aliasing is enabled.
      * false: Anti-aliasing is disabled.
      * Default value: true
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    antiAlias(value: boolean | undefined): this;
+    default antiAlias(value: boolean | undefined): this;
     /**
      * Sets the gap for the border.
      *
-     * @param { Array<Length> } value
+     * @param { Array<Length> | undefined } value
      * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    strokeDashArray(value: Array<Length> | undefined): this;
+    default strokeDashArray(value: Array<Length> | undefined): this;
 }
 /**
  * Defines the direction of pixel rounding at the component level.
@@ -15266,11 +15290,11 @@ export declare interface TerminationInfo {
     /**
      * Defines the termination code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    code: number;
+    code: int;
     /**
      * Defines the additional termination information.
      *
@@ -15318,6 +15342,25 @@ export declare interface Bindable<T> {
      */
     readonly onChange: Callback<T>;
 }
+
+/**
+ * Defines the Two-way binding type of ResourceStr.
+ *
+ * @typedef { ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare type BindableResourceStr = ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
+
+/**
+ * Defines the Two-way binding type of ResourceStr[].
+ *
+ * @typedef { ResourceStr[] | Bindable<ResourceStr[]> | Bindable<Resource[]> | Bindable<string[]> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare type BindableResourceStrArray = ResourceStr[] | Bindable<ResourceStr[]> | Bindable<Resource[]> | Bindable<string[]>;
+
 /**
  * Convert to a bindable property.
  *

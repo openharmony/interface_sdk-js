@@ -21,17 +21,6 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Used to initialize the uitest environment at the start of the test
- *
- * @throws { BusinessError } 17000001 - Initialization failed.
- * @syscap SystemCapability.Test.UiTest
- * @since 20
- * @arkts 1.2
- * @test
-*/
-export function loadAndSetUpUiTest(): void {};
- 
-/**
  * Enumerates the string value match pattern.
  *
  * @enum {number}
@@ -1127,12 +1116,13 @@ declare interface Point {
   /**
    * The displayId to which the coordinate point belongs, default is the displayId of the main scrren.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  displayId?: number;
+  displayId?: int;
 }
 
 /**
@@ -1822,8 +1812,9 @@ declare interface TouchPadSwipeOptions {
  * @interface InputTextMode
  * @syscap SystemCapability.Test.UiTest
  * @atomicservice
- * @since 20
+ * @since arkts {'1.1':'20','1.2':'20'}
  * @test
+ * @arkts 1.1&1.2
  */
 declare interface InputTextMode {
   /**
@@ -1831,8 +1822,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   paste?: boolean;
 
@@ -1841,8 +1833,9 @@ declare interface InputTextMode {
    * @type { ?boolean }
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   addition?: boolean;
 }
@@ -3059,8 +3052,9 @@ declare class Component {
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(text: string, mode: InputTextMode): Promise<void>;
 
@@ -3828,16 +3822,17 @@ declare class Driver {
   /**
    * Press the BACK key on the specified display.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
-  pressBack(displayId: number): Promise<void>;
+  pressBack(displayId: int): Promise<void>;
 
   /**
    * Press the specified key.
@@ -3869,17 +3864,18 @@ declare class Driver {
   /**
    * Press the specified key on the specified display.
    *
-   * @param { number } keyCode - the target keyCode.
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } keyCode - the target keyCode.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
-  triggerKey(keyCode: number, displayId: number): Promise<void>;
+  triggerKey(keyCode: int, displayId: int): Promise<void>;
 
   /**
    * Press two or three key combinations
@@ -4370,16 +4366,17 @@ declare class Driver {
   /**
    * Get the size of the specified device display.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<Point> } the size of the device display.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
-  getDisplaySize(displayId: number): Promise<Point>;
+  getDisplaySize(displayId: int): Promise<Point>;
 
   /**
    * Get the density of the device display.
@@ -4464,16 +4461,17 @@ declare class Driver {
   /**
    * Press the home key to the specified display.
    *
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
-  pressHome(displayId: number): Promise<void>;
+  pressHome(displayId: int): Promise<void>;
 
   /**
    * Wait for the UI become idle.
@@ -4626,17 +4624,18 @@ declare class Driver {
    * Inject fling on the specified device display.
    *
    * @param { UiDirection } direction - the direction of this action.
-   * @param { number } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
-   * @param { number } displayId - the Id of the specified display.
+   * @param { int } speed - the speed of fling (pixels per second),default is 600,the value ranges from 200 to 40000,set it 600 if out of range.
+   * @param { int } displayId - the Id of the specified display.
    * @returns { Promise<void> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
-  fling(direction: UiDirection, speed: number, displayId: number): Promise<void>;
+  fling(direction: UiDirection, speed: int, displayId: int): Promise<void>;
 
   /**
    * Click on the specified location on the screen with the specified mouse button, and press the specified key simultaneously if necessary.
@@ -4933,8 +4932,9 @@ declare class Driver {
    * @throws { BusinessError } 17000002 - The async function is not called with await.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
-   * @since 20
+   * @since arkts {'1.1':'20','1.2':'20'}
    * @test
+   * @arkts 1.1&1.2
    */
   inputText(p: Point, text: string, mode: InputTextMode): Promise<void>;
 
@@ -5566,8 +5566,7 @@ declare const ON: On;
    UiComponent,
    UiDriver,
    BY,
-   By,
-   InputTextMode
+   By
  };
  /*** endif */
  
@@ -5589,5 +5588,6 @@ export {
   MouseButton,
   UIElementInfo,
   UIEventObserver,
-  TouchPadSwipeOptions
+  TouchPadSwipeOptions,
+  InputTextMode
 };

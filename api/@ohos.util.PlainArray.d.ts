@@ -439,22 +439,10 @@ declare class PlainArray<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getKeyAt(index: number): number;
-  /**
-   * Queries the key at a specified index
-   *
-   * @param { number } index - index index Target subscript for search
-   * @returns { number | undefined } the key of key-value pairs, or undefined if the index is out of range.
-   * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @syscap SystemCapability.Utils.Lang
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getKeyAt(index: number): number | undefined;
   /**
    * Remove the key-value pair based on a specified key if it exists and return the value
    *

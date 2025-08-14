@@ -67,8 +67,8 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
     global OUTPUT_PATH
     OUTPUT_PATH = os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "dependence-json/ets_tool_config_json.json"))
     all_files = []
-    for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, output_dir):
-        cont_folder = Path(os.path.relpath(dirpath, output_dir)).parts
+    for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, tool_dir):
+        cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
         if len(cont_folder) != 0:
             if cont_folder[0] in INTEROP_ETS_LIST:
                 files = [os.path.join(dirpath, file) 
@@ -77,10 +77,6 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         else :
             continue
     config = {
-        "plugins": {
-            # 依赖的工具
-            "interop_plugin": str(os.path.join(tool_dir, "build-tools/ui-plugins/lib/interop-plugins/index"))
-        },
         # 需要处理的API声明文件
         "compileFiles": all_files,
         # 自己命名的包的名字
@@ -88,7 +84,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         "buildType": "build",
         "buildMode": "Release",
         # 需要处理的API目录
-        "moduleRootPath": str(output_dir),
+        "moduleRootPath": str(tool_dir),
         "sourceRoots": ["./"],
         "loaderOutPath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME))),
         # 实际在工具转化API时，不参与生成胶水代码及产物
@@ -98,7 +94,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         "dependentModuleList": [],
         "isIDE": "false",
         # 工具处理时候的线程数
-        "maxWorkers": 128,
+        "maxWorkers": 16,
         # 工具处理的时候是否跳过检查
         "skipDeclCheck": False,
         "enableDeclgenEts2Ts": True,
@@ -119,7 +115,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         return None
 
 
-def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str):
+def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out_interop_path: str):
     # PANDA的依赖路径
     panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
@@ -129,13 +125,22 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str):
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
+        interop_path_declaration = os.path.join(out_interop_path, "ets1.2interop/declaration")
+        interop_path_bridge = os.path.join(out_interop_path, "ets1.2interop/bridge")
+        os.makedirs(interop_path_declaration, exist_ok=True)
+        os.makedirs(interop_path_bridge, exist_ok=True)
         cmd = [node_path, tool_path, json_path]
-        result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True)
+        result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
+        with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
+            f.write("=== Output from interop1.2 tool ===\n")
+            f.write(result.stdout)
         print(f"run_compile_ets_ts success: {result.returncode}")
     except subprocess.CalledProcessError as e:
+        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
     except Exception as e:
+        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
         print(f"run_compile_ets_ts: {str(e)}")
 
 
@@ -150,7 +155,7 @@ def run_compile_ets_ts_main():
     options.tool_dir = os.path.abspath(options.tool_dir)
     out_interop_path = os.path.abspath(options.output_interop_sdk)
     config_json = build_ets_tool_config(options.root_build_dir, options.tool_dir, os.path.abspath(options.output_interface_sdk), out_interop_path)
-    run_compile_ets_ts(options.tool_dir, options.node_path, config_json)
+    run_compile_ets_ts(options.tool_dir, options.node_path, config_json, out_interop_path)
 
 
 if __name__ == "__main__":
