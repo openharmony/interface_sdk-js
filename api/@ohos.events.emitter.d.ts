@@ -82,7 +82,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -116,7 +115,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -141,7 +139,6 @@ declare namespace emitter {
    * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -189,7 +186,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -223,7 +219,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -248,7 +243,6 @@ declare namespace emitter {
    * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -292,7 +286,6 @@ declare namespace emitter {
    * @param { long } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -323,7 +316,6 @@ declare namespace emitter {
    * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -365,7 +357,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -399,7 +390,6 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -424,7 +414,6 @@ declare namespace emitter {
    * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -472,7 +461,6 @@ declare namespace emitter {
    * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -506,7 +494,6 @@ declare namespace emitter {
    * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -531,7 +518,6 @@ declare namespace emitter {
    * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -568,7 +554,6 @@ declare namespace emitter {
    * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -595,7 +580,6 @@ declare namespace emitter {
    * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -635,7 +619,6 @@ declare namespace emitter {
    * @returns { long } Returns the number of listener count.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -648,7 +631,6 @@ declare namespace emitter {
    * @returns { long } Returns the number of listener count.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -995,7 +977,6 @@ declare namespace emitter {
      * @type { ?(T | ESObject) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */
