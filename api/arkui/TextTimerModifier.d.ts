@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- * @noninterop
  */
-export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {
+ export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { TextTimerAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: TextTimerAttribute): void;
-}
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { TextTimerAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: TextTimerAttribute): void;
+  }
+  
