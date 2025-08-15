@@ -981,14 +981,13 @@ export declare interface IStateMgmtFactory {
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
-   * @param { Type } ttype - value type.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { IStorageLinkDecoratedVariable<T> } StorageLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   makeStorageLink<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
+        varName: string, initValue: T, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
    /**
     * Create a StoragePropRef variable instance.
     *
@@ -996,14 +995,13 @@ export declare interface IStateMgmtFactory {
     * @param { string } propName - property name.
     * @param { string } varName - state variable name.
     * @param { T } initValue - init value.
-    * @param { Type } ttype - value type.
     * @param { WatchFuncType } [watchFunc] - watch type
     * @returns { IStoragePropRefDecoratedVariable<T> } StoragePropRef instance
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20
     */
    makeStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
+        varName: string, initValue: T, watchFunc?: WatchFuncType): IStoragePropRefDecoratedVariable<T>;
   /**
    * Create a LocalStoragePropRef variable instance.
    *
@@ -1011,14 +1009,13 @@ export declare interface IStateMgmtFactory {
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
-   * @param { Type } ttype - value type.
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { ILocalStoragePropRefDecoratedVariable<T> } LocalStoragePropRef instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
    makeLocalStoragePropRef<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): ILocalStoragePropRefDecoratedVariable<T>;
+        varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStoragePropRefDecoratedVariable<T>;
 
   /**
    * Create a LocalStorageLink variable instance.
@@ -1027,14 +1024,13 @@ export declare interface IStateMgmtFactory {
    * @param { string } propName - property name.
    * @param { string } varName - state variable name.
    * @param { T } initValue - init value.
-   * @param { Type } ttype - value type
    * @param { WatchFuncType } [watchFunc] - watch type
    * @returns { ILocalStorageLinkDecoratedVariable<T> } LocalStorageLink instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
    makeLocalStorageLink<T>(owningView: ExtendableComponent, propName: string,
-        varName: string, initValue: T, ttype: Type, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
+        varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
 
   /**
    * Create a Local variable instance.

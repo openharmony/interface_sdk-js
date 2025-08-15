@@ -33,7 +33,6 @@ export declare class PersistentStorage {
    * with given value
    *
    * @param { string } key - property name
-   * @param { Type } ttype - persist value type
    * @param { T } defaultValue - If AppStorage does not include this property it will be initialized with this value
    * @param { ToJSONType<T> } [toJson] - serialization function
    * @param { FromJSONType<T> } [fromJson] - deserialization function
@@ -42,8 +41,7 @@ export declare class PersistentStorage {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static persistProp<T>(key: string, ttype: Type, defaultValue: T, 
-      toJson?: ToJSONType<T>, fromJson?: FromJSONType<T>): boolean;
+  static persistProp<T>(key: string, defaultValue: T, toJson?: ToJSONType<T>, fromJson?: FromJSONType<T>): boolean;
 
   /**
    * Reverse of @see persistProp
