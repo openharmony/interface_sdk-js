@@ -2850,7 +2850,25 @@ declare namespace photoAccessHelper {
      * @since 20
      * @arkts 1.1&1.2
      */
-    EXIF_ROTATE = 'exif_rotate'
+    EXIF_ROTATE = 'exif_rotate',
+    /**
+     * AppLink state of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    HAS_APPLINK = 'has_applink',
+    /**
+     * AppLink info of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    APPLINK = 'applink'
   }
 
   /**
@@ -8754,6 +8772,32 @@ declare namespace photoAccessHelper {
      * @since 19
      */
     static deleteLocalAssetsPermanentlyWithUri(context: Context, assetUris: Array<string>): Promise<void>;
+
+    /**
+     * Set the AppLink state of this asset.
+     *
+     * @param { int } hasAppLink - AppLink state of the asset to set.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setHasAppLink(hasAppLink: int): void;
+
+    /**
+     * Set the AppLink info of this asset.
+     *
+     * @param { string } appLink - AppLink info of the asset to set.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setAppLinkInfo(appLink: string): void;
   }
 
   /**
