@@ -94,5 +94,5 @@ import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
 
-export { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib };
+export { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, customConfig, configPolicy };
 /*** endif */
