@@ -920,13 +920,38 @@ declare namespace connection {
   function getPacFileUrl(): string;
 
   /**
-   * find pac proxy info for the url
-   * @param { string } url - the url
+   * Find pac proxy info for the url.
+   * @param { string } url - the url.
    * @returns { string } Returns the proxy infomation.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 20
    */
   function findProxyForUrl(url: string): string;
+
+  /**
+   * Set the proxy mode {@link ProxyMode}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { ProxyMode } mode - Indicates the proxy mode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  function setProxyMode(mode: ProxyMode): Promise<void>;
+
+  /**
+   * Obtain the proxy mode {@link ProxyMode}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<ProxyMode> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  function getProxyMode(): Promise<ProxyMode>;
 
   /**
    * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
@@ -1914,6 +1939,31 @@ declare namespace connection {
      * @since 12
      */
     BEARER_VPN = 4,
+  }
+
+  /**
+   * Enumerates proxy modes.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  export enum ProxyMode{
+    /**
+     * Off proxy mode.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use. Only used for system app.
+     * @since 20
+     */
+    PROXY_MODE_OFF = 0,
+  
+    /**
+     * Auto proxy mode.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use. Only used for system app.
+     * @since 20
+     */
+    PROXY_MODE_AUTO = 1
   }
 
   /**
