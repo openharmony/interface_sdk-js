@@ -21,11 +21,11 @@
  */
 
 import { LengthMetrics, SizeT, PositionT } from '../../arkui/Graphics';
-import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
-import { ImageFit, Curve } from "./enums";
+import { VP, ResourceStr, Dimension, ResourceColor } from './units';
+import { ImageFit, Curve } from './enums';
 import { ICurve, CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines a pair of given type for particle.
  *

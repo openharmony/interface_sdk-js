@@ -287,7 +287,8 @@ declare namespace matrix4 {
         
         
         /**
-         * The inverse function of Matrix returns an inverse matrix of the current matrix object, that is, the effect is exactly the opposite.
+         * The inverse function of Matrix returns an inverse matrix of the current matrix object,
+         * That is, the effect is exactly the opposite.
          *
          * @returns { Matrix4Transit } Return to Matrix4Transit
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -297,7 +298,8 @@ declare namespace matrix4 {
         
         
         /**
-         * Matrix superposition function, which can superpose the effects of two matrices to generate a new matrix object.
+         * Matrix superposition function,
+         * Which can superpose the effects of two matrices to generate a new matrix object.
          *
          * @param { Matrix4Transit } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
@@ -308,7 +310,8 @@ declare namespace matrix4 {
         
         
         /**
-         * Matrix translation function, which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
+         * Matrix translation function,
+         * Which can add the x-axis, Y-axis, or Z-axis translation effect to the current matrix.
          *
          * @param { TranslateOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
@@ -319,7 +322,8 @@ declare namespace matrix4 {
         
         
         /**
-         * Scaling function of the Matrix, which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
+         * Scaling function of the Matrix,
+         * Which can add the x-axis, Y-axis, or Z-axis scaling effect to the current matrix.
          *
          * @param { ScaleOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
@@ -342,7 +346,8 @@ declare namespace matrix4 {
         
         
         /**
-         * Rotation function of the Matrix. You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
+         * Rotation function of the Matrix.
+         * You can add the x-axis, Y-axis, or Z-axis rotation effect to the current matrix.
          *
          * @param { RotateOption } options
          * @returns { Matrix4Transit } Return to Matrix4Transit
@@ -353,7 +358,8 @@ declare namespace matrix4 {
         
         
         /**
-         * Matrix coordinate point conversion function, which can apply the current transformation effect to a coordinate point.
+         * Matrix coordinate point conversion function,
+         * Which can apply the current transformation effect to a coordinate point.
          *
          * @param { [number, number] } options
          * @returns { [number, number] } Return to Matrix4Transit
@@ -381,7 +387,8 @@ declare namespace matrix4 {
     
     
     /**
-     * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters. The matrix is column-first.
+     * Constructor of Matrix, which can create a fourth-order matrix based on the input parameters.
+     * The matrix is column-first.
      *
      * @param { [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number] } options
      * options indicates a fourth-order matrix

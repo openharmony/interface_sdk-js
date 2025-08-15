@@ -21,10 +21,10 @@
  */
 
 import { CommonMethod, BlurStyle, Bindable } from './common';
-import { ResourceColor, Length, Position } from "./units";
-import { Font } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { ResourceColor, Length, Position } from './units';
+import { Font } from './units';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * indexer align property.
  *

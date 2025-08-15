@@ -21,10 +21,10 @@
  */
 
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, Optional, TranslateOptions, DividerStyle, Bindable } from './common';
-import { EdgeEffect, PageFlipMode } from "./enums";
-import { Dimension, Length, ResourceColor } from "./units";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { EdgeEffect, PageFlipMode } from './enums';
+import { Dimension, Length, ResourceColor } from './units';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare the graphic format of the bar chart.
  *
