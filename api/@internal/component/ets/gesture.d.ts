@@ -2159,7 +2159,7 @@ export declare class Gesture {
  */
 declare interface TapGestureParameters extends BaseHandlerOptions {
   /**
-   * Number of consecutive clicks recognized. If the value is less than 1, the default value is used.
+   * Number of consecutive clicks recognized. If the value is less than 1 or null, the default value is used.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2810,6 +2810,9 @@ declare class PanGestureOptions {
 interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pangesture.
+   * direction: Indicates the direction that triggers the pangesture.
+   * distance: Indicates the distance that triggers the pangesture.
    *
    * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
    * @returns { PanGestureInterface }
@@ -2818,6 +2821,9 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pangesture.
+   * direction: Indicates the direction that triggers the pangesture.
+   * distance: Indicates the distance that triggers the pangesture.
    *
    * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
    * @returns { PanGestureInterface }
@@ -2827,6 +2833,9 @@ interface PanGestureInterface extends GestureInterface<PanGestureInterface> {
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pangesture.
+   * direction: Indicates the direction that triggers the pangesture.
+   * distance: Indicates the distance that triggers the pangesture.
    *
    * @param { { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions } value
    * @returns { PanGestureInterface }
@@ -3083,6 +3092,9 @@ export declare class PanGesture extends Gesture {
 interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> {
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the swipegesture.
+   * direction: Indicates the direction that triggers the swipegesture.
+   * speed: Indicates the speed that triggers the swipegesture.
    *
    * @param { object } value
    * @returns { SwipeGestureInterface }
@@ -3091,6 +3103,9 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the swipegesture.
+   * direction: Indicates the direction that triggers the swipegesture.
+   * speed: Indicates the speed that triggers the swipegesture.
    *
    * @param { object } value
    * @returns { SwipeGestureInterface }
@@ -3100,6 +3115,9 @@ interface SwipeGestureInterface extends GestureInterface<SwipeGestureInterface> 
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the swipegesture.
+   * direction: Indicates the direction that triggers the swipegesture.
+   * speed: Indicates the speed that triggers the swipegesture.
    *
    * @param { object } value
    * @returns { SwipeGestureInterface }
@@ -3222,6 +3240,8 @@ export declare class SwipeGesture extends Gesture {
 interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> {
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pinchgesture.
+   * direction: Indicates the direction that triggers the pinchgesture.
    *
    * @param { object } value
    * @returns { PinchGestureInterface }
@@ -3230,6 +3250,8 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pinchgesture.
+   * direction: Indicates the direction that triggers the pinchgesture.
    *
    * @param { object } value
    * @returns { PinchGestureInterface }
@@ -3239,6 +3261,8 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the pinchgesture.
+   * direction: Indicates the direction that triggers the pinchgesture.
    *
    * @param { object } value
    * @returns { PinchGestureInterface }
@@ -3495,6 +3519,8 @@ export declare class PinchGesture extends Gesture {
 interface RotationGestureInterface extends GestureInterface<RotationGestureInterface> {
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the rotationgesture.
+   * angle: Indicates the angle that triggers the rotationgesture.
    *
    * @param { object } value
    * @returns { RotationGestureInterface }
@@ -3503,6 +3529,8 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the rotationgesture.
+   * angle: Indicates the angle that triggers the rotationgesture.
    *
    * @param { object } value
    * @returns { RotationGestureInterface }
@@ -3512,6 +3540,8 @@ interface RotationGestureInterface extends GestureInterface<RotationGestureInter
    */
   /**
    * Set the value.
+   * fingers: Indicates the hand index that triggers the rotationgesture.
+   * angle: Indicates the angle that triggers the rotationgesture.
    *
    * @param { object } value
    * @returns { RotationGestureInterface }
