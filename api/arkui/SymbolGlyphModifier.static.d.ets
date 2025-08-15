@@ -19,6 +19,9 @@
  * @arkts 1.2
  */
 
+
+
+
 import { AttributeModifier } from './component/common';
 import { SymbolGlyphAttribute } from './component/symbolglyph';
 import { Resource } from '../global/resource';
@@ -26,7 +29,7 @@ import { Resource } from '../global/resource';
 /**
  * Defines SymbolGlyph Modifier
  *
- * @implements SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute>
+ * @implements { SymbolGlyphAttribute, AttributeModifier<SymbolGlyphAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
