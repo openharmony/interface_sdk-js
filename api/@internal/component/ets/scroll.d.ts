@@ -814,7 +814,9 @@ declare class Scroller {
    * </p>
    *
    * @param { Length } dx - Amount to scroll by in the horizontal direction. The percentage format is not supported.
+   * <br>Value range: (-∞, +∞).
    * @param { Length } dy - Amount to scroll by in the vertical direction. The percentage format is not supported.
+   * <br>Value range: (-∞, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1061,6 +1063,7 @@ declare interface ScrollOptions {
    * Set whether the scroll target position can over the boundary.
    *
    * @type { ?boolean } whether the scroll target position can over the boundary.
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1421,8 +1424,8 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * Set maximum zoom scale.
    *
    * @param { number } scale - Set maximum zoom scale.
-   * <br>Default value: **1**.
-   * <br>Value range: (0, +∞).
+   * <br>Default value: 1.
+   * <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1435,7 +1438,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * Set minimum zoom scale.
    *
    * @param { number } scale - Set minimum zoom scale.
-   * <br>Default value: **1**.
+   * <br>Default value: 1.
    * <br>Value range: (0, maxZoomScale].
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1450,7 +1453,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * This parameter supports !! for two-way binding of variables.
    *
    * @param { number } scale - Current zoom scale.
-   * <br>Default value: **1**.
+   * <br>Default value: 1.
    * <br>Value range: (0, +∞).
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1465,7 +1468,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * This parameter supports !! for two-way binding of variables.
    *
    * @param { boolean } enable - Enable bounces zoom scale.
-   * <br>Default value: **true**.
+   * <br>Default value: true.
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1796,7 +1799,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Sets the scrollbar color.
    *
-   * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+   * @param { Color | number | string } color - Scrollbar color.<br>Default value: '\#66182431'
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -2016,7 +2019,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**
    * Sets whether to enable the swipe-to-turn-pages feature.
    *
-   * @param { boolean } value - Whether to enable the swipe-to-turn-pages feature.
+   * @param { boolean } value - Whether to enable the swipe-to-turn-pages feature. Default value: false.
    * The value <em>true</em> means to enable the swipe-to-turn-pages feature, and <em>false</em> means the opposite.
    * @returns { ScrollAttribute } the attribute of the scroll.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
