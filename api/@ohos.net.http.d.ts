@@ -94,31 +94,27 @@ declare namespace http {
    * Enum for Address Family
    * @enum {string}
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export enum AddressFamily {
     /**
      * Default, can use addresses of all IP versions that your system allows.
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     DEFAULT = 'CURL_IPRESOLVE_WHATEVER',
  
     /**
      * ONLYV4 Uses only IPv4 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     ONLY_V4 = 'CURL_IPRESOLVE_V4',
  
     /**
      * ONLYV6 Uses only IPv6 addresses.
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     ONLY_V6 = 'CURL_IPRESOLVE_V6'
   }
@@ -411,8 +407,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     caPath?: string;
 
@@ -464,8 +459,7 @@ declare namespace http {
      * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     resumeFrom?: long;
 
@@ -484,8 +478,7 @@ declare namespace http {
      * @type {?long}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     resumeTo?: long;
 
@@ -520,8 +513,7 @@ declare namespace http {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     dnsOverHttps?: string;
 
@@ -540,8 +532,7 @@ declare namespace http {
      * @type {?Array<string>}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     dnsServers?: Array<string>;
 
@@ -558,8 +549,7 @@ declare namespace http {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     maxLimit?: int;
 
@@ -588,8 +578,7 @@ declare namespace http {
      * {@link CertificatePinning.publicKeyHash}, request will fail.
      * @type {?(CertificatePinning | CertificatePinning[])}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     certificatePinning?: CertificatePinning | CertificatePinning[];
 
@@ -598,8 +587,7 @@ declare namespace http {
       * @type {?RemoteValidation}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18
       */
      remoteValidation?: RemoteValidation;
  
@@ -608,8 +596,7 @@ declare namespace http {
       * @type {?TlsOptions}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18
       */
      tlsOptions?: TlsOptions;
  
@@ -618,8 +605,7 @@ declare namespace http {
       * @type {?ServerAuthentication}
       * @syscap SystemCapability.Communication.NetStack
       * @atomicservice
-      * @since arkts{'1.1':'18','1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18
       */
      serverAuthentication?: ServerAuthentication;
 
@@ -627,8 +613,7 @@ declare namespace http {
      * Address family option.
      * @type {?AddressFamily}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     addressFamily?: AddressFamily;
   }
@@ -1143,24 +1128,21 @@ declare namespace http {
    * Certificate pinning option.
    * @interface CertificatePinning
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts{'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface CertificatePinning {
     /**
      * Public key hash.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     publicKeyHash: string;
     /**
      * Certificate public key hash algorithm.
      * @type {'SHA-256'}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     hashAlgorithm: 'SHA-256';
   }
@@ -1990,8 +1972,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     requestInStream(url: string, callback: AsyncCallback<int>): void;
 
@@ -2160,8 +2141,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
@@ -2330,8 +2310,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
 
@@ -3514,8 +3493,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     RANGE_NOT_SATISFIABLE,
 
@@ -4182,8 +4160,7 @@ declare namespace http {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export interface DataReceiveProgressInfo {
     /**
@@ -4205,8 +4182,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     receiveSize: int;
     /**
@@ -4228,8 +4204,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     totalSize: int;
   }
@@ -4397,8 +4372,7 @@ declare namespace http {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     flush(): Promise<void>;
 

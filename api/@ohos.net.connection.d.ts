@@ -473,8 +473,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isDefaultNetMetered(callback: AsyncCallback<boolean>): void;
 
@@ -486,8 +485,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isDefaultNetMetered(): Promise<boolean>;
 
@@ -499,8 +497,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function isDefaultNetMeteredSync(): boolean;
 
@@ -647,8 +644,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function reportNetConnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -663,8 +659,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function reportNetConnected(netHandle: NetHandle): Promise<void>;
 
@@ -679,8 +674,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function reportNetDisconnected(netHandle: NetHandle, callback: AsyncCallback<void>): void;
 
@@ -695,8 +689,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function reportNetDisconnected(netHandle: NetHandle): Promise<void>;
 
@@ -711,8 +704,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
@@ -727,8 +719,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   function getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
@@ -740,8 +731,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAppNet(callback: AsyncCallback<NetHandle>): void;
 
@@ -751,8 +741,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getAppNet(): Promise<NetHandle>;
 
@@ -762,8 +751,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getAppNetSync(): NetHandle;
 
@@ -798,8 +786,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function setAppNet(netHandle: NetHandle): Promise<void>;
 
@@ -921,8 +908,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function setPacUrl(pacUrl: string): void;
 
@@ -932,8 +918,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function getPacUrl(): string;
 
@@ -1020,8 +1005,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function addCustomDnsRule(host: string, ip: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1052,8 +1036,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function addCustomDnsRule(host: string, ip: Array<string>): Promise<void>;
 
@@ -1082,8 +1065,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function removeCustomDnsRule(host: string, callback: AsyncCallback<void>): void;
 
@@ -1112,8 +1094,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts{'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function removeCustomDnsRule(host: string): Promise<void>;
 
@@ -1127,8 +1108,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function clearCustomDnsRules(callback: AsyncCallback<void>): void;
 
@@ -1141,8 +1121,7 @@ declare namespace connection {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function clearCustomDnsRules(): Promise<void>;
 
@@ -1225,8 +1204,7 @@ declare namespace connection {
      * @param { 'netBlockStatusChange' } type - Indicates Event name.
      * @param { Callback<NetBlockStatusInfo> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'netBlockStatusChange', callback: Callback<NetBlockStatusInfo>): void;
 
@@ -1296,8 +1274,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'netLost', callback: Callback<NetHandle>): void;
 
@@ -1323,8 +1300,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     on(type: 'netUnavailable', callback: Callback<void>): void;
 
@@ -1629,8 +1605,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getAddressesByName(host: string, callback: AsyncCallback<Array<NetAddress>>): void;
 
@@ -1659,8 +1634,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
      * @atomicservice
-     * @since arkts{'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getAddressesByName(host: string): Promise<Array<NetAddress>>;
 
@@ -1675,8 +1649,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getAddressByName(host: string, callback: AsyncCallback<NetAddress>): void;
 
@@ -1691,8 +1664,7 @@ declare namespace connection {
      * @throws { BusinessError } 2100002 - Failed to connect to the service.
      * @throws { BusinessError } 2100003 - System internal error.
      * @syscap SystemCapability.Communication.NetManager.Core
-     * @since arkts{'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getAddressByName(host: string): Promise<NetAddress>;
   }
@@ -2004,8 +1976,7 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.NetManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     BEARER_BLUETOOTH = 2,
  
