@@ -1269,6 +1269,21 @@ export declare class FrameNode {
    * @since 20
    */
   getNodePropertyValue(property: AnimationPropertyType): number[];
+  
+  /**
+   * Triggers node updates in the current frame.
+   * 
+   * When node attributes are modified after the current frame's build phase (i.e., after
+   * the unified processing of dirty nodes), the node updates will be deferred to the next
+   * frame. This function forces immediate node updates within the current frame to
+   * ensure rendering effects are applied synchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  invalidateAttributes(): void;
 }
 
 /**
