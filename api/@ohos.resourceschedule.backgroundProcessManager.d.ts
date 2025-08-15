@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BackgroundTasksKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -24,8 +23,7 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since arkts{ '1.1':'17','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 17
  */
 declare namespace backgroundProcessManager {
     /**
@@ -33,16 +31,14 @@ declare namespace backgroundProcessManager {
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since arkts{ '1.1':'17','1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 17
          */
         PROCESS_BACKGROUND = 1,
 
@@ -50,8 +46,7 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since arkts{ '1.1':'17','1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 17
          */
         PROCESS_INACTIVE = 2,
     }
@@ -62,7 +57,6 @@ declare namespace backgroundProcessManager {
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     export enum PowerSaveMode {
         /**
@@ -71,7 +65,6 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20
-         * @arkts 1.1&1.2
          */
         EFFICIENCY_MODE = 1,
 
@@ -80,7 +73,6 @@ declare namespace backgroundProcessManager {
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @since 20
-         * @arkts 1.1&1.2
          */
         DEFAULT_MODE = 2,
     }
@@ -93,8 +85,7 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17
      */
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
@@ -104,8 +95,7 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17
      */
     function resetProcessPriority(pid: int): Promise<void>;
 
@@ -127,7 +117,6 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     function setPowerSaveMode(pid: int, powerSaveMode: PowerSaveMode): Promise<void>;
 
@@ -143,7 +132,6 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20
-     * @arkts 1.1&1.2
      */
     function isPowerSaveMode(pid: int): Promise<boolean>;
 }
