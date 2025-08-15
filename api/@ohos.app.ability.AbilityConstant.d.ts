@@ -1217,7 +1217,7 @@ declare namespace AbilityConstant {
      */
     CANCEL = 1
   }
-
+   
   /**
    * Enumerates the collaboration request results.
    * This enum is used in multi-device collaboration scenarios to specify whether the target application accepts the
@@ -1232,7 +1232,7 @@ declare namespace AbilityConstant {
    */
   export enum CollaborateResult {
     /**
-     * 	Accepts the collaboration request.
+     * Accepts the collaboration request.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -1240,7 +1240,7 @@ declare namespace AbilityConstant {
      * @arkts 1.1&1.2
      */
     ACCEPT = 0,
-
+ 
     /**
      * Rejects the collaboration request.
      *
