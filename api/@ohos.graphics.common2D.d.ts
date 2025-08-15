@@ -36,36 +36,64 @@ declare namespace common2D {
   interface Color {
     /**
      * Alpha component of the color. The value is an integer ranging from 0 to 255.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Alpha component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    alpha: number;
+    alpha: int;
     /**
      * Red component of the color. The value is an integer ranging from 0 to 255.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Red component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    red: number;
+    red: int;
     /**
      * Green component of the color. The value is an integer ranging from 0 to 255.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Green component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    green: number;
+    green: int;
     /**
      * Blue component of the color. The value is an integer ranging from 0 to 255.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Blue component of the color. The value is an integer ranging from 0 to 255.
+     * @type { int }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    blue: number;
+    blue: int;
   }
 
   /**
@@ -78,36 +106,64 @@ declare namespace common2D {
   interface Rect {
     /**
      * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * X coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    left: number;
+    left: double;
     /**
      * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Y coordinate of the upper left corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    top: number;
+    top: double;
     /**
      * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * X coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    right: number;
+    right: double;
     /**
      * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since 11
+     */
+    /**
+     * Y coordinate of the lower right corner of the rectangle. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    bottom: number;
+    bottom: double;
   }
 
   /**
@@ -120,21 +176,35 @@ declare namespace common2D {
   interface Point {
     /**
      * Horizontal coordinate. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Horizontal coordinate. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    x: number;
+    x: double;
 
     /**
      * Vertical coordinate. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Vertical coordinate. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
      * @arkts 1.1&1.2
      */
-    y: number;
+    y: double;
   }
 
   /**
@@ -148,11 +218,18 @@ declare namespace common2D {
   interface Point3d extends Point {
     /**
      * Z-axis coordinate. The value is a floating point number.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
-    z: number;
+    /**
+     * Z-axis coordinate. The value is a floating point number.
+     * @type { double }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20
+     */
+    z: double;
   }
   
   /**
@@ -165,36 +242,36 @@ declare namespace common2D {
   interface Color4f {
     /**
      * Alpha component of color, represented as a floating point number between 0 and 1.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
-    alpha: number;
+    alpha: double;
     /**
      * Red component of color, represented as a floating point number between 0 and 1.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
-    red: number;
+    red: double;
     /**
      * Green component of color, represented as a floating point number between 0 and 1.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
-    green: number;
+    green: double;
     /**
      * Blue component of color, represented as a floating point number between 0 and 1.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
      */
-    blue: number;
+    blue: double;
   }
 }
 
