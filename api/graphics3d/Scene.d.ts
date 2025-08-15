@@ -387,7 +387,7 @@ export declare class Scene {
    * @arkts 1.1&1.2
    */
   static load(uri? : ResourceStr): Promise<Scene>;
-   
+
   /**
    * The environment of the scene.
    *
@@ -407,7 +407,7 @@ export declare class Scene {
    * @arkts 1.1&1.2
    */
   set environment(value: Environment);
-  
+
   /**
    * The animations of the scene.
    *
@@ -418,7 +418,7 @@ export declare class Scene {
    * @arkts 1.1&1.2
    */
   get animations(): Animation[];
- 
+
   /**
    * The root node of the scene.
    *
@@ -428,7 +428,7 @@ export declare class Scene {
    * @since 12
    */
   get root(): Node | null;
- 
+
   /**
    * Get a node by path.
    *
