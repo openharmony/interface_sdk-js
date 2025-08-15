@@ -356,6 +356,11 @@ function isArkTsSpecialSyntax(content) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
+    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
+    if (etsType === 'ets2') {
+      writeFile(url, content);
+      return;
+    }
     const relativePath = path.relative(inputDir, url);
     if (STATIC_API_DELETE_RULES.has(relativePath.replace(/\\/g, '/'))) {
       const content = processStaticFile(url);
@@ -363,7 +368,6 @@ function tsTransform(utFiles, callback) {
       return;
     }
     const apiBaseName = path.basename(url);
-    let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     if (isArkTsSpecialSyntax(content)) {
       writeFile(url, content);
       return;
