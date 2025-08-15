@@ -89,6 +89,8 @@ export {
 };
 
 /*** if arkts 1.2 */
+import configPolicy from '@ohos.configPolicy';
+import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
 
