@@ -711,7 +711,7 @@ declare class UIAbility extends Ability {
   onBackground(): void;
 
   /**
-   * Called back when the state of an ability will changed to background.
+   * Called back when the state of an ability will changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly

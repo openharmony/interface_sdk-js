@@ -1355,14 +1355,14 @@ declare namespace appManager {
    */
   export type AbilityStateData = _AbilityStateData.default;
 
- /**
-  * The ability state data.
+/**
+ * The ability state data.
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
-  */
+ */
   export type AbilityStateData = _AbilityStateData;
 
   /**
