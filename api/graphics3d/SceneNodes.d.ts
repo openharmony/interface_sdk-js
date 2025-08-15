@@ -16,7 +16,6 @@
 /**
  * @file Defines 3D node related interfaces
  * @kit ArkGraphics3D
- * @arkts 1.1&1.2
  */
 
 import { SceneResource, Mesh, Morpher } from './SceneResources';
