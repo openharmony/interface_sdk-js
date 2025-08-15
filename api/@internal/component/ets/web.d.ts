@@ -2080,7 +2080,8 @@ declare class HttpAuthHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isHttpAuthInfoSaved(): boolean;
 }
@@ -2241,7 +2242,8 @@ declare class ClientAuthenticationHandler {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancel(): void;
 
@@ -6579,7 +6581,8 @@ declare interface OnScaleChangeEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnHttpAuthRequestEvent {
   /**
@@ -6589,7 +6592,8 @@ declare interface OnHttpAuthRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   handler: HttpAuthHandler;
 
@@ -6600,7 +6604,8 @@ declare interface OnHttpAuthRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   host: string;
 
@@ -6611,7 +6616,8 @@ declare interface OnHttpAuthRequestEvent {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   realm: string;
 }
@@ -6844,7 +6850,8 @@ declare interface OnSslErrorEventReceiveEvent {
  * @typedef OnClientAuthenticationEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnClientAuthenticationEvent {
   /**
@@ -6853,7 +6860,8 @@ declare interface OnClientAuthenticationEvent {
    * @type { ClientAuthenticationHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   handler : ClientAuthenticationHandler;
 
@@ -6863,7 +6871,8 @@ declare interface OnClientAuthenticationEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   host : string;
 
@@ -6873,7 +6882,8 @@ declare interface OnClientAuthenticationEvent {
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   port : number;
 
@@ -6883,7 +6893,8 @@ declare interface OnClientAuthenticationEvent {
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   keyTypes : Array<string>;
 
@@ -6893,7 +6904,8 @@ declare interface OnClientAuthenticationEvent {
    * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   issuers : Array<string>;
 }
@@ -9033,7 +9045,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onHttpAuthRequest(callback: Callback<OnHttpAuthRequestEvent, boolean>): WebAttribute;
 
