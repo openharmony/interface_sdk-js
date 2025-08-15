@@ -20,8 +20,11 @@
 
 /*** if arkts 1.2 */
 import { ResourceStr } from '../arkui/component/units';
+import { Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
+/*** if arkts 1.1 */
 import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
+/*** endif */
 import { Callback } from '../@ohos.base';
 
 /**
@@ -29,14 +32,16 @@ import { Callback } from '../@ohos.base';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum SceneResourceType {
   /**
    * The resource is an Unknown.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   UNKNOWN = 0,
 
@@ -44,7 +49,8 @@ export enum SceneResourceType {
    * The resource is a Node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   NODE = 1,
 
@@ -52,7 +58,8 @@ export enum SceneResourceType {
    * The resource is an Environment.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ENVIRONMENT = 2,
 
@@ -60,7 +67,8 @@ export enum SceneResourceType {
    * The resource is a Material.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MATERIAL = 3,
 
@@ -68,7 +76,8 @@ export enum SceneResourceType {
    * The resource is a Mesh.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MESH = 4,
 
@@ -76,7 +85,8 @@ export enum SceneResourceType {
    * The resource is an Animation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ANIMATION = 5,
 
@@ -84,7 +94,8 @@ export enum SceneResourceType {
    * The resource is a Shader.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   SHADER = 6,
 
@@ -92,7 +103,8 @@ export enum SceneResourceType {
    * The resource is an Image.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   IMAGE = 7,
 
@@ -100,7 +112,8 @@ export enum SceneResourceType {
    * The resource is a mesh resource
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   MESH_RESOURCE = 8,
 }
@@ -110,7 +123,8 @@ export enum SceneResourceType {
  *
  * @interface SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SceneResource {
   /**
@@ -147,7 +161,8 @@ export interface SceneResource {
    * Release scene resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   destroy(): void;
 }
@@ -738,7 +753,8 @@ export interface MeshResource extends SceneResource {
  * @extends SceneResource
  * @interface Animation
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Animation extends SceneResource {
   /**
@@ -776,7 +792,8 @@ export interface Animation extends SceneResource {
    * @type { boolean }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly running: boolean;
 
@@ -786,7 +803,8 @@ export interface Animation extends SceneResource {
    * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly progress: double;
 
@@ -795,7 +813,8 @@ export interface Animation extends SceneResource {
    *
    * @param { Callback<void> } callback - the callback invoked when animation finished
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFinished(callback: Callback<void>): void;
 
@@ -820,7 +839,8 @@ export interface Animation extends SceneResource {
    * Restart the animation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restart(): void;
 
@@ -837,7 +857,8 @@ export interface Animation extends SceneResource {
    * Start the animation.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start(): void;
 
@@ -845,7 +866,8 @@ export interface Animation extends SceneResource {
    * Stop the animation and seek the position to the beginning.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stop(): void;
 
@@ -862,14 +884,16 @@ export interface Animation extends SceneResource {
  * The enum of environment background type.
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum EnvironmentBackgroundType {
   /**
    * The background is none.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACKGROUND_NONE = 0,
 
@@ -877,7 +901,8 @@ export enum EnvironmentBackgroundType {
    * The background is image.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACKGROUND_IMAGE = 1,
 
@@ -885,7 +910,8 @@ export enum EnvironmentBackgroundType {
    * The background is cubemap.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACKGROUND_CUBEMAP = 2,
 
@@ -893,7 +919,8 @@ export enum EnvironmentBackgroundType {
    * The background is equirectangular.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BACKGROUND_EQUIRECTANGULAR = 3,
 }
@@ -904,7 +931,8 @@ export enum EnvironmentBackgroundType {
  * @extends SceneResource
  * @interface Environment
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Environment extends SceneResource {
   /**
@@ -912,7 +940,8 @@ export interface Environment extends SceneResource {
    *
    * @type { EnvironmentBackgroundType }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundType: EnvironmentBackgroundType;
 
@@ -921,7 +950,8 @@ export interface Environment extends SceneResource {
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indirectDiffuseFactor: Vec4;
 
@@ -930,7 +960,8 @@ export interface Environment extends SceneResource {
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   indirectSpecularFactor: Vec4;
 
