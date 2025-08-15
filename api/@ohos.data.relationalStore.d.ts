@@ -1239,7 +1239,6 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface ExceptionMessage {
     /**
@@ -1249,7 +1248,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     code: int;
 
@@ -1260,7 +1258,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     message: string;
 
@@ -1271,7 +1268,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     sql: string;
   }
@@ -1366,16 +1362,14 @@ declare namespace relationalStore {
    *
    * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   enum SyncMode {
     /**
      * Indicates the data is pushed to remote device from local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     SYNC_MODE_PUSH = 0,
 
@@ -1383,8 +1377,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from remote device to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     SYNC_MODE_PULL = 1,
 
@@ -1392,8 +1385,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from remote device to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_MODE_TIME_FIRST,
 
@@ -1401,8 +1393,7 @@ declare namespace relationalStore {
      * Indicates force push the native data to the cloud.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_MODE_NATIVE_FIRST,
 
@@ -1410,8 +1401,7 @@ declare namespace relationalStore {
      * Indicates the data is pulled from cloud to local device.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     SYNC_MODE_CLOUD_FIRST
   }
@@ -1421,16 +1411,14 @@ declare namespace relationalStore {
    *
    * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   enum SubscribeType {
     /**
      * Subscription to remote data changes
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     SUBSCRIBE_TYPE_REMOTE = 0,
 
@@ -1445,8 +1433,7 @@ declare namespace relationalStore {
      * Subscription to cloud data changes
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD,
 
@@ -1461,8 +1448,7 @@ declare namespace relationalStore {
      * Subscription to cloud data changes details
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUBSCRIBE_TYPE_CLOUD_DETAILS,
 
@@ -1470,8 +1456,7 @@ declare namespace relationalStore {
      * Subscription to local data changes details
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     SUBSCRIBE_TYPE_LOCAL_DETAILS
   }
@@ -1481,8 +1466,7 @@ declare namespace relationalStore {
    *
    * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   enum ChangeType {
     /**
@@ -1496,8 +1480,7 @@ declare namespace relationalStore {
      * Means the change type is data change.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     DATA_CHANGE,
 
@@ -1512,8 +1495,7 @@ declare namespace relationalStore {
      * Means the change type is asset change.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     ASSET_CHANGE
   }
@@ -1523,8 +1505,7 @@ declare namespace relationalStore {
    *
    * @interface ChangeInfo
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface ChangeInfo {
     /**
@@ -1532,8 +1513,7 @@ declare namespace relationalStore {
      *
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     table: string;
 
@@ -1542,8 +1522,7 @@ declare namespace relationalStore {
      *
      * @type { ChangeType }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     type: ChangeType;
 
@@ -1553,8 +1532,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     inserted: Array<string> | Array<long>;
 
@@ -1564,8 +1542,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     updated: Array<string> | Array<long>;
 
@@ -1575,8 +1552,7 @@ declare namespace relationalStore {
      *
      * @type { Array<string> | Array<long> }
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     deleted: Array<string> | Array<long>;
   }
@@ -2074,8 +2050,7 @@ declare namespace relationalStore {
    * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enum ColumnType {
     /**
@@ -2083,8 +2058,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     NULL,
 
@@ -2095,8 +2069,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     INTEGER,
 
@@ -2105,8 +2078,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     REAL,
 
@@ -2115,8 +2087,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     TEXT,
 
@@ -2125,8 +2096,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     BLOB,
 
@@ -2135,8 +2105,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ASSET,
 
@@ -2145,8 +2114,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ASSETS,
 
@@ -2155,8 +2123,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     FLOAT_VECTOR,
 
@@ -2165,8 +2132,7 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     UNLIMITED_INT,
   }
@@ -3393,8 +3359,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getColumnType(columnIdentifier: int | string): Promise<ColumnType>;
 
@@ -3428,8 +3393,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     getColumnTypeSync(columnIdentifier: int | string): ColumnType;
 
@@ -5091,8 +5055,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<long>;
 
@@ -5128,8 +5091,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
 
@@ -9050,8 +9012,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     batchInsertWithConflictResolution(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): Promise<long>;
 
@@ -9085,8 +9046,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
 
