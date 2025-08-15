@@ -25,7 +25,8 @@ import { AsyncCallback } from './@ohos.base';
  * including the methods for querying standby status and exemption list.
  *
  * @namespace deviceStandby
- * @since 10
+ * @since arkts{ '1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace deviceStandby {
 
@@ -33,7 +34,7 @@ declare namespace deviceStandby {
    * Returns the information about the specified exempted application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { number } resourceTypes - the combination of {@link ResourceType} values.
+   * @param { int } resourceTypes - the combination of {@link ResourceType} values.
    * @param { AsyncCallback<Array<ExemptedAppInfo>> } callback - the callback of getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -46,15 +47,16 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getExemptedApps(resourceTypes: number, callback: AsyncCallback<Array<ExemptedAppInfo>>): void;
+  function getExemptedApps(resourceTypes: int, callback: AsyncCallback<Array<ExemptedAppInfo>>): void;
 
   /**
    * Returns the information about the specified exempted application.
    *
    * @permission ohos.permission.DEVICE_STANDBY_EXEMPTION
-   * @param { number } resourceTypes - the combination of {@link ResourceType} values.
+   * @param { int } resourceTypes - the combination of {@link ResourceType} values.
    * @returns { Promise<Array<ExemptedAppInfo>> } the promise returned by getExemptedApps.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -67,9 +69,10 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getExemptedApps(resourceTypes: number): Promise<Array<ExemptedAppInfo>>;
+  function getExemptedApps(resourceTypes: int): Promise<Array<ExemptedAppInfo>>;
 
   /**
    * Requests exemption resources.
@@ -87,7 +90,8 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function requestExemptionResource(request: ResourceRequest): void;
 
@@ -107,17 +111,19 @@ declare namespace deviceStandby {
    * @throws { BusinessError } 18700001 - Caller information verification failed.
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function releaseExemptionResource(request: ResourceRequest): void;
 
   /**
    * The type of exemption resources requested by the application.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ResourceType {
     /**
@@ -125,7 +131,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NETWORK = 1,
 
@@ -134,7 +141,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RUNNING_LOCK = 1 << 1,
 
@@ -143,7 +151,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TIMER = 1 << 2,
 
@@ -152,7 +161,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WORK_SCHEDULER = 1 << 3,
 
@@ -161,7 +171,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTO_SYNC = 1 << 4,
 
@@ -170,7 +181,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PUSH = 1 << 5,
 
@@ -179,7 +191,8 @@ declare namespace deviceStandby {
      *
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FREEZE = 1 << 6
   }
@@ -190,18 +203,20 @@ declare namespace deviceStandby {
    * @interface ExemptedAppInfo
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ExemptedAppInfo {
     /**
      * The set of resource types that an application requests.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    resourceTypes: number;
+    resourceTypes: int;
 
     /**
      * The application name.
@@ -209,19 +224,21 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
     /**
      * The exemption duration.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    duration: number;
+    duration: int;
   }
 
   /**
@@ -230,28 +247,31 @@ declare namespace deviceStandby {
    * @interface ResourceRequest
    * @syscap SystemCapability.ResourceSchedule.DeviceStandby
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts{ '1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface ResourceRequest {
     /**
      * The set of resource types that an application requests.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    resourceTypes: number;
+    resourceTypes: int;
 
     /**
      * The application uid.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    uid: number;
+    uid: int;
 
     /**
      * The application name.
@@ -259,19 +279,21 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
     /**
      * The exemption duration.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    duration: number;
+    duration: int;
 
     /**
      * The reason for the request.
@@ -279,7 +301,8 @@ declare namespace deviceStandby {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.DeviceStandby
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts{ '1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     reason: string;
   }
