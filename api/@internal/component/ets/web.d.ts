@@ -6556,7 +6556,7 @@ declare interface OnSearchResultReceiveEvent {
  */
 declare interface OnScrollEvent {
   /**
-   * The X offset of the scroll.
+   * The X offset of the scroll. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6567,7 +6567,7 @@ declare interface OnScrollEvent {
   xOffset: number;
 
   /**
-   * The Y offset of the scroll.
+   * The Y offset of the scroll. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9043,17 +9043,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSearchResultReceive(callback: Callback<OnSearchResultReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { function } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { function } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9061,9 +9083,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { Callback<OnScrollEvent> } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9460,9 +9493,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
   /**
-   * Whether force display the scroll bar.
+   * Set whether the scroll bar is permanent. In the resident state,
+   * when the page size exceeds one page, the scroll bar appears and does not disappear.
    *
-   * @param { boolean } enabled {@code true} means show; {@code false} otherwise.
+   * Scroll bar resident is not supported in full expansion mode,
+   * that is, when layoutMode is WebLayoutMode.FIT_CONTENT mode, the parameter enabled is false.
+   * 
+   * @param { boolean } enabled {@code true} means show; {@code false} otherwise. default is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9873,23 +9910,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onControllerAttached(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the over scrolling.
-   * @param { function } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { function } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
-   * Triggered when the over scrolling.
-   * @param { function } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { function } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
   /**
-   * Triggered when the over scrolling.
-   * @param { Callback<OnOverScrollEvent> } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { Callback<OnOverScrollEvent> } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
