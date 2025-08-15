@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import Want from '../../@ohos.app.ability.Want'
-import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
-import { CommonMethod, TerminationInfo } from './common'
-import { EmbeddedType } from './enums'
-/*** endif */
-
 /**
  * Provide an interface for the EmbeddedComponent, which is used
  * <br/>to render UI asynchronously
@@ -32,8 +25,8 @@ import { EmbeddedType } from './enums'
  * @interface EmbeddedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ * @noninterop
  */
 interface EmbeddedComponentInterface {
   /**
@@ -49,23 +42,6 @@ interface EmbeddedComponentInterface {
    */
   (
     loader: import('../api/@ohos.app.ability.Want').default,
-    type: EmbeddedType
-  ): EmbeddedComponentAttribute;
-  
-  /**
-   * Construct the EmbeddedComponent.<br/>
-   * Called when the EmbeddedComponent is used.
-   *
-   * @param { Want } loader - indicates initialization parameter
-   * @param { EmbeddedType } type - indicates type of the EmbeddedComponent
-   * @returns { EmbeddedComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (
-    loader: Want,
     type: EmbeddedType
   ): EmbeddedComponentAttribute;
 }
@@ -87,7 +63,7 @@ declare interface TerminationInfo {
    * @atomicservice
    * @since 12
    */
-   code: number;
+  code: number;
 
   /**
    * Defines the additional termination information.
@@ -97,7 +73,7 @@ declare interface TerminationInfo {
    * @atomicservice
    * @since 12
    */
-   want?: import('../api/@ohos.app.ability.Want').default;
+  want?: import('../api/@ohos.app.ability.Want').default;
 }
 
 /**
@@ -106,8 +82,8 @@ declare interface TerminationInfo {
  * @extends CommonMethod<EmbeddedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
+ * @noninterop
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
   /**
@@ -120,18 +96,6 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12
    */
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
-  
-  /**
-   * Called when the provider of the embedded UI is terminated.
-   *
-   * @param { Callback<TerminationInfo> } callback
-   * @returns { EmbeddedComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onTerminated(callback: Callback<TerminationInfo>): EmbeddedComponentAttribute;
 
   /**
    * Called when some error occurred.
@@ -143,18 +107,6 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @since 12
    */
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
-  
-  /**
-   * Called when some error occurred.
-   *
-   * @param { ErrorCallback<BusinessError> } callback
-   * @returns { EmbeddedComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onError(callback: ErrorCallback<BusinessError>): EmbeddedComponentAttribute;
 }
 
 /**

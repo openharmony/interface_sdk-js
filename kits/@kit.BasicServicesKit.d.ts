@@ -93,6 +93,8 @@ import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
+import commonEventManager from '@ohos.commonEventManager';
+import emitter from '@ohos.events.emitter';
 
-export { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, customConfig, configPolicy };
+export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter };
 /*** endif */

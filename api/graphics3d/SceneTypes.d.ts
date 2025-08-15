@@ -16,7 +16,6 @@
 /**
  * @file Defines 3D basic types
  * @kit ArkGraphics3D
- * @arkts 1.1&1.2
  */
 
 /**
@@ -24,7 +23,8 @@
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec2 {
   /**
@@ -32,7 +32,8 @@ export interface Vec2 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: double;
 
@@ -41,7 +42,8 @@ export interface Vec2 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: double;
 }
@@ -51,7 +53,8 @@ export interface Vec2 {
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec3 {
   /**
@@ -59,7 +62,8 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: double;
 
@@ -68,7 +72,8 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: double;
 
@@ -77,7 +82,8 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   z: double;
 }
@@ -87,7 +93,8 @@ export interface Vec3 {
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec4 {
   /**
@@ -95,7 +102,8 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: double;
 
@@ -104,7 +112,8 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: double;
 
@@ -113,7 +122,8 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   z: double;
 
@@ -122,7 +132,8 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   w: double;
 }
@@ -132,7 +143,8 @@ export interface Vec4 {
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Quaternion {
   /**
@@ -140,7 +152,8 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: double;
 
@@ -149,7 +162,8 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: double;
 
@@ -158,7 +172,8 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   z: double;
 
@@ -167,7 +182,8 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   w: double;
 }
@@ -204,7 +220,8 @@ export interface Aabb {
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Color {
   /**
@@ -212,7 +229,8 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   r: double;
 
@@ -221,7 +239,8 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   g: double;
 
@@ -230,7 +249,8 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   b: double;
 
@@ -239,7 +259,8 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   a: double;
 }
@@ -249,7 +270,8 @@ export interface Color {
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Rect {
   /**
@@ -257,7 +279,8 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   x: double;
 
@@ -266,7 +289,8 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   y: double;
 
@@ -514,7 +538,8 @@ export declare class SphereGeometry extends GeometryDefinition {
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Position3 = Vec3;
 
@@ -532,6 +557,7 @@ export type Rotation3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Scale3 = Vec3;

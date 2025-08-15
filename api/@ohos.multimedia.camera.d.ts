@@ -1373,7 +1373,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice;
 
@@ -1396,7 +1397,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>;
 
@@ -2808,7 +2810,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     open(type: CameraConcurrentType): Promise<void>;
 
@@ -2950,7 +2953,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     usedAsPosition(position: CameraPosition): void;
 
@@ -8629,7 +8633,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.[object Object]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'effectSuggestionChange', callback: AsyncCallback<EffectSuggestionType>): void;
 
@@ -8641,7 +8646,8 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application.[object Object]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'effectSuggestionChange', callback?: AsyncCallback<EffectSuggestionType>): void;
 
@@ -13232,7 +13238,8 @@ declare namespace camera {
      * @throws { BusinessError } 7400201 - Camera service fatal error.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     enableAutoCloudImageEnhancement(enabled: boolean): void;
 
@@ -15053,7 +15060,8 @@ declare namespace camera {
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum CameraConcurrentType {
     /**
@@ -15067,7 +15075,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_LIMITED_CAPABILITY = 0,
 
@@ -15082,7 +15091,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FULL_CAPABILITY = 1,
   }
@@ -15100,7 +15110,8 @@ declare namespace camera {
    * @interface CameraConcurrentInfo
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CameraConcurrentInfo {
     /**
@@ -15118,7 +15129,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly device: CameraDevice;
 
@@ -15137,7 +15149,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly type: CameraConcurrentType;
 
@@ -15156,7 +15169,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly modes: Array<SceneMode>;
 
@@ -15175,7 +15189,8 @@ declare namespace camera {
      * @readonly
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly outputCapabilities: Array<CameraOutputCapability>;
   }

@@ -4425,6 +4425,17 @@ declare namespace call {
     number: string;
 
     /**
+     * Indicates the phone number of call forwarding.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @since 22
+     * @arkts 1.2
+     */
+    teleNumber: string;
+
+    /**
      * Indicates the start time hours of call forwarding.
      *
      * @type { number }

@@ -32,15 +32,19 @@ import AbilityStage from '@ohos.app.ability.AbilityStage';
 import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
 import uriPermissionManager from '@ohos.application.uriPermissionManager';
 import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
+import privacyManager from '@ohos.privacyManager';
+export {
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
+};
 /*** endif */
 
 import ability from '@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
 import featureAbility from '@ohos.ability.featureAbility';
 import particleAbility from '@ohos.ability.particleAbility';
-import abilityAccessCtrl, {
-  Context, PermissionRequestResult, Permissions
-} from '@ohos.abilityAccessCtrl';
 import Ability from '@ohos.app.ability.Ability';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
@@ -96,7 +100,6 @@ import distributedMissionManager from '@ohos.distributedMissionManager';
 import Package, {
   CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '@system.package';
-import privacyManager from '@ohos.privacyManager';
 import EmbeddedUIExtensionAbility from '@ohos.app.ability.EmbeddedUIExtensionAbility';
 import StartupConfig from '@ohos.app.appstartup.StartupConfig';
 import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
@@ -120,16 +123,16 @@ export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
   CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
-  ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
+  ChildProcess, Configuration, ConfigurationConstant, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
-  OpenLinkOptions, Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility,
-  StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
+  OpenLinkOptions, Package, ServiceExtensionAbility, ShareExtensionAbility,
+  StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
+  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application, UIServiceExtensionAbility,
