@@ -351,14 +351,6 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    /**
-     * Delete a single event.
-     * @param { number } id - Indicates the ID of an event.
-     * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
-     * @syscap SystemCapability.Applications.CalendarData
-     * @atomicservice
-     * @since 20
-     */
     deleteEvent(id: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -384,14 +376,6 @@ declare namespace calendarManager {
      * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
-     */
-    /**
-     * Delete multiple events.
-     * @param { number[] } ids - Indicates the IDs of multiple events.
-     * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
-     * @syscap SystemCapability.Applications.CalendarData
-     * @atomicservice
-     * @since 20
      */
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
