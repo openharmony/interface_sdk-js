@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -19,7 +20,8 @@
  * @arkts 1.2
  */
 
-import { memo } from './runtime'
+import { memo } from './runtime';
+import { MemoState } from './memorize/state';
 
 /**
  * function for capturing external state values.
@@ -27,10 +29,7 @@ import { memo } from './runtime'
  * @typedef { function } RememberFactory<T>
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
- * @arkts 1.2
  */
 type RememberFactory<T> = () => T;
 
@@ -38,12 +37,9 @@ type RememberFactory<T> = () => T;
 * Copies external state values for safe use in parallel context.
 *
 * @param { RememberFactory<T> } factory - factory to create the initial state value.
-* @returns { T }
+* @returns { MemoState<T> }
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
 * @since 20
-* @arkts 1.2
 */
 @memo
-export declare function rememberVar<T>(factory: RememberFactory<T>): T;
+export declare function memorizeUpdatedState<T>(factory: RememberFactory<T>): MemoState<T>;
