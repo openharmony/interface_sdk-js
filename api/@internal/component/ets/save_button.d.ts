@@ -251,8 +251,7 @@ declare enum SaveDescription {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   SAVE_ALL = 12
 }
