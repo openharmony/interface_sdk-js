@@ -787,6 +787,9 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
  */
 export declare class TextPickerDialog {
 }
+
+@memo
+@ComponentBuilder
 export declare function TextPicker(options?: TextPickerOptions, 
 @memo
 content_?: () => void): TextPickerAttribute;

@@ -66,6 +66,9 @@ export declare interface CounterAttribute extends CommonMethod {
     enableInc(value: boolean | undefined): this;
     attributeModifier(modifier: AttributeModifier<CounterAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function Counter(
 @memo
 content_?: () => void): CounterAttribute;
