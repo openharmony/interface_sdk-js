@@ -65,7 +65,9 @@ import { SliderAttribute, SliderOptions } from './component/slider';
 import { ToggleAttribute, ToggleOptions } from './component/toggle';
 import { CheckboxGroupAttribute, CheckboxGroupOptions } from './component/checkboxgroup';
 import { RatingAttribute, RatingOptions } from './component/rating';
+import { SelectAttribute, SelectOption } from './component/select';
 import { XComponentAttribute, XComponentController, XComponentOptions, XComponentParameters, NativeXComponentParameters } from './component/xcomponent';
+import { ResourceStr } from './component/units';
 
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
@@ -772,7 +774,14 @@ export declare namespace typeNode {
     createBlankNode,
     createXComponentNodeDefault,
     createXComponentNodeWithOptions,
-    createXComponentNodeWithNativeParameters
+    createXComponentNodeWithNativeParameters,
+    createButtonNode,
+    createCheckboxNode,
+    createCheckboxGroupNode,
+    createRadioNode,
+    createSelectNode,
+    createSliderNode,
+    createToggleNode
   }
 
   /**
@@ -1795,6 +1804,319 @@ export declare namespace typeNode {
    */
   export function createXComponentNodeWithNativeParameters(
     context: UIContext, nodeType: 'XComponent', parameters: NativeXComponentParameters): XComponent;
+
+  /**
+   * Define the Button type of FrameNode.
+   *
+   * @extends TypedFrameNode<ButtonAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ButtonFrameNode extends TypedFrameNode<ButtonAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { ResourceStr } label - Button label
+     * @param { ButtonOptions } [options] - Button options
+     * @returns { ButtonAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Button.
+   *
+   * @typedef { ButtonFrameNode } Button
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Button = ButtonFrameNode;
+
+  /**
+   * Create a FrameNode of Button type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Button' } nodeType - node type.
+   * @returns { Button } - Return Button type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createButtonNode(context: UIContext, nodeType: 'Button'): Button;
+
+  /**
+   * Define the Checkbox type of FrameNode.
+   *
+   * @extends TypedFrameNode<CheckboxAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class CheckboxFrameNode extends TypedFrameNode<CheckboxAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { CheckboxOptions } [options] - Checkbox options
+     * @returns { CheckboxAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: CheckboxOptions): CheckboxAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Checkbox.
+   *
+   * @typedef { CheckboxFrameNode } Checkbox
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Checkbox = CheckboxFrameNode;
+
+  /**
+   * Create a FrameNode of Checkbox type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Checkbox' } nodeType - node type.
+   * @returns { Checkbox } - Return Checkbox type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createCheckboxNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+
+  /**
+   * Define the CheckboxGroup type of FrameNode.
+   *
+   * @extends TypedFrameNode<CheckboxGroupAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class CheckboxGroupFrameNode extends TypedFrameNode<CheckboxGroupAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { CheckboxGroupOptions } [options] - CheckboxGroup options
+     * @returns { CheckboxGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: CheckboxGroupOptions): CheckboxGroupAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for CheckboxGroup.
+   *
+   * @typedef { CheckboxGroupFrameNode } CheckboxGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type CheckboxGroup = CheckboxGroupFrameNode;
+
+  /**
+   * Create a FrameNode of CheckboxGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'CheckboxGroup' } nodeType - node type.
+   * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createCheckboxGroupNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
+
+  /**
+   * Define the Radio type of FrameNode.
+   *
+   * @extends TypedFrameNode<RadioAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class RadioFrameNode extends TypedFrameNode<RadioAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { RadioOptions } options - Radio options
+     * @returns { RadioAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options: RadioOptions): RadioAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Radio.
+   *
+   * @typedef { RadioFrameNode } Radio
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Radio = RadioFrameNode;
+
+  /**
+   * Create a FrameNode of Radio type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Radio' } nodeType - node type.
+   * @returns { Radio } - Return Radio type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createRadioNode(context: UIContext, nodeType: 'Radio'): Radio;
+
+  /**
+   * Define the Rating type of FrameNode.
+   *
+   * @extends TypedFrameNode<RatingAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class RatingFrameNode extends TypedFrameNode<RatingAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { RatingOptions } [options] - Rating options
+     * @returns { RatingAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: RatingOptions): RatingAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Rating.
+   *
+   * @typedef { RatingFrameNode } Rating
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Rating = RatingFrameNode;
+
+  /**
+   * Create a FrameNode of Rating type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Rating' } nodeType - node type.
+   * @returns { Rating } - Return Rating type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createRatingNode(context: UIContext, nodeType: 'Rating'): Rating;
+
+  /**
+   * Define the Select type of FrameNode.
+   *
+   * @extends TypedFrameNode<SelectAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class SelectFrameNode extends TypedFrameNode<SelectAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { Array<SelectOption> } [options] - Select options
+     * @returns { SelectAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: Array<SelectOption>): SelectAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Select.
+   *
+   * @typedef { SelectFrameNode } Select
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Select = SelectFrameNode;
+
+  /**
+   * Create a FrameNode of Select type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Select' } nodeType - node type.
+   * @returns { Select } - Return Select type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createSelectNode(context: UIContext, nodeType: 'Select'): Select;
+
+  /**
+   * Define the Slider type of FrameNode.
+   *
+   * @extends TypedFrameNode<SliderAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class SliderFrameNode extends TypedFrameNode<SliderAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { SliderOptions } [options] - Slider options
+     * @returns { SliderAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: SliderOptions): SliderAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Slider.
+   *
+   * @typedef { SliderFrameNode } Slider
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Slider = SliderFrameNode;
+
+  /**
+   * Create a FrameNode of Slider type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Slider' } nodeType - node type.
+   * @returns { Slider } - Return Slider type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createSliderNode(context: UIContext, nodeType: 'Slider'): Slider;
+
+  /**
+   * Define the Toggle type of FrameNode.
+   *
+   * @extends TypedFrameNode<ToggleAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class ToggleFrameNode extends TypedFrameNode<ToggleAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { ToggleOptions } [options] - Toggle options
+     * @returns { ToggleAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: ToggleOptions): ToggleAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for Toggle.
+   *
+   * @typedef { ToggleFrameNode } Toggle
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type Toggle = ToggleFrameNode;
+
+  /**
+   * Create a FrameNode of Toggle type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'Toggle' } nodeType - node type.
+   * @returns { Toggle } - Return Toggle type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createToggleNode(context: UIContext, nodeType: 'Toggle'): Toggle;
 }
 
 /**
