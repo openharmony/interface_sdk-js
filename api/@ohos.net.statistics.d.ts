@@ -117,8 +117,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
@@ -131,8 +130,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularRxBytes(): Promise<long>;
 
@@ -145,8 +143,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
@@ -159,8 +156,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularTxBytes(): Promise<long>;
 
@@ -270,8 +266,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
@@ -285,8 +280,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -300,8 +294,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
@@ -315,8 +308,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -465,8 +457,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -479,8 +470,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdRxBytes(sockfd: int): Promise<long>;
 
@@ -493,8 +483,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -507,8 +496,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts{'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdTxBytes(sockfd: int): Promise<long>;
 
