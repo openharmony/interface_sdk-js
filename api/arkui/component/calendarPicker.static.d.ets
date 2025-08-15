@@ -328,6 +328,8 @@ export declare class CalendarPickerDialog {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
+@memo
+@ComponentBuilder
 export declare function CalendarPicker(
   options?: CalendarOptions, 
   @memo

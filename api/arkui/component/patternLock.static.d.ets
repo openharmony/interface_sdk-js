@@ -250,6 +250,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
     skipUnselectedPoint(skipped: boolean | undefined): this;
     attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function PatternLock(controller?: PatternLockController, 
 @memo
 content_?: () => void): PatternLockAttribute;

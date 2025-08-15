@@ -108,6 +108,9 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
  * @param { () => void } content_
  * @returns { LoadingProgressAttribute }
  */
+
+@memo
+@ComponentBuilder
 export declare function LoadingProgress(
    content_?: () => void
 ): LoadingProgressAttribute;

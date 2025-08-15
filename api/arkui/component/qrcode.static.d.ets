@@ -56,6 +56,9 @@ export declare interface QRCodeAttribute extends CommonMethod {
     attributeModifier(
         modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function QRCode(value: string, 
 @memo
 content_?: () => void): QRCodeAttribute;

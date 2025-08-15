@@ -230,6 +230,9 @@ export declare interface GaugeAttribute extends CommonMethod {
     contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
     attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function Gauge(options: GaugeOptions, 
 @memo
 content_?: () => void): GaugeAttribute;
