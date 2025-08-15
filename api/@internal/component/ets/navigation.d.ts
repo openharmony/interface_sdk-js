@@ -1400,7 +1400,7 @@ declare class NavPathStack {
    *
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
-   *                                 Default value: **true**
+   *                                 Default value: **true**.
    *                                 **true**: The transition animation is supported.
    *                                 **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3645,7 +3645,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * To enable this attribute, a navigation id must be set.
    * 
    * @param { boolean } recoverable - navigation can be recovered.
-   *                                  Default value: **false**
+   *                                  Default value: **false**.
    *                                  **true**: The **Navigation** component is recoverable.
    *                                  **false**: The **Navigation** component is not recoverable.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
@@ -3659,7 +3659,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Enable dragbar
    * 
    * @param { Optional<boolean> } isEnabled - enable dragbar or disable dragbar.
-   *                                          Default value: **false**
+   *                                          Default value: **false**.
    *                                          **true**: Enable the drag bar.
    *                                          **false**: Disable the drag bar.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.            
