@@ -369,7 +369,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Obtains parameter information of the NavDestination page specified by index.
    *
    * @param { number } index - The index of NavDestination page.
-   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination
+   * @returns { Object | undefined } Returns the detailed parameter of the NavDestination
    *                                  if it exists in the stack, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
