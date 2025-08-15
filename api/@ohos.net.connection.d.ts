@@ -897,7 +897,7 @@ declare namespace connection {
    */
   function getPacUrl(): string;
 
-    /**
+  /**
    * Set the URL {@link pacFileUrl} of the current PAC script.
    * Proxy information can be obtained through parsing the script address.
    * To invoke this method, you must have the {@code ohos.permission.SET_PAC_URL} permission.
