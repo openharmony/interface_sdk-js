@@ -341,7 +341,7 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
      * @since arkts{'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @arkts 19
      */
     deleteEvent(id: number): Promise<void>;
 
@@ -366,8 +366,7 @@ declare namespace calendarManager {
      * @param { number[] } ids - The id array of multiple events.
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
-     * @since arkts{'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     deleteEvents(ids: number[]): Promise<void>;
 
