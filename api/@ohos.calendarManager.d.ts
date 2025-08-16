@@ -365,6 +365,7 @@ declare namespace calendarManager {
      * @param { number[] } ids - The id array of multiple events.
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
      * @since 19
      */
     deleteEvents(ids: number[]): Promise<void>;
