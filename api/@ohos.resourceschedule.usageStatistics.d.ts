@@ -139,7 +139,7 @@ declare namespace usageStatistics {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 15
      */
     appIndex?: int;
   }
@@ -563,7 +563,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function isIdleStateSync(bundleName: string): boolean;
 
@@ -638,7 +638,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function queryAppGroupSync(): int;
 
@@ -718,7 +718,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 10
    */
   function queryAppGroupSync(bundleName: string): int;
 
@@ -786,7 +786,7 @@ declare namespace usageStatistics {
    * @typedef { Record<string, Array<BundleStatsInfo>> }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
 
@@ -812,7 +812,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function queryAppStatsInfos(begin: long, end: long): Promise<AppStatsMap>;
 
@@ -836,7 +836,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 15
    */
   function queryLastUseTime(appInfo: Record<string, Array<long>>): Promise<AppStatsMap>;
 
