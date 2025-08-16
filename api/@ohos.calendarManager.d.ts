@@ -340,7 +340,7 @@ declare namespace calendarManager {
      * @returns { Promise<void> } The promise returned by function.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
-     * @arkts 19
+     * @since 19
      */
     deleteEvent(id: number): Promise<void>;
 
