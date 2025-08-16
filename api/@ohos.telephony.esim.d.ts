@@ -490,6 +490,7 @@ declare namespace eSIM {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
+     * arkts 1.1&1.2
      */
     certificateHashHexStr: string;
 
@@ -507,6 +508,7 @@ declare namespace eSIM {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
+     * arkts 1.1&1.2
      */
     packageName: string;
 
@@ -517,6 +519,7 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18
+     * arkts 1.1&1.2
      */
     /**
      * The type of access.
@@ -524,6 +527,7 @@ declare namespace eSIM {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
+     * arkts 1.1&1.2
      */
     accessType: number;
   }
