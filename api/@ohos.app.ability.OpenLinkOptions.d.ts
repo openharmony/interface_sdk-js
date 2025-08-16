@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/***if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/***endif */
+
 /**
  * Define the available options for openLink API.
  *
@@ -49,8 +53,18 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * OpenLinkOptions parameters in the form of custom key-value pairs.
+   *
+   * @type { ?RecordData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: RecordData;
 }
