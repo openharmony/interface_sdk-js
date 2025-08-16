@@ -22,6 +22,9 @@ import type window from './@ohos.window';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 import type InsightIntentContext from './@ohos.app.ability.InsightIntentContext';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
+/***if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * The class of insight intent executor.
@@ -55,10 +58,25 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIAbility executes the insight intent in the foreground.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { RecordData } param - Indicates the insight intent parameters.
+   * @param { window.WindowStage } pageLoader - Indicates the page loader.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onExecuteInUIAbilityForegroundMode(name: string, param: RecordData, pageLoader: window.WindowStage):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -70,10 +88,24 @@ declare class InsightIntentExecutor {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIAbility executes the insight intent in the background.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { RecordData } param - Indicates the insight intent parameters.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onExecuteInUIAbilityBackgroundMode(name: string, param: RecordData):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -85,10 +117,25 @@ declare class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a UIExtensionAbility executes the insight intent.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { RecordData } param - Indicates the insight intent parameters.
+   * @param { UIExtensionContentSession } pageLoader - Indicates the page loader.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onExecuteInUIExtensionAbility(name: string, param: RecordData, pageLoader: UIExtensionContentSession):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 
   /**
@@ -99,10 +146,24 @@ declare class InsightIntentExecutor {
    * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of insight intent execution, support promise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>):
+    insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
+
+  /**
+   * Called when a ServiceExtensionAbility executes the insight intent.
+   *
+   * @param { string } name - Indicates the insight intent name.
+   * @param { RecordData } param - Indicates the insight intent parameters.
+   * @returns { insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult> } The result of
+   *     insight intent execution, support promise.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onExecuteInServiceExtensionAbility(name: string, param: RecordData):
     insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>;
 }
 
