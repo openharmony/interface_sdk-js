@@ -301,7 +301,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 10
+   * @since 9
    */
   function obtainAllWorks(): Promise<Array<WorkInfo>>;
 
