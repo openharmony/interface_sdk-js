@@ -39,8 +39,7 @@ declare namespace usageStatistics {
    * @interface BundleStatsInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface BundleStatsInfo {
     /**
@@ -48,8 +47,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     id: int;
 
@@ -58,8 +56,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     abilityInFgTotalTime?: long;
 
@@ -68,8 +65,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     abilityPrevAccessTime?: long;
 
@@ -78,8 +74,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     abilityPrevSeenTime?: long;
 
@@ -88,8 +83,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     abilitySeenTotalTime?: long;
 
@@ -98,8 +92,7 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleName?: string;
 
@@ -108,8 +101,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     fgAbilityAccessTotalTime?: long;
 
@@ -118,8 +110,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     fgAbilityPrevAccessTime?: long;
 
@@ -129,8 +120,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     infosBeginTime?: long;
 
@@ -140,8 +130,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     infosEndTime?: long;
 
@@ -150,8 +139,7 @@ declare namespace usageStatistics {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'15', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     appIndex?: int;
   }
@@ -358,8 +346,7 @@ declare namespace usageStatistics {
    * @interface DeviceEventStats
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface DeviceEventStats {
     /**
@@ -367,8 +354,7 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     name: string;
 
@@ -377,8 +363,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     eventId: int;
 
@@ -387,8 +372,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     count: int;
   }
@@ -397,8 +381,7 @@ declare namespace usageStatistics {
    * @interface BundleEvents
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface BundleEvents {
     /**
@@ -406,8 +389,7 @@ declare namespace usageStatistics {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     appGroup?: int;
 
@@ -416,8 +398,7 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleName?: string;
 
@@ -426,8 +407,7 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     indexOfLink?: string;
 
@@ -436,8 +416,7 @@ declare namespace usageStatistics {
      * @type { ?string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     nameOfClass?: string;
 
@@ -446,8 +425,7 @@ declare namespace usageStatistics {
      * @type { ?long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     eventOccurredTime?: long;
 
@@ -456,8 +434,7 @@ declare namespace usageStatistics {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     eventId?: int;
   }
@@ -466,8 +443,7 @@ declare namespace usageStatistics {
    * @interface AppGroupCallbackInfo
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+   * @since 9
    */
   interface AppGroupCallbackInfo {
     /**
@@ -475,8 +451,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     appOldGroup: int;
 
@@ -485,8 +460,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     appNewGroup: int;
 
@@ -495,8 +469,7 @@ declare namespace usageStatistics {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     userId: int;
 
@@ -505,8 +478,7 @@ declare namespace usageStatistics {
      * @type { long }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     changeReason: long;
 
@@ -515,8 +487,7 @@ declare namespace usageStatistics {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     bundleName: string;
   }
@@ -542,8 +513,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -568,8 +538,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isIdleState(bundleName: string): Promise<boolean>;
 
@@ -594,8 +563,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000006 - Failed to get the application information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'10', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isIdleStateSync(bundleName: string): boolean;
 
@@ -621,8 +589,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroup(callback: AsyncCallback<int>): void;
 
@@ -647,8 +614,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroup(): Promise<int>;
 
@@ -672,8 +638,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'10', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroupSync(): int;
 
@@ -700,8 +665,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroup(bundleName: string, callback: AsyncCallback<int>): void;
 
@@ -728,8 +692,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroup(bundleName: string): Promise<int>;
 
@@ -755,8 +718,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100002 - Failed to get the application group information.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'10', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppGroupSync(bundleName: string): int;
 
@@ -764,8 +726,7 @@ declare namespace usageStatistics {
    * @typedef { Record<string, BundleStatsInfo> }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   type BundleStatsMap = Record<string, BundleStatsInfo>;
 
@@ -791,8 +752,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleStatsInfos(begin: long, end: long, callback: AsyncCallback<BundleStatsMap>): void;
 
@@ -818,8 +778,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleStatsInfos(begin: long, end: long): Promise<BundleStatsMap>;
 
@@ -827,8 +786,7 @@ declare namespace usageStatistics {
    * @typedef { Record<string, Array<BundleStatsInfo>> }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'15', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
 
@@ -854,8 +812,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'15', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryAppStatsInfos(begin: long, end: long): Promise<AppStatsMap>;
 
@@ -879,8 +836,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'15', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryLastUseTime(appInfo: Record<string, Array<long>>): Promise<AppStatsMap>;
 
@@ -890,8 +846,7 @@ declare namespace usageStatistics {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export enum IntervalType {
     /**
@@ -899,8 +854,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BY_OPTIMIZED = 0,
 
@@ -909,8 +863,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BY_DAILY = 1,
 
@@ -919,8 +872,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BY_WEEKLY = 2,
 
@@ -929,8 +881,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BY_MONTHLY = 3,
 
@@ -939,8 +890,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     BY_ANNUALLY = 4
   }
@@ -969,8 +919,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
@@ -1003,8 +952,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleStatsInfoByInterval(
     byInterval: IntervalType,
@@ -1034,8 +982,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
@@ -1061,8 +1008,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
@@ -1086,8 +1032,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryCurrentBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
@@ -1111,8 +1056,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
@@ -1224,8 +1168,7 @@ declare namespace usageStatistics {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   export enum GroupType {
     /**
@@ -1233,8 +1176,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     ALIVE_GROUP = 10,
 
@@ -1243,8 +1185,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     DAILY_GROUP = 20,
 
@@ -1253,8 +1194,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     FIXED_GROUP = 30,
 
@@ -1263,8 +1203,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     RARE_GROUP = 40,
 
@@ -1273,8 +1212,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     LIMITED_GROUP = 50,
 
@@ -1283,8 +1221,7 @@ declare namespace usageStatistics {
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
-     * @since arkts{ '1.1':'9', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 9
      */
     NEVER_GROUP = 60
   }
@@ -1310,8 +1247,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
 
@@ -1336,8 +1272,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function setAppGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
@@ -1361,8 +1296,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
 
@@ -1386,8 +1320,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
@@ -1409,8 +1342,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function unregisterAppGroupCallBack(callback: AsyncCallback<void>): void;
 
@@ -1432,8 +1364,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function unregisterAppGroupCallBack(): Promise<void>;
 
@@ -1459,8 +1390,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryDeviceEventStats(begin: long, end: long, callback: AsyncCallback<Array<DeviceEventStats>>): void;
 
@@ -1486,8 +1416,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryDeviceEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 
@@ -1513,8 +1442,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryNotificationEventStats(
     begin: long,
@@ -1544,8 +1472,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 10000007 - Failed to get the system time.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
-   * @since arkts{ '1.1':'9', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function queryNotificationEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 }
