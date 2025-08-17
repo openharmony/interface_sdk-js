@@ -35,8 +35,7 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  * @namespace cardEmulation
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace cardEmulation {
   /**
@@ -90,8 +89,7 @@ declare namespace cardEmulation {
    * @enum { string }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enum CardType {
     /**
@@ -105,8 +103,7 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PAYMENT = 'payment',
 
@@ -121,8 +118,7 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     OTHER = 'other'
   }
@@ -159,8 +155,7 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function hasHceCapability(): boolean;
 
@@ -195,8 +190,7 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
@@ -210,8 +204,7 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getPaymentServices(): AbilityInfo[];
 
@@ -230,8 +223,7 @@ declare namespace cardEmulation {
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   export class HceService {
     /**
@@ -278,8 +270,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     start(elementName: ElementName, aidList: string[]): void;
 
@@ -324,8 +315,7 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     stop(elementName: ElementName): void;
 
@@ -343,31 +333,29 @@ declare namespace cardEmulation {
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { 'hceCmd' } type The type to register.
-     * @param { AsyncCallback<int[]> } callback Callback used to listen to HCE data that local device received.
+     * @param { AsyncCallback<number[]> } callback Callback used to listen to HCE data that local device received.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
+    on(type: 'hceCmd', callback: AsyncCallback<number[]>): void;
 
     /**
      * Unsubscribe the event to receive the APDU data.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { 'hceCmd' } type - The type to unregister event.
-     * @param { AsyncCallback<int[]> } callback - The callback used to listen for the event.
+     * @param { AsyncCallback<number[]> } callback - The callback used to listen for the event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    off(type: 'hceCmd', callback?: AsyncCallback<int[]>): void;
+    off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void;
 
     /**
      * Sends a response APDU to the remote device.
@@ -402,7 +390,7 @@ declare namespace cardEmulation {
      * Sends a response APDU to the remote device.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response Indicates the response to send, which is a byte array.
+     * @param { number[] } response Indicates the response to send, which is a byte array.
      * @returns { Promise<void> } The void
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -413,10 +401,9 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    transmit(response: int[]): Promise<void>;
+    transmit(response: number[]): Promise<void>;
 
     /**
      * Sends a response APDU to the remote device.
@@ -438,7 +425,7 @@ declare namespace cardEmulation {
      * Sends a response APDU to the remote device.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response Indicates the response to send, which is a byte array.
+     * @param { number[] } response Indicates the response to send, which is a byte array.
      * @param { AsyncCallback<void> } callback The callback
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
@@ -449,10 +436,9 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    transmit(response: int[], callback: AsyncCallback<void>): void;
+    transmit(response: number[], callback: AsyncCallback<void>): void;
   }
 }
 export default cardEmulation;
