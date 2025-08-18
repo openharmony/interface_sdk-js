@@ -75,6 +75,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   aceProfilePath: string;
   deviceTypes: string[];
   runtimeOS: string;
+  dependentModuleList: DependentModuleConfig[];
 }
 
 export interface ApiCheckConfig {
@@ -89,6 +90,18 @@ export interface ApiCheckConfig {
   syscapUnionSet: Set<string>;
   deviceTypesMessage: string;
   initApiCheckTag: boolean;
+}
+
+export interface DependentModuleConfig {
+  packageName: string;
+  moduleName: string;
+  moduleType: string;
+  modulePath: string;
+  sourceRoots: string[];
+  entryFile: string;
+  language: string;
+  declFilesPath?: string;
+  dependencies?: string[];
 }
 
 export interface CheckValidCallbackInterface {
