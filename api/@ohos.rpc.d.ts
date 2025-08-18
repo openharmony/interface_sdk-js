@@ -2832,8 +2832,7 @@ declare namespace rpc {
      * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     static TF_SYNC: int;
 
@@ -2844,8 +2843,7 @@ declare namespace rpc {
      * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     static TF_ASYNC: int;
 
@@ -2875,8 +2873,7 @@ declare namespace rpc {
      * @default 8
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static TF_WAIT_TIME: int;
 
