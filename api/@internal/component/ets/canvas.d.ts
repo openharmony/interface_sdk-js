@@ -1017,7 +1017,8 @@ declare class CanvasPath {
    * @param { number } y - The y-axis coordinate of the start point of the rectangle.
    * @param { number } w - Width of the rectangle.
    * @param { number } h - Height of the rectangle.
-   * @param { number | Array<number> } [radii] - A number or list specifying the radii of the circular arc to be used for the corners of the rectangle. The default value is 0.
+   * @param { number | Array<number> } [radii] - A number or list specifying the radii of the circular arc to be used for the corners of the rectangle.
+   *     The default value is 0.
    * @throws { BusinessError } 103701 - Parameter error. Possible causes: 
    * <br> 1. The param radii is a list that has zero or more than four elements.
    * <br> 2. The param radii contains negative value.
