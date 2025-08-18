@@ -16,27 +16,22 @@
 /**
  * @file Defines 3D scene related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
 /*** if arkts 1.2 */
 import { ResourceStr } from '../arkui/component/units';
-import { Animation, Environment, SceneResource } from './SceneResources';
-import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
-import { Position3, Color, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
-/*** if arkts 1.1 */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
-/*** endif */
 
 /**
  * The scene resource parameters type.
  *
  * @typedef SceneResourceParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface SceneResourceParameters {
   /**
@@ -44,8 +39,7 @@ export interface SceneResourceParameters {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   name: string;
 
@@ -64,8 +58,7 @@ export interface SceneResourceParameters {
  *
  * @typedef SceneNodeParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface SceneNodeParameters {
   /**
@@ -73,8 +66,7 @@ export interface SceneNodeParameters {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   name: string;
 
@@ -142,14 +134,13 @@ export interface RaycastParameters {
   rootNode?: Node;
 }
 
-/**
+/** 
  * The render resource factory. RenderResourceFactory is used to create resources that can be shared
  * across Scences that share a RenderContext
- *
+ * 
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'20', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20
  */
 export interface RenderResourceFactory {
   /**
@@ -163,18 +154,18 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-   * Create a image.
-   *
-   * @param { SceneResourceParameters } params - the param of creating a image
-   * @returns { Promise<Image> } promise a image
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   */
+    * Create a image.
+    *
+    * @param { SceneResourceParameters } params - the param of creating a image
+    * @returns { Promise<Image> } promise a image
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @since 20
+    */
   createImage(params: SceneResourceParameters): Promise<Image>;
 
   /**
    * Create a Mesh from an array of vertices.
-   *
+   * 
    * @param { SceneResourceParameters } params - the param of creating a Mesh object
    * @param { GeometryDefinition } geometry - what sort of a geometric shape to create
    * @returns { Promise<MeshResource> } promise a Mesh
@@ -185,7 +176,7 @@ export interface RenderResourceFactory {
 
   /**
    * create a Sampler
-   *
+   * 
    * @param { SceneResourceParameters } params - the param of create a sampler
    * @returns { Promise<Sampler> } - promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -195,7 +186,7 @@ export interface RenderResourceFactory {
 
   /**
    * Create a new scene from a Resource.
-   *
+   * 
    * @param { ResourceStr } uri - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -210,8 +201,7 @@ export interface RenderResourceFactory {
  * @extends RenderResourceFactory
  * @interface SceneResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface SceneResourceFactory extends RenderResourceFactory {
   /**
@@ -220,8 +210,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @param { SceneNodeParameters } params - the param of creating a camera
    * @returns { Promise<Camera> } promise a camera
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   createCamera(params: SceneNodeParameters): Promise<Camera>;
 
@@ -232,8 +221,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @param { LightType } lightType - the type of the light
    * @returns { Promise<Light> } promise a light
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   createLight(params: SceneNodeParameters, lightType: LightType): Promise<Light>;
 
@@ -270,7 +258,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
 
   /**
    * Create a geometry node.
-   *
+   * 
    * @param { SceneNodeParameters } params - the param of creating a geometry
    * @param { MeshResource } mesh resource - The mesh data for the geometry
    * @returns { Promise<Geometry> } promise a geometry
@@ -282,7 +270,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
 
 /**
  * Define underlying scene component
- *
+ * 
  * @interface SceneComponent
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20
@@ -290,7 +278,7 @@ export interface SceneResourceFactory extends RenderResourceFactory {
 export interface SceneComponent {
   /**
    * Scene component name
-   *
+   * 
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
@@ -299,7 +287,7 @@ export interface SceneComponent {
 
   /**
    * Component properties
-   *
+   * 
    * @type { Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -308,10 +296,10 @@ export interface SceneComponent {
   readonly property: Record<string, string | number | Vec2 | Vec3 | Vec4 | SceneResource | boolean | number[] | string[] | SceneResource[] | Vec2[] | Vec3[] | Vec4[] | null | undefined>;
 }
 
-/**
+/** 
  * Render context defines the context for all rendering resources. Resources within the same render context
  * may be shared between scenes created within the same render context.
- *
+ * 
  * @interface RenderContext
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20
@@ -319,7 +307,7 @@ export interface SceneComponent {
 export interface RenderContext {
   /**
    * Get resource factory.
-   *
+   * 
    * @returns { RenderResourceFactory } -- RenderResourceFactory instance
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
@@ -328,7 +316,7 @@ export interface RenderContext {
 
   /**
    * Load external plugin
-   *
+   * 
    * @param {string} name - Name of the plugin
    * @returns { Promise<boolean> } - Promise a boolean to show if the plugin load is successful
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -342,8 +330,7 @@ export interface RenderContext {
  *
  * @interface RenderParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'15', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 export interface RenderParameters {
   /**
@@ -352,8 +339,7 @@ export interface RenderParameters {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   alwaysRender?: boolean;
 }
@@ -362,8 +348,7 @@ export interface RenderParameters {
  * Defines the 3d scene.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class Scene {
   /**
@@ -383,52 +368,39 @@ export declare class Scene {
    * @returns { Promise<Scene> } promise a scene
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static load(uri? : ResourceStr): Promise<Scene>;
-
+   
   /**
    * The environment of the scene.
    *
-   * @return { Environment }
+   * @type { Environment }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  get environment(): Environment;
-
-  /**
-   * The environment of the scene.
-   *
-   * @param { Environment } value
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  set environment(value: Environment);
-
+  environment: Environment;
+  
   /**
    * The animations of the scene.
    *
-   * @return { Animation[] }
-   * @readonly
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  get animations(): Animation[];
-
-  /**
-   * The root node of the scene.
-   *
-   * @return { Node | null }
+   * @type { Animation[] }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  get root(): Node | null;
-
+  readonly animations: Animation[];
+ 
+  /**
+   * The root node of the scene.
+   *
+   * @type { Node | null }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 12
+   */
+  readonly root: Node | null;
+ 
   /**
    * Get a node by path.
    *
@@ -436,27 +408,24 @@ export declare class Scene {
    * @param { NodeType } type - verify the type of node, if it does not match, return null
    * @returns { Node | null } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getNodeByPath(path: string, type?: NodeType): Node | null;
-
+  
   /**
    * Get resource factory.
    *
    * @returns { SceneResourceFactory } if the node is found by it's path
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getResourceFactory(): SceneResourceFactory;
-
+  
   /**
    * Release all native scene resources. All TS references will be undefined.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   destroy(): void;
 
@@ -482,7 +451,7 @@ export declare class Scene {
    * @param { Node | null } parent - The parent node or null for root
    * @returns { Node } The newly created node.
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18                           
    */
   importScene(name: string, scene: Scene, parent: Node | null): Node;
 
@@ -492,14 +461,13 @@ export declare class Scene {
    * @param { RenderParameters } params - Rendering parameters
    * @returns { boolean } True if rendering was scheduled, false otherwise
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   renderFrame(params?: RenderParameters): boolean;
 
   /**
    * Create a new component.
-   *
+   * 
    * @param { Node } node - The node the component is attached to
    * @param { string } name - The name of the component to load. Valid names are defined by each plugin.
    * @returns { Promise<SceneComponent> } - The newly added component.
@@ -509,13 +477,13 @@ export declare class Scene {
   createComponent(node: Node, name: string): Promise<SceneComponent>;
 
   /**
-   * Get component by name.
-   *
-   * @param { Node } node - The node component is attached to.
-   * @param { string } name - name of the component
-   * @returns { SceneComponent | null }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   */
+    * Get component by name.
+    * 
+    * @param { Node } node - The node component is attached to. 
+    * @param { string } name - name of the component
+    * @returns { SceneComponent | null }
+    * @syscap SystemCapability.ArkUi.Graphics3D
+    * @since 20
+    */
   getComponent(node: Node, name: string): SceneComponent | null;
 }

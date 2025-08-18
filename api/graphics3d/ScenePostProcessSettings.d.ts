@@ -16,6 +16,7 @@
 /**
  * @file Defines 3D post process related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -23,16 +24,14 @@
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export enum ToneMappingType {
   /**
    * The tone mapping type is ACES.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ACES = 0,
 
@@ -40,8 +39,7 @@ export enum ToneMappingType {
    * The tone mapping type is ACES_2020.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ACES_2020 = 1,
 
@@ -49,8 +47,7 @@ export enum ToneMappingType {
    * The tone mapping type is FILMIC.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FILMIC = 2,
 }
@@ -60,8 +57,7 @@ export enum ToneMappingType {
  *
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface ToneMappingSettings {
   /**
@@ -69,8 +65,7 @@ export interface ToneMappingSettings {
    *
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type?: ToneMappingType;
 
@@ -79,8 +74,7 @@ export interface ToneMappingSettings {
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   exposure?: double;
 }
@@ -137,8 +131,7 @@ export interface BloomSettings {
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PostProcessSettings {
   /**
@@ -146,8 +139,7 @@ export interface PostProcessSettings {
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   toneMapping?: ToneMappingSettings;
 

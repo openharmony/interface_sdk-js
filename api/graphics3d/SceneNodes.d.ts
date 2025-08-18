@@ -16,17 +16,13 @@
 /**
  * @file Defines 3D node related interfaces
  * @kit ArkGraphics3D
+ * @arkts 1.1&1.2
  */
 
-/*** if arkts 1.2 */
-import { SceneResource } from './SceneResources';
-/*** endif */
-/*** if arkts 1.1 */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
-import { RaycastParameters, RaycastResult } from './Scene';
-/*** endif */
 import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
+import { RaycastParameters, RaycastResult } from './Scene';
 
 /**
  * Defines the layer mask of the node.
@@ -62,16 +58,14 @@ export interface LayerMask {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export enum NodeType {
   /**
    * The node is an empty node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NODE = 1,
 
@@ -79,8 +73,7 @@ export enum NodeType {
    * The node is a geometry node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   GEOMETRY = 2,
 
@@ -88,8 +81,7 @@ export enum NodeType {
    * The node is a camera node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CAMERA = 3,
 
@@ -97,8 +89,7 @@ export enum NodeType {
    * The node is a light node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   LIGHT = 4
 }
@@ -173,8 +164,7 @@ export interface Container<T> {
  * @extends SceneResource
  * @interface Node
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Node extends SceneResource {
   /**
@@ -182,8 +172,7 @@ export interface Node extends SceneResource {
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   position: Position3;
 
@@ -192,8 +181,7 @@ export interface Node extends SceneResource {
    *
    * @type { Quaternion }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   rotation: Quaternion;
 
@@ -202,8 +190,7 @@ export interface Node extends SceneResource {
    *
    * @type { Scale3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   scale: Scale3;
 
@@ -212,8 +199,7 @@ export interface Node extends SceneResource {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   visible: boolean;
 
@@ -223,8 +209,7 @@ export interface Node extends SceneResource {
    * @type { NodeType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   readonly nodeType: NodeType;
 
@@ -264,8 +249,7 @@ export interface Node extends SceneResource {
    * @param { string } path - the path of the node queried
    * @returns { Node | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getNodeByPath(path: string): Node | null;
 
@@ -315,16 +299,14 @@ export interface Geometry extends Node {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export enum LightType {
   /**
    * Directional light.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DIRECTIONAL = 1,
 
@@ -332,8 +314,7 @@ export enum LightType {
    * Spot light.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   SPOT = 2,
 }
@@ -344,8 +325,7 @@ export enum LightType {
  * @extends Node
  * @interface Light
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Light extends Node {
   /**
@@ -363,8 +343,7 @@ export interface Light extends Node {
    *
    * @type { Color }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color: Color;
 
@@ -373,8 +352,7 @@ export interface Light extends Node {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   intensity: double;
 
@@ -383,8 +361,7 @@ export interface Light extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   shadowEnabled: boolean;
 
@@ -393,8 +370,7 @@ export interface Light extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled: boolean;
 }
@@ -416,8 +392,7 @@ export interface SpotLight extends Light {
  * @extends Light
  * @interface DirectionalLight
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface DirectionalLight extends Light {
 }
@@ -428,8 +403,7 @@ export interface DirectionalLight extends Light {
  * @extends Node
  * @interface Camera
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Camera extends Node {
   /**
@@ -464,8 +438,7 @@ export interface Camera extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled: boolean;
 
@@ -474,8 +447,7 @@ export interface Camera extends Node {
    *
    * @type { PostProcessSettings | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   postProcess: PostProcessSettings | null;
 
