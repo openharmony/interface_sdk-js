@@ -18,26 +18,36 @@
  * @kit ArkTS
  */
 
+/* 共用部分*/
+/*** if arkts 1.1&1.2  */
 import buffer from '@ohos.buffer';
-import convertxml from '@ohos.convertxml';
-import process from '@ohos.process';
-import taskpool from '@ohos.taskpool';
 import uri from '@ohos.uri';
 import url from '@ohos.url';
 import ArrayList from '@ohos.util.ArrayList';
 import util from '@ohos.util';
 import Deque from '@ohos.util.Deque';
+import LightWeightMap from '@ohos.util.LightWeightMap';
+import Queue from '@ohos.util.Queue';
+import JSON from '@ohos.util.json';
+import stream from '@ohos.util.stream';
 import HashMap from '@ohos.util.HashMap';
 import HashSet from '@ohos.util.HashSet';
-import LightWeightMap from '@ohos.util.LightWeightMap';
 import LightWeightSet from '@ohos.util.LightWeightSet';
 import LinkedList from '@ohos.util.LinkedList';
 import List from '@ohos.util.List';
 import PlainArray from '@ohos.util.PlainArray';
-import Queue from '@ohos.util.Queue';
 import Stack from '@ohos.util.Stack';
 import TreeMap from '@ohos.util.TreeMap';
 import TreeSet from '@ohos.util.TreeSet';
+import xml from '@ohos.xml';
+import collections from '@arkts.collections';
+import Decimal from '@arkts.math.Decimal';
+/*** endif */
+
+/* 1.1独有部分 */
+import convertxml from '@ohos.convertxml';
+import process from '@ohos.process';
+import taskpool from '@ohos.taskpool';
 import Vector from '@ohos.util.Vector';
 import fastbuffer from '@ohos.fastbuffer';
 import worker, {
@@ -45,14 +55,8 @@ import worker, {
   MessageEvent, MessageEvents, PostMessageOptions, ThreadWorkerGlobalScope,
   WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority
 } from '@ohos.worker';
-import xml from '@ohos.xml';
-import JSON from '@ohos.util.json';
 import lang from '@arkts.lang';
 import ArkTSUtils from '@arkts.utils';
-import collections from '@arkts.collections';
-import stream from '@ohos.util.stream';
-import Decimal from '@arkts.math.Decimal';
-
 export {
   ArrayList, convertxml, DedicatedWorkerGlobalScope, Deque, ErrorEvent, Event, EventListener,
   EventTarget, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List, MessageEvent,
@@ -60,3 +64,12 @@ export {
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
   uri, url, util, worker, xml, JSON, lang, ArkTSUtils, collections, stream, Decimal, fastbuffer
 };
+
+/* 1.2独有部分 */
+/*** if arkts 1.2 */
+import transfer from '@ohos.transfer';
+export {
+  ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,
+  PlainArray, Queue, Stack, TreeMap, TreeSet, buffer, uri, url, util, JSON, stream, xml, transfer, collections, Decimal
+};
+/*** endif */
