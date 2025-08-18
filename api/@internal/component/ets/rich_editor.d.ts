@@ -4402,6 +4402,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 20
    */
   undoStyle(style: Optional<UndoStyle>): RichEditorAttribute;
+
+  /**
+   * Set scrollbar color of rich editor.
+   *
+   * @param { Optional<ColorMetrics> } color  - Color of the rich editor scrollbar.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  scrollBarColor(color: Optional<ColorMetrics>): RichEditorAttribute;
 }
 
 /**
