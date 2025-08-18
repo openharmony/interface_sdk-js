@@ -447,16 +447,6 @@ export declare interface SelectAttribute extends CommonMethod {
      * @since 20
      */
     attributeModifier(modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-    /**
-     * Background color
-     *
-     * @param { ResourceColor | undefined } value
-     * @returns { SelectAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    backgroundColor(value: ResourceColor | undefined): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.
