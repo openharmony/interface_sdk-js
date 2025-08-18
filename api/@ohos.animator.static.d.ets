@@ -58,8 +58,10 @@ export interface AnimatorOptions {
      * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
      * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
      * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-     * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-     * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
+     * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function.
+     * The x and y values of each input parameter must be between 0 and 1.
+     * Step curve. The number must be set and only an integer is supported, step-position is optional.
+     * It can be set to start or end. The default value is end.
      * interpolating-spring(velocity, mass, stiffness, damping), interpolating spring curve.
      * The default value is ease.
      * @type {string}
@@ -82,7 +84,8 @@ export interface AnimatorOptions {
     /**
      * Whether to resume to the initial state after the animation is executed.
      * none: The initial state is restored after the animation is executed.
-     * forwards: The state at the end of the animation (defined in the last key frame) is retained after the animation is executed.
+     * forwards: The state at the end of the animation (defined in the last key frame)
+     * is retained after the animation is executed.
      * @type {"none" | "forwards" | "backwards" | "both"}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -101,7 +104,8 @@ export interface AnimatorOptions {
     
     
     /**
-     * Number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
+     * Number of times the animation will be played.
+     * Number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
      * The default value is 1.
      * @type {number}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -169,8 +173,10 @@ export declare class SimpleAnimatorOptions {
      * sharp Sharp curve, cubic-bezier(0.33, 0.0, 0.67, 1.0).
      * rhythm Rhythm curve, cubic-bezier(0.7, 0.0, 0.2, 1.0).
      * smooth Smooth curve, cubic-bezier(0.4, 0.0, 0.4, 1.0).
-     * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function. The x and y values of each input parameter must be between 0 and 1.
-     * Step curve. The number must be set and only an integer is supported, step-position is optional. It can be set to start or end. The default value is end.
+     * cubic-bezier(x1, y1, x2, y2) You can customize an animation speed curve in the cubic-bezier() function.
+     * The x and y values of each input parameter must be between 0 and 1.
+     * Step curve. The number must be set and only an integer is supported, step-position is optional.
+     * It can be set to start or end. The default value is end.
      * @param { string } curve - if not set, default is ease.
      * @returns { SimpleAnimatorOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -187,7 +193,8 @@ export declare class SimpleAnimatorOptions {
      */
     delay(delay: number): SimpleAnimatorOptions;
     /**
-     * Set FillMode of animation. FillMode indicates whether to resume to the initial state after the animation is executed.
+     * Set FillMode of animation.
+     * FillMode indicates whether to resume to the initial state after the animation is executed.
      *
      * @param { FillMode } fillMode - if not set, default is FillMode.Forwards.
      * @returns { SimpleAnimatorOptions }
@@ -205,7 +212,8 @@ export declare class SimpleAnimatorOptions {
      */
     direction(direction: PlayMode): SimpleAnimatorOptions;
     /**
-     * Set number of times the animation will be played. number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
+     * Set number of times the animation will be played.
+     * Number indicates a fixed number of playback operations, and -1 an unlimited number of playback operations.
      *
      * @param { number } iterations - if not set, default is 1.
      * @returns { SimpleAnimatorOptions }

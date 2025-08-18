@@ -22,12 +22,12 @@
 
 import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
-import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from "./enums";
-import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from "./units";
+import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
+import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
 import { ComponentContent } from '../ComponentContent';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * Enum for the mode of the tab bar when selected.
