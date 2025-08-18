@@ -334,14 +334,6 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    /**
-     * Delete a single event.
-     * @param { number } id - Indicates the ID of an event.
-     * @returns { Promise<void> } The promise returned by function.
-     * @syscap SystemCapability.Applications.CalendarData
-     * @atomicservice
-     * @since 19
-     */
     deleteEvent(id: number): Promise<void>;
 
     /**
@@ -350,6 +342,14 @@ declare namespace calendarManager {
      * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete a single event.
+     * @param { number } id - Indicates the ID of an event.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 19
      */
     deleteEvent(id: number, callback: AsyncCallback<void>): void;
 
@@ -360,14 +360,6 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
-    /**
-     * Delete multiple events.
-     * @param { number[] } ids - The id array of multiple events.
-     * @returns { Promise<void> } The promise returned by function.
-     * @syscap SystemCapability.Applications.CalendarData
-     * @atomicservice
-     * @since 19
-     */
     deleteEvents(ids: number[]): Promise<void>;
 
     /**
@@ -376,6 +368,14 @@ declare namespace calendarManager {
      * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete multiple events.
+     * @param { number[] } ids - Indicates the IDs of multiple events.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 19
      */
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
