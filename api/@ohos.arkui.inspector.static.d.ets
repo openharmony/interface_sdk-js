@@ -17,7 +17,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Callback } from './@ohos.base';
+import { Callback, RecordData } from './@ohos.base';
 
 /**
  * Used to do observer layout and draw event for component.
@@ -130,12 +130,12 @@ declare namespace inspector {
     /**
      * Get components tree.
      *
-     * @returns { Object }
+     * @returns { RecordData }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      * @test
      */
-    function getInspectorTree(): Object;
+    function getInspectorTree(): RecordData;
     /**
      * Sends an event to the component with the specified ID.
      *
