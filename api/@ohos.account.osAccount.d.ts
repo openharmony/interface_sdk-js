@@ -3250,12 +3250,29 @@ declare namespace osAccount {
   }
 
   /**
+   * Authenticates the specified domain account.
+   *
+   * @typedef { function } DomainPluginAuthFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } credential - Indicates the credential for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginAuthFunc = (domainAccountInfo: DomainAccountInfo,
+    credential: Uint8Array, callback: IUserAuthCallback) => void;
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DomainPlugin {
     /**
@@ -3268,7 +3285,16 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    /**
+     * Authenticates the specified domain account.
+     *
+     * @type { DomainPluginAuthFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    auth: DomainPluginAuthFunc;
 
     /**
      * Authenticates the specified domain account with a popup.
@@ -5001,7 +5027,6 @@ declare namespace osAccount {
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
-   * @since 8
    */
   interface CredentialInfo {
     /**
