@@ -30,3 +30,17 @@ import uiEffect from '@ohos.graphics.uiEffect';
 
 export { displaySync, colorSpaceManager, sendableColorSpaceManager, hdrCapability, effectKit, common2D, drawing,
     text, uiEffect };
+
+/*** if arkts 1.2 */
+import effectKit from '@ohos.effectKit';
+import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
+import hdrCapability from '@ohos.graphics.hdrCapability';
+import displaySync from '@ohos.graphics.displaySync';
+import common2D from '@ohos.graphics.common2D';
+import drawing from '@ohos.graphics.drawing';
+import text from '@ohos.graphics.text';
+import uiEffect from '@ohos.graphics.uiEffect';
+
+export { displaySync, colorSpaceManager, hdrCapability, effectKit, common2D, drawing,
+    text, uiEffect };
+/*** endif */
