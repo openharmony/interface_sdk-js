@@ -108,3 +108,10 @@ export interface ASTSourceFile extends arkts.AstNode {
   fileName: string;
   text: string;
 }
+
+/**
+ * 存储需要验证的节点键值对
+ */
+export interface LegacyStructMap {
+  [key: string]: string;
+}
