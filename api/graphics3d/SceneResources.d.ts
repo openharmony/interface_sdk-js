@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceStr } from '../arkui/component/units';
+import { Resource } from '../global/resource';
 import { Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 /*** if arkts 1.1 */
@@ -27,6 +27,16 @@ import { Vec2, Vec3, Vec4, Aabb } from './SceneTypes';
 /*** endif */
 import { Callback } from '../@ohos.base';
 
+/*** if arkts 1.2 */
+/**
+ * Defines the string which can use resource.
+ *
+ * @typedef { string | Resource } ResourceStr
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+declare type ResourceStr = string | Resource;
+/*** endif */
 /**
  * The enum of SceneResource type.
  *

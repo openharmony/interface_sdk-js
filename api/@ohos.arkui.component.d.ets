@@ -154,3 +154,4 @@ export * from './arkui/component/xcomponent';
 export * from './arkui/component/resources';
 export * from './arkui/component/lazyGridLayout';
 export * from './arkui/component/pageTransition';
+export * from './arkui/component/component3d';

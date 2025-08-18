@@ -19,7 +19,7 @@
  */
 
 /*** if arkts 1.2 */
-import { ResourceStr } from '../arkui/component/units';
+import { Resource } from '../global/resource';
 import { Animation, Environment, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
 import { Position3, Color, Vec2, Vec3, Vec4 } from './SceneTypes';
@@ -30,6 +30,16 @@ import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes
 import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * Defines the string which can use resource.
+ *
+ * @typedef { string | Resource } ResourceStr
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ */
+declare type ResourceStr = string | Resource;
+/*** endif */
 /**
  * The scene resource parameters type.
  *
