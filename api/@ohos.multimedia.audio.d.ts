@@ -1008,6 +1008,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the device select strategy.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 21
+   */
+  enum AudioDevcieSelectStrategy {
+    /**
+     * The default follow device select strategy.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    DEFAULT_SELECT_STRATEGY = 0,
+    /**
+     * The independent device select strategy..
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    INDEPENDENT_SELECT_STRATEGY = 1,
+  }
+
+  /**
    * Enumerates ringer modes.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Communication
@@ -3719,7 +3743,17 @@ declare namespace audio {
      * @systemapi
      * @since 9
      */
-    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
+    /**
+     * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
+     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device description. 
+     * @param { AudioDevcieSelectStrategy } [strategy] - Audio device select strategy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 9
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy?: AudioDevcieSelectStrategy): Promise<void>;
 
     /**
      * Select the input device. This method uses an asynchronous callback to return the result.
@@ -3805,6 +3839,19 @@ declare namespace audio {
      * @since 12
      */
     getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
+
+    /**
+     * Get output device for target audio renderer info and application.
+     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
+     * @param { number } uid - The uid of target application.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    getPreferOutputDeviceForRendererInfoAndUid(rendererInfo: AudioRendererInfo, uid: number): Promise<AudioDeviceDescriptors>;
 
     /**
      * Gets preferred output device for target audio renderer info.
@@ -3899,6 +3946,34 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
+     * registered clients will receive the callback.
+     * @param { 'preferOutputDeviceChangeForRendererInfoAndUid' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfoAndUid event is supported.
+     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
+     * @param { number } uid - The uid of target application.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    on(type: 'preferOutputDeviceChangeForRendererInfoAndUid', rendererInfo: AudioRendererInfo, uid: number, allback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferOutputDeviceChangeForRendererInfoAndUid' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeForRendererInfoAndUid event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    off(type: 'preferOutputDeviceChangeForRendererInfoAndUid', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
