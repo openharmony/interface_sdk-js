@@ -60,6 +60,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
  * @param { function } [content_] - EffectComponent
  * @returns { EffectComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @since 20
  */
 @memo
