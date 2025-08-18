@@ -520,7 +520,6 @@ declare namespace eSIM {
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18
-     * arkts 1.1&1.2
      */
     /**
      * The type of access.
