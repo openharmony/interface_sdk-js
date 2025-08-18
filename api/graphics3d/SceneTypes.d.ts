@@ -23,7 +23,7 @@
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Vec2 {
@@ -32,7 +32,7 @@ export interface Vec2 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   x: double;
@@ -42,7 +42,7 @@ export interface Vec2 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   y: double;
@@ -53,7 +53,7 @@ export interface Vec2 {
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Vec3 {
@@ -62,7 +62,7 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   x: double;
@@ -72,7 +72,7 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   y: double;
@@ -82,7 +82,7 @@ export interface Vec3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   z: double;
@@ -93,7 +93,7 @@ export interface Vec3 {
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Vec4 {
@@ -102,7 +102,7 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   x: double;
@@ -112,7 +112,7 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   y: double;
@@ -122,7 +122,7 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   z: double;
@@ -132,7 +132,7 @@ export interface Vec4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   w: double;
@@ -143,7 +143,7 @@ export interface Vec4 {
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Quaternion {
@@ -152,7 +152,7 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   x: double;
@@ -162,7 +162,7 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   y: double;
@@ -172,7 +172,7 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   z: double;
@@ -182,7 +182,7 @@ export interface Quaternion {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   w: double;
@@ -193,8 +193,7 @@ export interface Quaternion {
  *
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface Aabb {
   /**
@@ -202,8 +201,7 @@ export interface Aabb {
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   aabbMin: Vec3;
 
@@ -212,8 +210,7 @@ export interface Aabb {
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   aabbMax: Vec3;
 }
@@ -223,7 +220,7 @@ export interface Aabb {
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Color {
@@ -232,7 +229,7 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   r: double;
@@ -242,7 +239,7 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   g: double;
@@ -252,7 +249,7 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   b: double;
@@ -262,7 +259,7 @@ export interface Color {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   a: double;
@@ -273,7 +270,7 @@ export interface Color {
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export interface Rect {
@@ -282,7 +279,7 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   x: double;
@@ -292,7 +289,7 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   y: double;
@@ -302,8 +299,7 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   width: double;
 
@@ -312,45 +308,40 @@ export interface Rect {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'12', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   height: double;
 }
 
 /**
  * Types of geometric shapes.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export enum GeometryType {
   /**
    * A custom geometric shape.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   CUSTOM = 0,
 
   /**
    * A cube.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   CUBE = 1,
 
   /**
    * A plane.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   PLANE = 2,
 
@@ -358,72 +349,65 @@ export enum GeometryType {
    * A sphere.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   SPHERE = 3
 }
 
 /**
  * Define a geometric shape for mesh creation.
- * 
+ *
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare abstract class GeometryDefinition {
   /**
    * Which geometry shape to interpret from this definition.
-   * 
+   *
    * @type { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   readonly geometryType: GeometryType;
 }
 
 /**
  * How vertices in a sequence form triangles.
- * 
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2 
+ * @since 18
  */
 export enum PrimitiveTopology {
   /**
    * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TRIANGLE_LIST = 0,
 
   /**
    * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
-   * 
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts { '1.1':'18', '1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TRIANGLE_STRIP = 1
 }
 
 /**
  * An array of vertices and their data defining a custom geometric shape.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
    * How to form mesh triangles from the indexed vertices.
-   * 
+   *
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -432,59 +416,35 @@ export declare class CustomGeometry extends GeometryDefinition {
   topology?: PrimitiveTopology;
 
   /**
-   * How to form mesh triangles from the indexed vertices.
-   * 
-   * @return { PrimitiveTopology | undefined }
-   * @default PrimitiveTopology.TRIANGLE_LIST
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  get topology(): PrimitiveTopology | undefined;
-
-  /**
-   * How to form mesh triangles from the indexed vertices.
-   * 
-   * @param { PrimitiveTopology | undefined } value
-   * @default PrimitiveTopology.TRIANGLE_LIST
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  set topology(value: PrimitiveTopology | undefined);
-
-  /**
    * An array of vertices.
-   * 
+   *
    * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   get vertices(): Vec3[];
 
   /**
    * An array of vertices.
-   * 
+   *
    * @param { Vec3[] } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   set vertices(value: Vec3[]);
 
   /**
    * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
-   * 
+   *
    * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]    
+   *     indices = [0, 1, 2, 2, 1, 3]
    *     resulting triangles: abc, cbd
-   * 
+   *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
    *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
-   * 
+   *
    * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -493,48 +453,8 @@ export declare class CustomGeometry extends GeometryDefinition {
   indices?: int[];
 
   /**
-   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
-   * 
-   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
-   *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]    
-   *     resulting triangles: abc, cbd
-   * 
-   *     topology = PrimitiveTopology.TRIANGLE_STRIP
-   *     indices = [0, 1, 2, 3]
-   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
-   * 
-   * @return { int[] | undefined }
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  get indices(): int[] | undefined;
-
-  /**
-   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
-   * 
-   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
-   *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]    
-   *     resulting triangles: abc, cbd
-   * 
-   *     topology = PrimitiveTopology.TRIANGLE_STRIP
-   *     indices = [0, 1, 2, 3]
-   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
-   * 
-   * @param { int[] | undefined } value
-   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  set indices(value: int[] | undefined);
-
-  /**
    * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
-   * 
+   *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
@@ -542,28 +462,8 @@ export declare class CustomGeometry extends GeometryDefinition {
   normals?: Vec3[];
 
   /**
-   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
-   * 
-   * @return { Vec3[] | undefined }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  get normals(): Vec3[] | undefined;
-
-  /**
-   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
-   * 
-   * @param { Vec3[] | undefined } value
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  set normals(value: Vec3[] | undefined);
-
-  /**
    * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
-   * 
+   *
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
@@ -571,161 +471,110 @@ export declare class CustomGeometry extends GeometryDefinition {
   uvs?: Vec2[];
 
   /**
-   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
-   * 
-   * @return { Vec2[] | undefined }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  get uvs(): Vec2[] | undefined;
-
-  /**
-   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
-   * 
-   * @param { Vec2[] | undefined } value
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  set uvs(value: Vec2[] | undefined);
-
-  /**
    * Vertex color. If colors is not null, colors[N] is for vertices[N].
-   * 
+   *
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
   colors?: Color[];
-
-  /**
-   * Vertex color. If colors is not null, colors[N] is for vertices[N].
-   * 
-   * @return { Color[] | undefined }
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  get colors(): Color[] | undefined;
-
-  /**
-   * Vertex color. If colors is not null, colors[N] is for vertices[N].
-   * 
-   * @param { Color[] | undefined } value
-   * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
-   * @arkts 1.2
-   */
-  set colors(value: Color[] | undefined);
 }
 
 /**
  * Define a rectangular cuboid.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
    * The width, height and depth of the cube.
-   * 
+   *
    * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   get size(): Vec3;
 
   /**
    * The width, height and depth of the cube.
-   * 
+   *
    * @param { Vec3 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   set size(value: Vec3);
 }
 
 /**
  * Define a plane.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
    * The width and length of the plane.
-   * 
+   *
    * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   get size(): Vec2;
 
   /**
    * The width and length of the plane.
-   * 
+   *
    * @param { Vec2 } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   set size(value: Vec2);
 }
 
 /**
  * Define a sphere.
- * 
+ *
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'18', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
    * The raduis of the sphere.
-   * 
+   *
    * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   get radius(): double;
 
   /**
    * The raduis of the sphere.
-   * 
+   *
    * @param { double } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   set radius(value: double);
 
   /**
    * Divide the sphere latitudinally into this many circles and each circle longitudinally into this mant segments.
-   * 
+   *
    * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   get segmentCount(): int;
 
   /**
    * Divide the sphere latitudinally into this many circles and each circle longitudinally into this mant segments.
-   * 
+   *
    * @param { int } value
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   set segmentCount(value: int);
 }
@@ -734,7 +583,7 @@ export declare class SphereGeometry extends GeometryDefinition {
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export type Position3 = Vec3;
@@ -744,8 +593,7 @@ export type Position3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Rotation3 = Vec3;
 
@@ -754,7 +602,7 @@ export type Rotation3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts { '1.1':'12', '1.2':'20' }
+ * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
 export type Scale3 = Vec3;
