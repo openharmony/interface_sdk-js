@@ -8749,13 +8749,13 @@ declare namespace webview {
     /**
      * Handle native media player playback status.
      *
-     * @type { ?OneParamFn<PlaybackStatus> }
+     * @type { OneParamFn<PlaybackStatus> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleStatusChanged?: OneParamFn<PlaybackStatus>;
+    handleStatusChanged: OneParamFn<PlaybackStatus>;
 
     /**
      * Handle native media player volume.
@@ -8774,13 +8774,13 @@ declare namespace webview {
      *  volume: float
      *   value range: [0 - 1.0]
      *
-     * @type { ?OneParamFn<double> }
+     * @type { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleVolumeChanged?: OneParamFn<double>;
+    handleVolumeChanged: OneParamFn<double>;
 
     /**
      * Handle native media player muted status.
@@ -8795,13 +8795,13 @@ declare namespace webview {
     /**
      * Handle native media player muted status.
      *
-     * @type { ?OneParamFn<boolean> }
+     * @type { OneParamFn<boolean> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleMutedChanged?: OneParamFn<boolean>;
+    handleMutedChanged: OneParamFn<boolean>;
 
     /**
      * Handle playback rate of native media player.
@@ -8820,13 +8820,13 @@ declare namespace webview {
      *  playbackRate: float
      *   value range: [0 - infinity]
      *
-     * @type { ?OneParamFn<double> }
+     * @type { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handlePlaybackRateChanged?: OneParamFn<double>;
+    handlePlaybackRateChanged: OneParamFn<double>;
 
     /**
      * Handle duration time of media.
@@ -8845,13 +8845,13 @@ declare namespace webview {
      *  duration: float
      *   value range: [0 - infinity]
      *
-     * @type { ?OneParamFn<double> }
+     * @type { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleDurationChanged?: OneParamFn<double>;
+    handleDurationChanged: OneParamFn<double>;
 
     /**
      * Handle current playing time of media.
@@ -8870,13 +8870,13 @@ declare namespace webview {
      *  currentPlayTime: float
      *   value range: [0 - duration]
      *
-     * @type { ?OneParamFn<double> }
+     * @type { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleTimeUpdate?: OneParamFn<double>;
+    handleTimeUpdate: OneParamFn<double>;
 
     /**
      * Handle buffered end time of media.
@@ -8895,13 +8895,13 @@ declare namespace webview {
      *  bufferedEndTime: float
      *   value range: [0 - duration]
      *
-     * @type { ?OneParamFn<double> }
+     * @type { OneParamFn<double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleBufferedEndTimeChanged?: OneParamFn<double>;
+    handleBufferedEndTimeChanged: OneParamFn<double>;
 
     /**
      * Handle native player ended event.
@@ -8915,13 +8915,13 @@ declare namespace webview {
     /**
      * Handle native player ended event.
      *
-     * @type { ?ZeroParamFn<> }
+     * @type { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleEnded?: ZeroParamFn<>;
+    handleEnded: ZeroParamFn<>;
 
     /**
      * Handle network state of native media player.
@@ -8936,13 +8936,13 @@ declare namespace webview {
     /**
      * Handle network state of native media player.
      *
-     * @type { ?OneParamFn<NetworkState> }
+     * @type { OneParamFn<NetworkState> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleNetworkStateChanged?: OneParamFn<NetworkState>;
+    handleNetworkStateChanged: OneParamFn<NetworkState>;
 
     /**
      * Handle ready state of native media player.
@@ -8957,13 +8957,13 @@ declare namespace webview {
     /**
      * Handle ready state of native media player.
      *
-     * @type { ?OneParamFn<ReadyState> }
+     * @type { OneParamFn<ReadyState> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleReadyStateChanged?: OneParamFn<ReadyState>;
+    handleReadyStateChanged: OneParamFn<ReadyState>;
 
     /**
      * Handle native media player fullscreen state changed event.
@@ -8978,13 +8978,13 @@ declare namespace webview {
     /**
      * Handle native media player fullscreen state changed event.
      *
-     * @type { ?OneParamFn<boolean> }
+     * @type { OneParamFn<boolean> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleFullscreenChanged?: OneParamFn<boolean>;
+    handleFullscreenChanged: OneParamFn<boolean>;
 
     /**
      * Handle native media player seeking state.
@@ -8998,13 +8998,13 @@ declare namespace webview {
     /**
      * Handle native media player seeking state.
      *
-     * @type { ?ZeroParamFn<> }
+     * @type { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleSeeking?: ZeroParamFn<>;
+    handleSeeking: ZeroParamFn<>;
 
     /**
      * Handle native media player seek finished state.
@@ -9018,13 +9018,13 @@ declare namespace webview {
     /**
      * Handle native media player seek finished state.
      *
-     * @type { ?ZeroParamFn<> }
+     * @type { ZeroParamFn<> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleSeekFinished?: ZeroParamFn<>;
+    handleSeekFinished: ZeroParamFn<>;
 
     /**
      * Handle native media player error event.
@@ -9040,13 +9040,13 @@ declare namespace webview {
     /**
      * Handle native media player error event.
      *
-     * @type { ?TwoParamFn<MediaError,string> }
+     * @type { TwoParamFn<MediaError,string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleError?: TwoParamFn<MediaError,string>;
+    handleError: TwoParamFn<MediaError,string>;
 
     /**
      * Handle size of video.
@@ -9062,13 +9062,13 @@ declare namespace webview {
     /**
      * Handle size of video.
      *
-     * @type { ?TwoParamFn<double,double> }
+     * @type { TwoParamFn<double,double> }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 20
      * @arkts 1.2
      */
-    handleVideoSizeChanged?: TwoParamFn<double,double>;
+    handleVideoSizeChanged: TwoParamFn<double,double>;
   }
 
   /**
