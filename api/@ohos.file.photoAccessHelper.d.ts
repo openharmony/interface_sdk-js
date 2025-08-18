@@ -6637,6 +6637,36 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     dateTakenMs: number;
+
+    /**
+     * asset position.
+     *
+     * @type { ?PositionType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    position?: PositionType;
+
+    /**
+     * Display name of photo asset.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    displayName?: string;
+
+    /**
+     * Size of photo asset.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    size?: number;
   }
 
   /**
@@ -6851,6 +6881,24 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     hiddenCoverInfo?: PhotoAssetChangeInfo;
+
+    /**
+     * The order section of album asset.
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    orderSection?: number;
+
+    /**
+     * The album order of album asset.
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    albumOrder?: number;
   }
 
   /**
