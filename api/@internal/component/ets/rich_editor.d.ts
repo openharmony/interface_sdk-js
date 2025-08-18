@@ -2974,7 +2974,6 @@ declare interface RichEditorChangeValue {
    * @type { ?TextChangeReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @atomicservice
    * @since 20
    */
   changeReason?: TextChangeReason;
