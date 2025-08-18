@@ -2646,7 +2646,7 @@ declare namespace commonEventManager {
      * @since 20
      * @arkts 1.1&1.2
      */
-        COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
+    COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
   }
 
   /**
