@@ -1556,6 +1556,19 @@ declare namespace userAuth {
   }
 
   /**
+   * Called to return the authentication result. If the authentication is successful,
+   * UserAuthResult contains the token information.
+   *
+   * @typedef { function } AuthCallbackOnResultFunc
+   * @param { UserAuthResult } result - Authentication result information.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type AuthCallbackOnResultFunc = (result: UserAuthResult) => void;
+
+  /**
    * Asynchronous callback of authentication operation.
    *
    * @interface IAuthCallback
@@ -1589,18 +1602,17 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
-    onResult(result: UserAuthResult): void;
     /**
      * Called to return the authentication result. If the authentication is successful,
      * UserAuthResult contains the token information.
      *
-     * @type { function }
+     * @type { AuthCallbackOnResultFunc }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 22
+     * @arkts 1.1&1.2
      */
-    onResult: (result: UserAuthResult) => void;
+    onResult: AuthCallbackOnResultFunc;
   }
 
   /**
@@ -2171,6 +2183,18 @@ declare namespace userAuth {
   function getUserAuthWidgetMgr(version: int): UserAuthWidgetMgr;
 
   /**
+   * Called to return the command sent from the user authentication framework to the user authentication widget.
+   *
+   * @typedef { function } AuthWidgetCallbackSendCommandFunc
+   * @param { string } cmdData - Command sent from the user authentication framework to the user authentication widget.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type AuthWidgetCallbackSendCommandFunc = (cmdData: string) => void;
+
+  /**
    * Provides the callback for returning the commands sent from the user authentication framework
    * to the user authentication widget.
    *
@@ -2184,23 +2208,21 @@ declare namespace userAuth {
     /**
      * Called to return the command sent from the user authentication framework to the user authentication widget.
      *
-     * @param { string } cmdData - Command sent from the user authentication framework to the user
-     * authentication widget.
+     * @param { string } cmdData - Command sent from the user authentication framework to the user authentication widget.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10
      */
-    sendCommand(cmdData: string): void;
     /**
      * Called to return the command sent from the user authentication framework to the user authentication widget.
      *
-     * @type { function }
+     * @type { AuthWidgetCallbackSendCommandFunc }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 20
-     * @arkts 1.2
+     * @since 22
+     * @arkts 1.1&1.2
      */
-    sendCommand: (cmdData: string) => void;
+    sendCommand: AuthWidgetCallbackSendCommandFunc;
   }
 
   /**
