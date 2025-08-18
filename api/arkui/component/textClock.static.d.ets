@@ -252,6 +252,9 @@ export declare interface TextClockAttribute extends CommonMethod {
     attributeModifier(
         modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function TextClock(options?: TextClockOptions, 
 @memo
 content_?: () => void): TextClockAttribute;

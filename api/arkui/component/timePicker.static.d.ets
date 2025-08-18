@@ -470,6 +470,9 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
  */
 export declare class TimePickerDialog {
 }
+
+@memo
+@ComponentBuilder
 export declare function TimePicker(options?: TimePickerOptions, 
 @memo
 content_?: () => void): TimePickerAttribute;

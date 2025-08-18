@@ -221,6 +221,9 @@ export declare interface DataPanelAttribute extends CommonMethod {
     contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
     attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function DataPanel(options: DataPanelOptions, 
 @memo
 content_?: () => void): DataPanelAttribute;

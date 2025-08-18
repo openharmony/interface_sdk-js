@@ -277,6 +277,8 @@ export type BadgeStyleSizeType = number | string | Resource;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
+@memo
+@ComponentBuilder
 export declare function Badge(
   value: BadgeParamWithNumber | BadgeParamWithString, 
   @memo

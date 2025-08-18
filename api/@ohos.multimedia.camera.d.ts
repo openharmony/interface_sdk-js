@@ -18404,14 +18404,14 @@ declare namespace camera {
   /**
    * Enum for camera concurrent type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @since 18
    */
   /**
    * Enum for camera concurrent type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since arkts {'1.1':'19','1.2':'20'}

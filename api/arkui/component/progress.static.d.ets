@@ -500,6 +500,9 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
      */
     total: number;
 }
+
+@memo
+@ComponentBuilder
 export declare function Progress(options: ProgressOptions, 
 @memo
 content_?: () => void): ProgressAttribute;

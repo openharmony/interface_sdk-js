@@ -617,6 +617,9 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
  */
 export declare class DatePickerDialog {
 }
+
+@memo
+@ComponentBuilder
 export declare function DatePicker(options?: DatePickerOptions, 
 @memo
 content_?: () => void): DatePickerAttribute;

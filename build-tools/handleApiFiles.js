@@ -181,54 +181,48 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     writeFile(outputPath, fileContent);
     return;
   }
-  const handleFullpath = getHandleFullPath(fullPath, apiRelativePath, type);
-  if (type === 'ets2' && handleFullpath !== undefined) {
-    handleFileInSecondType(apiRelativePath, handleFullpath, type, output);
-  } else if (type === 'ets' && handleFullpath !== undefined) {
-    handleFileInFirstType(apiRelativePath, handleFullpath, type, output);
+  const isCorrectHandleFullpath = isHandleFullPath(fullPath, apiRelativePath, type);
+  if (type === 'ets2' && isCorrectHandleFullpath) {
+    handleFileInSecondType(apiRelativePath, fullPath, type, output);
+  } else if (type === 'ets' && isCorrectHandleFullpath) {
+    handleFileInFirstType(apiRelativePath, fullPath, type, output);
   }
 }
 
-function getHandleFullPath(fullPath, apiRelativePath, type) {
-  const isEndWithEts = isEtsFile(apiRelativePath);
-  const isEndWithTs = isTsFile(apiRelativePath);
-  const isEndWithStatic = isStaticFile(apiRelativePath);
-  // 处理.ts文件逻辑
-  if (isEndWithTs) {
+/**
+ * 判断当前的文件路径是否符合当前打包场景，过滤同名文件
+ * @param {*} fullPath 
+ * @param {*} apiRelativePath 
+ * @param {*} type 
+ * @returns 
+ */
+function isHandleFullPath(fullPath, apiRelativePath, type) {
+  // 当前文件为.ts结尾文件
+  if (isTsFile(apiRelativePath)) {
+    if (type === 'ets') {
+      return true;
+    }
     if (!(hasEtsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
-    } else {
-      if (type === 'ets') {
-        return fullPath;
-      }
+      return true;
     }
   }
-  // 处理.ets文件逻辑
-  if (isEndWithEts) {
+  // 当前文件为.ets结尾文件
+  if (isEtsFile(apiRelativePath)) {
     if (!(hasTsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
+      return true;
     }
-    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath))) {
-      if (type === 'ets2') {
-        return fullPath;
-      }
+    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath)) && type === 'ets2') {
+      return true;
     }
-    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath))) {
-      if (type === 'ets') {
-        return fullPath;
-      }
-    }
-    if (hasStaticFile(fullPath) && hasTsFile(fullPath)) {
-      return undefined;
+    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath)) && type === 'ets') {
+      return true;
     }
   }
-  // 处理.static文件逻辑
-  if (isEndWithStatic) {
-    if (type === 'ets2') {
-      return fullPath;
-    }
+  // 当前文件为.static结尾文件
+  if (isStaticFile(apiRelativePath) && type === 'ets2') {
+    return true;
   }
-  return undefined;
+  return false;
 }
 
 /**

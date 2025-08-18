@@ -19,6 +19,9 @@
  */
 
 import StartOptions from './@ohos.app.ability.StartOptions';
+/***if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * AtomicServiceOptions is the basic communication component of the system.
@@ -50,8 +53,18 @@ export default class AtomicServiceOptions extends StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an AtomicServiceOptions
+   *
+   * @type { ?RecordData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: RecordData;
 }

@@ -269,6 +269,9 @@ export declare interface TextTimerAttribute extends CommonMethod {
     attributeModifier(
         modifier: AttributeModifier<TextTimerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function TextTimer(options?: TextTimerOptions, 
 @memo
 content_?: () => void): TextTimerAttribute;

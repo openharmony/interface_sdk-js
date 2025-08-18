@@ -218,6 +218,9 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     attributeModifier(
         modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
+
+@memo
+@ComponentBuilder
 export declare function ImageAnimator(
 @memo
 content_?: () => void): ImageAnimatorAttribute;

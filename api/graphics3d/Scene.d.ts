@@ -375,31 +375,44 @@ export declare class Scene {
   /**
    * The environment of the scene.
    *
-   * @type { Environment }
+   * @return { Environment }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  environment: Environment;
+  get environment(): Environment;
+
+  /**
+   * The environment of the scene.
+   *
+   * @param { Environment } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  set environment(value: Environment);
   
   /**
    * The animations of the scene.
    *
-   * @type { Animation[] }
+   * @return { Animation[] }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly animations: Animation[];
+  get animations(): Animation[];
  
   /**
    * The root node of the scene.
    *
-   * @type { Node | null }
+   * @return { Node | null }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly root: Node | null;
+  get root(): Node | null;
  
   /**
    * Get a node by path.
