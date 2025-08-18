@@ -49,6 +49,7 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @param { AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { EffectComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @since 20
      */
     attributeModifier(modifier: AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
