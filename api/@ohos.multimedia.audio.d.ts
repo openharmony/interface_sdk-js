@@ -3751,7 +3751,7 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
-     * @since 9
+     * @since 21
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy?: AudioDevcieSelectStrategy): Promise<void>;
 
