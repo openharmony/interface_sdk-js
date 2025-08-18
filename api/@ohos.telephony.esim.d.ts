@@ -474,6 +474,7 @@ declare namespace eSIM {
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 20
+   * arkts 1.1&1.2
    */
   export interface AccessRule {
     /**
