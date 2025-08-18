@@ -52,6 +52,7 @@ import _ExtensionContext from './application/ExtensionContext';
 import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
+import type _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 /*** endif */
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
@@ -564,7 +565,18 @@ declare namespace common {
    * @stagemodelonly
    * @since 12
    */
-    export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+
+  /**
+   * The context of an photo editor extension ability.
+   *
+   * @typedef { _PhotoEditorExtensionContext }
+   * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext;
 
   /**
    * The context of a UI service ability.
