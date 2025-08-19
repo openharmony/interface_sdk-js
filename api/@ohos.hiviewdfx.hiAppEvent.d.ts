@@ -401,28 +401,6 @@ declare namespace hiAppEvent {
      * @since 20
      */
     const APP_KILLED: string;
-
-    /**
-     * App task execution timeout event. This is a system event name constant.
-     *
-     * @type { string }
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @atomicservice
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
-     */
-    const APP_HICOLLIE: string;
-
-    /**
-     * Audio jank frame. This is a system event name constant.
-     *
-     * @type { string }
-     * @syscap SystemCapability.HiviewDFX.HiAppEvent
-     * @atomicservice
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
-     */
-    const AUDIO_JANK_FRAME: string;
   }
 
   /**
