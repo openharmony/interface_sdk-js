@@ -76,6 +76,20 @@ export { ListItemModifier } from './arkui/ListItemModifier';
 export { ListModifier } from './arkui/ListModifier';
 
 /**
+ * Export NavDestinationModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { NavDestinationModifier } from './arkui/NavDestinationModifier';
+
+/**
+ * Export NavigationModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { NavigationModifier } from './arkui/NavigationModifier';
+
+/**
  * Export RefreshModifier, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -88,6 +102,34 @@ export { RefreshModifier } from './arkui/RefreshModifier';
  * @since 20
  */
 export { ScrollModifier } from './arkui/ScrollModifier';
+
+/**
+ * Export SideBarContainerModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
+
+/**
+ * Export StepperItemModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { StepperItemModifier } from './arkui/StepperItemModifier';
+
+/**
+ * Export StepperModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { StepperModifier } from './arkui/StepperModifier';
+
+/**
+ * Export SwiperModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SwiperModifier } from './arkui/SwiperModifier';
 
 /**
  * Export RefreshModifier, which is used to update attributes to native side.
