@@ -542,14 +542,14 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
  * @returns 
  */
 function getFileContent(newContent, filePath) {
-  if (isArkTsSpecialSyntax(newContent)) {
+  const regex = /^overload\s+.+$/;
+  if (isArkTsSpecialSyntax(newContent) || !regex.test(newContent)) {
     return newContent;
   }
-  let sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
   const printer = ts.createPrinter();
   const result = ts.transform(sourceFile, [deleteOverLoadJsDoc]);
   const output = printer.printFile(result.transformed[0]);
-  sourceFile = '';
   return output;
 }
 
