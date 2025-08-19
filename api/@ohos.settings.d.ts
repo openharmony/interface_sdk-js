@@ -19,7 +19,9 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.1 */
 import { DataAbilityHelper } from './ability/dataAbilityHelper';
+/*** endif */
 import Context from './application/Context';
 
 /**
