@@ -39,6 +39,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts 1.2 */
