@@ -3753,7 +3753,7 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
@@ -3852,7 +3852,7 @@ declare namespace audio {
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
@@ -3963,7 +3963,7 @@ declare namespace audio {
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
@@ -3976,7 +3976,7 @@ declare namespace audio {
      * preferOutputDeviceChangeForRendererInfoAndUid event is supported.
      * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used to obtain the changed prefer devices in subscribe.
      * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
