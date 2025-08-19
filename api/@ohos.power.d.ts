@@ -356,5 +356,50 @@ declare namespace power {
      */
     MODE_CUSTOM_POWER_SAVE = 650
   }
+
+  /**
+   * Set the power key filtering strategy.
+   * The power service typically subscribes to the power key event. And this API is used to configure how the power key
+   *     event should be handled.
+   * 
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { PowerKeyFilteringStrategy } strategy Indicates power key filtering
+   *     strategy {@link PowerKeyFilteringStrategy} to set.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 21
+   */
+  function setPowerKeyFilteringStrategy(strategy: PowerKeyFilteringStrategy): void;
+
+  /**
+   * Power key filtering strategy.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 21
+   */
+  export enum PowerKeyFilteringStrategy {
+    /**
+     * Disable the filtering of power key long-press event.
+     * The power service typically subscribes to the power key long-press event whose duration is configurable. And this
+     *     is the default strategy of handling the power key long-press event.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 21
+     */
+    DISABLE_LONG_PRESS_FILTERING = 0,
+    /**
+     * Filter the ongoing power key long-press event only once.
+     * The next power key long-press event is not filtered by default.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 21
+     */
+    LONG_PRESS_FILTERING_ONCE = 1
+  }
 }
 export default power;
