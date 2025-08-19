@@ -516,10 +516,9 @@ declare interface TabBarIconStyle {
  */
 declare class TabBarSymbol {
   /**
-   * Symbol icon in the normal style.
+   * The properties of the symbol icon in the tab bar need to be unselected.
    *
    * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
@@ -537,10 +536,9 @@ declare class TabBarSymbol {
   normal: SymbolGlyphModifier;
 
   /**
-   * Symbol icon in the selected style.
+   * The properties of the symbol icon in the tab bar need to be unselected.
    *
    * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
