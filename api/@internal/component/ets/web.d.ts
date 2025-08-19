@@ -7295,8 +7295,10 @@ declare enum PdfLoadResult {
 declare interface PreviewMenuOptions {
   /**
    * Defines the haptic feedback mode of preview menu.
+   * To enable haptic feedback, you must declare the ohos.permission.VIBRATE permission.
    *
    * @type { ?HapticFeedbackMode }
+   * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -10354,7 +10356,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *                                       The number of menu items, as well as the content size and icon size of the menu,
    *                                       should be consistent with the ArkUI Menu component.
    *                                       The system-provided id enumeration values (TextMenuItemId) in the menu are only
-   *                                       supportedfor CUT, COPY, PASTE, and SELECT_ALL in the web.
+   *                                       supported for CUT, COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH and some AI menu in the web.
    *                                       The textRange parameter in the onMenuItemClick function is meaningless in the web,
    *                                       and the input value is -1.
    * @returns { WebAttribute }
