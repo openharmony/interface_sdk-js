@@ -1188,7 +1188,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getToneHapticsSettings(context: BaseContext, type: ToneHapticsType): Promise<ToneHapticsSettings>;
 
@@ -1207,7 +1208,8 @@ declare namespace systemSoundManager {
      * @throws { BusinessError } 20700003 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setToneHapticsSettings(context: BaseContext, type: ToneHapticsType, settings: ToneHapticsSettings): Promise<void>;
 
