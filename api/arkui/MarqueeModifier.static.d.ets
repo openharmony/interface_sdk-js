@@ -1,5 +1,6 @@
+'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,25 +15,22 @@
  */
 
 /**
- * @file
+ * @file Marquee modifier file，defines modifier and function.
  * @kit ArkUI
  * @arkts 1.2
  */
 
 
-
-
 import { AttributeModifier } from './component/common';
-import { ContainerSpanAttribute } from './component/containerSpan';
+import { MarqueeAttribute } from './component/marquee';
+
 
 /**
- * Defines ContainerSpan Modifier
+ * Defines Marquee Modifier
  *
- * @implements { ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> }
+ * @implements { MarqueeAttribute, AttributeModifier<MarqueeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export declare class ContainerSpanModifier implements
-    ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> {
-}
+export declare class MarqueeModifier implements MarqueeAttribute, AttributeModifier<MarqueeAttribute> {}

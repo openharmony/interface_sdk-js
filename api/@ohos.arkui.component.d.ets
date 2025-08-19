@@ -79,7 +79,6 @@ export * from './arkui/component/indicatorcomponent';
 export * from './arkui/component/interop';
 export * from './arkui/component/lazyForEach';
 export * from './arkui/component/line';
-export * from './arkui/component/linearindicator';
 export * from './arkui/component/list';
 export * from './arkui/component/listItem';
 export * from './arkui/component/listItemGroup';

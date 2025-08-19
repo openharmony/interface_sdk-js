@@ -48,8 +48,10 @@ const METHOD_KIND = [
   ts.SyntaxKind.Constructor
 ];
 
+//正则匹配api节点的开头注释
 const regJSDOCStr = `\\s*\\/\\*\\*(?:(?!\\/\\*\\*)[\\s\\S])*?`;
 
+//.static.d.ets需要特殊处理的文件，及内部systemapi匹配正则表达式
 const STATIC_API_DELETE_RULES = new Map([[
   'arkui/component/common.static.d.ets', [
     `${regJSDOCStr}declare enum TransitionHierarchyStrategy.*ADAPTIVE = 1.*?\\n\\}.*?\\n`,
@@ -70,6 +72,7 @@ const STATIC_API_DELETE_RULES = new Map([[
   'arkui/component/uiExtensionComponent.static.d.ets', []], [
   'arkui/component/xcomponent.static.d.ets', []]]);
 
+// .static.d.ets需要特殊处理的文件，及内部特殊处理内容，包括整个文件删除和删除systemapi的import
 const STATIC_IMPORT_DELETE_RULES = new Map([[
   'arkui/component/common.static.d.ets', [{
     reg: /(import\s*\{.*)IlluminatedType(,\s)?(.*from.*enums)/g, replaceValue: '$1$3'
@@ -407,6 +410,7 @@ function tsTransform(utFiles, callback) {
 }
 
 /**
+ * 正则处理.static.d.ets文件
  * 
  * @param {string} url 
  * @returns 
@@ -414,7 +418,7 @@ function tsTransform(utFiles, callback) {
 function processStaticFile(url) {
   const relativePath = path.relative(inputDir, url).replace(/\\/g, '/');
   let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-  const regNodeList = STATIC_API_DELETE_RULES.get(relativePath);
+  const regNodeList = STATIC_API_DELETE_RULES.get(relativePath) || [];
   regNodeList.forEach(regRule => {
     const regSystemApi = new RegExp(regRule, 'sg');
     content = content.replace(regSystemApi, '\n');

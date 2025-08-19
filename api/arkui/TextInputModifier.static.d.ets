@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { TextInputAttribute } from './component/textInput';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { TextInputAttribute } from './component/textInput';
+
 /**
  * Defines TextInput Modifier
  *
- * @implements TextInputAttribute, AttributeModifier<TextInputAttribute>
+ * @implements { TextInputAttribute, AttributeModifier<TextInputAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class TextInputModifier implements TextInputAttribute, AttributeModifier<TextInputAttribute> {}
