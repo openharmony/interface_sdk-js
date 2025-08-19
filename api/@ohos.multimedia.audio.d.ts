@@ -3847,8 +3847,7 @@ declare namespace audio {
 
     /**
      * Get output device for target audio renderer info and application.
-     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
-     * @param { number } uid - The uid of target application.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
@@ -3857,7 +3856,7 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    getPreferOutputDeviceForRendererInfoAndUid(rendererInfo: AudioRendererInfo, uid: number): Promise<AudioDeviceDescriptors>;
+    getPreferOutputDeviceByFilter(filter: AudioRendererFilter): Promise<AudioDeviceDescriptors>;
 
     /**
      * Gets preferred output device for target audio renderer info.
@@ -3956,10 +3955,9 @@ declare namespace audio {
     /**
      * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
      * registered clients will receive the callback.
-     * @param { 'preferOutputDeviceChangeForRendererInfoAndUid' } type - Type of the event to listen for. Only the
-     * preferOutputDeviceChangeForRendererInfoAndUid event is supported.
-     * @param { AudioRendererInfo } rendererInfo - Audio renderer information.
-     * @param { number } uid - The uid of target application.
+     * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeByFilter event is supported.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -3968,12 +3966,12 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    on(type: 'preferOutputDeviceChangeForRendererInfoAndUid', rendererInfo: AudioRendererInfo, uid: number, callback: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'preferOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * UnSubscribes to prefer output device change events.
-     * @param { 'preferOutputDeviceChangeForRendererInfoAndUid' } type - Type of the event to listen for. Only the
-     * preferOutputDeviceChangeForRendererInfoAndUid event is supported.
+     * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     * preferOutputDeviceChangeByFilter event is supported.
      * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used to obtain the changed prefer devices in subscribe.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -3981,7 +3979,7 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    off(type: 'preferOutputDeviceChangeForRendererInfoAndUid', callback?: Callback<AudioDeviceDescriptors>): void;
+    off(type: 'preferOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
