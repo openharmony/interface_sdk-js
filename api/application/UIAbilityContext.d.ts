@@ -172,18 +172,6 @@ declare class UIAbilityContext extends Context {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  /**
-   * Indicates windowStage information.
-   * Exists from onWindowStageCreate lifecycle, does not exist from onWindowStageDestroy lifecycle.
-   *
-   * @type { window.WindowStage }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21
-   * @arkts 1.1&1.2
-   */
   windowStage: window.WindowStage;
 
   /**
