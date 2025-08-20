@@ -37,7 +37,7 @@ declare namespace uiExtension {
    * @atomicservice
    * @since 12
    */
-  export interface WindowProxy {
+  interface WindowProxy {
     /**
      * Obtains the area where this window cannot be displayed, for example, the system bar area, notch, gesture area, and soft keyboard area.
      *
@@ -312,7 +312,7 @@ declare namespace uiExtension {
    * @atomicservice
    * @since 12
    */
-  export interface AvoidAreaInfo {
+  interface AvoidAreaInfo {
     /**
      * Type of the area where the window cannot be displayed.
      *
@@ -343,7 +343,7 @@ declare namespace uiExtension {
    * @since 14
    * 
    */
-  export interface WindowProxyProperties {
+  interface WindowProxyProperties {
     /**
      * Position and size of the component (EmbeddedComponent or UIExtensionComponent).
      *
