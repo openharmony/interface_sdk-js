@@ -157,12 +157,17 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
+import privacyManager from '@ohos.privacyManager';
 
 export {
   common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
   UIExtensionContentSession, wantConstant, UIAbility, Callee, Caller, OnReleaseCallback, AbilityStage,
   UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
-  freeInstall, installer, launcherBundleManager, overlay, shortcutManager
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
 };
 /*** endif */
