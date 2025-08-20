@@ -148,6 +148,7 @@ export declare class MutableBinding<T> {
   get value(): T;
   /**
    * Set function that can set the new value.
+   * @param { T } newValue new value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
