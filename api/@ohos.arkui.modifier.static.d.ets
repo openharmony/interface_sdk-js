@@ -331,3 +331,10 @@ export { HyperlinkModifier } from './arkui/HyperlinkModifier';
  * @since 20
  */
 export { MarqueeModifier } from './arkui/MarqueeModifier';
+
+/**
+ * Export ParticleModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ParticleModifier } from './arkui/ParticleModifier';

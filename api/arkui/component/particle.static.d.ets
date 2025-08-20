@@ -705,21 +705,21 @@ export declare interface ParticleAttribute extends CommonMethod {
     /**
      * Particle disturbance Field.
      *
-     * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
+     * @param { Array<DisturbanceFieldOptions> | undefined } fields - particle disturbance Field params.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
+    default disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
     /**
      * Add particle animation component properties.
      *
-     * @param { Array<EmitterProperty> } value - The emitter property.
+     * @param { Array<EmitterProperty> | undefined } value - The emitter property.
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    emitter(value: Array<EmitterProperty> | undefined): this;
+    default emitter(value: Array<EmitterProperty> | undefined): this;
 
     /**
      * Add particle attribute modifier.
@@ -730,7 +730,7 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines particle disturbance Field params.
