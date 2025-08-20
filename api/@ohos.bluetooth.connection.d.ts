@@ -552,7 +552,6 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Get transport failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getRemoteDeviceTransport(deviceId: string): BluetoothTransport;
 
@@ -1812,7 +1811,6 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     TRANSPORT_DUAL = 2,
     /**
@@ -1820,7 +1818,6 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     TRANSPORT_UNKNOWN = 3
   }
