@@ -87,9 +87,9 @@ def main():
     options = parser.parse_args()
 
     if options.is_pre == "true":
-        process_interop(options, "/ohos_dynamic/api", "/ohos_dynamic/api", "false")
-        process_interop(options, "/ohos_dynamic/component", "/ohos_dynamic/component", "true")
-        process_global_import(options, "/ohos_dynamic/api", "/ohos_dynamic/api", "false")
+        process_interop(options, "/ohos_dynamic_two/api", "/ohos_dynamic_two/api", "false")
+        process_interop(options, "/ohos_dynamic_two/component", "/ohos_dynamic_two/component", "true")
+        process_global_import(options, "/ohos_dynamic_two/api", "/ohos_dynamic_two/api", "false")
     else:
         process_interop(options, "/ets1.2interop/declaration/api", "/ets1.2interop/declaration/api", "false")
         delete_path = os.path.join(os.path.abspath(options.intermediates_output), "ets1.1interop", "component")
