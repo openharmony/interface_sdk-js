@@ -666,7 +666,7 @@ export declare class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  addComponentContent<T extends Object>(content: ComponentContent<T>): void;
+  addComponentContent<T>(content: ComponentContent<T>): void;
 
   /**
    * Set the cross-language options of the target FrameNode.
