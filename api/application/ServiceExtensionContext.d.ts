@@ -21,8 +21,8 @@
 /*** if arkts 1.1 */
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
-import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 /*** endif */
+import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import { AsyncCallback } from '../@ohos.base';
 import { ConnectOptions } from '../ability/connectOptions';
 import ExtensionContext from './ExtensionContext';
@@ -2534,7 +2534,8 @@ declare class ServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<void>;
 }
