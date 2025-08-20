@@ -314,7 +314,7 @@ declare class FormExtensionAbility {
    * @since 20
    * @arkts 1.2
    */
-    onAcquireFormState?: OnAcquireFormStateFn;
+  onAcquireFormState?: OnAcquireFormStateFn;
 
   /**
    * Called when the system shares the form.
@@ -390,6 +390,7 @@ declare class FormExtensionAbility {
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
