@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { TextClockAttribute } from './component/textClock';
 /**
  * Defines TextClock Modifier
  *
- * @extends TextClockAttribute
- * @implements { AttributeModifier<TextClockAttribute> }
+ * @implements { TextClockAttribute, AttributeModifier<TextClockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {}
+export declare class TextClockModifier implements TextClockAttribute, AttributeModifier<TextClockAttribute> {}

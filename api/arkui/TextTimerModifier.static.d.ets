@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { TextTimerAttribute } from './component/textTimer';
 /**
  * Defines TextTimer Modifier
  *
- * @extends TextTimerAttribute
- * @implements { AttributeModifier<TextTimerAttribute> }
+ * @implements { TextTimerAttribute, AttributeModifier<TextTimerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class TextTimerModifier extends TextTimerAttribute implements AttributeModifier<TextTimerAttribute> {}
+export declare class TextTimerModifier implements TextTimerAttribute, AttributeModifier<TextTimerAttribute> {}

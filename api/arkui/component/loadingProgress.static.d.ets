@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,19 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
-import { ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { ResourceColor, VoidCallback } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier, CommonMethod } from "./common";
+
 /**
  * Load style of progress bar.
  *
@@ -55,36 +54,52 @@ export declare enum LoadingProgressStyle {
      */
     Orbital
 }
+/**
+ * Defines the LoadingProgress component attributes.
+ *
+ * @extends CommonMethod
+ * @interface LoadingProgressAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface LoadingProgressAttribute extends CommonMethod {
     /**
      * Load the color of the progress bar.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { LoadingProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color(value: ResourceColor | undefined): this;
+    default color(value: ResourceColor | undefined): this;
     /**
      * Whether to display the LoadingProgress content.
      *
-     * @param { boolean } value - indicates the state of LoadingProgress content
+     * @param { boolean | undefined } value - indicates the state of LoadingProgress content
      * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableLoading(value: boolean | undefined): this;
+    default enableLoading(value: boolean | undefined): this;
     /**
      * Set the content modifier of loadingProgress.
      *
-     * @param { ContentModifier<LoadingProgressConfiguration> } modifier - The contentModifier of LoadingProgress.
+     * @param { ContentModifier<LoadingProgressConfiguration> | undefined } modifier - 
+     *     The contentModifier of LoadingProgress.
      * @returns { LoadingProgressAttribute} the attribute of the loading progress
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<LoadingProgressConfiguration> | undefined): this;
-    attributeModifier(
-        modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default contentModifier(modifier: ContentModifier<LoadingProgressConfiguration> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { LoadingProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * LoadingProgressConfiguration used by LoadingProgress contentModifier
@@ -105,12 +120,16 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
     enableLoading: boolean;
 }
 /**
- * @param { () => void } content_
- * @returns { LoadingProgressAttribute }
+ * Defines the LoadingProgress component.
+ *
+ * @param { VoidCallback } [content_]
+ * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
  */
-
 @memo
 @ComponentBuilder
 export declare function LoadingProgress(
-   content_?: () => void
+    @memo
+    content_?: VoidCallback
 ): LoadingProgressAttribute;

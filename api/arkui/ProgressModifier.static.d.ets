@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { ProgressAttribute } from './component/progress';
 /**
  * Defines Progress Modifier
  *
- * @extends ProgressAttribute
- * @implements { AttributeModifier<ProgressAttribute> }
+ * @implements { ProgressAttribute, AttributeModifier<ProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class ProgressModifier extends ProgressAttribute implements AttributeModifier<ProgressAttribute> {}
+export declare class ProgressModifier implements ProgressAttribute, AttributeModifier<ProgressAttribute> {}

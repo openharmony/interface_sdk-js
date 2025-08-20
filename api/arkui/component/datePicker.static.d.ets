@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
+
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Callback, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, DateTimeOptions, Bindable } from './common';
-import { ResourceColor, Offset, VoidCallback } from './units';
-import { DialogAlignment } from './alertDialog';
-import { CrownSensitivity } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier } from './common';
+import { ResourceColor, Offset, VoidCallback } from "./units";
+import { DialogAlignment } from "./alertDialog";
+import { CrownSensitivity } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the struct of DatePickerResult.
  *
@@ -156,19 +157,27 @@ export declare interface DatePickerOptions {
      */
     mode?: DatePickerMode;
 }
+/**
+ * Defines the DatePicker component attributes.
+ *
+ * @extends CommonMethod
+ * @interface DatePickerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Specifies whether to display the lunar calendar.
      *
      * @param { boolean } value - Whether to display the lunar calendar.
-     * <br>- <em>true</em>: Display the lunar calendar.
-     * <br>- <em>false</em>: Do not display the lunar.
+     *     <br>- <em>true</em>: Display the lunar calendar.
+     *     <br>- <em>false</em>: Do not display the lunar.
      * @default false
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    lunar(value: boolean | undefined): this;
+    default lunar(value: boolean | undefined): this;
     /**
      * Sets the text style for the top and bottom items.
      *
@@ -178,18 +187,18 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    default disappearTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style for all items except the top, bottom, and selected items.
      *
      * @param { PickerTextStyle } value - Font color, font size, and font weight of all items except the top,
-     * <br>bottom, and selected items.
+     *     <br>bottom, and selected items.
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    textStyle(value: PickerTextStyle | undefined): this;
+    default textStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style for the selected item.
      *
@@ -199,7 +208,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    default selectedTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Triggered when a date is selected.
      * Anonymous Object Rectification.
@@ -209,7 +218,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    onDateChange(callback: Callback<Date> | undefined): this;
+    default onDateChange(callback: Callback<Date> | undefined): this;
     /**
      * Sets the sensitivity to the digital crown rotation.
      *
@@ -219,20 +228,28 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
      * Sets whether to enable haptic feedback.
      *
      * @param { Optional<boolean> } enable - Whether to enable haptic feedback.
-     * <br>true (default): Haptic feedback is enabled.
-     * <br>false: Haptic feedback is disabled.
+     *     <br>true (default): Haptic feedback is enabled.
+     *     <br>false: Haptic feedback is disabled.
      * @default true
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full   
      * @since 20
      */
-    enableHapticFeedback(enable: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default enableHapticFeedback(enable: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<DatePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the style of the lunar calendar switch in the DatePickerDialog component.
@@ -281,7 +298,7 @@ export declare interface LunarSwitchStyle {
 export declare interface DatePickerDialogOptions extends DatePickerOptions {
     /**
      * Whether to display the lunar calendar.
-     * The value true means to display the lunar calendar, and false means the opposite.
+     *     The value true means to display the lunar calendar, and false means the opposite.
      *
      * @type { ?boolean }
      * @default false
@@ -291,7 +308,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
     lunar?: boolean;
     /**
      * Whether to display the lunar calendar switch.
-     * The value true means to display the lunar calendar switch, and false means the opposite.
+     *     The value true means to display the lunar calendar switch, and false means the opposite.
      *
      * @type { ?boolean } value - indicates whether to show the switch to display the lunar.
      * @default false
@@ -311,7 +328,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
     lunarSwitchStyle?: LunarSwitchStyle;
     /**
      * Whether to display the time item.
-     * The value true means to display the time item, and false means the opposite.
+     *     The value true means to display the time item, and false means the opposite.
      *
      * <p><strong>NOTE</strong>:
      * <br>With showTime=true, the mode parameter has no effect and the default three columns for year,
@@ -326,7 +343,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
     showTime?: boolean;
     /**
      * Whether to display time in 24-hour format.
-     * The value true means to display time in 24-hour format, and false means the opposite.
+     *     The value true means to display time in 24-hour format, and false means the opposite.
      *
      * <p><strong>NOTE</strong>:
      * <br>When the display time is in 12-hour format, the AM/PM zone does not change depending on the hour portion.
@@ -615,11 +632,20 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class DatePickerDialog {
-}
-
+export declare class DatePickerDialog {}
+/**
+ * Defines the DatePicker component.
+ * 
+ * @param { DatePickerOptions } [options] - date picker options.
+ * @param { function } [content_]
+ * @returns { DatePickerAttribute } The attribute of the DatePicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
-export declare function DatePicker(options?: DatePickerOptions, 
-@memo
-content_?: () => void): DatePickerAttribute;
+export declare function DatePicker(
+    options?: DatePickerOptions, 
+    @memo
+    content_?: VoidCallback
+): DatePickerAttribute;
