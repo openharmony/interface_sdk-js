@@ -55,7 +55,6 @@ declare namespace socket {
    * @returns { number } Returns the l2cap socket psm
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getL2capPsm(serverSocket: number): number;
   /**
@@ -247,7 +246,6 @@ declare namespace socket {
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     psm?: number;
   }
@@ -272,7 +270,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     SPP_L2CAP = 1,
      /**
@@ -280,7 +277,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     SPP_L2CAP_BLE = 2
   }
