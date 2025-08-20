@@ -33,6 +33,8 @@ ohos_ets_dynamic_arkts_path = "$ohos_ets_dynamic_path/arkts"
 ohos_ets_dynamic_component_path = "$ohos_ets_dynamic_path/component"
 ohos_ets_dynamic_kits_path = "$ohos_ets_dynamic_path/kits"
 
+ohos_ets_dynamic_two_path = "$root_build_dir/ohos_dynamic_two"
+
 ohos_ets_static_path = "$root_build_dir/ohos_static"
 ohos_ets_static_api_path = "$ohos_ets_static_path/api"
 ohos_ets_static_arkts_path = "$ohos_ets_static_path/arkts"
