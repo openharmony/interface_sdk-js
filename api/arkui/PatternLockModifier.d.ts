@@ -40,16 +40,17 @@
  * @atomicservice
  * @since 20
  */
-export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {
+ export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { PatternLockAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: PatternLockAttribute): void;
-}
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { PatternLockAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: PatternLockAttribute): void;
+  }
+  

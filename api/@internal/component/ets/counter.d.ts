@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common'
-import { VoidCallback } from './units'
-/*** endif */
-
 /**
  * Counter component, which provides corresponding increment or decrement counting operations.
  *
@@ -55,8 +50,7 @@ import { VoidCallback } from './units'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface CounterInterface {
   /**
@@ -91,8 +85,7 @@ interface CounterInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): CounterAttribute;
 }
@@ -129,8 +122,7 @@ interface CounterInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -181,8 +173,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onInc(event: VoidCallback): CounterAttribute;
 
@@ -234,8 +225,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onDec(event: VoidCallback): CounterAttribute;
 
@@ -256,8 +246,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableDec(value: boolean): CounterAttribute;
 
@@ -278,8 +267,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableInc(value: boolean): CounterAttribute;
 }

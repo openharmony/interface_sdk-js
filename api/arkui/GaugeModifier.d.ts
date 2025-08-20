@@ -39,16 +39,17 @@
  * @atomicservice
  * @since 20
  */
-export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {
+ export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { GaugeAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: GaugeAttribute): void;
-}
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { GaugeAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: GaugeAttribute): void;
+  }
+  

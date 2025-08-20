@@ -40,16 +40,17 @@
  * @atomicservice
  * @since 20
  */
-export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
+ export declare class TextClockModifier extends TextClockAttribute implements AttributeModifier<TextClockAttribute> {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { TextClockAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: TextClockAttribute): void;
-}
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { TextClockAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: TextClockAttribute): void;
+  }
+  
