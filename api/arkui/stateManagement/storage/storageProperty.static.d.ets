@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -57,7 +58,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   get(): T { return undefined; };
+   get(): T;
 
   /**
    * Assign a new value to the referenced property
