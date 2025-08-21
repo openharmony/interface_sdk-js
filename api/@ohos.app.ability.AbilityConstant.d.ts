@@ -1184,40 +1184,6 @@ declare namespace AbilityConstant {
   }
 
   /**
-   * Enumerates the collaboration request results.
-   * This enum is used in multi-device collaboration scenarios to specify whether the target application accepts the
-   * collaboration request from the caller application.
-   * It is used in <code>onCollaborate(wantParam)</code> of the UIAbility.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  export enum CollaborateResult {
-    /**
-     * 	Accepts the collaboration request.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    ACCEPT = 0,
-
-    /**
-     * Rejects the collaboration request.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @stagemodelonly
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
-     */
-    REJECT = 1,
-  }
-
-  /**
    * Enumerates the actions triggered when an application is closed by the user. It must be used together with
    * <code>onPrepareTermination</code> or <code>onPrepareTerminationAsync</code> of AbilityStage.
    *
@@ -1250,6 +1216,40 @@ declare namespace AbilityConstant {
      * @arkts 1.1&1.2
      */
     CANCEL = 1
+  }
+   
+  /**
+   * Enumerates the collaboration request results.
+   * This enum is used in multi-device collaboration scenarios to specify whether the target application accepts the
+   * collaboration request from the caller application.
+   * It is used in <code>onCollaborate(wantParam)</code> of the UIAbility.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  export enum CollaborateResult {
+    /**
+     * Accepts the collaboration request.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    ACCEPT = 0,
+ 
+    /**
+     * Rejects the collaboration request.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    REJECT = 1,
   }
 }
 

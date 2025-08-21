@@ -18,11 +18,6 @@
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { ResourceColor } from './arkui/component/units';
-/*** endif */
-
 /**
  * Defines the struct of Theme.
  *
@@ -30,8 +25,7 @@ import { ResourceColor } from './arkui/component/units';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface Theme {
     /**
@@ -41,8 +35,7 @@ export declare interface Theme {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     colors: Colors;
 }
@@ -54,8 +47,7 @@ export declare interface Theme {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface Colors {
 
@@ -66,8 +58,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     brand: ResourceColor;
     
@@ -78,8 +69,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     warning: ResourceColor;
 
@@ -90,8 +80,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     alert: ResourceColor;
 
@@ -102,8 +91,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     confirm: ResourceColor;
 
@@ -114,8 +102,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontPrimary: ResourceColor;
 
@@ -126,8 +113,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontSecondary: ResourceColor;
 
@@ -138,8 +124,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontTertiary: ResourceColor;
 
@@ -150,8 +135,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontFourth: ResourceColor;
 
@@ -162,8 +146,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontEmphasize: ResourceColor;
 
@@ -174,8 +157,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontOnPrimary: ResourceColor;
 
@@ -186,8 +168,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontOnSecondary: ResourceColor;
 
@@ -198,8 +179,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontOnTertiary: ResourceColor;
 
@@ -210,8 +190,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     fontOnFourth: ResourceColor;
 
@@ -222,8 +201,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconPrimary: ResourceColor;
 
@@ -234,8 +212,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconSecondary: ResourceColor;
 
@@ -246,8 +223,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconTertiary: ResourceColor;
 
@@ -258,8 +234,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconFourth: ResourceColor;
 
@@ -270,8 +245,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconEmphasize: ResourceColor;
 
@@ -282,8 +256,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconSubEmphasize: ResourceColor;
 
@@ -294,8 +267,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconOnPrimary: ResourceColor;
 
@@ -306,8 +278,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconOnSecondary: ResourceColor;
 
@@ -318,8 +289,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconOnTertiary: ResourceColor;
 
@@ -330,8 +300,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     iconOnFourth: ResourceColor;
 
@@ -342,8 +311,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     backgroundPrimary: ResourceColor;
 
@@ -354,8 +322,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     backgroundSecondary: ResourceColor;
 
@@ -366,8 +333,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     backgroundTertiary: ResourceColor;
 
@@ -378,8 +344,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     backgroundFourth: ResourceColor;
 
@@ -390,8 +355,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     backgroundEmphasize: ResourceColor;
 
@@ -402,8 +366,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compForegroundPrimary: ResourceColor;
 
@@ -414,8 +377,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundPrimary: ResourceColor;
 
@@ -426,8 +388,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundPrimaryTran: ResourceColor;
 
@@ -438,8 +399,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundPrimaryContrary: ResourceColor;
 
@@ -450,8 +410,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundGray: ResourceColor;
 
@@ -462,8 +421,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundSecondary: ResourceColor;
 
@@ -474,8 +432,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundTertiary: ResourceColor;
 
@@ -486,8 +443,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundEmphasize: ResourceColor;
 
@@ -498,8 +454,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundNeutral: ResourceColor;
     
@@ -510,8 +465,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compEmphasizeSecondary: ResourceColor;
 
@@ -522,8 +476,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compEmphasizeTertiary: ResourceColor;
 
@@ -534,8 +487,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compDivider: ResourceColor;
 
@@ -546,8 +498,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compCommonContrary: ResourceColor;
 
@@ -558,8 +509,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compBackgroundFocus: ResourceColor;
 
@@ -570,8 +520,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compFocusedPrimary: ResourceColor;
 
@@ -582,8 +531,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compFocusedSecondary: ResourceColor;
 
@@ -594,8 +542,7 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     compFocusedTertiary: ResourceColor;
 
@@ -606,68 +553,62 @@ export declare interface Colors {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactiveHover: ResourceColor;
 
     /**
-    * Pressed interactive color 
+    * Pressed interactive color
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactivePressed: ResourceColor;
 
     /**
-    * Focus interactive color 
+    * Focus interactive color
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactiveFocus: ResourceColor;
 
     /**
-    * Active interactive color 
+    * Active interactive color
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactiveActive: ResourceColor;
 
     /**
-    * Select interactive color 
+    * Select interactive color
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactiveSelect: ResourceColor;
 
     /**
-    * Click interactive color 
+    * Click interactive color
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     interactiveClick: ResourceColor;
 }
@@ -679,8 +620,7 @@ export declare interface Colors {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare interface CustomTheme {
     /**
@@ -690,8 +630,7 @@ export declare interface CustomTheme {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     colors?: CustomColors;
 }
@@ -706,27 +645,13 @@ export declare interface CustomTheme {
  * @since 12
  */
 export declare type CustomColors = Partial<Colors>;
-
-/**
- * Defines the struct of CustomColors.
- *
- * @typedef { Partial<Colors> } CustomColors
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export type CustomColors = Partial<Colors>;
-
 /**
  * Class ThemeControl provides the Theme management for whole Ability and pages.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class ThemeControl {
     /**
@@ -738,8 +663,7 @@ export declare class ThemeControl {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     static setDefaultTheme(theme: CustomTheme): void;
 }

@@ -89,8 +89,14 @@ export {
 };
 
 /*** if arkts 1.2 */
+import configPolicy from '@ohos.configPolicy';
+import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import zlib from '@ohos.zlib';
+import commonEventManager from '@ohos.commonEventManager';
+import emitter from '@ohos.events.emitter';
+import distributedAccount from '@ohos.account.distributedAccount';
+import osAccount from '@ohos.account.osAccount';
 
-export { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib };
+export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter, distributedAccount, osAccount };
 /*** endif */

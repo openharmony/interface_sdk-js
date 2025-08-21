@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve } from './arkui/component/common';
-import { CustomBuilder } from './arkui/component/builder';
-import { TouchPoint, ResourceColor } from './arkui/component/units';
-import { Curve } from './arkui/component/enums';
-/*** endif */
 
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
@@ -48,8 +42,7 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare namespace dragController {
   /**
@@ -74,8 +67,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   const enum DragStatus {
     /**
@@ -94,8 +86,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     STARTED = 0,
     /**
@@ -114,8 +105,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     ENDED = 1,
   }
@@ -142,8 +132,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface DragAndDropInfo {
     /**
@@ -165,8 +154,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     status: DragStatus;
     /**
@@ -188,8 +176,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     event: DragEvent;
     /**
@@ -211,8 +198,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     extraParams?: string;
   }
@@ -239,8 +225,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface DragAction {
     /**
@@ -268,8 +253,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     startDrag(): Promise<void>;
     /**
@@ -300,8 +284,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     on(type: 'statusChange', callback: Callback<DragAndDropInfo>): void;
 
@@ -333,8 +316,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     off(type: 'statusChange', callback?: Callback<DragAndDropInfo>): void;
   }
@@ -361,8 +343,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface DragInfo {
     /**
@@ -384,8 +365,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     pointerId: number;
 
@@ -408,8 +388,7 @@ declare namespace dragController {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18
     */
     data?: unifiedDataChannel.UnifiedData;
 
@@ -432,8 +411,7 @@ declare namespace dragController {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18
     */
     extraParams?: string;
 
@@ -456,8 +434,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     touchPoint?: TouchPoint;
 
@@ -480,8 +457,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     previewOptions?: DragPreviewOptions;
     
@@ -522,8 +498,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface AnimationOptions {
     /**
@@ -545,8 +520,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     duration?: number;
     /**
@@ -568,8 +542,7 @@ declare namespace dragController {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'18','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 18
     */
     curve?: Curve | ICurve;
   }
@@ -590,8 +563,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   export class DragPreview {
     /**
@@ -613,8 +585,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     setForegroundColor(color: ResourceColor): void;
     /**
@@ -639,8 +610,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     animate(options: AnimationOptions, handler: () =>void): void;
   }
@@ -660,8 +630,7 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface DragEventParam {
 
@@ -684,8 +653,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     event: DragEvent;
 
@@ -708,8 +676,7 @@ declare namespace dragController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     extraParams: string;
   }
@@ -718,12 +685,11 @@ declare namespace dragController {
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag
-   *     event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains the drag event information.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -733,45 +699,44 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
-   */ 
+   */
   /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<DragEventParam> } callback - Callback that contains the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @deprecated since 18 
+   * @since 18
+   * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
-   * @arkts 1.1&1.2
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,
-      callback: AsyncCallback<DragEventParam>): void;
+    callback: AsyncCallback<DragEventParam>): void;
 
   /**
    * Execute a drag event.
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
@@ -781,10 +746,10 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -795,18 +760,17 @@ declare namespace dragController {
    * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#executeDrag
-   * @arkts 1.1&1.2
    */
   function executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>;
 
@@ -814,13 +778,13 @@ declare namespace dragController {
    * Create one drag action object, which can be used for starting drag later or monitoring
    * the drag status after drag started.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
+   * displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11
@@ -829,13 +793,13 @@ declare namespace dragController {
    * Create one drag action object, which can be used for starting drag later or monitoring
    * the drag status after drag started.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
+   * displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -845,21 +809,20 @@ declare namespace dragController {
    * Create one drag action object, which can be used for starting drag later or monitoring
    * the drag status after drag started.
    * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts
-   *     displayed when the objects are dragged.
+   * displayed when the objects are dragged.
    * @param { DragInfo } dragInfo - Information about the drag event.
    * @returns { DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#createDragAction
-   * @arkts 1.1&1.2
    */
   function createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction;
 
@@ -882,42 +845,39 @@ declare namespace dragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
+   * @since 18
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.DragController#getDragPreview
-   * @arkts 1.1&1.2
    */
   function getDragPreview(): DragPreview;
 
   /**
    * Define the status for the application to notify the framework whether to execute drag.
-   * 
+   *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   const enum DragStartRequestStatus {
+
     /**
      * Notify the framework that the application is not yet ready and needs to temporarily block
      * the start of drag, only effective in onDragStart calls.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     WAITING = 0,
 
     /**
      * Notify the framework that the drag can continue to be started, but only during the start
      * of drag, and will not take effect when the drag is started.
-     * 
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     READY = 1,
   }
@@ -932,7 +892,7 @@ declare namespace dragController {
    * @atomicservice
    * @since 20
    */
-  enum DragSpringLoadingState {
+  const enum DragSpringLoadingState {
     /**
      * The user has remained stationary for a period, initiating the spring loading process.
      * This state allows for some preparatory operations during spring loading.
@@ -1045,10 +1005,12 @@ declare namespace dragController {
      * @since 20
      */
     dataSummary?: unifiedDataChannel.Summary;
+    
     /**
-     * Summary of the dragged data. This field is absent if the source application did not configure data.
+     * Additional information provided by the source application when initiating the drag operation.
+     * This field is absent if the source application did not configure it.
      *
-     * @type { ?unifiedDataChannel.Summary }
+     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20
@@ -1119,7 +1081,7 @@ declare namespace dragController {
      * Typically, applications should use default configurations or set them once during binding.
      * Use this method sparingly, e.g., for different drag data types requiring varied UX timing.
      *
-     * @param { config } The spring loading detection configuration
+     * @param { DragSpringLoadingConfiguration } config - The spring loading detection configuration
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 20

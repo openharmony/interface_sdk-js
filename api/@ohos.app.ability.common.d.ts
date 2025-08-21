@@ -39,6 +39,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 /*** endif */
 /*** if arkts 1.2 */
@@ -49,7 +50,6 @@ import _ApplicationContext from './application/ApplicationContext';
 import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
-import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
 /*** endif */
@@ -239,7 +239,6 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -340,19 +339,6 @@ declare namespace common {
   export type FormExtensionContext = _FormExtensionContext.default;
 
   /**
-   * The context of form extension. It allows access to
-   * formExtension-specific resources.
-   *
-   * @typedef { _FormExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export type FormExtensionContext = _FormExtensionContext;
-
-  /**
    * The context of service extension. It allows access to
    * serviceExtension-specific resources.
    *
@@ -411,7 +397,6 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */

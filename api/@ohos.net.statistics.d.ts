@@ -32,14 +32,14 @@ import type connection from './@ohos.net.connection';
  * @namespace statistics
  * @syscap SystemCapability.Communication.NetManager.Core
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
+ * @since arkts{'1.1':'15','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace statistics {
   /**
    * @typedef {connection.NetBearType}
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   type NetBearType = connection.NetBearType;
@@ -55,7 +55,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getIfaceRxBytes(nic: string, callback: AsyncCallback<long>): void;
@@ -71,7 +71,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getIfaceRxBytes(nic: string): Promise<long>;
@@ -87,7 +87,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getIfaceTxBytes(nic: string, callback: AsyncCallback<long>): void;
@@ -103,7 +103,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getIfaceTxBytes(nic: string): Promise<long>;
@@ -117,8 +117,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularRxBytes(callback: AsyncCallback<long>): void;
 
@@ -131,8 +130,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularRxBytes(): Promise<long>;
 
@@ -145,8 +143,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularTxBytes(callback: AsyncCallback<long>): void;
 
@@ -159,8 +156,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @throws { BusinessError } 2103012 - Failed to obtain the NIC name.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getCellularTxBytes(): Promise<long>;
 
@@ -183,7 +179,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllRxBytes(callback: AsyncCallback<long>): void;
@@ -207,7 +203,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllRxBytes(): Promise<long>;
@@ -231,7 +227,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllTxBytes(callback: AsyncCallback<long>): void;
@@ -255,7 +251,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
+   * @since arkts{'1.1':'15','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getAllTxBytes(): Promise<long>;
@@ -270,8 +266,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidRxBytes(uid: int, callback: AsyncCallback<long>): void;
 
@@ -285,8 +280,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidRxBytes(uid: int): Promise<long>;
 
@@ -300,8 +294,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidTxBytes(uid: int, callback: AsyncCallback<long>): void;
   
@@ -315,8 +308,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103005 - Failed to read the system map.
    * @throws { BusinessError } 2103011 - Failed to create a system map.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getUidTxBytes(uid: int): Promise<long>;
 
@@ -394,7 +386,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo, callback: AsyncCallback<NetStatsInfo>): void;
@@ -413,7 +405,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getTrafficStatsByIface(ifaceInfo: IfaceInfo): Promise<NetStatsInfo>;
@@ -432,7 +424,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getTrafficStatsByUid(uidInfo: UidInfo, callback: AsyncCallback<NetStatsInfo>): void;
@@ -451,7 +443,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2103017 - Failed to read the database.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   function getTrafficStatsByUid(uidInfo: UidInfo): Promise<NetStatsInfo>;
@@ -465,8 +457,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdRxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -479,8 +470,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdRxBytes(sockfd: int): Promise<long>;
 
@@ -493,8 +483,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdTxBytes(sockfd: int, callback: AsyncCallback<long>): void;
 
@@ -507,8 +496,7 @@ declare namespace statistics {
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getSockfdTxBytes(sockfd: int): Promise<long>;
 
@@ -517,7 +505,7 @@ declare namespace statistics {
    * @interface IfaceInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface IfaceInfo {
@@ -526,7 +514,7 @@ declare namespace statistics {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     iface: string;
@@ -536,7 +524,7 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     startTime: int;
@@ -546,7 +534,7 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     endTime: int;
@@ -557,7 +545,7 @@ declare namespace statistics {
    * @interface UidInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface UidInfo {
@@ -566,7 +554,7 @@ declare namespace statistics {
      * @type {IfaceInfo}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     ifaceInfo: IfaceInfo;
@@ -576,7 +564,7 @@ declare namespace statistics {
      * @type {int}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     uid: int;
@@ -587,7 +575,7 @@ declare namespace statistics {
    * @interface NetStatsInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts{'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetStatsInfo {
@@ -596,7 +584,7 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     rxBytes: long;
@@ -606,7 +594,7 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     txBytes: long;
@@ -616,7 +604,7 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     rxPackets: long;
@@ -626,7 +614,7 @@ declare namespace statistics {
      * @type {long}
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10','1.2':'20'}
+     * @since arkts{'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
     txPackets: long;
@@ -637,7 +625,7 @@ declare namespace statistics {
    * @interface NetStatsChangeInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since arkts{'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetStatsChangeInfo {
@@ -646,7 +634,7 @@ declare namespace statistics {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     iface: string;
@@ -655,7 +643,7 @@ declare namespace statistics {
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since arkts{'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     uid?: int;
@@ -673,7 +661,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     startTime: int;
@@ -682,7 +670,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     endTime: int;
@@ -691,7 +679,7 @@ declare namespace statistics {
      * @type { NetStatsInfo }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     info: NetStatsInfo;
@@ -712,7 +700,7 @@ declare namespace statistics {
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts{'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export interface NetworkInfo {
@@ -721,7 +709,7 @@ declare namespace statistics {
      * @type { NetBearType }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     type: NetBearType;
@@ -730,7 +718,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     startTime: int;
@@ -739,7 +727,7 @@ declare namespace statistics {
      * @type { int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     endTime: int;
@@ -748,7 +736,7 @@ declare namespace statistics {
      * @type { ?int }
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since arkts{'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     simId?: int;

@@ -1169,14 +1169,14 @@ declare namespace window {
     /**
      * The left of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left: number;
+    left: int;
 
     /**
      * The top of the Rect.
@@ -1194,14 +1194,14 @@ declare namespace window {
     /**
      * The top of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top: number;
+    top: int;
 
     /**
      * The width of the Rect.
@@ -1219,14 +1219,14 @@ declare namespace window {
     /**
      * The width of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
 
     /**
      * The height of the Rect.
@@ -1244,14 +1244,14 @@ declare namespace window {
     /**
      * The height of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -1547,14 +1547,14 @@ declare namespace window {
     /**
      * The width of the window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7
      */
     /**
      * The width of the window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1562,14 +1562,14 @@ declare namespace window {
     /**
      * The width of the window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
 
     /**
      * The height of the window.
@@ -1580,7 +1580,7 @@ declare namespace window {
     /**
      * The height of the window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1588,14 +1588,14 @@ declare namespace window {
     /**
      * The height of the window.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -2685,74 +2685,74 @@ declare namespace window {
     /**
      * The maximum width of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The maximum width of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    maxWidth?: number;
+    maxWidth?: int;
 
     /**
      * The maximum height of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The maximum height of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    maxHeight?: number;
+    maxHeight?: int;
 
     /**
      * The minimum width of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The minimum width of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    minWidth?: number;
+    minWidth?: int;
 
     /**
      * The minimum height of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 11
      */
     /**
      * The minimum height of the window.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    minHeight?: number;
+    minHeight?: int;
   }
 
   /**
@@ -2859,7 +2859,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rect: Rect,
 
@@ -4456,13 +4457,13 @@ declare namespace window {
     /**
      * The display id of the screen
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
   }
 
   /**
@@ -4688,7 +4689,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginRect: Rect;
 
@@ -4698,7 +4700,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endRect: Rect;
 
@@ -5159,8 +5162,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5172,8 +5175,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5186,8 +5189,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5199,13 +5202,13 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    moveWindowTo(x: number, y: number): Promise<void>;
+    moveWindowTo(x: int, y: int): Promise<void>;
 
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5217,8 +5220,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5231,8 +5234,8 @@ declare namespace window {
     /**
      * Set the position of a window.
      *
-     * @param { number } x - Indicate the X-coordinate of the window.
-     * @param { number } y - Indicate the Y-coordinate of the window.
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -5244,7 +5247,7 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    moveWindowTo(x: number, y: number, callback: AsyncCallback<void>): void;
+    moveWindowTo(x: int, y: int, callback: AsyncCallback<void>): void;
 
     /**
      * Move window to the position.
@@ -5369,8 +5372,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5383,8 +5386,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5398,8 +5401,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5412,13 +5415,13 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resize(width: number, height: number): Promise<void>;
+    resize(width: int, height: int): Promise<void>;
 
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5431,8 +5434,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5446,8 +5449,8 @@ declare namespace window {
     /**
      * Set the size of a window .
      *
-     * @param { number } width - Indicates the width of the window. The width should be greater than 0.
-     * @param { number } height - Indicates the height of the window. The height should be greater than 0.
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -5460,7 +5463,7 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    resize(width: number, height: number, callback: AsyncCallback<void>): void;
+    resize(width: int, height: int, callback: AsyncCallback<void>): void;
 
     /**
      * Set the size of a window.
@@ -10478,9 +10481,12 @@ declare namespace window {
     /**
      * Register the callback of rotation change
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
-     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the rotation change result.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback -
+     *     Callback used to return the rotation change result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -10490,18 +10496,60 @@ declare namespace window {
     on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
 
     /**
+     * Register the callback of rotation change
+     *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
+     *     Callback used to return the rotation change result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
+      void;
+
+    /**
      * Unregister the callback of rotationChange
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
-     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } [callback] -
+     *     Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
      */
-    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+    off(type: 'rotationChange',
+      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+
+    /**
+     * Unregister the callback of rotationChange
+     *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } [callback] -
+     *     Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    off(type: 'rotationChange',
+      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
 
     /**
      * UIExtension in window secure limit change callback on.
@@ -11630,8 +11678,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -11650,8 +11697,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -11671,8 +11717,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
@@ -12289,7 +12334,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RotationChangeType {
     /**
@@ -12297,7 +12343,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_WILL_ROTATE = 0,
 
@@ -12306,7 +12353,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_DID_ROTATE = 1
   }
@@ -12317,7 +12365,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RectType {
     /**
@@ -12325,7 +12374,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATIVE_TO_SCREEN = 0,
     /**
@@ -12333,7 +12383,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATIVE_TO_PARENT_WINDOW = 1
   }
@@ -12389,7 +12440,8 @@ declare namespace window {
    * @interface RotationChangeInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RotationChangeInfo {
     /**
@@ -12398,7 +12450,8 @@ declare namespace window {
      * @type { RotationChangeType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: RotationChangeType;
     /**
@@ -12407,7 +12460,8 @@ declare namespace window {
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     orientation: int;
     /**
@@ -12416,7 +12470,8 @@ declare namespace window {
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId: long;
     /**
@@ -12425,7 +12480,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayRect: Rect;
   }
@@ -12436,7 +12492,8 @@ declare namespace window {
    * @interface RotationChangeResult
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RotationChangeResult {
     /**
@@ -12445,7 +12502,8 @@ declare namespace window {
      * @type { RectType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rectType: RectType;
     /**
@@ -12454,7 +12512,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect: Rect;
   }
@@ -12462,23 +12521,15 @@ declare namespace window {
   /**
    * Rotation Change callback
    *
-   * @typedef RotationChangeCallback<T, U>
+   * @typedef {function}
+   * @param { T } info
+   * @returns { U } result
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface RotationChangeCallback<T, U> {
-    /**
-     * Defines the rotation change callback
-     *
-     * @param { T } info
-     * @returns { U } result
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19
-     */
-    (info: T): U;
-  }
+  type RotationChangeCallback<T, U> = (info: T) => U;
 }
 
 export default window;

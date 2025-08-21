@@ -199,8 +199,7 @@ declare namespace fileShare {
    *
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export interface PathPolicyInfo {
     /**
@@ -208,8 +207,7 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     path: string;
  
@@ -218,8 +216,7 @@ declare namespace fileShare {
      *
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     operationMode: OperationMode;
   }
@@ -229,16 +226,14 @@ declare namespace fileShare {
    *
    * @enum { number } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   export enum PolicyType {
     /**
      * Indicates that the policy is temporary.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     TEMPORARY_TYPE = 0,
  
@@ -246,8 +241,7 @@ declare namespace fileShare {
      * Indicates that the policy is persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     PERSISTENT_TYPE = 1,
   }
@@ -427,8 +421,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }

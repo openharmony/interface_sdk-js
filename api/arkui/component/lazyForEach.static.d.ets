@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,25 +12,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
-// HADWRITTEN, DO NOT REGENERATE
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
-import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from './../stateManagement/runtime'
+import { Builder } from './builder';
+import { ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Defines type to operation data source.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export enum DataOperationType {
@@ -38,8 +33,6 @@ export enum DataOperationType {
      * Add data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     ADD = 'add',
@@ -47,8 +40,6 @@ export enum DataOperationType {
      * Delete data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     DELETE = 'delete',
@@ -56,8 +47,6 @@ export enum DataOperationType {
      * Exchange data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     EXCHANGE = 'exchange',
@@ -65,8 +54,6 @@ export enum DataOperationType {
      * Move data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     MOVE = 'move',
@@ -74,8 +61,6 @@ export enum DataOperationType {
      * Change data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     CHANGE = 'change',
@@ -83,8 +68,6 @@ export enum DataOperationType {
      * Reload data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     RELOAD = 'reload'
@@ -95,18 +78,14 @@ export enum DataOperationType {
  *
  * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataAddOperation {
     /**
      * How to operate added data.
      *
-     * @type { DataOperationType.ADD }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -115,8 +94,6 @@ export interface DataAddOperation {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     index: number;
@@ -127,8 +104,6 @@ export interface DataAddOperation {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     count?: number;
@@ -137,8 +112,6 @@ export interface DataAddOperation {
      *
      * @type { ?(string | Array<string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     key?: string | Array<string>;
@@ -149,18 +122,14 @@ export interface DataAddOperation {
  *
  * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataDeleteOperation {
     /**
      * How to operate deleted data.
      *
-     * @type { DataOperationType.DELETE }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -169,8 +138,6 @@ export interface DataDeleteOperation {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     index: number;
@@ -181,8 +148,6 @@ export interface DataDeleteOperation {
      * @type { ?number }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     count?: number;
@@ -193,18 +158,14 @@ export interface DataDeleteOperation {
  *
  * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataChangeOperation {
     /**
      * How to operate changed data.
      *
-     * @type { DataOperationType.CHANGE }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -213,8 +174,6 @@ export interface DataChangeOperation {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     index: number;
@@ -223,8 +182,6 @@ export interface DataChangeOperation {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     key?: string;
@@ -235,8 +192,6 @@ export interface DataChangeOperation {
  *
  * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface MoveIndex {
@@ -245,8 +200,6 @@ export interface MoveIndex {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     from: number;
@@ -255,8 +208,6 @@ export interface MoveIndex {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     to: number;
@@ -267,8 +218,6 @@ export interface MoveIndex {
  *
  * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface ExchangeIndex {
@@ -277,8 +226,6 @@ export interface ExchangeIndex {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     start: number;
@@ -287,8 +234,6 @@ export interface ExchangeIndex {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     end: number;
@@ -299,8 +244,6 @@ export interface ExchangeIndex {
  *
  * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface ExchangeKey {
@@ -309,8 +252,6 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     start: string;
@@ -319,8 +260,6 @@ export interface ExchangeKey {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     end: string;
@@ -331,18 +270,14 @@ export interface ExchangeKey {
  *
  * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataMoveOperation {
     /**
      * How to operate moved data.
      *
-     * @type { DataOperationType.MOVE }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -351,8 +286,6 @@ export interface DataMoveOperation {
      *
      * @type { MoveIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     index: MoveIndex;
@@ -361,8 +294,6 @@ export interface DataMoveOperation {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     key?: string;
@@ -373,18 +304,14 @@ export interface DataMoveOperation {
  *
  * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataExchangeOperation {
     /**
      * How to operate exchange data.
      *
-     * @type { DataOperationType.EXCHANGE }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -393,8 +320,6 @@ export interface DataExchangeOperation {
      *
      * @type { ExchangeIndex }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     index: ExchangeIndex;
@@ -403,8 +328,6 @@ export interface DataExchangeOperation {
      *
      * @type { ?ExchangeKey }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     key?: ExchangeKey;
@@ -415,18 +338,14 @@ export interface DataExchangeOperation {
  *
  * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataReloadOperation {
     /**
      * How to operate reload data.
      *
-     * @type { DataOperationType.RELOAD }
+     * @type { DataOperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     type: DataOperationType;
@@ -438,8 +357,6 @@ export interface DataReloadOperation {
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation
  *  | DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation |
@@ -450,8 +367,6 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
  *
  * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface DataChangeListener {
@@ -459,62 +374,50 @@ export interface DataChangeListener {
      * Data ready.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDataReloaded(): void
+    onDataReloaded(): void;
     /**
      * Data added.
      *
      * @param { number } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDataAdd(index: number): void
+    onDataAdd(index: number): void;
     /**
      * Data moved.
      *
      * @param { number } from
      * @param { number } to
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDataMove(from: number, to: number): void
+    onDataMove(from: number, to: number): void;
     /**
      * Data deleted.
      *
      * @param { number } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDataDelete(index: number): void
+    onDataDelete(index: number): void;
     /**
      * Call when has data change.
      *
      * @param { number } index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDataChange(index: number): void
+    onDataChange(index: number): void;
     /**
      * Call when multiple data change.
      *
-     * @param { DataOperation[] } dataOperations
+     * @param { Array<DataOperation> } dataOperations
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDatasetChange(dataOperations: Array<DataOperation>): void
+    onDatasetChange(dataOperations: Array<DataOperation>): void;
 }
 
 /**
@@ -522,8 +425,6 @@ export interface DataChangeListener {
  *
  * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface IDataSource<T> {
@@ -532,8 +433,6 @@ export interface IDataSource<T> {
      *
      * @returns { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     totalCount(): number;
@@ -541,10 +440,8 @@ export interface IDataSource<T> {
      * Return the data of index.
      *
      * @param { number } index
-     * @returns { any }
+     * @returns { T }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     getData(index: number): T;
@@ -553,8 +450,6 @@ export interface IDataSource<T> {
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     registerDataChangeListener(listener: DataChangeListener): void;
@@ -563,49 +458,56 @@ export interface IDataSource<T> {
      *
      * @param { DataChangeListener } listener
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
 /**
- * declare ForEachAttribute
+ * declare LazyForEachAttribute
  *
+ * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface LazyForEachAttribute {}
 
 /**
- * declare UILazyForEachAttribute
+ * Define item generator function.
  *
+ * @typedef { function } ItemGeneratorFunc<T>
+ * @param { T } item - item in an array
+ * @param { number } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-export interface UILazyForEachAttribute {}
+@Builder
+declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
+
+/**
+ * Define key generator function.
+ *
+ * @typedef { function } KeyGeneratorFunc<T>
+ * @param { T } item - item in an array
+ * @param { number } index - index corresponding to an array item.
+ * @returns {string} Character string generated based on item and index
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
 
 /**
  * Enter the value to obtain the LazyForEach.
  *
- * @param { IDataSource } dataSource
- * @param { function } itemGenerator
- * @param { function } keyGenerator
- * @returns { LazyForEachAttribute }
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
+ * @returns { LazyForEachAttribute } LazyForEach attribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-@memo
 @ComponentBuilder
 export declare function LazyForEach<T>(dataSource: IDataSource<T>,
-    @memo
-    itemGenerator: (item: T, index: number) => void,
-    keyGenerator?: (item: T, index: number) => string,
-): LazyForEachAttribute
+    itemGenerator: ItemGeneratorFunc<T>,
+    keyGenerator?: KeyGeneratorFunc<T>,
+): LazyForEachAttribute;

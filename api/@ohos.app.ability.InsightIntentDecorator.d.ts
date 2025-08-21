@@ -205,7 +205,6 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
  *
  * @enum { string }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 20
@@ -215,7 +214,6 @@ declare enum LinkParamCategory {
    * The parameter will added to the end of link uri.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 20
@@ -226,7 +224,6 @@ declare enum LinkParamCategory {
    * The parameter will transferred to the application as parameters of want.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 20

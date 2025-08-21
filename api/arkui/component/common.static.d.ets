@@ -1,4 +1,4 @@
-"use static"
+'use static'
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -9830,61 +9830,59 @@ export declare interface MenuElement {
      */
     action: () => void;
 }
+
 /**
  * Defines the attribute modifier.
  *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface AttributeModifier<T> {
-    /**
-     * Defines the normal update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyNormalAttribute(instance: T) : void;
-    /**
-     * Defines the pressed update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyPressedAttribute(instance: T) : void;
-    /**
-     * Defines the focused update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyFocusedAttribute(instance: T) : void;
-    /**
-     * Defines the disabled update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applyDisabledAttribute(instance: T) : void;
-    /**
-     * Defines the selected update attribute function.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    default applySelectedAttribute(instance: T) : void;
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyNormalAttribute(instance: T) : void;
+
+  /**
+   * Defines the pressed update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyPressedAttribute(instance: T) : void;
+
+  /**
+   * Defines the focused update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyFocusedAttribute(instance: T) : void;
+
+  /**
+   * Defines the disabled update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applyDisabledAttribute(instance: T) : void;
+
+  /**
+   * Defines the selected update attribute function.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default applySelectedAttribute(instance: T) : void;
 }
 /**
  * Defines the content modifier.
@@ -12271,16 +12269,13 @@ export declare interface CommonMethod {
     /**
      * Add mask text to the current component. The layout is the same as that of the current component.
      *
-     * @param { string | CustomBuilder | ComponentContent } value
-     * @param { OverlayOptions } options
-     * @returns { T }
+     * @param { string | CustomBuilder | ComponentContent<T> | undefined } value
+     * @param { OverlayOptions } [options]
+     * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    default overlay(value: string | CustomBuilder | ComponentContent | undefined, options?: OverlayOptions | undefined): this;
+    default overlay<T extends Object>(value: string | CustomBuilder | ComponentContent<T> | undefined, options?: OverlayOptions): this;
     /**
      * Linear Gradient
      * angle: Angle of Linear Gradient. The default value is 180;
@@ -15358,11 +15353,11 @@ export declare interface TerminationInfo {
     /**
      * Defines the termination code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    code: number;
+    code: int;
     /**
      * Defines the additional termination information.
      *

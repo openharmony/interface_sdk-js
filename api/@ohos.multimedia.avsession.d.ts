@@ -19,7 +19,7 @@
  */
 
 import type { ErrorCallback, AsyncCallback, Callback } from './@ohos.base';
-import { WantAgent } from './@ohos.wantAgent';
+import { WantAgent } from './@ohos.app.ability.wantAgent';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 import { ElementName } from './bundleManager/ElementName';
 import image from './@ohos.multimedia.image';
@@ -7835,9 +7835,9 @@ declare namespace avSession {
      * Unregister the active state of this session changed callback
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
-     * The callback function provides the changed session state.
+     *     The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7847,17 +7847,28 @@ declare namespace avSession {
      * Unregister the active state of this session changed callback
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
-     * The callback function provides the changed session state.
+     *     The callback function provides the changed session state.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types.
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20'}
+     * @since 12
+     */
+    /**
+     * Unregister the active state of this session changed callback
+     * @param { 'activeStateChange' } type - 'activeStateChange'
+     * @param { function } callback - The callback used to handle the active state of this session changed event.
+     *     The callback function provides the changed session state.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
-    off(type: 'activeStateChange', callback?: (isActive: boolean) => void);
+    off(type: 'activeStateChange', callback?: (isActive: boolean) => void): void;
 
     /**
      * Register the valid commands of the session changed callback
@@ -8298,12 +8309,13 @@ declare namespace avSession {
   /**
    * The type of control command, add new support 'playWithAssetId'
    * @typedef { 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' | 'seek' |
-  *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
-  *     'toggleCallMute' | 'setTargetLoopMode' } AVControlCommandType
-  * @syscap SystemCapability.Multimedia.AVSession.Core
-  * @atomicservice
-  * @since 20
-  */
+   *     'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' |
+   *     'toggleCallMute' | 'setTargetLoopMode'} AVControlCommandType
+   * @syscap SystemCapability.Multimedia.AVSession.Core
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
   'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 

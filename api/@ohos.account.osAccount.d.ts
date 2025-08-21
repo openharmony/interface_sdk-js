@@ -204,8 +204,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     checkMultiOsAccountEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -215,8 +214,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if this function is enabled; returns {@code false} otherwise.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     checkMultiOsAccountEnabled(): Promise<boolean>;
 
@@ -296,8 +294,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isOsAccountActivated(localId: int): Promise<boolean>;
 
@@ -402,8 +399,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isOsAccountConstraintEnabled(constraint: string): Promise<boolean>;
 
@@ -427,8 +423,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     isOsAccountConstraintEnabled(localId: int, constraint: string): Promise<boolean>;
 
@@ -462,8 +457,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     checkOsAccountTestable(callback: AsyncCallback<boolean>): void;
 
@@ -473,8 +467,7 @@ declare namespace osAccount {
      * @returns { Promise<boolean> } Returns {@code true} if this account is testable; returns {@code false} otherwise.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     checkOsAccountTestable(): Promise<boolean>;
 
@@ -626,8 +619,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     removeOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
@@ -648,8 +640,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     removeOsAccount(localId: int): Promise<void>;
 
@@ -676,8 +667,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountConstraints(localId: int, constraints: Array<string>, enable: boolean,
                                 callback: AsyncCallback<void>): void;
@@ -705,8 +695,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountConstraints(localId: int, constraints: Array<string>, enable: boolean): Promise<void>;
 
@@ -727,8 +716,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountName(localId: int, localName: string, callback: AsyncCallback<void>): void;
 
@@ -749,8 +737,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountName(localId: int, localName: string): Promise<void>;
 
@@ -760,8 +747,7 @@ declare namespace osAccount {
      * @returns { Promise<string> } The promise returned by the function.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getOsAccountName(): Promise<string>;
 
@@ -800,8 +786,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountCount(callback: AsyncCallback<int>): void;
 
@@ -814,8 +799,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountCount(): Promise<int>;
 
@@ -973,8 +957,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<int>): void;
 
@@ -991,8 +974,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<int>;
 
@@ -1006,8 +988,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     queryMaxOsAccountNumber(callback: AsyncCallback<int>): void;
 
@@ -1019,8 +1000,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     queryMaxOsAccountNumber(): Promise<int>;
 
@@ -1113,8 +1093,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     getEnabledOsAccountConstraints(localId: int): Promise<Array<string>>;
 
@@ -1344,8 +1323,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300007 - The number of accounts has reached the upper limit.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createOsAccountForDomain(
       type: OsAccountType,
@@ -1398,8 +1376,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300015 - The short name already exists.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountForDomainOptions): Promise<OsAccountInfo>;
 
@@ -1546,8 +1523,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     getOsAccountDomainInfo(localId: int): Promise<DomainAccountInfo>;
 
@@ -1672,8 +1648,7 @@ declare namespace osAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     queryDistributedVirtualDeviceId(callback: AsyncCallback<string>): void;
 
@@ -1691,8 +1666,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     queryDistributedVirtualDeviceId(): Promise<string>;
 
@@ -1755,8 +1729,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountProfilePhoto(localId: int, photo: string, callback: AsyncCallback<void>): void;
 
@@ -1777,8 +1750,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300008 - Restricted Account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     setOsAccountProfilePhoto(localId: int, photo: string): Promise<void>;
 
@@ -1817,8 +1789,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
      * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountLocalIdForSerialNumber(serialNumber: long, callback: AsyncCallback<int>): void;
 
@@ -1833,8 +1804,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid serialNumber.
      * @throws { BusinessError } 12300003 - The account indicated by serialNumber dose not exist.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountLocalIdForSerialNumber(serialNumber: long): Promise<int>;
 
@@ -1873,8 +1843,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getSerialNumberForOsAccountLocalId(localId: int, callback: AsyncCallback<long>): void;
 
@@ -1889,8 +1858,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid localId.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getSerialNumberForOsAccountLocalId(localId: int): Promise<long>;
 
@@ -2025,8 +1993,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getBundleIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
@@ -2042,8 +2009,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getBundleIdForUid(uid: int): Promise<int>;
 
@@ -2058,8 +2024,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid uid.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getBundleIdForUidSync(uid: int): int;
 
@@ -2114,8 +2079,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountConstraintSourceTypes(localId: int, constraint: string, callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>): void;
 
@@ -2135,34 +2099,9 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     getOsAccountConstraintSourceTypes(localId: int, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
-
-    /**
-     * Binds the specified domain account to the target OS account.
-     *
-     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - Indicates the local Id of the OS account.
-     * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 12300001 - The system service works abnormally.
-     * @throws { BusinessError } 12300002 - Invalid domain account information.
-     * @throws { BusinessError } 12300003 - The OS account not found.
-     * @throws { BusinessError } 12300008 - Restricted OS account. Possible causes: The OS account cannot be bound.
-     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target OS account or domain account is being operated.
-     * @throws { BusinessError } 12300021 - The OS account is already bound.
-     * @throws { BusinessError } 12300022 - The domain account is already bound.
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    bindDomainAccount(localId: number, domainAccountInfo: DomainAccountInfo): Promise<void>;
   }
 
   /**
@@ -2409,8 +2348,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     disallowedPreinstalledBundles?: Array<string>;
 
@@ -2420,8 +2358,7 @@ declare namespace osAccount {
      * @type { ?Array<string> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'19', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     allowedPreinstalledBundles?: Array<string>;
   }
@@ -2433,8 +2370,7 @@ declare namespace osAccount {
    * @interface CreateOsAccountForDomainOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
 
@@ -2575,8 +2511,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getVersion(): int;
 
@@ -2595,8 +2530,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid authType or authTrustLevel.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     getAvailableStatus(authType: AuthType, authTrustLevel: AuthTrustLevel): int;
 
@@ -2688,8 +2622,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
@@ -2762,7 +2695,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
@@ -3043,7 +2975,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     authUser(
       userId: int,
@@ -3183,8 +3114,7 @@ declare namespace osAccount {
    * @interface AuthStatusInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface AuthStatusInfo {
     /**
@@ -3193,8 +3123,7 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     remainTimes: int;
 
@@ -3204,8 +3133,7 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     freezingTime: int;
   }
@@ -3216,8 +3144,7 @@ declare namespace osAccount {
    * @typedef GetDomainAccessTokenOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface GetDomainAccessTokenOptions {
     /**
@@ -3226,8 +3153,7 @@ declare namespace osAccount {
      * @type { DomainAccountInfo }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     domainAccountInfo: DomainAccountInfo;
 
@@ -3237,8 +3163,7 @@ declare namespace osAccount {
      * @type { Uint8Array }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     domainAccountToken: Uint8Array;
 
@@ -3248,8 +3173,7 @@ declare namespace osAccount {
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     businessParams: Record<string, Object>;
 
@@ -3259,8 +3183,7 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     callerUid: int;
   }
@@ -3271,8 +3194,7 @@ declare namespace osAccount {
    * @typedef GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface GetDomainAccountInfoOptions {
     /**
@@ -3281,8 +3203,7 @@ declare namespace osAccount {
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     accountName: string;
 
@@ -3292,8 +3213,7 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     domain?: string;
 
@@ -3303,8 +3223,7 @@ declare namespace osAccount {
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     serverConfigId?: string;
   }
@@ -3316,8 +3235,7 @@ declare namespace osAccount {
    * @extends GetDomainAccountInfoOptions
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   interface GetDomainAccountInfoPluginOptions extends GetDomainAccountInfoOptions {
     /**
@@ -3326,11 +3244,26 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     callerUid: int;
   }
+
+  /**
+   * Authenticates the specified domain account.
+   *
+   * @typedef { function } DomainPluginAuthFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } credential - Indicates the credential for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginAuthFunc = (domainAccountInfo: DomainAccountInfo,
+    credential: Uint8Array, callback: IUserAuthCallback) => void;
 
   /**
    * Provides the definition of domain plugin.
@@ -3350,10 +3283,18 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the authentication callback.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Authenticates the specified domain account.
+     *
+     * @type { DomainPluginAuthFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    auth: DomainPluginAuthFunc;
 
     /**
      * Authenticates the specified domain account with a popup.
@@ -3362,8 +3303,7 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
 
@@ -3375,8 +3315,7 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
 
@@ -3387,8 +3326,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
@@ -3399,8 +3337,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication status information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
 
@@ -3412,8 +3349,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     bindAccount(domainAccountInfo: DomainAccountInfo, localId: int, callback: AsyncCallback<void>): void;
 
@@ -3424,8 +3360,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
 
@@ -3437,8 +3372,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     isAccountTokenValid(
       domainAccountInfo: DomainAccountInfo,
@@ -3453,8 +3387,7 @@ declare namespace osAccount {
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
   }
@@ -3496,8 +3429,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static registerPlugin(plugin: DomainPlugin): void;
 
@@ -3522,8 +3454,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static unregisterPlugin(): void;
 
@@ -3605,8 +3536,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static authWithPopup(callback: IUserAuthCallback): void;
 
@@ -3661,8 +3591,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static authWithPopup(localId: int, callback: IUserAuthCallback): void;
 
@@ -3687,8 +3616,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static hasAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
 
@@ -3713,8 +3641,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
 
@@ -3737,8 +3664,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static updateAccountToken(
       domainAccountInfo: DomainAccountInfo,
@@ -3765,8 +3691,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
@@ -3785,8 +3710,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300004 - The new account already exists.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
@@ -3811,8 +3735,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
@@ -3837,8 +3760,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
 
@@ -3862,8 +3784,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static getAccessToken(businessParams: Record<string, Object>, callback: AsyncCallback<Uint8Array>): void;
 
@@ -3887,8 +3808,7 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
 
@@ -3919,8 +3839,7 @@ declare namespace osAccount {
    *
    * @typedef DomainServerConfig
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface DomainServerConfig {
     /**
@@ -3928,8 +3847,7 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     parameters: Record<string, Object>;
 
@@ -3938,8 +3856,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     id: string;
 
@@ -3948,8 +3865,7 @@ declare namespace osAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     domain: string;
   }
@@ -3958,8 +3874,7 @@ declare namespace osAccount {
    * Provides abilities for managing domain server config.
    *
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   class DomainServerConfigManager {
     /**
@@ -3977,8 +3892,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
@@ -3995,8 +3909,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static removeServerConfig(configId: string): Promise<void>;
 
@@ -4017,8 +3930,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
@@ -4034,8 +3946,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300212 - Server config not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static getServerConfig(configId: string): Promise<DomainServerConfig>;
 
@@ -4049,8 +3960,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
@@ -4066,8 +3976,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300003 - Domain account not found.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise<DomainServerConfig>;
   }
@@ -4298,8 +4207,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300002 - Invalid challenge.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     cancel(challenge: Uint8Array): void;
 
@@ -4339,8 +4247,7 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300102 - The credential does not exist.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     delCred(credentialId: Uint8Array, token: Uint8Array, callback: IIdmCallback): void;
 
@@ -4522,7 +4429,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
   }
@@ -5627,8 +5533,7 @@ declare namespace osAccount {
    * @enum { int } Module
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   enum Module {
     /**
@@ -5636,8 +5541,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     FACE_AUTH = 1
   }
@@ -5981,8 +5885,7 @@ declare namespace osAccount {
    * @enum { int } ConstraintSourceType
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   enum ConstraintSourceType {
     /**
@@ -5990,8 +5893,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     CONSTRAINT_NOT_EXIST = 0,
 
@@ -6000,8 +5902,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     CONSTRAINT_TYPE_BASE = 1,
 
@@ -6010,8 +5911,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     CONSTRAINT_TYPE_DEVICE_OWNER = 2,
 
@@ -6020,8 +5920,7 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     CONSTRAINT_TYPE_PROFILE_OWNER = 3
   }
@@ -6032,8 +5931,7 @@ declare namespace osAccount {
    * @interface ConstraintSourceTypeInfo
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   interface ConstraintSourceTypeInfo {
     /**
@@ -6043,8 +5941,7 @@ declare namespace osAccount {
      * @type { int }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     localId: int;
 
@@ -6054,8 +5951,7 @@ declare namespace osAccount {
      * @type { ConstraintSourceType }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     type: ConstraintSourceType;
   }

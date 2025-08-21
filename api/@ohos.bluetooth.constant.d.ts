@@ -361,7 +361,7 @@ declare namespace constant {
   /**
    * The enum of profile connection state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
@@ -471,7 +471,7 @@ declare namespace constant {
   /**
    * The enum of major class of a bluetooth device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}
@@ -584,7 +584,7 @@ declare namespace constant {
   /**
    * The enum of major minor class of a bluetooth device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @since arkts {'1.1':'13','1.2':'20'}

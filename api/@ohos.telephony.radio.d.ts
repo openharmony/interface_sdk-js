@@ -186,7 +186,7 @@ declare namespace radio {
    * Obtains the network state of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
    * @throws { BusinessError } 201 - Permission denied.
@@ -200,13 +200,13 @@ declare namespace radio {
    * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void;
+  function getNetworkState(slotId: int, callback: AsyncCallback<NetworkState>): void;
 
   /**
    * Obtains the network state of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * if no slotId is provided, the default slotId is 0.
    * @returns { Promise<NetworkState> } Returns the NetworkState object.
@@ -221,7 +221,7 @@ declare namespace radio {
    * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getNetworkState(slotId?: number): Promise<NetworkState>;
+  function getNetworkState(slotId?: int): Promise<NetworkState>;
 
   /**
    * Obtains the network state of the registered network.
@@ -808,7 +808,7 @@ declare namespace radio {
    *
    * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the index number of
+   * @param { AsyncCallback<int> } callback - Indicates the callback for getting the index number of
    * the primary card slot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -820,14 +820,14 @@ declare namespace radio {
    * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getPrimarySlotId(callback: AsyncCallback<number>): void;
+  function getPrimarySlotId(callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
    *
    * The primary card is the SIM card inserted in the card slot that uses data services by default.
    *
-   * @returns { Promise<number> } Returns the index number of the primary card slot.
+   * @returns { Promise<int> } Returns the index number of the primary card slot.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
@@ -835,7 +835,7 @@ declare namespace radio {
    * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getPrimarySlotId(): Promise<number>;
+  function getPrimarySlotId(): Promise<int>;
 
   /**
    * Set the index number of the main SIM card slot.
@@ -884,7 +884,7 @@ declare namespace radio {
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @param { AsyncCallback<Array<SignalInformation>> } callback - Indicates the callback for getting
    * the instance list of the child classes derived from {@link SignalInformation}.
@@ -898,12 +898,12 @@ declare namespace radio {
    * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void;
+  function getSignalInformation(slotId: int, callback: AsyncCallback<Array<SignalInformation>>): void;
 
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { Promise<Array<SignalInformation>> } Returns the callback for getting the instance list of
    * the child classes derived from {@link SignalInformation}.
@@ -917,7 +917,7 @@ declare namespace radio {
    * @since arkts{ '1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSignalInformation(slotId: number): Promise<Array<SignalInformation>>;
+  function getSignalInformation(slotId: int): Promise<Array<SignalInformation>>;
 
   /**
    * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
@@ -968,14 +968,14 @@ declare namespace radio {
   /**
    * Checks whether the device supports 5G New Radio (NR) by according card slot.
    *
-   * @param { number } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
+   * @param { int } slotId - Indicates the card slot index int, ranging from 0 to the maximum card slot
    * index number supported by the device.
    * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts{ '1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isNRSupported(slotId: number): boolean;
+  function isNRSupported(slotId: int): boolean;
 
   /**
    * Checks whether the radio service is enabled.
@@ -1292,7 +1292,7 @@ declare namespace radio {
    * Get the IMS registration state info of specified IMS service type.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @param { AsyncCallback<ImsRegInfo> } callback - Indicates an instance of the {@link ImsRegInfo} class.
@@ -1308,13 +1308,13 @@ declare namespace radio {
    * @since arkts{ '1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getImsRegInfo(slotId: number, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
+  function getImsRegInfo(slotId: int, imsType: ImsServiceType, callback: AsyncCallback<ImsRegInfo>): void;
 
   /**
    * Get the IMS registration state info of specified IMS service type.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ImsServiceType } imsType - Indicates the ims service type of the {@link ImsServiceType}.
    * @returns { Promise<ImsRegInfo> } Returns an instance of the {@link ImsRegInfo} class.
@@ -1330,7 +1330,7 @@ declare namespace radio {
    * @since arkts{ '1.1':'9','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getImsRegInfo(slotId: number, imsType: ImsServiceType): Promise<ImsRegInfo>;
+  function getImsRegInfo(slotId: int, imsType: ImsServiceType): Promise<ImsRegInfo>;
 
   /**
    * Called when the IMS registration state of specified IMS service type corresponding to
@@ -1986,7 +1986,7 @@ declare namespace radio {
   /**
    * Describes the radio access technology.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2136,28 +2136,28 @@ declare namespace radio {
     /**
      * Obtains the signal level of the current network.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since arkts{ '1.1':'6','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    signalLevel: number;
+    signalLevel: int;
 
     /**
      * rsrp for LTE and NR; dbm for CDMA and EVDO; rscp for WCDMA; rssi for GSM.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since arkts{ '1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    dBm: number;
+    dBm: int;
   }
 
   /**
    * Describes the network type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2344,7 +2344,7 @@ declare namespace radio {
   /**
    * Describes the network registration state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since arkts{ '1.1':'6','1.2':'20'}
    * @arkts 1.1&1.2
@@ -3263,7 +3263,7 @@ declare namespace radio {
   /**
    * Obtains IMS registration status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since arkts{ '1.1':'9','1.2':'20'}
@@ -3294,7 +3294,7 @@ declare namespace radio {
   /**
    * Indicates IMS registration technology.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since arkts{ '1.1':'9','1.2':'20'}
@@ -3378,7 +3378,7 @@ declare namespace radio {
   /**
    * Indicates the type of IMS service.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since arkts{ '1.1':'9','1.2':'20'}

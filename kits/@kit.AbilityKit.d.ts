@@ -75,6 +75,7 @@ import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
 import UIAbility, {
   Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '@ohos.app.ability.UIAbility';
+import privacyManager from '@ohos.privacyManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
 import appControl from '@ohos.bundle.appControl';
@@ -96,7 +97,6 @@ import distributedMissionManager from '@ohos.distributedMissionManager';
 import Package, {
   CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse
 } from '@system.package';
-import privacyManager from '@ohos.privacyManager';
 import EmbeddedUIExtensionAbility from '@ohos.app.ability.EmbeddedUIExtensionAbility';
 import StartupConfig from '@ohos.app.appstartup.StartupConfig';
 import StartupConfigEntry from '@ohos.app.appstartup.StartupConfigEntry';
@@ -155,12 +155,17 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
+import privacyManager from '@ohos.privacyManager';
 
 export {
   common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
   UIExtensionContentSession, wantConstant, UIAbility, Callee, Caller, OnReleaseCallback, AbilityStage,
   UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
-  freeInstall, installer, launcherBundleManager, overlay, shortcutManager
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
 };
 /*** endif */
