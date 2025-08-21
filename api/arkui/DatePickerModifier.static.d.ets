@@ -28,5 +28,6 @@ import { DatePickerAttribute } from './component/datePicker';
  * @implements { DatePickerAttribute, AttributeModifier<DatePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class DatePickerModifier implements DatePickerAttribute, AttributeModifier<DatePickerAttribute> {}

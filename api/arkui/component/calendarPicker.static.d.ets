@@ -104,6 +104,7 @@ export declare interface CalendarOptions {
  * @interface CalendarPickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface CalendarPickerAttribute extends CommonMethod {
     /**
@@ -328,6 +329,7 @@ export declare class CalendarPickerDialog {
  * @returns { CalendarPickerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

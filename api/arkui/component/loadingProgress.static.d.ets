@@ -22,7 +22,7 @@
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor, VoidCallback } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * Load style of progress bar.
@@ -61,6 +61,7 @@ export declare enum LoadingProgressStyle {
  * @interface LoadingProgressAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface LoadingProgressAttribute extends CommonMethod {
     /**
@@ -126,6 +127,7 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
  * @returns { LoadingProgressAttribute } The attribute of the LoadingProgress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

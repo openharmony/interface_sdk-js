@@ -28,5 +28,6 @@ import { DataPanelAttribute } from './component/dataPanel';
  * @implements { DataPanelAttribute, AttributeModifier<DataPanelAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class DataPanelModifier implements DataPanelAttribute, AttributeModifier<DataPanelAttribute> {}

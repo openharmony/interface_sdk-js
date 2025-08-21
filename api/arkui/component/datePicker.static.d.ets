@@ -164,6 +164,7 @@ export declare interface DatePickerOptions {
  * @interface DatePickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface DatePickerAttribute extends CommonMethod {
     /**
@@ -641,6 +642,7 @@ export declare class DatePickerDialog {}
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

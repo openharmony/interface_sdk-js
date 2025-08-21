@@ -204,6 +204,7 @@ interface GaugeOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface GaugeInterface {
   /**
@@ -420,6 +421,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
   /**
@@ -740,6 +742,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Gauge: GaugeInterface;
 
@@ -772,6 +775,7 @@ declare const Gauge: GaugeInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const GaugeInstance: GaugeAttribute;
 

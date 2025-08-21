@@ -28,5 +28,6 @@ import { TextPickerAttribute } from './component/textPicker';
  * @implements { TextPickerAttribute, AttributeModifier<TextPickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class TextPickerModifier implements TextPickerAttribute, AttributeModifier<TextPickerAttribute> {}

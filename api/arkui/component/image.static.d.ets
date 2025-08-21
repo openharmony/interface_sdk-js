@@ -372,6 +372,7 @@ export declare class ColorContent {
  * @interface ImageAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ImageAttribute extends CommonMethod {
     /**
@@ -841,6 +842,7 @@ export declare interface ResizableOptions {
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

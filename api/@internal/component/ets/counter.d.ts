@@ -51,6 +51,7 @@
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CounterInterface {
   /**
@@ -123,6 +124,7 @@ interface CounterInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
@@ -301,6 +303,7 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CounterInstance: CounterAttribute;
 
@@ -333,5 +336,6 @@ declare const CounterInstance: CounterAttribute;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Counter: CounterInterface;

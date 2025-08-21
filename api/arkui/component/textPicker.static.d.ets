@@ -274,6 +274,7 @@ export type TextPickerEnterSelectedAreaCallback = (value: string | string[], ind
  * @interface TextPickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TextPickerAttribute extends CommonMethod {
     /**
@@ -810,6 +811,7 @@ export declare class TextPickerDialog {}
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

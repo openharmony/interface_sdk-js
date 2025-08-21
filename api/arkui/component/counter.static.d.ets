@@ -22,7 +22,7 @@
 import { CommonMethod } from './common';
 import { VoidCallback } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * Defines the Counter component attributes.
@@ -31,6 +31,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @interface CounterAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface CounterAttribute extends CommonMethod {
     /**
@@ -90,6 +91,7 @@ export declare interface CounterAttribute extends CommonMethod {
  * @returns { CounterAttribute } The attribute of the Counter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

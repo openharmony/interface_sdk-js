@@ -28,5 +28,6 @@ import { LoadingProgressAttribute } from './component/loadingProgress';
  * @implements { LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class LoadingProgressModifier implements LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> {}

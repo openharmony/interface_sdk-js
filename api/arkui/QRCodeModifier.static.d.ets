@@ -28,5 +28,6 @@ import { QRCodeAttribute } from './component/qrcode';
  * @implements { QRCodeAttribute, AttributeModifier<QRCodeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class QRCodeModifier implements QRCodeAttribute, AttributeModifier<QRCodeAttribute> {}

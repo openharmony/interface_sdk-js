@@ -28,5 +28,6 @@ import { CounterAttribute } from './component/counter';
  * @implements { CounterAttribute, AttributeModifier<CounterAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class CounterModifier implements CounterAttribute, AttributeModifier<CounterAttribute> {}

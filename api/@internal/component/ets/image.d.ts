@@ -519,6 +519,7 @@ declare enum ImageRotateOrientation {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface ImageInterface {
   /**
@@ -742,6 +743,7 @@ declare class ColorContent {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   /**
@@ -2044,6 +2046,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Image: ImageInterface;
 
@@ -2076,6 +2079,7 @@ declare const Image: ImageInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const ImageInstance: ImageAttribute;
 

@@ -28,5 +28,6 @@ import { ProgressAttribute } from './component/progress';
  * @implements { ProgressAttribute, AttributeModifier<ProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class ProgressModifier implements ProgressAttribute, AttributeModifier<ProgressAttribute> {}
