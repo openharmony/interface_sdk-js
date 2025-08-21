@@ -381,6 +381,24 @@ declare namespace formProvider {
   function isRequestPublishFormSupported(): Promise<boolean>;
 
   /**
+   * Open the form edit ability
+   *
+   * @param { string } abilityName - Indicates the form edit ability name.
+   * @param { string } formId - Indicates the edit form ID.
+   * @param { boolean } isMainPage - Indicates open the main edit page， default is true
+   *
+   * @throws { BusinessError } 801 - Capability not supported.function openFormEditAbility can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @throws { BusinessError } 16501007 - Form is not trust.
+   * @syscap SystemCapability.Ability.Form
+   * @since 18
+   */
+  function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
+
+  /**
    * Get infos of the published form belonging to current bundle.
    * Client to communicate with FormManagerService.
    *
@@ -438,24 +456,6 @@ declare namespace formProvider {
    * @since 20
    */
   function openFormManagerCrossBundle(want: Want): void
-
-  /**
-   * Open the form edit ability
-   *
-   * @param { string } abilityName - Indicates the form edit ability name.
-   * @param { string } formId - Indicates the edit form ID.
-   * @param { boolean } isMainPage - Indicates open the main edit page， default is true
-   *
-   * @throws { BusinessError } 801 - Capability not supported.function openFormEditAbility can not work correctly due to limited device capabilities.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-   * @throws { BusinessError } 16501007 - Form is not trust.
-   * @syscap SystemCapability.Ability.Form
-   * @since 18
-   */
-  function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void;
 
   /**
    * Activate scene animation
