@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { HyperlinkAttribute } from './component/hyperlink';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { HyperlinkAttribute } from './component/hyperlink';
+
 /**
  * Defines Hyperlink Modifier
  *
- * @implements HyperlinkAttribute, AttributeModifier<HyperlinkAttribute>
+ * @implements { HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class HyperlinkModifier implements HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> {}
