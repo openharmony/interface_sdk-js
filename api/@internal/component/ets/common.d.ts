@@ -24713,7 +24713,7 @@ declare class CommonMethod<T> {
    *
    * <p><strong>NOTE</strong>:
    * <br> If the distanceThreshold value specified is less than or equal to 0 vp, it will be converted to the default value.
-   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
+   * <br> Since API version 12, the following constraints apply when this API is used in service widgets:
    * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
    * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
    * </p>
@@ -24916,7 +24916,7 @@ declare class CommonMethod<T> {
   /**
    * Digital crown input.
    *
-   * @param { Callback<CrownEvent> } event
+   * @param { Optional<Callback<CrownEvent>> } handler
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
