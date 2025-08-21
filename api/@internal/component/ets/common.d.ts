@@ -2068,7 +2068,7 @@ declare enum AccessibilitySamePageMode {
   * @atomicservice
   * @since 18
   */
-  FULL_SILENT = 1,
+  FULL_SILENT = 1
 }
 /**
  * Enum for accessibility component type
@@ -3204,7 +3204,7 @@ declare enum AccessibilityRoleType {
   * @atomicservice
   * @since 18
   */
-  ROLE_NONE = 124,
+  ROLE_NONE = 124
 }
 
 /**
