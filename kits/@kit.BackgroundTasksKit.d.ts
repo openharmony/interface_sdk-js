@@ -18,6 +18,7 @@
  * @kit BackgroundTasksKit
  */
 
+/*** if arkts 1.1 */
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import backgroundProcessManager from '@ohos.resourceschedule.backgroundProcessManager';
 import bundleState from '@ohos.bundleState';
@@ -34,3 +35,17 @@ export {
   WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext, backgroundTaskManager, bundleState,
   deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
+import backgroundProcessManager from '@ohos.resourceschedule.backgroundProcessManager';
+import reminderAgentManager from '@ohos.reminderAgentManager';
+import deviceStandby from '@ohos.resourceschedule.deviceStandby';
+import usageStatistics from '@ohos.resourceschedule.usageStatistics';
+import workScheduler from '@ohos.resourceschedule.workScheduler';
+
+export {
+  backgroundTaskManager, deviceStandby, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager
+};
+/*** endif */
