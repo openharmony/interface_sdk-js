@@ -24,7 +24,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1*/
+/*** if arkts 1.1 */
 import geolocation from '@ohos.geolocation';
 import FenceExtensionAbility from '@ohos.app.ability.FenceExtensionAbility';
 import FenceExtensionContext from '@ohos.app.ability.FenceExtensionContext';

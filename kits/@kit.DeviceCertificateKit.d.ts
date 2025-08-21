@@ -18,16 +18,10 @@
  * @kit DeviceCertificateKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts 1.1&1.2 */
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
 import certificateManagerDialog from '@ohos.security.certManagerDialog';
 
 export { cert, certificateManager, certificateManagerDialog };
-/*** endif */
-
-/*** if arkts 1.2 */
-import cert from '@ohos.security.cert';
-
-export { cert };
 /*** endif */

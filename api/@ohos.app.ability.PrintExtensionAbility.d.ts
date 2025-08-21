@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type Want from './@ohos.application.Want';
+import type Want from './@ohos.app.ability.Want';
 import type print from './@ohos.print';
 
 /**
@@ -26,16 +26,18 @@ import type print from './@ohos.print';
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
- * @since 14
+ * @since arkts {'1.1':'14','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class PrintExtensionAbility {
+declare class PrintExtensionAbility {
 
   /**
    * Called once to initialize the extensionAbility.
    * @param { Want } want - call print page want params.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want): void;
 
@@ -43,7 +45,8 @@ export default class PrintExtensionAbility {
    * Called once to start to discover the printers connected with the device.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStartDiscoverPrinter(): void;
 
@@ -51,7 +54,8 @@ export default class PrintExtensionAbility {
    * Called once to stop discovering the printer.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStopDiscoverPrinter(): void;
 
@@ -60,7 +64,8 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onConnectPrinter(printerId: number): void;
 
@@ -69,7 +74,8 @@ export default class PrintExtensionAbility {
    * @param { number } printerId - connect the printerId.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDisconnectPrinter(printerId: number): void;
 
@@ -80,7 +86,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onStartPrintJob(jobInfo: print.PrintJob): void;
 
@@ -91,7 +98,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancelPrintJob(jobInfo: print.PrintJob): void;
 
@@ -103,7 +111,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRequestPrinterCapability(printerId: number): print.PrinterCapability;
 
@@ -115,7 +124,8 @@ export default class PrintExtensionAbility {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRequestPreview(jobInfo: print.PrintJob): string;
 
@@ -123,7 +133,10 @@ export default class PrintExtensionAbility {
    * Called once to finalize the extensionAbility.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 }
+
+export default PrintExtensionAbility;

@@ -30,6 +30,7 @@ import type { AbilityResult } from './ability/abilityResult';
 /*** if arkts 1.2 */
 import { AbilityResult } from './ability/abilityResult';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
@@ -65,10 +66,23 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   sendData(data: Record<string, Object>): void;
+
+  /**
+   * Send data from an ui extension to an ui extension component.
+   *
+   * @param { RecordData } data - Indicates the data send to ui extension component.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  sendData(data: RecordData): void;
 
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
@@ -589,10 +603,26 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
+
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { RecordData } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  startAbilityByType(type: string, wantParam: RecordData,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
@@ -629,10 +659,26 @@ declare class UIExtensionContentSession {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
+    abilityStartCallback: AbilityStartCallback): Promise<void>;
+
+  /**
+   * Starts the UIAbility or UIExtensionAbility by type.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   *
+   * @param { string } type - The type of target ability.
+   * @param { RecordData } wantParam - Indicates the want parameter.
+   * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  startAbilityByType(type: string, wantParam: RecordData,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**

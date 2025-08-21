@@ -119,7 +119,6 @@
         "WaterFlow",
         "FlowItem",
         "ImageSpan",
-        "LocationButton",
         "PasteButton",
         "SaveButton",
         "UIExtensionComponent",

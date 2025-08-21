@@ -38,7 +38,6 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- * @noninterop
  */
 export declare class CalendarPickerModifier extends CalendarPickerAttribute implements AttributeModifier<CalendarPickerAttribute> {
 

@@ -71,10 +71,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
+
+  /**
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
+   *
+   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onWithEventTypeInnerEventCallback(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
@@ -93,10 +104,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function on(eventId: string, callback: Callback<EventData>): void;
+
+  /**
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
+   *
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
@@ -111,17 +133,22 @@ declare namespace emitter {
   function on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * Subscribe to a event by specific id in persistent manner and receives the event callback.
+   * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - indicate ID of the event to subscribe to.
-   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicate callback used to receive the event.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  function on<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+  function onWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload on { onWithEventTypeInnerEventCallback, onWithEventIdTypeStringCallback, onWithEventIdTypeStringCallbackTypeGenericEventData };
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
@@ -148,10 +175,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
+
+  /**
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+   *
+   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onceWithEventTypeInnerEventCallback(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
@@ -170,10 +208,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function once(eventId: string, callback: Callback<EventData>): void;
+
+  /**
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+   *
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onceWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
@@ -186,6 +235,24 @@ declare namespace emitter {
    * @since 12
    */
   function once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
+   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+   *
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function onceWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload once { onceWithEventTypeInnerEventCallback, onceWithEventIdTypeStringCallback, onceWithEventIdTypeStringCallbackTypeGenericEventData };
 
   /**
    * Unsubscribes from all events with the specified event ID.
@@ -209,10 +276,20 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(eventId: long): void;
+
+  /**
+   * Unsubscribes from all events with the specified event ID.
+   *
+   * @param { long } eventId - Event ID.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function offWithEventIdTypeLong(eventId: long): void;
 
   /**
    * Unsubscribes from all events with the specified event ID.
@@ -229,10 +306,20 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(eventId: string): void;
+
+  /**
+   * Unsubscribes from all events with the specified event ID.
+   *
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function offWithEventIdTypeString(eventId: string): void;
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
@@ -259,10 +346,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(eventId: long, callback: Callback<EventData>): void;
+
+  /**
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   *
+   * @param { long } eventId - Event ID.
+   * @param { Callback<EventData> } callback - Callback to unregister.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function offWithEventIdTypeLongCallback(eventId: long, callback: Callback<EventData>): void;
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
@@ -281,10 +379,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function off(eventId: string, callback: Callback<EventData>): void;
+
+  /**
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+   *
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<EventData> } callback - Callback to unregister.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function offWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback.
@@ -299,17 +408,22 @@ declare namespace emitter {
   function off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * Unsubscribe specified callback function  from an event.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
    *
-   * @param { string } eventId - indicates ID of the event to unsubscribe from.
-   * @param { Callback<EventData> | Callback<GenericEventData<T>> } callback - indicates callback used to receive the event.
+   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  function off<T>(eventId: string, callback: Callback<EventData> | Callback<GenericEventData<T>>): void;
+  function offWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload off { offWithEventIdTypeLong, offWithEventIdTypeString, offWithEventIdTypeLongCallback, offWithEventIdTypeStringCallback, offWithEventIdTypeStringCallbackTypeGenericEventData };
 
   /**
    * Emits the specified event.
@@ -336,10 +450,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit(event: InnerEvent, data?: EventData): void;
+
+  /**
+   * Emits the specified event.
+   *
+   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
+   * @param { EventData } [data] - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function emitWithEventTypeInnerEventDataTypeEventData(event: InnerEvent, data?: EventData): void;
 
   /**
    * Emits the specified event.
@@ -358,10 +483,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit(eventId: string, data?: EventData): void;
+
+  /**
+   * Emits the specified event.
+   *
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { EventData } [data] - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function emitWithEventIdTypeStringDataTypeEventData(eventId: string, data?: EventData): void;
 
   /**
    * Emits the specified event.
@@ -371,23 +507,21 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit<T>(eventId: string, data?: GenericEventData<T>): void;
 
   /**
-   * Emits an event by specific id to the event queue.
+   * Emits the specified event.
    *
-   * @param { string } eventId - indicate ID of the event to emit.
-   * @param { EventData | GenericEventData<T> } [data] - indicate data carried by the event.
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  function emit<T>(eventId: string, data?: EventData | GenericEventData<T>): void;
+  function emitWithEventIdTypeStringDataTypeGenericEventData<T>(eventId: string, data?: GenericEventData<T>): void;
 
   /**
    * Emits an event of a specified priority.
@@ -408,8 +542,7 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit(eventId: string, options: Options, data?: EventData): void;
 
@@ -418,14 +551,45 @@ declare namespace emitter {
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Options } options - Event emit priority.
+   * @param { EventData } [data] - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function emitWithEventIdTypeStringOptionsDataTypeEventData(eventId: string, options: Options, data?: EventData): void;
+
+  /**
+   * Emits an event of a specified priority.
+   *
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Options } options - Event emit priority.
    * @param { GenericEventData<T> } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
+
+  /**
+   * Emits an event of a specified priority.
+   *
+   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { Options } options - Event emit priority.
+   * @param { GenericEventData<T> } [data] - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function emitWithEventIdTypeStringOptionsDataTypeGenericEventData<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload emit { emitWithEventTypeInnerEventDataTypeEventData, emitWithEventIdTypeStringDataTypeEventData, emitWithEventIdTypeStringDataTypeGenericEventData, emitWithEventIdTypeStringOptionsDataTypeEventData, emitWithEventIdTypeStringOptionsDataTypeGenericEventData };
 
   /**
    * Obtains the number of subscriptions to a specified event.
@@ -444,10 +608,39 @@ declare namespace emitter {
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function getListenerCount(eventId: long | string): long;
+
+  /**
+   * Obtains the number of subscriptions to a specified event.
+   *
+   * @param { long } eventId - Event ID. The value of the string type cannot be an empty string.
+   * @returns { long } Returns the number of listener count.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function getListenerCountWithEventIdTypeLong(eventId: long): long;
+
+  /**
+   * Obtains the number of subscriptions to a specified event.
+   *
+   * @param { string } eventId - Event ID. The value of the string type cannot be an empty string.
+   * @returns { long } Returns the number of listener count.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function getListenerCountWithEventIdTypeString(eventId: string): long;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload getListenerCount { getListenerCountWithEventIdTypeLong, getListenerCountWithEventIdTypeString };
 
   /**
    * Describes data passed in the event.
@@ -784,7 +977,6 @@ declare namespace emitter {
      * @type { ?(T | ESObject) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @atomicservice
      * @since 20
      * @arkts 1.2
      */

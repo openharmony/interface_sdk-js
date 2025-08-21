@@ -109,7 +109,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function dialCall(phoneNumber: string, options: DialCallOptions, callback: AsyncCallback<void>): void;
 
@@ -132,7 +133,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function dialCall(phoneNumber: string, options?: DialCallOptions): Promise<void>;
 
@@ -154,7 +156,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function dialCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
@@ -247,7 +250,8 @@ declare namespace call {
    * @param { AsyncCallback<boolean> } callback - The callback of hasCall. Returns {@code true} if at least one call is
    * not in the {@link CallState#CALL_STATE_IDLE} state; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasCall(callback: AsyncCallback<boolean>): void;
 
@@ -257,7 +261,8 @@ declare namespace call {
    * @returns { Promise<boolean> } Returns {@code true} if at least one call is not
    * in the {@link CallState#CALL_STATE_IDLE} state; returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hasCall(): Promise<boolean>;
 
@@ -282,7 +287,8 @@ declare namespace call {
    *
    * @param { AsyncCallback<CallState> } callback - Indicates the callback for getting the call state.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallState(callback: AsyncCallback<CallState>): void;
 
@@ -296,7 +302,8 @@ declare namespace call {
    *
    * @returns { Promise<CallState> } Returns the call state.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallState(): Promise<CallState>;
 
@@ -349,7 +356,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function muteRinger(): Promise<void>;
 
@@ -381,7 +389,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback<boolean>): void;
 
@@ -399,7 +408,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise<boolean>;
 
@@ -416,7 +426,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
@@ -498,7 +509,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback<string>): void;
 
@@ -516,7 +528,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise<string>;
 
@@ -556,7 +569,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function answerCall(callId?: number): Promise<void>;
 
@@ -575,7 +589,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function answerCall(callback: AsyncCallback<void>): void;
 
@@ -596,7 +611,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function answerCall(videoState: VideoStateType, callId: number): Promise<void>;
 
@@ -776,7 +792,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function holdCall(callId: number, callback: AsyncCallback<void>): void;
 
@@ -796,7 +813,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function holdCall(callId: number): Promise<void>;
 
@@ -816,7 +834,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unHoldCall(callId: number, callback: AsyncCallback<void>): void;
 
@@ -836,7 +855,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function unHoldCall(callId: number): Promise<void>;
 
@@ -856,7 +876,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchCall(callId: number, callback: AsyncCallback<void>): void;
 
@@ -876,7 +897,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function switchCall(callId: number): Promise<void>;
 
@@ -895,7 +917,8 @@ declare namespace call {
    * @throws { BusinessError } 8300007 - The number of conference calls exceeds the limit.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function combineConference(callId: number, callback: AsyncCallback<void>): void;
 
@@ -914,7 +937,8 @@ declare namespace call {
    * @throws { BusinessError } 8300007 - The number of conference calls exceeds the limit.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function combineConference(callId: number): Promise<void>;
 
@@ -932,7 +956,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMainCallId(callId: number, callback: AsyncCallback<number>): void;
 
@@ -950,7 +975,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getMainCallId(callId: number): Promise<number>;
 
@@ -968,7 +994,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSubCallIdList(callId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -986,7 +1013,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSubCallIdList(callId: number): Promise<Array<string>>;
 
@@ -1005,7 +1033,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallIdListForConference(callId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -1023,7 +1052,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallIdListForConference(callId: number): Promise<Array<string>>;
 
@@ -1044,7 +1074,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallWaitingStatus(slotId: number, callback: AsyncCallback<CallWaitingStatus>): void;
 
@@ -1065,7 +1096,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallWaitingStatus(slotId: number): Promise<CallWaitingStatus>;
 
@@ -1087,7 +1119,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallWaiting(slotId: number, activate: boolean, callback: AsyncCallback<void>): void;
 
@@ -1109,7 +1142,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallWaiting(slotId: number, activate: boolean): Promise<void>;
 
@@ -1128,7 +1162,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startDTMF(callId: number, character: string, callback: AsyncCallback<void>): void;
 
@@ -1147,7 +1182,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startDTMF(callId: number, character: string): Promise<void>;
 
@@ -1165,7 +1201,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDTMF(callId: number, callback: AsyncCallback<void>): void;
 
@@ -1183,7 +1220,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDTMF(callId: number): Promise<void>;
 
@@ -1204,7 +1242,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function postDialProceed(callId: number, proceed: boolean, callback: AsyncCallback<void>): void;
 
@@ -1225,7 +1264,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function postDialProceed(callId: number, proceed: boolean): Promise<void>;
 
@@ -1245,7 +1285,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isInEmergencyCall(callback: AsyncCallback<boolean>): void;
 
@@ -1261,7 +1302,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isInEmergencyCall(): Promise<boolean>;
 
@@ -1375,7 +1417,8 @@ declare namespace call {
    * Unsubscribe from the callDisconnectedCause event.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { 'callDisconnectedCause' } type - Event type. Indicates the callDisconnectedCause event to unsubscribe from.
+   * @param { 'callDisconnectedCause' } type - Event type. 
+   * Indicates the callDisconnectedCause event to unsubscribe from.
    * @param { Callback<DisconnectedDetails> } callback - Indicates the callback used to cancel
    * the registration monitoring for obtaining the call end reason.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1419,7 +1462,8 @@ declare namespace call {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'mmiCodeResult' } type - Event type. Indicates the mmiCodeResult event to unsubscribe from.
-   * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel getting mmicode registered listening.
+   * @param { Callback<MmiCodeResults> } callback - Indicates the callback used to cancel 
+   * getting mmicode registered listening.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1440,7 +1484,8 @@ declare namespace call {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { 'audioDeviceChange' } type - Event type. Indicates the audioDeviceChange event to be subscribed to.
-   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result of Current AudioDevice.
+   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for 
+   * getting the result of Current AudioDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1533,7 +1578,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNewCallAllowed(callback: AsyncCallback<boolean>): void;
 
@@ -1548,7 +1594,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNewCallAllowed(): Promise<boolean>;
 
@@ -1567,7 +1614,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function separateConference(callId: number, callback: AsyncCallback<void>): void;
 
@@ -1586,7 +1634,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function separateConference(callId: number): Promise<void>;
 
@@ -1608,9 +1657,14 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getCallRestrictionStatus(slotId: number, type: CallRestrictionType, callback: AsyncCallback<RestrictionStatus>): void;
+  function getCallRestrictionStatus(slotId
+      : number, type
+      : CallRestrictionType, callback
+      : AsyncCallback<RestrictionStatus>)
+      : void;
 
   /**
    * Get call barring status.
@@ -1630,7 +1684,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallRestrictionStatus(slotId: number, type: CallRestrictionType): Promise<RestrictionStatus>;
 
@@ -1652,7 +1707,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallRestriction(slotId: number, info: CallRestrictionInfo, callback: AsyncCallback<void>): void;
 
@@ -1674,7 +1730,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallRestriction(slotId: number, info: CallRestrictionInfo): Promise<void>;
 
@@ -1697,9 +1754,15 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string, callback: AsyncCallback<void>): void;
+  function setCallRestrictionPassword(slotId
+      : number, oldPassword
+      : string, newPassword
+      : string, callback
+      : AsyncCallback<void>)
+      : void;
 
   /**
    * Set call barring password.
@@ -1720,7 +1783,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallRestrictionPassword(slotId: number, oldPassword: string, newPassword: string): Promise<void>;
 
@@ -1731,7 +1795,8 @@ declare namespace call {
    * @param { number } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { CallTransferType } type - Indicates which type of call forwarding to obtain.
-   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting the call forwarding status.
+   * @param { AsyncCallback<CallTransferResult> } callback - Indicates the callback for getting 
+   * the call forwarding status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -1742,9 +1807,14 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getCallTransferInfo(slotId: number, type: CallTransferType, callback: AsyncCallback<CallTransferResult>): void;
+  function getCallTransferInfo(slotId
+      : number, type
+      : CallTransferType, callback
+      : AsyncCallback<CallTransferResult>)
+      : void;
 
   /**
    * Get call forwarding information.
@@ -1764,7 +1834,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCallTransferInfo(slotId: number, type: CallTransferType): Promise<CallTransferResult>;
 
@@ -1786,7 +1857,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallTransfer(slotId: number, info: CallTransferInfo, callback: AsyncCallback<void>): void;
 
@@ -1808,7 +1880,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setCallTransfer(slotId: number, info: CallTransferInfo): Promise<void>;
 
@@ -1828,7 +1901,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRinging(callback: AsyncCallback<boolean>): void;
 
@@ -1844,7 +1918,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isRinging(): Promise<boolean>;
 
@@ -1861,7 +1936,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setMuted(callback: AsyncCallback<void>): void;
 
@@ -1875,7 +1951,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setMuted(): Promise<void>;
 
@@ -1892,7 +1969,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelMuted(callback: AsyncCallback<void>): void;
 
@@ -1906,7 +1984,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelMuted(): Promise<void>;
 
@@ -1926,7 +2005,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAudioDevice(device: AudioDevice, callback: AsyncCallback<void>): void;
 
@@ -1946,7 +2026,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setAudioDevice(device: AudioDevice): Promise<void>;
 
@@ -1965,7 +2046,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function joinConference(mainCallId: number, callNumberList: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1984,7 +2066,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function joinConference(mainCallId: number, callNumberList: Array<string>): Promise<void>;
 
@@ -2004,7 +2087,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function kickOutFromConference(callId: number, callback: AsyncCallback<void>): void;
 
@@ -2024,7 +2108,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function kickOutFromConference(callId: number): Promise<void>;
 
@@ -2043,7 +2128,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateImsCallMode(callId: number, mode: ImsCallMode, callback: AsyncCallback<void>): void;
 
@@ -2062,7 +2148,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateImsCallMode(callId: number, mode: ImsCallMode): Promise<void>;
 
@@ -2082,7 +2169,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelCallUpgrade(callId: number): Promise<void>;
 
@@ -2103,7 +2191,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function controlCamera(callId: number, cameraId: string): Promise<void>;
 
@@ -2124,7 +2213,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPreviewSurface(callId: number, surfaceId: string): Promise<void>;
 
@@ -2145,7 +2235,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDisplaySurface(callId: number, surfaceId: string): Promise<void>;
 
@@ -2166,7 +2257,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDeviceDirection(callId: number, deviceDirection: DeviceDirection): Promise<void>;
 
@@ -2369,7 +2461,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -2390,7 +2483,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableImsSwitch(slotId: number): Promise<void>;
 
@@ -2411,7 +2505,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableImsSwitch(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -2432,7 +2527,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableImsSwitch(slotId: number): Promise<void>;
 
@@ -2452,7 +2548,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isImsSwitchEnabled(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -2471,7 +2568,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isImsSwitchEnabled(slotId: number): Promise<boolean>;
 
@@ -2490,7 +2588,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isImsSwitchEnabledSync(slotId: number): boolean;
 
@@ -2511,7 +2610,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function closeUnfinishedUssd(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -2532,7 +2632,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function closeUnfinishedUssd(slotId: number): Promise<void>;
 
@@ -2554,7 +2655,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setVoNRState(slotId: number, state: VoNRState, callback: AsyncCallback<void>): void;
 
@@ -2576,7 +2678,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setVoNRState(slotId: number, state: VoNRState): Promise<void>;
 
@@ -2597,7 +2700,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVoNRState(slotId: number, callback: AsyncCallback<VoNRState>): void;
 
@@ -2618,7 +2722,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVoNRState(slotId: number): Promise<VoNRState>;
 
@@ -2642,7 +2747,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function canSetCallTransferTime(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -2666,7 +2772,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function canSetCallTransferTime(slotId: number): Promise<boolean>;
 
@@ -2685,7 +2792,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function inputDialerSpecialCode(inputCode: string, callback: AsyncCallback<void>): void;
 
@@ -2704,7 +2812,8 @@ declare namespace call {
    * @throws { BusinessError } 8300003 - System internal error.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function inputDialerSpecialCode(inputCode: string): Promise<void>;
 
@@ -2723,7 +2832,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeMissedIncomingCallNotification(callback: AsyncCallback<void>): void;
 
@@ -2740,7 +2850,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeMissedIncomingCallNotification(): Promise<void>;
 
@@ -2761,7 +2872,8 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendCallUiEvent(callId: number, eventName: string): Promise<void>;
 
@@ -2771,7 +2883,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ImsCallMode {
     /**
@@ -2779,7 +2892,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_MODE_AUDIO_ONLY = 0,
 
@@ -2788,7 +2902,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_MODE_SEND_ONLY,
 
@@ -2797,7 +2912,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_MODE_RECEIVE_ONLY,
 
@@ -2806,7 +2922,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_MODE_SEND_RECEIVE,
 
@@ -2815,7 +2932,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_MODE_VIDEO_PAUSED,
   }
@@ -2826,7 +2944,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum VoNRState {
     /**
@@ -2834,7 +2953,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VONR_STATE_OFF = 0,
 
@@ -2843,7 +2963,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VONR_STATE_ON = 1,
   }
@@ -3003,7 +3124,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallRestrictionType {
     /**
@@ -3011,7 +3133,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_ALL_INCOMING = 0,
 
@@ -3020,7 +3143,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_ALL_OUTGOING,
 
@@ -3029,7 +3153,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_INTERNATIONAL,
 
@@ -3038,7 +3163,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_INTERNATIONAL_EXCLUDING_HOME,
 
@@ -3047,7 +3173,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_ROAMING_INCOMING,
 
@@ -3056,7 +3183,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_ALL_CALLS,
 
@@ -3065,7 +3193,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_OUTGOING_SERVICES,
 
@@ -3074,7 +3203,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_TYPE_INCOMING_SERVICES,
   }
@@ -3085,7 +3215,8 @@ declare namespace call {
    * @interface CallTransferInfo
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CallTransferInfo {
     /**
@@ -3094,7 +3225,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transferNum: string;
 
@@ -3104,7 +3236,8 @@ declare namespace call {
      * @type { CallTransferType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: CallTransferType;
 
@@ -3114,7 +3247,8 @@ declare namespace call {
      * @type { CallTransferSettingType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     settingType: CallTransferSettingType;
 
@@ -3124,7 +3258,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startHour?: number;
 
@@ -3134,7 +3269,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMinute?: number;
 
@@ -3144,7 +3280,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endHour?: number;
 
@@ -3154,7 +3291,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endMinute?: number;
   }
@@ -3165,7 +3303,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallTransferType {
     /**
@@ -3173,7 +3312,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_UNCONDITIONAL = 0,
 
@@ -3182,7 +3322,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_BUSY,
 
@@ -3191,7 +3332,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_NO_REPLY,
 
@@ -3200,7 +3342,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_TYPE_NOT_REACHABLE,
   }
@@ -3211,7 +3354,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallTransferSettingType {
     /**
@@ -3219,7 +3363,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_TRANSFER_DISABLE = 0,
 
@@ -3228,7 +3373,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_TRANSFER_ENABLE = 1,
 
@@ -3237,7 +3383,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_TRANSFER_REGISTRATION = 3,
 
@@ -3246,7 +3393,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_TRANSFER_ERASURE = 4,
   }
@@ -3267,7 +3415,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountNumber: string;
 
@@ -3277,7 +3426,8 @@ declare namespace call {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     speakerphoneOn: boolean;
 
@@ -3287,7 +3437,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountId: number;
 
@@ -3297,7 +3448,8 @@ declare namespace call {
      * @type { VideoStateType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoState: VideoStateType;
 
@@ -3307,7 +3459,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startTime: number;
 
@@ -3317,7 +3470,8 @@ declare namespace call {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEcc: boolean;
 
@@ -3360,7 +3514,8 @@ declare namespace call {
      * @type { ConferenceState }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     conferenceState: ConferenceState;
 
@@ -3370,7 +3525,8 @@ declare namespace call {
      * @type { ?VoipCallAttribute }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     voipCallAttribute?: VoipCallAttribute;
 
@@ -3380,7 +3536,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crsType: number;
   
@@ -3390,7 +3547,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     originalCallType: number;
 
@@ -3400,7 +3558,8 @@ declare namespace call {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numberLocation?: string;
 
@@ -3410,7 +3569,8 @@ declare namespace call {
      * @type { ?NumberMarkInfo }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     numberMarkInfo?: NumberMarkInfo;
 
@@ -3420,7 +3580,8 @@ declare namespace call {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraParams?: Record<string, Object>;
   }
@@ -3431,7 +3592,8 @@ declare namespace call {
    * @interface VoipCallAttribute
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface VoipCallAttribute {
     /**
@@ -3440,7 +3602,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     voipCallId: string;
 
@@ -3450,7 +3613,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userName: string;
 
@@ -3460,7 +3624,8 @@ declare namespace call {
      * @type { image.PixelMap }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     userProfile: image.PixelMap;
 
@@ -3470,7 +3635,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extensionId: string;
 
@@ -3480,7 +3646,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abilityName: string;
 
@@ -3490,7 +3657,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     voipBundleName: string;
 
@@ -3500,7 +3668,8 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     showBannerForIncomingCall?: boolean;
   
@@ -3510,7 +3679,8 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isConferenceCall?: boolean;
   
@@ -3520,7 +3690,8 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isVoiceAnswerSupported?: boolean;
   }
@@ -3531,7 +3702,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ConferenceState {
     /**
@@ -3539,7 +3711,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEL_CONFERENCE_IDLE = 0,
 
@@ -3548,7 +3721,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEL_CONFERENCE_ACTIVE,
 
@@ -3557,7 +3731,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEL_CONFERENCE_DISCONNECTING,
 
@@ -3566,7 +3741,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEL_CONFERENCE_DISCONNECTED,
   }
@@ -3638,7 +3814,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum VideoStateType {
     /**
@@ -3646,14 +3823,15 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VOICE = 0,
     /**
      * Indicates the call is in video state.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use.	 
      * @since 7
      * @deprecated since 11
      * @useinstead telephony.call#TYPE_VIDEO_BIDIRECTIONAL
@@ -3664,7 +3842,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VIDEO_SEND_ONLY = 1,
     /**
@@ -3672,7 +3851,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VIDEO_RECEIVE_ONLY,
     /**
@@ -3680,7 +3860,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_VIDEO_BIDIRECTIONAL,
   }
@@ -3691,7 +3872,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum VideoRequestResultType {
     /**
@@ -3699,7 +3881,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_SUCCESS = 0,
     /**
@@ -3707,7 +3890,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_FAILURE,
     /**
@@ -3715,7 +3899,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_INVALID,
     /**
@@ -3723,7 +3908,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_TIMED_OUT,
     /**
@@ -3731,7 +3917,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_REJECTED_BY_REMOTE,
     /**
@@ -3739,7 +3926,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_REQUEST_UPGRADE_CANCELED,
     /**
@@ -3747,7 +3935,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_DOWNGRADE_RTP_OR_RTCP_TIMEOUT = 100,
     /**
@@ -3755,7 +3944,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TYPE_DOWNGRADE_RTP_AND_RTCP_TIMEOUT,
   }
@@ -3766,7 +3956,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DeviceDirection {
     /**
@@ -3774,7 +3965,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_DIRECTION_0 = 0,
     /**
@@ -3782,7 +3974,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_DIRECTION_90 = 90,
     /**
@@ -3790,7 +3983,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_DIRECTION_180 = 180,
     /**
@@ -3798,7 +3992,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEVICE_DIRECTION_270 = 270,
   }
@@ -3809,7 +4004,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallSessionEventId {
     /**
@@ -3817,7 +4013,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EVENT_CONTROL_CAMERA_FAILURE = 0,
     /**
@@ -3825,7 +4022,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EVENT_CONTROL_CAMERA_READY,
     /**
@@ -3833,7 +4031,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EVENT_DISPLAY_SURFACE_RELEASED = 100,
     /**
@@ -3841,7 +4040,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EVENT_PREVIEW_SURFACE_RELEASED,
   }
@@ -3953,7 +4153,8 @@ declare namespace call {
    * @interface CallRestrictionInfo
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CallRestrictionInfo {
     /**
@@ -3962,7 +4163,8 @@ declare namespace call {
      * @type { CallRestrictionType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: CallRestrictionType;
 
@@ -3972,7 +4174,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     password: string;
 
@@ -3982,7 +4185,8 @@ declare namespace call {
      * @type { CallRestrictionMode }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     mode: CallRestrictionMode;
   }
@@ -3993,7 +4197,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallRestrictionMode {
     /**
@@ -4001,7 +4206,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_MODE_DEACTIVATION = 0,
 
@@ -4010,7 +4216,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_MODE_ACTIVATION,
   }
@@ -4189,7 +4396,8 @@ declare namespace call {
    *
    * @interface DialOptions
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 6
+   * @since arkts {'1.1':'6','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DialOptions {
     /**
@@ -4198,7 +4406,8 @@ declare namespace call {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 6
+     * @since arkts {'1.1':'6','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extras?: boolean;
 
@@ -4209,7 +4418,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountId?: number;
 
@@ -4219,7 +4429,8 @@ declare namespace call {
      * @type { ?VideoStateType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoState?: VideoStateType;
 
@@ -4229,7 +4440,8 @@ declare namespace call {
      * @type { ?DialScene }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dialScene?: DialScene;
 
@@ -4239,7 +4451,8 @@ declare namespace call {
      * @type { ?DialType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dialType?: DialType;
   }
@@ -4250,7 +4463,8 @@ declare namespace call {
    * @interface DialCallOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DialCallOptions {
     /**
@@ -4260,7 +4474,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     accountId?: number;
     /**
@@ -4269,7 +4484,8 @@ declare namespace call {
      * @type { ?VideoStateType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     videoState?: VideoStateType;
     /**
@@ -4278,7 +4494,8 @@ declare namespace call {
      * @type { ?DialScene }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dialScene?: DialScene;
     /**
@@ -4287,7 +4504,8 @@ declare namespace call {
      * @type { ?DialType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dialType?: DialType;
     /**
@@ -4296,7 +4514,8 @@ declare namespace call {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraParams?: Record<string, Object>;
   }
@@ -4307,7 +4526,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DialScene {
     /**
@@ -4315,7 +4535,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_NORMAL = 0,
 
@@ -4324,7 +4545,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_PRIVILEGED = 1,
 
@@ -4333,7 +4555,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_EMERGENCY = 2,
   }
@@ -4344,7 +4567,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DialType {
     /**
@@ -4352,7 +4576,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIAL_CARRIER_TYPE = 0,
 
@@ -4361,7 +4586,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIAL_VOICE_MAIL_TYPE = 1,
 
@@ -4370,7 +4596,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DIAL_OTT_TYPE = 2,
   }
@@ -4381,7 +4608,8 @@ declare namespace call {
    * @interface RejectMessageOptions
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface RejectMessageOptions {
     /**
@@ -4390,7 +4618,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     messageContent: string;
   }
@@ -4401,7 +4630,8 @@ declare namespace call {
    * @interface CallTransferResult
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface CallTransferResult {
     /**
@@ -4410,7 +4640,8 @@ declare namespace call {
      * @type { TransferStatus }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: TransferStatus;
 
@@ -4420,7 +4651,8 @@ declare namespace call {
      * @type { string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     number: string;
 
@@ -4441,7 +4673,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startHour: number;
 
@@ -4451,7 +4684,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startMinute: number;
 
@@ -4461,7 +4695,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endHour: number;
 
@@ -4471,7 +4706,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endMinute: number;
   }
@@ -4482,7 +4718,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum CallWaitingStatus {
     /**
@@ -4490,7 +4727,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_WAITING_DISABLE = 0,
 
@@ -4499,7 +4737,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CALL_WAITING_ENABLE = 1
   }
@@ -4510,7 +4749,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum RestrictionStatus {
     /**
@@ -4518,7 +4758,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_DISABLE = 0,
 
@@ -4527,7 +4768,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RESTRICTION_ENABLE = 1
   }
@@ -4538,7 +4780,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum TransferStatus {
     /**
@@ -4546,7 +4789,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_DISABLE = 0,
 
@@ -4555,7 +4799,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TRANSFER_ENABLE = 1
   }
@@ -4565,7 +4810,8 @@ declare namespace call {
    *
    * @interface EmergencyNumberOptions
    * @syscap SystemCapability.Telephony.CallManager
-   * @since 7
+   * @since arkts {'1.1':'7','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface EmergencyNumberOptions {
     /**
@@ -4574,7 +4820,8 @@ declare namespace call {
      *
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
-     * @since 7
+     * @since arkts {'1.1':'7','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     slotId?: number;
   }
@@ -5522,7 +5769,8 @@ declare namespace call {
      * @type { VideoRequestResultType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     result: VideoRequestResultType;
     /**
@@ -5531,7 +5779,8 @@ declare namespace call {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRequestInfo: boolean;
     /**
@@ -5540,7 +5789,8 @@ declare namespace call {
      * @type { ImsCallMode }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     imsCallMode: ImsCallMode;
   }
@@ -5571,7 +5821,8 @@ declare namespace call {
      * @type { CallSessionEventId }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eventId: CallSessionEventId;
   }
@@ -5602,7 +5853,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
     /**
@@ -5611,7 +5863,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -5642,7 +5895,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: number;
     /**
@@ -5651,7 +5905,8 @@ declare namespace call {
      * @type { number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: number;
   }
@@ -5662,7 +5917,8 @@ declare namespace call {
    * @interface NumberMarkInfo
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface NumberMarkInfo {
     /**
@@ -5671,7 +5927,8 @@ declare namespace call {
      * @type { MarkType }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     markType: MarkType;
 
@@ -5681,7 +5938,8 @@ declare namespace call {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     markContent?: string;
 
@@ -5691,7 +5949,8 @@ declare namespace call {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     markCount?: number;
 
@@ -5701,7 +5960,8 @@ declare namespace call {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     markSource?: string;
 
@@ -5711,7 +5971,8 @@ declare namespace call {
      * @type { ?boolean }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isCloud?: boolean;
 
@@ -5721,7 +5982,8 @@ declare namespace call {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     markDetails?: string;
   }
@@ -5732,7 +5994,8 @@ declare namespace call {
    * @enum { number }
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum MarkType {
     /**
@@ -5740,7 +6003,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_NONE = 0,
 
@@ -5749,7 +6013,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_CRANK = 1,
 
@@ -5758,7 +6023,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_FRAUD = 2,
 
@@ -5767,7 +6033,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_EXPRESS = 3,
 
@@ -5776,7 +6043,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_PROMOTE_SALES = 4,
 
@@ -5785,7 +6053,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_HOUSE_AGENT = 5,
 
@@ -5794,7 +6063,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_INSURANCE = 6,
 
@@ -5803,7 +6073,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_TAXI = 7,
 
@@ -5812,7 +6083,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_CUSTOM = 8,
 
@@ -5821,7 +6093,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_OTHERS = 9,
 
@@ -5830,7 +6103,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_YELLOW_PAGE = 10,
 
@@ -5839,7 +6113,8 @@ declare namespace call {
      *
      * @syscap SystemCapability.Telephony.CallManager
      * @systemapi Hide this for inner system use.
-     * @since 14
+     * @since arkts {'1.1':'14','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MARK_TYPE_ENTERPRISE = 11
   }

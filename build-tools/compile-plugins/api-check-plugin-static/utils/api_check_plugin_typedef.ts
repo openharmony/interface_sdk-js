@@ -52,40 +52,56 @@ export interface ConfigSchema {
 /**
  * 工程编译配置
  */
-export interface ProjectConfig {
+export interface ProjectConfig extends ApiCheckConfig {
   bundleName: string;
   moduleName: string;
   cachePath: string;
-  aceModuleJsonPath: string;
-  compileMode: string;
-  permissions: ConfigPermission;
-  requestPermissions: string[];
-  definePermissions: string[];
   projectRootPath: string;
   isCrossplatform: boolean;
   ignoreCrossplatformCheck: boolean;
   bundleType: string;
   compileSdkVersion: number;
   compatibleSdkVersion: number;
-  projectPath: string;
-  aceProfilePath: string;
-  cardPageSet: string[];
   compileSdkPath: string;
-  systemModules: string[];
-  allModulesPaths: string[];
-  sdkConfigs: SdkConfig[];
   externalApiPaths: string;
-  externalSdkPaths: string[];
-  sdkConfigPrefix: string;
-  deviceTypes: string[];
-  deviceTypesMessage: string;
-  runtimeOS: string;
-  syscapIntersectionSet: Set<string>;
-  syscapUnionSet: Set<string>;
-  permissionsArray: string[];
   buildSdkPath: string;
   nativeDependencies: string[];
   aceSoPath: string;
+  permissions: ConfigPermission;
+  sdkConfigPaths: string;
+  projectPath: string;
+  aceModuleJsonPath: string;
+  compileMode: string;
+  aceProfilePath: string;
+  deviceTypes: string[];
+  runtimeOS: string;
+  dependentModuleList: DependentModuleConfig[];
+}
+
+export interface ApiCheckConfig {
+  permissionsArray: string[];
+  cardPageSet: string[];
+  sdkConfigs: SdkConfig[];
+  systemModules: string[];
+  allModulesPaths: string[];
+  externalSdkPaths: string[];
+  sdkConfigPrefix: string;
+  syscapIntersectionSet: Set<string>;
+  syscapUnionSet: Set<string>;
+  deviceTypesMessage: string;
+  initApiCheckTag: boolean;
+}
+
+export interface DependentModuleConfig {
+  packageName: string;
+  moduleName: string;
+  moduleType: string;
+  modulePath: string;
+  sourceRoots: string[];
+  entryFile: string;
+  language: string;
+  declFilesPath?: string;
+  dependencies?: string[];
 }
 
 export interface CheckValidCallbackInterface {

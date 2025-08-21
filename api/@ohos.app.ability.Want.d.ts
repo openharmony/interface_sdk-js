@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/***if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/***endif */
+
 /**
  * Want is the basic communication component of the system.
  *
@@ -299,10 +303,19 @@ export default class Want {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The description of the WantParams object in an Want
+   * 
+   * @type { ?RecordData }
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @since 20
+   * @arkts 1.2
+   */
+  parameters?: RecordData;
 
   /**
    * The description of a entities in a Want.

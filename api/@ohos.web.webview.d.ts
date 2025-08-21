@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import { Resource } from './global/resource';
+import { SizeOptions } from '@ohos.arkui.component';
 /*** endif */
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
@@ -3186,7 +3187,8 @@ declare namespace webview {
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
   }
@@ -3229,7 +3231,8 @@ declare namespace webview {
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
 
@@ -5409,8 +5412,7 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     hasImage(): Promise<boolean>;
 
@@ -5434,10 +5436,42 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     hasImage(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * Asynchronous search for image existence on the current page through Promise method.
+     *
+     * @returns { Promise<boolean> } A promise resolved after query image has finished.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    hasImageWithPromise(): Promise<boolean>;
+   
+    /**
+     * Asynchronous search for the presence of an image on the current page through callback method.
+     *
+     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    hasImageWithCallback(callback: AsyncCallback<boolean>): void;
+
+    /**
+     * @arkts 1.2
+     */
+    overload hasImage{hasImageWithPromise,hasImageWithCallback};    
 
     /**
      * Get back forward stack list from current webview.
@@ -6826,6 +6860,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -6844,6 +6879,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
 
@@ -8496,6 +8532,7 @@ declare namespace webview {
      * @throws { BusinessError } 17100021 - The resource handler is invalid.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void;
   }
@@ -8711,10 +8748,20 @@ declare namespace webview {
      * @param { PlaybackStatus } status - Playback status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleStatusChanged(status: PlaybackStatus): void
+    handleStatusChanged(status: PlaybackStatus): void;
+
+    /**
+     * Handle native media player playback status.
+     *
+     * @type { OneParamFn<PlaybackStatus> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleStatusChanged: OneParamFn<PlaybackStatus>;
 
     /**
      * Handle native media player volume.
@@ -8724,10 +8771,22 @@ declare namespace webview {
      * @param { double } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleVolumeChanged(volume: double): void
+    handleVolumeChanged(volume: double): void;
+
+    /**
+     * Handle native media player volume.
+     *  volume: float
+     *   value range: [0 - 1.0]
+     *
+     * @type { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleVolumeChanged: OneParamFn<double>;
 
     /**
      * Handle native media player muted status.
@@ -8735,10 +8794,20 @@ declare namespace webview {
      * @param { boolean } muted - Current mute status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleMutedChanged(muted: boolean): void
+    handleMutedChanged(muted: boolean): void;
+
+    /**
+     * Handle native media player muted status.
+     *
+     * @type { OneParamFn<boolean> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleMutedChanged: OneParamFn<boolean>;
 
     /**
      * Handle playback rate of native media player.
@@ -8748,10 +8817,22 @@ declare namespace webview {
      * @param { double } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handlePlaybackRateChanged(playbackRate: double): void
+    handlePlaybackRateChanged(playbackRate: double): void;
+
+    /**
+     * Handle playback rate of native media player.
+     *  playbackRate: float
+     *   value range: [0 - infinity]
+     *
+     * @type { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handlePlaybackRateChanged: OneParamFn<double>;
 
     /**
      * Handle duration time of media.
@@ -8761,10 +8842,22 @@ declare namespace webview {
      * @param { double } duration - Duration time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleDurationChanged(duration: double): void
+    handleDurationChanged(duration: double): void;
+
+    /**
+     * Handle duration time of media.
+     *  duration: float
+     *   value range: [0 - infinity]
+     *
+     * @type { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleDurationChanged: OneParamFn<double>;
 
     /**
      * Handle current playing time of media.
@@ -8774,10 +8867,22 @@ declare namespace webview {
      * @param { double } currentPlayTime - Current playing time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleTimeUpdate(currentPlayTime: double): void
+    handleTimeUpdate(currentPlayTime: double): void;
+
+    /**
+     * Handle current playing time of media.
+     *  currentPlayTime: float
+     *   value range: [0 - duration]
+     *
+     * @type { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleTimeUpdate: OneParamFn<double>;
 
     /**
      * Handle buffered end time of media.
@@ -8787,20 +8892,42 @@ declare namespace webview {
      * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleBufferedEndTimeChanged(bufferedEndTime: double): void
+    handleBufferedEndTimeChanged(bufferedEndTime: double): void;
+
+    /**
+     * Handle buffered end time of media.
+     *  bufferedEndTime: float
+     *   value range: [0 - duration]
+     *
+     * @type { OneParamFn<double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleBufferedEndTimeChanged: OneParamFn<double>;
 
     /**
      * Handle native player ended event.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleEnded(): void
+    handleEnded(): void;
+
+    /**
+     * Handle native player ended event.
+     *
+     * @type { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleEnded: ZeroParamFn<>;
 
     /**
      * Handle network state of native media player.
@@ -8808,10 +8935,20 @@ declare namespace webview {
      * @param { NetworkState } state - Network state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleNetworkStateChanged(state: NetworkState): void
+    handleNetworkStateChanged(state: NetworkState): void;
+
+    /**
+     * Handle network state of native media player.
+     *
+     * @type { OneParamFn<NetworkState> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleNetworkStateChanged: OneParamFn<NetworkState>;
 
     /**
      * Handle ready state of native media player.
@@ -8819,10 +8956,20 @@ declare namespace webview {
      * @param { ReadyState } state - Ready state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleReadyStateChanged(state: ReadyState): void
+    handleReadyStateChanged(state: ReadyState): void;
+
+    /**
+     * Handle ready state of native media player.
+     *
+     * @type { OneParamFn<ReadyState> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleReadyStateChanged: OneParamFn<ReadyState>;
 
     /**
      * Handle native media player fullscreen state changed event.
@@ -8830,30 +8977,60 @@ declare namespace webview {
      * @param { boolean } fullscreen - Fullscreen state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleFullscreenChanged(fullscreen: boolean): void
+    handleFullscreenChanged(fullscreen: boolean): void;
+
+    /**
+     * Handle native media player fullscreen state changed event.
+     *
+     * @type { OneParamFn<boolean> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleFullscreenChanged: OneParamFn<boolean>;
 
     /**
      * Handle native media player seeking state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleSeeking(): void
+    handleSeeking(): void;
+
+    /**
+     * Handle native media player seeking state.
+     *
+     * @type { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleSeeking: ZeroParamFn<>;
 
     /**
      * Handle native media player seek finished state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleSeekFinished(): void
+    handleSeekFinished(): void;
+
+    /**
+     * Handle native media player seek finished state.
+     *
+     * @type { ZeroParamFn<> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleSeekFinished: ZeroParamFn<>;
 
     /**
      * Handle native media player error event.
@@ -8862,10 +9039,20 @@ declare namespace webview {
      * @param { string } errorMessage - Description of current error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleError(error: MediaError, errorMessage: string): void
+    handleError(error: MediaError, errorMessage: string): void;
+
+    /**
+     * Handle native media player error event.
+     *
+     * @type { TwoParamFn<MediaError,string> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleError: TwoParamFn<MediaError,string>;
 
     /**
      * Handle size of video.
@@ -8874,10 +9061,20 @@ declare namespace webview {
      * @param { double } height - Height of video.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    handleVideoSizeChanged(width: double, height: double): void
+    handleVideoSizeChanged(width: double, height: double): void;
+
+    /**
+     * Handle size of video.
+     *
+     * @type { TwoParamFn<double,double> }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    handleVideoSizeChanged: TwoParamFn<double,double>;
   }
 
   /**
@@ -10099,6 +10296,41 @@ declare namespace webview {
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
   }
 
+  /**
+   * The function with zero parameter.
+   * 
+   * @typedef { function } zeroParamFn
+   * @returns { V } The return value.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type ZeroParamFn<V=void> = () => V;
+
+  /**
+   * The function with one parameter.
+   * 
+   * @typedef { function } oneParamFn
+   * @param { T } param - the first param.
+   * @returns { V } The return value.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type OneParamFn<T,V=void> = (param: T) => V;
+
+  /**
+   * The function with two parameter.
+   * 
+   * @typedef { function } twoParamFn
+   * @param { T } paramA - the first param.
+   * @param { C } paramB - the second param.
+   * @returns { V } The return value.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;
 }
 
 export default webview;

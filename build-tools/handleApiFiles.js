@@ -181,54 +181,48 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     writeFile(outputPath, fileContent);
     return;
   }
-  const handleFullpath = getHandleFullPath(fullPath, apiRelativePath, type);
-  if (type === 'ets2' && handleFullpath !== undefined) {
-    handleFileInSecondType(apiRelativePath, handleFullpath, type, output);
-  } else if (type === 'ets' && handleFullpath !== undefined) {
-    handleFileInFirstType(apiRelativePath, handleFullpath, type, output);
+  const isCorrectHandleFullpath = isHandleFullPath(fullPath, apiRelativePath, type);
+  if (type === 'ets2' && isCorrectHandleFullpath) {
+    handleFileInSecondType(apiRelativePath, fullPath, type, output);
+  } else if (type === 'ets' && isCorrectHandleFullpath) {
+    handleFileInFirstType(apiRelativePath, fullPath, type, output);
   }
 }
 
-function getHandleFullPath(fullPath, apiRelativePath, type) {
-  const isEndWithEts = isEtsFile(apiRelativePath);
-  const isEndWithTs = isTsFile(apiRelativePath);
-  const isEndWithStatic = isStaticFile(apiRelativePath);
-  // 处理.ts文件逻辑
-  if (isEndWithTs) {
+/**
+ * 判断当前的文件路径是否符合当前打包场景，过滤同名文件
+ * @param {*} fullPath 
+ * @param {*} apiRelativePath 
+ * @param {*} type 
+ * @returns 
+ */
+function isHandleFullPath(fullPath, apiRelativePath, type) {
+  // 当前文件为.ts结尾文件
+  if (isTsFile(apiRelativePath)) {
+    if (type === 'ets') {
+      return true;
+    }
     if (!(hasEtsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
-    } else {
-      if (type === 'ets') {
-        return fullPath;
-      }
+      return true;
     }
   }
-  // 处理.ets文件逻辑
-  if (isEndWithEts) {
+  // 当前文件为.ets结尾文件
+  if (isEtsFile(apiRelativePath)) {
     if (!(hasTsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
+      return true;
     }
-    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath))) {
-      if (type === 'ets2') {
-        return fullPath;
-      }
+    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath)) && type === 'ets2') {
+      return true;
     }
-    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath))) {
-      if (type === 'ets') {
-        return fullPath;
-      }
-    }
-    if (hasStaticFile(fullPath) && hasTsFile(fullPath)) {
-      return undefined;
+    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath)) && type === 'ets') {
+      return true;
     }
   }
-  // 处理.static文件逻辑
-  if (isEndWithStatic) {
-    if (type === 'ets2') {
-      return fullPath;
-    }
+  // 当前文件为.static结尾文件
+  if (isStaticFile(apiRelativePath) && type === 'ets2') {
+    return true;
   }
-  return undefined;
+  return false;
 }
 
 /**
@@ -548,14 +542,14 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
  * @returns 
  */
 function getFileContent(newContent, filePath) {
-  if (isArkTsSpecialSyntax(newContent)) {
+  const regex = /^overload\s+.+$/;
+  if (isArkTsSpecialSyntax(newContent) || !regex.test(newContent)) {
     return newContent;
   }
-  let sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
   const printer = ts.createPrinter();
   const result = ts.transform(sourceFile, [deleteOverLoadJsDoc]);
   const output = printer.printFile(result.transformed[0]);
-  sourceFile = '';
   return output;
 }
 
@@ -613,7 +607,7 @@ function processStructDeclaration(node) {
  */
 function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
   const regx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
+  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?\*\//g;
   const copyrightMessage = fileContent.match(regex)[0];
   const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);

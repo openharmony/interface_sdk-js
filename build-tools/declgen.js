@@ -103,10 +103,10 @@ function getResolveModule(dirPath, moduleName, extensions) {
         const filePath = path.join(dirPath, fileName + extension);
         resolvedModuleFull.resolvedFileName = filePath;
         resolvedModuleFull.extension = extension;
+        if (!fs.existsSync(filePath)) {
+            continue;
+        }
         break;
-    }
-    if (resolvedModuleFull.resolvedFileName === '') {
-        return undefined;
     }
     return resolvedModuleFull;
 }

@@ -169,6 +169,7 @@ declare interface FormLinkOptions {
  * @atomicservice
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 interface FormLinkInterface {
   /**
@@ -211,6 +212,7 @@ interface FormLinkInterface {
  * @atomicservice
  * @since arkts {'1.1':'11', '1.2':'20'}
  * @arkts 1.1&1.2
+ * @noninterop
  */
 declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
 
@@ -228,6 +230,7 @@ declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {}
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const FormLink: FormLinkInterface;
 
@@ -245,5 +248,6 @@ declare const FormLink: FormLinkInterface;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const FormLinkInstance: FormLinkAttribute;

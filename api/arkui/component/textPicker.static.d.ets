@@ -12,22 +12,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-use static;
+'use static';
 
 /**
  * @file
  * @kit ArkUI
  * @arkts static
  */
-import { Resource, ResourceColor, Offset, Dimension, ResourceStr } from "./units";
+import { Resource } from '../../global/resource';
+import { ResourceColor, Offset, Dimension, ResourceStr } from './units';
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, Bindable, BindableResourceStr, BindableResourceStrArray } from './common';
-import { DialogAlignment } from "./alertDialog";
-import { CrownSensitivity, TextOverflow } from "./enums";
+import { DialogAlignment } from './alertDialog';
+import { CrownSensitivity, TextOverflow } from './enums';
 import { LengthMetrics } from './../Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier } from './common';
 /**
  * Define the contents of each selector item.
  *
@@ -788,6 +787,9 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
  */
 export declare class TextPickerDialog {
 }
+
+@memo
+@ComponentBuilder
 export declare function TextPicker(options?: TextPickerOptions, 
 @memo
 content_?: () => void): TextPickerAttribute;

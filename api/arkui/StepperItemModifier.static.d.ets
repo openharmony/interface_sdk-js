@@ -30,6 +30,7 @@ import { StepperItemAttribute } from './component/stepperItem';
  * @implements { StepperItemAttribute, AttributeModifier<StepperItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {
   /**
