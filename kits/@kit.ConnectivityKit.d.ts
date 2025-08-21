@@ -18,6 +18,7 @@
  * @kit ConnectivityKit
  */
 
+/* 共用部分 */
 /*** if arkts 1.1&1.2 */
 import a2dp from '@ohos.bluetooth.a2dp';
 import access from '@ohos.bluetooth.access';
@@ -32,7 +33,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/* 1.1 独有部分 */
 import bluetooth from '@ohos.bluetooth';
 import map from '@ohos.bluetooth.map';
 import pan from '@ohos.bluetooth.pan';
@@ -61,4 +62,3 @@ export {
   connectedTag, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
   wifiManager, wifiManagerExt, wifiext
 };
-/*** endif */
