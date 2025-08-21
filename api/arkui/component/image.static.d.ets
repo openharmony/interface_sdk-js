@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,27 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import matrix4 from '../../@ohos.matrix4';
 import { BusinessError } from '../../@ohos.base';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
-import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
-import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics } from './units';
-import { ImageFit, ImageRepeat, CopyOptions } from './enums';
+import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
+import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics, VoidCallback } from "./units";
+import { ImageFit, ImageRepeat, CopyOptions } from "./enums";
 import { Resource } from '../../global/resource';
 import { CommonMethod, PointLightStyle, PixelMap } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Import the DrawingColorFilter type object for image color filter setting.
  *
@@ -366,6 +365,14 @@ export declare class ColorContent {
      */
     static readonly ORIGIN: ColorContent;
 }
+/**
+ * Defines the Image component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ImageAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface ImageAttribute extends CommonMethod {
     /**
      * Sets the placeholder image displayed during loading.
@@ -374,12 +381,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { string | Resource | PixelMap } value - Placeholder image displayed during loading, Default value is null.
+     * @param { string | Resource | PixelMap | undefined } value - Placeholder image displayed 
+     *     during loading, Default value is null.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alt(value: string | Resource | PixelMap | undefined): this;
+    default alt(value: string | Resource | PixelMap | undefined): this;
     /**
      * Specifies whether to display the image in the system language direction.
      *
@@ -387,12 +395,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { boolean } value - Whether to display the image in the system language direction, Default value is false.
+     * @param { boolean | undefined } value - Whether to display the image in the system 
+     *     language direction, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    matchTextDirection(value: boolean | undefined): this;
+    default matchTextDirection(value: boolean | undefined): this;
     /**
      * Sets whether the display size of the image follows the source size.
      *
@@ -400,12 +409,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { boolean } value - Whether to fit the image to the size of the image source, Default value is false.
+     * @param { boolean | undefined } value - Whether to fit the image to the size 
+     *     of the image source, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fitOriginalSize(value: boolean | undefined): this;
+    default fitOriginalSize(value: boolean | undefined): this;
     /**
      * Sets the fill color to be superimposed on the image.
      * By default, no fill color is applied. If an invalid value is passed, the system uses the default theme color:
@@ -416,30 +426,31 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ResourceColor | ColorContent | ColorMetrics } color
+     * @param { ResourceColor | ColorContent | ColorMetrics | undefined } color
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fillColor(color: ResourceColor | ColorContent | ColorMetrics | undefined): this;
+    default fillColor(color: ResourceColor | ColorContent | ColorMetrics | undefined): this;
     /**
      * Sets how the image is resized to fit its container.
      *
-     * @param { ImageFit } value - How the image is resized to fit its container, Default value is ImageFit.Cover.
+     * @param { ImageFit | undefined } value - How the image is resized to 
+     *     fit its container, Default value is ImageFit.Cover.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    objectFit(value: ImageFit | undefined): this;
+    default objectFit(value: ImageFit | undefined): this;
     /**
      * Sets the transformation matrix of the image.
      *
-     * @param { ImageMatrix } matrix
+     * @param { ImageMatrix | undefined } matrix
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    imageMatrix(matrix: ImageMatrix | undefined): this;
+    default imageMatrix(matrix: ImageMatrix | undefined): this;
     /**
      * Set the repeat style of the picture
      *
@@ -448,12 +459,12 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ImageRepeat } value - How the image is repeated, Default value is ImageRepeat.NoRepeat.
+     * @param { ImageRepeat | undefined } value - How the image is repeated, Default value is ImageRepeat.NoRepeat.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    objectRepeat(value: ImageRepeat | undefined): this;
+    default objectRepeat(value: ImageRepeat | undefined): this;
     /**
      * Specifies whether to resize the image source based on the size of the display area during image decoding.
      *
@@ -462,13 +473,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * or SVG.
      * </p>
      *
-     * @param { boolean } value - Whether to resize the image source based on the size of the display area
+     * @param { boolean | undefined } value - Whether to resize the image source based on the size of the display area
      * during image decoding, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    autoResize(value: boolean | undefined): this;
+    default autoResize(value: boolean | undefined): this;
     /**
      * Sets the rendering mode of the image.
      *
@@ -478,12 +489,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ImageRenderMode } value - Rendering mode of the image, Default value is ImageRenderMode.Original.
+     * @param { ImageRenderMode | undefined } value - Rendering mode of the image, 
+     *     Default value is ImageRenderMode.Original.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    renderMode(value: ImageRenderMode | undefined): this;
+    default renderMode(value: ImageRenderMode | undefined): this;
     /**
      * Sets the dynamic range of the image to be displayed.
      *
@@ -491,13 +503,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute is not applicable to SVG images.
      * </p>
      *
-     * @param { DynamicRangeMode } value - Dynamic range of the image.
+     * @param { DynamicRangeMode | undefined } value - Dynamic range of the image.
      * @returns { ImageAttribute } Returns the instance of the ImageAttribute, Default value is
      * dynamicRangeMode.Standard.
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    dynamicRangeMode(value: DynamicRangeMode | undefined): this;
+    default dynamicRangeMode(value: DynamicRangeMode | undefined): this;
     /**
      * Sets the interpolation effect of the image, which can alleviate aliasing that occurs when the image is zoomed.
      *
@@ -506,12 +518,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ImageInterpolation } value - Interpolation effect of the image, Default value is ImageInterpolation.Low.
+     * @param { ImageInterpolation | undefined } value - Interpolation effect of the image, 
+     *     Default value is ImageInterpolation.Low.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    interpolation(value: ImageInterpolation | undefined): this;
+    default interpolation(value: ImageInterpolation | undefined): this;
     /**
      * Sets the decoding size of the image.
      * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
@@ -523,12 +536,12 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ImageSourceSize } value - Decoding size of the image.
+     * @param { ImageSourceSize | undefined } value - Decoding size of the image.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    sourceSize(value: ImageSourceSize | undefined): this;
+    default sourceSize(value: ImageSourceSize | undefined): this;
     /**
      * Specifies whether to load the image synchronously.
      *
@@ -536,12 +549,12 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { boolean } value - Whether to load the image synchronously, Default value is false.
+     * @param { boolean | undefined } value - Whether to load the image synchronously, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    syncLoad(value: boolean | undefined): this;
+    default syncLoad(value: boolean | undefined): this;
     /**
      * Sets the color filter for the image.
      *
@@ -549,12 +562,12 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>When this attribute is set, renderMode is not effective.
      * </p>
      *
-     * @param { ColorFilter | DrawingColorFilter } value -  Color filter of the image.
+     * @param { ColorFilter | DrawingColorFilter | undefined } value -  Color filter of the image.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    colorFilter(value: ColorFilter | DrawingColorFilter | undefined): this;
+    default colorFilter(value: ColorFilter | DrawingColorFilter | undefined): this;
     /**
      * Whether the image can be copied.
      *
@@ -563,12 +576,13 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { CopyOptions } value - Specifies whether the image can be copied, Default value is CopyOptions.None.
+     * @param {  CopyOptions | undefined } value - Specifies whether the image can be 
+     *     copied, Default value is CopyOptions.None.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    copyOption(value: CopyOptions | undefined): this;
+    default copyOption(value: CopyOptions | undefined): this;
     /**
      * Specifies whether the image is draggable.
      *
@@ -576,73 +590,74 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>This attribute cannot be used together with the onDragStart event.
      * </p>
      *
-     * @param { boolean } value - Whether the image is draggable, Default value is true.
+     * @param { boolean | undefined } value - Whether the image is draggable, Default value is true.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    draggable(value: boolean | undefined): this;
+    default draggable(value: boolean | undefined): this;
     /**
      * Defines the PointLight
      *
-     * @param { PointLightStyle } value - The point light style.
+     * @param { PointLightStyle | undefined } value - The point light style.
      * @returns { ImageAttribute } The attribute of the image.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20
      */
-    pointLight(value: PointLightStyle | undefined): this;
+    default pointLight(value: PointLightStyle | undefined): this;
     /**
      * SVG anti-aliasing.
      * The range of the parameter values is (0.333, 1.333].
      * Default value is 0.0.
      *
-     * @param { number } value - The degree of anti-aliasing.
+     * @param { number | undefined } value - The degree of anti-aliasing.
      * @returns { ImageAttribute } The attribute of the image.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20
      */
-    edgeAntialiasing(value: number | undefined): this;
+    default edgeAntialiasing(value: number | undefined): this;
     /**
      * This callback is triggered when an image is successfully loaded.
      * The size of the image source that is successfully loaded is returned, in pixels.
      *
-     * @param { ImageOnCompleteCallback } callback
+     * @param { ImageOnCompleteCallback | undefined } callback
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onComplete(callback: ImageOnCompleteCallback | undefined): this;
+    default onComplete(callback: ImageOnCompleteCallback | undefined): this;
     /**
      * Triggered when an error occurs during image loading.
-     * The field of "message" carries the detailed information of failed image loading.
+     *     The field of "message" carries the detailed information of failed image loading.
      *
      * <p><strong>NOTE</strong>:
      * <br>This event is not triggered if the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { ImageErrorCallback } callback
+     * @param { ImageErrorCallback | undefined } callback
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onError(callback: ImageErrorCallback | undefined): this;
+    default onError(callback: ImageErrorCallback | undefined): this;
     /**
-     * When the loaded source file is a svg image, this callback is triggered when the playback of the svg image is complete.
-     * If the svg image is a wireless loop image, this callback is not triggered.
+     * When the loaded source file is a svg image, this callback is triggered 
+     *     when the playback of the svg image is complete.
+     *     If the svg image is a wireless loop image, this callback is not triggered.
      *
      * <p><strong>NOTE</strong>:
      * <br>Only SVG images are supported.
      * <br>This event is not triggered if the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
      *
-     * @param { function } event
+     * @param { VoidCallback | undefined } event
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onFinish(event: (() => void) | undefined): this;
+    default onFinish(event: VoidCallback | undefined): this;
     /**
      * Sets whether to enable the AI analyzer
      *
@@ -661,22 +676,22 @@ export declare interface ImageAttribute extends CommonMethod {
      * <br>The ohos.permission.INTERNET permission must be declared.
      * </p>
      *
-     * @param { boolean} enable - Whether to enable the AI analyzer, Default value is false.
+     * @param { boolean | undefined} enable - Whether to enable the AI analyzer, Default value is false.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
      */
-    enableAnalyzer(enable: boolean | undefined): this;
+    default enableAnalyzer(enable: boolean | undefined): this;
     /**
      * Set image analyzer with config.
      *
-     * @param { ImageAnalyzerConfig } config
+     * @param { ImageAnalyzerConfig | undefined } config
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20
      */
-    analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
+    default analyzerConfig(config: ImageAnalyzerConfig | undefined): this;
     /**
      * Sets the resizable image options.
      *
@@ -690,44 +705,54 @@ export declare interface ImageAttribute extends CommonMethod {
      * or SVG.
      * </p>
      *
-     * @param { ResizableOptions } value - 	Resizable image options.
+     * @param { ResizableOptions | undefined } value - 	Resizable image options.
      * @returns { ImageAttribute } Returns the instance of the ImageAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    resizable(value: ResizableOptions | undefined): this;
+    default resizable(value: ResizableOptions | undefined): this;
     /**
      * Set the quality enhancement level of image.
      *
-     * @param { boolean } supported - Whether to support sensitive privacy information.
+     * @param { boolean | undefined } supported - Whether to support sensitive privacy information.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    privacySensitive(supported: boolean | undefined): this;
+    default privacySensitive(supported: boolean | undefined): this;
     /**
      * Set the quality enhancement level of image.
      *
-     * @param { ResolutionQuality } imageQuality
+     * @param { ResolutionQuality | undefined } imageQuality
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20
      */
-    enhancedImageQuality(imageQuality: ResolutionQuality | undefined): this;
+    default enhancedImageQuality(imageQuality: ResolutionQuality | undefined): this;
     /**
      * Sets the display orientation of the image content.
      *
-     * @param { ImageRotateOrientation } orientation - Display orientation of the image content, Default value
-     * is ImageRotateOrientation.UP.
+     * @param { ImageRotateOrientation | undefined } orientation - Display orientation of the 
+     *     image content, Default value is ImageRotateOrientation.UP.
      * @returns { ImageAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    orientation(orientation: ImageRotateOrientation | undefined): this;
-    attributeModifier(modifier: AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default orientation(orientation: ImageRotateOrientation | undefined): this;
+    /**
+     * Set the attribute modifier.
+     *
+     * @param { AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<ImageAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
+ * ImageErrorCallback
+ * 
  * @typedef { function } ImageErrorCallback
  * @param { ImageError } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -738,7 +763,7 @@ export type ImageErrorCallback = (error: ImageError) => void;
  * ImageOnCompleteCallback
  *
  * @typedef { function } ImageOnCompleteCallback
- * @param { ImageCompleteEvent } loadEvent
+ * @param { ImageCompleteEvent } [loadEvent]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
@@ -807,6 +832,21 @@ export declare interface ResizableOptions {
      */
     lattice?: DrawingLattice;
 }
-export declare function Image(src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | PixelMap | ResourceStr | DrawableDescriptor, imageAIOptions?: ImageAIOptions, 
+/**
+ * Defines the Image component.
+ *
+ * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+ * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+ * @param { VoidCallback } [content_]
+ * @returns { ImageAttribute } The attribute of the Image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
-content_?: () => void): ImageAttribute;
+@ComponentBuilder
+export declare function Image(
+    src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+    imageAIOptions?: ImageAIOptions, 
+    @memo
+    content_?: VoidCallback
+): ImageAttribute;

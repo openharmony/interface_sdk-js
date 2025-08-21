@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,19 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { ResourceColor, Length } from './units';
+import { ResourceColor, Length, VoidCallback } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * DataPanelType enum
  *
@@ -164,6 +163,14 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
      */
     maxValue: number;
 }
+/**
+ * Defines the Button component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ButtonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface DataPanelAttribute extends CommonMethod {
     /**
      * Disable the special effect of the data ratio chart.
@@ -173,57 +180,75 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    closeEffect(value: boolean | undefined): this;
+    default closeEffect(value: boolean | undefined): this;
     /**
      * Set the value colors of the data ratio chart.
      *
-     * @param { Array<ResourceColor | LinearGradient> } value - the value colors of the data ratio chart.
+     * @param { Array<ResourceColor | LinearGradient> | undefined } value - the value colors of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
+    default valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
     /**
      * Set track background color of the data ratio chart.
      *
-     * @param { ResourceColor } value - track background color of the data ratio chart.
+     * @param { ResourceColor | undefined } value - track background color of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackBackgroundColor(value: ResourceColor | undefined): this;
+    default trackBackgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the stroke width of the data ratio chart.
      *
-     * @param { Length } value - the stroke width of the data ratio chart.
+     * @param { Length | undefined } value - the stroke width of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    strokeWidth(value: Length | undefined): this;
+    default strokeWidth(value: Length | undefined): this;
     /**
      * Set the shadow width of the data ratio chart.
      *
-     * @param { DataPanelShadowOptions } value - the track shadow width of the data ratio chart.
+     * @param {  DataPanelShadowOptions | undefined } value - the track shadow width of the data ratio chart.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackShadow(value: DataPanelShadowOptions | undefined): this;
+    default trackShadow(value: DataPanelShadowOptions | undefined): this;
     /**
      * Set the content modifier of data panel.
      *
-     * @param { ContentModifier<DataPanelConfiguration> } modifier - The content modifier of data panel.
+     * @param { ContentModifier<DataPanelConfiguration> | undefined } modifier - The content modifier of data panel.
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
-    attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { BadgeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the DataPanel component.
+ *
+ * @param { DataPanelOptions } options - data panel options.
+ * @param { function } [content_]
+ * @returns { DataPanelAttribute } The attribute of the DataPanel.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
-export declare function DataPanel(options: DataPanelOptions, 
-@memo
-content_?: () => void): DataPanelAttribute;
+export declare function DataPanel(
+    options: DataPanelOptions, 
+    @memo
+    content_?: VoidCallback
+): DataPanelAttribute;

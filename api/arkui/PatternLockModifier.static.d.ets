@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { PatternLockAttribute } from './component/patternLock';
 /**
  * Defines PatternLock Modifier
  *
- * @extends PatternLockAttribute
- * @implements { AttributeModifier<PatternLockAttribute> }
+ * @implements { PatternLockAttribute, AttributeModifier<PatternLockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class PatternLockModifier extends PatternLockAttribute implements AttributeModifier<PatternLockAttribute> {}
+export declare class PatternLockModifier implements PatternLockAttribute, AttributeModifier<PatternLockAttribute> {}

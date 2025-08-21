@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { Resource } from '../../global/resource';
 import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common';
-import { Offset, VoidCallback, ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier } from './common';
+import { Offset, VoidCallback, ResourceColor, VoidCallback } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * The type of alignment between entry and calendar.
  * @enum {number}
@@ -108,12 +109,12 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
     /**
      * Set the alignment between entry and calendar dialog.
      * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
-     * @param { Offset } offset - The offset between entry and calendar dialog.
+     * @param { Offset } [offset] - The offset between entry and calendar dialog.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset | undefined): this;
+    default edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset | undefined): this;
     /**
      * Sets the text style of entry
      * @param { PickerTextStyle } value - indicates the text style of entry.
@@ -121,7 +122,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    textStyle(value: PickerTextStyle | undefined): this;
+    default textStyle(value: PickerTextStyle | undefined): this;
     /**
      * Callback for selected date changed.
      * Anonymous Object Rectification.
@@ -130,7 +131,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: Callback<Date> | undefined): this;
+    default onChange(callback: Callback<Date> | undefined): this;
     /**
      * Defines whether the calendar picker marks today.
      *
@@ -139,7 +140,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    markToday(enabled: boolean | undefined): this;
+    default markToday(enabled: boolean | undefined): this;
     /**
      * Set the attribute modifier
      *
@@ -148,7 +149,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the DatePickerDialogOptions for Calendar Picker Dialog.
@@ -312,18 +313,18 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
 export declare class CalendarPickerDialog {
     /**
      * Invoking method display.
-     * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+     * @param { CalendarDialogOptions } [options] - the option of th calendarPicker.
+     * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
     static show(options?: CalendarDialogOptions): void;
 }
-
 /**
  * Defines CalendarPicker Component.
  *
- * @param { CalendarOptions } [options]
- * @param { function } [content_] - container
+ * @param { CalendarOptions } [options] - calendar options.
+ * @param { VoidCallback } [content_]
  * @returns { CalendarPickerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -331,7 +332,7 @@ export declare class CalendarPickerDialog {
 @memo
 @ComponentBuilder
 export declare function CalendarPicker(
-  options?: CalendarOptions, 
-  @memo
-  content_?: () => void
+    options?: CalendarOptions, 
+    @memo
+    content_?: VoidCallback
 ): CalendarPickerAttribute;

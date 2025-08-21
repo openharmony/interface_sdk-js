@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { DatePickerAttribute } from './component/datePicker';
 /**
  * Defines DatePicker Modifier
  *
- * @extends DatePickerAttribute
- * @implements { AttributeModifier<DatePickerAttribute> }
+ * @implements { DatePickerAttribute, AttributeModifier<DatePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {}
+export declare class DatePickerModifier implements DatePickerAttribute, AttributeModifier<DatePickerAttribute> {}

@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,21 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions, Optional } from './common';
 import { CustomBuilder } from './builder';
-import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
+import { ResourceStr, Dimension, ResourceColor, Length, VoidCallback } from "./units";
 import { LinearGradient } from "./dataPanel";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines Gauge constructor options.
  *
@@ -71,8 +70,7 @@ export interface GaugeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare interface GaugeShadowOptions extends MultiShadowOptions {
-}
+export declare interface GaugeShadowOptions extends MultiShadowOptions {}
 /**
  * Defines the options of gauge indicator.
  *
@@ -134,6 +132,14 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
      */
     max: number;
 }
+/**
+ * Defines the Gauge component attributes.
+ *
+ * @extends CommonMethod
+ * @interface GaugeAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets the value for the current profile.
@@ -143,7 +149,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    value(value: number | undefined): this;
+    default value(value: number | undefined): this;
     /**
      * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
      *
@@ -152,7 +158,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    startAngle(angle: number | undefined): this;
+    default startAngle(angle: number | undefined): this;
     /**
      * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
      *
@@ -161,16 +167,17 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    endAngle(angle: number | undefined): this;
+    default endAngle(angle: number | undefined): this;
     /**
      * Set the color of the chart. You can set the solid color and segmented gradient color.
      *
-     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - section colors of gauge drawing.
+     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - 
+     *     section colors of gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    colors(colors: ResourceColor | LinearGradient | Array<[
+    default colors(colors: ResourceColor | LinearGradient | Array<[
         ResourceColor | LinearGradient,
         number
     ]> | undefined): this;
@@ -182,7 +189,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    strokeWidth(length: Length | undefined): this;
+    default strokeWidth(length: Length | undefined): this;
     /**
      * Sets description content of the ring chart.
      *
@@ -191,7 +198,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    description(value: CustomBuilder | undefined): this;
+    default description(value: CustomBuilder | undefined): this;
     /**
      * Sets track shadow of the ring chart.
      *
@@ -200,7 +207,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackShadow(value: GaugeShadowOptions | undefined): this;
+    default trackShadow(value: GaugeShadowOptions | undefined): this;
     /**
      * Sets indicator options of the ring chart.
      *
@@ -209,7 +216,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    indicator(value: GaugeIndicatorOptions | undefined): this;
+    default indicator(value: GaugeIndicatorOptions | undefined): this;
     /**
      * Sets if mark to privacy sensitive.
      *
@@ -218,7 +225,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    default privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
     /**
      * Set the content modifier of gauge.
      *
@@ -227,12 +234,30 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
-    attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { GaugeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the Gauge component.
+ *
+ * @param { GaugeOptions } options - gauge options.
+ * @param { VoidCallback } [content_]
+ * @returns { GaugeAttribute } The attribute of the Gauge.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
-export declare function Gauge(options: GaugeOptions, 
-@memo
-content_?: () => void): GaugeAttribute;
+export declare function Gauge(
+    options: GaugeOptions, 
+    @memo
+    content_?: VoidCallback
+): GaugeAttribute;

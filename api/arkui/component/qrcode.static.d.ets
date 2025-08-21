@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,53 +13,76 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonMethod } from './common';
-import { ResourceColor, ResourceStr } from './units';
+import { ResourceColor, ResourceStr, VoidCallback } from "./units";
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
+/**
+ * Defines the QRCode component attributes.
+ *
+ * @extends CommonMethod
+ * @interface QRCodeAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface QRCodeAttribute extends CommonMethod {
     /**
      * Called when the QR code color is set.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color(value: ResourceColor | undefined): this;
+    default color(value: ResourceColor | undefined): this;
     /**
      * Called when setting the QR code background color.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    backgroundColor(value: ResourceColor | undefined): this;
+    default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { number | Resource } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+     * @param { number | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentOpacity(value: number | Resource | undefined): this;
-    attributeModifier(
-        modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default contentOpacity(value: number | Resource | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { QRCodeAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the QRCode component.
+ *
+ * @param { string } value - qrcode string.
+ * @param { VoidCallback } [content_]
+ * @returns { QRCodeAttribute } The attribute of the QRCode.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
-export declare function QRCode(value: string, 
-@memo
-content_?: () => void): QRCodeAttribute;
+export declare function QRCode(
+    value: string, 
+    @memo
+    content_?: VoidCallback
+): QRCodeAttribute;

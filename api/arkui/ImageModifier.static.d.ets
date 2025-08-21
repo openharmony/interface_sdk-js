@@ -20,13 +20,13 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { QRCodeAttribute } from './component/qrcode';
+import { ImageAttribute } from './component/image';
 
 /**
- * Defines QRCode Modifier
+ * Defines Image Modifier
  *
- * @implements { QRCodeAttribute, AttributeModifier<QRCodeAttribute> }
+ * @implements { ImageAttribute, AttributeModifier<ImageAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class QRCodeModifier implements QRCodeAttribute, AttributeModifier<QRCodeAttribute> {}
+export declare class ImageModifier implements ImageAttribute, AttributeModifier<ImageAttribute> {}

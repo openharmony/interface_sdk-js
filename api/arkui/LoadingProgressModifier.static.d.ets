@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,8 @@ import { LoadingProgressAttribute } from './component/loadingProgress';
 /**
  * Defines LoadingProgress Modifier
  *
- * @extends LoadingProgressAttribute
- * @implements { AttributeModifier<LoadingProgressAttribute> }
+ * @implements { LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {}
+export declare class LoadingProgressModifier implements LoadingProgressAttribute, AttributeModifier<LoadingProgressAttribute> {}
