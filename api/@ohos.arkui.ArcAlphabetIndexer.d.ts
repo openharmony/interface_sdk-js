@@ -27,7 +27,7 @@
  * @atomicservice
  * @since 18
  */
-declare interface ArcAlphabetIndexerInitInfo  {
+declare interface ArcAlphabetIndexerInitInfo {
   /**
    * Array of alphabetic indexed strings, cannot be set to empty.
    *
@@ -60,7 +60,7 @@ declare interface ArcAlphabetIndexerInitInfo  {
   * @atomicservice
   * @since 18
   */
-declare type OnSelectCallback =  (index: number) => void;
+declare type OnSelectCallback = (index: number) => void;
 
 /**
  * Arc Alphabet index bar.
@@ -70,6 +70,7 @@ declare type OnSelectCallback =  (index: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 export interface ArcAlphabetIndexerInterface {
   /**
@@ -294,5 +295,6 @@ declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
+ * @noninterop
  */
 declare const ArcAlphabetIndexerInstance: ArcAlphabetIndexerAttribute;
