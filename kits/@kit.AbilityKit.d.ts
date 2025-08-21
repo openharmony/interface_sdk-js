@@ -32,19 +32,15 @@ import AbilityStage from '@ohos.app.ability.AbilityStage';
 import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
 import uriPermissionManager from '@ohos.application.uriPermissionManager';
 import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
-import abilityAccessCtrl, {
-  Context, PermissionRequestResult, Permissions
-} from '@ohos.abilityAccessCtrl';
-import privacyManager from '@ohos.privacyManager';
-export {
-  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
-};
 /*** endif */
 
 import ability from '@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
 import featureAbility from '@ohos.ability.featureAbility';
 import particleAbility from '@ohos.ability.particleAbility';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
 import Ability from '@ohos.app.ability.Ability';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
@@ -79,6 +75,7 @@ import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
 import UIAbility, {
   Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '@ohos.app.ability.UIAbility';
+import privacyManager from '@ohos.privacyManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
 import appControl from '@ohos.bundle.appControl';
@@ -123,16 +120,16 @@ export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
   ApplicationStateChangeCallback, AutoFillExtensionAbility, BundleStatusCallback, Callee,
   CalleeCallback, Caller, CheckPackageHasInstalledOptions, CheckPackageHasInstalledResponse,
-  ChildProcess, Configuration, ConfigurationConstant, EnvironmentCallback, ErrorCode,
+  ChildProcess, Configuration, ConfigurationConstant, Context, EnvironmentCallback, ErrorCode,
   ExtensionAbility, InsightIntentContext, InsightIntentExecutor, OnReleaseCallback, OnRemoteStateChangeCallback,
-  OpenLinkOptions, Package, ServiceExtensionAbility, ShareExtensionAbility,
-  StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability,
+  OpenLinkOptions, Package, PermissionRequestResult, Permissions, ServiceExtensionAbility, ShareExtensionAbility,
+  StartOptions, UIAbility, UIExtensionAbility, UIExtensionContentSession, Want, WantAgent, ability, abilityAccessCtrl,
   abilityManager, appControl, appManager, appRecovery, autoFillManager, autoStartupManager, bundle, bundleManager,
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
   innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
-  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant,
+  overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, shortcutManager, appDomainVerify, application, UIServiceExtensionAbility,
@@ -158,12 +155,17 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
+import privacyManager from '@ohos.privacyManager';
 
 export {
   common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
   UIExtensionContentSession, wantConstant, UIAbility, Callee, Caller, OnReleaseCallback, AbilityStage,
   UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
-  freeInstall, installer, launcherBundleManager, overlay, shortcutManager
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
 };
 /*** endif */
