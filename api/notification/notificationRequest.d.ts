@@ -247,6 +247,16 @@ export interface NotificationRequest {
   /**
    * Extended parameter.
    *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   * @arkts 1.2
+   */
+  extraInfo?: Record<string, Object>;
+
+  /**
+   * Extended parameter.
+   *
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
