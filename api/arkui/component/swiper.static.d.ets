@@ -21,7 +21,7 @@
  */
 
 import { IndicatorComponentController } from './indicatorcomponent';
-import { CommonMethod, Callback, ICurve, Optional, Bindable, AttributeModifier } from './common';
+import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -60,13 +60,15 @@ export declare class SwiperController {
   /**
    * Controlling Swiper to change to the specified subcomponent.
    *
-   * @param { number } index - the index of item to be redirected.
+   * @param { number | undefined } index - the index of item to be redirected, default value is 0,
+   *     undefined means setting to default value.
    * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
-   * true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to SwiperAnimationMode.NO_ANIMATION
+   *     true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION,
+   *     false is equivalent to SwiperAnimationMode.NO_ANIMATION.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  changeIndex(index: number, animationMode?: SwiperAnimationMode | boolean): void;
+  changeIndex(index: number | undefined, animationMode?: SwiperAnimationMode | boolean): void;
 
   /**
    * Called when need to stop the swiper animation.
@@ -80,7 +82,8 @@ export declare class SwiperController {
   /**
    * Called when need to preload specified child.
    *
-   * @param { Optional<Array<number>> } indices - Indices of swiper child to be preloaded.
+   * @param { Array<number> | undefined } indices - Indices of swiper child to be preloaded,
+   *     default value is no swiper child to be preloaded, undefined means setting to default value.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
    * <br> 1. The parameter type is not Array<number>.
@@ -90,7 +93,7 @@ export declare class SwiperController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  preloadItems(indices: Optional<Array<number>>): Promise<void>;
+  preloadItems(indices: Array<number> | undefined): Promise<void>;
 }
 
 /**
@@ -103,64 +106,88 @@ export declare class Indicator<T> {
   /**
    * Set the indicator to the left.
    *
-   * @param { Length } value - the indicator to the left.
+   * @param { Length | undefined } value - the indicator to the left, default value is adaptive size layout,
+   *     centered alignment in the spindle direction according to the size of the indicator itself and
+   *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  left(value: Length): T;
+  left(value: Length | undefined): T;
 
   /**
    * Set the indicator to the top.
    *
-   * @param { Length } value - the indicator to the top.
+   * @param { Length | undefined } value - the indicator to the top, default value is adaptive size layout,
+   *     centered alignment in the spindle direction according to the size of the indicator itself and
+   *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  top(value: Length): T;
+  top(value: Length | undefined): T;
 
   /**
    * Set the indicator to the right.
    *
-   * @param { Length } value - the indicator to the right.
+   * @param { Length | undefined } value - the indicator to the right, default value is adaptive size layout,
+   *     centered alignment in the spindle direction according to the size of the indicator itself and
+   *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  right(value: Length): T;
+  right(value: Length | undefined): T;
 
   /**
    * Set the indicator to the bottom.
    *
-   * @param { Length } value - the indicator to the bottom.
+   * @param { Length | undefined } value - the indicator to the bottom, default value is adaptive size layout,
+   *     centered alignment in the spindle direction according to the size of the indicator itself and
+   *     the size of the swiper, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  bottom(value: Length): T;
+  bottom(value: Length | undefined): T;
+
+  /**
+   * Sets the position of the navigation indicator relative to the bottom edge of the Swiper component.
+   * You can also choose to ignore the size of the navigation indicator using the ignoreSize property.
+   *
+   * @param { LengthMetrics | Length | undefined } bottom - the offset of indicator to the bottom,
+   *     default value is adaptive size layout, centered alignment in the spindle direction according
+   *     to the size of the indicator itself and the size of the swiper, undefined means setting to default value.
+   * @param { boolean } ignoreSize - ignore the size of the indicator.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  bottom(bottom: LengthMetrics | Length | undefined, ignoreSize: boolean): T;
 
   /**
    * Set the indicator to the left in LTR
    * Set the indicator to the right in RTL
    *
-   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+   * @param { LengthMetrics | undefined } value - the indicator to the right in LTR, indicator to the left in RTL,
+   *     default value is 0.0_vp, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  start(value: LengthMetrics): T;
+  start(value: LengthMetrics | undefined): T;
 
   /**
    * Set the indicator to the left in RTL
    * Set the indicator to the right in LTR
    *
-   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+   * @param { LengthMetrics | undefined } value - the indicator to the left in RTL, Set the indicator
+   *     to the right in LTR, default value is 0.0_vp, undefined means setting to default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  end(value: LengthMetrics): T;
+  end(value: LengthMetrics | undefined): T;
 
   /**
    * DotIndicator class object.
@@ -202,92 +229,101 @@ export declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * Set the indicator item width.
    *
-   * @param { Length } value - the indicator item width.
+   * @param { Length | undefined } value - the indicator item width, default value is 6.0_vp,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  itemWidth(value: Length): DotIndicator;
+  itemWidth(value: Length | undefined): DotIndicator;
 
   /**
    * Set the indicator item height.
    *
-   * @param { Length } value - the indicator item height.
+   * @param { Length | undefined } value - the indicator item height, default value is 6.0_vp,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  itemHeight(value: Length): DotIndicator;
+  itemHeight(value: Length | undefined): DotIndicator;
 
   /**
    * Set the indicator item width when selected.
    *
-   * @param { Length } value - the indicator item width when selected.
+   * @param { Length | undefined } value - the indicator item width when selected, default value is 6.0_vp,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedItemWidth(value: Length): DotIndicator;
+  selectedItemWidth(value: Length | undefined): DotIndicator;
 
   /**
    * Set the indicator item height when selected.
    *
-   * @param { Length } value - the indicator item height when selected.
+   * @param { Length | undefined } value - the indicator item height when selected, default value is 6.0_vp,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedItemHeight(value: Length): DotIndicator;
+  selectedItemHeight(value: Length | undefined): DotIndicator;
 
   /**
    * Setting indicator style mask.
    *
-   * @param { boolean } value - the indicator item mask.
+   * @param { boolean | undefined } value - the indicator item mask, default value is false,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  mask(value: boolean): DotIndicator;
+  mask(value: boolean | undefined): DotIndicator;
 
   /**
    * Set the indicator color.
    *
-   * @param { ResourceColor } value - the indicator item color.
+   * @param { ResourceColor | undefined } value - the indicator item color, default value is { #18243119 },
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  color(value: ResourceColor): DotIndicator;
+  color(value: ResourceColor | undefined): DotIndicator;
 
   /**
    * Set the navigation point color.
    *
-   * @param { ResourceColor } value - the indicator item when selected.
+   * @param { ResourceColor | undefined } value - the indicator item when selected, default value is { #007DFFFF },
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedColor(value: ResourceColor): DotIndicator;
+  selectedColor(value: ResourceColor | undefined): DotIndicator;
 
   /**
    * Set the Indicator maxDisplayCount when selected.
    *
-   * @param { number } maxDisplayCount - the indicator item maxDisplayCount when selected.
+   * @param { number | undefined } maxDisplayCount - the indicator item maxDisplayCount when selected,
+   *     default value is 6, undefined means setting to default value.
    * @returns { DotIndicator } return the DotIndicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  maxDisplayCount(maxDisplayCount: number): DotIndicator;
+  maxDisplayCount(maxDisplayCount: number | undefined): DotIndicator;
 
   /**
    * Set the space between dots.
    *
-   * @param { LengthMetrics } space - the space between dots
+   * @param { LengthMetrics | undefined } space - the space between dots, default value is 8.0_vp,
+   *     undefined means setting to default value.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  space(space: LengthMetrics): DotIndicator;
+  space(space: LengthMetrics | undefined): DotIndicator;
 }
 
 /**
@@ -327,42 +363,46 @@ export declare class DigitIndicator extends Indicator<DigitIndicator> {
   /**
    * Set font color of the digital indicator.
    *
-   * @param { ResourceColor } value - the indicator font color.
+   * @param { ResourceColor | undefined } value - the indicator font color, default value is { #FF182431 },
+   *     undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  fontColor(value: ResourceColor): DigitIndicator;
+  fontColor(value: ResourceColor | undefined): DigitIndicator;
 
   /**
    * Set font color of the digital indicator when selected.
    *
-   * @param { ResourceColor } value - the indicator font color when selected.
+   * @param { ResourceColor | undefined } value - the indicator font color when selected,
+   *     default value is { #FF182431 }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedFontColor(value: ResourceColor): DigitIndicator;
+  selectedFontColor(value: ResourceColor | undefined): DigitIndicator;
 
   /**
    * Set the digital indicator font (just support font size and weight).
    *
-   * @param { Font } value - the indicator font size and weight.
+   * @param { Font | undefined } value - the indicator font size and weight,
+   *     default value is { size: 14, weight: FontWeight.Normal }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  digitFont(value: Font): DigitIndicator;
+  digitFont(value: Font | undefined): DigitIndicator;
 
   /**
    * Set the digital indicator font (just support font size and weight).
    *
-   * @param { Font } value - the indicator font size and weight when selected.
+   * @param { Font | undefined } value - the indicator font size and weight when selected,
+   *     default value is { size: 14, weight: FontWeight.Normal }, undefined means setting to default value.
    * @returns { DigitIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedDigitFont(value: Font): DigitIndicator;
+  selectedDigitFont(value: Font | undefined): DigitIndicator;
 }
 
 /**
@@ -625,6 +665,17 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 20
    */
   default index(value: number | Bindable<number> | undefined): this;
+
+  /**
+   * Sets whether to enable automatic playback for child component switching.
+   * 
+   * @param { boolean | undefined } value - Whether to enable automatic playback for child component switching,
+   *     default value is false, undefined means setting to default value.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default autoPlay(value: boolean | undefined): this;
 
   /**
    * Set whether the subcomponent plays automatically.
