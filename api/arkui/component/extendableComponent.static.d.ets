@@ -22,6 +22,7 @@
 import { UIContext } from '@ohos.arkui.UIContext'
 import { Builder } from './builder'
 import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './common';
+import promptAction from '@ohos.promptAction'
 
 /**
  * Defining interface of LifeCycle for custom component and custom dialog
@@ -149,4 +150,14 @@ export declare abstract class ExtendableComponent implements LifeCycle {
     * @since 20
     */
     queryRouterPageInfo(): RouterPageInfo | undefined;
+
+    /**
+     * The dialog controller of the custom component.
+     *
+     * @returns { promptAction.DialogController | undefined } The controller of dialog,
+     * or undefined if the custom component does not display in the dialog.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    getDialogController(): promptAction.DialogController | undefined;
 }
