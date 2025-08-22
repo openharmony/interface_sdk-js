@@ -25,9 +25,9 @@ import { AttributeModifier, CommonAttribute } from './component/common';
 /**
  * Defines Common Modifier
  *
- * @implements CommonAttribute, AttributeModifier<CommonAttribute>
+ * @implements { CommonAttribute, AttributeModifier<CommonAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class CommonModifier implements CommonAttribute, AttributeModifier<CommonAttribute> {}
