@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -22,8 +23,8 @@
 /**
  * Defines the callback that is called when state variable with value is change
  * @typedef { function } OnChangeType
- * @param {string} propertyName - property name
- * @param {T} newValue - the new value of state variable
+ * @param { string } propertyName - property name
+ * @param { T } newValue - the new value of state variable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
@@ -49,7 +50,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   info(): string { return ""; };
+  info(): string { return ""; };
 
   /**
    * Reads value of the referenced AppStorage/LocalStorage property.
@@ -58,7 +59,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   get(): T;
+  get(): T;
 
   /**
    * Assign a new value to the referenced property
@@ -67,7 +68,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   set(newValue: T): void {};
+  set(newValue: T): void {};
   /**
    * Register callback function to be called on value change of the referenced property
    * calling with value undefined clear the callback.
@@ -76,11 +77,11 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   onChange(onChangeFunc: OnChangeType<T> | undefined): void {};
+  onChange(onChangeFunc: OnChangeType<T> | undefined): void {};
 }
 
 /**
- *   SubscribedAbstractProperty<T> is the return value of
+ * SubscribedAbstractProperty<T> is the return value of
  *   - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
  *   - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
  *   'T' can be boolean, string, number or custom class.
@@ -107,4 +108,62 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
    * @since 20
    */
   aboutToBeDeleted(): void {};
+}
+
+/**
+ * Defines the ColorMode of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum ColorMode {
+  /**
+   * Light mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  LIGHT = 0,
+
+  /**
+   * Dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  DARK = 1
+}
+
+/**
+ * Defines the LayoutDirection of device.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum LayoutDirection {
+  /**
+   * Elements are laid out from left to right.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  LTR = 0,
+
+  /**
+   * Elements are laid out from right to left.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  RTL = 1,
+
+  /**
+   * Elements are laid out from auto.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  Auto = 2
 }
