@@ -20,6 +20,7 @@
  */
 
 import { AbstractProperty, SubscribedAbstractProperty } from './storageProperty';
+import { RecordData } from '@ohos.base';
 
 /**
  * LocalStorage
@@ -38,13 +39,11 @@ export declare class LocalStorage {
    * initialize with all properties and their values that Object.keys(params) returns
    * Property values must not be undefined.
    *
-   * @param { Record<string, Any> } [initializingProperties] - Record<string, Any>
-   * containing keys and values.
-   * see set() for valid values
+   * @param { RecordData } [initializingProperties] initial data in storage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public constructor(initializingProperties?: Record<string, Any>);
+  public constructor(initializingProperties?: RecordData);
   /**
    * Obtain a handler or an alias to LocalStorage property with given name.
    *
