@@ -385,6 +385,15 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines sidebar Component
+ *
+ * @param { SideBarContainerType } [type] - sidebar constructor options
+ * @param { function } [content_] - container
+ * @returns { SideBarContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function SideBarContainer(
