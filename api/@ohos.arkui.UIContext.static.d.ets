@@ -770,20 +770,20 @@ export declare class PromptAction {
   /**
    * Get order value of top dialog.
    *
-   * @returns { LevelOrder } the display order.
+   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getTopOrder(): LevelOrder;
+  getTopOrder(): LevelOrder | undefined;
 
   /**
    * Get order value of bottom dialog.
    *
-   * @returns { LevelOrder } the display order.
+   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getBottomOrder(): LevelOrder;
+  getBottomOrder(): LevelOrder | undefined;
 
   /**
    * Open popup with frameNode.
