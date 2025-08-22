@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 
-import { CommonMethod } from './common';
+import { CommonMethod, AttributeModifier } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
@@ -81,7 +81,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  prevLabel(value: string | undefined): this;
+  default prevLabel(value: string | undefined): this;
 
   /**
    * Called when the value of stepperItem nextLabel is set
@@ -91,7 +91,7 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  nextLabel(value: string | undefined): this;
+  default nextLabel(value: string | undefined): this;
 
   /**
    * Called when the value of stepperItem status is set
@@ -101,7 +101,18 @@ export declare interface StepperItemAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  status(value?: ItemState | undefined): this;
+  default status(value?: ItemState | undefined): this;
+
+  /**
+   * Set the attribute modifier of stepperItem.
+   *
+   * @param { AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of stepperItem.
+   * @returns { StepperItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 @memo

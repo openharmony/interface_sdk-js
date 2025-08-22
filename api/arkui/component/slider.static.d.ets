@@ -402,15 +402,6 @@ export declare interface SliderAttribute extends CommonMethod {
     /**
      * Called when the slider of the slider bar is set to slide over the area color.
      *
-     * @param { ResourceColor | undefined } value
-     * @returns { SliderAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    selectedColor(value: ResourceColor | undefined): this;
-    /**
-     * Called when the slider of the slider bar is set to slide over the area color.
-     *
      * @param { ResourceColor | LinearGradient | undefined } selectedColor
      * @returns { SliderAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

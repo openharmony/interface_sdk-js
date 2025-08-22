@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- * @noninterop
  */
-export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {
+ export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {
 
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { LoadingProgressAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: LoadingProgressAttribute): void;
-}
+    /**
+     * Defines the normal update attribute function.
+     * 
+     * @param { LoadingProgressAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: LoadingProgressAttribute): void;
+  }
+  

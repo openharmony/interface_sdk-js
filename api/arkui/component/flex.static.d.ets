@@ -111,7 +111,16 @@ export declare interface FlexSpaceOptions {
     cross?: LengthMetrics;
 }
 export declare interface FlexAttribute extends CommonMethod {
-    attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { FlexAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo

@@ -16,7 +16,6 @@
 /**
  * @file Export 3D interfaces
  * @kit ArkGraphics3D
- * @arkts 1.1&1.2
  */
 
 /**
@@ -25,6 +24,13 @@
  * @since 12
  */
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings } from './graphics3d/ScenePostProcessSettings';
+/**
+ * Export post processing settings
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ * @arkts 1.2
+ */
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
@@ -33,6 +39,13 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
  */
 export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
   PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry } from './graphics3d/SceneTypes';
+/**
+ * Export scene types
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ * @arkts 1.2
+ */
+export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3 } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
@@ -43,6 +56,13 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
   SubMesh, Mesh, Animation, EnvironmentBackgroundType, Environment, Image, CullMode, Blend,
   RenderSort, MaterialProperty, MetallicRoughnessMaterial, MeshResource, Morpher,
   Sampler, SamplerFilter, SamplerAddressMode } from './graphics3d/SceneResources';
+/**
+ * Export scene resources
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ * @arkts 1.2
+ */
+export { SceneResource, Animation, EnvironmentBackgroundType, Environment } from './graphics3d/SceneResources';
 
 /**
  * Export scene nodes
@@ -51,6 +71,13 @@ export { SceneResourceType, SceneResource, Shader, MaterialType, Material, Shade
  */
 export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
   Camera } from './graphics3d/SceneNodes';
+/**
+ * Export scene nodes
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ * @arkts 1.2
+ */
+export { NodeType, Node, LightType, Light, DirectionalLight, Camera } from './graphics3d/SceneNodes';
 
 /**
  * Export scene
@@ -59,3 +86,11 @@ export { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
   RenderParameters, RenderResourceFactory, SceneComponent, RenderContext } from './graphics3d/Scene';
+/**
+ * Export scene
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20
+ * @arkts 1.2
+ */
+export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
+  RenderResourceFactory } from './graphics3d/Scene';

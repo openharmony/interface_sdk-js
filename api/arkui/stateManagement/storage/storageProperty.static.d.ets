@@ -58,7 +58,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-   get(): T { return undefined; };
+   get(): T;
 
   /**
    * Assign a new value to the referenced property

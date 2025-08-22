@@ -20,7 +20,7 @@
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { Optional, AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Define options used to construct a row.
  *
@@ -65,7 +65,7 @@ export declare interface RowAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alignItems(value: VerticalAlign | undefined): this;
+    default alignItems(value: VerticalAlign | undefined): this;
     /**
      * Called when the horizontal alignment is set.
      *
@@ -74,17 +74,26 @@ export declare interface RowAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    justifyContent(value: FlexAlign | undefined): this;
+    default justifyContent(value: FlexAlign | undefined): this;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *
-     * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+     * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { RowAttribute } The attribute of the row.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    reverse(isReversed: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default reverse(isReversed: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { RowAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo

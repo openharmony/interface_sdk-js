@@ -94,7 +94,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alignContent(value: Alignment | undefined): this;
+    default alignContent(value: Alignment | undefined): this;
     /**
     * Callback folderState when the folderState changes
     *
@@ -104,7 +104,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20
     */
-    onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
+    default onFolderStateChange(callback: OnFoldStatusChangeCallback | undefined): this;
     /**
      * Callback hoverStatus|folderStatus|rotation|windowMode when the hoverStatus changes
      *
@@ -114,7 +114,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
+    default onHoverStatusChange(handler: OnHoverStatusChangeCallback | undefined): this;
     /**
      * Enable the animation of folderStack.
      *
@@ -123,7 +123,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableAnimation(value: boolean | undefined): this;
+    default enableAnimation(value: boolean | undefined): this;
     /**
      * Enable auto halfFolder when orientation.
      *
@@ -132,8 +132,16 @@ export declare interface FolderStackAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    autoHalfFold(value: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<FolderStackAttribute>
+    default autoHalfFold(value: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { FolderStackAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<FolderStackAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**

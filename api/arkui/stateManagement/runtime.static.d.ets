@@ -80,3 +80,12 @@ export declare class SyncedProperty<T> implements MutableState<T> {
     set value(value: T);
     update(value?: T): void;
 }
+
+/**
+ * Defining MemoSkip annotation.
+ * MemoSkip parameter will not be a state varaiable in Builder functions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface MemoSkip {};

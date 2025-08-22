@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { SpanAttribute } from './component/span';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { SpanAttribute } from './component/span';
+
 /**
- * Defines TextInput Modifier
+ * Defines Span Modifier
  *
- * @implements SpanAttribute, AttributeModifier<SpanAttribute>
+ * @implements { SpanAttribute, AttributeModifier<SpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class SpanModifier implements SpanAttribute, AttributeModifier<SpanAttribute> {}

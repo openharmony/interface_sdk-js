@@ -22,6 +22,17 @@
 
 declare namespace util {
   /**
+   * RecordData is used for input parameter obj of the getHash function
+   *
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
    * with an n and Objects that have no user defined toString function are inspected using util.inspect() with
    * options { depth: 0, colors: false, compact: 3 }.
@@ -1428,14 +1439,14 @@ declare namespace util {
   /**
    * Get the hash code of an object.
    *
-   * @param { object } [obj] - The object that need to get hash code.
+   * @param { RecordData } [obj] - The object that need to get hash code.
    * @returns { number } Return a hash code of an object.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    */
-  function getHash(obj: object): number;
+  function getHash(obj: RecordData): number;
 
   /**
    * Generate a random RFC 4122 version 4 binary UUID using a cryptographically secure random number generator.

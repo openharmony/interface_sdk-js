@@ -166,10 +166,10 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
   if (isEndWithStatic) {
     if (type === 'ets2') {
       if (isPublic === 'true') {
-        writeFile(outputPath, fileContent);
+        writeFile(outputPath, deleteArktsTag(fileContent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), fileContent);
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
         return;
       }
     } else {
@@ -181,54 +181,48 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
     writeFile(outputPath, fileContent);
     return;
   }
-  const handleFullpath = getHandleFullPath(fullPath, apiRelativePath, type);
-  if (type === 'ets2' && handleFullpath !== undefined) {
-    handleFileInSecondType(apiRelativePath, handleFullpath, type, output);
-  } else if (type === 'ets' && handleFullpath !== undefined) {
-    handleFileInFirstType(apiRelativePath, handleFullpath, type, output);
+  const isCorrectHandleFullpath = isHandleFullPath(fullPath, apiRelativePath, type);
+  if (type === 'ets2' && isCorrectHandleFullpath) {
+    handleFileInSecondType(apiRelativePath, fullPath, type, output);
+  } else if (type === 'ets' && isCorrectHandleFullpath) {
+    handleFileInFirstType(apiRelativePath, fullPath, type, output);
   }
 }
 
-function getHandleFullPath(fullPath, apiRelativePath, type) {
-  const isEndWithEts = isEtsFile(apiRelativePath);
-  const isEndWithTs = isTsFile(apiRelativePath);
-  const isEndWithStatic = isStaticFile(apiRelativePath);
-  // 处理.ts文件逻辑
-  if (isEndWithTs) {
+/**
+ * 判断当前的文件路径是否符合当前打包场景，过滤同名文件
+ * @param {*} fullPath 
+ * @param {*} apiRelativePath 
+ * @param {*} type 
+ * @returns 
+ */
+function isHandleFullPath(fullPath, apiRelativePath, type) {
+  // 当前文件为.ts结尾文件
+  if (isTsFile(apiRelativePath)) {
+    if (type === 'ets') {
+      return true;
+    }
     if (!(hasEtsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
-    } else {
-      if (type === 'ets') {
-        return fullPath;
-      }
+      return true;
     }
   }
-  // 处理.ets文件逻辑
-  if (isEndWithEts) {
+  // 当前文件为.ets结尾文件
+  if (isEtsFile(apiRelativePath)) {
     if (!(hasTsFile(fullPath)) && !(hasStaticFile(fullPath))) {
-      return fullPath;
+      return true;
     }
-    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath))) {
-      if (type === 'ets2') {
-        return fullPath;
-      }
+    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath)) && type === 'ets2') {
+      return true;
     }
-    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath))) {
-      if (type === 'ets') {
-        return fullPath;
-      }
-    }
-    if (hasStaticFile(fullPath) && hasTsFile(fullPath)) {
-      return undefined;
+    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath)) && type === 'ets') {
+      return true;
     }
   }
-  // 处理.static文件逻辑
-  if (isEndWithStatic) {
-    if (type === 'ets2') {
-      return fullPath;
-    }
+  // 当前文件为.static结尾文件
+  if (isStaticFile(apiRelativePath) && type === 'ets2') {
+    return true;
   }
-  return undefined;
+  return false;
 }
 
 /**
@@ -433,6 +427,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
       let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -458,6 +453,7 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
       let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -503,6 +499,7 @@ function handlehasTagFile(sourceFile, outputPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
   newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
 }
@@ -533,9 +530,70 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
   newContent = deleteArktsTag(newContent);
   newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, newContent);
+}
+
+/**
+ * 获取删除overload节点后的文件内容
+ * @param {*} newContent 文件内容 
+ * @param {*} filePath 文件路径 
+ * @returns 
+ */
+function getFileContent(newContent, filePath) {
+  const regex = /^overload\s+.+$/;
+  if (!regex.test(newContent)) {
+    return newContent;
+  }
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const printer = ts.createPrinter();
+  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
+  const output = printer.printFile(result.transformed[0]);
+  return output;
+}
+
+/**
+ * 递归去除overload节点jsDoc
+ * @param {*} context 
+ * @returns 
+ */
+function deleteOverLoadJsDoc(context) {
+  return (sourceFile) => {
+    const visitNode = (node) => {
+      if (ts.isStructDeclaration(node)) {
+        return processStructDeclaration(node);
+      }
+      if (ts.isOverloadDeclaration(node)) {
+        return ts.factory.createOverloadDeclaration(node.modifiers, node.name, node.members);
+      }
+      return ts.visitEachChild(node, visitNode, context);
+    };
+    const newSourceFile = ts.visitNode(sourceFile, visitNode);
+    return newSourceFile;
+  };
+}
+
+/**
+ * 处理struct子节点，防止tsc自动增加constructor方法
+ */
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
 }
 
 /**
@@ -546,7 +604,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
  */
 function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
   const regx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
+  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?\*\//g;
   const copyrightMessage = fileContent.match(regex)[0];
   const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);
@@ -683,7 +741,7 @@ function validateExportDeclaration(node) {
  * @returns 
  */
 function deleteApi(sourceFile) {
-  let result = ts.transform(sourceFile, [transformer]);
+  let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -692,7 +750,7 @@ function deleteApi(sourceFile) {
   // 打印结果
   const printer = ts.createPrinter();
   let fileContent = printer.printFile(newSourceFile);
-  result = ts.transform(newSourceFile, [transformExportApi]);
+  result = ts.transform(newSourceFile, [transformExportApi], { etsAnnotationsEnable: true });
   fileContent = printer.printFile(result.transformed[0]);
   deleteApiSet.clear();
   return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');

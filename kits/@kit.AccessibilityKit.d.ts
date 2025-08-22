@@ -18,8 +18,10 @@
  * @kit AccessibilityKit
  */
 
+/*** if arkts 1.1&1.2 */
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
+/*** endif */
 import { GesturePath } from '@ohos.accessibility.GesturePath';
 import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
@@ -34,3 +36,7 @@ export {
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
   AccessibilityAction, AccessibilityEventType, Parameter
 };
+
+/*** if arkts 1.2 */
+export { accessibility, config };
+/*** endif */
