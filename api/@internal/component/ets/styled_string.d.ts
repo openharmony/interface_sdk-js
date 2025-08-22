@@ -12,25 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap } from './common';
-import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
-import { TextBackgroundStyle } from './span';
-import { GestureEvent } from "./gesture";
-import { DrawingColorFilter } from './image';
-import { LeadingMarginPlaceholder } from './richEditor';
-import image from '../../@ohos.multimedia.image';
-import drawing from '../../@ohos.graphics.drawing';
-import { DrawContext } from '../../arkui/Graphics';
-/*** endif */
-
 /**
  * Defines the StyledStringMarshallingValue Type.
  *
@@ -39,12 +24,9 @@ import { DrawContext } from '../../arkui/Graphics';
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
-
-
 /**
  * Defines the callback type used in marshalling.
  *
@@ -55,11 +37,9 @@ declare type StyledStringMarshallingValue = UserDataSpan;
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
-
 /**
  * Defines the callback type used in unmarshalling.
  *
@@ -70,19 +50,16 @@ declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarsha
  * @systemapi
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 19
  */
 declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledStringMarshallingValue;
-
 /**
  * StyledString
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class StyledString {
     /**
@@ -93,11 +70,9 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
-
     /**
      * Get the length of the StyledString's characters.
      *
@@ -106,11 +81,9 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly length: number;
-
     /**
     * Get the literal content of the StyledString.
     *
@@ -118,11 +91,9 @@ declare class StyledString {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     getString(): string;
-
     /**
      * Get the attribute objects of the subStyledString.
      *
@@ -130,18 +101,16 @@ declare class StyledString {
      * @param { number } length - the length of the subStyledString's characters.
      * @param { StyledStringKey } [styledKey] - the specified type.
      * @returns { Array<SpanStyle> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
-
     /**
      * Judge if two attribute strings are equal.
      *
@@ -150,63 +119,55 @@ declare class StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     equals(other: StyledString): boolean;
-
     /**
      * Get the substring of the StyledString.
      *
      * @param { number } start - the start position of the subStyledString.
      * @param { number } [length] - the length of the subStyledString's characters.
      * @returns { StyledString }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     subStyledString(start: number, length?: number): StyledString;
-
     /**
      * Returns StyledString from the provided HTML string.
      *
      * @param { string } html - the html text will be converted to a StyledString.
      * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 170001 - Convert Error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     static fromHtml(html: string): Promise<StyledString>;
-
     /**
      * Returns HTML string from the provided StyledString.
      *
      * @param { StyledString } styledString - the StyledString will be converted to a HTML string.
      * @returns { string } Returns the HTML string converted from the provided StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     static toHtml(styledString: StyledString): string;
-
     /**
      * Returns ArrayBuffer from the serialized styled string.
      *
@@ -215,11 +176,9 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
-
     /**
      * Returns StyledString from the deserialized ArrayBuffer.
      *
@@ -233,11 +192,9 @@ declare class StyledString {
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
-
     /**
      * Returns ArrayBuffer from the serialized styled string.
      *
@@ -245,29 +202,25 @@ declare class StyledString {
      * @returns { ArrayBuffer }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     static marshalling(styledString: StyledString): ArrayBuffer;
-
     /**
      * Returns StyledString from the deserialized ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
      * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 170002 - Styled string decode error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
-
 /**
  * StyleOptions
  *
@@ -275,34 +228,29 @@ declare class StyledString {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface StyleOptions {
     /**
      * The start position of the StyleOptions.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    start?: int;
-
+    start?: number;
     /**
      * The length of the modifiedStyledString's characters.
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    length?: int;
-
+    length?: number;
     /**
      * The attribute key of the StyleOptions.
      *
@@ -310,11 +258,9 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     styledKey: StyledStringKey;
-
     /**
      * The attribute value of the StyleOptions.
      *
@@ -322,12 +268,10 @@ declare interface StyleOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     styledValue: StyledStringValue;
 }
-
 /**
  * SpanStyle
  *
@@ -335,8 +279,7 @@ declare interface StyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SpanStyle {
     /**
@@ -346,11 +289,9 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     start: number;
-
     /**
      * The length of the modifiedStyledString's characters.
      *
@@ -358,11 +299,9 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     length: number;
-
     /**
      * The attribute key of the SpanStyle.
      *
@@ -370,11 +309,9 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     styledKey: StyledStringKey;
-
     /**
      * The attribute value of the SpanStyle.
      *
@@ -382,23 +319,19 @@ declare interface SpanStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     styledValue: StyledStringValue;
 }
-
 /**
  * Defines TextStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class TextStyle {
-
     /**
      * constructor.
      *
@@ -406,11 +339,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value?: TextStyleInterface);
-
     /**
      * Get the fontColor of the StyledString.
      *
@@ -419,11 +350,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly fontColor?: ResourceColor;
-
     /**
      * Get the fontFamily of the StyledString.
      *
@@ -432,11 +361,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly fontFamily?: string;
-
     /**
      * Get the fontSize of the StyledString.
      * If not undefined, the unit is vp.
@@ -446,11 +373,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly fontSize?: number;
-
     /**
      * Get the fontWeight of the StyledString.
      *
@@ -459,11 +384,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly fontWeight?: number;
-
     /**
      * Get the fontStyle of the StyledString.
      *
@@ -472,11 +395,9 @@ declare class TextStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly fontStyle?: FontStyle;
-
     /**
      * Get the stroke width of the StyledString with the unit 'vp'.
      *
@@ -488,7 +409,6 @@ declare class TextStyle {
      * @since 20
      */
     readonly strokeWidth?: number;
-
     /**
      * Get the stroke color of the StyledString.
      *
@@ -500,7 +420,6 @@ declare class TextStyle {
      * @since 20
      */
     readonly strokeColor?: ResourceColor;
-
     /**
      * Get the superscript style of the StyledString.
      *
@@ -513,7 +432,6 @@ declare class TextStyle {
      */
     readonly superscript?: SuperscriptStyle;
 }
-
 /**
  * TextStyleInterface
  *
@@ -521,8 +439,7 @@ declare class TextStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextStyleInterface {
     /**
@@ -532,11 +449,9 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontColor?: ResourceColor;
-
     /**
      * The fontFamily value of the font property object.
      *
@@ -544,11 +459,9 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontFamily?: ResourceStr;
-
     /**
      * The fontSize value of the font property object.
      *
@@ -556,11 +469,9 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontSize?: LengthMetrics;
-
     /**
      * The fontWeight value of the font property object.
      *
@@ -568,11 +479,9 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontWeight?: number | FontWeight | string;
-
     /**
      * The fontStyle value of the font property object.
      *
@@ -580,11 +489,9 @@ declare interface TextStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontStyle?: FontStyle;
-
     /**
      * The stroke width of the text.
      *
@@ -595,7 +502,6 @@ declare interface TextStyleInterface {
      * @since 20
      */
     strokeWidth?: LengthMetrics;
-
     /**
      * The stroke color of the text.
      *
@@ -606,7 +512,6 @@ declare interface TextStyleInterface {
      * @since 20
      */
     strokeColor?: ResourceColor;
-
     /**
      * The superscript value of the font property object.
      *
@@ -618,7 +523,6 @@ declare interface TextStyleInterface {
      */
     superscript?: SuperscriptStyle;
 }
-
 /**
  * Defines DecorationOptions for Decoration.
  *
@@ -640,18 +544,15 @@ declare interface DecorationOptions {
      */
     enableMultiType?: boolean;
 }
-
 /**
  * Defines DecorationStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class DecorationStyle {
-
     /**
      * constructor.
      *
@@ -659,11 +560,9 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value: DecorationStyleInterface);
-
     /**
      * constructor.
      *
@@ -675,7 +574,6 @@ declare class DecorationStyle {
      * @since 20
      */
     constructor(value: DecorationStyleInterface, options?: DecorationOptions);
-
     /**
      * Get the text decoration type of the StyledString.
      *
@@ -684,11 +582,9 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly type: TextDecorationType;
-
     /**
      * Get the decorationColor of the StyledString.
      *
@@ -697,11 +593,9 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly color?: ResourceColor;
-
     /**
      * Get the decorationStyle of the StyledString.
      *
@@ -710,11 +604,9 @@ declare class DecorationStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly style?: TextDecorationStyle;
-
     /**
      * Get the thickness scale of the StyledString.
      *
@@ -726,7 +618,6 @@ declare class DecorationStyle {
      * @since 20
      */
     readonly thicknessScale?: number;
-
     /**
      * Get the DecorationOptions of the StyledString.
      *
@@ -739,7 +630,6 @@ declare class DecorationStyle {
      */
     readonly options?: DecorationOptions;
 }
-
 /**
  * DecorationStyleInterface
  *
@@ -747,8 +637,7 @@ declare class DecorationStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DecorationStyleInterface {
     /**
@@ -758,11 +647,9 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     type: TextDecorationType;
-
     /**
      * The color value of the decoration property object.
      *
@@ -770,11 +657,9 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     color?: ResourceColor;
-
     /**
      * The style value of the decoration property object.
      *
@@ -782,11 +667,9 @@ declare interface DecorationStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     style?: TextDecorationStyle;
-
     /**
      * The thickness scale of the decoration
      *
@@ -798,18 +681,15 @@ declare interface DecorationStyleInterface {
      */
     thicknessScale?: number;
 }
-
 /**
  * Defines BaselineOffsetStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class BaselineOffsetStyle {
-    
     /**
      * constructor.
      *
@@ -817,11 +697,9 @@ declare class BaselineOffsetStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value: LengthMetrics);
-
     /**
      * Get the baselineOffset value of the StyledString.
      * The unit is vp.
@@ -831,23 +709,19 @@ declare class BaselineOffsetStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly baselineOffset: number;
 }
-
 /**
  * Defines LetterSpacingStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class LetterSpacingStyle {
-   
     /**
      * constructor.
      *
@@ -855,37 +729,31 @@ declare class LetterSpacingStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value: LengthMetrics);
-
     /**
      * Get the letterSpacing value of the StyledString.
      * The unit is vp.
-     * 
+     *
      * @type { number } - the letterSpacing value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly letterSpacing: number;
 }
-
 /**
  * Defines TextShadowStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class TextShadowStyle {
-   
     /**
      * constructor.
      *
@@ -893,11 +761,9 @@ declare class TextShadowStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value: ShadowOptions | Array<ShadowOptions>);
-
     /**
      * Get the textShadow value of the StyledString.
      *
@@ -906,23 +772,19 @@ declare class TextShadowStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly textShadow: Array<ShadowOptions>;
 }
-
 /**
  * Defines Sets the property string background color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare class BackgroundColorStyle {
-
     /**
      * constructor.
      *
@@ -930,11 +792,9 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     constructor(textBackgroundStyle: TextBackgroundStyle);
-
     /**
      * Get the textBackgroundStyle value of the StyledString.
      *
@@ -943,23 +803,19 @@ declare class BackgroundColorStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     readonly textBackgroundStyle: TextBackgroundStyle;
 }
-
 /**
  * Defines GestureStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class GestureStyle {
-
     /**
      * constructor.
      *
@@ -967,12 +823,10 @@ declare class GestureStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value?: GestureStyleInterface);
 }
-
 /**
  * Defines the Gesture Events.
  *
@@ -980,8 +834,7 @@ declare class GestureStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GestureStyleInterface {
     /**
@@ -991,11 +844,9 @@ declare interface GestureStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onClick?: Callback<ClickEvent>;
-
     /**
      * Trigger a gesture event when long press event is complete.
      *
@@ -1003,11 +854,9 @@ declare interface GestureStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onLongPress?: Callback<GestureEvent>;
-
     /**
      * Trigger a touch event when touched.
      *
@@ -1019,18 +868,15 @@ declare interface GestureStyleInterface {
      */
     onTouch?: Callback<TouchEvent>;
 }
-
 /**
  * Defines ParagraphStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ParagraphStyle {
-
     /**
      * constructor.
      *
@@ -1038,11 +884,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(value?: ParagraphStyleInterface);
-
     /**
      * Get the text alignment of the StyledString.
      *
@@ -1051,11 +895,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly textAlign?: TextAlign;
-
     /**
      * Get the text vertical alignment of the StyledString.
      *
@@ -1067,7 +909,6 @@ declare class ParagraphStyle {
      * @since 20
      */
     readonly textVerticalAlign?: TextVerticalAlign;
-
     /**
      * Get the first line indentation of the StyledString.
      * The unit is vp.
@@ -1077,11 +918,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly textIndent?: number;
-
     /**
      * Get the maximum number of lines of the StyledString.
      *
@@ -1090,11 +929,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly maxLines?: number;
-
     /**
      * Get the overflow mode of the StyledString.
      *
@@ -1103,11 +940,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly overflow?: TextOverflow;
-
     /**
      * Get the wordBreak mode of the StyledString.
      *
@@ -1116,11 +951,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly wordBreak?: WordBreak;
-
     /**
      * Get the leading margin of the StyledString.
      *
@@ -1129,11 +962,9 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly leadingMargin?: number | LeadingMarginPlaceholder;
-
     /**
      * Get the paragraph spacing of the StyledString.
      * The unit is vp.
@@ -1143,12 +974,10 @@ declare class ParagraphStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     readonly paragraphSpacing?: number;
 }
-
 /**
  * ParagraphStyleInterface
  *
@@ -1156,8 +985,7 @@ declare class ParagraphStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ParagraphStyleInterface {
     /**
@@ -1167,11 +995,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     textAlign?: TextAlign;
-
     /**
      * Vertical alignment of text.
      *
@@ -1182,7 +1008,6 @@ declare interface ParagraphStyleInterface {
      * @since 20
      */
     textVerticalAlign?: TextVerticalAlign;
-
     /**
      * Set the first line indentation.
      *
@@ -1190,11 +1015,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     textIndent?: LengthMetrics;
-
     /**
      * The maximum number of lines of content.
      *
@@ -1202,11 +1025,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     maxLines?: number;
-
     /**
      * The overflow mode of the content.
      *
@@ -1214,11 +1035,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     overflow?: TextOverflow;
-
     /**
      * Set word break type.
      *
@@ -1226,11 +1045,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     wordBreak?: WordBreak;
-
     /**
      * Leading margin.
      *
@@ -1238,11 +1055,9 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
-
     /**
      * Set the paragraph spacing of the StyledString.
      *
@@ -1250,23 +1065,19 @@ declare interface ParagraphStyleInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     paragraphSpacing?: LengthMetrics;
 }
-
 /**
  * Defines LineHeightStyle.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class LineHeightStyle {
-   
     /**
      * constructor.
      *
@@ -1274,26 +1085,22 @@ declare class LineHeightStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor(lineHeight: LengthMetrics);
-
     /**
      * Get the lineHeight value of the StyledString.
      * The unit is vp.
-     * 
+     *
      * @type { number } - the lineHeight value of the StyledString
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly lineHeight: number;
 }
-
 /**
  * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
  * which the span is attached, the URLStyle will try to open the URL.
@@ -1301,11 +1108,9 @@ declare class LineHeightStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 declare class UrlStyle {
-
     /**
      * Constructor.
      *
@@ -1313,11 +1118,9 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     constructor(url: string);
-
     /**
      * Get the URL value of the StyledString.
      *
@@ -1326,12 +1129,10 @@ declare class UrlStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     readonly url: string;
 }
-
 /**
  * Defines the Span Type.
  *
@@ -1343,7 +1144,6 @@ declare class UrlStyle {
  * @atomicservice
  * @since 12
  */
-
 /**
  * Defines the Span Type.
  *
@@ -1353,13 +1153,9 @@ declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
-TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
-UserDataSpan | BackgroundColorStyle;
-
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
 /**
  * MutableStyledString
  *
@@ -1367,91 +1163,69 @@ UserDataSpan | BackgroundColorStyle;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class MutableStyledString extends StyledString {
-    /**
-     * constructor.
-     *
-     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the MutableStyledString.
-     * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
-
     /**
      * Replace the string of the specified range.
      *
      * @param { number } start - the start position of the replacedString.
      * @param { number } length - the length of the replacedString's characters.
      * @param { string } other - must be unicode string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     replaceString(start: number, length: number, other: string): void;
-
     /**
     * Insert the string at the specified location.
     *
     * @param { number } start - the start position of the insertedString.
     * @param { string } other - must be unicode string.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
     * <br> 1. Mandatory parameters are left unspecified.
     * <br> 2. Incorrect parameters types.
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     insertString(start: number, other: string): void;
-
     /**
     * Remove the string of the specified range.
     *
     * @param { number } start - the start position of the removedString.
     * @param { number } length - the length of the removedString's characters.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
     * <br> 1. Mandatory parameters are left unspecified.
     * <br> 2. Incorrect parameters types.
     * <br> 3. Parameter verification failed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     removeString(start: number, length: number): void;
-
     /**
      * Replace the specified range string attribute.
      *
      * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     replaceStyle(spanStyle: SpanStyle): void;
-
     /**
      * Add attributes to the specified range string.
      *
@@ -1460,92 +1234,80 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setStyle(spanStyle: SpanStyle): void;
-
     /**
      * Delete the specified type attributes for the specified range string.
      *
      * @param { number } start - the start position of the removedAttributeStyledString.
      * @param { number } length - the length of the removedAttributeStyledString's characters.
      * @param { StyledStringKey } styledKey - the specified attribute type's key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
-
     /**
      * Delete all attributes for the specified range styledString.
      *
      * @param { number } start - the start position of the attributeRemovedStyledString's characters.
      * @param { number } length - the length of the attributeRemovedStyledString's characters.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     removeStyles(start: number, length: number): void;
-
     /**
      * Delete all attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     clearStyles(): void;
-
     /**
      * Replace the StyledString of the specified range.
      *
      * @param { number } start - the start position of the replacedStyledString.
      * @param { number } length - the length of the replacedStyledString's characters.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     replaceStyledString(start: number, length: number, other: StyledString): void;
-
     /**
      * Insert new StyledString at the specified location.
      *
      * @param { number } start - the start position of the insertedStyledString.
      * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     insertStyledString(start: number, other: StyledString): void;
-
     /**
      * Append new StyledString at the end.
      *
@@ -1553,13 +1315,10 @@ declare class MutableStyledString extends StyledString {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     appendStyledString(other: StyledString): void;
 }
-
-
 /**
  * the attribute type of the StyledString
  *
@@ -1567,8 +1326,7 @@ declare class MutableStyledString extends StyledString {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum StyledStringKey {
     /**
@@ -1577,155 +1335,127 @@ declare enum StyledStringKey {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     FONT = 0,
-
     /**
      * The key of DecorationStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-     DECORATION = 1,
-
-     /**
-      * The key of BaselineOffsetStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'12','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     BASELINE_OFFSET = 2,
- 
-     /**
-      * The key of LetterSpacingStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'12','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     LETTER_SPACING = 3,
- 
-     /**
-      * The key of TextShadowStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'12','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     TEXT_SHADOW = 4,
-
-     /**
-      * The key of LineHeightStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'12','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     LINE_HEIGHT = 5,
-
-     /**
-      * The key of BackgroundColorStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'14','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     BACKGROUND_COLOR = 6,
-
-     /**
-      * The key of UrlStyle.
-      *
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @crossplatform
-      * @atomicservice
-      * @since arkts {'1.1':'14','1.2':'20'}
-      * @arkts 1.1&1.2
-      */
-     URL = 7,
-
+    DECORATION = 1,
+    /**
+     * The key of BaselineOffsetStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    BASELINE_OFFSET = 2,
+    /**
+     * The key of LetterSpacingStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    LETTER_SPACING = 3,
+    /**
+     * The key of TextShadowStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    TEXT_SHADOW = 4,
+    /**
+     * The key of LineHeightStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    LINE_HEIGHT = 5,
+    /**
+     * The key of BackgroundColorStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    BACKGROUND_COLOR = 6,
+    /**
+     * The key of UrlStyle.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 14
+     */
+    URL = 7,
     /**
      * The key of GestureStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     GESTURE = 100,
-
     /**
      * The key of ParagraphStyle.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     PARAGRAPH_STYLE = 200,
-
     /**
      * The key of ImageAttachment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     IMAGE = 300,
-
     /**
      * The key of CustomSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     CUSTOM_SPAN = 400,
-
     /**
      * The key of UserDataSpan.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    USER_DATA = 500,
+    USER_DATA = 500
 }
-
 /**
  * Defines ImageAttachment.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class ImageAttachment {
-
     /**
      * constructor.
      *
@@ -1736,7 +1466,6 @@ declare class ImageAttachment {
      * @since 12
      */
     constructor(value: ImageAttachmentInterface);
-
     /**
      * constructor supported by AttachmentType.
      *
@@ -1747,19 +1476,6 @@ declare class ImageAttachment {
      * @since 15
      */
     constructor(attachment: Optional<AttachmentType>);
-
-    /**
-     * constructor supported by AttachmentType.
-     *
-     * @param { ImageAttachmentInterface | Optional<AttachmentType> } attachment - image attachment object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    constructor(value: ImageAttachmentInterface | Optional<AttachmentType>);
-
     /**
      * Get the image content of the StyledString.
      *
@@ -1768,11 +1484,9 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly value: PixelMap;
-
     /**
      * Get the imageSize of the StyledString.
      *
@@ -1781,11 +1495,9 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly size?: SizeOptions;
-
     /**
      * Get the ImageSpanAlignment of the StyledString.
      *
@@ -1794,11 +1506,9 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly verticalAlign?: ImageSpanAlignment;
-
     /**
      * Get the imageFit of the StyledString.
      *
@@ -1807,11 +1517,9 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly objectFit?: ImageFit;
-
     /**
      * Get the imageAttachmentLayoutStyle of the StyledString.
      *
@@ -1820,11 +1528,9 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly layoutStyle?: ImageAttachmentLayoutStyle;
-
     /**
      * Get the imageAttachment colorFilter of the StyledString.
      *
@@ -1833,12 +1539,10 @@ declare class ImageAttachment {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     readonly colorFilter?: ColorFilterType;
 }
-
 /**
  * Defines the ResourceImageAttachmentOptions.
  *
@@ -1846,8 +1550,7 @@ declare class ImageAttachment {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface ResourceImageAttachmentOptions {
     /**
@@ -1857,11 +1560,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     resourceValue: Optional<ResourceStr>;
-
     /**
      * size of the ResourceImage.
      *
@@ -1869,11 +1570,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     size?: SizeOptions;
-
     /**
      * Image vertical align.
      *
@@ -1881,11 +1580,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     verticalAlign?: ImageSpanAlignment;
-
     /**
      * Sets the zoom type of the ImageAttachment.
      *
@@ -1893,11 +1590,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     objectFit?: ImageFit;
-
     /**
      * The Image Layout Style of the Resource Image.
      *
@@ -1905,11 +1600,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
-
     /**
      * Sets the color filter effect on the image attachment.
      *
@@ -1917,11 +1610,9 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     colorFilter?: ColorFilterType;
-
     /**
      * Sets the synchronous or asynchronous mode for image loading.
      * The default parameter type is bool, and the default value is false.
@@ -1930,12 +1621,10 @@ declare interface ResourceImageAttachmentOptions {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     syncLoad?: boolean;
 }
-
 /**
  * Defines the ImageAttachmentInterface.
  *
@@ -1943,8 +1632,7 @@ declare interface ResourceImageAttachmentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ImageAttachmentInterface {
     /**
@@ -1954,11 +1642,9 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     value: PixelMap;
-
     /**
      * Image size.
      *
@@ -1966,11 +1652,9 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     size?: SizeOptions;
-
     /**
      * Image vertical align.
      *
@@ -1978,11 +1662,9 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     verticalAlign?: ImageSpanAlignment;
-
     /**
      * Image fit.
      *
@@ -1990,11 +1672,9 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     objectFit?: ImageFit;
-
     /**
      * The Image Layout Style.
      *
@@ -2002,11 +1682,9 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     layoutStyle?: ImageAttachmentLayoutStyle;
-
     /**
      * Sets the color filter effect on the image attachment.
      *
@@ -2014,12 +1692,10 @@ declare interface ImageAttachmentInterface {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     colorFilter?: ColorFilterType;
 }
-
 /**
  * Defines the Attachment Type.
  *
@@ -2027,11 +1703,9 @@ declare interface ImageAttachmentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
-
 /**
  * Defines the ColorFilter Type.
  *
@@ -2039,11 +1713,9 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
-
 /**
  * Defines the  ImageAttachment Layout Style.
  *
@@ -2051,8 +1723,7 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ImageAttachmentLayoutStyle {
     /**
@@ -2062,11 +1733,9 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     margin?: LengthMetrics | Margin;
-
     /**
      * Inner margin.
      *
@@ -2074,11 +1743,9 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     padding?: LengthMetrics | Padding;
-
     /**
      * Border radius.
      *
@@ -2086,12 +1753,10 @@ declare interface ImageAttachmentLayoutStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     borderRadius?: LengthMetrics | BorderRadiuses;
 }
-
 /**
  * Defines the CustomSpanMetrics interface.
  *
@@ -2099,8 +1764,7 @@ declare interface ImageAttachmentLayoutStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CustomSpanMetrics {
     /**
@@ -2112,11 +1776,9 @@ declare interface CustomSpanMetrics {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     width: number;
-
     /**
      * CustomSpan Height.
      * The unit is vp.
@@ -2125,12 +1787,10 @@ declare interface CustomSpanMetrics {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     height?: number;
 }
-
 /**
  * Defines the CustomSpanDrawInfo interface.
  *
@@ -2138,63 +1798,54 @@ declare interface CustomSpanMetrics {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CustomSpanDrawInfo {
     /**
      * CustomSpan's offset relative to the parent component.
      * The unit is px.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     x: number;
-
     /**
      * The top position of the line where customSpan is located.
      * The unit is px.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     lineTop: number;
-
     /**
      * The bottom position of the line where customSpan is located.
      * The unit is px.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     lineBottom: number;
-
     /**
      * The baseline offset of the line where customSpan is located.
      * The unit is px.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     baseline: number;
 }
-
 /**
  * Defines the CustomSpanMeasureInfo interface.
  *
@@ -2202,32 +1853,28 @@ declare interface CustomSpanDrawInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface CustomSpanMeasureInfo {
     /**
      * Current component's fontSize value.
      * The unit is fp.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     fontSize: number;
 }
-
 /**
  * Defines CustomSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare abstract class CustomSpan {
     /**
@@ -2238,11 +1885,9 @@ declare abstract class CustomSpan {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
-
+    abstract onMeasure(measureInfo: CustomSpanMeasureInfo): CustomSpanMetrics;
     /**
      * Draw the custom span.
      *
@@ -2251,30 +1896,26 @@ declare abstract class CustomSpan {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
-
     /**
      * Invalidate all components that use the object, which will cause a re-render of all components.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     invalidate(): void;
 }
-
 /**
  * Defines UserDataSpan. Used to store and obtain user data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-declare abstract class UserDataSpan {}
+declare abstract class UserDataSpan {
+}

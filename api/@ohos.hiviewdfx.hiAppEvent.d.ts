@@ -16,10 +16,12 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
- * @arkts 1.1&1.2
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/*** if arkts 1.2 */
+import type { RecordData } from './@ohos.base'
+/*** endif */
 
 /**
  * Provides the event logging function for applications to log the fault, statistical, security,
@@ -814,10 +816,34 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     params: object;
+
+    /**
+     * Event parameter object, which consists of a parameter name and a parameter value. In system events, the fields 
+     * contained in params are defined by system. For details about the fields, you can see the overviews of system 
+     * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
+     * Write API. The specifications are as follows:
+     * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
+     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * digit or letter. For example, testName and $123_name.
+     * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
+     * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
+     * The value of the number type parameter must be within the range of Number.MIN_SAFE_INTEGER to 
+     * Number.MAX_SAFE_INTEGER. If the value exceeds the range, an uncertain value may be generated. The element type 
+     * in the array type parameter can only be string, number, or boolean. The number of elements must be less than 
+     * 100. If this limit is exceeded, excess elements will be discarded.
+     * <br>- The maximum number of parameters is 32. If this limit is exceeded, excess parameters will be discarded.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    params: RecordData;
   }
 
   /**
@@ -1381,10 +1407,25 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     takeNext(): AppEventPackage;
+    /**
+     * Obtains the subscription event.
+     * <br>The system obtains the subscription event data based on the data size threshold specified by setSize or the 
+     * number of data records specified by setRow. By default, one subscription event data record is obtained. When all 
+     * subscription event data is obtained, null is returned.
+     * <br>When setRow and setSize are called at the same time, only setRow takes effect.
+     *
+     * @returns { AppEventPackage | null } Event package object. If all subscription event data has been retrieved, null is 
+     * returned.
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    takeNext(): AppEventPackage | null;
   }
 
   /**

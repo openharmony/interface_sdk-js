@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { TextAreaAttribute } from './component/textArea';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { TextAreaAttribute } from './component/textArea';
+
 /**
  * Defines TextArea Modifier
  *
- * @implements TextAreaAttribute, AttributeModifier<TextAreaAttribute>
+ * @implements { TextAreaAttribute, AttributeModifier<TextAreaAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class TextAreaModifier implements TextAreaAttribute, AttributeModifier<TextAreaAttribute> {}

@@ -3836,6 +3836,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -4285,6 +4286,7 @@ declare namespace notificationManager {
    * @typedef NotificationSetting
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   export interface NotificationSetting {
     /**
@@ -4293,6 +4295,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     vibrationEnabled: boolean;
 
@@ -4302,6 +4305,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     soundEnabled: boolean;
   }

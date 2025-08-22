@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1043,6 +1044,17 @@ export declare interface IStateMgmtFactory {
    * @since 20
    */
    makeLocal<T>(owningView: ExtendableComponent, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
+  
+  /**
+   * Create a static local variable instance.
+   *
+   * @param { string } varName - state variable name.
+   * @param { T } localInitValue - state variable initValue.
+   * @returns { ILocalDecoratedVariable<T> } Local instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+   makeStaticLocal<T>(varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
 
   /**
    * Create a Param variable instance.

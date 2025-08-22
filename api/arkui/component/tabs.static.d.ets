@@ -106,14 +106,16 @@ export declare enum AnimationMode {
  */
 export declare enum BarPosition {
     /**
-     * When the vertical attribute method is set to true, the tab is on the left of the container. When the vertical property method is set to false, the tab is at the top of the container.
+     * When the vertical attribute method is set to true, the tab is on the left of the container.
+     * When the vertical property method is set to false, the tab is at the top of the container.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
     Start,
     /**
-     * When the vertical attribute method is set to true, the tab is located on the right of the container. When the vertical property method is set to false, the tab is at the bottom of the container.
+     * When the vertical attribute method is set to true, the tab is located on the right of the container.
+     * When the vertical property method is set to false, the tab is at the bottom of the container.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -716,7 +718,8 @@ export declare interface TabsAttribute extends CommonMethod {
     /**
      * Setting page flip mode on mouse wheel event.
      *
-     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+     * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event.
+     * <br>The default value is PageFlipMode.CONTINUOUS.
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20

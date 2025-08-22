@@ -11678,8 +11678,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
@@ -11698,8 +11697,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, callback: AsyncCallback<void>): void;
 
@@ -11719,8 +11717,7 @@ declare namespace window {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 

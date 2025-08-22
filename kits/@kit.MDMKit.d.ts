@@ -42,3 +42,10 @@ export {
   bundleManager, dateTimeManager, deviceControl, deviceInfo, deviceSettings, locationManager,
   networkManager, restrictions, securityManager, systemManager, usbManager, wifiManager
 };
+
+/*** if arkts 1.2 */
+import adminManager from '@ohos.enterprise.adminManager';
+import securityManager from '@ohos.enterprise.securityManager';
+
+export { adminManager, securityManager };
+/*** endif */

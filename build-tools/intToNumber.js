@@ -307,7 +307,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
   if (finalContent.includes('number') && typeExpr.kind === ts.SyntaxKind.JSDocNullableType && !finalContent.includes('?number') && isChange) {
     if (typeExpr.type.type && typeExpr.type.type.kind === ts.SyntaxKind.UnionType) {
       const data = {
-        isDelete: false,
         pos: typeExpr.pos,
         end: typeExpr.end,
         convertedText: '?' + `(${finalContent})`
@@ -315,7 +314,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
       tagDataList.push(data);
     } else {
       const data = {
-        isDelete: false,
         pos: typeExpr.pos,
         end: typeExpr.end,
         convertedText: '?' + finalContent
@@ -324,7 +322,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
     }
   } else if (finalContent.includes('number')) {
     const data = {
-      isDelete: true,
       pos: typeExpr.pos,
       end: typeExpr.end,
       convertedText: finalContent
@@ -344,10 +341,10 @@ function changeContent(tagDataList) {
   for (const data of tagDataList) {
     const before = jsDocContent.substring(0, data.pos);
     const after = jsDocContent.substring(data.end);
-    if (data.isDelete) {
-      jsDocContent = before + `${data.convertedText}` + after;
-    } else {
+    if (jsDocContent.substring(data.pos, data.pos + 1) === ' ') {
       jsDocContent = before + ` ${data.convertedText}` + after;
+    } else {
+      jsDocContent = before + `${data.convertedText}` + after;
     }
   }
 }
