@@ -306,12 +306,12 @@ declare namespace http {
 
     /**
      * HTTP request header. default is 'content-type': 'application/json'
-     * @type {?Record<string, string>}
+     * @type {?Record<string, string | long>}
      * @syscap SystemCapability.Communication.NetStack
      * @since 20
      * @arkts 1.2
      */
-    header?: Record<string, string>;
+    header?: Record<string, string | long>;
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
