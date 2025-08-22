@@ -3942,12 +3942,12 @@ declare namespace http {
 
     /**
      * All headers in the response from the server.
-     * @type {Record<string, string>}
+     * @type {Record<string, string | long>}
      * @syscap SystemCapability.Communication.NetStack
      * @since 20
      * @arkts 1.2
      */
-    header: Record<string, string>;
+    header: Record<string, string | long>;
 
     /**
      * Cookies returned by the server.
