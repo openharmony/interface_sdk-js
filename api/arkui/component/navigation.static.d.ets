@@ -194,7 +194,7 @@ export declare enum NavigationTitleMode {
  * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-* @noninterop
+ * @noninterop
  */
 export declare interface NavigationMenuItem {
     /**
