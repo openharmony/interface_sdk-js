@@ -463,6 +463,54 @@ declare namespace zlib {
      * @arkts 1.1&1.2
      */
     NEED_DICT = 2,
+    /**
+     * Indicates system error.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since arkts {'1.1':'21', '1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    ERRNO = -1,
+    /**
+     * Indicates compression or decompression stream error,
+     * which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since arkts {'1.1':'21', '1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    STREAM_ERROR = -2,
+    /**
+     * Indicates the input data is incorrect. For example, the data does not conform to the zlib compression format,
+     * the compressed data is corrupted, or the data is not compressed.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since arkts {'1.1':'21', '1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    DATA_ERROR = -3,
+    /**
+     * Indicates memory allocation failed.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since arkts {'1.1':'21', '1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    MEM_ERROR = -4,
+    /**
+     * Indicates the input buffer is incorrect,
+     * and the output buffer is too small to accommodate the compressed or decompressed data.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since arkts {'1.1':'21', '1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    BUF_ERROR = -5,
   }
 
   /**
