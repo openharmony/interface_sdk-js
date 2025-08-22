@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceColor } from './units';
-import { CommonMethod} from './common';
-import { LineCapStyle } from './enums';
-/*** endif */
-
 /**
  * Provides a divider component to separate different content blocks/content elements.
  *
@@ -56,8 +50,7 @@ import { LineCapStyle } from './enums';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface DividerInterface {
   /**
@@ -92,8 +85,7 @@ interface DividerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): DividerAttribute;
 }
@@ -130,8 +122,7 @@ interface DividerInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
@@ -174,8 +165,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   vertical(value: boolean): DividerAttribute;
 
@@ -215,8 +205,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color(value: ResourceColor): DividerAttribute;
 
@@ -256,8 +245,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeWidth(value: number | string): DividerAttribute;
 
@@ -297,8 +285,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }
