@@ -20,8 +20,8 @@
  */
 
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * Define the EffectComponentAttribute.
@@ -52,7 +52,8 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      * @systemapi
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
+        | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
