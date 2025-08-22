@@ -39,7 +39,6 @@
  * @crossplatform
  * @atomicservice
  * @since 20
- * @noninterop
  */
 export declare class TabsModifier extends TabsAttribute implements AttributeModifier<TabsAttribute> {
 

@@ -1791,7 +1791,6 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface RichEditorAttribute extends CommonMethod {
     /**
@@ -2221,7 +2220,6 @@ export type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
  * @returns { RichEditorAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

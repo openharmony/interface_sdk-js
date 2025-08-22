@@ -156,7 +156,6 @@ declare type PluginErrorCallback = (info: PluginErrorData) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
- * @noninterop
  */
 interface PluginComponentInterface {
   /**
@@ -188,7 +187,6 @@ interface PluginComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
- * @noninterop
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**

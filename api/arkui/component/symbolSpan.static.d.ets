@@ -31,7 +31,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface SymbolSpanAttribute extends CommonMethod {
     /**
@@ -107,7 +106,6 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

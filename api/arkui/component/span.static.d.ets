@@ -83,7 +83,6 @@ export declare interface BaseSpan extends CommonMethod {
  * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface SpanAttribute extends BaseSpan {
     /**
@@ -204,7 +203,6 @@ export declare interface SpanAttribute extends BaseSpan {
  * @returns { SpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

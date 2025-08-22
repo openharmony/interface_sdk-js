@@ -219,7 +219,6 @@ declare interface ScrollBarOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface ScrollBarInterface {
   /**
@@ -275,7 +274,6 @@ interface ScrollBarInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
     /**

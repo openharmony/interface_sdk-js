@@ -28,6 +28,5 @@ import { LineAttribute } from './component/line';
  * @implements LineAttribute, AttributeModifier<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class LineModifier implements LineAttribute, AttributeModifier<LineAttribute> {}

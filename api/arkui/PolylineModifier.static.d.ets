@@ -28,6 +28,5 @@ import { PolylineAttribute } from './component/polyline';
  * @implements PolylineAttribute, AttributeModifier<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class PolylineModifier implements PolylineAttribute, AttributeModifier<PolylineAttribute> {}

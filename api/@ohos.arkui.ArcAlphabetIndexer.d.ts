@@ -70,7 +70,6 @@ declare type OnSelectCallback = (index: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 18
- * @noninterop
  */
 export interface ArcAlphabetIndexerInterface {
   /**
@@ -284,7 +283,6 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
  * @atomicservice
  * @uicomponent
  * @since 20
- * @noninterop
  */
 declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
 
@@ -295,6 +293,5 @@ declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 18
- * @noninterop
  */
 declare const ArcAlphabetIndexerInstance: ArcAlphabetIndexerAttribute;

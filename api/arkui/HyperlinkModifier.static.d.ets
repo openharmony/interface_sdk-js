@@ -31,6 +31,5 @@ import { HyperlinkAttribute } from './component/hyperlink';
  * @implements { HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class HyperlinkModifier implements HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> {}

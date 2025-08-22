@@ -1384,7 +1384,6 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare const TabContent: TabContentInterface;
 
@@ -1408,6 +1407,5 @@ declare const TabContent: TabContentInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare const TabContentInstance: TabContentAttribute;

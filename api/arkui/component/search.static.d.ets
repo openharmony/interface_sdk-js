@@ -374,7 +374,6 @@ export type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) 
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface SearchAttribute extends CommonMethod {
     /**
@@ -1033,7 +1032,6 @@ export declare interface SearchAttribute extends CommonMethod {
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

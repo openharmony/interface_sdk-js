@@ -31,6 +31,5 @@ import { TextAreaAttribute } from './component/textArea';
  * @implements { TextAreaAttribute, AttributeModifier<TextAreaAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class TextAreaModifier implements TextAreaAttribute, AttributeModifier<TextAreaAttribute> {}

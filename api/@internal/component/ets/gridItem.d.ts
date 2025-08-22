@@ -133,7 +133,6 @@ declare interface GridItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface GridItemInterface {
   /**
@@ -181,7 +180,6 @@ interface GridItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
   /**

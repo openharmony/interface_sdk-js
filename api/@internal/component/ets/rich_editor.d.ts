@@ -3572,7 +3572,6 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
@@ -4366,7 +4365,6 @@ declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface RichEditorInterface {
   /**

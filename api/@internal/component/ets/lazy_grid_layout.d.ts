@@ -28,7 +28,6 @@
  * @crossplatform
  * @atomicservice
  * @since 19
- * @noninterop
  */
 interface LazyVGridLayoutInterface {
   /**
@@ -86,7 +85,6 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @crossplatform
  * @atomicservice
  * @since 19
- * @noninterop
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
   /**

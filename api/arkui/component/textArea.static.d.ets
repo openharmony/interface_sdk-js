@@ -190,7 +190,6 @@ export type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: Submit
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11
- * @noninterop
  */
 export declare interface TextAreaAttribute extends CommonMethod {
     /**
@@ -1002,7 +1001,6 @@ export declare interface TextAreaAttribute extends CommonMethod {
  * @returns { TextAreaAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

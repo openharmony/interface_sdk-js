@@ -409,7 +409,6 @@ export declare interface NavDestinationTransition {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface NavDestinationAttribute extends CommonMethod {
     /**

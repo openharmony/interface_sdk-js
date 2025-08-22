@@ -107,7 +107,6 @@ export interface MarqueeOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface MarqueeAttribute extends CommonMethod {
     /**
@@ -243,7 +242,6 @@ export declare interface MarqueeAttribute extends CommonMethod {
  * @returns { MarqueeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

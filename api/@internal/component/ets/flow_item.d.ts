@@ -42,7 +42,6 @@
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface FlowItemInterface {
   /**
@@ -95,7 +94,6 @@ interface FlowItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
 

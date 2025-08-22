@@ -26,7 +26,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface ContainerSpanAttribute {
     /**
@@ -56,7 +55,6 @@ export declare interface ContainerSpanAttribute {
  * @returns { ContainerSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

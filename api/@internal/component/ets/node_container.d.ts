@@ -73,7 +73,6 @@ interface NodeContainerInterface {
  * @crossplatform
  * @atomicservice
  * @since 12
- * @noninterop
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 

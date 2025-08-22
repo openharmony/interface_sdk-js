@@ -31,6 +31,5 @@ import { SpanAttribute } from './component/span';
  * @implements { SpanAttribute, AttributeModifier<SpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SpanModifier implements SpanAttribute, AttributeModifier<SpanAttribute> {}

@@ -29,7 +29,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
     /**
@@ -61,7 +60,6 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

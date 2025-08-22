@@ -1128,7 +1128,6 @@ declare interface ScrollSnapOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface ScrollInterface {
   /**
@@ -1257,7 +1256,6 @@ declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   /**

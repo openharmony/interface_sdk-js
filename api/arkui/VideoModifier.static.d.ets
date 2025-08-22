@@ -28,6 +28,5 @@ import { VideoAttribute } from './component/video';
  * @implements VideoAttribute, AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class VideoModifier implements VideoAttribute, AttributeModifier<VideoAttribute> {}
