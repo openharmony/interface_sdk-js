@@ -59,7 +59,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MAX_RECORD_NUM = 512;
   /**
