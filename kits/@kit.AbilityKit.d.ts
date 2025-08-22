@@ -18,22 +18,6 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1&1.2 */
-import common from '@ohos.app.ability.common';
-import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
-import { Configuration } from '@ohos.app.ability.Configuration';
-import Want from '@ohos.app.ability.Want';
-import StartOptions from '@ohos.app.ability.StartOptions';
-import contextConstant from '@ohos.app.ability.contextConstant';
-import AbilityConstant from '@ohos.app.ability.AbilityConstant';
-import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
-import wantConstant from '@ohos.app.ability.wantConstant';
-import AbilityStage from '@ohos.app.ability.AbilityStage';
-import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
-import uriPermissionManager from '@ohos.application.uriPermissionManager';
-import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
-/*** endif */
-
 import ability from '@ohos.ability.ability';
 import { ErrorCode } from '@ohos.ability.errorCode';
 import featureAbility from '@ohos.ability.featureAbility';
@@ -42,8 +26,10 @@ import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
 import Ability from '@ohos.app.ability.Ability';
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
 import abilityManager from '@ohos.app.ability.abilityManager';
+import AbilityStage from '@ohos.app.ability.AbilityStage';
 import ActionExtensionAbility from '@ohos.app.ability.ActionExtensionAbility';
 import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
 import appManager from '@ohos.app.ability.appManager';
@@ -55,6 +41,10 @@ import ChildProcess from '@ohos.app.ability.ChildProcess';
 import childProcessManager from '@ohos.app.ability.childProcessManager';
 import { ChildProcessArgs } from '@ohos.app.ability.ChildProcessArgs';
 import { ChildProcessOptions } from '@ohos.app.ability.ChildProcessOptions';
+import common from '@ohos.app.ability.common';
+import { Configuration } from '@ohos.app.ability.Configuration';
+import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
+import contextConstant from '@ohos.app.ability.contextConstant';
 import dataUriUtils from '@ohos.app.ability.dataUriUtils';
 import dialogRequest from '@ohos.app.ability.dialogRequest';
 import dialogSession from '@ohos.app.ability.dialogSession';
@@ -71,13 +61,20 @@ import InsightIntentEntryExecutor from '@ohos.app.ability.InsightIntentEntryExec
 import missionManager from '@ohos.app.ability.missionManager';
 import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
 import quickFixManager from '@ohos.app.ability.quickFixManager';
+import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
 import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
+import StartOptions from '@ohos.app.ability.StartOptions';
 import UIAbility, {
   Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '@ohos.app.ability.UIAbility';
+import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
+import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
+import Want from '@ohos.app.ability.Want';
+import wantConstant from '@ohos.app.ability.wantConstant';
 import privacyManager from '@ohos.privacyManager';
 import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import businessAbilityRouter from '@ohos.app.businessAbilityRouter';
+import uriPermissionManager from '@ohos.application.uriPermissionManager';
 import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
@@ -138,12 +135,23 @@ export {
 };
 
 /*** if arkts 1.2 */
-import UIAbility from '@ohos.app.ability.UIAbility';
-import {
-  Callee, Caller, OnReleaseCallback
+import common from '@ohos.app.ability.common';
+import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
+import { Configuration } from '@ohos.app.ability.Configuration';
+import Want from '@ohos.app.ability.Want';
+import StartOptions from '@ohos.app.ability.StartOptions';
+import contextConstant from '@ohos.app.ability.contextConstant';
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
+import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
+import wantConstant from '@ohos.app.ability.wantConstant';
+import AbilityStage from '@ohos.app.ability.AbilityStage';
+import UIExtensionAbility from '@ohos.app.ability.UIExtensionAbility';
+import uriPermissionManager from '@ohos.application.uriPermissionManager';
+import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
+import UIAbility, {
+  Callee, CalleeCallback, Caller, OnReleaseCallback, OnRemoteStateChangeCallback
 } from '@ohos.app.ability.UIAbility';
-import wantAgent from '@ohos.app.ability.wantAgent';
-import { WantAgent } from '@ohos.app.ability.wantAgent';
+import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
@@ -159,6 +167,25 @@ import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
 import privacyManager from '@ohos.privacyManager';
+import abilityManager from '@ohos.app.ability.abilityManager';
+import appManager from '@ohos.app.ability.appManager';
+import appRecovery from '@ohos.app.ability.appRecovery';
+import abilityDelegatorRegistry from 'ohos.app.ability.abilityDelegatorRegistry';
+import dataUriUtils from '@ohos.app.ability.dataUriUtils';
+import insightIntent from '@ohos.app.ability.insightIntent';
+import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
+import { ErrorCode } from '@ohos.ability.errorCode';
+import application from '@ohos.app.ability.application';
+import OpenLinkOptions from '@ohos.app.ability.OpenLinkOptions';
+import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
+import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
+import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
+import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
+import Ability from '@ohos.app.ability.Ability';
+import AbilityLifecycleCallback from '@ohos.app.ability.AbilityLifecycleCallback';
+import EnvironmentCallback from '@ohos.app.ability.EnvironmentCallback';
+import missionManager from '@ohos.app.ability.missionManager';
+import TestRunner from '@ohos.application.testRunner';
 
 export {
   common, ConfigurationConstant, Configuration, Want, StartOptions, contextConstant, AbilityConstant,
@@ -166,6 +193,10 @@ export {
   UIExtensionAbility, uriPermissionManager, ServiceExtensionAbility, wantAgent, WantAgent,
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
   freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
-  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager,
+  CalleeCallback, OnRemoteStateChangeCallback, abilityManager, appManager, appRecovery, dataUriUtils, insightIntent, 
+  insightIntentDriver, ErrorCode, application, OpenLinkOptions, InsightIntentExecutor, InsightIntentContext, 
+  AtomicServiceOptions, ApplicationStateChangeCallback, abilityDelegatorRegistry, Ability, AbilityLifecycleCallback, 
+  EnvironmentCallback, missionManager, TestRunner
 };
 /*** endif */
