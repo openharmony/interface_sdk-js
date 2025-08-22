@@ -130,6 +130,7 @@ function tsTransform(inputurl, outputPath, utFiles, callback) {
       ts.transpileModule(content, {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
+          etsAnnotationsEnable: true
         },
         fileName: fileName,
         transformers: { before: [callback(inputurl + url, outputPath)] }
@@ -341,6 +342,7 @@ function changeContent(tagDataList) {
   for (const data of tagDataList) {
     const before = jsDocContent.substring(0, data.pos);
     const after = jsDocContent.substring(data.end);
+    // 保证转换后注释空格和源码文件空格一致
     if (jsDocContent.substring(data.pos, data.pos + 1) === ' ') {
       jsDocContent = before + ` ${data.convertedText}` + after;
     } else {
@@ -381,7 +383,7 @@ function parseJSDocVisitEachChild2(context, node) {
   }
   function writeDataToFile(tag) {
     const typeExpr = tag.typeExpression;
-    if (ts.isJSDocNullableType(node) && typeExpr.type.type) {
+    if (ts.isJSDocNullableType(typeExpr.type) && typeExpr.type.type) {
       const newTypeExpr = parseTypeExpression(typeExpr.type.type);
       applJSDocTransformations(typeExpr.type.type, newTypeExpr, tagDataList, false);
     } else {
