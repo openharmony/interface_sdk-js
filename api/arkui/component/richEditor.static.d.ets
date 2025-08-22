@@ -46,14 +46,14 @@ export declare enum RichEditorDeleteDirection {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    BACKWARD,
+    BACKWARD = 0,
     /**
      * Delete forward.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    FORWARD
+    FORWARD = 1
 }
 /**
  * Defines span type.
@@ -2216,7 +2216,7 @@ export type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 /**
  * Defines RichEditor Component.
  *
- * @param { RichEditorOptions | RichEditorStyledStringOptions } [options]
+ * @param { RichEditorOptions | RichEditorStyledStringOptions } options
  * @param { function } [content_]
  * @returns { RichEditorAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
