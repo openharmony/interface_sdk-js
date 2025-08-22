@@ -320,6 +320,7 @@ declare namespace onScreen {
    * @throws { BusinessError } 34000003 - The window ID is invalid. Possible causes: 1. window id is not passed
    *     <br> when screen is splited. 2. passed window id is not on screen or floating.
    * @throws { BusinessError } 34000004 - The page is not ready.
+   * @throws { BusinessError } 34000006 - The request is timeout.
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
