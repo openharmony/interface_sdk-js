@@ -43,7 +43,6 @@ declare class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600002 - Image input error.
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
-     * @StageModelOnly
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
@@ -61,7 +60,6 @@ declare class PhotoEditorExtensionContext extends ExtensionContext {
      * @throws { BusinessError } 29600002 - Image input error.
      * @throws { BusinessError } 29600003 - Image too big.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
-     * @StageModelOnly
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
