@@ -19,7 +19,7 @@
  */
 import { Alignment } from './enums';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
  *
@@ -49,6 +49,16 @@ export declare interface StackAttribute extends CommonMethod {
      * @since 20
      */
     default alignContent(value: Alignment | undefined): this;
+    /**
+    * Sets the point light style.
+    *
+    * @param { PointLightStyle } value - The point light style.
+    * @returns { StackAttribute } The attribute of the stack.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 20
+    */
+    default pointLight(value: PointLightStyle): StackAttribute;
     /**
      * Set the attribute modifier
      *

@@ -20,7 +20,7 @@
 import { LengthMetrics } from '../Graphics';
 import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Describes the layout and alignment of child components within the Flex component.
  *
@@ -111,6 +111,16 @@ export declare interface FlexSpaceOptions {
     cross?: LengthMetrics;
 }
 export declare interface FlexAttribute extends CommonMethod {
+    /**
+    * Defines the PointLight
+    *
+    * @param { PointLightStyle } value - The point light style.
+    * @returns { FlexAttribute } The attribute of the flex.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 20
+    */
+    default pointLight(value: PointLightStyle): FlexAttribute;
     /**
      * Set the attribute modifier
      *

@@ -20,7 +20,7 @@
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Defines the space property with string, number and resource unit.
  *
@@ -82,6 +82,16 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @since 20
      */
     default justifyContent(value: FlexAlign | undefined): this;
+    /**
+    * Defines the PointLight
+    *
+    * @param { PointLightStyle } value - The point light style.
+    * @returns { ColumnAttribute } The attribute of the column.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 20
+    */
+    default pointLight(value: PointLightStyle): ColumnAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *
