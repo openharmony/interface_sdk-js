@@ -136,6 +136,15 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
   onChange(event: Callback<number> | undefined): this;
 }
 
+/**
+ * Defines IndicatorComponent Component
+ *
+ * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
+ * @param { function } [content_] - container
+ * @returns { IndicatorComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function IndicatorComponent(

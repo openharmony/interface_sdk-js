@@ -1772,6 +1772,15 @@ export declare interface NavContentInfo {
     navDestinationId?: string;
 }
 
+/**
+ * Defines Navigation Component
+ *
+ * @param { NavPathStack } [pathInfos] - Navigation constructor options
+ * @param { function } [content_] - container
+ * @returns { NavigationAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Navigation(

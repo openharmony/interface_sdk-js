@@ -775,6 +775,14 @@ export declare interface NavDestinationAttribute extends CommonMethod {
  */
 export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
 
+/**
+ * Defines NavDestination Component
+ *
+ * @param { function } [content_] - container
+ * @returns { NavDestinationAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function NavDestination(
