@@ -104,4 +104,4 @@ declare namespace mediaquery {
   export function matchMediaSync(condition: string): MediaQueryListener;
 }
 
-export default mediaquery;
+export default mediaquery;

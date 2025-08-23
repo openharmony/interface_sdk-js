@@ -78,6 +78,7 @@ interface ColumnOptions {
   /**
    * Vertical layout element spacing.
    *
+   * Anonymous Object Rectification
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -196,6 +197,7 @@ interface ColumnInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ColumnOptions } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -208,6 +210,7 @@ interface ColumnInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
