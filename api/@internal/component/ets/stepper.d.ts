@@ -41,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface StepperInterface {
   /**
@@ -96,6 +97,7 @@ interface StepperInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -264,6 +266,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const Stepper: StepperInterface;
 
@@ -287,5 +290,6 @@ declare const Stepper: StepperInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StepperInstance: StepperAttribute;
