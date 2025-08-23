@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import { BusinessError } from "./@ohos.base";
-
 /**
  * @file
  * @kit MultimodalAwarenessKit
  */
+
+import { BusinessError } from './@ohos.base';
 
 /**
  * This module provides the capability to use on screen awareness
@@ -121,7 +121,7 @@ declare namespace onScreen {
    */
   export interface ContentOptions {
     /**
-     * Indicates the window Id which need to gather, full screen window is specified by default
+     * Indicates the windowId which need to gather, full screen window is specified by default
      * @type { ?number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
