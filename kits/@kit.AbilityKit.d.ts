@@ -54,6 +54,7 @@ import ExtensionAbility from '@ohos.app.ability.ExtensionAbility';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
+import verticalPanelManager from '@ohos.app.ability.verticalPanelManager';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,
   InsightIntentEntry, LinkParamCategory, InsightIntentForm, InsightIntentEntity } from '@ohos.app.ability.InsightIntentDecorator';
@@ -126,7 +127,7 @@ export {
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
-  innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
+  innerBundleManager, insightIntent, insightIntentDriver, verticalPanelManager, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
