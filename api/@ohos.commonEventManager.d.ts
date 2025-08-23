@@ -2756,6 +2756,18 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
+
+    /**
+     * Indicates that an application finish restore.
+     * To subscribe to this common event, your application must have the
+     * ohos.permission.RESTORE_END_NOTIFICATION permission.
+     * This is a protected common event that can only be sent by system.
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END'
   }
 
   /**
