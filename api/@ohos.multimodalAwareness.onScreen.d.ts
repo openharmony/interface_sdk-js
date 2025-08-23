@@ -274,7 +274,7 @@ declare namespace onScreen {
    * Get page content
    * 
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { ContentOptions } options - Indicates options to get page content
+   * @param { ContentOptions } [options] - Indicates options to get page content
    * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
