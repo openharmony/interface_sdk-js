@@ -423,6 +423,7 @@ declare interface DataPanelOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface DataPanelInterface {
   /**
@@ -533,6 +534,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
   /**
@@ -701,6 +703,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DataPanel: DataPanelInterface
 
@@ -733,5 +736,6 @@ declare const DataPanel: DataPanelInterface
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const DataPanelInstance: DataPanelAttribute;

@@ -170,6 +170,7 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface DataPanelAttribute extends CommonMethod {
     /**
@@ -244,6 +245,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * @returns { DataPanelAttribute } The attribute of the DataPanel.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

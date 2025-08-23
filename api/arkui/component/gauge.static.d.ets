@@ -139,6 +139,7 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
  * @interface GaugeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface GaugeAttribute extends CommonMethod {
     /**
@@ -220,7 +221,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets if mark to privacy sensitive.
      *
-     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
+     * @param { boolean } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -253,6 +254,7 @@ export declare interface GaugeAttribute extends CommonMethod {
  * @returns { GaugeAttribute } The attribute of the Gauge.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

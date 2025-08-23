@@ -90,6 +90,7 @@ export interface ImageFrameInfo {
  * @interface ImageAnimatorAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
@@ -244,6 +245,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

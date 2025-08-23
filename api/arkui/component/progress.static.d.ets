@@ -430,6 +430,7 @@ export declare interface ProgressStyleMap {}
  * @interface ProgressAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ProgressAttribute extends CommonMethod {
     /**
@@ -522,6 +523,7 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
  * @returns { ProgressAttribute } The attribute of the Progress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

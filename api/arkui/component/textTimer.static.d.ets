@@ -23,7 +23,7 @@ import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } fro
 import { ResourceColor, Length, ResourceStr, VoidCallback } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * Provides a way to control the process.
@@ -163,6 +163,7 @@ export interface TextTimerOptions {
  * @interface TextTimerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TextTimerAttribute extends CommonMethod {
     /**
@@ -291,6 +292,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
  * @returns { TextTimerAttribute } The attribute of the TextTimer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

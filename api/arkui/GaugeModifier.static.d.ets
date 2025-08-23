@@ -28,5 +28,6 @@ import { GaugeAttribute } from './component/gauge';
  * @implements { GaugeAttribute, AttributeModifier<GaugeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class GaugeModifier implements GaugeAttribute, AttributeModifier<GaugeAttribute> {}

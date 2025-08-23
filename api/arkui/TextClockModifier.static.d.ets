@@ -28,5 +28,6 @@ import { TextClockAttribute } from './component/textClock';
  * @implements { TextClockAttribute, AttributeModifier<TextClockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class TextClockModifier implements TextClockAttribute, AttributeModifier<TextClockAttribute> {}

@@ -23,7 +23,7 @@ import { ResourceColor, Length, Position, Resource, ResourceStr, VoidCallback } 
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * Defines the badge position property.
@@ -226,6 +226,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface BadgeAttribute extends CommonMethod {
     /**
@@ -246,6 +247,7 @@ export declare interface BadgeAttribute extends CommonMethod {
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

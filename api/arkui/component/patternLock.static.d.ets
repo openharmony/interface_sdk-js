@@ -23,7 +23,7 @@ import { ResourceColor, Length, VoidCallback } from "./units";
 import { LengthMetrics } from '../Graphics';
 import { CommonMethod, Callback, Optional } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { AttributeModifier } from "./common";
 
 /**
  * The challenge result based on input pattern for control pattern lock component.
@@ -122,6 +122,7 @@ export declare class PatternLockController {
  * @interface PatternLockAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface PatternLockAttribute extends CommonMethod {
     /**
@@ -278,6 +279,7 @@ export declare interface PatternLockAttribute extends CommonMethod {
  * @returns { PatternLockAttribute } The attribute of the PatternLock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

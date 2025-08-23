@@ -124,6 +124,7 @@ export declare interface TextClockOptions {
  * @interface TextClockAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TextClockAttribute extends CommonMethod {
     /**
@@ -274,6 +275,7 @@ export declare interface TextClockAttribute extends CommonMethod {
  * @returns { TextClockAttribute } The attribute of the TextClock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

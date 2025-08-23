@@ -28,5 +28,6 @@ import { PatternLockAttribute } from './component/patternLock';
  * @implements { PatternLockAttribute, AttributeModifier<PatternLockAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class PatternLockModifier implements PatternLockAttribute, AttributeModifier<PatternLockAttribute> {}

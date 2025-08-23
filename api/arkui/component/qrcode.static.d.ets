@@ -32,6 +32,7 @@ import { AttributeModifier } from "./common";
  * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface QRCodeAttribute extends CommonMethod {
     /**
@@ -78,6 +79,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

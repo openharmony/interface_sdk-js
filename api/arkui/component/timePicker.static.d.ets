@@ -137,6 +137,7 @@ export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @interface TimePickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TimePickerAttribute extends CommonMethod {
     /**
@@ -495,6 +496,7 @@ export declare class TimePickerDialog {
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

@@ -28,5 +28,6 @@ import { ImageAnimatorAttribute } from './component/imageAnimator';
  * @implements { ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class ImageAnimatorModifier implements ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> {}
