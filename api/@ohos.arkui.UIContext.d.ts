@@ -1588,7 +1588,7 @@ export declare class PromptAction {
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
-type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
+declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch pan event.
@@ -1605,7 +1605,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @since arkts { '1.1':'19','1.2':'20' }
  * @arkts 1.1&1.2
  */
-type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
+declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch gesture.
@@ -1621,7 +1621,7 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @since arkts { '1.1':'12','1.2':'20' }
  * @arkts 1.1&1.2
  */
-type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
+declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
@@ -3325,7 +3325,7 @@ export declare class FocusController {
    * @atomicservice
    * @since 20
    */
-  isActive(): boolean
+  isActive(): boolean;
 
   /**
   * Set whether to enable autofocus transfer.
@@ -3702,7 +3702,7 @@ export declare class ComponentSnapshot {
  * @arkts 1.1&1.2
  */
 export declare class UIContext {
-      /**
+  /**
    * Checks whether the UiContext object ia available.
    *
    * @returns { boolean } Returns true if the UIConetxt object is available.
