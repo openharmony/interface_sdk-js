@@ -18,8 +18,16 @@
  * @kit SensorServiceKit
  */
 
+/*** if arkts 1.1&1.2 */
 import sensor from '@ohos.sensor';
 import vibrator from '@ohos.vibrator';
+
+export {
+  sensor, vibrator
+};
+/*** endif */
+
+/*** if arkts 1.1 */
 import Sensor, {
   AccelerometerResponse, BarometerResponse, CompassResponse, DeviceOrientationResponse,
   GetOnBodyStateOptions, GyroscopeResponse, HeartRateResponse, LightResponse,
@@ -36,6 +44,7 @@ export {
   OnBodyStateResponse, ProximityResponse, Sensor, StepCounterResponse, SubscribeBarometerOptions,
   SubscribeCompassOptions, SubscribeDeviceOrientationOptions, SubscribeGyroscopeOptions,
   SubscribeHeartRateOptions, SubscribeLightOptions, SubscribeOnBodyStateOptions,
-  SubscribeProximityOptions, SubscribeStepCounterOptions, VibrateOptions, Vibrator, sensor,
-  subscribeAccelerometerOptions, vibrator
+  SubscribeProximityOptions, SubscribeStepCounterOptions, VibrateOptions, Vibrator,
+  subscribeAccelerometerOptions
 };
+/*** endif */
