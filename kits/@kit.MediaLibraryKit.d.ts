@@ -18,7 +18,14 @@
  * @kit MediaLibraryKit
  */
 
+/*** if arkts 1.1&1.2 */
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
+export {
+    photoAccessHelper
+};
+/*** endif */
+
+/*** if arkts 1.1 */
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback } from '@ohos.file.AlbumPickerComponent';
@@ -34,7 +41,7 @@ import {
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource
 } from '@ohos.file.RecentPhotoComponent';
 export {
-    photoAccessHelper, sendablePhotoAccessHelper,
+    sendablePhotoAccessHelper,
     MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute,
     PhotoPickerComponent, PickerController, PickerOptions,
     DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, AnimatorParams,
@@ -45,3 +52,4 @@ export {
     RecentPhotoClickCallback, RecentPhotoOptions, PhotoSource,
     PhotoBrowserUIElement, ItemsDeletedCallback, ExceedMaxSelectedCallback, CurrentAlbumDeletedCallback
 };
+/*** endif */
