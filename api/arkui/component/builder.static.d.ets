@@ -20,14 +20,12 @@
  */
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
+import { Callback } from '@ohos.base';
 
 /**
  * Defines Builder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 @Retention({policy: "SOURCE"})
@@ -37,9 +35,6 @@ export declare @interface Builder {}
  * Defines BuilderParam Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 @Retention({policy: "SOURCE"})
@@ -48,11 +43,8 @@ export declare @interface BuilderParam {}
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { @Builder (() => void) } CustomBuilder
+ * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export type CustomBuilder = @Builder (() => void);
@@ -60,11 +52,8 @@ export type CustomBuilder = @Builder (() => void);
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { @Builder ((t:T) => void) } CustomBuilderT
+ * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
 export type CustomBuilderT<T> = @Builder ((t: T) => void);
@@ -72,18 +61,15 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
 /**
  * Defines the PageMapBuilder Type.
  *
- * @typedef { @Builder ((name: string, param: Object | null | undefined) => void) } PageMapBuilder
+ * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
-export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void)
+export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
 
 /**
  * Defining wrapBuilder function.
- * @param { function } builder
+ * @param { T } builder
  * @returns { WrappedBuilder<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -98,16 +84,42 @@ export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 export declare class WrappedBuilder<T> {
 
   /**
-   * @type { function }
+   * Builder function.
+   *
+   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   @Builder public builder: T;
 
   /**
-   * @param { function } builder
+   *  Initialize builder.
+   *
+   * @param { T } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   public constructor(builder: T);
 }
+
+/**
+ * Type for property getter in Builder parameter proxy.
+ *
+ * @typedef { function } BuilderParameterCallback
+ * @returns { Any } parameter value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type BuilderParameterCallback = () => Any;
+
+/**
+ * Make proxy for Builder parameter.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param { T } instance initial literal instance
+ * @param { Map<string, BuilderParameterCallback> } propertyGetters override property getters
+ * @param { Callback<T> } initializer update proxied instance with literal's initial values
+ * @returns { T } proxied literal instance
+ * @since 20
+ */
+export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;

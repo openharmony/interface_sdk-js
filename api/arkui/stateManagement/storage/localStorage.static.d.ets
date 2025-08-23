@@ -76,7 +76,6 @@ export declare class LocalStorage {
    *           return undefined if named property does not already exist in LocalStorage
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
    * @since 20
    */
   public link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
