@@ -12,15 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-
-
-
 /**
  * Defines MenuItem Modifier
  *
@@ -41,15 +36,14 @@
  * @since 20
  */
 export declare class MenuItemModifier extends MenuItemAttribute implements AttributeModifier<MenuItemAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   * 
-   * @param { MenuItemAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  applyNormalAttribute?(instance: MenuItemAttribute): void;
+    /**
+     * Defines the normal update attribute function.
+     *
+     * @param { MenuItemAttribute } instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    applyNormalAttribute?(instance: MenuItemAttribute): void;
 }

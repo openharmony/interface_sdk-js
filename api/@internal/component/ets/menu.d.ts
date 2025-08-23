@@ -12,17 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit ArkUI
  */
-
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
-/*** endif */
-
 /**
  * Defines the Menu Component.
  *
@@ -45,38 +38,36 @@ import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOpt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 interface MenuInterface {
-  /**
-   * Creates the menu component.
-   *
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Creates the menu component.
-   *
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates the menu component.
-   *
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  (): MenuAttribute;
+    /**
+     * Creates the menu component.
+     *
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     */
+    /**
+     * Creates the menu component.
+     *
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Creates the menu component.
+     *
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    (): MenuAttribute;
 }
-
 /**
  * Declare SubMenuExpandingMode
  *
@@ -84,44 +75,37 @@ interface MenuInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum SubMenuExpandingMode {
-  /**
-   * Sub-menu will expand besides main menu
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SIDE_EXPAND = 0,
-
-  /**
-   * Sub-menu will expand embedded in main menu
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  EMBEDDED_EXPAND = 1,
-
-  /**
-   * Sub-menu will expand over main menu
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  STACK_EXPAND = 2,
+    /**
+     * Sub-menu will expand besides main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    SIDE_EXPAND = 0,
+    /**
+     * Sub-menu will expand embedded in main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    EMBEDDED_EXPAND = 1,
+    /**
+     * Sub-menu will expand over main menu
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    STACK_EXPAND = 2
 }
-
 /**
  * Defines the Menu component attribute functions.
  *
@@ -144,143 +128,129 @@ declare enum SubMenuExpandingMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 declare class MenuAttribute extends CommonMethod<MenuAttribute> {
-  /**
-   * Sets the Menu text size.
-   *
-   * @param { Length } value - Indicates the font size of menu item.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @deprecated since 10
-   * @useinstead font
-   */
-  fontSize(value: Length): MenuAttribute;
-
-  /**
-   * Sets the font style.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - Indicates the font style of menu item.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the font style.
-   * Family and style are not supported currently and will be fixed in future.
-   *
-   * @param { Font } value - Indicates the font style of menu item.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  font(value: Font): MenuAttribute;
-
-  /**
-   * Sets the Menu font color.
-   *
-   * @param { ResourceColor } value - Indicates the font color of menu item.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the Menu font color.
-   *
-   * @param { ResourceColor } value - Indicates the font color of menu item.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  fontColor(value: ResourceColor): MenuAttribute;
-
-  /**
-   * Sets the radius of the corner around the menu.
-   * When the radius is less than the menu width, the default border radius is used.
-   * 
-   * @param { Dimension | BorderRadiuses } value - the border radius.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the radius of the corner around the menu.
-   * When the radius is less than the menu width, the default border radius is used.
-   * 
-   * @param { Dimension | BorderRadiuses } value - the border radius.
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  radius(value: Dimension | BorderRadiuses): MenuAttribute;
-
-  /**
-   * Set the divider of menu item
-   *
-   * @param { DividerStyleOptions | undefined } options
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
-
-  /**
-   * Set the divider of menu item group
-   *
-   * @param { DividerStyleOptions | undefined } options
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  menuItemGroupDivider(options: DividerStyleOptions | undefined): MenuAttribute;
-
-  /**
-   * Set the expanding mode of sub-menu
-   *
-   * @param { SubMenuExpandingMode } mode
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;
-
-  /**
-   * Set the expand symbol of sub-menu.
-   *
-   * @param { SymbolGlyphModifier } symbol
-   * @returns { MenuAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  subMenuExpandSymbol(symbol: SymbolGlyphModifier): MenuAttribute;
+    /**
+     * Sets the Menu text size.
+     *
+     * @param { Length } value - Indicates the font size of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 9
+     * @deprecated since 10
+     * @useinstead font
+     */
+    fontSize(value: Length): MenuAttribute;
+    /**
+     * Sets the font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sets the font style.
+     * Family and style are not supported currently and will be fixed in future.
+     *
+     * @param { Font } value - Indicates the font style of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    font(value: Font): MenuAttribute;
+    /**
+     * Sets the Menu font color.
+     *
+     * @param { ResourceColor } value - Indicates the font color of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sets the Menu font color.
+     *
+     * @param { ResourceColor } value - Indicates the font color of menu item.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    fontColor(value: ResourceColor): MenuAttribute;
+    /**
+     * Sets the radius of the corner around the menu.
+     * When the radius is less than the menu width, the default border radius is used.
+     *
+     * @param { Dimension | BorderRadiuses } value - the border radius.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Sets the radius of the corner around the menu.
+     * When the radius is less than the menu width, the default border radius is used.
+     *
+     * @param { Dimension | BorderRadiuses } value - the border radius.
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 11
+     */
+    radius(value: Dimension | BorderRadiuses): MenuAttribute;
+    /**
+     * Set the divider of menu item
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
+    /**
+     * Set the divider of menu item group
+     *
+     * @param { DividerStyleOptions | undefined } options
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    menuItemGroupDivider(options: DividerStyleOptions | undefined): MenuAttribute;
+    /**
+     * Set the expanding mode of sub-menu
+     *
+     * @param { SubMenuExpandingMode } mode
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;
+    /**
+     * Set the expand symbol of sub-menu.
+     *
+     * @param { SymbolGlyphModifier } symbol
+     * @returns { MenuAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 20
+     */
+    subMenuExpandSymbol(symbol: SymbolGlyphModifier): MenuAttribute;
 }
-
 /**
  * Defines Menu Component.
  *
@@ -303,7 +273,6 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
  * @since 11
  */
 declare const Menu: MenuInterface;
-
 /**
  * Defines Menu Component instance.
  *
