@@ -71,7 +71,7 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for paragraph size range
+   * Interface for paragraph segmentation granularity
    * @interface ParagraphSizeRange
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
@@ -79,7 +79,7 @@ declare namespace onScreen {
    */
   export interface ParagraphSizeRange {
     /**
-     * Indicates mininum size of a paragraph being split
+     * Indicates mininum size of paragraph segmentation granularity
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -87,7 +87,7 @@ declare namespace onScreen {
      */
     minSize: number,
     /**
-     * Indicates maxinum size of a paragraph being split
+     * Indicates maxinum size of paragraph segmentation granularity
      * @type { number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -179,7 +179,7 @@ declare namespace onScreen {
      */
     textOnly?: boolean,
     /**
-     * Indicates minimum and maximum size of paragraph being split, default minimun size is 300, maximum size is 500
+     * Indicates paragraph segmentation granularity, default minSize is 200, maxSize is 300
      * @type { ?ParagraphSizeRange }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
