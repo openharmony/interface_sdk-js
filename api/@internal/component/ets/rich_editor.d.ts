@@ -1954,7 +1954,7 @@ declare interface RichEditorGesture {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * Trigger a click event when a click is clicked.
    *
    * @type { ?Callback<ClickEvent> }
@@ -2938,7 +2938,7 @@ declare interface SelectionMenuOptions {
    */
   /**
    * Callback function when the selection menu disappears.
-   * 
+   *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
