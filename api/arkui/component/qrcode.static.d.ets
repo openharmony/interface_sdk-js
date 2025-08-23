@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 import { CommonMethod } from './common';
-import { ResourceColor, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
@@ -74,7 +74,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * Defines the QRCode component.
  *
  * @param { string } value - qrcode string.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -84,5 +84,5 @@ export declare interface QRCodeAttribute extends CommonMethod {
 export declare function QRCode(
     value: string, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): QRCodeAttribute;

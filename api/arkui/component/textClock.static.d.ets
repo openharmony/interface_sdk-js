@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
-import { ResourceColor, Length, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
@@ -270,7 +270,7 @@ export declare interface TextClockAttribute extends CommonMethod {
  * Defines the TextClock component.
  *
  * @param { TextClockOptions } [options] - text clock options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { TextClockAttribute } The attribute of the TextClock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -280,5 +280,5 @@ export declare interface TextClockAttribute extends CommonMethod {
 export declare function TextClock(
     options?: TextClockOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): TextClockAttribute;

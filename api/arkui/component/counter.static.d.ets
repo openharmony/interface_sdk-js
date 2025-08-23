@@ -86,7 +86,7 @@ export declare interface CounterAttribute extends CommonMethod {
 /**
  * Defines the Counter component.
  *
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { CounterAttribute } The attribute of the Counter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -95,5 +95,5 @@ export declare interface CounterAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Counter(
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): CounterAttribute;

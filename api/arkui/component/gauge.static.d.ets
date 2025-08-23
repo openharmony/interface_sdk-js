@@ -21,7 +21,7 @@
  */
 import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions, Optional } from './common';
 import { CustomBuilder } from './builder';
-import { ResourceStr, Dimension, ResourceColor, Length, VoidCallback } from "./units";
+import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
 import { LinearGradient } from "./dataPanel";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
@@ -249,7 +249,7 @@ export declare interface GaugeAttribute extends CommonMethod {
  * Defines the Gauge component.
  *
  * @param { GaugeOptions } options - gauge options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { GaugeAttribute } The attribute of the Gauge.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -259,5 +259,5 @@ export declare interface GaugeAttribute extends CommonMethod {
 export declare function Gauge(
     options: GaugeOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): GaugeAttribute;

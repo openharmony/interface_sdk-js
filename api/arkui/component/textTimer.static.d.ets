@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier } from './common';
-import { ResourceColor, Length, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
@@ -287,7 +287,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
  * Defines the TextTimer component.
  *
  * @param { TextTimerOptions } [options] - text timer options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { TextTimerAttribute } The attribute of the TextTimer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -297,5 +297,5 @@ export declare interface TextTimerAttribute extends CommonMethod {
 export declare function TextTimer(
     options?: TextTimerOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): TextTimerAttribute;

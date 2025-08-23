@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Resource, ResourceColor, Offset, Dimension, ResourceStr, VoidCallback } from "./units";
+import { Resource, ResourceColor, Offset, Dimension, ResourceStr } from "./units";
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, Bindable, BindableResourceStr, BindableResourceStrArray } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity, TextOverflow } from "./enums";
@@ -806,7 +806,7 @@ export declare class TextPickerDialog {}
  * Defines the TextPicker component.
  *
  * @param { TextPickerOptions } [options] - text picker options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { TextPickerAttribute } The attribute of the TextPicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -816,5 +816,5 @@ export declare class TextPickerDialog {}
 export declare function TextPicker(
     options?: TextPickerOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): TextPickerAttribute;

@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
 import { CommonMethod, Optional, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
@@ -518,7 +518,7 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
  * Defines the Progress component.
  *
  * @param { ProgressOptions } options - progress options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { ProgressAttribute } The attribute of the Progress.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -528,5 +528,5 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
 export declare function Progress(
     options: ProgressOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): ProgressAttribute;

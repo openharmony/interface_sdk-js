@@ -21,7 +21,7 @@
  */
 import { Resource } from '../../global/resource';
 import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common';
-import { Offset, VoidCallback, ResourceColor, VoidCallback } from "./units";
+import { Offset, ResourceColor, VoidCallback } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
 
@@ -324,7 +324,7 @@ export declare class CalendarPickerDialog {
  * Defines CalendarPicker Component.
  *
  * @param { CalendarOptions } [options] - calendar options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { CalendarPickerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -334,5 +334,5 @@ export declare class CalendarPickerDialog {
 export declare function CalendarPicker(
     options?: CalendarOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): CalendarPickerAttribute;

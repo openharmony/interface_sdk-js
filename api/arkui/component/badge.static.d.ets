@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Length, Position, Resource, ResourceStr, VoidCallback } from "./units";
+import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -242,7 +242,7 @@ export declare interface BadgeAttribute extends CommonMethod {
  * Defines Badge Component.
  *
  * @param { BadgeParamWithNumber | BadgeParamWithString } value
- * @param { VoidCallback } [content_] - container
+ * @param { function } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -252,5 +252,5 @@ export declare interface BadgeAttribute extends CommonMethod {
 export declare function Badge(
     value: BadgeParamWithNumber | BadgeParamWithString, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): BadgeAttribute;

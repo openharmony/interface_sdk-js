@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Length, VoidCallback } from "./units";
+import { ResourceColor, Length } from "./units";
 import { LengthMetrics } from '../Graphics';
 import { CommonMethod, Callback, Optional } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
@@ -274,7 +274,7 @@ export declare interface PatternLockAttribute extends CommonMethod {
  * Defines the PatternLock component.
  *
  * @param { PatternLockController } [controller] - pattern lock controller.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { PatternLockAttribute } The attribute of the PatternLock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -284,5 +284,5 @@ export declare interface PatternLockAttribute extends CommonMethod {
 export declare function PatternLock(
     controller?: PatternLockController, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): PatternLockAttribute;

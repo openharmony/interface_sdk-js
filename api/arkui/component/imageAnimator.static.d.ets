@@ -22,7 +22,6 @@
 import { Resource } from "../../global/resource";
 import { CommonMethod, PixelMap } from './common';
 import { AnimationStatus, FillMode } from "./enums";
-import { VoidCallback } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
 
@@ -240,7 +239,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
 /**
  * Defines the ImageAnimator component.
  *
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -249,5 +248,5 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function ImageAnimator(
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): ImageAnimatorAttribute;

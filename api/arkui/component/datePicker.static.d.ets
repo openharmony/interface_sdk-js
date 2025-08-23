@@ -647,5 +647,5 @@ export declare class DatePickerDialog {}
 export declare function DatePicker(
     options?: DatePickerOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): DatePickerAttribute;

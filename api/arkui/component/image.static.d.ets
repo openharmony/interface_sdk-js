@@ -837,7 +837,7 @@ export declare interface ResizableOptions {
  *
  * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
  * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -848,5 +848,5 @@ export declare function Image(
     src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
     imageAIOptions?: ImageAIOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): ImageAttribute;
