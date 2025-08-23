@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -79,3 +80,12 @@ export declare class SyncedProperty<T> implements MutableState<T> {
     set value(value: T);
     update(value?: T): void;
 }
+
+/**
+ * Defining MemoSkip annotation.
+ * MemoSkip parameter will not be a state varaiable in Builder functions.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface MemoSkip {};

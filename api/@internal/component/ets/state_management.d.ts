@@ -167,17 +167,6 @@ declare class Storage {
    * @since 7
    */
   set(key: string, val: any): void;
-  
-  /**
-   * Called when setting.
-   *
-   * @param { string } key
-   * @param { Object | undefined | null } val
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20
-   */
-  set(key: string, val: Object | undefined | null): void;
 
   /**
    * Called when data is cleared.
