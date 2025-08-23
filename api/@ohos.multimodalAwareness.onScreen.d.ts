@@ -113,15 +113,15 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for content option
-   * @interface ContentOption
+   * Interface for content options
+   * @interface ContentOptions
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20
    */
-  export interface ContentOption {
+  export interface ContentOptions {
     /**
-     * Indicates the windowId which need to gather, full screen window is specified by default
+     * Indicates the window Id which need to gather, full screen window is specified by default
      * @type { ?number }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -274,7 +274,7 @@ declare namespace onScreen {
    * Get page content
    * 
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { ContentOption } option - Indicates option to get page content
+   * @param { ContentOptions } options - Indicates options to get page content
    * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
@@ -291,7 +291,7 @@ declare namespace onScreen {
    * @systemapi
    * @since 20
    */
-  function getPageContent(option: ContentOption): Promise<PageContent>;
+  function getPageContent(options?: ContentOptions): Promise<PageContent>;
 
   /**
    * Send control event
