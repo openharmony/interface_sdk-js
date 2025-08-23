@@ -116,11 +116,12 @@ export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @returns { inspector.ComponentObserver | undefined } create listener for observer component event.
+   *     If unable to obtain current ui context, the function will return undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  createComponentObserver(id: string): inspector.ComponentObserver;
+  createComponentObserver(id: string): inspector.ComponentObserver | undefined;
 }
 
 /**
