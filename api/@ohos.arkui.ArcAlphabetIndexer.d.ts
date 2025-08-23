@@ -282,7 +282,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 19
+ * @since 20
  * @noninterop
  */
 declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
