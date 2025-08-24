@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { CalendarPickerAttribute } from './component/calendarPicker';
 /**
  * Defines CalendarPicker Modifier
  *
- * @extends CalendarPickerAttribute
- * @implements { AttributeModifier<CalendarPickerAttribute> }
+ * @implements { CalendarPickerAttribute, AttributeModifier<CalendarPickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class CalendarPickerModifier extends CalendarPickerAttribute implements AttributeModifier<CalendarPickerAttribute> {}
+export declare class CalendarPickerModifier implements CalendarPickerAttribute, AttributeModifier<CalendarPickerAttribute> {}

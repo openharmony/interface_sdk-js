@@ -25,9 +25,9 @@ import { CounterAttribute } from './component/counter';
 /**
  * Defines Counter Modifier
  *
- * @extends CounterAttribute
- * @implements { AttributeModifier<CounterAttribute> }
+ * @implements { CounterAttribute, AttributeModifier<CounterAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class CounterModifier extends CounterAttribute implements AttributeModifier<CounterAttribute> {}
+export declare class CounterModifier implements CounterAttribute, AttributeModifier<CounterAttribute> {}

@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { TimePickerAttribute } from './component/timePicker';
 /**
  * Defines TimePicker Modifier
  *
- * @extends TimePickerAttribute
- * @implements { AttributeModifier<TimePickerAttribute> }
+ * @implements { TimePickerAttribute, AttributeModifier<TimePickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {}
+export declare class TimePickerModifier implements TimePickerAttribute, AttributeModifier<TimePickerAttribute> {}

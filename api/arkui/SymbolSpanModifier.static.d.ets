@@ -24,6 +24,7 @@
 
 import { AttributeModifier } from './component/common';
 import { SymbolSpanAttribute } from './component/symbolSpan';
+import { Resource } from '../global/resource';
 
 /**
  * Defines SymbolSpan Modifier
@@ -33,4 +34,13 @@ import { SymbolSpanAttribute } from './component/symbolSpan';
  * @since 20
  * @noninterop
  */
-export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {}
+export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {
+    /**
+     * constructor
+     *
+     * @param { Resource } [src]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(src?: Resource);
+}

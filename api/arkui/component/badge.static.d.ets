@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,39 +14,17 @@
  * limitations under the License.
  */
 
-/*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
-'use static';
-
-/**
- * @file
- * @kit ArkUI
- * @arkts static
- */
-import { ResourceColor, Length, Position, Resource, ResourceStr } from './units';
-import { FontWeight } from './enums';
+import { ResourceColor, Length, Position, Resource, ResourceStr, VoidCallback } from "./units";
+import { FontWeight } from "./enums";
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the badge position property.
  *
@@ -240,6 +219,15 @@ export declare interface BadgeParamWithString extends BadgeParam {
      */
     value: string;
 }
+/**
+ * Defines the Button component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ButtonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface BadgeAttribute extends CommonMethod {
     /**
      * Set the attribute modifier
@@ -249,38 +237,22 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-/**
- * Define BadgeParamWithString's property 'value' type
- *
- * @typedef { string | Resource } BadgeParamWithStringType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export type BadgeParamWithStringType = string | Resource;
-/**
- * Define BadgeStyle's size-relative properties type
- *
- * @typedef { number | string | Resource } BadgeParamWithString
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export type BadgeStyleSizeType = number | string | Resource;
-
 /**
  * Defines Badge Component.
  *
  * @param { BadgeParamWithNumber | BadgeParamWithString } value
- * @param { function } [content_] - container
+ * @param { VoidCallback } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
 export declare function Badge(
-  value: BadgeParamWithNumber | BadgeParamWithString, 
-  @memo
-  content_?: () => void
+    value: BadgeParamWithNumber | BadgeParamWithString, 
+    @memo
+    content_?: VoidCallback
 ): BadgeAttribute;

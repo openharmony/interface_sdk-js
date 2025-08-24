@@ -226,10 +226,11 @@ declare namespace screenLock {
   /**
    * Indicates the strong authentication reason flags used to request.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum StrongAuthReasonFlags {
     /**
@@ -237,7 +238,8 @@ declare namespace screenLock {
      *
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0x00000000,
 
@@ -246,7 +248,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AFTER_BOOT = 0x00000001,
 
@@ -255,7 +258,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AFTER_TIMEOUT = 0x00000002,
  
@@ -264,7 +268,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVE_REQUEST = 0x00000004,
 
@@ -273,7 +278,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     POLICY_RESTRICTION = 0x00000008
   }
@@ -281,10 +287,11 @@ declare namespace screenLock {
   /**
    * Indicates the screen lock authentication state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthState {
     /**

@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
- export declare class TextPickerModifier extends TextPickerAttribute implements AttributeModifier<TextPickerAttribute> {
+export declare class TextPickerModifier extends TextPickerAttribute implements AttributeModifier<TextPickerAttribute> {
 
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { TextPickerAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    applyNormalAttribute?(instance: TextPickerAttribute): void;
-  }
-  
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { TextPickerAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  applyNormalAttribute?(instance: TextPickerAttribute): void;
+}

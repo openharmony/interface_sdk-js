@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
- export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {
+export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {
 
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { ImageAnimatorAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    applyNormalAttribute?(instance: ImageAnimatorAttribute): void;
-  }
-  
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { ImageAnimatorAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  applyNormalAttribute?(instance: ImageAnimatorAttribute): void;
+}

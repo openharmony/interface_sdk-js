@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { TextPickerAttribute } from './component/textPicker';
 /**
  * Defines TextPicker Modifier
  *
- * @extends TextPickerAttribute
- * @implements { AttributeModifier<TextPickerAttribute> }
+ * @implements { TextPickerAttribute, AttributeModifier<TextPickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class TextPickerModifier extends TextPickerAttribute implements AttributeModifier<TextPickerAttribute> {}
+export declare class TextPickerModifier implements TextPickerAttribute, AttributeModifier<TextPickerAttribute> {}

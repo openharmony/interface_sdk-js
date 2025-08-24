@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,19 +14,18 @@
  * limitations under the License.
  */
 
-'use static';
-
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { ResourceColor, Offset } from './units';
+import { ResourceColor, Offset, VoidCallback } from "./units";
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
-import { DialogAlignment } from './alertDialog';
-import { CrownSensitivity } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier } from './common';
+import { DialogAlignment } from "./alertDialog";
+import { CrownSensitivity } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the struct of TimePickerResult.
  *
@@ -123,112 +123,130 @@ export declare interface TimePickerOptions {
 }
 /**
  * Callback of the timePicker time is selected event.
- *
+ * 
  * @typedef {function} OnTimePickerChangeCallback
+ * @param { TimePickerResult } result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
 export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
+/**
+ * Defines the TimePicker component attributes.
+ *
+ * @extends CommonMethod
+ * @interface TimePickerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface TimePickerAttribute extends CommonMethod {
     /**
      * Time Selector: indicates whether to display the 24-hour clock.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    useMilitaryTime(value: boolean | undefined): this;
+    default useMilitaryTime(value: boolean | undefined): this;
     /**
      * Sets whether to enable the wheel mode.
-     * @param { boolean } value - indicates whether to enable the wheel mode.
+     * @param { boolean | undefined } value - indicates whether to enable the wheel mode.
      * @returns { TimePickerAttribute } the attribute of the time picker
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    loop(value: boolean | undefined): this;
+    default loop(value: boolean | undefined): this;
     /**
      * Sets the text style of disappearing items
      *
-     * @param { PickerTextStyle } value - indicates the text style of disappearing items.
+     * @param { PickerTextStyle | undefined } value - indicates the text style of disappearing items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    default disappearTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style of normal items
      *
-     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @param { PickerTextStyle | undefined } value - indicates the text style of normal items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    textStyle(value: PickerTextStyle | undefined): this;
+    default textStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the text style of selected items
      *
-     * @param { PickerTextStyle } value - indicates the text style of selected items.
+     * @param { PickerTextStyle | undefined } value - indicates the text style of selected items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    default selectedTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Set time format
      *
-     * @param { DateTimeOptions } value - indicates the format of the time display.
+     * @param { DateTimeOptions | undefined } value - indicates the format of the time display.
      * @returns { TimePickerAttribute } the attribute of the time picker
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    dateTimeOptions(value: DateTimeOptions | undefined): this;
+    default dateTimeOptions(value: DateTimeOptions | undefined): this;
     /**
      * This event is triggered when a TimePicker time is selected.
      *
-     * @param { Optional<OnTimePickerChangeCallback> } callback
+     * @param { OnTimePickerChangeCallback | undefined } callback
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnTimePickerChangeCallback | undefined): this;
+    default onChange(callback: OnTimePickerChangeCallback | undefined): this;
     /**
      * This event is triggered when an item enters the selected area.
      *
-     * @param { Callback<TimePickerResult> } callback
+     * @param { Callback<TimePickerResult> | undefined } callback
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onEnterSelectedArea(callback: Callback<TimePickerResult> | undefined): this;
+    default onEnterSelectedArea(callback: Callback<TimePickerResult> | undefined): this;
     /**
      * Enable or disable haptic feedback.
      *
-     * @param { boolean } enable - Default value is true, set false to disable haptic feedback.
+     * @param { boolean | undefined } enable - Default value is true, set false to disable haptic feedback.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableHapticFeedback(enable: boolean | undefined): this;
+    default enableHapticFeedback(enable: boolean | undefined): this;
     /**
      * If the attribute is set, the crown rotation sensitivity can be changed.
      *
-     * @param { Optional<CrownSensitivity> } sensitivity
+     * @param { CrownSensitivity | undefined } sensitivity
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
      * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
      *
-     * @param { boolean } enabled - Default value is false, set true to enable.
+     * @param { boolean | undefined } enabled - Default value is false, set true to enable.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableCascade(enabled: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default enableCascade(enabled: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the TimePickerDialogOptions for Data Picker Dialog.
@@ -322,11 +340,11 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
     /**
      * Called when the Cancel button in the dialog is clicked.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCancel?: () => void;
+    onCancel?: VoidCallback;
     /**
      * This event is triggered when a TimePicker Time or time is selected in dialog.
      *
@@ -389,35 +407,35 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
     /**
      * Callback function when the dialog appears.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDidAppear?: () => void;
+    onDidAppear?: VoidCallback;
     /**
      * Callback function when the dialog disappears.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDidDisappear?: () => void;
+    onDidDisappear?: VoidCallback;
     /**
      * Callback function before the dialog openAnimation starts.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onWillAppear?: () => void;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before the dialog closeAnimation starts.
      *
-     * @type { ?function }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onWillDisappear?: () => void;
+    onWillDisappear?: VoidCallback;
     /**
      * Defines the dialog's shadow.
      *
@@ -470,9 +488,20 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
  */
 export declare class TimePickerDialog {
 }
-
+/**
+ * Defines the TimePicker component.
+ *
+ * @param { TimePickerOptions } [options] - timer picker options.
+ * @param { VoidCallback } [content_]
+ * @returns { TimePickerAttribute } The attribute of the TimePicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
-export declare function TimePicker(options?: TimePickerOptions, 
-@memo
-content_?: () => void): TimePickerAttribute;
+export declare function TimePicker(
+    options?: TimePickerOptions, 
+    @memo
+    content_?: VoidCallback
+): TimePickerAttribute;

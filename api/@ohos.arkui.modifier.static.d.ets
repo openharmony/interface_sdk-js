@@ -331,3 +331,38 @@ export { HyperlinkModifier } from './arkui/HyperlinkModifier';
  * @since 20
  */
 export { MarqueeModifier } from './arkui/MarqueeModifier';
+
+/**
+ * Export SpanModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SpanModifier } from './arkui/SpanModifier';
+
+/**
+ * Export SymbolSpanModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
+
+/**
+ * Export ImageSpanModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ImageSpanModifier } from './arkui/ImageSpanModifier';
+
+/**
+ * Export ContainerSpanModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
+
+/**
+ * Export ParticleModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ParticleModifier } from './arkui/ParticleModifier';

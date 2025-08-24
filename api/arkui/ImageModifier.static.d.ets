@@ -20,14 +20,14 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { DatePickerAttribute } from './component/datePicker';
+import { ImageAttribute } from './component/image';
 
 /**
- * Defines DatePicker Modifier
+ * Defines Image Modifier
  *
- * @implements { DatePickerAttribute, AttributeModifier<DatePickerAttribute> }
+ * @implements { ImageAttribute, AttributeModifier<ImageAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export declare class DatePickerModifier implements DatePickerAttribute, AttributeModifier<DatePickerAttribute> {}
+export declare class ImageModifier implements ImageAttribute, AttributeModifier<ImageAttribute> {}

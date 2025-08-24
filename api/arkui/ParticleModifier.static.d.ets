@@ -1,6 +1,7 @@
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -19,15 +20,17 @@
  * @arkts 1.2
  */
 
+
 import { AttributeModifier } from './component/common';
-import { DatePickerAttribute } from './component/datePicker';
+import { ParticleAttribute } from './component/particle';
+
 
 /**
- * Defines DatePicker Modifier
+ * Defines Particle Modifier
  *
- * @implements { DatePickerAttribute, AttributeModifier<DatePickerAttribute> }
+ * @implements { ParticleAttribute, AttributeModifier<ParticleAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export declare class DatePickerModifier implements DatePickerAttribute, AttributeModifier<DatePickerAttribute> {}
+export declare class ParticleModifier implements ParticleAttribute, AttributeModifier<ParticleAttribute> {}

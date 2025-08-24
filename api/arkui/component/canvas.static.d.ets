@@ -21,7 +21,7 @@ import { CommonMethod, Callback, PixelMap } from './common';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
-import { VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
+import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
 import { Size } from '../Graphics';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
@@ -1739,6 +1739,14 @@ export declare class DrawingRenderingContext {
    * @since 20
    */
   get size(): Size;
+  /**
+   * Get canvas of the DrawingRenderingContext.
+   *
+   * @returns { DrawingCanvas | undefined } The canvas of the DrawingRenderingContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 
+   */
+  get canvas(): DrawingCanvas | undefined; 
   /**
    * Invalidate the component, which will cause a re-render of the component.
    *

@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,22 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr } from './units';
+import { ResourceColor, Length, PX, VP, LPX, Font, ResourceStr, VoidCallback } from "./units";
 import { Resource } from '../../global/resource';
 import { CommonMethod, Optional, ContentModifier, CommonConfiguration } from './common';
-import { LinearGradient } from './dataPanel';
+import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the option of Progress.
  *
@@ -423,8 +422,16 @@ export declare enum ProgressStyle {
  * @atomicservice
  * @since 20
  */
-export declare interface ProgressStyleMap {
-}
+export declare interface ProgressStyleMap {}
+/**
+ * Defines the Progress component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ProgressAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface ProgressAttribute extends CommonMethod {
     /**
      * Called when the current progress value is set.
@@ -434,45 +441,53 @@ export declare interface ProgressAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    value(value: number | undefined): this;
+    default value(value: number | undefined): this;
     /**
      * Called when the progress bar foreground is set.
      *
-     * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
+     * @param { ResourceColor | LinearGradient | undefined } value - indicates the color of the progress.
      * @returns { ProgressAttribute } the attribute of the progress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color(value: ResourceColor | LinearGradient | undefined): this;
+    default color(value: ResourceColor | LinearGradient | undefined): this;
     /**
      * Called when the style of progress bar is set.
      *
-     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - indicates the style of the progress.
+     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - 
+     *     indicates the style of the progress.
      * @returns { ProgressAttribute } the attribute of the progress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined): this;
+    default style(value: LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined): this;
     /**
      * Sets if mark to privacy sensitive.
      *
-     * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
+     * @param { boolean | undefined } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
      * @returns { ProgressAttribute } the attribute of the progress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
+    default privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
     /**
      * Set the contentModifier of progress.
      *
-     * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
+     * @param { ContentModifier<ProgressConfiguration> | undefined } modifier - The contentModifier of progress.
      * @returns { ProgressAttribute } the attribute of the progress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<ProgressConfiguration> | undefined): this;
-    attributeModifier(
-        modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default contentModifier(modifier: ContentModifier<ProgressConfiguration> | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ProgressAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * ProgressConfiguration used by progress contentModifier
@@ -500,9 +515,20 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
      */
     total: number;
 }
-
+/**
+ * Defines the Progress component.
+ *
+ * @param { ProgressOptions } options - progress options.
+ * @param { VoidCallback } [content_]
+ * @returns { ProgressAttribute } The attribute of the Progress.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
-export declare function Progress(options: ProgressOptions, 
-@memo
-content_?: () => void): ProgressAttribute;
+export declare function Progress(
+    options: ProgressOptions, 
+    @memo
+    content_?: VoidCallback
+): ProgressAttribute;

@@ -176,6 +176,7 @@ declare interface CalendarOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CalendarPickerInterface {
   /**
@@ -212,6 +213,7 @@ interface CalendarPickerInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
   /**
@@ -688,6 +690,7 @@ declare class CalendarPickerDialog {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CalendarPicker: CalendarPickerInterface;
 
@@ -703,5 +706,6 @@ declare const CalendarPicker: CalendarPickerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const CalendarPickerInstance: CalendarPickerAttribute;
