@@ -139,7 +139,7 @@ export class ComponentContent<T extends Object> extends Content {
   inheritFreezeOptions(enabled: boolean): void;
 
   /**
-   * Get if the ComponentContent is disposed.
+   * Get if the node is disposed.
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
