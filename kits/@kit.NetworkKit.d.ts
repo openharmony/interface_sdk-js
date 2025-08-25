@@ -24,12 +24,8 @@ import sharing from '@ohos.net.sharing';
 import webSocket from '@ohos.net.webSocket';
 import statistics from '@ohos.net.statistics';
 import networkSecurity from '@ohos.net.networkSecurity';
-export {
-  connection, http, sharing, webSocket, statistics, networkSecurity
-};
 /*** endif */
 
-/*** if arkts 1.1 */
 import ethernet from '@ohos.net.ethernet';
 import mdns from '@ohos.net.mdns';
 import policy from '@ohos.net.policy';
@@ -40,8 +36,13 @@ import VpnExtensionAbility, { VpnExtensionContext } from '@ohos.app.ability.VpnE
 import netFirewall from '@ohos.net.netFirewall';
 
 export {
-  ethernet, mdns, policy,
-  socket, vpn, vpnExtension, 
+  connection, ethernet, http, mdns, policy, sharing, webSocket,
+  socket, statistics, vpn, vpnExtension, networkSecurity,
   VpnExtensionAbility, VpnExtensionContext, netFirewall
+};
+
+/*** if arkts 1.2 */
+export {
+  connection, http, sharing, webSocket, statistics, networkSecurity
 };
 /*** endif */
