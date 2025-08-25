@@ -1412,7 +1412,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DisplaySourceMode {
     /**
@@ -1420,7 +1421,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0,
  
@@ -1429,7 +1431,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAIN = 1,
 
@@ -1438,7 +1441,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MIRROR = 2,
 
@@ -1447,7 +1451,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXTEND = 3,
 
@@ -1456,7 +1461,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ALONE = 4
   }
@@ -1467,7 +1473,8 @@ declare namespace display {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ScreenShape {
     /**
@@ -1475,7 +1482,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RECTANGLE = 0,
     /**
@@ -1483,7 +1491,8 @@ declare namespace display {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ROUND = 1
   }
@@ -2217,7 +2226,8 @@ declare namespace display {
      * @type { ?ScreenShape }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     screenShape?: ScreenShape;
 
@@ -2261,7 +2271,8 @@ declare namespace display {
      * @type { ?DisplaySourceMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     sourceMode?: DisplaySourceMode;
  
@@ -2271,7 +2282,8 @@ declare namespace display {
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     x?: long;
   
@@ -2281,7 +2293,8 @@ declare namespace display {
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     y?: long;
 
@@ -2292,6 +2305,7 @@ declare namespace display {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     supportedRefreshRates?: Array<int>;
 
