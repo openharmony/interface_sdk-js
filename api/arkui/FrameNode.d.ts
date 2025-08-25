@@ -3237,7 +3237,7 @@ declare class NodeAdapter {
   static detachNodeAdapter(node: FrameNode): void;
 
   /**
-   * Get if the NodeAdapter is disposed.
+   * Get if the node is disposed.
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

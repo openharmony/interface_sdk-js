@@ -1630,7 +1630,7 @@ export interface OverlayManagerOptions {
    */
   renderRootOverlay?: boolean;
 
-/**
+  /**
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
@@ -3108,7 +3108,7 @@ export class FocusController {
    * @atomicservice
    * @since 20
    */
-  isActive(): boolean
+  isActive(): boolean;
 
   /**
   * Set whether to enable autofocus transfer.
