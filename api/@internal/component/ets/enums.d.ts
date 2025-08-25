@@ -5301,20 +5301,20 @@ declare enum PixelRoundMode {
  */
 declare enum FlexWrap {
   /**
-   * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -5322,7 +5322,7 @@ declare enum FlexWrap {
    * @since 10
    */
   /**
-   * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

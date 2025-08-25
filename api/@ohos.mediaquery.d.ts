@@ -265,7 +265,7 @@ declare namespace mediaquery {
 
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -274,7 +274,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -284,7 +284,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -295,7 +295,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback

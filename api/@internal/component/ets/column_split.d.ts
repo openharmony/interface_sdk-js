@@ -186,7 +186,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   resizeable(value: boolean): ColumnSplitAttribute;
 
   /**
-   * Called when the ColumnSplit split line style is set.
+   * Set margin of the split line.
    * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
@@ -195,7 +195,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @since 10
    */
   /**
-   * Called when the ColumnSplit split line style is set.
+   * Set margin of the split line.
    * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
