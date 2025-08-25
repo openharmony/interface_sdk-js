@@ -464,6 +464,15 @@ declare namespace vpn {
    */
   export interface SysVpnConfig extends VpnConfig {
     /**
+     * The uuid for the VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 12
+     */
+    vpnId?: string;
+
+    /**
      * The name for the VPN network.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.Vpn
