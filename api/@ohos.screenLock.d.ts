@@ -226,10 +226,11 @@ declare namespace screenLock {
   /**
    * Indicates the strong authentication reason flags used to request.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum StrongAuthReasonFlags {
     /**
@@ -237,7 +238,8 @@ declare namespace screenLock {
      *
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NONE = 0x00000000,
 
@@ -246,7 +248,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AFTER_BOOT = 0x00000001,
 
@@ -255,7 +258,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AFTER_TIMEOUT = 0x00000002,
  
@@ -264,7 +268,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ACTIVE_REQUEST = 0x00000004,
 
@@ -273,7 +278,8 @@ declare namespace screenLock {
      * 
      * @syscap SystemCapability.MiscServices.ScreenLock
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     POLICY_RESTRICTION = 0x00000008
   }
@@ -281,10 +287,11 @@ declare namespace screenLock {
   /**
    * Indicates the screen lock authentication state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthState {
     /**
@@ -413,7 +420,7 @@ declare namespace screenLock {
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { String } event - event type.
-   * @param { number } parameter - operation result of the event.
+   * @param { int } parameter - operation result of the event.
    * @param { AsyncCallback<boolean> } callback - the callback of sendScreenLockEvent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -425,14 +432,14 @@ declare namespace screenLock {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function sendScreenLockEvent(event: String, parameter: number, callback: AsyncCallback<boolean>): void;
+  function sendScreenLockEvent(event: String, parameter: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * The screen lock app sends the event to the screen lock service.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { String } event - event type.
-   * @param { number } parameter - operation result of the event.
+   * @param { int } parameter - operation result of the event.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -444,14 +451,14 @@ declare namespace screenLock {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function sendScreenLockEvent(event: String, parameter: number): Promise<boolean>;
+  function sendScreenLockEvent(event: String, parameter: int): Promise<boolean>;
 
   /**
    * Request strong authentication for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { StrongAuthReasonFlags } reasonFlag - The strong authentication reason flag.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -462,14 +469,14 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: number): Promise<void>;
+  function requestStrongAuth(reasonFlag: StrongAuthReasonFlags, userId: int): Promise<void>;
 
   /**
    * Obtain strong authentication reason flags for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
-   * @returns { number } the strong authentication reason flags.
+   * @param { int } userId - Os account local userId.
+   * @returns { int } the strong authentication reason flags.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 201 - permission denied.
@@ -480,14 +487,14 @@ declare namespace screenLock {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getStrongAuth(userId: number): number;
+  function getStrongAuth(userId: int): int;
 
   /**
    * Disable screen lock showing for os account local userId. This only becomes effective when there is no password.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
    * @param { boolean } disable - disable or enable screen lock showing.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -499,13 +506,13 @@ declare namespace screenLock {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setScreenLockDisabled(disable: boolean, userId: number): Promise<boolean>;
+  function setScreenLockDisabled(disable: boolean, userId: int): Promise<boolean>;
 
   /**
    * Check whether screen lock is disabled for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { boolean } whether screen lock is disabled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -517,14 +524,14 @@ declare namespace screenLock {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isScreenLockDisabled(userId: number): boolean;
+  function isScreenLockDisabled(userId: int): boolean;
 
   /**
    * Set the screen lock authentication state for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK_INNER
    * @param { AuthState } state - the screen lock authentication state.
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @param { Uint8Array } authToken - the authentication token for this state
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -537,13 +544,13 @@ declare namespace screenLock {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setScreenLockAuthState(state: AuthState, userId: number, authToken: Uint8Array): Promise<boolean>;
+  function setScreenLockAuthState(state: AuthState, userId: int, authToken: Uint8Array): Promise<boolean>;
 
   /**
    * Obtain the screen lock authentication state for os account local userId.
    *
    * @permission ohos.permission.ACCESS_SCREEN_LOCK
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { AuthState } the screen lock authentication state.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -555,12 +562,12 @@ declare namespace screenLock {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getScreenLockAuthState(userId: number): AuthState;
+  function getScreenLockAuthState(userId: int): AuthState;
 
   /**
    * Check whether the device is currently locked and the screenlock requires an identity to authenticate and unlock.
    *
-   * @param { number } userId - Os account local userId.
+   * @param { int } userId - Os account local userId.
    * @returns { boolean } Whether the device is currently locked.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
    * @throws { BusinessError } 13200002 - The screenlock management service is abnormal.
@@ -569,7 +576,7 @@ declare namespace screenLock {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  function isDeviceLocked(userId: number): boolean;
+  function isDeviceLocked(userId: int): boolean;
 }
 
 export default screenLock;
