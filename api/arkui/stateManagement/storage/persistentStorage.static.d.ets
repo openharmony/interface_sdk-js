@@ -63,6 +63,17 @@ export declare class PersistentStorage {
    * @since 20
    */
   static keys(): Array<string>;
+
+  /**
+   * Persist given AppStorage properties with given names.
+   * If a property does not exist in AppStorage, add it and initialize it with given value
+   * works as @see persistProp for multiple properties.
+   *
+   * @param { PersistPropsOptions<Any>[] } props
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static persistProps(props: PersistPropsOptions<Any>[]): void;
 }
 
 /**
@@ -86,3 +97,46 @@ export declare type ToJSONType<T> = (value: T) => jsonx.JsonElement;
  * @since 20
  */
 export declare type FromJSONType<T> = (element: jsonx.JsonElement) => T;
+
+/**
+ * PersistPropsOptions object
+ *
+ * @interface PersistPropsOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare interface PersistPropsOptions<T> {
+  /**
+   * Property name
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  key: string;
+
+  /**
+   * If PersistentStorage does not include this property it will be initialized with this value
+   *
+   * @type { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  defaultValue: T;
+
+  /**
+   * Used to serialize Object data.
+   * @type { ToJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  toJson?: ToJSONType<T>;
+
+  /**
+   * Used to deserialize Object data.
+   * @type { FromJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  fromJson?: FromJSONType<T>;
+}
