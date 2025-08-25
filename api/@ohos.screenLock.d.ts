@@ -290,7 +290,8 @@ declare namespace screenLock {
    * @enum { int }
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AuthState {
     /**
