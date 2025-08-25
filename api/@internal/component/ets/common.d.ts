@@ -16092,7 +16092,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16101,7 +16101,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16688,7 +16688,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16697,7 +16697,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16748,7 +16748,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
