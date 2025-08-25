@@ -387,7 +387,7 @@ declare class Indicator<T> {
    * You can also choose to ignore the size of the navigation indicator using the ignoreSize property.
    *
    * @param { LengthMetrics | Length } bottom - the offset of indicator to the bottom.
-   * @param { boolean } ignoreSize - ignore the size of the indicator.
+   * @param { boolean } ignoreSize - ignore the size of the indicator.Default value: false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -401,7 +401,8 @@ declare class Indicator<T> {
    * Sets the distance between the navigation indicator and the right edge (in right-to-left scripts) 
    * or the left edge (in left-to-right scripts) of the Swiper component.
    *
-   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL
+   * @param { LengthMetrics } value - the indicator to the right in LTR, indicator to the left in RTL.
+   * Default value: 0.Unit: vp.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -416,7 +417,8 @@ declare class Indicator<T> {
    * Sets the distance between the navigation indicator and the left edge (in right-to-left scripts)
    * or the right edge (in left-to-right scripts) of the Swiper component.
    *
-   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR
+   * @param { LengthMetrics } value - the indicator to the left in RTL, Set the indicator to the right in LTR.
+   * Default value: 0.Unit: vp.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -581,7 +583,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Sets the width of the selected dot in the dot-style navigation indicator.
    *
    * @param { Length } value - Width of the selected dot in the dot-style navigation indicator.
-   * Default value is 12vp. This parameter cannot be set in percentage.
+   * Default value is 6vp. This parameter cannot be set in percentage.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -696,6 +698,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * Sets the maximum number of navigation dots in the dot-style navigation indicator.
    *
    * @param { number } maxDisplayCount - Maximum number of navigation dots in the dot-style navigation indicator.
+   * Value range: [6, 9].
    * @returns { DotIndicator } return the DotIndicator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -708,7 +711,7 @@ declare class DotIndicator extends Indicator<DotIndicator> {
   /**
    * Set the space between dots. 
    *
-   * @param { LengthMetrics } space - the space between dots
+   * @param { LengthMetrics } space - the space between dots.Default value: 8.Unit: vp.
    * @returns { DotIndicator }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -758,7 +761,7 @@ declare interface SwiperAutoFill {
   /**
    * Set minSize size.
    *
-   * @type { VP }
+   * @type { VP } - Minimum width of the element.Default value: 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'11','1.2':'20'}
