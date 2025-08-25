@@ -580,6 +580,7 @@ export declare interface ListDividerOptions {
  * @interface ListAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ListAttribute extends ScrollableCommonMethod {
     /**
@@ -892,6 +893,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
  * @returns { ListAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

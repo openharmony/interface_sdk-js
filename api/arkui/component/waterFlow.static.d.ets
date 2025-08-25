@@ -115,8 +115,6 @@ export declare class SectionOptions {
  * Describes the water flow item sections.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class WaterFlowSections {
@@ -292,6 +290,7 @@ export declare interface WaterFlowOptions {
  * @interface WaterFlowAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
     /**
@@ -436,6 +435,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
  * @returns { WaterFlowAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
