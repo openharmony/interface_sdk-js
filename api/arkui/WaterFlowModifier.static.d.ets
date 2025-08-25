@@ -29,8 +29,6 @@ import { WaterFlowAttribute } from './component/waterFlow';
  *
  * @implements { WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class WaterFlowModifier implements WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> {}
