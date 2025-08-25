@@ -28,7 +28,6 @@ import { GridItemAttribute } from './component/gridItem';
  *
  * @implements { GridItemAttribute, AttributeModifier<GridItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
 */
 export declare class GridItemModifier implements GridItemAttribute, AttributeModifier<GridItemAttribute> {}

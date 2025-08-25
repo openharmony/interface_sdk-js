@@ -30,8 +30,6 @@ import { ListAttribute } from './component/list';
  *
  * @implements { ListAttribute, AttributeModifier<ListAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class ListModifier implements ListAttribute, AttributeModifier<ListAttribute> {}

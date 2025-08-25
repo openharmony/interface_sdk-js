@@ -202,8 +202,6 @@ export declare interface ScrollAnimationOptions {
  *
  * @interface OffsetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface OffsetOptions {

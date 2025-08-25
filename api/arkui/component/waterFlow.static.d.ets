@@ -115,8 +115,6 @@ export declare class SectionOptions {
  * Describes the water flow item sections.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class WaterFlowSections {
