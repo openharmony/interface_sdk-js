@@ -2444,7 +2444,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * <br>To avoid such issues, use the onSecurityStateChange callback to sync the states.
    * </p>
    *
-   * @param { boolean } value - Default value is false.
+   * @param { boolean } value - Default value is true.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3171,7 +3171,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
    * Sets whether enable auto fill or not.
    *
-   * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is rue.True: enable, false: disable.
+   * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is true.true: enable, false: disable.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
