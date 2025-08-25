@@ -18,7 +18,9 @@
  * @kit ArkTS
  */
 
+/*** if arkts 1.1 */
 import lang from './@arkts.lang'
+/*** endif */
 
 /**
  * ArkTS collections.
