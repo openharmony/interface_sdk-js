@@ -187,6 +187,10 @@ import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateCh
 import EnvironmentCallback from '@ohos.app.ability.EnvironmentCallback';
 import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import TestRunner from '@ohos.application.testRunner';
+import abilityAccessCtrl, {
+  Context, PermissionRequestResult, Permissions
+} from '@ohos.abilityAccessCtrl';
+import privacyManager from '@ohos.privacyManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -198,6 +202,7 @@ export {
   application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
-  EnvironmentCallback, abilityDelegatorRegistry, TestRunner
+  EnvironmentCallback, abilityDelegatorRegistry, TestRunner,
+  Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
 };
 /*** endif */
