@@ -4274,7 +4274,6 @@ declare interface sharedTransitionOptions {
    * Animation curve.<br>You are advised to specify the curve using the Curve or ICurve type.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -4286,7 +4285,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4299,7 +4297,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
