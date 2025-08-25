@@ -26,7 +26,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
- * @noninterop
  */
 interface EmbeddedComponentInterface {
   /**
@@ -83,7 +82,6 @@ declare interface TerminationInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
- * @noninterop
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
   /**

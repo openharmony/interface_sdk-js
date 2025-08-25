@@ -236,7 +236,6 @@ declare interface ListItemGroupOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface ListItemGroupInterface {
   /**
@@ -292,7 +291,6 @@ interface ListItemGroupInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute> {
   /**

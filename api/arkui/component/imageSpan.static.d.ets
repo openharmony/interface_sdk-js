@@ -32,7 +32,6 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  * @extends BaseSpan
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface ImageSpanAttribute extends BaseSpan {
     /**
@@ -202,7 +201,6 @@ export declare interface ImageLoadResult {
  * @returns { ImageSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

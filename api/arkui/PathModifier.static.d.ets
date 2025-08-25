@@ -28,6 +28,5 @@ import { PathAttribute } from './component/path';
  * @implements PathAttribute, AttributeModifier<PathAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class PathModifier implements PathAttribute, AttributeModifier<PathAttribute> {}

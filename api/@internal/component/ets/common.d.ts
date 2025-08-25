@@ -734,7 +734,6 @@ declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator
  * @crossplatform
  * @atomicservice
  * @since 12
- * @noninterop
  */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
@@ -745,7 +744,6 @@ declare const Consumer: (aliasName?: string) => PropertyDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12
- * @noninterop
  */
 declare const Computed: MethodDecorator;
 
@@ -19611,7 +19609,6 @@ declare interface DragPreviewOptions {
    * @crossplatform
    * @atomicservice
    * @since 18
-   * @noninterop
    */
   modifier?: ImageModifier;
 

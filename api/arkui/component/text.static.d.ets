@@ -52,7 +52,6 @@ export declare interface TextOverflowOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface TextAttribute extends CommonMethod {
     /**
@@ -962,7 +961,6 @@ export declare class TextController {
  * @returns { TextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

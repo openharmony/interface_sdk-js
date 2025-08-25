@@ -28,6 +28,5 @@ import { ShapeAttribute } from './component/shape';
  * @implements ShapeAttribute, AttributeModifier<ShapeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ShapeModifier implements ShapeAttribute, AttributeModifier<ShapeAttribute> {}

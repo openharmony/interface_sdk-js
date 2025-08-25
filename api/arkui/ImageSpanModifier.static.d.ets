@@ -31,6 +31,5 @@ import { ImageSpanAttribute } from './component/imageSpan';
  * @implements { ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ImageSpanModifier implements ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> {}

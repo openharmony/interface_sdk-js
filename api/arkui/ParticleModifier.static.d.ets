@@ -31,6 +31,5 @@ import { ParticleAttribute } from './component/particle';
  * @implements { ParticleAttribute, AttributeModifier<ParticleAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ParticleModifier implements ParticleAttribute, AttributeModifier<ParticleAttribute> {}

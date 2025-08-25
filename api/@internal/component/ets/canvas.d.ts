@@ -6102,7 +6102,6 @@ declare class DrawingRenderingContext {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface CanvasInterface {
   /**
@@ -6202,7 +6201,6 @@ interface CanvasInterface {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**

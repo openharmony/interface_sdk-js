@@ -143,7 +143,6 @@ declare interface GridLayoutOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface GridInterface {
   /**
@@ -468,7 +467,6 @@ declare type OnGridScrollIndexCallback = (first: number, last: number) => void;
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**

@@ -343,7 +343,6 @@ export declare class PulseSymbolEffect extends SymbolEffect {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
@@ -438,7 +437,6 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

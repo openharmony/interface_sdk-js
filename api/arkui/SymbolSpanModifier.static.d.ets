@@ -31,6 +31,5 @@ import { SymbolSpanAttribute } from './component/symbolSpan';
  * @implements { SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {}

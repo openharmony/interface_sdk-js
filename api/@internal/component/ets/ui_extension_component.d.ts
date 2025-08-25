@@ -324,7 +324,6 @@ declare interface UIExtensionProxy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
- * @noninterop
  */
 interface UIExtensionComponentInterface {
   /**
@@ -361,7 +360,6 @@ interface UIExtensionComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
- * @noninterop
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**

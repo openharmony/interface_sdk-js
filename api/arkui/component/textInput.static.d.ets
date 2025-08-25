@@ -800,7 +800,6 @@ export type OnPasteCallback = (content: string, event: PasteEvent) => void;
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface TextInputAttribute extends CommonMethod {
     /**
@@ -1760,7 +1759,6 @@ export declare interface TextInputAttribute extends CommonMethod {
  * @returns { TextInputAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 @memo
 @ComponentBuilder

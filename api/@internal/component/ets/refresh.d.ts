@@ -325,7 +325,6 @@ interface RefreshOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface RefreshInterface {
   /**
@@ -381,7 +380,6 @@ interface RefreshInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**

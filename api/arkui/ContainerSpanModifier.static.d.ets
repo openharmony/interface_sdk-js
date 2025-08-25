@@ -31,7 +31,6 @@ import { ContainerSpanAttribute } from './component/containerSpan';
  * @implements { ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class ContainerSpanModifier implements
     ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> {

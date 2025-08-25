@@ -30,7 +30,6 @@ import { SwiperAttribute } from './component/swiper';
  * @implements { SwiperAttribute, AttributeModifier<SwiperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SwiperModifier implements SwiperAttribute, AttributeModifier<SwiperAttribute> {
   /**

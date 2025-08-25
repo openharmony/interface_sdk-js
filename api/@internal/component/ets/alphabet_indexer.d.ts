@@ -1024,7 +1024,6 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare const AlphabetIndexer: AlphabetIndexerInterface;
 
@@ -1048,6 +1047,5 @@ declare const AlphabetIndexer: AlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare const AlphabetIndexerInstance: AlphabetIndexerAttribute;

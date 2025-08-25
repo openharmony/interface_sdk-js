@@ -31,6 +31,5 @@ import { TextAttribute } from './component/text';
  * @implements { TextAttribute, AttributeModifier<TextAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
 */
 export declare class TextModifier implements TextAttribute, AttributeModifier<TextAttribute> {}

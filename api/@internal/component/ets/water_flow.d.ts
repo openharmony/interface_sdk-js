@@ -468,7 +468,6 @@ declare type OnWaterFlowScrollIndexCallback = (first: number, last: number) => v
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface WaterFlowInterface {
   /**
@@ -524,7 +523,6 @@ interface WaterFlowInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribute> {
   /**

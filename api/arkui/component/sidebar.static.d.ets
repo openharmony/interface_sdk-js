@@ -232,7 +232,6 @@ export interface DividerStyle {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface SideBarContainerAttribute extends CommonMethod {
   /**

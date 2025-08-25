@@ -621,7 +621,6 @@ declare interface ListItemOptions {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface ListItemInterface {
   /**
@@ -694,7 +693,6 @@ interface ListItemInterface {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**

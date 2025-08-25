@@ -36,7 +36,6 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
  * @crossplatform
  * @atomicservice
  * @since 12
- * @noninterop
  */
 declare class ContentSlotAttribute {
 }
@@ -49,7 +48,6 @@ declare class ContentSlotAttribute {
  * @crossplatform
  * @atomicservice
  * @since 12
- * @noninterop
  */
 interface ContentSlotInterface {
   /**

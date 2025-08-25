@@ -28,6 +28,5 @@ import { PolygonAttribute } from './component/polygon';
  * @implements PolygonAttribute, AttributeModifier<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class PolygonModifier implements PolygonAttribute, AttributeModifier<PolygonAttribute> {}

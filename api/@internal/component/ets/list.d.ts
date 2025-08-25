@@ -1165,7 +1165,6 @@ interface ListOptions {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 interface ListInterface {
   /**
@@ -1446,7 +1445,6 @@ declare interface ListDividerOptions {
  * @form
  * @atomicservice
  * @since 11
- * @noninterop
  */
 declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**

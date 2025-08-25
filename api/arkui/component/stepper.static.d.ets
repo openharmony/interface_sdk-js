@@ -47,7 +47,6 @@ export interface StepperOptions {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare interface StepperAttribute extends CommonMethod {
   /**

@@ -28,6 +28,5 @@ import { RectAttribute } from './component/rect';
  * @implements RectAttribute, AttributeModifier<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class RectModifier implements RectAttribute, AttributeModifier<RectAttribute> {}

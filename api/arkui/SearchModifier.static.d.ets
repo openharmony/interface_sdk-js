@@ -31,6 +31,5 @@ import { SearchAttribute } from './component/search';
  * @implements { SearchAttribute, AttributeModifier<SearchAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
- * @noninterop
  */
 export declare class SearchModifier implements SearchAttribute, AttributeModifier<SearchAttribute> {}
