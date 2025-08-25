@@ -73,7 +73,7 @@ declare class UIExtensionContentSession {
   /**
    * Send data from an ui extension to an ui extension component.
    *
-   * @param { RecordData } data - Indicates the data send to ui extension component.
+   * @param { Record<string, RecordData> } data - Indicates the data send to ui extension component.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -82,7 +82,7 @@ declare class UIExtensionContentSession {
    * @since 20
    * @arkts 1.2
    */
-  sendData(data: RecordData): void;
+  sendData(data: Record<string, RecordData>): void;
 
   /**
    * Sets the callback for the ui extension to receive data from an ui extension component.
@@ -613,7 +613,7 @@ declare class UIExtensionContentSession {
    * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
-   * @param { RecordData } wantParam - Indicates the want parameter.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -622,7 +622,7 @@ declare class UIExtensionContentSession {
    * @since 20
    * @arkts 1.2
    */
-  startAbilityByType(type: string, wantParam: RecordData,
+  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
@@ -669,7 +669,7 @@ declare class UIExtensionContentSession {
    * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
-   * @param { RecordData } wantParam - Indicates the want parameter.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -678,7 +678,7 @@ declare class UIExtensionContentSession {
    * @since 20
    * @arkts 1.2
    */
-  startAbilityByType(type: string, wantParam: RecordData,
+  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
