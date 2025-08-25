@@ -159,7 +159,6 @@
     "SystemCapability.MiscServices.Upload",
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.Global.ResourceManager",
-    "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.MiscServices.ScreenLock",
     "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Sensors.Sensor",
