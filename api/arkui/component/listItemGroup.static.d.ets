@@ -20,7 +20,7 @@
  */
 import { ChildrenMainSize, CommonMethod } from './common';
 import { CustomBuilder } from './builder';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { ListDividerOptions } from "./list";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
@@ -66,11 +66,11 @@ export declare interface ListItemGroupOptions {
     /**
       * Describes the ListItemGroup headerComponent.
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 20
       */
-    headerComponent?: ComponentContent;
+    headerComponent?: ComponentContentBase;
     /**
      * Describes the ListItemGroup footer.
      *
@@ -82,11 +82,11 @@ export declare interface ListItemGroupOptions {
     /**
       * Describes the ListItemGroup footerComponent.
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
       * @since 20
       */
-    footerComponent?: ComponentContent;
+    footerComponent?: ComponentContentBase;
     /**
      * Describes the ListItemGroup space.
      *

@@ -21,7 +21,7 @@
 import { Callback, Optional, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
@@ -104,11 +104,11 @@ export interface RefreshOptions {
     /**
      * Custom component to display during dragging.
      *
-     * @type { ?ComponentContent }
+     * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    refreshingContent?: ComponentContent;
+    refreshingContent?: ComponentContentBase;
 }
 /**
  * The RefreshAttribute.
