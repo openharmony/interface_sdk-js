@@ -18,11 +18,9 @@ const ts = require('typescript');
 const commander = require('commander');
 
 let sourceFile = null;
-let lastNoteStr = '';
-let lastNodeName = '';
 let etsType = 'ets';
 let componentEtsFiles = [];
-let componentEtsDeleteFiles = ['plugincomponent', 'uiextensioncomponent', 'effectcomponent', 'inspector'];
+const componentEtsDeleteFiles = [];
 const referencesMap = new Map();
 const referencesModuleMap = new Map();
 const kitFileNeedDeleteMap = new Map();
@@ -80,7 +78,7 @@ function collectDeclaration(inputDir) {
     collectComponentEtsFiles();
     readFile(inputDir, utFiles); // 读取文件
     readFile(arktsPath, utFiles); // 读取文件
-    tsTransform(utFiles, deleteSystemApi);
+    tsTransform(sortApiList(utFiles), deleteSystemApi);
     tsTransformKitFile(kitPath);
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
@@ -325,6 +323,9 @@ function processFileNameWithoutExt(filePath) {
  */
 function tsTransform(utFiles, callback) {
   utFiles.forEach((url) => {
+    if (!fs.existsSync(url)) {
+      return;
+    }
     const apiBaseName = path.basename(url);
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
     let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
@@ -443,6 +444,28 @@ function readFile(dir, utFiles) {
   } catch (e) {
     console.log('ETS ERROR: ' + e);
   }
+}
+
+/**
+ * 修改特殊文件的执行时序
+ * @param {string[]} params 
+ * @returns {string[]}
+ */
+function sortApiList(apiFiles) {
+  const newApiFiles = [];
+  const specFileName = '@ohos.arkui.component.d.ets';
+  let specApiFilePath = '';
+  apiFiles.forEach(filePath => {
+    if (filePath.endsWith(specFileName)) {
+      specApiFilePath = filePath;
+    } else {
+      newApiFiles.push(filePath);
+    }
+  });
+  if (specApiFilePath !== '') {
+    newApiFiles.push(specApiFilePath);
+  }
+  return newApiFiles;
 }
 
 function writeFile(url, data, option) {
