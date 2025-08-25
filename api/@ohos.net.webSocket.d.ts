@@ -124,12 +124,12 @@ declare namespace webSocket {
 
     /**
      * HTTP request header.
-     * @type {?Record<string, string | long>}
+     * @type {?Record<string, string>}
      * @syscap SystemCapability.Communication.NetStack
      * @since 20
      * @arkts 1.2
      */
-    header?: Record<string, string | long>;
+    header?: Record<string, string>;
 
     /**
      * File path for client cert.

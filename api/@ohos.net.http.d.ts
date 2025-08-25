@@ -306,12 +306,12 @@ declare namespace http {
 
     /**
      * HTTP request header. default is 'content-type': 'application/json'
-     * @type {?Record<string, string | long>}
+     * @type {?Record<string, string>}
      * @syscap SystemCapability.Communication.NetStack
      * @since 20
      * @arkts 1.2
      */
-    header?: Record<string, string | long>;
+    header?: Record<string, string>;
 
     /**
      * Read timeout period. The default value is 60,000, in ms.
@@ -3942,12 +3942,12 @@ declare namespace http {
 
     /**
      * All headers in the response from the server.
-     * @type {Record<string, string | long>}
+     * @type {Record<string, string>}
      * @syscap SystemCapability.Communication.NetStack
      * @since 20
      * @arkts 1.2
      */
-    header: Record<string, string | long>;
+    header: Record<string, string>;
 
     /**
      * Cookies returned by the server.
