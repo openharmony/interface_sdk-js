@@ -34350,7 +34350,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when an item is moved through other items.
    *
-   * @type { ?Callback<number> }
+   * @type { ?OnMoveHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
