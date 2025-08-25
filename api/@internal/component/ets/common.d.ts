@@ -20043,7 +20043,7 @@ interface ContextMenuAnimationOptions {
    * Sets the start animator scale and end animator scale.
    *
    * @type { ?AnimationRange<number> }
-   * @default -
+   * @default [0.95, 1.1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
