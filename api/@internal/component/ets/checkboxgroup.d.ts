@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod, Optional, Bindable } from './common';
-import { ResourceColor, MarkStyle } from './units';
-import { CheckBoxShape } from './enums';
-/*** endif */
-
 /**
  * CheckboxGroup SelectStatus
  *
@@ -56,8 +50,7 @@ import { CheckBoxShape } from './enums';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum SelectStatus {
   /**
@@ -88,8 +81,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   All,
   /**
@@ -120,8 +112,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Part,
   /**
@@ -152,8 +143,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   None,
 }
@@ -190,8 +180,7 @@ declare enum SelectStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface CheckboxGroupOptions {
   /**
@@ -226,8 +215,7 @@ declare interface CheckboxGroupOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   group?: string;
 }
@@ -264,8 +252,7 @@ declare interface CheckboxGroupOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface CheckboxGroupResult {
   /**
@@ -300,8 +287,7 @@ declare interface CheckboxGroupResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   name: Array<string>;
   /**
@@ -336,8 +322,7 @@ declare interface CheckboxGroupResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   status: SelectStatus;
 }
@@ -374,8 +359,7 @@ declare interface CheckboxGroupResult {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface CheckboxGroupInterface {
   /**
@@ -414,8 +398,7 @@ interface CheckboxGroupInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
@@ -430,8 +413,7 @@ interface CheckboxGroupInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
@@ -467,8 +449,7 @@ declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => voi
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
   /**
@@ -525,20 +506,6 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
   selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
 
   /**
-   * setting whether all checkbox is selected.
-   *
-   * @param { boolean| undefined|Bindable<boolean> } isAllSelected
-   * @returns { CheckboxGroupAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): CheckboxGroupAttribute;
-
-  /**
    * setting the display color of checkbox.
    *
    * @param { ResourceColor } value
@@ -574,8 +541,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
@@ -588,8 +554,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   selectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -610,8 +575,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
@@ -623,8 +587,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */  
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -645,8 +608,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   mark(value: MarkStyle): CheckboxGroupAttribute;
 
@@ -658,8 +620,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */  
   mark(style: Optional<MarkStyle>): CheckboxGroupAttribute;
 
@@ -711,8 +672,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 
@@ -725,8 +685,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onChange(callback: Optional<OnCheckboxGroupChangeCallback>): CheckboxGroupAttribute;
 
@@ -739,8 +698,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   checkboxShape(value: CheckBoxShape): CheckboxGroupAttribute;
 
@@ -753,8 +711,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */  
   checkboxShape(shape: Optional<CheckBoxShape>): CheckboxGroupAttribute;
 }

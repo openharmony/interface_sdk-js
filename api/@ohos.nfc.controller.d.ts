@@ -47,7 +47,7 @@ declare namespace nfcController {
   /**
    * NFC changed states.
    *
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Communication.NFC.Core
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}

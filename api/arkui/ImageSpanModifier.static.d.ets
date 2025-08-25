@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { ImageSpanAttribute } from './component/imageSpan';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { ImageSpanAttribute } from './component/imageSpan';
+
 /**
- * Defines TextInput Modifier
+ * Defines ImageSpan Modifier
  *
- * @implements ImageSpanAttribute, AttributeModifier<ImageSpanAttribute>
+ * @implements { ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class ImageSpanModifier implements ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> {}

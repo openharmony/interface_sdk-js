@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common';
-/*** endif */
-
-
 /**
  * Provides interfaces for layout in the vertical direction.
  *
@@ -45,8 +40,7 @@ import { CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface RowSplitInterface {
   /**
@@ -71,8 +65,7 @@ interface RowSplitInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): RowSplitAttribute;
 }
@@ -93,8 +86,7 @@ interface RowSplitInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
@@ -122,8 +114,7 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   resizeable(value: boolean): RowSplitAttribute;
 }

@@ -6743,8 +6743,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     createScaledPixelMap(x: double, y: double, level?: AntiAliasingLevel): Promise<PixelMap>;
 
@@ -6759,8 +6758,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     createScaledPixelMapSync(x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
@@ -6804,8 +6802,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     translate(x: double, y: double, callback: AsyncCallback<void>): void;
 
@@ -6849,8 +6846,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     translate(x: double, y: double): Promise<void>;
 
@@ -6865,8 +6861,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     translateSync(x: double, y: double): void;
 

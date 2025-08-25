@@ -3229,7 +3229,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CAMERA_FORMAT_DNG_XDRAW = 5,
 
@@ -11739,7 +11740,8 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EFFECT_SUGGESTION_STAGE = 5
   }

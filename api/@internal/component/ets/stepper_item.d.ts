@@ -159,6 +159,7 @@ declare enum ItemState {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface StepperItemInterface {
   /**
@@ -211,6 +212,7 @@ interface StepperItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   /**
@@ -321,6 +323,7 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StepperItemInstance: StepperItemAttribute;
 
@@ -344,5 +347,6 @@ declare const StepperItemInstance: StepperItemAttribute;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const StepperItem: StepperItemInterface;

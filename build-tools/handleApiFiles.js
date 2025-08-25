@@ -166,10 +166,10 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
   if (isEndWithStatic) {
     if (type === 'ets2') {
       if (isPublic === 'true') {
-        writeFile(outputPath, fileContent);
+        writeFile(outputPath, deleteArktsTag(fileContent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), fileContent);
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
         return;
       }
     } else {
@@ -544,23 +544,14 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
  */
 function getFileContent(newContent, filePath) {
   const regex = /^overload\s+.+$/;
-  if (isArkTsSpecialSyntax(newContent) || !regex.test(newContent)) {
+  if (!regex.test(newContent)) {
     return newContent;
   }
   const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
   const printer = ts.createPrinter();
-  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc]);
+  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
   const output = printer.printFile(result.transformed[0]);
   return output;
-}
-
-/**
- * 判断文件中是否存在@memo节点和@interface节点
- * @param {*} content 文件内容
- * @returns 
- */
-function isArkTsSpecialSyntax(content) {
-  return /\@memo|(?<!\*\s*)\s*\@interface/.test(content);
 }
 
 /**
@@ -750,7 +741,7 @@ function validateExportDeclaration(node) {
  * @returns 
  */
 function deleteApi(sourceFile) {
-  let result = ts.transform(sourceFile, [transformer]);
+  let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -759,7 +750,7 @@ function deleteApi(sourceFile) {
   // 打印结果
   const printer = ts.createPrinter();
   let fileContent = printer.printFile(newSourceFile);
-  result = ts.transform(newSourceFile, [transformExportApi]);
+  result = ts.transform(newSourceFile, [transformExportApi], { etsAnnotationsEnable: true });
   fileContent = printer.printFile(result.transformed[0]);
   deleteApiSet.clear();
   return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');

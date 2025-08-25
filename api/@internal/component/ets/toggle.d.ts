@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from '../../global/resource';
-import { ResourceColor } from './units';
-import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
-/*** endif */
-
 /**
  * Declare the type of status button
  *
@@ -56,8 +50,7 @@ import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable 
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum ToggleType {
   /**
@@ -88,8 +81,7 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Checkbox,
 
@@ -121,8 +113,7 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Switch,
 
@@ -154,8 +145,7 @@ declare enum ToggleType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Button,
 }
@@ -167,8 +157,7 @@ declare enum ToggleType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface SwitchStyle {
   /**
@@ -178,8 +167,7 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   pointRadius?: number | Resource;
 
@@ -190,8 +178,7 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   unselectedColor?: ResourceColor;
 
@@ -202,8 +189,7 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   pointColor?: ResourceColor;
 
@@ -214,8 +200,7 @@ declare interface SwitchStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   trackBorderRadius?: number | Resource;
 }
@@ -228,8 +213,7 @@ declare interface SwitchStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
 
@@ -240,8 +224,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   isOn: boolean;
 
@@ -252,8 +235,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enabled: boolean;
 
@@ -264,8 +246,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   triggerChange: Callback<boolean>;
 }
@@ -278,8 +259,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare interface ToggleOptions {
   /**
@@ -325,8 +305,7 @@ declare interface ToggleOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   type: ToggleType;
 
@@ -376,19 +355,6 @@ declare interface ToggleOptions {
    * @since 18
    */
   isOn?: boolean
-
-  /**
-   * Whether the toggle is on.
-   *
-   * @type { ?(boolean | undefined | Bindable<boolean>) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  isOn?: boolean | undefined | Bindable<boolean>
 }
 
 /**
@@ -423,8 +389,7 @@ declare interface ToggleOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ToggleInterface {
   /**
@@ -475,8 +440,7 @@ interface ToggleInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options: ToggleOptions): ToggleAttribute;
 }
@@ -513,8 +477,7 @@ interface ToggleInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
@@ -553,8 +516,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
@@ -566,8 +528,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentModifier(modifier: ContentModifier<ToggleConfiguration>): ToggleAttribute;
 
@@ -607,8 +568,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
@@ -648,8 +608,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 
@@ -661,8 +620,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   switchStyle(value: SwitchStyle): ToggleAttribute;
 }

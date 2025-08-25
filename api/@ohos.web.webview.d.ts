@@ -8514,20 +8514,10 @@ declare namespace webview {
      * @param { PlaybackStatus } status - Playback status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    handleStatusChanged(status: PlaybackStatus):  void;
-
-    /**
-     * Handle native media player playback status.
-     *
-     * @type { OneParamFn<PlaybackStatus> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleStatusChanged: OneParamFn<PlaybackStatus>;
+    handleStatusChanged(status: PlaybackStatus): void;
 
     /**
      * Handle native media player volume.
@@ -8537,22 +8527,10 @@ declare namespace webview {
      * @param { double } volume - Current volume of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleVolumeChanged(volume: double): void;
-
-    /**
-     * Handle native media player volume.
-     *  volume: float
-     *   value range: [0 - 1.0]
-     *
-     * @type { OneParamFn<double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleVolumeChanged: OneParamFn<double>;
 
     /**
      * Handle native media player muted status.
@@ -8560,20 +8538,10 @@ declare namespace webview {
      * @param { boolean } muted - Current mute status of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleMutedChanged(muted: boolean): void;
-
-    /**
-     * Handle native media player muted status.
-     *
-     * @type { OneParamFn<boolean> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleMutedChanged: OneParamFn<boolean>;
 
     /**
      * Handle playback rate of native media player.
@@ -8583,22 +8551,10 @@ declare namespace webview {
      * @param { double } playbackRate - Current playback rate of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    handlePlaybackRateChanged(playbackRate: double): void;
-
-    /**
-     * Handle playback rate of native media player.
-     *  playbackRate: float
-     *   value range: [0 - infinity]
-     *
-     * @type { OneParamFn<double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handlePlaybackRateChanged: OneParamFn<double>;	
+    handlePlaybackRateChanged(playbackRate: double): void;	
 
     /**
      * Handle duration time of media.
@@ -8608,22 +8564,10 @@ declare namespace webview {
      * @param { double } duration - Duration time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleDurationChanged(duration: double): void;
-
-    /**
-     * Handle duration time of media.
-     *  duration: float
-     *   value range: [0 - infinity]
-     *
-     * @type { OneParamFn<double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleDurationChanged: OneParamFn<double>;
 
     /**
      * Handle current playing time of media.
@@ -8633,22 +8577,10 @@ declare namespace webview {
      * @param { double } currentPlayTime - Current playing time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleTimeUpdate(currentPlayTime: double): void;
-
-    /**
-     * Handle current playing time of media.
-     *  currentPlayTime: float
-     *   value range: [0 - duration]
-     *
-     * @type { OneParamFn<double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleTimeUpdate: OneParamFn<double>;
 
     /**
      * Handle buffered end time of media.
@@ -8658,42 +8590,20 @@ declare namespace webview {
      * @param { double } bufferedEndTime - Buffered end time (in seconds) of media.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleBufferedEndTimeChanged(bufferedEndTime: double): void;
 
     /**
-     * Handle buffered end time of media.
-     *  bufferedEndTime: float
-     *   value range: [0 - duration]
-     *
-     * @type { OneParamFn<double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleBufferedEndTimeChanged: OneParamFn<double>;
-
-    /**
      * Handle native player ended event.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleEnded(): void;
-
-    /**
-     * Handle native player ended event.
-     *
-     * @type { ZeroParamFn<> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleEnded: ZeroParamFn<>;
 
     /**
      * Handle network state of native media player.
@@ -8701,20 +8611,10 @@ declare namespace webview {
      * @param { NetworkState } state - Network state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleNetworkStateChanged(state: NetworkState): void;
-
-    /**
-     * Handle network state of native media player.
-     *
-     * @type { OneParamFn<NetworkState> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleNetworkStateChanged: OneParamFn<NetworkState>;
 
     /**
      * Handle ready state of native media player.
@@ -8722,20 +8622,10 @@ declare namespace webview {
      * @param { ReadyState } state - Ready state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleReadyStateChanged(state: ReadyState): void;
-
-    /**
-     * Handle ready state of native media player.
-     *
-     * @type { OneParamFn<ReadyState> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleReadyStateChanged: OneParamFn<ReadyState>;
 
     /**
      * Handle native media player fullscreen state changed event.
@@ -8743,60 +8633,30 @@ declare namespace webview {
      * @param { boolean } fullscreen - Fullscreen state of native media player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleFullscreenChanged(fullscreen: boolean): void;
 
     /**
-     * Handle native media player fullscreen state changed event.
-     *
-     * @type { OneParamFn<boolean> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleFullscreenChanged: OneParamFn<boolean>;
-
-    /**
      * Handle native media player seeking state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleSeeking(): void;
 
     /**
-     * Handle native media player seeking state.
-     *
-     * @type { ZeroParamFn<> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleSeeking: ZeroParamFn<>;
-
-    /**
      * Handle native media player seek finished state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleSeekFinished(): void;
-
-    /**
-     * Handle native media player seek finished state.
-     *
-     * @type { ZeroParamFn<> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleSeekFinished: ZeroParamFn<>;
 
     /**
      * Handle native media player error event.
@@ -8805,20 +8665,10 @@ declare namespace webview {
      * @param { string } errorMessage - Description of current error.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleError(error: MediaError, errorMessage: string): void;
-
-    /**
-     * Handle native media player error event.
-     *
-     * @type { TwoParamFn<MediaError,string> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleError: TwoParamFn<MediaError,string>;
 
     /**
      * Handle size of video.
@@ -8827,20 +8677,10 @@ declare namespace webview {
      * @param { double } height - Height of video.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     handleVideoSizeChanged(width: double, height: double): void;
-
-    /**
-     * Handle size of video.
-     *
-     * @type { TwoParamFn<double,double> }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    handleVideoSizeChanged: TwoParamFn<double,double>;
   }
 
   /**
@@ -10070,3 +9910,4 @@ declare namespace webview {
 }
 
 export default webview;
+

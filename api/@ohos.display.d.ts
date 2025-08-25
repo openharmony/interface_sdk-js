@@ -102,7 +102,8 @@ declare namespace display {
 
   /**
    * Obtain the primary display. For devices other than 2in1 devices, the Display object obtained is the built-in screen. 
-   * For 2in1 devices with an external screen, the Display object obtained is the primary screen. For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
+   * For 2in1 devices with an external screen, the Display object obtained is the primary screen.
+   * For 2in1 devices without an external screen, the Display object obtained is the built-in screen.
    *
    * @returns { Display } the result of primary display
    * @throws { BusinessError } 1400001 - Invalid display or screen.
@@ -917,14 +918,16 @@ declare namespace display {
   }
 
   /**
-   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
+   * Enumerates the fold status. For dual-fold axis devices, when oriented with the charging port at the bottom,
+   * the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @since 10
    */
   /**
-   * Enumerates the fold status.For dual-fold axis devices, when oriented with the charging port at the bottom, the hinges are identified from right to left as the first and second fold axes, respectively.
+   * Enumerates the fold status.For dual-fold axis devices, when oriented with the charging port at the bottom,
+   * the hinges are identified from right to left as the first and second fold axes, respectively.
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
@@ -1004,13 +1007,15 @@ declare namespace display {
      */
     FOLD_STATUS_FOLDED = 2,
     /**
-     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed.
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
      */
     /**
-     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed.
+     * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice

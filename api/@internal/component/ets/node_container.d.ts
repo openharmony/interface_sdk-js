@@ -33,6 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
+ * @noninterop
  * @since 12
  */
 interface NodeContainerInterface {

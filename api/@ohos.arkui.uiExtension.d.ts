@@ -18,8 +18,6 @@
  * @kit ArkUI
  */
 
-
-
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
 /**
@@ -28,8 +26,7 @@ import window from './@ohos.window';
  * @namespace uiExtension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace uiExtension {
   /**
@@ -38,10 +35,9 @@ declare namespace uiExtension {
    * @interface WindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  export interface WindowProxy {
+  interface WindowProxy {
     /**
      * Obtains the area where this window cannot be displayed, for example, the system bar area, notch, gesture area, and soft keyboard area.
      *
@@ -53,8 +49,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -70,8 +65,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
 
@@ -87,8 +81,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
 
@@ -103,8 +96,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
@@ -119,8 +111,7 @@ declare namespace uiExtension {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
@@ -178,8 +169,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -199,8 +189,7 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @StageModelOnly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -215,8 +204,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -322,18 +310,16 @@ declare namespace uiExtension {
    * @interface AvoidAreaInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
-  export interface AvoidAreaInfo {
+  interface AvoidAreaInfo {
     /**
      * Type of the area where the window cannot be displayed.
      *
      * @type { window.AvoidAreaType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     type: window.AvoidAreaType;
 
@@ -343,8 +329,7 @@ declare namespace uiExtension {
      * @type { window.AvoidArea }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     area: window.AvoidArea;
   }
@@ -355,19 +340,17 @@ declare namespace uiExtension {
    * @interface WindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    * 
    */
-  export interface WindowProxyProperties {
+  interface WindowProxyProperties {
     /**
      * Position and size of the component (EmbeddedComponent or UIExtensionComponent).
      *
      * @type { window.Rect } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

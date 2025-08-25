@@ -25,7 +25,7 @@
  * Defines Tabs Modifier
  *
  * @extends TabsAttribute
- * @implements AttributeModifier<TabsAttribute>
+ * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 12
@@ -39,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
 export declare class TabsModifier extends TabsAttribute implements AttributeModifier<TabsAttribute> {
 

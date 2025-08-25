@@ -21,6 +21,8 @@
 import appAccount from '@ohos.account.appAccount';
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
+import distributedAccount from '@ohos.account.distributedAccount';
+import osAccount from '@ohos.account.osAccount';
 import PrintExtensionAbility from '@ohos.app.ability.PrintExtensionAbility';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback } from '@ohos.base';
 import batteryInfo from '@ohos.batteryInfo';
@@ -79,21 +81,12 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, pasteboard, power, print, request, cacheDownload, runningLock,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
   PanelInfo, PanelType
 };
-
-/*** if arkts 1.1&1.2 */
-import distributedAccount from '@ohos.account.distributedAccount';
-import osAccount from '@ohos.account.osAccount';
-
-export {
-  distributedAccount, osAccount
-};
-/*** endif */
 
 /*** if arkts 1.2 */
 import configPolicy from '@ohos.configPolicy';
@@ -102,6 +95,8 @@ import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } fro
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
+import distributedAccount from '@ohos.account.distributedAccount';
+import osAccount from '@ohos.account.osAccount';
 
-export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter };
+export { configPolicy, customConfig, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, zlib, commonEventManager, emitter, distributedAccount, osAccount };
 /*** endif */

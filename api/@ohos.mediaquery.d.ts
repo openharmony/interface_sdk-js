@@ -18,13 +18,7 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.1 */
 import { Callback } from './@ohos.base';
-/*** endif */
-
-/*** if arkts 1.2 */
-import { Callback } from './@ohos.base';
-/*** endif */
 
 /**
  * Used to do mediaquery operations.
@@ -58,8 +52,7 @@ import { Callback } from './@ohos.base';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare namespace mediaquery {
   
@@ -95,8 +88,7 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface MediaQueryResult {
     /**
@@ -139,8 +131,7 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly matches: boolean;
 
@@ -184,8 +175,7 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly media: string;
   }
@@ -226,8 +216,7 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   interface MediaQueryListener extends MediaQueryResult {
     /**
@@ -270,8 +259,7 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
@@ -315,8 +303,7 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }

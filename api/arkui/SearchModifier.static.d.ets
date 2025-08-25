@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { SearchAttribute } from './component/search';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { SearchAttribute } from './component/search';
+
 /**
  * Defines Search Modifier
  *
- * @implements SearchAttribute, AttributeModifier<SearchAttribute>
+ * @implements { SearchAttribute, AttributeModifier<SearchAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class SearchModifier implements SearchAttribute, AttributeModifier<SearchAttribute> {}

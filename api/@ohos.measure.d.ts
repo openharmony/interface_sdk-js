@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
-import { SizeOptions } from './arkui/component/units';
-import { Resource } from './global/resource'
-/*** endif */
-
 /**
  * Defines the options of MeasureText.
  *
@@ -46,8 +40,7 @@ import { Resource } from './global/resource'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface MeasureOptions {
   /**
@@ -71,8 +64,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textContent: string | Resource;
 
@@ -90,8 +82,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constraintWidth?: number | string | Resource;
 
@@ -109,8 +100,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontSize?: number | string | Resource;
 
@@ -128,8 +118,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontStyle?: number | FontStyle;
 
@@ -147,8 +136,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontWeight?: number | string | FontWeight;
 
@@ -166,8 +154,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontFamily?: string | Resource;
 
@@ -185,8 +172,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   letterSpacing?: number | string;
 
@@ -204,8 +190,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textAlign?: number | TextAlign;
 
@@ -223,8 +208,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   overflow?: number | TextOverflow;
 
@@ -242,8 +226,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   maxLines?: number;
 
@@ -261,8 +244,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lineHeight?: number | string | Resource;
 
@@ -280,8 +262,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   baselineOffset?: number | string;
 
@@ -299,8 +280,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textCase?: number | TextCase;
  
@@ -319,8 +299,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textIndent?: number | string;
 
@@ -339,8 +318,7 @@ export interface MeasureOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   wordBreak?: WordBreak;
 }
@@ -421,4 +399,4 @@ export default class MeasureText {
    * @useinstead ohos.arkui.UIContext.MeasureUtils#measureTextSize
    */
   static measureTextSize(options: MeasureOptions): SizeOptions;
-}
+}

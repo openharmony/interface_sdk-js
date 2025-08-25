@@ -201,3 +201,10 @@ export { ShapeModifier } from './arkui/ShapeModifier';
  * @since 20
  */
 export { VideoModifier } from './arkui/VideoModifier';
+
+/**
+ * Export ParticleModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ParticleModifier } from './arkui/ParticleModifier';
