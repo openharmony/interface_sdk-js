@@ -38,11 +38,11 @@ export interface GaugeOptions {
      * Set current data value.
      * Anonymous Object Rectification.
      *
-     * @type { number }
+     * @type { number | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    value: number;
+    value: number | undefined;
     /**
      * Set current segment minimum value.
      * Anonymous Object Rectification.
@@ -145,7 +145,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets the value for the current profile.
      *
-     * @param { number } value
+     * @param { number | undefined } value
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -154,7 +154,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
      *
-     * @param { number } angle
+     * @param { number | undefined } angle
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -163,7 +163,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
      *
-     * @param { number } angle
+     * @param { number | undefined } angle
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -172,7 +172,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Set the color of the chart. You can set the solid color and segmented gradient color.
      *
-     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - 
+     * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number] | undefined> } colors - 
      *     section colors of gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -185,7 +185,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets the thickness of the ring chart.
      *
-     * @param { Length } length
+     * @param { Length | undefined } length
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -194,7 +194,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets description content of the ring chart.
      *
-     * @param { CustomBuilder } value - description content builder of the gauge drawing.
+     * @param { CustomBuilder | undefined } value - description content builder of the gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -203,7 +203,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets track shadow of the ring chart.
      *
-     * @param { GaugeShadowOptions } value - track shadow options of the gauge drawing.
+     * @param { GaugeShadowOptions | undefined } value - track shadow options of the gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -212,7 +212,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets indicator options of the ring chart.
      *
-     * @param { GaugeIndicatorOptions } value - indicator options of the gauge drawing.
+     * @param { GaugeIndicatorOptions | undefined } value - indicator options of the gauge drawing.
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -221,7 +221,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Sets if mark to privacy sensitive.
      *
-     * @param { boolean } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
+     * @param { boolean | undefined } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
      * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -230,7 +230,7 @@ export declare interface GaugeAttribute extends CommonMethod {
     /**
      * Set the content modifier of gauge.
      *
-     * @param { ContentModifier<GaugeConfiguration> } modifier - The content modifier of gauge.
+     * @param { ContentModifier<GaugeConfiguration> | undefined } modifier - The content modifier of gauge.
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20

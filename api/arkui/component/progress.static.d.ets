@@ -436,7 +436,7 @@ export declare interface ProgressAttribute extends CommonMethod {
     /**
      * Called when the current progress value is set.
      *
-     * @param { number } value
+     * @param { number | undefined } value
      * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -454,7 +454,7 @@ export declare interface ProgressAttribute extends CommonMethod {
     /**
      * Called when the style of progress bar is set.
      *
-     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions } value - 
+     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined } value - 
      *     indicates the style of the progress.
      * @returns { ProgressAttribute } the attribute of the progress.
      * @syscap SystemCapability.ArkUI.ArkUI.Full

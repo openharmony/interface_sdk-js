@@ -56,18 +56,18 @@ export declare enum DataPanelType {
 export declare interface ColorStop {
     /**
      * Color property.
-     * @type { ResourceColor } color - the color value.
+     * @type { ResourceColor | undefined } color - the color value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color: ResourceColor;
+    color: ResourceColor | undefined;
     /**
      * Offset property.
-     * @type { Length } offset - the color offset.
+     * @type { Length | undefined } offset - the color offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    offset: Length;
+    offset: Length | undefined;
 }
 /**
  * LinearGradient class
@@ -176,7 +176,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
     /**
      * Disable the special effect of the data ratio chart.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20

@@ -186,7 +186,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Status callback, which is triggered when the animation starts to play.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -195,7 +195,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Status callback, which is triggered when the animation pauses.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -204,7 +204,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Status callback, triggered when the animation is replayed
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -213,7 +213,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Status callback, which is triggered when the animation playback returns to the initial state.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -222,7 +222,7 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Status callback, which is triggered when the animation playback is complete or stopped.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20

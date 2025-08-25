@@ -170,7 +170,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Specifies whether to display the lunar calendar.
      *
-     * @param { boolean } value - Whether to display the lunar calendar.
+     * @param { boolean | undefined } value - Whether to display the lunar calendar.
      *     <br>- <em>true</em>: Display the lunar calendar.
      *     <br>- <em>false</em>: Do not display the lunar.
      * @default false
@@ -182,7 +182,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Sets the text style for the top and bottom items.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the top and bottom items.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the top and bottom items.
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '14fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
@@ -192,7 +192,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Sets the text style for all items except the top, bottom, and selected items.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of all items except the top,
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of all items except the top,
      *     <br>bottom, and selected items.
      * @default {<br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}
      * @returns { DatePickerAttribute }
@@ -203,7 +203,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Sets the text style for the selected item.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the selected item.
      * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
@@ -214,7 +214,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
      * Triggered when a date is selected.
      * Anonymous Object Rectification.
      *
-     * @param { Callback<Date> } callback
+     * @param { Callback<Date> | undefined } callback
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
      * @since 20
@@ -223,7 +223,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Sets the sensitivity to the digital crown rotation.
      *
-     * @param { Optional<CrownSensitivity> } sensitivity - Sensitivity to the digital crown rotation.
+     * @param { CrownSensitivity | undefined } sensitivity - Sensitivity to the digital crown rotation.
      * @default CrownSensitivity.MEDIUM
      * @returns { DatePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full     
@@ -233,7 +233,7 @@ export declare interface DatePickerAttribute extends CommonMethod {
     /**
      * Sets whether to enable haptic feedback.
      *
-     * @param { Optional<boolean> } enable - Whether to enable haptic feedback.
+     * @param { boolean | undefined } enable - Whether to enable haptic feedback.
      *     <br>true (default): Haptic feedback is enabled.
      *     <br>false: Haptic feedback is disabled.
      * @default true

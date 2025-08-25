@@ -38,7 +38,7 @@ export declare interface CounterAttribute extends CommonMethod {
      * Listen to the event that the value increases.
      * Anonymous Object Rectification.
      *
-     * @param { VoidCallback } event
+     * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -48,7 +48,7 @@ export declare interface CounterAttribute extends CommonMethod {
      * Listens to the number decrease event.
      * Anonymous Object Rectification.
      *
-     * @param { VoidCallback } event
+     * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -57,7 +57,7 @@ export declare interface CounterAttribute extends CommonMethod {
     /**
      * Indicates whether the decrease button of counter component is available or not.
      *
-     * @param { boolean } value - If true, the decrease button is available and can respond to
+     * @param { boolean | undefined } value - If true, the decrease button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -67,7 +67,7 @@ export declare interface CounterAttribute extends CommonMethod {
     /**
      * Indicates whether the increase button of counter component is available or not.
      *
-     * @param { boolean } value - If true, the increase button is available and can respond to
+     * @param { boolean | undefined } value - If true, the increase button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
