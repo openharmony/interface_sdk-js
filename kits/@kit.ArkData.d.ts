@@ -30,6 +30,8 @@ import distributedDataObject from '@ohos.data.distributedDataObject';
 import distributedKVStore from '@ohos.data.distributedKVStore';
 import preferences from '@ohos.data.preferences';
 import relationalStore from '@ohos.data.relationalStore';
+import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
+import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 import sendablePreferences from '@ohos.data.sendablePreferences';
@@ -40,12 +42,11 @@ import { ContentFormCard, FormType } from '@ohos.data.UdmfComponents';
 export {
   DataShareExtensionAbility, DataShareResultSet, DataType, ValueType, ValuesBucket, cloudData, cloudExtension, 
   commonType, dataShare, dataSharePredicates, distributedDataObject, distributedKVStore, preferences,
-  relationalStore, uniformDataStruct, sendablePreferences, dataAbility,
+  relationalStore, unifiedDataChannel, uniformTypeDescriptor, uniformDataStruct, sendablePreferences, dataAbility,
   sendableRelationalStore, intelligence, ContentFormCard, FormType
 };
 
-/* 共用部分 */
-/*** if arkts 1.1&1.2 */
+/*** if arkts 1.2 */
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 export {
