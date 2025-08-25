@@ -6778,6 +6778,28 @@ declare namespace webview {
      * @since 20
      */
     static setWebDestroyMode(mode: WebDestroyMode): void;
+
+    /**
+     * Configure whether to enable automatic pre-connection to high-frequency URLs accessed during the application's
+     * previous lifecycle after web initialization.
+     * @param { boolean } enabled - Enable if true, disable if false.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static setAutoPreconnect(enabled: boolean): void;
+
+    /**
+     * ‌Retrieve whether the automatic pre-connection feature is enabled‌.
+     * 
+     * @returns { boolean } Return true if enabled, false if disabled.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static isAutoPreconnectEnabled(): boolean;
   }
 
   /**
