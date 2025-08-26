@@ -181,7 +181,6 @@
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CertificateManagerDialog",
     "SystemCapability.Security.DataTransitManager",
-    "SystemCapability.Security.DeviceAuth",
     "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.Window.SessionManager",
