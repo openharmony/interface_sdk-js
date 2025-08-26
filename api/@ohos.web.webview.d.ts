@@ -9237,7 +9237,7 @@ declare namespace webview {
      * Default 500ms (ensures only one successful prefetch within 500ms).
      * The interval throttles prefetch frequency to balance performance and resource usage.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      * @arkts 1.1&1.2
@@ -9259,12 +9259,12 @@ declare namespace webview {
     ignoreCacheControlNoStore: boolean;
 
     /**
-     * Constructor for PrefetchOptions.
+     * constructor for PrefetchOptions.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      * @arkts 1.1&1.2
      */
-    Constructor();
+    constructor();
   }
 
   /**
