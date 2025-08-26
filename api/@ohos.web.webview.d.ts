@@ -9259,7 +9259,7 @@ declare namespace webview {
     ignoreCacheControlNoStore: boolean;
 
     /**
-     * constructor for PrefetchOptions.
+     * Constructor for PrefetchOptions.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      * @arkts 1.1&1.2
