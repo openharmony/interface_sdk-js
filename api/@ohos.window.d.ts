@@ -8856,7 +8856,7 @@ declare namespace window {
      * @param { AsyncCallback<image.PixelMap> } callback Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts 9
+     * @since 9
      */
     /**
      * Obtains snapshot of window
