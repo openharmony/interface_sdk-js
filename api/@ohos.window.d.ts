@@ -2100,8 +2100,7 @@ declare namespace window {
    * @interface DecorButtonStyle
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   interface DecorButtonStyle {
     /**
@@ -2110,8 +2109,7 @@ declare namespace window {
      * @type { ?colorMode }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     colorMode?: ConfigurationConstant.ColorMode;
 
@@ -2121,8 +2119,7 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     buttonBackgroundSize? : number;
 
@@ -2132,8 +2129,7 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     spacingBetweenButtons? : number;
 
@@ -2143,8 +2139,7 @@ declare namespace window {
      * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     closeButtonRightMargin? : number;
 
@@ -2812,8 +2807,7 @@ declare namespace window {
      * @type { number }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     width: number;
 
