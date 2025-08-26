@@ -2440,7 +2440,7 @@ declare namespace webview {
 
     /**
      * Get the number value of the web message.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2448,7 +2448,7 @@ declare namespace webview {
      */
     /**
      * Get the number value of the web message.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2457,7 +2457,7 @@ declare namespace webview {
      */
     /**
      * Get the number value of the web message.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2466,7 +2466,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getNumber(): number;
+    getNumber(): double | long;
 
     /**
      * Get the boolean value of the web message.
@@ -2520,7 +2520,7 @@ declare namespace webview {
 
     /**
      * Get the array value of the web message.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2528,7 +2528,7 @@ declare namespace webview {
      */
     /**
      * Get the array value of the web message.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2537,7 +2537,7 @@ declare namespace webview {
      */
     /**
      * Get the array value of the web message.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -2546,7 +2546,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getArray(): Array<string | number | boolean>;
+    getArray(): Array<string | double | long | boolean>;
 
     /**
      * Get the error value of the web message.
@@ -2650,7 +2650,7 @@ declare namespace webview {
 
     /**
      * Set the number value of the web message.
-     * @param { number } message - set number type data
+     * @param { double } message - set number type data
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      *
@@ -2659,7 +2659,7 @@ declare namespace webview {
      */
     /**
      * Set the number value of the web message.
-     * @param { number } message - set number type data
+     * @param { double } message - set number type data
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
@@ -2670,7 +2670,7 @@ declare namespace webview {
      */
     /**
      * Set the number value of the web message.
-     * @param { number } message - set number type data
+     * @param { double } message - set number type data
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
@@ -2681,7 +2681,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setNumber(message: number): void;
+    setNumber(message: double): void;
 
     /**
      * Set the boolean value of the web message.
@@ -2743,7 +2743,7 @@ declare namespace webview {
 
     /**
      * Set the array value of the web message.
-     * @param { Array<string | number | boolean> } message - set Array type data
+     * @param { Array<string | double | long | boolean> } message - set Array type data
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
@@ -2751,7 +2751,7 @@ declare namespace webview {
      */
     /**
      * Set the array value of the web message.
-     * @param { Array<string | number | boolean> } message - set Array type data
+     * @param { Array<string | double | long | boolean> } message - set Array type data
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
@@ -2761,7 +2761,7 @@ declare namespace webview {
      */
     /**
      * Set the array value of the web message.
-     * @param { Array<string | number | boolean> } message - set Array type data
+     * @param { Array<string | double | long | boolean> } message - set Array type data
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
@@ -2771,7 +2771,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setArray(message: Array<string | number | boolean>): void;
+    setArray(message: Array<string | double | long | boolean>): void;
 
     /**
      * Set the error value of the web message.
@@ -3456,14 +3456,14 @@ declare namespace webview {
 
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3471,7 +3471,7 @@ declare namespace webview {
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3479,7 +3479,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getNumber(): number;
+    getNumber(): double | long;
 
     /**
      * Get the boolean value of the JavaScript code execution result.
@@ -3528,14 +3528,14 @@ declare namespace webview {
 
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3543,7 +3543,7 @@ declare namespace webview {
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3551,7 +3551,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getArray(): Array<string | number | boolean>;
+    getArray(): Array<string | double | long | boolean>;
   }
 
   /**
@@ -4025,7 +4025,7 @@ declare namespace webview {
     /**
      * Checks whether the web page can go back or forward the given number of steps.
      *
-     * @param { number } step - The number of steps.
+     * @param { int } step - The number of steps.
      * @returns { boolean } True if the web page can go back else false.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4036,7 +4036,7 @@ declare namespace webview {
     /**
      * Checks whether the web page can go back or forward the given number of steps.
      *
-     * @param { number } step - The number of steps.
+     * @param { int } step - The number of steps.
      * @returns { boolean } True if the web page can go back else false.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -4048,7 +4048,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    accessStep(step: number): boolean;
+    accessStep(step: int): boolean;
 
     /**
      * Goes forward in the history of the web page.
@@ -4593,7 +4593,7 @@ declare namespace webview {
     /**
      * Goes forward or back backOrForward in the history of the web page.
      *
-     * @param { number } step - Steps to go forward or backward.
+     * @param { int } step - Steps to go forward or backward.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4604,7 +4604,7 @@ declare namespace webview {
     /**
      * Goes forward or back backOrForward in the history of the web page.
      *
-     * @param { number } step - Steps to go forward or backward.
+     * @param { int } step - Steps to go forward or backward.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4615,7 +4615,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    backOrForward(step: number): void;
+    backOrForward(step: int): void;
 
     /**
      * Gets the request focus.
@@ -5829,7 +5829,7 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { int } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -5840,7 +5840,7 @@ declare namespace webview {
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
-     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
+     * @param { int } numSockets - If preconnectable is true, this parameter indicates the number of sockets to be preconnected.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *                           length exceeds 2048.
      * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
@@ -5849,7 +5849,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
+    static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: int): void;
 
     /**
      * Set custom user agent.
@@ -5898,7 +5898,7 @@ declare namespace webview {
 
     /**
      * Set web engine socket connection timeout.
-     * @param { number } timeout - Socket connection timeout.
+     * @param { int } timeout - Socket connection timeout.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
@@ -5906,7 +5906,7 @@ declare namespace webview {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static setConnectionTimeout(timeout: number): void;
+    static setConnectionTimeout(timeout: int): void;
 
     /**
      * Set delegate for download.
@@ -6556,7 +6556,7 @@ declare namespace webview {
      *
      * @param { string } hostName - Which host name to be resolved.
      * @param { string } address - Resolved IP address.
-     * @param { number } aliveTime - The validity seconds for resolve cache.
+     * @param { int } aliveTime - The validity seconds for resolve cache.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6564,7 +6564,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static setHostIP(hostName: string, address: string, aliveTime: number): void;
+    static setHostIP(hostName: string, address: string, aliveTime: int): void;
 
     /**
      * Clear the host name IP address.
@@ -6930,7 +6930,7 @@ declare namespace webview {
      * </p>
      *
      * @param { boolean } webDebuggingAccess {@code true} enables debugging of web contents; {@code false} otherwise.
-     * @param { number } port Indicates the port of the devtools server. After the port is specified, a tcp server
+     * @param { int } port Indicates the port of the devtools server. After the port is specified, a tcp server
      * socket is created instead of a unix domain socket.
      * @throws { BusinessError } 17100023 - The port number is not within the allowed range.
      * @static
@@ -6938,7 +6938,7 @@ declare namespace webview {
      * @since arkts {'1.1':'20', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void;
+    static setWebDebuggingAccess(webDebuggingAccess: boolean, port: int): void;
 
     /**
      * Gets the loading progress for the current page.
@@ -7485,57 +7485,57 @@ declare namespace webview {
 
     /**
      * Get current speed, in bytes per second.
-     * @returns { number } - Returns the current download speed.
+     * @returns { int } - Returns the current download speed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
     /**
      * Get current speed, in bytes per second.
-     * @returns { number } - Returns the current download speed.
+     * @returns { int } - Returns the current download speed.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getCurrentSpeed(): number;
+    getCurrentSpeed(): int;
 
     /**
      * Get percent complete.
-     * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
+     * @returns { int } - Returns -1 if progress is unknown. 100 if the download is already complete.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
     /**
      * Get percent complete.
-     * @returns { number } - Returns -1 if progress is unknown. 100 if the download is already complete.
+     * @returns { int } - Returns -1 if progress is unknown. 100 if the download is already complete.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getPercentComplete(): number;
+    getPercentComplete(): int;
 
     /**
      * Get total bytes.
-     * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
+     * @returns { long } - Returns the total bytes received, -1 if the total size is unknown.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
     /**
      * Get total bytes.
-     * @returns { number } - Returns the total bytes received, -1 if the total size is unknown.
+     * @returns { long } - Returns the total bytes received, -1 if the total size is unknown.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getTotalBytes(): number;
+    getTotalBytes(): long;
 
     /**
      * Get state of the web download.
@@ -7727,21 +7727,21 @@ declare namespace webview {
 
     /**
      * Get received bytes.
-     * @returns { number } - Returns the received bytes.
+     * @returns { long } - Returns the received bytes.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
      */
     /**
      * Get received bytes.
-     * @returns { number } - Returns the received bytes.
+     * @returns { long } - Returns the received bytes.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getReceivedBytes(): number;
+    getReceivedBytes(): long;
 
     /**
      * Get full path of the web download.
@@ -7941,7 +7941,7 @@ declare namespace webview {
     /**
      * Read the data stream to the buffer.
      *
-     * @param { number } size - Read size.
+     * @param { int } size - Read size.
      * @returns { Promise<ArrayBuffer> } Read array buffer of result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -7950,27 +7950,27 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    read(size: number): Promise<ArrayBuffer>;
+    read(size: int): Promise<ArrayBuffer>;
     /**
      * Get the total size of the data stream. When data is chunked, always return zero.
      *
-     * @returns { number } Return size of data stream size.
+     * @returns { long } Return size of data stream size.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getSize(): number;
+    getSize(): long;
     /**
      * Get the current position of the data stream.
      *
-     * @returns { number } Return position in post data stream.
+     * @returns { long } Return position in post data stream.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getPosition(): number;
+    getPosition(): long;
     /**
      * Whether data stream is chunked.
      *
@@ -8356,24 +8356,24 @@ declare namespace webview {
     /**
      * Set http status code.
      *
-     * @param { number } code - Http status code.
+     * @param { int } code - Http status code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setStatus(code: number): void;
+    setStatus(code: int): void;
     /**
      * Get http status code.
      *
-     * @returns { number } Return http status code.
+     * @returns { int } Return http status code.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getStatus(): number;
+    getStatus(): int;
     /**
      * Set status text.
      *
@@ -9680,23 +9680,23 @@ declare namespace webview {
      * Set the maximum size of pages that can cache.
      * Default is 1, max is 50.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: int;
 
     /**
      * Set the lifetime in seconds in the BackForwardCache.
      * Default is 600.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timeToLive: number;
+    timeToLive: int;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
