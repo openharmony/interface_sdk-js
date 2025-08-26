@@ -7285,7 +7285,7 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts 9
+     * @since 9
      */
     /**
      * Register the callback of screenshot, only the focused window called back
@@ -7310,7 +7310,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts 9
+     * @since 9
      */
     /**
      * Unregister the callback of screenshot
