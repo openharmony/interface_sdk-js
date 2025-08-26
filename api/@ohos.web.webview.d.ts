@@ -5374,7 +5374,7 @@ declare namespace webview {
      * @arkts 1.2
      */
     hasImageWithPromise(): Promise<boolean>;
-   
+
     /**
      * Asynchronous search for the presence of an image on the current page through callback method.
      *
@@ -8089,7 +8089,8 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class WebSchemeHandlerResponse {
     /**
@@ -8097,7 +8098,8 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
     /**
@@ -8107,7 +8109,8 @@ declare namespace webview {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setUrl(url: string): void;
     /**
@@ -8116,7 +8119,8 @@ declare namespace webview {
      * @returns { string } Return response url for redirects.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUrl(): string;
     /**
@@ -8554,7 +8558,7 @@ declare namespace webview {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    handlePlaybackRateChanged(playbackRate: double): void;	
+    handlePlaybackRateChanged(playbackRate: double): void;
 
     /**
      * Handle duration time of media.
@@ -9475,7 +9479,8 @@ declare namespace webview {
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ProxySchemeFilter {
     /**
@@ -9487,7 +9492,8 @@ declare namespace webview {
      * This indicates all the schemes will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MATCH_ALL_SCHEMES = 0,
     /**
@@ -9499,7 +9505,8 @@ declare namespace webview {
      * This indicates only the HTTP requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MATCH_HTTP = 1,
     /**
@@ -9511,7 +9518,8 @@ declare namespace webview {
      * This indicates only the HTTPS requests will use the proxy.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MATCH_HTTPS = 2,
   }
@@ -9527,7 +9535,8 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class ProxyConfig {
     /**
@@ -9621,7 +9630,8 @@ declare namespace webview {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     insertProxyRule(proxyRule: string, schemeFilter?: ProxySchemeFilter): void;
 
@@ -9718,7 +9728,8 @@ declare namespace webview {
      * @returns { Array<ProxyRule> } The proxy rules.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getProxyRules(): Array<ProxyRule>;
 
@@ -9751,7 +9762,8 @@ declare namespace webview {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   class ProxyRule {
     /**
@@ -9767,7 +9779,8 @@ declare namespace webview {
      * @returns { ProxySchemeFilter } The scheme filter used for this rule.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getSchemeFilter(): ProxySchemeFilter;
 
@@ -9784,7 +9797,8 @@ declare namespace webview {
      * @returns { string } The proxy URL.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getUrl(): string;
   }
@@ -9874,7 +9888,7 @@ declare namespace webview {
   }
   /**
    * The function with zero parameter.
-   * 
+   *
    * @typedef { function } zeroParamFn
    * @returns { V } The return value.
    * @syscap SystemCapability.Web.Webview.Core
@@ -9885,7 +9899,7 @@ declare namespace webview {
 
   /**
    * The function with one parameter.
-   * 
+   *
    * @typedef { function } oneParamFn
    * @param { T } param - the first param.
    * @returns { V } The return value.
@@ -9897,7 +9911,7 @@ declare namespace webview {
 
   /**
    * The function with two parameter.
-   * 
+   *
    * @typedef { function } twoParamFn
    * @param { T } paramA - the first param.
    * @param { C } paramB - the second param.
