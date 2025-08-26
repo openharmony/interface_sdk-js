@@ -309,6 +309,7 @@ declare interface StarStyleOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface RatingInterface {
   /**
@@ -476,6 +477,7 @@ declare interface RatingConfiguration extends CommonConfiguration<RatingConfigur
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class RatingAttribute extends CommonMethod<RatingAttribute> {
   /**

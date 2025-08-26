@@ -306,6 +306,7 @@ declare interface RadioStyle {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface RadioInterface {
   /**
@@ -393,6 +394,7 @@ declare type OnRadioChangeCallback = (isChecked: boolean) => void;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**

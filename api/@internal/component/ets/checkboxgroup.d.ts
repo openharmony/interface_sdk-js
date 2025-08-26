@@ -360,6 +360,7 @@ declare interface CheckboxGroupResult {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CheckboxGroupInterface {
   /**
@@ -450,6 +451,7 @@ declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => voi
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
   /**

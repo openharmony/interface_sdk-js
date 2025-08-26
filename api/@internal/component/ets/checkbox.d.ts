@@ -215,6 +215,7 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface CheckboxInterface {
   /**
@@ -309,6 +310,7 @@ declare type OnCheckboxChangeCallback = (value: boolean) => void;
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
