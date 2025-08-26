@@ -820,7 +820,21 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19
      */
-    CODEC_BIT_RATE_ABR = 8
+    CODEC_BIT_RATE_ABR = 8,
+    /**
+     * Codec bit rate 1.5M.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     */
+    CODEC_BIT_RATE_1500000 = 9,
+    /**
+     * Codec bit rate 2.3M.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     */
+    CODEC_BIT_RATE_2300000 = 10
     }
   /**
    * Describes the codec frame length.
