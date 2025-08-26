@@ -1237,18 +1237,6 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
     focusWrapMode(mode: Optional<FocusWrapMode>): GridAttribute;
 
   /**
-   * Set whether to synchronously load child nodes within one frame.
-   *
-   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
-   * @returns { GridAttribute } The attribute of the grid.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  syncLoad(enable: boolean): GridAttribute;
-
-  /**
    * Called When sliding the grid.
    *
    * @param { function } event - callback of grid scroll,
