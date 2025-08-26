@@ -19,7 +19,6 @@
  * @arkts 1.2
  */
 
-import { CommonMethod } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 
