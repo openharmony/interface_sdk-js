@@ -99,7 +99,6 @@
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.Security.Cert",
     "SystemCapability.Security.DeviceAuth",
-    "SystemCapability.Security.Cipher",
     "SystemCapability.Print.PrintFramework",
     "SystemCapability.MiscServices.ScreenLock",
     "SystemCapability.Test.UiTest",
