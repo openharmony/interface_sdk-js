@@ -21,7 +21,7 @@
 /**
  * Enumeration of different types of DpiFollowStrategy.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12
@@ -48,7 +48,7 @@ declare enum DpiFollowStrategy {
 
 /**
  * Enumeration of different types of WindowModeFollowStrategy.
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 18
@@ -324,6 +324,7 @@ declare interface UIExtensionProxy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 interface UIExtensionComponentInterface {
   /**
@@ -360,6 +361,7 @@ interface UIExtensionComponentInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**
@@ -466,6 +468,7 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const UIExtensionComponent: UIExtensionComponentInterface;
 
@@ -475,5 +478,6 @@ declare const UIExtensionComponent: UIExtensionComponentInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 10
+ * @noninterop
  */
 declare const UIExtensionComponentInstance: UIExtensionComponentAttribute;
