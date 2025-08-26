@@ -2967,6 +2967,41 @@ declare namespace camera {
      * @since 18
      */
     controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
+
+    /**
+     * Query whether physical camera orientation is variable under different fold status.
+     *
+     * @returns { boolean } Is physical camera orientation variable under different fold status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    isPhysicalCameraOrientationVariable(): boolean;
+
+    /**
+     * Get physical camera orientation under current fold status.
+     *
+     * @returns { int } The physical camera orientation.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getPhysicalCameraOrientation(): int;
+  
+    /**
+     * Choose whether to use the physical camera orientation.
+     *
+     * @param { boolean } isUsed - Use physical camera orientation if TRUE.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    usePhysicalCameraOrientation(isUsed: boolean): void;
   }
 
   /**
