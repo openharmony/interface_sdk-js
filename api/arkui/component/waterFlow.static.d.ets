@@ -24,7 +24,7 @@ import { Length, Dimension, Margin, ConstraintSizeOptions, Resource } from './un
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
-import { ComponentContent } from '../../arkui/ComponentContent';
+import { ComponentContentBase } from '../../arkui/ComponentContent';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
@@ -242,11 +242,11 @@ export declare interface WaterFlowOptions {
     /**
      * Footer of the WaterFlow component.
      *
-     * @type { ?ComponentContent }
+     * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    footerContent?: ComponentContent;
+    footerContent?: ComponentContentBase;
     /**
      * Controller of the scrollable component, bound to the scrollable component.
      *
