@@ -21,6 +21,7 @@
 
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import { Callback, ErrorCallback } from '@ohos.base';
+import { Component, BuilderParam, TerminationInfo, Builder } from '@ohos.arkui.component'
 
 /**
  * Defines RecordData.
@@ -31,7 +32,15 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * @arkts 1.2
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
-
+/**
+ * Defines ContentBuilder.
+ * 
+ * @typedef { function } ContentBuilder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Builder
+type ContentBuilder = () => void;
 /**
  * Declares the FullScreenLaunchComponent, a component provided by ArkUI that allows
  * you to define and use it in your application through the ArkTS-based declarative
@@ -44,11 +53,11 @@ export type RecordData = undefined | null | Object | Record<string, RecordData> 
 export declare struct FullScreenLaunchComponent {
   /**
    * Sets the component content.
-   * @type { Callback<void> }
+   * @type { ContentBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @BuilderParam content: Callback<void>;
+  @BuilderParam content: ContentBuilder;
   /**
    * Indicates atomic service appId.
    * @type { string }
@@ -88,4 +97,11 @@ export declare struct FullScreenLaunchComponent {
     * @since 20
     */
     onReceive?: Callback<Record<string, RecordData>>;
+
+    /**
+    * The method to build component.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    @Builder build(): void;
 }
