@@ -544,7 +544,7 @@ declare class Matrix2D {
   /**
    * Constructs a 2D change matrix object. The default value is the unit matrix.
    *
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
