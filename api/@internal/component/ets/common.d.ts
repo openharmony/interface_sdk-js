@@ -26254,7 +26254,7 @@ declare class CommonMethod<T> {
    * <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
    * or <!--DelEnd-->the window.
    * <br>Default value: **false**.
-   * @param { EffectType } [effectType] - Type of effect to apply to the component, which is defined by
+   * @param { EffectType } effectType - Type of effect to apply to the component, which is defined by
    * <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
    * <br>Default value: **EffectType.DEFAULT**.
    * @returns { T } return the component attribute.
