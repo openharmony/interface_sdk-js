@@ -820,7 +820,8 @@ declare namespace sms {
    * @interface MmsInformation
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface MmsInformation {
     /**
