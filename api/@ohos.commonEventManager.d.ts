@@ -2699,14 +2699,6 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
-   * @syscap SystemCapability.Notification.CommonEvent
-   * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  /**
-   * Describes the information of the subscriber
-   *
    * @typedef { _CommonEventPublishData } CommonEventPublishData
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
