@@ -939,8 +939,7 @@ declare namespace backgroundTaskManager {
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * audio playback mode
