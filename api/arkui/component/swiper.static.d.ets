@@ -1093,6 +1093,15 @@ export type ContentDidScrollCallback = (selectedIndex: number, index: number, po
  */
 export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 
+/**
+ * Defines Swiper Component
+ *
+ * @param { SwiperController } [controller] - Swiper constructor options
+ * @param { function } [content_] - container
+ * @returns { SwiperAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Swiper(
