@@ -1400,6 +1400,18 @@ declare namespace media {
      * @since 11
      */
     colorFormat?: PixelFormat;
+
+    /**
+     * Auto flip the thumbnail when video has mirror attribute(Vertical Flip or Horizontal Flip).
+     * If the value is false, the returned thumbnail will not be flipped.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    autoFlip?: boolean;
   }
 
   /**
