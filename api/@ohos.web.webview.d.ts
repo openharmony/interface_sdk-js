@@ -5045,7 +5045,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5057,7 +5057,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -5071,7 +5071,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -5087,9 +5087,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5099,9 +5099,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5113,9 +5113,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
