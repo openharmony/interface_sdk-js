@@ -550,7 +550,7 @@ export class BuilderNode<Args extends Object[]> {
    updateConfiguration(): void;
 
    /**
-   * Dispatch mouse event to targetNode.
+   * Dispatch event to targetNode.
    *
    * @param { InputEventType  } event - The event which will be sent to the targetNode.
    * @returns { boolean } - Returns true if the eventhas been successfully posted to the targetNode,
