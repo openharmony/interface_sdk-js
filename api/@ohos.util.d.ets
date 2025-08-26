@@ -164,7 +164,7 @@ declare namespace util {
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
-     * @param { string } src - A Uint8Array value or a string value
+     * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1110,7 +1110,6 @@ declare namespace util {
      */
     encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
-
   /**
    * Check the type of parameter.
    *
