@@ -1780,6 +1780,18 @@ declare class ImageAttachment {
     readonly size?: SizeOptions;
 
     /**
+     * Get the imageSize of the StyledString.
+     *
+     * @type { ?SizeOptions } - the imageSize of the StyledString in vp unit or undefined
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    readonly sizeInVp?: SizeOptions;
+
+    /**
      * Get the ImageSpanAlignment of the StyledString.
      *
      * @type { ?ImageSpanAlignment } - the ImageSpanAlignment of the StyledString or undefined
