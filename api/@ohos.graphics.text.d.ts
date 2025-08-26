@@ -984,15 +984,6 @@ declare namespace text {
     lineHeightMinimum?: double;
 
     /**
-     * Line spacing. The value is a double number.
-     * @type { ?double } it is double type data
-     * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
-     */
-    lineSpacing?: double;
-
-    /**
      * Line height scaling base style. The default value is FONT_SIZE.
      * @type { ?LineHeightStyle } Line height scaling style.
      * @syscap SystemCapability.Graphics.Drawing
@@ -1432,6 +1423,15 @@ declare namespace text {
      * @since 20
      */
     verticalAlign?: TextVerticalAlign;
+
+    /**
+     * Line spacing. The value is a double number.
+     * @type { ?double } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    lineSpacing?: double;
   }
 
   /**
