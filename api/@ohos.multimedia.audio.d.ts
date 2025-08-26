@@ -486,7 +486,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
      */
-    THEATRE = 3,
+    THEATER = 3,
     /**
      * A preset representing a reverberation effect with concert-like acoustic characteristics.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
