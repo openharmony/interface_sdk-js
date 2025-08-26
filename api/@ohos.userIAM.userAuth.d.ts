@@ -1674,7 +1674,16 @@ declare namespace userAuth {
      * @atomicservice
      * @since 20
      */
-    WIDGET_RELEASED = 6
+    WIDGET_RELEASED = 6,
+
+    /**
+     * Authentication tip for authentication failed which causes authentication frozen.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 20
+     */
+    COMPARE_FAILURE_WITH_FROZEN = 7
   }
   
   /**
@@ -1857,16 +1866,13 @@ declare namespace userAuth {
      * <br>2. No permission to start authentication from background.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br>1. Incorrect parameter types.
-     * @throws { BusinessError } 12500001 - Authentication failed.
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500003 - Authentication canceled.
-     * @throws { BusinessError } 12500004 - Authentication timeout.
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
-     * @throws { BusinessError } 12500007 - Authentication service is busy.
      * @throws { BusinessError } 12500009 - Authentication is locked out.
      * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
-     * @throws { BusinessError } 12500011 - Switched to the custom authentication process.
+     * @throws { BusinessError } 12500011 - Switched to the customized authentication process.
      * @throws { BusinessError } 12500013 - Operation failed because of PIN expired.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @atomicservice
