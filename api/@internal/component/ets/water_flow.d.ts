@@ -812,18 +812,6 @@ declare class WaterFlowAttribute extends ScrollableCommonMethod<WaterFlowAttribu
   cachedCount(count: number, show: boolean): WaterFlowAttribute;
 
   /**
-   * Set whether to synchronously load child nodes within one frame.
-   *
-   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
-   * @returns { WaterFlowAttribute } The attribute of the water flow.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  syncLoad(enable: boolean): WaterFlowAttribute;
-
-  /**
    * Called when the water flow begins to arrive.
    *
    * @param { function } event
