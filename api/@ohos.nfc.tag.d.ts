@@ -17,7 +17,7 @@
  * @file
  * @kit ConnectivityKit
  */
-
+/*** if arkts 1.1 */
 import type { NfcATag as _NfcATag, NfcBTag as _NfcBTag, NfcFTag as _NfcFTag, NfcVTag as _NfcVTag } from './tag/nfctech';
 import {
   IsoDepTag as _IsoDepTag,
@@ -30,6 +30,7 @@ import {
 import { NdefMessage as _NdefMessage } from './tag/nfctech';
 import { TagSession as _TagSession } from './tag/tagSession';
 import type { PacMap } from './ability/dataAbilityHelper';
+/*** endif */
 import type rpc from './@ohos.rpc';
 import type { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -358,7 +359,8 @@ declare namespace tag {
    * @enum { number }
    * @syscap SystemCapability.Communication.NFC.Tag
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum NfcForumType {
     /**
@@ -1682,8 +1684,7 @@ declare namespace tag {
   * @typedef { _NfcATag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NfcATag = _NfcATag;
 
@@ -1699,8 +1700,7 @@ declare namespace tag {
   * @typedef { _NfcBTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NfcBTag = _NfcBTag;
 
@@ -1716,8 +1716,7 @@ declare namespace tag {
   * @typedef { _NfcFTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NfcFTag = _NfcFTag;
 
@@ -1733,8 +1732,7 @@ declare namespace tag {
   * @typedef { _NfcVTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NfcVTag = _NfcVTag;
 
@@ -1750,8 +1748,7 @@ declare namespace tag {
   * @typedef { _IsoDepTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type IsoDepTag = _IsoDepTag;
 
@@ -1767,8 +1764,7 @@ declare namespace tag {
   * @typedef { _NdefTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NdefTag = _NdefTag;
 
@@ -1784,8 +1780,7 @@ declare namespace tag {
   * @typedef { _MifareClassicTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type MifareClassicTag = _MifareClassicTag;
 
@@ -1801,8 +1796,7 @@ declare namespace tag {
   * @typedef { _MifareUltralightTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type MifareUltralightTag = _MifareUltralightTag;
 
@@ -1818,8 +1812,7 @@ declare namespace tag {
   * @typedef { _NdefFormatableTag }
   * @syscap SystemCapability.Communication.NFC.Tag
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
   export type NdefFormatableTag = _NdefFormatableTag;
 
