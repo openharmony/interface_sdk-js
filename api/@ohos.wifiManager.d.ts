@@ -1039,8 +1039,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function enableHotspot(): void;
 
@@ -1054,8 +1053,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function disableHotspot(): void;
 
@@ -1069,8 +1067,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function isHotspotDualBandSupported(): boolean;
 
@@ -1111,8 +1108,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   function isHotspotActive(): boolean;
 
@@ -1124,14 +1120,13 @@ declare namespace wifiManager {
    *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function setHotspotConfig(config: HotspotConfig): void;
 
@@ -1145,8 +1140,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function getHotspotConfig(): HotspotConfig;
 
@@ -1185,14 +1179,13 @@ declare namespace wifiManager {
    * @param { StationInfo } stationInfo - station which will be added in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function addHotspotBlockList(stationInfo: StationInfo);
 
@@ -1202,14 +1195,13 @@ declare namespace wifiManager {
    * @param { StationInfo } stationInfo - station which will be deleted in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function delHotspotBlockList(stationInfo: StationInfo);
 
@@ -1219,14 +1211,12 @@ declare namespace wifiManager {
    * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
-   * 2.Parameter verification failed.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getHotspotBlockList(): Array<StationInfo>;
 
@@ -1241,7 +1231,7 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
-
+  
   /**
    * Obtain information about the P2P connection.
    * @permission ohos.permission.GET_WIFI_INFO
@@ -1320,7 +1310,7 @@ declare namespace wifiManager {
    * @since 10
    */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
-
+  
   /**
    * Obtain the information about the found devices.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
@@ -1370,7 +1360,7 @@ declare namespace wifiManager {
    * @since 11
    */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
-
+  
   /**
    * Obtain the information about own device information. 
    * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
@@ -1398,7 +1388,6 @@ declare namespace wifiManager {
    * @since 11
    */
   function getP2pLocalDevice(callback: AsyncCallback<WifiP2pDevice>): void;
-
   /**
    * Create a P2P group.
    * @permission ohos.permission.GET_WIFI_INFO
