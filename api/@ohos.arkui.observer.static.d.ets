@@ -102,18 +102,18 @@ declare namespace uiObserver {
          */
         ON_WILL_DISAPPEAR = 7,
         /**
-        * When the NavDestination is active.
-        *
-        * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20
-        */
+         * When the NavDestination is active.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
         ON_ACTIVE = 8,
         /**
-        * When the NavDestination is inactive.
-        *
-        * @syscap SystemCapability.ArkUI.ArkUI.Full
-        * @since 20
-        */
+         * When the NavDestination is inactive.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
         ON_INACTIVE = 9,
         /**
          * When back press event happened in NavDestination.
