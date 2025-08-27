@@ -6750,7 +6750,7 @@ declare interface RotateOptions {
 }
 
 /**
- * The param of rotate about angle.
+ * The rotation parameters containing multi-axis angle information.
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9921,14 +9921,14 @@ declare enum AdaptiveColor {
  */
 declare enum ModalTransition {
   /**
-   * Use default animation.
+   * Slide-up and slide-down animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Use default animation.
+   * Slide-up and slide-down animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -9957,14 +9957,14 @@ declare enum ModalTransition {
   NONE,
 
   /**
-   * Use alpha animation.
+   * Opacity gradient animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Use alpha animation.
+   * Opacity gradient animation for the modal.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
