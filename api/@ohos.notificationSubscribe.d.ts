@@ -502,7 +502,7 @@ declare namespace notificationSubscribe {
    * Trigger notification cross-device operation.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } [hashcode] - The notification identifier.
+   * @param { string } hashcode - The notification identifier.
    * @param { OperationInfo } [operationInfo] - The interactive information.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
