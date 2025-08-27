@@ -49,7 +49,7 @@ export declare struct SplitLayout {
    * @atomicservice
    * @since 11
    */
-    @BuilderParam container: () => void;
+  @BuilderParam container: () => void;
 
   /**
    * Image in the layout.
