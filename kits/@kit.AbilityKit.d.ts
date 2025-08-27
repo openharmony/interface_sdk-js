@@ -170,7 +170,7 @@ import privacyManager from '@ohos.privacyManager';
 import abilityManager from '@ohos.app.ability.abilityManager';
 import appManager from '@ohos.app.ability.appManager';
 import appRecovery from '@ohos.app.ability.appRecovery';
-import abilityDelegatorRegistry from 'ohos.app.ability.abilityDelegatorRegistry';
+import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import dataUriUtils from '@ohos.app.ability.dataUriUtils';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
