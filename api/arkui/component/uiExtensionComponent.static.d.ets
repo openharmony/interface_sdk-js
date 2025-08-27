@@ -37,7 +37,7 @@ export type RecordData = undefined | null | Object | Record<string, RecordData> 
 /**
  * Enumeration of different types of DpiFollowStrategy.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20
@@ -62,7 +62,7 @@ export declare enum DpiFollowStrategy {
 }
 /**
  * Enumeration of different types of WindowModeFollowStrategy.
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 20
@@ -254,6 +254,7 @@ export declare interface UIExtensionProxy {
  * @typedef UIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @noninterop
  * @since 20
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
@@ -329,6 +330,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @noninterop
  * @since 20
  */
 @memo
