@@ -191,8 +191,7 @@ declare namespace screenLock {
    *
    * @syscap SystemCapability.MiscServices.ScreenLock
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   /**
    * Indicates the system event type related to the screenlock management service. Adding strongAuthChanged and screenLockDisabledChanged.
