@@ -431,7 +431,7 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { Record<string, long> }
+     * @returns { Record<string, long> } Type and size information of data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
@@ -470,7 +470,7 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { long }
+     * @returns { long } Total size information of data
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
