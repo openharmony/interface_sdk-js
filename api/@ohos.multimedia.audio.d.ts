@@ -5030,7 +5030,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
-    getPreferredBluetoothAndNearlinkRecord(): boolean;
+    isPreferredBluetoothAndNearlinkRecord(): boolean;
 
     /**
      * Subscribes input device change event callback. The event is triggered when current input device change.
