@@ -17,12 +17,10 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { ResourceStr } from './arkui/component/units';
-import { State, Prop } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { BuilderParam, Builder } from './arkui/component/builder';
-/*** endif */
+
+
+
+
 
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
@@ -33,8 +31,8 @@ import { BuilderParam, Builder } from './arkui/component/builder';
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts{ '1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -49,10 +47,9 @@ export declare struct SplitLayout {
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
-  @BuilderParam container: () => void;
+    @BuilderParam container: () => void;
 
   /**
    * Image in the layout.
@@ -65,8 +62,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @State mainImage: ResourceStr;
 
@@ -81,8 +77,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop primaryText: ResourceStr;
 
@@ -97,8 +92,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop secondaryText?: ResourceStr;
 
@@ -113,17 +107,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   @Prop tertiaryText?: ResourceStr;
-
-  /**
-   * The method to build component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  @Builder build(): void;
 }
