@@ -2293,6 +2293,13 @@ export declare class DrawModifier {
      */
     drawContent(drawContext: DrawContext): void;
     /**
+     * drawFront Method. Executed after drawing associated Node and its children.
+     * @param { DrawContext } drawContext - The drawContext used to draw.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+     drawFront(drawContext: DrawContext): void;
+    /**
      * Invalidate the component, which will cause a re-render of the component.
      * No overloading is allowed or needed.
      *
