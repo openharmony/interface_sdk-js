@@ -30812,7 +30812,7 @@ declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHove
  * @atomicservice
  * @since 20
  */
-declare type AccessibilityTransparentCallback = (event: TouchEvent) => void
+declare type AccessibilityTransparentCallback = (event: TouchEvent) => void;
 
 /**
  * Defines the options about VisibleAreaEvent.
