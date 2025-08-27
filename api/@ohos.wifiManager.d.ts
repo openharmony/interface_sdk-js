@@ -863,38 +863,40 @@ declare namespace wifiManager {
    * Set whther to allow automatic connnect by networkId.
    * The network can be associated with again if isAllowed is true, else not.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId Identifies the network to be set. The value of networkId cannot be less than 0.
+   * @param { int } netId Identifies the network to be set. The value of networkId cannot be less than 0.
    * @param { boolean } isAllowed Identifies whether allow auto connect or not.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 17
+   * @since arkts {'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function allowAutoConnect(netId: number, isAllowed: boolean): void;
+  function allowAutoConnect(netId: int, isAllowed: boolean): void;
 
   /**
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId Identifies the network to disable. The value of networkId cannot be less than 0.
+   * @param { int } netId Identifies the network to disable. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function disableNetwork(netId: number): void;
+  function disableNetwork(netId: int): void;
 
   /**
    * Remove all the saved Wi-Fi configurations.
@@ -906,7 +908,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAllNetwork(): void;
 
@@ -917,17 +920,18 @@ declare namespace wifiManager {
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
    * ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
-   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
+   * @param { int } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function removeDevice(id: number): void;
+  function removeDevice(id: int): void;
 
   /**
    * Check whether the current device supports the specified band.
@@ -938,23 +942,25 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isBandTypeSupported(bandType: WifiBandType): boolean;
 
   /**
    * Obtain the supported 5G channel list of the device.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-   * @returns { Array<number> } Returns 5G channel list.
+   * @returns { Array<int> } Returns 5G channel list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function get5GChannelList(): Array<number>;
+  function get5GChannelList(): Array<int>;
 
   /**
    * Obtain the latest disconnected reason.
@@ -965,7 +971,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDisconnectedReason(): DisconnectedReason;
 
@@ -979,7 +986,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startPortalCertification(): void;
 
@@ -1005,14 +1013,15 @@ declare namespace wifiManager {
    * @param { WifiDeviceConfig } config - Indicates the Wi-Fi device config.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): void;
 
@@ -1025,7 +1034,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function factoryReset(): void;
 
@@ -1039,7 +1049,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function enableHotspot(): void;
 
@@ -1053,7 +1064,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function disableHotspot(): void;
 
@@ -1067,7 +1079,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isHotspotDualBandSupported(): boolean;
 
@@ -1108,7 +1121,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isHotspotActive(): boolean;
 
@@ -1120,13 +1134,14 @@ declare namespace wifiManager {
    *     If {@code securityType} is not {@code open}, {@code preSharedKey} must be available and correct.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setHotspotConfig(config: HotspotConfig): void;
 
@@ -1140,7 +1155,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getHotspotConfig(): HotspotConfig;
 
@@ -1173,19 +1189,20 @@ declare namespace wifiManager {
    */
   function getStations(): Array<StationInfo>;
 
-   /**
+    /**
    * Add the station into the block list, the station can NOT access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be added in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addHotspotBlockList(stationInfo: StationInfo);
 
@@ -1195,13 +1212,14 @@ declare namespace wifiManager {
    * @param { StationInfo } stationInfo - station which will be deleted in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function delHotspotBlockList(stationInfo: StationInfo);
 
@@ -1211,12 +1229,14 @@ declare namespace wifiManager {
    * @returns { Array<StationInfo> } stations in the block list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
+   * 2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getHotspotBlockList(): Array<StationInfo>;
 
@@ -1231,7 +1251,7 @@ declare namespace wifiManager {
    * @since 9
    */
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
-  
+
   /**
    * Obtain information about the P2P connection.
    * @permission ohos.permission.GET_WIFI_INFO
@@ -1310,7 +1330,7 @@ declare namespace wifiManager {
    * @since 10
    */
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
-  
+
   /**
    * Obtain the information about the found devices.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
@@ -1360,7 +1380,7 @@ declare namespace wifiManager {
    * @since 11
    */
   function getP2pLocalDevice(): Promise<WifiP2pDevice>;
-  
+
   /**
    * Obtain the information about own device information. 
    * DeviceAddress in the returned WifiP2pDevice will be set "00:00:00:00:00:00",
@@ -1394,13 +1414,14 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { WifiP2PConfig } config - Indicates the configuration for a group.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createGroup(config: WifiP2PConfig): void;
 
@@ -1412,7 +1433,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeGroup(): void;
 
@@ -1421,7 +1443,7 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { WifiP2PConfig } config - Indicates the configuration for connecting to a specific group.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters.
+   * @throws {BusinessError} 401 - Parameter error.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
@@ -1433,13 +1455,14 @@ declare namespace wifiManager {
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { WifiP2PConfig } config - Indicates the configuration for connecting to a specific group.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    *     2.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function p2pConnect(config: WifiP2PConfig): void;
 
@@ -1451,7 +1474,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function p2pCancelConnect(): void;
 
@@ -1473,7 +1497,8 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function startDiscoverDevices(): void;
 
@@ -1485,25 +1510,27 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopDiscoverDevices(): void;
 
   /**
    * Delete the persistent P2P group with the specified network ID.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId - Indicates the network ID of the group to be deleted.
+   * @param { int } netId - Indicates the network ID of the group to be deleted.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1.Incorrect parameter types.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function deletePersistentGroup(netId: number): void;
+  function deletePersistentGroup(netId: int): void;
 
   /**
    * Obtain information about the groups.
@@ -1530,7 +1557,7 @@ declare namespace wifiManager {
    * @since 10
    */
   function getP2pGroups(): Promise<Array<WifiP2pGroupInfo>>;
-  
+
   /**
    * Obtain information about the groups.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
@@ -1565,14 +1592,15 @@ declare namespace wifiManager {
    * @param { string } devName - Indicate the name to be set.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @throws {BusinessError} 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDeviceName(devName: string): void;
 
@@ -1971,10 +1999,10 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
 
-   * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
-   */
+    * @systemapi Hide this for inner system use.
+    * @since arkts {'1.1':'9', '1.2':'20'}
+    * @arkts 1.1&1.2
+    */
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
@@ -2294,137 +2322,158 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi EAP method.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum EapMethod {
     /**
      * EAP NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_NONE,
     /**
      * EAP PEAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_PEAP,
     /**
      * EAP TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_TLS,
     /**
      * EAP TTLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_TTLS,
     /**
      * EAP PWD
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_PWD,
     /**
      * EAP SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_SIM,
     /**
      * EAP AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_AKA,
     /**
      * EAP AKA PRIME
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_AKA_PRIME,
     /**
      * EAP UNAUTH TLS
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EAP_UNAUTH_TLS
   }
 
   /**
    * Wi-Fi phase 2 method.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum Phase2Method {
     /**
      * Phase2 NONE
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_NONE,
     /**
      * Phase2 PAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_PAP,
     /**
      * Phase2 MSCHAP
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_MSCHAP,
     /**
      * Phase2 MSCHAPV2
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_MSCHAPV2,
     /**
      * Phase2 GTC
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_GTC,
     /**
      * Phase2 SIM
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_SIM,
     /**
      * Phase2 AKA
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_AKA,
     /**
      * Phase2 AKA+
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PHASE2_AKA_PRIME
   }
 
   /**
    * Wi-Fi disconnected reason.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum DisconnectedReason {
     /**
      * Default reason
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISC_REASON_DEFAULT = 0,
 
@@ -2432,7 +2481,8 @@ declare namespace wifiManager {
      * Password is wrong
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISC_REASON_WRONG_PWD = 1,
 
@@ -2440,7 +2490,8 @@ declare namespace wifiManager {
      * The number of router's connection reaches the maximum number limit
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISC_REASON_CONNECTION_FULL = 2
   }
@@ -2520,17 +2571,19 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi Proxy method.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ProxyMethod {
     /**
      * No proxy is to be used.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     METHOD_NONE = 0,
 
@@ -2538,7 +2591,8 @@ declare namespace wifiManager {
      * Use auto configured proxy.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     METHOD_AUTO = 1,
 
@@ -2546,7 +2600,8 @@ declare namespace wifiManager {
      * Use manual configured proxy.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     METHOD_MANUAL = 2
   }
@@ -2602,43 +2657,49 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi link type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiLinkType {
     /**
      * Default link.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DEFAULT_LINK = 0,
 
     /**
      * Wi-Fi7 single link.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7_SINGLE_LINK = 1,
 
     /**
      * Wi-Fi7 MLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7_MLSR = 2,
 
     /**
      * Wi-Fi7 EMLSR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7_EMLSR = 3,
 
     /**
      * Wi-Fi7 STR.
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI7_STR = 4
   }
@@ -2648,7 +2709,8 @@ declare namespace wifiManager {
    * @typedef WifiProxyConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiProxyConfig {
     /** 
@@ -2656,7 +2718,8 @@ declare namespace wifiManager {
      * @type { ?ProxyMethod }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     proxyMethod?: ProxyMethod;
 
@@ -2665,7 +2728,8 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pacWebAddress?: string;
 
@@ -2674,25 +2738,28 @@ declare namespace wifiManager {
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serverHostName?: string;
 
     /** 
      * Server port for manual configured proxy. 
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    serverPort?: number;
+    serverPort?: int;
 
     /** 
      * Exclusion objects for manual configured proxy. objects are separated by ','.
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     exclusionObjects?: string;
   }
@@ -2701,14 +2768,16 @@ declare namespace wifiManager {
    * Wi-Fi EAP config.
    * @typedef WifiEapConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiEapConfig {
     /** 
      * EAP authentication method 
      * @type { EapMethod }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eapMethod: EapMethod;
 
@@ -2716,7 +2785,8 @@ declare namespace wifiManager {
      * Phase 2 authentication method
      * @type { Phase2Method }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     phase2Method: Phase2Method;
 
@@ -2724,7 +2794,8 @@ declare namespace wifiManager {
      * The identity
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     identity: string;
 
@@ -2732,7 +2803,8 @@ declare namespace wifiManager {
      * Anonymous identity
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     anonymousIdentity: string;
 
@@ -2740,7 +2812,8 @@ declare namespace wifiManager {
      * Password
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     password: string;
 
@@ -2748,7 +2821,8 @@ declare namespace wifiManager {
      * CA certificate alias
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     caCertAlias: string;
 
@@ -2756,7 +2830,8 @@ declare namespace wifiManager {
      * CA certificate path
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     caPath: string;
 
@@ -2764,7 +2839,8 @@ declare namespace wifiManager {
      * Client certificate alias
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clientCertAlias: string;
 
@@ -2772,7 +2848,8 @@ declare namespace wifiManager {
      * content of user's certificate
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certEntry: Uint8Array;
 
@@ -2780,7 +2857,8 @@ declare namespace wifiManager {
      * Password of user's certificate
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     certPassword: string;
 
@@ -2788,7 +2866,8 @@ declare namespace wifiManager {
      * Alternate subject match
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     altSubjectMatch: string;
 
@@ -2796,7 +2875,8 @@ declare namespace wifiManager {
      * Domain suffix match
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domainSuffixMatch: string;
 
@@ -2804,7 +2884,8 @@ declare namespace wifiManager {
      * Realm for Passpoint credential
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     realm: string;
 
@@ -2812,17 +2893,19 @@ declare namespace wifiManager {
      * Public Land Mobile Network of the provider of Passpoint credential
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     plmn: string;
 
     /** 
      * Sub ID of the SIM card
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    eapSubId: number;
+    eapSubId: int;
   }
 
   /**
@@ -2884,7 +2967,8 @@ declare namespace wifiManager {
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssidType?: DeviceAddressType;
 
@@ -2908,7 +2992,8 @@ declare namespace wifiManager {
      * Hide SSID or not, false(default): not hide
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHiddenSsid?: boolean;
 
@@ -2919,7 +3004,7 @@ declare namespace wifiManager {
      * @since 9
      */
 
-	/**
+  /**
      * Security type: reference definition of WifiSecurityType
      * @type { WifiSecurityType }
      * @syscap SystemCapability.Communication.WiFi.STA
@@ -2931,46 +3016,50 @@ declare namespace wifiManager {
 
     /**
      * The UID of the Wi-Fi configuration creator.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    creatorUid?: number;
+    creatorUid?: int;
 
     /**
      * Disable reason
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    disableReason?: number;
+    disableReason?: int;
 
     /**
      * Allocated networkId
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    netId?: number;
+    netId?: int;
 
     /**
      * Random mac type
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    randomMacType?: number;
+    randomMacType?: int;
 
     /**
      * Random mac address, the length is 6.
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     randomMacAddr?: string;
 
@@ -2979,7 +3068,8 @@ declare namespace wifiManager {
      * @type { ?IpType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ipType?: IpType;
 
@@ -2988,7 +3078,8 @@ declare namespace wifiManager {
      * @type { ?IpConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     staticIp?: IpConfig;
 
@@ -2996,7 +3087,8 @@ declare namespace wifiManager {
      * EAP config info.
      * @type { ?WifiEapConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     eapConfig?: WifiEapConfig;
 
@@ -3005,7 +3097,8 @@ declare namespace wifiManager {
      * @type { ?WifiProxyConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     proxyConfig?: WifiProxyConfig;
 
@@ -3013,25 +3106,28 @@ declare namespace wifiManager {
      * WAPI config info.
      * @type { ?WifiWapiConfig }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wapiConfig?: WifiWapiConfig;
 
     /**
      * Device config status: 0 - enabled, 1 - disabled, 2 - permanent disabled, 3 - unknown.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    configStatus?: number;
+    configStatus?: int;
 
     /**
      * Allow auto connect config: false - not, true - yes.
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isAutoConnectAllowed?: boolean;
 
@@ -3049,14 +3145,16 @@ declare namespace wifiManager {
    * Wi-Fi WAPI config.
    * @typedef WifiWapiConfig
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiWapiConfig {
     /**
      * WAPI pre-shared key type.
      * @type { WapiPskType }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wapiPskType: WapiPskType;
 
@@ -3064,7 +3162,8 @@ declare namespace wifiManager {
      * WAPI AS certification.
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wapiAsCert: string;
 
@@ -3072,7 +3171,8 @@ declare namespace wifiManager {
      * WAPI user certification.
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wapiUserCert: string;
   }
@@ -3082,51 +3182,57 @@ declare namespace wifiManager {
    * @typedef IpConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface IpConfig {
     /**
      * IP address.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    ipAddress: number;
+    ipAddress: int;
 
     /**
      * Gate way.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    gateway: number;
+    gateway: int;
 
     /**
      * Prefix length.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    prefixLength: number;
+    prefixLength: int;
 
     /**
      * DNS servers.
-     * @type { number[] }
+     * @type { int[] }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    dnsServers: number[];
+    dnsServers: int[];
 
     /**
      * Domains.
      * @type { Array<string> }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     domains: Array<string>;
   }
@@ -3135,38 +3241,43 @@ declare namespace wifiManager {
    * Wi-Fi information elements.
    * @typedef WifiInfoElem
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiInfoElem {
     /**
      * Element id
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    eid: number;
+    eid: int;
 
     /**
      * Element content
      * @type { Uint8Array }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     content: Uint8Array;
   }
 
   /**
    * Describes the wifi channel width.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiChannelWidth {
     /**
      * 20MHz.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_20MHZ = 0,
 
@@ -3174,7 +3285,8 @@ declare namespace wifiManager {
      * 40MHz.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_40MHZ = 1,
 
@@ -3182,7 +3294,8 @@ declare namespace wifiManager {
      * 80MHz.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_80MHZ = 2,
 
@@ -3190,7 +3303,8 @@ declare namespace wifiManager {
      * 160MHz.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_160MHZ = 3,
 
@@ -3198,7 +3312,8 @@ declare namespace wifiManager {
      * 80MHz plus.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_80MHZ_PLUS = 4,
 
@@ -3206,7 +3321,8 @@ declare namespace wifiManager {
      * Invalid.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIDTH_INVALID
   }
@@ -3269,7 +3385,8 @@ declare namespace wifiManager {
      * @type { DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bssidType: DeviceAddressType;
 
@@ -3277,7 +3394,8 @@ declare namespace wifiManager {
      * Hotspot capability
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     capabilities: string;
 
@@ -3330,52 +3448,58 @@ declare namespace wifiManager {
      */
     /**
      * Frequency
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    frequency: number;
+    frequency: int;
 
     /**
      * Channel width
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    channelWidth: number;
+    channelWidth: int;
 
     /**
      * Center frequency 0.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    centerFrequency0: number;
+    centerFrequency0: int;
 
     /**
      * Center frequency 1.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    centerFrequency1: number;
+    centerFrequency1: int;
 
     /**
      * Information elements.
      * @type { Array<WifiInfoElem> }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     infoElems: Array<WifiInfoElem>;
 
     /**
      * Time stamp
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * Supported wifi category
@@ -3390,7 +3514,8 @@ declare namespace wifiManager {
      * Whether the Wi-Fi hotspot is HiLink network.
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHiLinkNetwork: boolean;
   }
@@ -3510,16 +3635,18 @@ declare namespace wifiManager {
 
   /**
    * Describes the WAPI pre-shared key Type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WapiPskType {
     /**
      * ASCII character type of WAPI pre-shared key.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WAPI_PSK_ASCII = 0,
 
@@ -3527,23 +3654,26 @@ declare namespace wifiManager {
      * HEX character type of WAPI pre-shared key.
      *
      * @syscap SystemCapability.Communication.WiFi.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WAPI_PSK_HEX = 1
   }
 
   /**
    * Wi-Fi band type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiBandType {
     /**
      * Default.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_BAND_NONE,
 
@@ -3551,7 +3681,8 @@ declare namespace wifiManager {
      * Band 2.4G.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_BAND_2G,
 
@@ -3559,7 +3690,8 @@ declare namespace wifiManager {
      * Band 5G.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_BAND_5G,
 
@@ -3567,7 +3699,8 @@ declare namespace wifiManager {
      * Band 6G.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_BAND_6G,
 
@@ -3575,71 +3708,81 @@ declare namespace wifiManager {
      * Band 60G.
      *
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_BAND_60G
   }
 
   /**
    * Wi-Fi standard.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum WifiStandard {
     /**
      * Undefined
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_UNDEFINED,
 
     /**
      * Wifi 802.11a
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11A,
 
     /**
      * Wifi 802.11b
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11B,
 
     /**
      * Wifi 802.11g
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11G,
 
     /**
      * Wifi 802.11n
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11N,
 
     /**
      * Wifi 802.11ac
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11AC,
 
     /**
      * Wifi 802.11ax
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11AX,
 
     /**
      * Wifi 802.11ad
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WIFI_STANDARD_11AD
   }
@@ -3659,7 +3802,7 @@ declare namespace wifiManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-   
+    
   interface WifiLinkedInfo {
     /**
      * The SSID of the Wi-Fi hotspot
@@ -3695,12 +3838,13 @@ declare namespace wifiManager {
 
     /**
      * The ID(uniquely identifies) of a Wi-Fi connection.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    networkId: number;
+    networkId: int;
 
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
@@ -3729,35 +3873,39 @@ declare namespace wifiManager {
 
     /**
      * The speed of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    linkSpeed: number;
+    linkSpeed: int;
 
     /**
      * The rx speed of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    rxLinkSpeed: number;
+    rxLinkSpeed: int;
 
     /**
      * Max tx speed of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxSupportedTxLinkSpeed: number;
+    maxSupportedTxLinkSpeed: int;
 
     /**
      * Max rx speed of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxSupportedRxLinkSpeed: number;
+    maxSupportedRxLinkSpeed: int;
 
     /**
      * The frequency of a Wi-Fi access point.
@@ -3767,18 +3915,20 @@ declare namespace wifiManager {
      */
     /**
      * The frequency of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    frequency: number;
+    frequency: int;
 
     /**
      * Whether the SSID of the access point (AP) of this Wi-Fi connection is hidden.
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHidden: boolean;
 
@@ -3786,35 +3936,39 @@ declare namespace wifiManager {
      * Whether this Wi-Fi connection restricts the data volume.
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isRestricted: boolean;
 
     /**
      * The load value of this Wi-Fi connection. A greater value indicates a higher load.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    chload: number;
+    chload: int;
 
     /**
      * The signal-to-noise ratio (SNR) of this Wi-Fi connection.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    snr: number;
+    snr: int;
 
     /**
      * Type of macAddress: 0 - real mac, 1 - random mac.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    macType: number;
+    macType: int;
 
     /**
      * The Wi-Fi MAC address of a device. 
@@ -3827,18 +3981,20 @@ declare namespace wifiManager {
 
     /**
      * The IP address of this Wi-Fi connection. 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    ipAddress: number;
+    ipAddress: int;
 
     /**
      * The state of the supplicant of this Wi-Fi connection. 
      * @type { SuppState }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     suppState: SuppState;
 
@@ -3855,7 +4011,8 @@ declare namespace wifiManager {
      * Channel width of the connected hotspot. 
      * @type { WifiChannelWidth }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     channelWidth: WifiChannelWidth;
 
@@ -3863,7 +4020,8 @@ declare namespace wifiManager {
      * Wifi standard of current connection. 
      * @type { WifiStandard }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wifiStandard: WifiStandard;
 
@@ -3880,7 +4038,8 @@ declare namespace wifiManager {
      * Whether the Wi-Fi hotspot is HiLink network.
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHiLinkNetwork: boolean;
 
@@ -3888,7 +4047,8 @@ declare namespace wifiManager {
      * Wi-Fi link type
      * @type { ?WifiLinkType }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     wifiLinkType?: WifiLinkType;
   }
@@ -3912,51 +4072,57 @@ declare namespace wifiManager {
 
     /**
      * The gateway of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    gateway: number;
+    gateway: int;
 
     /**
      * The network mask of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    netmask: number;
+    netmask: int;
 
     /**
      * The primary DNS server IP address of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    primaryDns: number;
+    primaryDns: int;
 
     /**
      * The secondary DNS server IP address of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    secondDns: number;
+    secondDns: int;
 
     /**
      * The DHCP server IP address of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    serverIp: number;
+    serverIp: int;
 
     /**
      * The IP address lease duration of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    leaseDuration: number;
+    leaseDuration: int;
   }
 
   /**
@@ -3980,7 +4146,8 @@ declare namespace wifiManager {
      * The global IPv6 address of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     globalIpv6Address: string;
 
@@ -3988,7 +4155,8 @@ declare namespace wifiManager {
      * The rand Global IPv6 address of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     randomGlobalIpv6Address: string;
 
@@ -3996,7 +4164,8 @@ declare namespace wifiManager {
      * The unique IPv6 address of the Wi-Fi connection
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     uniqueIpv6Address?: string;
 
@@ -4004,7 +4173,8 @@ declare namespace wifiManager {
      * The rand unique IPv6 address of the Wi-Fi connection
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     randomUniqueIpv6Address?: string;
 
@@ -4012,7 +4182,8 @@ declare namespace wifiManager {
      * The gateway of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     gateway: string;
 
@@ -4020,7 +4191,8 @@ declare namespace wifiManager {
      * The network mask of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     netmask: string;
 
@@ -4028,7 +4200,8 @@ declare namespace wifiManager {
      * The primary DNS server IPV6 address of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     primaryDNS: string;
 
@@ -4036,7 +4209,8 @@ declare namespace wifiManager {
      * The secondary DNS server IPV6 address of the Wi-Fi connection
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.STA
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     secondDNS: string;
   }
@@ -4082,12 +4256,13 @@ declare namespace wifiManager {
 
     /**
      * The channel of the Wi-Fi hotspot.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    channel?: number;
+    channel?: int;
 
     /**
      * The password of the Wi-Fi hotspot
@@ -4101,19 +4276,21 @@ declare namespace wifiManager {
 
     /**
      * The maximum number of connections allowed by the Wi-Fi hotspot
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    maxConn: number;
+    maxConn: int;
 
     /**
      * IP address of the dhcp server, it's a string, For example 192.168.43.1
      * @type { ?string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ipAddress?: string;
   }
@@ -4132,7 +4309,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -4151,7 +4329,8 @@ declare namespace wifiManager {
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     macAddressType?: DeviceAddressType;
 
@@ -4160,7 +4339,8 @@ declare namespace wifiManager {
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ipAddress: string;
   }
@@ -4168,17 +4348,19 @@ declare namespace wifiManager {
   /**
    * Wi-Fi IP type enumeration.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum IpType {
     /**
      * Use statically configured IP settings
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATIC,
 
@@ -4186,7 +4368,8 @@ declare namespace wifiManager {
      * Use dynamically configured IP settings
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DHCP,
 
@@ -4194,7 +4377,8 @@ declare namespace wifiManager {
      * No IP details are assigned
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNKNOWN
   }
@@ -4202,17 +4386,19 @@ declare namespace wifiManager {
   /**
    * The state of the supplicant enumeration.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SuppState {
     /**
      * The supplicant is not associated with or is disconnected from the AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISCONNECTED,
 
@@ -4220,7 +4406,8 @@ declare namespace wifiManager {
      * The network interface is disabled.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INTERFACE_DISABLED,
 
@@ -4228,7 +4415,8 @@ declare namespace wifiManager {
      * The supplicant is disabled.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INACTIVE,
 
@@ -4236,7 +4424,8 @@ declare namespace wifiManager {
      * The supplicant is scanning for a Wi-Fi connection.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCANNING,
 
@@ -4244,7 +4433,8 @@ declare namespace wifiManager {
      * The supplicant is authenticating with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUTHENTICATING,
 
@@ -4252,7 +4442,8 @@ declare namespace wifiManager {
      * The supplicant is associating with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSOCIATING,
 
@@ -4260,7 +4451,8 @@ declare namespace wifiManager {
      * The supplicant is associated with a specified AP.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ASSOCIATED,
 
@@ -4268,7 +4460,8 @@ declare namespace wifiManager {
      * The four-way handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FOUR_WAY_HANDSHAKE,
 
@@ -4276,7 +4469,8 @@ declare namespace wifiManager {
      * The group handshake is ongoing.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     GROUP_HANDSHAKE,
 
@@ -4284,7 +4478,8 @@ declare namespace wifiManager {
      * All authentication is completed.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     COMPLETED,
 
@@ -4292,7 +4487,8 @@ declare namespace wifiManager {
      * Failed to establish a connection to the supplicant.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     UNINITIALIZED,
 
@@ -4300,7 +4496,8 @@ declare namespace wifiManager {
      * The supplicant is in an unknown or invalid state.
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     INVALID
   }
@@ -4456,14 +4653,16 @@ declare namespace wifiManager {
    *
    * @typedef WifiP2PConfig
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiP2PConfig {
     /** 
      * Device mac address
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceAddress: string;
 
@@ -4471,24 +4670,27 @@ declare namespace wifiManager {
      * Device mac address type
      * @type { ?DeviceAddressType }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceAddressType?: DeviceAddressType;
 
     /**
      * Group network ID. When creating a group, -1 indicates creates a temporary group,
      * -2: indicates creates a persistent group
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    netId: number;
+    netId: int;
 
     /**
      * The passphrase of this {@code WifiP2pConfig} instance 
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     passphrase: string;
 
@@ -4496,7 +4698,8 @@ declare namespace wifiManager {
      * Group name 
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupName: string;
 
@@ -4504,7 +4707,8 @@ declare namespace wifiManager {
      * Group owner band
      * @type { GroupOwnerBand }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goBand: GroupOwnerBand;
   }
@@ -4514,14 +4718,16 @@ declare namespace wifiManager {
    *
    * @typedef WifiP2pGroupInfo
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WifiP2pGroupInfo {
     /**
      * Indicates whether it is group owner
      * @type { boolean }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isP2pGo: boolean;
 
@@ -4529,7 +4735,8 @@ declare namespace wifiManager {
      * Group owner information
      * @type { WifiP2pDevice }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ownerInfo: WifiP2pDevice;
 
@@ -4537,7 +4744,8 @@ declare namespace wifiManager {
      * The group passphrase
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     passphrase: string;
 
@@ -4550,34 +4758,47 @@ declare namespace wifiManager {
     interface: string;
 
     /**
+     * Interface name
+     * @type { string }
+     * @syscap SystemCapability.Communication.WiFi.P2P
+     * @since 20
+     * @arkts 1.2
+     */
+    interfaceName: string;
+
+    /**
      * Group name
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     groupName: string;
 
     /**
      * Network ID
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    networkId: number;
+    networkId: int;
 
     /**
      * Frequency
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    frequency: number;
+    frequency: int;
 
     /**
      * Client list
      * @type { WifiP2pDevice[] }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     clientDevices: WifiP2pDevice[];
 
@@ -4585,7 +4806,8 @@ declare namespace wifiManager {
      * Group owner IP address
      * @type { string }
      * @syscap SystemCapability.Communication.WiFi.P2P
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goIpAddress: string;
   }
@@ -4706,32 +4928,37 @@ declare namespace wifiManager {
   /**
    * P2P group owner band.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum GroupOwnerBand {
   /**
    * default band.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     GO_BAND_AUTO = 0,
 
   /**
    * 2.4G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     GO_BAND_2GHZ = 1,
 
   /**
    * 5G band.
    * @syscap SystemCapability.Communication.WiFi.P2P
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
     GO_BAND_5GHZ = 2
   }
 }
 
 export default wifiManager;
+  
