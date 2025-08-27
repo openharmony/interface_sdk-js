@@ -122,7 +122,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): this;
+    default selectAll(isAllSelected: boolean | undefined | Bindable<boolean>): this;
     /**
      * setting the display color of checkbox.
      *
@@ -131,7 +131,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the display border color of unselected checkbox.
      *
@@ -140,7 +140,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    unselectedColor(value: ResourceColor | undefined): this;
+    default unselectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the mark style of checkbox.
      *
@@ -149,7 +149,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    mark(value: MarkStyle | undefined): this;
+    default mark(value: MarkStyle | undefined): this;
     /**
      * Called when the selection status changes.
      * Anonymous Object Rectification.
@@ -159,7 +159,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnCheckboxGroupChangeCallback | undefined): this;
+    default onChange(callback: OnCheckboxGroupChangeCallback | undefined): this;
     /**
      * Setting the shape of checkbox group.
      *
@@ -168,7 +168,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    checkboxShape(value: CheckBoxShape | undefined): this;
+    default checkboxShape(value: CheckBoxShape | undefined): this;
     /**
      * Set the attribute modifier of checkbox group.
      *
@@ -178,7 +178,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(
+    default attributeModifier(
         modifier: AttributeModifier<CheckboxGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 

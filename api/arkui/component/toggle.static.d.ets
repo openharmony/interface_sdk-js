@@ -172,7 +172,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: ((isOn: boolean) => void) | undefined): this;
+    default onChange(callback: ((isOn: boolean) => void) | undefined): this;
     /**
      * Set the content modifier of toggle.
      *
@@ -181,7 +181,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
     /**
      * Called when the color of the selected button is set.
      *
@@ -190,7 +190,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
      * Called when the color of the selected button is set.
      *
@@ -199,7 +199,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    switchPointColor(color: ResourceColor | undefined): this;
+    default switchPointColor(color: ResourceColor | undefined): this;
     /**
      * Set the style of the switch.
      *
@@ -208,7 +208,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    switchStyle(value: SwitchStyle | undefined): this;
+    default switchStyle(value: SwitchStyle | undefined): this;
     /**
      * Set the attribute modifier of toggle.
      *
@@ -218,7 +218,7 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**

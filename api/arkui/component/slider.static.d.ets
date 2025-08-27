@@ -389,7 +389,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    blockColor(value: ResourceColor | undefined): this;
+    default blockColor(value: ResourceColor | undefined): this;
     /**
      * Called when the track color of the slider is set.
      *
@@ -398,7 +398,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackColor(value: ResourceColor | LinearGradient | undefined): this;
+    default trackColor(value: ResourceColor | LinearGradient | undefined): this;
     /**
      * Called when the slider of the slider bar is set to slide over the area color.
      *
@@ -407,7 +407,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
+    default selectedColor(selectedColor: ResourceColor | LinearGradient | undefined): this;
     /**
      * Called when setting whether to display step size.
      *
@@ -416,7 +416,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    showSteps(value: boolean | undefined): this;
+    default showSteps(value: boolean | undefined): this;
     /**
      * Called when the percentage of bubble prompt is set when sliding.
      *
@@ -427,7 +427,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    showTips(value: boolean | undefined, content?: ResourceStr | undefined): this;
+    default showTips(value: boolean | undefined, content?: ResourceStr | undefined): this;
     /**
      * Called when the thickness of track is set.
      *
@@ -436,7 +436,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackThickness(value: Length | undefined): this;
+    default trackThickness(value: Length | undefined): this;
     /**
      * Triggered when the slider is dragged or clicked.
      * <p><strong>NOTE</strong>:
@@ -450,7 +450,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
+    default onChange(callback: ((value: number, mode: SliderChangeMode) => void) | undefined): this;
     /**
      * Called when the border color of block is set.
      *
@@ -459,7 +459,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    blockBorderColor(value: ResourceColor | undefined): this;
+    default blockBorderColor(value: ResourceColor | undefined): this;
     /**
      * Called when the border width of block is set.
      *
@@ -468,7 +468,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    blockBorderWidth(value: Length | undefined): this;
+    default blockBorderWidth(value: Length | undefined): this;
     /**
      * Called when the color of step is set.
      *
@@ -477,7 +477,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stepColor(value: ResourceColor | undefined): this;
+    default stepColor(value: ResourceColor | undefined): this;
     /**
      * Called when the radius of track border is set.
      *
@@ -486,7 +486,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    trackBorderRadius(value: Length | undefined): this;
+    default trackBorderRadius(value: Length | undefined): this;
     /**
      * Called when the radius of selected part is set.
      *
@@ -495,7 +495,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedBorderRadius(value: Dimension | undefined): this;
+    default selectedBorderRadius(value: Dimension | undefined): this;
     /**
      * Called when the size of block is set.
      *
@@ -504,7 +504,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    blockSize(value: SizeOptions | undefined): this;
+    default blockSize(value: SizeOptions | undefined): this;
     /**
      * Sets the style of the slider in the block direction.
      *
@@ -514,7 +514,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    blockStyle(value: SliderBlockStyle | undefined): this;
+    default blockStyle(value: SliderBlockStyle | undefined): this;
     /**
      * Called when the diameter of step is set.
      *
@@ -523,7 +523,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stepSize(value: Length | undefined): this;
+    default stepSize(value: Length | undefined): this;
     /**
      * Sets the interaction mode between the user and the slider.
      *
@@ -533,7 +533,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    sliderInteractionMode(value: SliderInteraction | undefined): this;
+    default sliderInteractionMode(value: SliderInteraction | undefined): this;
     /**
      * Sets the min value when Slider response to drag event.
      *
@@ -542,7 +542,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    minResponsiveDistance(value: number | undefined): this;
+    default minResponsiveDistance(value: number | undefined): this;
     /**
      * Creates a content modifier.
      *
@@ -552,7 +552,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<SliderConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<SliderConfiguration> | undefined): this;
     /**
      * Set the valid slidable range.
      *
@@ -561,7 +561,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    slideRange(value: SlideRange | undefined): this;
+    default slideRange(value: SlideRange | undefined): this;
     /**
      * Set the sensitivity of rotating crown.
      *
@@ -571,7 +571,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
      * Enable or disable haptic feedback.
      *
@@ -580,7 +580,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableHapticFeedback(enabled: boolean | undefined): this;
+    default enableHapticFeedback(enabled: boolean | undefined): this;
     /**
      * Set the attribute modifier
      *
@@ -589,7 +589,7 @@ export declare interface SliderAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<SliderAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
