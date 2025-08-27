@@ -569,22 +569,6 @@ declare namespace sensor {
 
   /**
    * Subscribe to orientation sensor data.
-   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, {@code Options}.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 14500101 - Service exception.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function on(type: 'ORIENTATION', callback: Callback<OrientationResponse>,
-    options?: Options): void;
-
-  /**
-   * Subscribe to orientation sensor data.
    * @param { 'orientationChange' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
    * @param { Callback<OrientationResponse> } callback - callback orientation data.
    * @param { Options } [options] - Optional parameters specifying the interval at which sensor data is reported, 
@@ -1474,19 +1458,6 @@ declare namespace sensor {
    * @arkts 1.2
    */
   function off(type: 'orientationChange', callback?: Callback<OrientationResponse>): void;
-
-  /**
-   * Unsubscribe to orientation sensor data.
-   * @param { 'ORIENTATION' } type - Indicate the sensor type to listen for, {@code SensorId.ORIENTATION}.
-   * @param { Callback<OrientationResponse> } callback - callback orientation data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Sensors.Sensor
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  function off(type: 'ORIENTATION', callback?: Callback<OrientationResponse>): void;
 
   /**
    * Unsubscribe to pedometer sensor data.
