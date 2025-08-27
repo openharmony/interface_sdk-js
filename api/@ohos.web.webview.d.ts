@@ -6523,6 +6523,8 @@ declare namespace webview {
      * The current scroll offset of the web page (excluding over-scroll offset).
      *
      * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
