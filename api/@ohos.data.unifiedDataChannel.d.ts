@@ -758,12 +758,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
-     * @param { Record<string, string> } the details of unified text
+     * @param { Record<string, string> | undefined } the details of unified text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, string>);
+    set details(value: Record<string, string> | undefined);
   }
 
   /**
@@ -1132,12 +1132,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
-     * @param { string } the description of a link
+     * @param { string | undefined } the description of a link
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set description(value: string);
+    set description(value: string | undefined);
   }
 
   /**
@@ -1341,12 +1341,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
-     * @param { string } the plain content of html
+     * @param { string | undefined} the plain content of html
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set plainContent(value: string);
+    set plainContent(value: string | undefined);
   }
 
   /**
@@ -1459,12 +1459,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
-     * @param { Record<string, string> } the details of unified File
+     * @param { Record<string, string> | undefined} the details of unified File
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, string>);
+    set details(value: Record<string, string> | undefined);
 
     /**
      * URI of the local file or online file. The local file URI can be obtained using the getUriFromPath function.
