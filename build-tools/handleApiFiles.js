@@ -263,23 +263,15 @@ function handleArktsDefinition(type, fileContent) {
  * @returns 
  */
 function saveLatestJsDoc(fileContent) {
-  let regx = /(\/\*[\s\S]*?\*\*\/)/g;
-
-  fileContent = fileContent.split('').reverse().join('');
-  let preset = 0;
-  fileContent = fileContent.replace(regx, (substring, p1, offset, str) => {
-    if (!/ecnis@\s*\*/g.test(substring)) {
+  // 获取包含@since的多段连续注释
+  return fileContent.replace(/(\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*?)+/g, (substring, p1) => {
+    if (substring === p1) {// 只有一段
       return substring;
     }
-    const preStr = str.substring(preset, offset);
-    preset = offset + substring.length;
-    if (/\S/g.test(preStr)) {
-      return substring;
-    }
-    return '';
+    // 多段时需要保留开头空行
+    const blankSpace = substring.match(/^\s*/)[0];
+    return blankSpace + p1;
   });
-  fileContent = fileContent.split('').reverse().join('');
-  return fileContent;
 }
 
 /**
