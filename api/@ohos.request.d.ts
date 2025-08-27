@@ -2526,6 +2526,22 @@ declare namespace request {
    */
   namespace agent {
     /**
+     * Indicates to show completion notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 22
+     */
+    const VISIBILITY_COMPLETION: 1;
+    /**
+     * Indicates to show progress notification.
+     * 
+     * @constant
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 22
+     */
+    const VISIBILITY_PROGRESS: 2;
+    /**
      * The action options.
      *
      * @enum { number } Action
@@ -2927,6 +2943,17 @@ declare namespace request {
        * @since 20
        */
       disable?: boolean;
+      /**
+       * The visibility of the notification.
+       * The notification information will be determined by the binary bit of the given value.
+       * The default value is 1, which means only completion notifications are displayed.
+       * The value cannot be set to 0.
+       * 
+       * @type { ?number }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 22
+       */
+      visibility?: number;
     }
 
     /**
