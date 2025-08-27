@@ -3657,8 +3657,8 @@ declare namespace window {
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
    * It takes effect only for the main window and its child windows on 2-in-1 devices.
    *
-   * @param { number } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
-   * @param { number } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -3670,7 +3670,7 @@ declare namespace window {
    * @atomicservice
    * @since 15
    */
-  function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowPointerEvent(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
    * Shift window touch event within the same application. And the window type contains only main window and subwindow.
