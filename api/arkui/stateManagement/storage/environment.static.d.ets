@@ -41,11 +41,11 @@ export declare interface EnvPropsOptions {
   /**
    * DefaultValue is the default value if cannot get the environment property value
    *
-   * @type { number | string | boolean }
+   * @type { int | long | double | string | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  defaultValue: number | string | boolean;
+  defaultValue: int | long | double | string | boolean;
 }
 
 /**
