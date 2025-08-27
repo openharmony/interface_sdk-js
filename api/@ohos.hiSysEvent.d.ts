@@ -140,10 +140,20 @@ declare namespace hiSysEvent {
      * @type { ?object }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     params?: object;
+
+    /**
+     * The params of the event.
+     *
+     * @type { ?(Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined) }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    params?: Record<string, boolean | int | double | string | bigint | boolean[] | int[] | double[] | string[] | bigint[]> | null | undefined;
   }
 
   /**
@@ -281,10 +291,20 @@ declare namespace hiSysEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     tag?: string;
+
+    /**
+     * The tag of the event.
+     *
+     * @type { ?(string | null | undefined) }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    tag?: string | null | undefined;
 
     /**
      * The rule of match system event
@@ -391,10 +411,20 @@ declare namespace hiSysEvent {
      * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     fromSeq?: long;
+
+    /**
+     * Begin sequence
+     *
+     * @type { ?(long | null | undefined) }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    fromSeq?: long | null | undefined;
 
     /**
      * End sequence
@@ -402,10 +432,20 @@ declare namespace hiSysEvent {
      * @type { ?long }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
-    toSeq?: long
+    toSeq?: long;
+
+    /**
+     * End sequence
+     *
+     * @type { ?(long | null | undefined) }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20 
+     * @arkts 1.2
+     */
+    toSeq?: long | null | undefined;
   }
 
   /**
@@ -446,10 +486,20 @@ declare namespace hiSysEvent {
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiSysEvent
      * @systemapi hide for inner use
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 
      */
     condition?: string;
+
+    /**
+     * Extra parameter condition of event
+     *
+     * @type { ?(string | null | undefined) }
+     * @syscap SystemCapability.HiviewDFX.HiSysEvent
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.2
+     */
+    condition?: string | null | undefined;
   }
 
   /**
