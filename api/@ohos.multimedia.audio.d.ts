@@ -463,6 +463,66 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio loopback reverberation preset.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackReverbPreset {
+    /**
+     * A preset that keep the original reverberation without any enhancement.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    ORIGINAL = 1,
+    /**
+     * A preset representing a reverberation effect with karaoke-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    KTV = 2,
+    /**
+     * A preset representing a reverberation effect with theater-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    THEATER = 3,
+    /**
+     * A preset representing a reverberation effect with concert-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    CONCERT = 4,
+  }
+
+  /**
+   * Enumerates audio loopback equalizer preset.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackEqualizerPreset {
+    /**
+     * A preset that keep the original frequency response without any enhancement.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    FLAT = 1,
+    /**
+     * A preset representing a equalizer that can enhance the fullness of the vocie
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    FULL = 2,
+    /**
+     * A preset representing a equalizer that can enhance the brightness of the vocie
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    BRIGHT = 3,
+  }
+
+  /**
    * Enumerates audio stream types.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -11763,6 +11823,50 @@ declare namespace audio {
      * @since 20
      */
     enable(enable: boolean): Promise<boolean>;
+
+    /**
+     * Sets the reverberation of the audio loopback.
+     *
+     * @param { AudioLoopbackReverbPreset } preset - Reverberation preset.
+     * @returns { boolean } Returns success or failure.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setReverbPreset(preset: AudioLoopbackReverbPreset): boolean;
+
+    /**
+     * Get the current reverberation.
+     * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
+     * users do not modify the preset.
+     * 
+     * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getReverbPreset(): AudioLoopbackReverbPreset;
+
+    /**
+     * Sets the equalizer preset of the audio loopback.
+     *
+     * @param { AudioLoopbackEqualizerPreset } preset - Equalizer preset.
+     * @returns { boolean } Returns success or failure.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean;
+
+    /**
+     * Gets the current equalizer preset.
+     * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
+     * users do not modify the preset.
+     * 
+     * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }
 }
 
