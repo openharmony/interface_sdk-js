@@ -109,16 +109,16 @@ export declare interface CalendarOptions {
 export declare interface CalendarPickerAttribute extends CommonMethod {
     /**
      * Set the alignment between entry and calendar dialog.
-     * @param { CalendarAlign } alignType - The type of alignment between entry and calendar dialog.
+     * @param { CalendarAlign | undefined } alignType - The type of alignment between entry and calendar dialog.
      * @param { Offset } [offset] - The offset between entry and calendar dialog.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset | undefined): this;
+    default edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset): this;
     /**
      * Sets the text style of entry
-     * @param { PickerTextStyle } value - indicates the text style of entry.
+     * @param { PickerTextStyle | undefined } value - indicates the text style of entry.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -127,7 +127,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
     /**
      * Callback for selected date changed.
      * Anonymous Object Rectification.
-     * @param { Callback<Date> } callback - callback for selected date changed.
+     * @param { Callback<Date> | undefined } callback - callback for selected date changed.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
@@ -136,7 +136,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
     /**
      * Defines whether the calendar picker marks today.
      *
-     * @param { boolean } enabled - whether the calendar picker marks today.
+     * @param { boolean | undefined } enabled - whether the calendar picker marks today.
      * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
