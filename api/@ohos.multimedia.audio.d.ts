@@ -4949,7 +4949,7 @@ declare namespace audio {
 
     /**
      * Obtains all the available audio devices with a specific device usage.
-     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage to.
      * @returns { AudioDeviceDescriptors } The device list.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
