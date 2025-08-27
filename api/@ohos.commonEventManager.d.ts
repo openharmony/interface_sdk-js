@@ -1248,7 +1248,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
+        'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
 
     /**
      * Bluetooth.handsfree.ag.current.device.update.
@@ -1258,7 +1258,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
+        'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
 
     /**
      * Bluetooth.handsfree.ag.audio.state.update.
@@ -1268,7 +1268,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
+        'usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dpsource.connect.state.update.
@@ -1279,7 +1279,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dpsource.current.device.update.
@@ -1289,7 +1289,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
+        'usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE',
 
     /**
      * Bluetooth.a2dpsource.playing.state.update.
@@ -1299,7 +1299,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dpsource.avrcp.connect.state.update.
@@ -1310,7 +1310,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dpsource.codec.value.update.
@@ -1321,7 +1321,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE =
-        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
+        'usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE',
 
     /**
      * Bluetooth.remotedevice.discovered.
@@ -1331,7 +1331,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED =
-        "usual.event.bluetooth.remotedevice.DISCOVERED",
+        'usual.event.bluetooth.remotedevice.DISCOVERED',
 
     /**
      * Bluetooth.remotedevice.class.value.update.
@@ -1341,7 +1341,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
+        'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
 
     /**
      * Bluetooth.remotedevice.acl.connected.
@@ -1352,7 +1352,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
+        'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
 
     /**
      * Bluetooth.remotedevice.acl.disconnected.
@@ -1363,7 +1363,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED =
-        "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
+        'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
 
     /**
      * Bluetooth.remotedevice.name.update.
@@ -1373,7 +1373,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE =
-        "usual.event.bluetooth.remotedevice.NAME_UPDATE",
+        'usual.event.bluetooth.remotedevice.NAME_UPDATE',
 
     /**
      * Bluetooth.remotedevice.pair.state.
@@ -1384,7 +1384,7 @@ declare namespace commonEventManager {
      * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE_CHANGE
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE =
-        "usual.event.bluetooth.remotedevice.PAIR_STATE",
+        'usual.event.bluetooth.remotedevice.PAIR_STATE',
 
     /**
      * Bluetooth.remotedevice.battery.value.update.
@@ -1394,7 +1394,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE =
-        "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
+        'usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE',
 
     /**
      * Bluetooth.remotedevice.sdp.result.
@@ -1404,7 +1404,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT =
-        "usual.event.bluetooth.remotedevice.SDP_RESULT",
+        'usual.event.bluetooth.remotedevice.SDP_RESULT',
 
     /**
      * Bluetooth.remotedevice.uuid.value.
@@ -1414,7 +1414,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE =
-        "usual.event.bluetooth.remotedevice.UUID_VALUE",
+        'usual.event.bluetooth.remotedevice.UUID_VALUE',
 
     /**
      * Bluetooth.remotedevice.pairing.req.
@@ -1424,7 +1424,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ =
-        "usual.event.bluetooth.remotedevice.PAIRING_REQ",
+        'usual.event.bluetooth.remotedevice.PAIRING_REQ',
 
     /**
      * Bluetooth.remotedevice.pairing.cancel.
@@ -1434,7 +1434,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL =
-        "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
+        'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
 
     /**
      * Bluetooth.remotedevice.connect.req.
@@ -1444,7 +1444,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ =
-        "usual.event.bluetooth.remotedevice.CONNECT_REQ",
+        'usual.event.bluetooth.remotedevice.CONNECT_REQ',
 
     /**
      * Bluetooth.remotedevice.connect.reply.
@@ -1454,7 +1454,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY =
-        "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
+        'usual.event.bluetooth.remotedevice.CONNECT_REPLY',
 
     /**
      * Bluetooth.remotedevice.connect.cancel.
@@ -1464,7 +1464,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL =
-        "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
+        'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
 
     /**
      * Bluetooth.handsfreeunit.connect.state.update.
@@ -1474,7 +1474,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
+        'usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE',
 
     /**
      * Bluetooth.handsfreeunit.audio.state.update.
@@ -1484,7 +1484,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
+        'usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE',
 
     /**
      * Bluetooth.handsfreeunit.ag.common.event.
@@ -1494,7 +1494,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT =
-        "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
+        'usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT',
 
     /**
      * Bluetooth.handsfreeunit.ag.call.state.update.
@@ -1504,7 +1504,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE =
-        "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
+        'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
 
     /**
      * Bluetooth.host.state.update.
@@ -1514,7 +1514,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE =
-        "usual.event.bluetooth.host.STATE_UPDATE",
+        'usual.event.bluetooth.host.STATE_UPDATE',
 
     /**
      * Bluetooth.host.req.discoverable.
@@ -1524,7 +1524,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE =
-        "usual.event.bluetooth.host.REQ_DISCOVERABLE",
+        'usual.event.bluetooth.host.REQ_DISCOVERABLE',
 
     /**
      * Bluetooth.host.req.enable.
@@ -1533,7 +1533,7 @@ declare namespace commonEventManager {
      * @since 9
      * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = "usual.event.bluetooth.host.REQ_ENABLE",
+    COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
 
     /**
      * Bluetooth.host.req.disable.
@@ -1543,7 +1543,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE =
-        "usual.event.bluetooth.host.REQ_DISABLE",
+        'usual.event.bluetooth.host.REQ_DISABLE',
 
     /**
      * Bluetooth.host.scan.mode.update.
@@ -1553,7 +1553,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE =
-        "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
+        'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
 
     /**
      * Bluetooth.host.discovery.stated.
@@ -1563,7 +1563,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED =
-        "usual.event.bluetooth.host.DISCOVERY_STARTED",
+        'usual.event.bluetooth.host.DISCOVERY_STARTED',
 
     /**
      * Bluetooth.host.discovery.finished.
@@ -1573,7 +1573,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED =
-        "usual.event.bluetooth.host.DISCOVERY_FINISHED",
+        'usual.event.bluetooth.host.DISCOVERY_FINISHED',
 
     /**
      * Bluetooth.host.name.update.
@@ -1583,7 +1583,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE =
-        "usual.event.bluetooth.host.NAME_UPDATE",
+        'usual.event.bluetooth.host.NAME_UPDATE',
 
     /**
      * Bluetooth.a2dp.connect.state.update.
@@ -1593,7 +1593,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dp.playing.state.update.
@@ -1603,7 +1603,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE',
 
     /**
      * Bluetooth.a2dp.audio.state.update.
@@ -1613,7 +1613,7 @@ declare namespace commonEventManager {
      * @deprecated since 20
      */
     COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE =
-        "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
+        'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
 
     /**
      * Nfc state change.
@@ -2512,7 +2512,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_CHANGE =
-        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_CHANGE",
+        'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_CHANGE',
 
     /**
       * Indicates that the privacy status is changed.
@@ -2626,7 +2626,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_CHANGE =
-        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_CHANGE",
+        'usual.event.bluetooth.a2dpsource.CONNECT_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth avrcp connection state change.
@@ -2637,7 +2637,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_CHANGE =
-        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_CHANGE",
+        'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth codec change.
@@ -2648,7 +2648,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_CHANGE =
-        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_CHANGE",
+        'usual.event.bluetooth.a2dpsource.CODEC_VALUE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth remote device acl state change.
@@ -2659,7 +2659,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE = 
-        "usual.event.bluetooth.remotedevice.ACL_STATE_CHANGE",
+        'usual.event.bluetooth.remotedevice.ACL_STATE_CHANGE',
 
     /**
      * Indicates the action of a common event that bluetooth pair state change.
@@ -2670,7 +2670,7 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE_CHANGE =
-        "usual.event.bluetooth.remotedevice.PAIR_STATE_CHANGE",
+        'usual.event.bluetooth.remotedevice.PAIR_STATE_CHANGE',
 
     /**
      * Indicates that the managed browser policy is changed.
