@@ -452,7 +452,7 @@ declare namespace avSession {
    * Unregister distributed session changed callback
    * @param { 'distributedSessionChange' } type - Registration Type, distributed session change
    * @param { DistributedSessionType } distributedSessionType - Indicates the distributed session type
-   * @param { Callback<Array<AVSessionController>> } callback - The callback will return remote changed AVSessionController.
+   * @param { Callback<Array<AVSessionController>> } [callback] - The callback will return remote changed AVSessionController.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -2064,7 +2064,7 @@ declare namespace avSession {
     /**
      * Unsubscribes to playWithAssetId events.
      * @param { 'playWithAssetId' } type - Event type.
-     * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
+     * @param { Callback<string> } [callback] - Callback used to handle the 'playWithAssetId' command.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2239,7 +2239,7 @@ declare namespace avSession {
     /**
      * Unregister setTargetLoopMode command callback
      * @param { 'setTargetLoopMode' } type - Registration Type 'setTargetLoopMode'
-     * @param { Callback<LoopMode> } callback - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
+     * @param { Callback<LoopMode> } [callback] - Used to handle setTargetLoopMode command.The callback provides the {@link LoopMode}
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
