@@ -863,40 +863,38 @@ declare namespace wifiManager {
    * Set whther to allow automatic connnect by networkId.
    * The network can be associated with again if isAllowed is true, else not.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { int } netId Identifies the network to be set. The value of networkId cannot be less than 0.
+   * @param { number } netId Identifies the network to be set. The value of networkId cannot be less than 0.
    * @param { boolean } isAllowed Identifies whether allow auto connect or not.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'17', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
-  function allowAutoConnect(netId: int, isAllowed: boolean): void;
+  function allowAutoConnect(netId: number, isAllowed: boolean): void;
 
   /**
    * Disable the specified DeviceConfig by networkId.
    * The disabled DeviceConfig will not be associated with again.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { int } netId Identifies the network to disable. The value of networkId cannot be less than 0.
+   * @param { number } netId Identifies the network to disable. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
-  function disableNetwork(netId: int): void;
+  function disableNetwork(netId: number): void;
 
   /**
    * Remove all the saved Wi-Fi configurations.
@@ -908,8 +906,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   function removeAllNetwork(): void;
 
@@ -920,18 +917,17 @@ declare namespace wifiManager {
    * The application can only delete Wi-Fi DeviceConfig it has created.
    * @permission ohos.permission.SET_WIFI_INFO and (ohos.permission.MANAGE_WIFI_CONNECTION or
    * ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION)
-   * @param { int } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
+   * @param { number } id - Indicate the ID of the Wi-Fi DeviceConfig. The value of networkId cannot be less than 0.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
-  function removeDevice(id: int): void;
+  function removeDevice(id: number): void;
 
   /**
    * Check whether the current device supports the specified band.
@@ -942,25 +938,23 @@ declare namespace wifiManager {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function isBandTypeSupported(bandType: WifiBandType): boolean;
 
   /**
    * Obtain the supported 5G channel list of the device.
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-   * @returns { Array<int> } Returns 5G channel list.
+   * @returns { Array<number> } Returns 5G channel list.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
-  function get5GChannelList(): Array<int>;
+  function get5GChannelList(): Array<number>;
 
   /**
    * Obtain the latest disconnected reason.
@@ -971,8 +965,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   function getDisconnectedReason(): DisconnectedReason;
 
@@ -986,8 +979,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function startPortalCertification(): void;
 
@@ -1013,15 +1005,14 @@ declare namespace wifiManager {
    * @param { WifiDeviceConfig } config - Indicates the Wi-Fi device config.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): void;
 
@@ -1034,8 +1025,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function factoryReset(): void;
 
@@ -1189,7 +1179,7 @@ declare namespace wifiManager {
    */
   function getStations(): Array<StationInfo>;
 
-    /**
+   /**
    * Add the station into the block list, the station can NOT access the hotspot.
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { StationInfo } stationInfo - station which will be added in the block list.
@@ -1999,10 +1989,10 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2601000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Core
 
-    * @systemapi Hide this for inner system use.
-    * @since arkts {'1.1':'9', '1.2':'20'}
-    * @arkts 1.1&1.2
-    */
+   * @systemapi Hide this for inner system use.
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
@@ -3802,7 +3792,7 @@ declare namespace wifiManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-    
+   
   interface WifiLinkedInfo {
     /**
      * The SSID of the Wi-Fi hotspot
@@ -4961,4 +4951,3 @@ declare namespace wifiManager {
 }
 
 export default wifiManager;
-  
