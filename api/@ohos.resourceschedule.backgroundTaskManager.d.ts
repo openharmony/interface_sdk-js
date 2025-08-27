@@ -874,7 +874,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
+   * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -900,7 +900,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskActive' } type - The type of continuous task active.
-   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
+   * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
