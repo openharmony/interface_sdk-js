@@ -3766,6 +3766,22 @@ declare namespace window {
   function getTopNavDestinationName(windowId: number): Promise<string>;
 
   /**
+   * Set or remove the watermark image for all windows of the application.
+   *
+   * @param { image.PixelMap | undefined } pixelMap - The image that will be set as the watermark for all windows of the
+   *     application. If undefined, it removes the watermark from all windows.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Function setWatermarkImageForAppWindows can not to work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function setWatermarkImageForAppWindows(pixelMap: image.PixelMap | undefined): Promise<void>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
