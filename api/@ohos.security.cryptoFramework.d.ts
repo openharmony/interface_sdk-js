@@ -1332,6 +1332,19 @@ declare namespace cryptoFramework {
     setSeed(seed: DataBlob): void;
 
     /**
+     * Enable the hardware entropy source.
+     *
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Rand
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    enableHardwareEntropy(): void;
+
+    /**
      * Indicates the random generation algorithm name.
      *
      * @type { string }
