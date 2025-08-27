@@ -3037,7 +3037,7 @@ declare namespace window {
     /**
      * Whether use cached windows' snapshot.
      *
-     * @type { ?number }
+     * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @since 21
      * @arkts 1.1&1.2
