@@ -117,7 +117,7 @@ declare namespace inspector {
      * @deprecated since 18
      * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
      */
-    function createComponentObserver(id: string): ComponentObserver | undefined;
+    function createComponentObserver(id: string): ComponentObserver;
     /**
      * Obtains all attributes of the component with the specified ID.
      *
