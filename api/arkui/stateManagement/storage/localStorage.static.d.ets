@@ -72,9 +72,8 @@ export declare class LocalStorage {
    * Create and return a two-way sync "(link") to named property
    *
    * @param { string } propName - name of source property in LocalStorage
-   * @returns { SubscribedAbstractProperty<T> | undefined } instance of  SubscribedAbstractProperty<T>
-   *           return undefined if named property does not already exist in LocalStorage
-   *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
+   * @returns { SubscribedAbstractProperty<T> | undefined } instance of 
+   *     SubscribedAbstractProperty<T>, return undefined if named property does not already exist in LocalStorage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
