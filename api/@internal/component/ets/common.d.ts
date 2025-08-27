@@ -6325,7 +6325,6 @@ declare class DrawModifier {
    * @since 12
    */
   drawFront?(drawContext: DrawContext): void;
-
   /**
    * drawforeground Method. Executed after drawing associated Node and its children.
    * @param { DrawContext } drawContext - The drawContext used to draw
@@ -20891,6 +20890,7 @@ declare class CommonMethod<T> {
    * @form
    * @since 10
    */
+
   /**
    * Background blur style.
    * blurStyle:Blur style type.
