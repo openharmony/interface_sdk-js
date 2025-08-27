@@ -1171,7 +1171,7 @@ declare class Path2D extends CanvasPath {
   /**
    * Create an empty path object.
    *
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1222,7 +1222,7 @@ declare class Path2D extends CanvasPath {
    * Create a copy of a path object
    *
    * @param { Path2D } path - Path object to be copied
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -1273,7 +1273,7 @@ declare class Path2D extends CanvasPath {
    * Create a new path according to the description.
    *
    * @param { string } description - Indicates the path string that compiles with the SVG path description specifications.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -6952,7 +6952,7 @@ declare class OffscreenCanvas {
    *
    * @param { number } width - Width of the off-screen canvas.
    * @param { number } height - Height of the off-screen canvas.
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @param { LengthMetricsUnit } unit - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
