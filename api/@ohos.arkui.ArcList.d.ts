@@ -89,7 +89,7 @@ export interface ArcListInterface {
   /**
    * Creates the arc list component.
    *
-   * @param { ArkListOptions } options
+   * @param { ArkListOptions } [options]
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
