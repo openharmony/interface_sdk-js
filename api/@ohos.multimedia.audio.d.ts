@@ -4949,7 +4949,7 @@ declare namespace audio {
 
     /**
      * Obtains all the available audio devices with a specific device usage.
-     * @param { DeviceUsage } deviceUsage - Audio device usage to.
+     * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
      * @returns { AudioDeviceDescriptors } The device list.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
@@ -4962,7 +4962,7 @@ declare namespace audio {
      * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
      * the callback.
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
-     * @param { DeviceUsage } deviceUsage - Audio device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
@@ -5030,7 +5030,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
-    getPreferBluetoothAndNearlinkRecord(): boolean;
+    getPreferredBluetoothAndNearlinkRecord(): boolean;
 
     /**
      * Subscribes input device change event callback. The event is triggered when current input device change.
