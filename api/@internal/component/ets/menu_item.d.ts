@@ -41,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface MenuItemOptions {
   /**
@@ -235,6 +236,7 @@ declare interface MenuItemOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface MenuItemInterface {
   /**
@@ -290,6 +292,7 @@ interface MenuItemInterface {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**

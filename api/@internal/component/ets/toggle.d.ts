@@ -390,6 +390,7 @@ declare interface ToggleOptions {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface ToggleInterface {
   /**
@@ -478,6 +479,7 @@ interface ToggleInterface {
  * @form
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
