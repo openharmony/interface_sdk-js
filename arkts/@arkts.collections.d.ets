@@ -18,7 +18,9 @@
  * @kit ArkTS
  */
 
+/*** if arkts 1.1 */
 import lang from './@arkts.lang'
+/*** endif */
 
 /**
  * ArkTS collections.
@@ -12516,7 +12518,7 @@ declare namespace collections {
     values(): IterableIterator<number>;
     /**
      * Returns the item at that index.
-     * 
+     *
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
      * @since 12
