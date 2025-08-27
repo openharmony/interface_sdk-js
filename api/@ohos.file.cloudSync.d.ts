@@ -161,6 +161,14 @@ declare namespace cloudSync {
      * @arkts 1.1&1.2
      */
     DEVICE_TEMPERATURE_TOO_HIGH = 7,
+    /**
+     * Synchronization aborted due to remote server is abnormal.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    REMOTE_SERVER_ABNORMAL = 8,
     
   }
 

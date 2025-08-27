@@ -544,7 +544,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * Sets the text style for the selected item.
    *
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
+   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20fp', <br>weight: FontWeight.Medium<br>}<br>}
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -559,7 +559,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * this API supports the undefined type for the style parameter.
    *
    * @param { Optional<PickerTextStyle> } style - Font color, font size, and font weight of the selected item.
-   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20vp', <br>weight: FontWeight.Medium<br>}<br>}
+   * @default {<br>color: '#ff007dff',<br>font: {<br>size: '20fp', <br>weight: FontWeight.Medium<br>}<br>}
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -957,7 +957,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * Font color, font size, and font width of the selected item.
    *
    * @type { ?PickerTextStyle }
-   * @default { color: '#ff007dff', font: { size: '20vp', weight: FontWeight.Medium } }
+   * @default { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

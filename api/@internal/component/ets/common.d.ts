@@ -3483,89 +3483,6 @@ declare enum AccessibilityRoleType {
 declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
 /**
- * Enum for accessibility action type
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-declare enum AccessibilityAction {
-  /**
-  * undefined action type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
-  UNDEFINED_ACTION = 0,
-  /**
-  * accessibility click action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
-  ACCESSIBILITY_CLICK = 1,
-}
-
-/**
- * Enum for the result of accessibility action intercept function
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-declare enum AccessibilityActionInterceptResult {
-  /**
-  * intercept the accessibility action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
-  ACTION_INTERCEPT = 0,
-  /**
-  * the accessibility action can be continued
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
-  ACTION_CONTINUE = 1,
-  /**
-  * the accessibility action need to bubble up for execution
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20
-  */
-  ACTION_RISE = 2,
-}
-
-/**
- * Defines the callback type used in accessibility action intercept.
- * The value of action indicates the accessibility action type.
- * @typedef { function } AccessibilityActionInterceptCallback
- * @param { AccessibilityAction } action - the enum of accessibility action type.
- * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20
- */
-declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction) => AccessibilityActionInterceptResult;
-
-/**
  * Enum for FinishCallbackType.
  *
  * @enum { number }
@@ -4357,7 +4274,6 @@ declare interface sharedTransitionOptions {
    * Animation curve.<br>You are advised to specify the curve using the Curve or ICurve type.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -4369,7 +4285,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4382,7 +4297,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -14100,25 +14014,6 @@ declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').de
  * @arkts 1.2
  */
 declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
-/**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
- 
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
  * Import the DataLoadParams type object for ui component.
@@ -14351,7 +14246,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @since 11
-  */
+   */
   /**
    * r = d
    *
@@ -14389,7 +14284,7 @@ declare enum BlendMode {
    * @crossplatform
    * @form
    * @since 11
-  */
+   */
   /**
    * r = d + (1 - da) * s: The target pixels are blended based on opacity and cover on the source pixels.
    *
@@ -15111,20 +15006,20 @@ declare interface DragEvent {
   getY(): number;
 
   /**
-  * If copy is COPY, this DragEvent is a copy event.
-  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-  * @default COPY
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 10
-  */
+   * If copy is COPY, this DragEvent is a copy event.
+   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+   * @default COPY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 10
+   */
   /**
-  * If copy is COPY, this DragEvent is a copy event.
-  * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-  * @default COPY
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since 11
-  */
+   * If copy is COPY, this DragEvent is a copy event.
+   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+   * @default COPY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 11
+   */
   /**
   * If copy is COPY, this DragEvent is a copy event.
   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
@@ -16194,7 +16089,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16203,7 +16098,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16790,7 +16685,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16799,7 +16694,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16850,7 +16745,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18107,6 +18002,7 @@ declare interface PopupCommonOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18145,6 +18041,7 @@ declare interface PopupCommonOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18246,7 +18143,7 @@ declare interface PopupCommonOptions {
    * Set popup focusable
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -18326,7 +18223,7 @@ declare interface PopupCommonOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */  
+   */
   outlineWidth?: Dimension;
 
   /**
@@ -18339,7 +18236,7 @@ declare interface PopupCommonOptions {
    * @since 20
    */
   borderWidth?: Dimension;
-    
+
   /**
    * The LinearGradient of popup's outline.
    *
@@ -18893,6 +18790,7 @@ declare interface PopupOptions {
    * Whether to display in the sub window.
    *
    * @type { ?boolean }
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19010,6 +18908,7 @@ declare interface PopupOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19100,7 +18999,7 @@ declare interface PopupOptions {
    */
   arrowPointPosition?: ArrowPointPosition;
 
- /**
+  /**
    * The width of the arrow.
    *
    * @type { ?Dimension }
@@ -19293,7 +19192,7 @@ declare interface PopupOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */  
+   */
   outlineWidth?: Dimension;
 
   /**
@@ -19306,7 +19205,7 @@ declare interface PopupOptions {
    * @since 20
    */
   borderWidth?: Dimension;
-    
+
   /**
    * The LinearGradient of popup's outline.
    *
@@ -19711,6 +19610,7 @@ declare interface CustomPopupOptions {
    * Sets the position offset of the popup.
    *
    * @type { ?Position }
+   * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19892,7 +19792,7 @@ declare interface CustomPopupOptions {
    * Set popup focusable
    *
    * @type { ?boolean }
-   * @default true
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -19994,7 +19894,7 @@ declare interface CustomPopupOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */  
+   */
   outlineWidth?: Dimension;
 
   /**
@@ -20007,7 +19907,7 @@ declare interface CustomPopupOptions {
    * @since 20
    */
   borderWidth?: Dimension;
-    
+
   /**
    * The LinearGradient of popup's outline.
    *
@@ -20140,7 +20040,7 @@ interface ContextMenuAnimationOptions {
    * Sets the start animator scale and end animator scale.
    *
    * @type { ?AnimationRange<number> }
-   * @default -
+   * @default [0.95, 1.1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -20310,6 +20210,89 @@ declare enum ModalMode {
 }
 
 /**
+ * Enum for accessibility action type
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum AccessibilityAction {
+  /**
+  * undefined action type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  UNDEFINED_ACTION = 0,
+  /**
+  * accessibility click action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACCESSIBILITY_CLICK = 1,
+}
+
+/**
+ * Enum for the result of accessibility action intercept function
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum AccessibilityActionInterceptResult {
+  /**
+  * intercept the accessibility action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_INTERCEPT = 0,
+  /**
+  * the accessibility action can be continued
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_CONTINUE = 1,
+  /**
+  * the accessibility action need to bubble up for execution
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @form
+  * @atomicservice
+  * @since 20
+  */
+  ACTION_RISE = 2,
+}
+
+/**
+ * Defines the callback type used in accessibility action intercept.
+ * The value of action indicates the accessibility action type.
+ * @typedef { function } AccessibilityActionInterceptCallback
+ * @param { AccessibilityAction } action - the enum of accessibility action type.
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction) => AccessibilityActionInterceptResult;
+
+/**
  * Menu mask type
  *
  * @interface MenuMaskType
@@ -20360,7 +20343,7 @@ declare enum PreviewScaleMode {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */    
+   */
   AUTO = 0,
 
   /**
@@ -20370,7 +20353,7 @@ declare enum PreviewScaleMode {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */    
+   */
   CONSTANT = 1,
 
   /**
@@ -20380,8 +20363,8 @@ declare enum PreviewScaleMode {
    * @crossplatform
    * @atomicservice
    * @since 20
-   */    
-  MAINTAIN = 2,
+   */
+  MAINTAIN = 2
 }
 
 /**
@@ -22256,47 +22239,6 @@ declare enum DragPreviewMode {
 }
 
 /**
- * Define drag start animation effect from drag preview to the handle drag image
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since arkts {'1.1':'19','1.2':'20'}
- * @arkts 1.1&1.2
- */
-declare enum DraggingSizeChangeEffect {
-  /**
-   * Default effect, no transition.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  DEFAULT = 0,
-
-  /**
-   * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SIZE_TRANSITION = 1,
-
-  /**
-   * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  SIZE_CONTENT_TRANSITION = 2,
-}
-
-/**
  * Define the menu pop-up policy
  *
  * @enum { number }
@@ -22860,6 +22802,26 @@ declare interface BackgroundOptions {
    */
   ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
+
+/**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+ 
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
  * CommonMethod.
@@ -23852,24 +23814,6 @@ declare class CommonMethod<T> {
    */
   backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions): T;
 
-  /**
-   * Background blur style.
-   * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
-   *
-   * @param { Optional<BlurStyle> } style
-   * @param { BackgroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
-
    /**
    * Sets the background effect of the component, including the blur radius, brightness, saturation, and color.
    *
@@ -23891,24 +23835,6 @@ declare class CommonMethod<T> {
    * @arkts 1.1&1.2
    */
   backgroundEffect(options: BackgroundEffectOptions): T;
-
-  /**
-   * Sets the background effect of the component, including the blur radius, brightness,
-   * saturation, and color. Compared to backgroundEffect<sup>11+</sup>,
-   * this API supports the **undefined** type for the **options** parameter.
-   *
-   * @param { Optional<BackgroundEffectOptions> } options - Background effect, including saturation,
-   * brightness, and color.
-   * <br>If **options** is **undefined**, the background reverts to its default state with no effect.
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - System adaptive adjustment options.
-   * <br>Default value: **{ disableSystemAdaptation: false }**.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
 
   /**
    * options:background effect options.
@@ -24041,23 +23967,6 @@ declare class CommonMethod<T> {
    * @since 18
    */
   foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions): T;
-
-  /**
-   * Foreground blur style.
-   * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
-   *
-   * @param { Optional<BlurStyle> } style
-   * @param { ForegroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Sets the opacity of the component.
@@ -24708,7 +24617,7 @@ declare class CommonMethod<T> {
    *
    * <p><strong>NOTE</strong>:
    * <br> If the distanceThreshold value specified is less than or equal to 0 vp, it will be converted to the default value.
-   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
+   * <br> Since API version 12, the following constraints apply when this API is used in service widgets:
    * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
    * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
    * </p>
@@ -24745,19 +24654,6 @@ declare class CommonMethod<T> {
    * @arkts 1.1&1.2
    */
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
-
-  /**
-   * Trigger a hover move event.
-   *
-   * @param { Callback<HoverEvent> } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  onHoverMove(event: Callback<HoverEvent>): T;
 
   /**
    * Trigger a accessibility hover event.
@@ -24911,7 +24807,7 @@ declare class CommonMethod<T> {
   /**
    * Digital crown input.
    *
-   * @param { Callback<CrownEvent> } event
+   * @param { Optional<Callback<CrownEvent>> } handler
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -25553,24 +25449,6 @@ declare class CommonMethod<T> {
    * @since 18
    */
   blur(blurRadius: Optional<number>, options?: BlurOptions): T;
-
-  /**
-   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
-   * The larger the blurring radius, the more blurring the content.
-   * If the value is 0, the content blurring effect is not blurring.
-   *
-   * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
-   * @param { BlurOptions } [options] - options indicates blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Applies a linear gradient foreground blur effect to the component.
@@ -26376,7 +26254,7 @@ declare class CommonMethod<T> {
    * <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
    * or <!--DelEnd-->the window.
    * <br>Default value: **false**.
-   * @param { EffectType } [effectType] - Type of effect to apply to the component, which is defined by
+   * @param { EffectType } effectType - Type of effect to apply to the component, which is defined by
    * <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
    * <br>Default value: **EffectType.DEFAULT**.
    * @returns { T } return the component attribute.
@@ -26489,23 +26367,6 @@ declare class CommonMethod<T> {
    * @since 18
    */
   backdropBlur(radius: Optional<number>, options?: BlurOptions): T;
-
-  /**
-   * Adds the background blur effect for the current component. The input parameter is the blur radius.
-   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
-   *
-   * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
-   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
-   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'19','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
    * Sets whether the component and its child components are rendered off
@@ -27556,19 +27417,6 @@ declare class CommonMethod<T> {
    * @since 20
    */
   align(alignment: Alignment | LocalizedAlignment): T;
-
-  /**
-   * Defines the align rules of child component in Stack container.
-   *
-   * @param { LocalizedAlignment } alignment
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  layoutGravity(alignment: LocalizedAlignment): T;
 
   /**
    * position
@@ -29355,20 +29203,6 @@ declare class CommonMethod<T> {
   geometryTransition(id: string, options?: GeometryTransitionOptions): T;
 
   /**
-  * Tips control
-  *
-  * @param { TipsMessageType } message
-  * @param { TipsOptions } [options]
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform
-  * @atomicservice
-  * @since arkts {'1.1':'19','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
-  bindTips(message: TipsMessageType, options?: TipsOptions): T;
-
-  /**
    * Popup control
    *
    * @param { boolean } show
@@ -30035,19 +29869,6 @@ declare class CommonMethod<T> {
   accessibilityUseSamePage(pageMode: AccessibilitySamePageMode): T;
 
   /**
-   * Sets accessibilityScrollTriggerable
-   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  accessibilityScrollTriggerable(isTriggerable: boolean): T;
-
-  /**
    * Sets the accessibility text.
    * <p><strong>NOTE</strong>
    * If a component has both text content and accessibility text, only the accessibility text is announced.
@@ -30091,19 +29912,6 @@ declare class CommonMethod<T> {
    * @arkts 1.1&1.2
    */
   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
-
-  /**
-   * Register accessibility action intercept callback,
-   * when accessibility action is to be executed,the callback will be executed
-   * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
   /**
    * Sets accessibilityTextHint
@@ -30560,6 +30368,21 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
+   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
+   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
+   * position, after this, before handling any move events, the component can use this interface to know which
+   * gesture recognizers will participate in the recognition and competing with each other.
+   *
+   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  onTouchTestDone(callback: TouchTestDoneCallback): T;
+
+  /**
    * This callback is triggered when the component size changes due to layout updates.
    * This event is not triggered for render attribute changes caused by re-rendering.
    *
@@ -30575,6 +30398,82 @@ declare class CommonMethod<T> {
   onSizeChange(event: SizeChangeCallback): T;
 
   /**
+  * Tips control
+  *
+  * @param { TipsMessageType } message
+  * @param { TipsOptions } [options]
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since arkts {'1.1':'19','1.2':'20'}
+  * @arkts 1.1&1.2
+  */
+  bindTips(message: TipsMessageType, options?: TipsOptions): T;
+
+  /**
+   * Trigger a hover move event.
+   *
+   * @param { Callback<HoverEvent> } event
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  onHoverMove(event: Callback<HoverEvent>): T;
+
+  /**
+   * Sets accessibilityScrollTriggerable
+   * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  accessibilityScrollTriggerable(isTriggerable: boolean): T;
+
+  /**
+   * Sets the background effect of the component, including the blur radius, brightness,
+   * saturation, and color. Compared to backgroundEffect<sup>11+</sup>,
+   * this API supports the **undefined** type for the **options** parameter.
+   *
+   * @param { Optional<BackgroundEffectOptions> } options - Background effect, including saturation,
+   * brightness, and color.
+   * <br>If **options** is **undefined**, the background reverts to its default state with no effect.
+   * @param { SystemAdaptiveOptions } [ sysOptions ] - System adaptive adjustment options.
+   * <br>Default value: **{ disableSystemAdaptation: false }**.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 18
+   */
+  backgroundEffect(options: Optional<BackgroundEffectOptions>): T;
+
+  /**
+   * Adds the content blurring effect for the current component. The input parameter is the blurring radius.
+   * The larger the blurring radius, the more blurring the content.
+   * If the value is 0, the content blurring effect is not blurring.
+   *
+   * @param { Optional<number> } blurRadius - value indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
+
+   /**
    * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
    *
    * @param { FocusDrawLevel } drawLevel - indicates accessibility focus draw level.
@@ -30589,19 +30488,70 @@ declare class CommonMethod<T> {
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 
   /**
-   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
-   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
-   * position, after this, before handling any move events, the component can use this interface to know which
-   * gesture recognizers will participate in the recognition and competing with each other.
+   * Background blur style.
+   * blurStyle:Blur style type.
+   * sysOptions: system adaptive options.
    *
-   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
+   * @param { Optional<BlurStyle> } style
+   * @param { BackgroundBlurStyleOptions } [options]
+   * @param { SystemAdaptiveOptions } [sysOptions]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
+
+  /**
+   * Adds the background blur effect for the current component. The input parameter is the blur radius.
+   * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
+   *
+   * @param { Optional<number> } radius - radius indicates radius of backdrop blur.
+   * @param { BlurOptions } [options] - options indicates the backdrop blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - system adaptive options.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
+
+  /**
+   * Foreground blur style.
+   * blurStyle:Blur style type.
+   * sysOptions: system adaptive options.
+   *
+   * @param { Optional<BlurStyle> } style
+   * @param { ForegroundBlurStyleOptions } [options]
+   * @param { SystemAdaptiveOptions } [sysOptions]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
+
+  /**
+   * Register accessibility action intercept callback,
+   * when accessibility action is to be executed,the callback will be executed
+   * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 20
    */
-  onTouchTestDone(callback: TouchTestDoneCallback): T;
+  onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
+
 }
 
 /**
@@ -34397,7 +34347,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when an item is moved through other items.
    *
-   * @type { ?Callback<number> }
+   * @type { ?OnMoveHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -35796,6 +35746,47 @@ declare interface DateRange {
    * @arkts 1.1&1.2
    */
   end?: Date;
+}
+
+/**
+ * Define drag start animation effect from drag preview to the handle drag image
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since arkts {'1.1':'19','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+declare enum DraggingSizeChangeEffect {
+  /**
+   * Default effect, no transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  DEFAULT = 0,
+
+  /**
+   * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  SIZE_TRANSITION = 1,
+
+  /**
+   * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  SIZE_CONTENT_TRANSITION = 2,
 }
 
 /**

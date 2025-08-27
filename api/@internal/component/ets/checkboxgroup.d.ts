@@ -436,6 +436,51 @@ interface CheckboxGroupInterface {
 declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
 /**
+ * CheckBoxGroupConfiguration used by content modifier.
+ *
+ * @extends CommonConfiguration<CheckBoxGroupConfiguration>
+ * @interface CheckBoxGroupConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare interface CheckBoxGroupConfiguration extends CommonConfiguration<CheckBoxGroupConfiguration> {
+  /**
+   * Current name of checkboxgroup.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  name: string;
+
+  /**
+   * Defines the select status of CheckboxGroup.
+   *
+   * @type { SelectStatus }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  status: SelectStatus;
+
+  /**
+   * Trigger checkboxgroup select change.
+   *
+   * @type { Callback<boolean> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  triggerChange: Callback<boolean>;
+}
+
+/**
  * Defines the attribute functions of CheckboxGroup.
  *
  * @extends CommonMethod<CheckboxGroupAttribute>
@@ -744,6 +789,18 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @arkts 1.1&1.2
    */  
   checkboxShape(shape: Optional<CheckBoxShape>): CheckboxGroupAttribute;
+
+  /**
+   * Set the content modifier of checkboxgroup.
+   *
+   * @param { Optional<ContentModifier<CheckBoxGroupConfiguration>> } modifier - The content modifier of checkboxgroup.
+   * @returns { CheckboxGroupAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */  
+  contentModifier(modifier: Optional<ContentModifier<CheckBoxGroupConfiguration>>): CheckboxGroupAttribute;
 }
 
 /**

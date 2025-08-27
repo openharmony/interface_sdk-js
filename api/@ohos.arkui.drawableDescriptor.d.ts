@@ -21,63 +21,6 @@
 import image from './@ohos.multimedia.image';
 
 /**
- * Indicates the return result of the data to be fetched.
- *
- * @typedef DrawableDescriptorResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface DrawableDescriptorResult {
-  /**
-   * DrawableDescriptor width.The default value is -1.
-   *
-   * @type { ?number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  readonly width?: number;
-
-  /**
-   * DrawableDescriptor height.The default value is -1.
-   *
-   * @type { ?number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  readonly height?: number;
-}
-
-/**
- * DrawableDescriptor's option which is used in constructor.
- *
- * @typedef DrawableDescriptorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface DrawableDescriptorOptions {
-  /**
-   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetchWhenConstructingWithUri?: boolean;
-}
-
-/**
  * Use the DrawableDescriptor class to get drawable image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,53 +79,6 @@ export declare class DrawableDescriptor {
    * @arkts 1.1&1.2
    */
   getPixelMap(): image.PixelMap;
-  /**
-   * Get original width of drawable object.
-   *
-   * @returns { number } Return the width of the DrawableDescriptor object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  getOriginalWidth(): number;
-
-  /**
-   * Get original height of drawable object.
-   *
-   * @returns { number } Return the height of the DrawableDescriptor object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  getOriginalHeight(): number;
-
-  /**
-   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
-   *
-   * @returns { Promise<DrawableDescriptorResult> } Return the promise returned by the funciton.
-   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
-   * @throws { BusinessError } 100002 - Data decoding failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetch(): Promise<DrawableDescriptorResult>;
-
-  /**
-   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
-   *
-   * @returns { DrawableDescriptorResult } Return the result of the DrawableDescriptor object.
-   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
-   * @throws { BusinessError } 100002 - Data decoding failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetchSync(): DrawableDescriptorResult;
 }
 
 /**
@@ -365,17 +261,6 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @arkts 1.1&1.2
    */
   constructor(src?: image.PixelMap);
-
-  /**
-   * Creates a new PixelMapDrawableDescriptor.
-   * @param { image.PixelMap | ResourceStr } src - Indicates the resource to create PixelMapDrawableDescriptor.
-   * @param { DrawableDescriptorOptions } options - Indicates the option to create PixelMapDrawableDescriptor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  constructor(src?: image.PixelMap | ResourceStr, options?: DrawableDescriptorOptions);
 }
 
 /**
@@ -411,17 +296,6 @@ export declare interface AnimationOptions {
    * @arkts 1.1&1.2
    */
   iterations?: number;
-
-  /**
-   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetchWhenConstructingWithUri?: boolean;
 }
 
 /**
@@ -447,49 +321,4 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @arkts 1.1&1.2
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
-
-  /**
-   * Creates a new AnimatedDrawableDescriptor.
-   * @param { Array<image.PixelMap> | ResourceStr } pixelMaps - Indicates the resource to create AnimatedDrawableDescriptor.
-   * @param { ?AnimationOptions } [options] - Animation control options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  constructor(pixelMaps: Array<image.PixelMap> | ResourceStr, options?: AnimationOptions);
-
-  /**
-   * Get the running status of animation.
-   *
-   * @returns { boolean } Return the running status of animation.
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  isRunning(): boolean;
-
-  /**
-   * Start the animation.
-   *
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  start(): void;
-
-  /**
-   * Stop the animation.
-   *
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  stop(): void;
 }

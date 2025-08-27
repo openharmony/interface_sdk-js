@@ -1400,6 +1400,18 @@ declare namespace media {
      * @since 11
      */
     colorFormat?: PixelFormat;
+
+    /**
+     * Auto flip the thumbnail when video has mirror attribute(Vertical Flip or Horizontal Flip).
+     * If the value is false, the returned thumbnail will not be flipped.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    autoFlip?: boolean;
   }
 
   /**
@@ -3014,6 +3026,27 @@ declare namespace media {
      * @since 12
      */
     setBitrate(bitrate: number): void;
+
+    /**
+     * Sets the loudness gain of current media. The default gain is 0.0 dB.
+     * This API can be called only when the AVPlayer is in the prepared, playing, paused completed or stopped state.
+     * The stream usage of audioRendererInfo must be {@link StreamUsage#STREAM_USAGE_MUSIC},
+     * {@link StreamUsage#STREAM_USAGE_MOVIE}, or {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * After this API is called, the loudness gain takes effect immediately.
+     * @param { double } loudnessGain - Loudness gain to set, expressed in dB. The value is a 
+     *     floating int ranging from -90.0 dB to 24.0 dB.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     *     e.g. The function is called in an incorrect state, or the stream usage of audioRendererInfo is not one of
+     *     {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
+     *     {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setLoudnessGain(loudnessGain: double): Promise<void>;
 
     /**
      * Set decryption session to codec module.

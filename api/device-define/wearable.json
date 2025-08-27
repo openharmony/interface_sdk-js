@@ -130,7 +130,6 @@
     "SystemCapability.DistributedDataManager.KVStore.DistributedKVStore",
     "SystemCapability.ArkUI.ArkUI.Libuv",
     "SystemCapability.Sensors.MiscDevice",
-    "SystemCapability.ArkCompiler.JSVM",
     "SystemCapability.ArkUI.ArkUI.Napi",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.Communication.NetManager.MDNS",
@@ -160,7 +159,6 @@
     "SystemCapability.MiscServices.Upload",
     "SystemCapability.Request.FileTransferAgent",
     "SystemCapability.Global.ResourceManager",
-    "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.MiscServices.ScreenLock",
     "SystemCapability.Security.SecurityGuard",
     "SystemCapability.Sensors.Sensor",
@@ -188,6 +186,9 @@
     "SystemCapability.Location.Location.Gnss",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
+    "SystemCapability.ArkUi.Graphics3D",
+    "SystemCapability.FileManagement.File.Environment",
+    "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

@@ -913,7 +913,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   strokeOpacity(value: number | string | Resource): ShapeAttribute;
 
   /**
-   * Called when the transparency of the border is set.
+   * Called when the transparency of the fill area is set.
    *
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
@@ -921,7 +921,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 7
    */
   /**
-   * Called when the transparency of the border is set.
+   * Called when the transparency of the fill area is set.
    *
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
@@ -930,7 +930,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 9
    */
   /**
-   * Called when the transparency of the border is set.
+   * Called when the transparency of the fill area is set.
    *
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }
@@ -940,7 +940,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * @since 10
    */
   /**
-   * Called when the transparency of the border is set.
+   * Called when the transparency of the fill area is set.
    *
    * @param { number | string | Resource } value
    * @returns { ShapeAttribute }

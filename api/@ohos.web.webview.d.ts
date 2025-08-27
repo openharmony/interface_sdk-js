@@ -890,7 +890,13 @@ declare namespace webview {
    */
   interface ScrollOffset {
     /**
-     * Get the horizontal offset.
+     * The horizontal scroll offset of the web page. The value is the difference between
+     * the x-coordinate of the left border of the web page and the x-coordinate of the
+     * left border of the Web component. When the web page scrolls to the right,
+     * the value range is negative. 
+     * When the web page is not over-scrolled or the web page is over-scrolled to the left,
+     * the value is 0 or a positive value. Unit: vp.
+     * 
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -899,7 +905,13 @@ declare namespace webview {
     x: number;
 
     /**
-     * Get the vertical offset.
+     * The vertical scroll offset of the web page. The value is the difference between 
+     * the y-coordinate of the upper border of the web page and the y-coordinate of the 
+     * upper boundary of the Web component. When the web page is scrolled down,
+     * the value range is negative. 
+     * When the web page is not over-scrolled or the web page is over-scrolled to the up,
+     * the value is 0 or a positive value. Unit: vp.
+     * 
      * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -5033,7 +5045,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5045,7 +5057,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -5059,7 +5071,7 @@ declare namespace webview {
      * Scroll the contents of this Webview up by half the view size.
      *
      * @param { boolean } top - Whether to jump to the top of the page, if set to false,
-     *                          the page content will scroll up half the size of the viewframe,
+     *                          the page content will scroll up half the size of the view frame,
      *                          and when set to true, it will jump to the top of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
@@ -5075,9 +5087,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5087,9 +5099,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5101,9 +5113,9 @@ declare namespace webview {
     /**
      * Scroll the contents of this Webview down by half the view size.
      *
-     * @param { boolean } bottom - Whether to jump to the top of the page, if set to false,
-     *                             the page content will scroll up half the size of the viewframe,
-     *                             and when set to true, it will jump to the top of the page.
+     * @param { boolean } bottom - Whether to jump to the bottom of the page, if set to false,
+     *                             the page content will scroll down half the size of the view frame,
+     *                             and when set to true, it will jump to the bottom of the page.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5327,7 +5339,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Scroll to the position.
+     * Scroll to the position within specified time.
      *
      * @param { number } x - the x of the position.Unit: vp.
      * @param { number } y - the y of the position.Unit: vp.
@@ -5370,7 +5382,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Scroll by the delta position.
+     * Scroll by the delta position within specified time.
      *
      * <p><strong>API Note</strong>:<br>
      * In nested scroll scenarios, calling scrollBy does not trigger nested scrolling in the parent component.
@@ -5405,8 +5417,8 @@ declare namespace webview {
     /**
      * Slide by the speed.
      *
-     * @param { number } vx - the x speed of the speed.
-     * @param { number } vy - the y speed of the speed.
+     * @param { number } vx - the x speed of the speed. Unit: vp/ms.
+     * @param { number } vy - the y speed of the speed. Unit: vp/ms.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -5775,7 +5787,7 @@ declare namespace webview {
     isIncognitoMode(): boolean;
 
     /**
-     * Set whether scroll is allowed
+     * Set whether scroll is allowed; default is true.
      *
      * @param { boolean } enable - Set whether scrolling is allowed
      *                             {@code true} means scrolling is allowed.
@@ -6469,10 +6481,9 @@ declare namespace webview {
     setBackForwardCacheOptions(options: BackForwardCacheOptions): void;
 
     /**
-     * Get the scroll offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.
-     * And the unit is virtual pixel.
+     * The current scroll offset of the web page (including the over-scroll offset).
      *
-     * @returns { ScrollOffset } scroll offset
+     * @returns { ScrollOffset } The current scroll offset of the web page (including the over-scroll offset).
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 13
@@ -6482,9 +6493,13 @@ declare namespace webview {
     /**
      * Scrolls by the specified delta position and returns a result indicating whether the scrolling operation was successful or not.
      *
-     * @param { number } deltaX - the delta x of the position.
-     * @param { number } deltaY - the delta y of the position.
+     * @param { number } deltaX - the delta x of the position. Unit: vp.
+     * @param { number } deltaY - the delta y of the position. Unit: vp.
      * @returns { boolean } true if the scroll operation is successful, otherwise false.
+     * Return value scenario: when the Web page is in the touch state, return false, otherwise return true.
+     * In the same layer rendering scene, when the same layer rendering area of ​​the Web is in the touching state, the return value is true.
+     * In a nested scrolling scenario, calling scrollByWithResult will not trigger nested scrolling of the parent component.
+     * This interface does not guarantee sliding frame rate performance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -6505,10 +6520,9 @@ declare namespace webview {
     getLastHitTest(): HitTestValue;
 
     /**
-     * Get the page offset of the webpage in view port, the coordinates of the top left corner of the view port are X: 0, Y: 0.  
-     * And the unit is virtual pixel.
+     * The current scroll offset of the web page (excluding over-scroll offset).
      *
-     * @returns { ScrollOffset } page offset
+     * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
@@ -6765,6 +6779,28 @@ declare namespace webview {
      * @since 20
      */
     static setWebDestroyMode(mode: WebDestroyMode): void;
+
+    /**
+     * Configure whether to enable automatic pre-connection to high-frequency URLs accessed during the application's
+     * previous lifecycle after web initialization.
+     * @param { boolean } enabled - Enable if true, disable if false.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static setAutoPreconnect(enabled: boolean): void;
+
+    /**
+     * ‌Retrieve whether the automatic pre-connection feature is enabled‌.
+     * 
+     * @returns { boolean } Return true if enabled, false if disabled.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static isAutoPreconnectEnabled(): boolean;
   }
 
   /**

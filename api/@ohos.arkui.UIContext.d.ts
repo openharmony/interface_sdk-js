@@ -2962,7 +2962,7 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @since arkts { '1.1':'14','1.2':'20' }
  * @arkts 1.1&1.2
  */
-export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the MarqueeDynamicSyncSceneType.
   * @type { MarqueeDynamicSyncSceneType }
@@ -4173,6 +4173,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The key event to be sent.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -286,23 +286,23 @@ export enum UIState {
   SELECTED = 1 << 3,
 }
 
-/**
- * UI state change handling function, it returns the current UI states, the value is the result
- * of all current state enumeration values or calculations, and you can determine the state
- * by performing the & operation as follows.
- *    if (currentStates & UIState.PRESSED == UIState.PRESSEED)
- * But, please be awared, for the normal state check, the equal should be used directly.
- *    if (currentStates== UIState.NORMAL)
- * 
- * @typedef { function } UIStatesChangeHandler
- * @param { FrameNode } node - Current node which istriggering the state change.
- * @param { number } currentUIStates - Current UI states when the handler is triggered.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
+  /**
+   * UI state change handling function, it returns the current UI states, the value is the result
+   * of all current state enumeration values or calculations, and you can determine the state
+   * by performing the & operation as follows。
+   *    if (currentStates & UIState.PRESSED == UIState.PRESSED)
+   * But, please be awared, for the normal state check, the equal should be used directly.
+   *    if (currentStates == UIState.NORMAL)
+   *
+   * @typedef { function } UIStatesChangeHandler
+   * @param { FrameNode } node - Current node which is triggering the state change.
+   * @param { number } currentUIStates - Current UI states when the handler is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void;
 
 /**
@@ -1269,6 +1269,21 @@ export declare class FrameNode {
    * @since 20
    */
   getNodePropertyValue(property: AnimationPropertyType): number[];
+
+   /**
+   * Triggers node updates in the current frame.
+   * 
+   * When node attributes are modified after the current frame's build phase (i.e., after
+   * the unified processing of dirty nodes), the node updates will be deferred to the next
+   * frame. This function forces immediate node updates within the current frame to
+   * ensure rendering effects are applied synchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  invalidateAttributes(): void;
 }
 
 /**
@@ -3465,7 +3480,7 @@ export declare class NodeAdapter {
   static detachNodeAdapter(node: FrameNode): void;
 
   /**
-   * Get if the NodeAdapter is disposed.
+   * Get if the node is disposed.
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

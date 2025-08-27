@@ -5750,7 +5750,7 @@ declare interface OnTitleReceiveEvent {
   /**
    * Mark the source of the title. If it is true, the title is derived from the H5 title element;
    * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
-   * 
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
@@ -6556,7 +6556,7 @@ declare interface OnSearchResultReceiveEvent {
  */
 declare interface OnScrollEvent {
   /**
-   * The X offset of the scroll.
+   * The X offset of the scroll. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6567,7 +6567,7 @@ declare interface OnScrollEvent {
   xOffset: number;
 
   /**
-   * The Y offset of the scroll.
+   * The Y offset of the scroll. Unit: vp.
    *
    * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -7231,7 +7231,7 @@ declare enum AudioSessionType {
 
 /**
  * PDF page load result
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
@@ -7295,8 +7295,10 @@ declare enum PdfLoadResult {
 declare interface PreviewMenuOptions {
   /**
    * Defines the haptic feedback mode of preview menu.
+   * To enable haptic feedback, you must declare the ohos.permission.VIBRATE permission.
    *
    * @type { ?HapticFeedbackMode }
+   * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -9043,17 +9045,39 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSearchResultReceive(callback: Callback<OnSearchResultReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { function } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { function } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { function } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9061,9 +9085,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the scroll bar slides to the specified position.
+   * Notify the global scroll position of the web page
+   * 
+   * Description:
+   * 
+   * What is notified is the global scroll position of the page.
+   * Changes in the local scroll position cannot trigger this callback.
+   * 
+   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   * or window.pagXOffset before and after scrolling.
+   * 
+   * If it is global scrolling, the value of window.pagYOffset 
+   * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
-   * @param { Callback<OnScrollEvent> } callback Function Triggered when the scroll bar slides to the specified position.
+   * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified position.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -9460,9 +9495,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   defaultTextEncodingFormat(textEncodingFormat: string): WebAttribute;
 
   /**
-   * Whether force display the scroll bar.
+   * Set whether the scroll bar is permanent. In the resident state,
+   * when the page size exceeds one page, the scroll bar appears and does not disappear.
    *
-   * @param { boolean } enabled {@code true} means show; {@code false} otherwise.
+   * Scroll bar resident is not supported in full expansion mode,
+   * that is, when layoutMode is WebLayoutMode.FIT_CONTENT mode, the parameter enabled is false.
+   * 
+   * @param { boolean } enabled {@code true} means show; {@code false} otherwise. default is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9873,23 +9912,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onControllerAttached(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the over scrolling.
-   * @param { function } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { function } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
-   * Triggered when the over scrolling.
-   * @param { function } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { function } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
    */
   /**
-   * Triggered when the over scrolling.
-   * @param { Callback<OnOverScrollEvent> } callback Function Triggered when the over scrolling.
+   * Triggered when the overscroll occurs.
+   * @param { Callback<OnOverScrollEvent> } callback Function triggered when the overscroll occurs.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10317,7 +10356,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *                                       The number of menu items, as well as the content size and icon size of the menu,
    *                                       should be consistent with the ArkUI Menu component.
    *                                       The system-provided id enumeration values (TextMenuItemId) in the menu are only
-   *                                       supportedfor CUT, COPY, PASTE, and SELECT_ALL in the web.
+   *                                       supported for CUT, COPY, PASTE, SELECT_ALL, TRANSLATE, SEARCH and some AI menu in the web.
    *                                       The textRange parameter in the onMenuItemClick function is meaningless in the web,
    *                                       and the input value is -1.
    * @returns { WebAttribute }
@@ -10476,6 +10515,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   gestureFocusMode(mode: GestureFocusMode): WebAttribute;
+
+  /**
+   * Set whether to comply with the zoom restrictions set by the<meta name="viewport">tag in the webpage.
+   *
+   * @param { boolean } enable {@code true} means the Web Comply with the zoom restrictions
+   *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
+   *     The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  forceEnableZoom(enable: boolean): WebAttribute;
 }
 
 /**

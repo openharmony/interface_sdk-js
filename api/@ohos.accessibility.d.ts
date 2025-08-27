@@ -1671,11 +1671,11 @@ declare namespace accessibility {
     /**
      * A constructor used to create a EventInfo object.
      *
-     * @param jsonObject - Character string in JSON format required for creating an object.
+     * @param { Object } jsonObject - Character string in JSON format required for creating an object.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    constructor(jsonObject);
+    constructor(jsonObject: Object);
     /**
      * A constructor used to create a EventInfo object.
      *

@@ -876,6 +876,15 @@ declare namespace hidebug {
   type GcStats = Record<string, number>;
 
   /**
+   * Obtains the memory usage of ArkTS objects in the virtual machine.
+   *
+   * @returns { bigint } Returns the memory usage of ArkTS objects.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @since 21
+   */
+  function getAppVMObjectUsed(): bigint;
+
+  /**
    * Obtains all system GC statistics.
    *
    * @returns { GcStats } Returns the system GC statistics.
@@ -1061,7 +1070,7 @@ declare namespace hidebug {
      * On top of level 1 trimming, object address size has been additionally trimmed.
      * Please use latest version of rawheap-translator tool for parsing and converting
      * .rawheap into .heapsnapshot file. Conversion process may fail when legacy tool is utilized.
-     * 
+     *
      * A higher trimming level means a longer time needed to generate the .rawheap file.
      * Ensure that this duration falls below the app freeze threshold.
      *

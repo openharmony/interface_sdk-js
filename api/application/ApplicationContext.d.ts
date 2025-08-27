@@ -599,6 +599,23 @@ declare class ApplicationContext extends Context {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Sets the language for the application.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   * 
+   * @param { string } language - Target language. The list of supported languages can be obtained by
+   * calling getSystemLanguages().
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
   setLanguage(language: string): void;
 
   /**
@@ -740,6 +757,22 @@ declare class ApplicationContext extends Context {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Sets the font for this application.
+   * 
+   * <p>**NOTE**:
+   * <br>This API can be called only by the main thread.
+   * </P>
+   *
+   * @param { string } font - Font, which can be registered by calling UIContext.registerFont.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 21
+   * @arkts 1.1&1.2
+   */
   setFont(font: string): void;
 
   /**
@@ -770,6 +803,23 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Sets the scale ratio for the font size of this application.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   * 
+   * @param {number} fontSizeScale - Font scale ratio. The value is a non-negative number. When the application's
+   * {@link fontSizeScale} is set to <code>followSystem</code> and the value set here exceeds the value of
+   * fontSizeMaxScale, the value of fontSizeMaxScale takes effect.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
    * @arkts 1.1&1.2
    */
   setFontSizeScale(fontSizeScale: number): void;
