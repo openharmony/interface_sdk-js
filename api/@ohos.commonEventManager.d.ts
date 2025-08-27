@@ -2818,6 +2818,13 @@ declare namespace commonEventManager {
   /**
    * Describes the information of the subscriber
    *
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Describes the information of the subscriber
+   *
    * @typedef { _CommonEventPublishData } CommonEventPublishData
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
