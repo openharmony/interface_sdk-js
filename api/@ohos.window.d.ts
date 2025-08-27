@@ -4719,7 +4719,7 @@ declare namespace window {
   }
 
   /**
-   * The policy of key frame.
+   * The policy of keyframe.
    *
    * @interface KeyFramePolicy
    * @syscap SystemCapability.Window.SessionManager
@@ -4727,7 +4727,7 @@ declare namespace window {
    */
   interface KeyFramePolicy {
     /**
-     * Whether to use key frame.
+     * Whether to use keyframe.
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
@@ -4739,6 +4739,7 @@ declare namespace window {
      * Set the drag interval to notify rect change in millisecond.
      *
      * @type { ?number }
+     * @default 1000
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -4748,6 +4749,7 @@ declare namespace window {
      * Set the drag distance to notify rect change in px.
      *
      * @type { ?number }
+     * @default 1000
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -4757,15 +4759,17 @@ declare namespace window {
      * Set the rect change animation duration in millisecond.
      *
      * @type { ?number }
+     * @default 100
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     animationDuration?: number;
 
     /**
-     * Set then rect change animation delay in millisecond
+     * Set the rect change animation delay in millisecond
      *
      * @type { ?number }
+     * @default 100
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -10825,15 +10829,17 @@ declare namespace window {
     getSubWindowZLevel(): number;
 
     /**
-     * Set the policy of key frame when resize by dragging.
+     * Set the keyframe policy when dragging to resize.
      *
-     * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
-     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { KeyFramePolicy } keyFramePolicy - The policy of keyframe to set.
+     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of keyframe.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range; 2. The parameter format is incorrect.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid parameter range; 2. The parameter format is incorrect.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
