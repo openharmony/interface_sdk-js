@@ -44,6 +44,7 @@ import * as _AppServiceExtensionContext from './application/AppServiceExtensionC
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
 import type _UIExtensionContext from './application/UIExtensionContext';
+import type _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
 import _BaseContext from './application/BaseContext';
@@ -485,6 +486,19 @@ declare namespace common {
    * @since 11
    */
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
+
+  /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @typedef { _AutoFillExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext;
 
   /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility

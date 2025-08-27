@@ -18,8 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { AutoFillType } from './AutoFillType';
 import type AutoFillRect from './AutoFillRect';
+/*** endif */
+/*** if arkts 1.2 */
+import { AutoFillType } from './AutoFillType';
+import AutoFillRect from './AutoFillRect';
+/*** endif */
 
 /**
  * Page node info for automatic filling.
@@ -28,7 +34,8 @@ import type AutoFillRect from './AutoFillRect';
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default interface PageNodeInfo {
   /**
@@ -38,7 +45,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   id: int;
 
@@ -49,7 +57,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   depth: int;
 
@@ -60,7 +69,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   autoFillType: AutoFillType;
 
@@ -71,7 +81,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   tag: string;
 
@@ -82,7 +93,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   value: string;
 
@@ -93,7 +105,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   placeholder?: string;
 
@@ -104,7 +117,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   passwordRules?: string;
 
@@ -115,7 +129,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableAutoFill: boolean;
 
@@ -126,7 +141,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rect: AutoFillRect;
 
@@ -137,7 +153,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isFocus: boolean;
 
@@ -148,7 +165,8 @@ export default interface PageNodeInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   metadata?: string;
 }
