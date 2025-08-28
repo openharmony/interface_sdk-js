@@ -4952,7 +4952,7 @@ declare namespace audio {
      * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
      * @returns { AudioDeviceDescriptors } The device list.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -4965,7 +4965,7 @@ declare namespace audio {
      * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -4975,7 +4975,7 @@ declare namespace audio {
      * UnSubscribes available device change events.
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
      * @param { Callback<DeviceChangeAction> } [callback] - Callback used to obtain the device update details.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -4988,7 +4988,7 @@ declare namespace audio {
      * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -4998,7 +4998,7 @@ declare namespace audio {
      * Gets the selected media input device. If never set, it returns an device descriptor
      * with INVALID DeviceType.
      * @returns { AudioDeviceDescriptor } - Audio device description.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5007,7 +5007,7 @@ declare namespace audio {
     /**
      * clear the selected media input device.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5017,7 +5017,7 @@ declare namespace audio {
      * prefer bluetooth and nearlink device to record.
      * @param { boolean } enable - Indicates whether prefer wireless device to record. 
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5026,7 +5026,7 @@ declare namespace audio {
     /**
      * Gets whether prefer bluetooth and nearlink device to record.
      * @returns { boolean } - Indicates whether prefer wireless device to record. 
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5037,7 +5037,7 @@ declare namespace audio {
      * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
      * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen input device change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
@@ -5047,7 +5047,7 @@ declare namespace audio {
      * Unsubscribes current input device change events.
      * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
      * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used to listen input device change event.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
