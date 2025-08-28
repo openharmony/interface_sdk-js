@@ -41,6 +41,7 @@ declare namespace onScreen {
      * Indicates unknown scenario
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
      * @since 20
      */
     UNKNOWN = 0,
@@ -48,6 +49,7 @@ declare namespace onScreen {
      * Indicates article scenario
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
      * @since 20
      */
     ARTICLE = 1,
@@ -65,6 +67,7 @@ declare namespace onScreen {
      * Indicates scroll to hook event type
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+     * @systemapi
      * @since 20
      */
     SCROLL_TO_HOOK = 1,
