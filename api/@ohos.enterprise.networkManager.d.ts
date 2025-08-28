@@ -1011,7 +1011,7 @@ declare namespace networkManager {
    * This function can be called by a super administrator.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
-   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
+   * @param { Want | null } admin - admin indicates the administrator ability information.If the admin is not empty, it must
    *                         have the corresponding permission.
    * @param { number } accountId - accountId indicates the account ID.
    * @returns { connection.HttpProxy } the network global proxy configuration information.
@@ -1025,7 +1025,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 15
    */
-  function getGlobalProxyForAccount(admin: Want, accountId: number): connection.HttpProxy;
+  function getGlobalProxyForAccount(admin: Want | null, accountId: number): connection.HttpProxy;
 
   /**
    * Add iptables filter rule by {@link AddFilterRule}.
