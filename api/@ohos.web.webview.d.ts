@@ -5452,7 +5452,7 @@ declare namespace webview {
      * @arkts 1.2
      */
     hasImageWithPromise(): Promise<boolean>;
-   
+
     /**
      * Asynchronous search for the presence of an image on the current page through callback method.
      *
@@ -5471,7 +5471,7 @@ declare namespace webview {
     /**
      * @arkts 1.2
      */
-    overload hasImage{hasImageWithPromise,hasImageWithCallback};    
+    overload hasImage{hasImageWithPromise,hasImageWithCallback};
 
     /**
      * Get back forward stack list from current webview.
@@ -7418,8 +7418,7 @@ declare namespace webview {
      * User cancel.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * User cancel.
@@ -10138,7 +10137,7 @@ declare namespace webview {
 
   /**
    * The function with zero parameter.
-   * 
+   *
    * @typedef { function } zeroParamFn
    * @returns { V } The return value.
    * @syscap SystemCapability.Web.Webview.Core
@@ -10149,7 +10148,7 @@ declare namespace webview {
 
   /**
    * The function with one parameter.
-   * 
+   *
    * @typedef { function } oneParamFn
    * @param { T } param - the first param.
    * @returns { V } The return value.
@@ -10161,7 +10160,7 @@ declare namespace webview {
 
   /**
    * The function with two parameter.
-   * 
+   *
    * @typedef { function } twoParamFn
    * @param { T } paramA - the first param.
    * @param { C } paramB - the second param.
