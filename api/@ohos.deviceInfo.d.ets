@@ -475,5 +475,24 @@ declare class deviceInfo {
      * @arkts 1.2
      */
     static get diskSN(): string;
+
+    /**
+     * Obtaining the hard drive chip type.
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 21
+     * @arkts 1.2
+     */
+    static get chipType(): string;
+
+    **
+     * Obtaining the drive boot count.
+     * if get failed, it will be -1
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 21
+     * @arkts 1.2
+     */
+    static get majorVersion(): int;
 }
 export default deviceInfo;
