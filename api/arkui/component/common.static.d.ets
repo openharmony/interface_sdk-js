@@ -8787,11 +8787,11 @@ export declare interface BackgroundOptions {
 /**
  * Defines the value of the custom property..
  *
- * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @typedef { undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty> } CustomProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
+export declare type CustomProperty = undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty>;
 
 /**
  * CommonMethod
