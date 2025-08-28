@@ -6756,8 +6756,10 @@ declare namespace webview {
      * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 This functionality is not supported. 
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     avoidVisibleViewportBottom(avoidHeight: number): void;
 
