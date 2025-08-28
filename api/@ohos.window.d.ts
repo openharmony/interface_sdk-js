@@ -3968,7 +3968,7 @@ declare namespace window {
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @returns { Promise<Array<MainWindowInfo>> } Promise used to return the list of main window info.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 21
@@ -3985,7 +3985,7 @@ declare namespace window {
    * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
    *     arranged in the order of the provided window ID array.
    * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @since 21
