@@ -158,6 +158,22 @@ declare namespace application {
    * @since 20
    */
   export function demoteCurrentFromCandidateMasterProcess(): Promise<void>;
+
+  /**
+   * Exit from the master process role of the current process.
+   * After calling this method:
+   * - System stops triggering `onNewProcessRequest` callbacks on current process.
+   * - Process can rejoin candidate pool via `promoteCurrentToCandidateMasterProcess`.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000118 - Not a master process.
+   * @throws { BusinessError } 16000119 - Cannot exit because there is an unfinished onNewProcessRequest.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   */
+   export function exitMasterProcessRole(): Promise<void>
 }
 
 export default application;
