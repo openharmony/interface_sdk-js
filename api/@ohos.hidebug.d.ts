@@ -965,6 +965,50 @@ declare namespace hidebug {
   function getGraphicsMemorySync(): number;
 
   /**
+   * Graphics memory summary.
+   *
+   * @interface GraphicsMemorySummary
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 21
+   */
+  interface GraphicsMemorySummary {
+    /**
+     * GL memory
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @atomicservice
+     * @since 21
+     */
+    gl: number;
+
+    /**
+     * Graph memory
+     *
+     * @type { number }
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @atomicservice
+     * @since 21
+     */
+    graph: number;
+  }
+
+  /**
+   * Obtains the size of the GPU memory summary. This API uses a promise to return the result.
+   *
+   * @param { number } [interval] If the cache of graphics memory is older than interval (unit: second), the latest
+   *     graphics memory data will be obtained. The interval value range is 2 seconds to
+   *     3600 seconds, If interval is an invalid value, the default value is 300 seconds.
+   * @returns { Promise<GraphicsMemorySummary> } Returns the size of the GPU memory summary, in KB.
+   * @throws { BusinessError } 11400104 - Failed to get the application memory due to a remote exception.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @atomicservice
+   * @since 21
+   */
+  function getGraphicsMemorySummary(interval?: number): Promise<GraphicsMemorySummary>;
+
+  /**
    * Dumps the original heap snapshot of the VM for the current thread. The API uses a promise to return the path of the
    * .rawheap file. You can use rawheap-translator to convert the generated file into a .heapsnapshot file for parsing.
    * The generated file will be stored in a folder within the application directory. However, since this file is usually
