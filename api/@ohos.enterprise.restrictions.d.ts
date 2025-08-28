@@ -353,7 +353,7 @@ declare namespace restrictions {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 20
+   * @since 21
    */
   function setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void;
 
@@ -397,7 +397,7 @@ declare namespace restrictions {
    * Queries whether the specific feature of the device is disallowed.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
    *                         If the admin is not empty, it must have the corresponding permission.
    * @param { string } feature - feature indicates the specific feature to be queried,
    *                             the supported device features are as follows:
