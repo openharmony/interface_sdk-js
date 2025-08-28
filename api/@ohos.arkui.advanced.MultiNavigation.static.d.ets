@@ -126,7 +126,6 @@ export declare struct MultiNavigation {
   /**
    * The method to build multiNavigation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
    * @since 20
    */
   @Builder
