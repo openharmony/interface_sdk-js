@@ -5587,6 +5587,26 @@ declare namespace webview {
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
 
     /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * <p><strong>API Note</strong>:<br>
+     * ‌prefetchPage‌ does not cache resources with Cache-Control: no-store by default, and only allows one prefetch within
+     * 500ms.
+     * Prefetch behavior can be customized via ‌prefetchOptions‌, including ignoring Cache-Control: no-store and adjusting
+     * the throttling interval.
+     * 
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @param { PrefetchOptions } [prefetchOptions] - Prefetch behavior can be customized via ‌prefetchOptions‌, including
+     *     ignoring Cache-Control: no-store and adjusting the throttling interval.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - Invalid url.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    prefetchPage(url: string, additionalHeaders?: Array<WebHeader>, prefetchOptions?: PrefetchOptions): void;
+
+    /**
      * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
      * @param { string } url - Which url to preresolve/preconnect.
      * @param { boolean } preconnectable - Indicates whether to preconnect.
@@ -9198,6 +9218,51 @@ declare namespace webview {
     /**
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
+     */
+    constructor();
+  }
+
+  /**
+   * Defines the PrefetchOptions class.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  class PrefetchOptions {
+
+    /**
+     * ‌Set prefetch page interval limit.
+     * <p><strong>API Note</strong>:<br>
+     * Default 500ms (ensures only one successful prefetch within 500ms).
+     * The interval throttles prefetch frequency to balance performance and resource usage.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    minTimeBetweenPrefetchesMs: number;
+
+    /**
+     * Set whether to ignore Cache-Control: no-store‌.
+     * <p><strong>API Note</strong>:<br>
+     * This setting controls whether prefetch operations bypass the HTTP Cache-Control: no-store directive.
+     * Important‌: Default behavior (false) aligns with HTTP security standards. Overriding (true) requires explicit risk
+     * assessment for non-sensitive resources.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */ 
+    ignoreCacheControlNoStore: boolean;
+
+    /**
+     * Constructor for PrefetchOptions.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
      */
     constructor();
   }
