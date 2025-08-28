@@ -8197,6 +8197,24 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_HDR_TYPE = 'hdr_type',
+
+    /**
+     * Key for video original width, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    MD_KEY_ORIGINAL_WIDTH = 'original_width',
+
+    /**
+     * Key for video original height, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    MD_KEY_ORIGINAL_HEIGHT = 'original_height',
   }
 
   /**
