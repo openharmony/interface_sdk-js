@@ -1021,14 +1021,14 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    DEFAULT_SELECT_STRATEGY = 0,
+    SELECT_STRATEGY_DEFAULT = 0,
     /**
      * The independent device select strategy..
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
      */
-    INDEPENDENT_SELECT_STRATEGY = 1,
+    SELECT_STRATEGY_INDEPENDENT = 1,
   }
 
   /**
@@ -3844,19 +3844,6 @@ declare namespace audio {
      * @since 12
      */
     getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>;
-
-    /**
-     * Get output device for target audio renderer info and application.
-     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
-     * @returns { Promise<AudioDeviceDescriptors> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @systemapi
-     * @since 21
-     */
-    getPreferOutputDeviceByFilter(filter: AudioRendererFilter): Promise<AudioDeviceDescriptors>;
 
     /**
      * Gets preferred output device for target audio renderer info.
