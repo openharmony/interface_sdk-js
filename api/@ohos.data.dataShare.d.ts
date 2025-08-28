@@ -2100,7 +2100,7 @@ declare namespace dataShare {
      * @param { 'dataChange' } event - Event type must be 'sharedDataChange'.
      * @param { string[] } uris - Indicates the uris of the data to operate.
      * @param { DataProxyConfig } config - Indicates the configuration of the data proxy operation.
-     * @param { AsyncCallback<DataProxyChangeInfo[]> } callback - The callback function when data changes.
+     * @param { AsyncCallback<DataProxyChangeInfo[]> } [callback] - The callback function when data changes.
      * @returns { DataProxyResult[] } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.
