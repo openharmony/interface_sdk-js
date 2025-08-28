@@ -480,7 +480,7 @@ declare class deviceInfo {
      * Obtaining the hard drive chip type.
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 21
+     * @since 22
      * @arkts 1.2
      */
     static get chipType(): string;
@@ -490,7 +490,7 @@ declare class deviceInfo {
      * if get failed, it will be -1
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 21
+     * @since 22
      * @arkts 1.2
      */
     static get majorVersion(): int;
