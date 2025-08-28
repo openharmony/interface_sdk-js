@@ -3953,7 +3953,7 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    on(type: 'preferOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
+    on(type: 'preferredOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * UnSubscribes to prefer output device change events.
@@ -3966,7 +3966,7 @@ declare namespace audio {
      * @systemapi
      * @since 21
      */
-    off(type: 'preferOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
+    off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
