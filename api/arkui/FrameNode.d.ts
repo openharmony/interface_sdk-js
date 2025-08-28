@@ -595,7 +595,7 @@ export declare class FrameNode {
    * @param { FrameNode } targetParent - The target parent node.
    * The target parent node must not be a declaratively created node, that is, a FrameNode that is not modifiable.
    * If it does not meet the specifications, an exception is thrown.
-   * @param { number } index - The index which the node is moved to. If the value is a negative number or invalid,
+   * @param { number } [index] - The index which the node is moved to. If the value is a negative number or invalid,
    * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
    * If the target FrameNode has n nodes, the value range for index is 0 to n-1.
    * Default value: -1
@@ -1205,7 +1205,7 @@ export declare class FrameNode {
    *     The combination of all target states can be calculated by the OR operation,
    *     e.g. targetUIStates = UIState.PRESSED | UIState.FOCUSED.
    * @param { UIStatesChangeHandler } statesChangeHandler - The UI state chhanging handling function.
-   * @param { boolean } excludeInner - The flag to forbid the inner default state style handling, default is false.
+   * @param { boolean } [excludeInner] - The flag to forbid the inner default state style handling, default is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2849,7 +2849,7 @@ export declare namespace typeNode {
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @param { 'Toggle' } nodeType - node type.
-   * @param { ToggleOptions } options - ToggleOptions.
+   * @param { ToggleOptions } [options] - ToggleOptions.
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
