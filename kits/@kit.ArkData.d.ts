@@ -47,9 +47,11 @@ export {
 };
 
 /*** if arkts 1.2 */
+import relationalStore from '@ohos.data.relationalStore';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
+import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 export {
-  unifiedDataChannel, uniformTypeDescriptor
+  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor
 };
 /*** endif */
