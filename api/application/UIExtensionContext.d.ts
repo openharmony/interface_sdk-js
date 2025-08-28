@@ -1155,6 +1155,48 @@ declare class UIExtensionContext extends ExtensionContext {
    * @since 20
    */
   startUIAbilities(wantList: Array<Want>): Promise<void>;
+
+  /**
+   * Starts two UIAbilities simultaneously in split-screen. The first UIAbility instance is identified
+   * by windowId, and the second UIAbility instance is identified by Want. If the first UIAbility instance
+   * is destroyed, the second UIAbility instance will start in full-screen mode only.
+   *
+   * If the caller application is in foreground, you can use
+   * this method to start abilities; If the caller application is in the background, you need to apply
+   * for permission:ohos.permission.START_ABILITIES_FROM_BACKGROUND. If the target ability is visible,
+   * you can start the target ability; If the target ability is invisible,you need to apply for
+   * permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   *
+   * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
+   * @param { number } primaryWindowId - Indicates the window id of original caller.
+   * @param { Want } secondaryWant - Indicates the want of target UIAbility to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - Target UIAbility does not exist.
+   * @throws { BusinessError } 16000004 - Failed to start the invisible ability.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service or system server handle failed.
+   * @throws { BusinessError } 16000073 - The app clone index is invalid.
+   * @throws { BusinessError } 16000076 - The app instance key is invalid.
+   * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
+   * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
+   *     does not support startup.
+   * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+   * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+   * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
+   * @throws { BusinessError } 16000126 - Starting DLP files is not supported.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  startUIAbilitiesInSplitWindowMode(primaryWindowId: number, secondaryWant: Want): Promise<void>;
 }
 
 export default UIExtensionContext;
