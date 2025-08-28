@@ -21,7 +21,7 @@
 import { Callback, Optional, CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
-import { ComponentContent } from '../ComponentContent';
+import { ComponentContentBase } from '../ComponentContent';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier, CommonMethod } from "./common";
 /**
@@ -29,8 +29,6 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare enum RefreshStatus {
@@ -38,8 +36,6 @@ export declare enum RefreshStatus {
      * The refresh status of the drop-down refresh.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     Inactive,
@@ -47,8 +43,6 @@ export declare enum RefreshStatus {
      * Drop down, but the drop-down distance is less than the refresh distance.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     Drag,
@@ -56,8 +50,6 @@ export declare enum RefreshStatus {
      * The pull-down exceeds the refresh distance.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     OverDrag,
@@ -65,8 +57,6 @@ export declare enum RefreshStatus {
      * After the pull-down, it rebounds to the refresh distance and enters the refresh state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     Refresh,
@@ -74,8 +64,6 @@ export declare enum RefreshStatus {
      * After refresh, return to the initial state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     Done
@@ -85,8 +73,6 @@ export declare enum RefreshStatus {
  *
  * @interface RefreshOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface RefreshOptions {
@@ -96,8 +82,6 @@ export interface RefreshOptions {
      *
      * @type { boolean | Bindable<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     refreshing: boolean | Bindable<boolean>;
@@ -106,8 +90,6 @@ export interface RefreshOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     promptText?: ResourceStr;
@@ -116,21 +98,17 @@ export interface RefreshOptions {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     builder?: CustomBuilder;
     /**
      * Custom component to display during dragging.
      *
-     * @type { ?ComponentContent }
+     * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    refreshingContent?: ComponentContent;
+    refreshingContent?: ComponentContentBase;
 }
 /**
  * The RefreshAttribute.
@@ -138,8 +116,6 @@ export interface RefreshOptions {
  * @extends CommonMethod
  * @interface RefreshAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface RefreshAttribute extends CommonMethod {
@@ -149,8 +125,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onStateChange(callback: ((state: RefreshStatus) => void) | undefined): this;
@@ -160,8 +134,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onRefreshing(callback: (() => void) | undefined): this;
@@ -171,8 +143,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { number | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default refreshOffset(value: number | undefined): this;
@@ -182,8 +152,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default pullToRefresh(value: boolean | undefined): this;
@@ -194,8 +162,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { Callback<number> | undefined } callback
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default onOffsetChange(callback: Callback<number> | undefined): this;
@@ -205,8 +171,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { number | undefined } ratio - Pull-down follow ratio for Refresh.
      * @returns { this } The attribute of the Refresh.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default pullDownRatio(ratio: number | undefined): this;
@@ -216,8 +180,6 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @param { AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     default attributeModifier(modifier: AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -230,8 +192,6 @@ export declare interface RefreshAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { RefreshAttribute } The attribute of the grid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @memo
