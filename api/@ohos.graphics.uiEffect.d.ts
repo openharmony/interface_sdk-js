@@ -422,6 +422,22 @@ declare namespace uiEffect {
      */
     borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
       borderWidth: number): VisualEffect;
+
+    /**
+     * Sets the color gradient effect, may blend with alpha mask.
+     *
+     * @param { Array<Color> } colors - array of colors.
+     * @param { Array<common2D.Point> } positions - the centers of colors.
+     * @param { Array<number> } strengths - the weights of color Mixing.
+     * @param { Mask } [alphaMask] - the mask determines the alpha of the effect.
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<number>,
+      alphaMask?: Mask): VisualEffect;
   }
 
   /**
