@@ -481,7 +481,7 @@ declare class deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 20
+   * @since 21
    * @arkts 1.2
    */
   static get sdkMinorApiVersion(): int;
@@ -491,7 +491,7 @@ declare class deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 20
+   * @since 21
    * @arkts 1.2
    */
   static get sdkPatchApiVersion(): int;
