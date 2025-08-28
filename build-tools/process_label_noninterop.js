@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,914 +12,876 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 const path = require('path');
 const fs = require('fs');
-const ts = require('typescript');
 const commander = require('commander');
+
+const ts = require('typescript');
+
+function transformFiles(inputDir, outputPath, exportFlag) {
+  try {
+    if (exportFlag) {
+      initGlobalESValueFile(outputPath);
+    }
+    const utFiles = [];
+    readFile(inputDir, utFiles);
+    tsTransform(utFiles, deleteNonInteropApi, exportFlag, inputDir, outputPath);
+  } catch (error) {
+    // ignore
+  }
+}
+
+function tsTransform(utFiles, callback, exportFlag, inputDir,
+  outputPath) {
+  utFiles.forEach((url) => {
+    const apiBaseName = path.basename(url);
+    let content = fs.readFileSync(url, 'utf-8');
+    let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
+    if (/\.json/.test(url)) {
+      isTransformer = false;
+    }
+    if (!isTransformer) {
+      writeFile(url, content, inputDir, outputPath);
+      return;
+    }
+
+    const fileName = processFileName(url);
+    ts.transpileModule(preprocessContent(fileName, content), {
+      compilerOptions: {
+        target: ts.ScriptTarget.ES2017,
+      },
+      fileName: fileName,
+      transformers: { before: [callback(url, exportFlag, inputDir, outputPath)] },
+    });
+  });
+}
+
+function deleteNonInteropApi(url, exportFlag, inputDir,
+  outputPath) {
+  return (context) => {
+    return (node) => {
+      const fullText = String(node.getFullText());
+      let fileAndKitComment = getFileAndKitComment(fullText);
+      const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0] +
+        fileAndKitComment + '\n';
+      let kitName = '';
+      if (fullText.match(/\@kit (.*)\r?\n/g)) {
+        kitName = RegExp.$1.replace(/\s/g, '');
+      }
+      const fileName = processFileName(url);
+      sourceFile = node;
+      const deleteNode = processSourceFile(node, url);
+      node = processVisitEachChild(context, deleteNode.node, exportFlag);
+      if (needProcessLabelNonInterop(fileName, kitName, inputDir)) {
+        const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+        const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
+        ts.transpileModule(result, {
+          compilerOptions: {
+            target: ts.ScriptTarget.ES2017,
+          },
+          fileName: fileName,
+          transformers: {
+            before: [formatImportDeclaration(url, exportFlag, inputDir, outputPath,
+              copyrightMessage, deleteNode.isCopyrightDeleted)]
+          },
+        });
+      }
+      return ts.factory.createSourceFile([], ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
+        ts.NodeFlags.None);
+    };
+  };
+}
+
+function processVisitEachChild(context, node,
+  exportFlag) {
+  return ts.visitEachChild(node, processAllNodes, context);
+
+  function processAllNodes(node) {
+    if (ts.isInterfaceDeclaration(node)) {
+      node = processInterfaceDeclaration(node, exportFlag);
+    } else if (ts.isClassDeclaration(node)) {
+      node = processClassDeclaration(node, exportFlag);
+    } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
+      const newModuleBody =
+        ts.factory.updateModuleBlock(node.body, getNewStatements(node));
+      node = ts.factory.updateModuleDeclaration(node, node.modifiers, node.name, newModuleBody);
+    } else if (ts.isEnumDeclaration(node)) {
+      node = processEnumDeclaration(node, exportFlag);
+    } else if (ts.isStructDeclaration(node)) {
+      node = processStructDeclaration(node);
+    } else if (ts.isTypeAliasDeclaration(node)) {
+      node = processTypeAliasDeclaration(node, exportFlag);
+    }
+    return ts.visitEachChild(node, processAllNodes, context);
+  }
+}
+
+function getNewStatements(node) {
+  const newStatements = [];
+  (node.body).statements.forEach((statement) => {
+    if (!isNonInterop(statement)) {
+      newStatements.push(statement);
+    }
+  });
+  return newStatements;
+}
+
+function formatImportDeclaration(url, exportFlag, inputDir,
+  outputPath, copyrightMessage = '', isCopyrightDeleted = false) {
+  return (context) => {
+    return (node) => {
+      sourceFile = node;
+      const allIdentifierSet = collectAllIdentifier(node, context);
+      const formatValue = formatAllNodes(url, inputDir, node, allIdentifierSet);
+      node = formatValue.node;
+      const referencesMessage = formatValue.referencesMessage;
+      if (formatValue.isCopyrightDeleted) {
+        copyrightMessage = formatValue.copyrightMessage;
+        isCopyrightDeleted = formatValue.isCopyrightDeleted;
+      }
+      outputFile(url, exportFlag, inputDir, outputPath, node, sourceFile, referencesMessage,
+        copyrightMessage, isCopyrightDeleted);
+      return ts.factory.createSourceFile([], ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
+        ts.NodeFlags.None);
+    };
+  };
+}
+
+function formatAllNodes(url, inputDir, node,
+  allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
+  let referencesMessage = '';
+  let currReferencesModule = [];
+  if (!ts.isSourceFile(node) || !node.statements) {
+    return { node, referencesMessage, copyrightMessage, isCopyrightDeleted };
+  }
+  const newStatements = [];
+  node.statements.forEach((statement) => {
+    if (ts.isImportDeclaration(statement)) {
+      const importInfo = formatAllNodesImportDeclaration(node, statement, url, inputDir,
+        currReferencesModule, allIdentifierSet);
+      if (importInfo.statement) {
+        newStatements.push(statement);
+      } else if (importInfo.isCopyrightDeleted) {
+        copyrightMessage = importInfo.copyrightMessage;
+        isCopyrightDeleted = importInfo.isCopyrightDeleted;
+      }
+    } else if (ts.isStructDeclaration(statement)) {
+      statement = ts.factory.updateStructDeclaration(statement, statement.modifiers, statement.name,
+        statement.typeParameters, statement.heritageClauses, statement.members.slice(1));
+      newStatements.push(statement);
+    } else {
+      newStatements.push(statement);
+    }
+  });
+
+  addForSpecialFiles(node, newStatements);
+
+  currReferencesModule.forEach((item) => {
+    if (item.isUsed) {
+      referencesMessage += item.reference + '\n';
+    }
+  });
+  node = ts.factory.updateSourceFile(node, newStatements);
+  return { node, referencesMessage, copyrightMessage, isCopyrightDeleted };
+}
+
+function formatAllNodesImportDeclaration(node, statement,
+  url, inputDir, currReferencesModule,
+  allIdentifierSet) {
+  const clauseSet = getClauseSet(statement);
+  const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
+  const fileDir = path.dirname(url);
+  const hasImportSpecifierFile = hasFileByImportPath(importSpecifier, fileDir, inputDir);
+  let hasImportSpecifierInModules = globalModules.has(importSpecifier);
+  if ((!hasImportSpecifierFile && !hasImportSpecifierInModules) || clauseSet.size === 0) {
+    if (hasCopyright(statement)) {
+      return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
+    } else {
+      return { statement: undefined, copyrightMessage: '', isCopyrightDeleted: false };
+    }
+  }
+  const clauseSetValue = getExsitClauseSet(hasImportSpecifierInModules, importSpecifier,
+    currReferencesModule, clauseSet, allIdentifierSet);
+  const hasExsitStatus = clauseSetValue.hasExsitStatus;
+  const hasNonExsitStatus = clauseSetValue.hasNonExsitStatus;
+  let exsitClauseSet = clauseSetValue.exsitClauseSet;
+  if (hasExsitStatus) {
+    return handleUsedImport(hasNonExsitStatus, statement, exsitClauseSet,
+      hasImportSpecifierInModules, currReferencesModule, importSpecifier);
+  } else if (hasCopyright(statement)) {
+    return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
+  } else {
+    return { statement: undefined, copyrightMessage: '', isCopyrightDeleted: false };
+  }
+}
+
+function addForSpecialFiles(node, newStatements) {
+  const fileName = getCoreFilename(path.basename(node.fileName));
+  if (fileName === FRAMENODE) {
+    newStatements.push(createFrameNodeTypeNode());
+  }
+}
+
+function initGlobalESValueFile(outputPath) {
+  const filePath = `${path.resolve(outputPath, '../api')}/${GLOBAL_ESVALUE_FILE}`;
+  const dir = path.dirname(filePath);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(filePath, '');
+}
+
+function writeGlobalESValueFile(content, outputPath) {
+  content = content.replace("'use static';", '').replace(/\.\.\/api/g, '.');
+  fs.appendFileSync(`${path.resolve(outputPath, '../api')}/${GLOBAL_ESVALUE_FILE}`, content);
+}
+
+function readFile(dir, utFiles) {
+  try {
+    const files = fs.readdirSync(dir);
+    files.forEach((element) => {
+      const filePath = path.join(dir, element);
+      const status = fs.statSync(filePath);
+      if (status.isDirectory()) {
+        readFile(filePath, utFiles);
+      } else {
+        utFiles.push(filePath);
+      }
+    });
+  } catch (e) {
+    // ignore
+  }
+}
+
+function processSourceFile(node, url) {
+  let isCopyrightDeleted = false;
+  const newStatements = [];
+  const newStatementsWithoutExport = [];
+  const deleteNonInteropApiSet = new Set();
+  let needDeleteExport = {
+    fileName: '',
+    default: '',
+    exportName: new Set(),
+  };
+  isCopyrightDeleted = addNewStatements(node, newStatements, deleteNonInteropApiSet, needDeleteExport);
+  newStatements.forEach((statement) => {
+    const names = getExportIdentifierName(statement);
+    if (ts.isExportDeclaration(statement) && statement.moduleSpecifier &&
+      ts.isStringLiteral(statement.moduleSpecifier) &&
+      statement.moduleSpecifier.text.startsWith(`./${ARKUI}/${COMPONENT}/`)) {
+      const importPath = statement.moduleSpecifier.text.replace(`./${ARKUI}/${COMPONENT}/`, '');
+      const isDeleteSystemFile = componentEtsDeleteFiles.includes(getPureName(importPath));
+      const hasEtsFile = componentEtsFiles.includes(getPureName(importPath));
+      const existFile = isExistImportFile(path.dirname(url), statement.moduleSpecifier.text.toString());
+      if (isDeleteSystemFile || !hasEtsFile && !existFile) {
+        return;
+      }
+    }
+    if (names.length === 0) {
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    if (names.length === 1 && !deleteNonInteropApiSet.has(names[0])) {
+      newStatementsWithoutExport.push(statement);
+      return;
+    }
+    processExportNode(statement, node, needDeleteExport, names, deleteNonInteropApiSet,
+      newStatementsWithoutExport);
+  });
+  if (needDeleteExport.fileName !== '') {
+    kitFileNeedDeleteMap.set(needDeleteExport.fileName, needDeleteExport);
+  }
+  return {
+    node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile,
+      node.referencedFiles),
+    isCopyrightDeleted,
+  };
+}
+
+function addNewStatements(node, newStatements,
+  deleteNonInteropApiSet, needDeleteExport) {
+  let isCopyrightDeleted = false;
+  node.statements.forEach((statement, index) => {
+    if (!isNonInterop(statement)) {
+      newStatements.push(statement);
+      return;
+    }
+    if (index === 0) {
+      isCopyrightDeleted = true;
+    }
+    if (ts.isVariableStatement(statement)) {
+      deleteNonInteropApiSet.add(variableStatementGetEscapedText(statement));
+    } else if (
+      ts.isModuleDeclaration(statement) ||
+      ts.isInterfaceDeclaration(statement) ||
+      ts.isClassDeclaration(statement) ||
+      ts.isEnumDeclaration(statement) ||
+      ts.isStructDeclaration(statement) ||
+      ts.isTypeAliasDeclaration(statement)
+    ) {
+      if (statement && statement.name && (statement.name).escapedText) {
+        deleteNonInteropApiSet.add((statement.name).escapedText.toString());
+      }
+      setDeleteExport(statement, node, needDeleteExport, deleteNonInteropApiSet);
+    } else if (ts.isExportAssignment(statement) || ts.isExportDeclaration(statement)) {
+      setDeleteExport(statement, node, needDeleteExport, deleteNonInteropApiSet);
+    }
+  });
+
+  return isCopyrightDeleted;
+}
+
+function processExportNode(statement, node,
+  needDeleteExport, names, deleteNonInteropApiSet,
+  newStatementsWithoutExport) {
+  if (ts.isExportAssignment(statement)) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = (statement.expression).escapedText.toString();
+  } else if (ts.isExportDeclaration(statement)) {
+    let needExport = false;
+    const newSpecifiers = [];
+    names.forEach((name, index) => {
+      const exportSpecifier =
+        (statement.exportClause).elements[index];
+      if (!deleteNonInteropApiSet.has(name)) {
+        newSpecifiers.push(exportSpecifier);
+        needExport = true;
+      } else {
+        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+        needDeleteExport.exportName.add(exportSpecifier.name.escapedText.toString());
+      }
+    });
+    if (needExport) {
+      (statement.exportClause) = ts.factory.updateNamedExports(
+        statement.exportClause, newSpecifiers);
+      newStatementsWithoutExport.push(statement);
+    }
+  }
+}
+
+function getPureName(name) {
+  const pureName = path.basename(name)
+    .replace(EXTNAME_D_TS, '')
+    .replace(EXTNAME_D_ETS, '')
+    .replace(/_/g, '')
+    .toLowerCase();
+  return pureName;
+}
+
+function processFileName(filePath) {
+  return path
+    .basename(filePath)
+    .replace(/\.d\.ts$/g, EXTNAME_TS)
+    .replace(/\.d\.ets$/g, EXTNAME_ETS);
+}
+
+function processFileNameWithoutExt(filePath) {
+  return path
+    .basename(filePath)
+    .replace(/\.d\.ts$/g, '')
+    .replace(/\.d\.ets$/g, '')
+    .replace(/\.ts$/g, '')
+    .replace(/\.ets$/g, '');
+}
+
+function hasFileByImportPath(importPath, apiDir, inputDir) {
+  let fileDir = path.resolve(apiDir);
+  if (importPath.startsWith(`@${ARKTS}`)) {
+    fileDir = path.resolve(inputDir, `../${ARKTS}`);
+  }
+  return isExistArkUIFile(path.resolve(inputDir, ARKUI, COMPONENT), importPath, inputDir) ||
+  isExistImportFile(fileDir, importPath);
+}
+
+function isExistArkUIFile(resolvedPath, importPath, inputDir) {
+  const filePath = path.resolve(resolvedPath, importPath);
+  if (filePath.includes(path.resolve(inputDir, INTERNAL, COMPONENT, ETS)) ||
+    filePath.includes(path.resolve(inputDir, ARKUI, COMPONENT))
+  ) {
+    const fileName = getPureName(filePath);
+    return componentEtsFiles.includes(fileName);
+  }
+  return isExistImportFile(resolvedPath, importPath);
+}
+
+function isExistImportFile(fileDir, importPath) {
+  return [EXTNAME_D_TS, EXTNAME_D_ETS].some(ext => {
+    return fs.existsSync(path.resolve(fileDir, `${importPath}${ext}`));
+  });
+}
+
+function preprocessContent(fileName, content) {
+  stmtReplacementMap.clear();
+  let result = content.replace(/^(\s*)(\@Retention\(\{[^\(\)\{\}]*\}\)$)/mg,
+    '$1/**@reserved $2 */');
+  const matches = result.match(/(^[^\*]*\s+\@interface\s+.*$)/mg);
+  if (matches) {
+    for (const match of matches) {
+      const transformedStmt = match.replace(/(?<=\s+)\@interface(\s+\w+)\s*\{\}/g, 'const$1');
+      result = result.replace(match, transformedStmt);
+      stmtReplacementMap.set(match, transformedStmt);
+    }
+  }
+  if (isSpecialFile(fileName)) {
+    result = processSpecialFileContext(fileName, result);
+  }
+  return result;
+}
+
+function processSpecialFileContext(fileName, context) {
+  fileName = path.basename(fileName, EXTNAME_TS);
+  if (fileName === ALERT_DIALOG) {
+    context = context.replace(/\bTextStyle\b/g, ALERT_DIALOG_TEXT_STYLE);
+  }
+  if (fileName === COMMON) {
+    context = context.replace(/\bLinearGradient\b/g, COMMON_LINEAR_GRADIENT);
+  }
+  return context;
+}
+
+function isSpecialFile(url) {
+  return specialFileList.includes(path.basename(url, EXTNAME_TS));
+}
+
+function writeFile(url, data, inputDir, outputPath) {
+  const newFilePath = path.resolve(outputPath, path.relative(inputDir, url));
+  fs.mkdirSync(path.dirname(newFilePath), { recursive: true });
+  fs.writeFileSync(newFilePath, data);
+}
+
+function postProcessContent(content) {
+  for (const [originalStmt, transformedStmt] of stmtReplacementMap) {
+    content = content.replace(transformedStmt, originalStmt);
+  }
+  return content.replace(/^(\s*)\/\*\*\@reserved (.*) \*\/$/mg, '$1$2');
+}
+
+function outputFile(url, exportFlag, inputDir, outputPath,
+  node, sourceFile, referencesMessage,
+  copyrightMessage, isCopyrightDeleted) {
+  const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
+  let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
+  if (isCopyrightDeleted) {
+    result = copyrightMessage + '\n' + result;
+  }
+  copyrightMessage = node.getFullText().replace(node.getText(), '');
+  if (referencesMessage) {
+    result = result.substring(0, copyrightMessage.length) + '\n' + referencesMessage +
+      result.substring(copyrightMessage.length);
+  }
+  result = removeNonInteropDoc(result);
+  result = postProcessContent(result);
+  writeFile(url, result, inputDir, outputPath);
+  if (exportFlag) {
+    writeGlobalESValueFile(removeComments(result), outputPath);
+  }
+}
+
+function removeComments(content) {
+  let result = content.replace(/\/\*[\s\S]*?\*\//g, '');
+  result = result.replace(/\/\/.*$/gm, '');
+  result = result.replace(/^\s*[\r\n]/gm, '');
+  return result;
+}
+
+function collectAllIdentifier(node, context) {
+  const identifierSet = new Set([]);
+  if (!ts.isSourceFile(node) || !node.statements) {
+    return identifierSet;
+  }
+  node.statements.forEach((stat) => {
+    if (!ts.isImportDeclaration(stat)) {
+      ts.visitEachChild(stat, collectAllNodes, context);
+    }
+  });
+
+  function collectAllNodes(node) {
+    if (ts.isIdentifier(node)) {
+      identifierSet.add(node.escapedText.toString());
+    }
+    return ts.visitEachChild(node, collectAllNodes, context);
+  }
+
+  return identifierSet;
+}
+
+function getCoreFilename(fileName) {
+  if (fileName.endsWith(EXTNAME_TS)) {
+    return fileName.slice(0, -EXTNAME_TS.length);
+  }
+  return fileName;
+}
+
+function createFrameNodeTypeNode() {
+  return ts.factory.createModuleDeclaration(
+    [
+      ts.factory.createToken(ts.SyntaxKind.ExportKeyword),
+      ts.factory.createToken(ts.SyntaxKind.DeclareKeyword)
+    ],
+    ts.factory.createIdentifier(TYPENODE),
+    ts.factory.createModuleBlock([ts.factory.createTypeAliasDeclaration(
+      undefined,
+      ts.factory.createIdentifier(XCOMPONENT),
+      undefined,
+      ts.factory.createTypeReferenceNode(
+      ts.factory.createIdentifier(ANY),
+      undefined
+      )
+    )]),
+    ts.NodeFlags.Namespace | ts.NodeFlags.ExportContext | ts.NodeFlags.ContextFlags
+  );
+}
+
+function hasCopyright(node) {
+  return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(node.getFullText()
+    .replace(node.getText(), ''));
+}
+
+function getClauseSet(statement) {
+  const clauseSet = new Set([]);
+  if (!statement.importClause || !ts.isImportClause(statement.importClause)) {
+    return clauseSet;
+  }
+  const clauseNode = statement.importClause;
+  if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
+    clauseSet.add(clauseNode.name.escapedText.toString());
+  } else if (clauseNode.namedBindings && ts.isNamespaceImport(clauseNode.namedBindings) &&
+    clauseNode.namedBindings.name && ts.isIdentifier(clauseNode.namedBindings.name)) {
+    clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
+  } else if (clauseNode.namedBindings && ts.isNamedImports(clauseNode.namedBindings) &&
+    clauseNode.namedBindings.elements) {
+    clauseNode.namedBindings.elements.forEach((ele) => {
+      if (ele.name && ts.isIdentifier(ele.name)) {
+        clauseSet.add(ele.name.escapedText.toString());
+      }
+    });
+  }
+  return clauseSet;
+}
+
+function getExsitClauseSet(hasImportSpecifierInModules, importSpecifier,
+  currReferencesModule, clauseSet, allIdentifierSet) {
+  let currModule = [];
+  if (hasImportSpecifierInModules) {
+    let index = globalModules.get(importSpecifier);
+    const referenceModule = currReferencesModule[index];
+    currModule = referenceModule.modules[importSpecifier];
+  }
+  const clasueCheckList = [];
+  let exsitClauseSet = new Set([]);
+  for (const clause of clauseSet) {
+    let flag = allIdentifierSet.has(clause);
+    if (hasImportSpecifierInModules) {
+      flag = allIdentifierSet.has(clause) && currModule.includes(clause);
+    }
+    if (flag) {
+      // use import
+      exsitClauseSet.add(clause);
+      clasueCheckList.push(EXIST);
+    } else {
+      clasueCheckList.push(NON_EXIST);
+    }
+  }
+  let hasExsitStatus = false;
+  let hasNonExsitStatus = false;
+  clasueCheckList.forEach((ele) => {
+    if (ele === EXIST) {
+      hasExsitStatus = true;
+    } else {
+      hasNonExsitStatus = true;
+    }
+  });
+  return { exsitClauseSet, hasExsitStatus, hasNonExsitStatus };
+}
+
+function handleUsedImport(hasNonExsitStatus, statement,
+  exsitClauseSet, hasImportSpecifierInModules,
+  currReferencesModule, importSpecifier) {
+  if (hasNonExsitStatus) {
+    const newSpecifiers = [];
+    (statement.importClause.namedBindings).elements.forEach((element) => {
+      if (exsitClauseSet.has(element.name.escapedText.toString())) {
+        newSpecifiers.push(element);
+      }
+    });
+    (statement.importClause).namedBindings = ts.factory.updateNamedImports(
+      statement.importClause.namedBindings,
+      newSpecifiers
+    );
+  }
+  if (hasImportSpecifierInModules) {
+    let index = globalModules.get(importSpecifier);
+    currReferencesModule[index].isUsed = true;
+  }
+  return { statement };
+}
+
+function getFileAndKitComment(fileFullText) {
+  let fileAndKitComment = '';
+  let pattern = /\/\*\*\s*\*\s*@file[\s\S]*?@kit[\s\S]*?\*\//;
+  let comment = fileFullText.match(pattern);
+  if (comment) {
+    fileAndKitComment = comment[0];
+  }
+  return fileAndKitComment;
+}
+
+function removeNonInteropDoc(result) {
+  return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
+    return /@noninterop/g.test(substring) ? '' : substring;
+  });
+}
+
+function needProcessLabelNonInterop(fileName, kitName, inputDir) {
+  if (inputDir.endsWith(COMPONENT) || fileName.startsWith(OHOS_ARKUI) ||
+    kitName.toLowerCase() === ARKUI || whiteFileList.includes(fileName.slice(0, -EXTNAME_TS.length))) {
+    return true;
+  }
+  return false;
+}
+
+function setDeleteExport(statement, node, needDeleteExport,
+  deleteNonInteropApiSet) {
+  if (ts.isExportAssignment(statement) &&
+    deleteNonInteropApiSet.has((statement.expression).escapedText.toString())) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = (statement.expression).escapedText.toString();
+  } else if (ts.isExportDeclaration(statement)) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    (statement.exportClause).elements.forEach((element) => {
+      const exportName = element.propertyName ?
+      element.propertyName.escapedText.toString() :
+      element.name.escapedText.toString();
+      if (deleteNonInteropApiSet.has(exportName)) {
+        needDeleteExport.exportName.add(element.name.escapedText.toString());
+      }
+    });
+  }
+  //export namespace xxx {}
+  const modifiers = statement.modifiers;
+  if (modifiers === undefined) {
+    return;
+  }
+  const exportFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
+  const defaultFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.DefaultKeyword);
+  if (exportFlag && defaultFlag) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.default = (statement).name.escapedText.toString();
+  } else if (exportFlag) {
+    needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
+    needDeleteExport.exportName.add((statement).name.escapedText.toString());
+  }
+}
+
+function getExportIdentifierName(statement) {
+  const names = [];
+  if (ts.isExpressionStatement(statement)) {
+    // exports.name = xxx;
+    if (ts.isBinaryExpression(statement.expression) && ts.isIdentifier(statement.expression.right) &&
+      statement.expression.right.escapedText) {
+      names.push(statement.expression.right.escapedText.toString());
+    }
+  } else if (ts.isExportAssignment(statement)) {
+    // export default xxx
+    names.push((statement.expression).escapedText.toString());
+  } else if (ts.isExportDeclaration(statement) && statement.exportClause) {
+    // export {xxx} 、export {xxx as yyy} 、export * from './zzz'
+    const specifiers = (statement.exportClause).elements;
+    specifiers.forEach((specifier) => {
+      if (ts.isExportSpecifier(specifier)) {
+        const name = specifier.propertyName ? specifier.propertyName : specifier.name;
+        names.push(name.escapedText.toString());
+      }
+    });
+  }
+  return names;
+}
+
+function addExport2Modifiers(
+  modifiers) {
+  modifiers = modifiers || [];
+  const isAlreadyExported = modifiers.some(m => m.kind === ts.SyntaxKind.ExportKeyword);
+  if (!isAlreadyExported) {
+    modifiers = [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword),
+      ...modifiers];
+  }
+  return modifiers;
+}
+
+function processTypeAliasDeclaration(node,
+  exportFlag) {
+  if (exportFlag) {
+    return ts.factory.updateTypeAliasDeclaration(
+      node,
+      addExport2Modifiers(node.modifiers),
+      node.name,
+      node.typeParameters,
+      node.type
+    );
+  } else {
+    return node;
+  }
+}
+
+function processInterfaceDeclaration(node,
+  exportFlag) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isNonInterop(member)) {
+      newMembers.push(member);
+    }
+  });
+  let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+  return ts.factory.updateInterfaceDeclaration(
+    node,
+    modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+}
+
+function processClassDeclaration(node, exportFlag) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isNonInterop(member)) {
+      newMembers.push(member);
+    }
+  });
+  let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+  return ts.factory.updateClassDeclaration(
+    node,
+    modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+}
+
+function processEnumDeclaration(node, exportFlag) {
+  const newMembers = [];
+  node.members.forEach((member) => {
+    if (!isNonInterop(member)) {
+      newMembers.push(member);
+    }
+  });
+  let modifiers = exportFlag ? addExport2Modifiers(node.modifiers) : node.modifiers;
+  return ts.factory.updateEnumDeclaration(
+    node,
+    modifiers,
+    node.name,
+    newMembers
+  );
+}
+
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1 && !isNonInterop(member)) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
+}
+
+function variableStatementGetEscapedText(statement) {
+  let name = '';
+  if (
+    statement &&
+    statement.declarationList &&
+    statement.declarationList.declarations &&
+    statement.declarationList.declarations.length > 0 &&
+    statement.declarationList.declarations[0].name &&
+    (statement.declarationList.declarations[0].name).escapedText
+  ) {
+    name = (statement.declarationList.declarations[0].name).escapedText.toString();
+  }
+  return name;
+}
+
+function isNonInterop(node) {
+  const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
+  const notesArr = notesContent.split(/\/\*\*/);
+  for (const note of notesArr) {
+    if (note.length !== 0 && /@noninterop/g.test(note)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+exports.transformFiles = transformFiles;
+
+let outputPath = '';
+let inputDir = '';
+let exportFlag = false;
 
 let sourceFile = null;
 let componentEtsFiles = [];
 let componentEtsDeleteFiles = [];
 const kitFileNeedDeleteMap = new Map();
 const stmtReplacementMap = new Map();
-const exportElementsMap = new Map();
-let exportElements = [];
-
-
-function start() {
-    const program = new commander.Command();
-    program
-        .name('noninterop')
-        .version('0.0.1');
-    program
-        .option('--input <string>', 'input path')
-        .option('--output <string>', 'output path')
-        .option('--export <string>', 'export flag', false)
-        .action((opts) => {
-            outputPath = opts.output;
-            inputDir = opts.input;
-            exportFlag = opts.export === 'true';
-            transformFiles(opts.input);
-        });
-    program.parse(process.argv);
-}
-
-function writeArkuiComponentFile() {
-    let data = '';
-    for (const [file, elements] of exportElementsMap) {
-        if (elements.length > 0) {
-            data += `export {${elements.join(', ')}} from "../component/${file.replace('.d.ts', '')
-                .replace('.d.ets', '')}"\n`;
-        }
-    }
-    fs.writeFileSync(`${path.resolve(outputPath, '../api')}/@ohos.arkui.component.d.ets`, data, undefined, (err) => {
-        if (err) {
-            console.log(`ERROR FOR CREATE FILE ${err}`);
-        }
-    });
-}
-
-function transformFiles(inputDir) {
-    // 入口
-    try {
-        const utFiles = [];
-        readFile(inputDir, utFiles); // 读取文件
-        tsTransform(utFiles, deleteSystemApi);
-        if (exportFlag) {
-            writeArkuiComponentFile();
-        }
-    } catch (error) {
-        console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
-    }
-}
-
-function getPureName(name) {
-    const pureName = path.basename(name)
-        .replace('.d.ts', '')
-        .replace('.d.ets', '')
-        .replace(/_/g, '')
-        .toLowerCase();
-    return pureName;
-}
-
-
-/**
- * 判断文件路径对应的文件是否存在
- * @param {string} importPath kit文件import
- * @param {string} apiDir 引用接口所在目录
- * @returns {boolean} importPath是否存在
- */
-function hasFileByImportPath(importPath, apiDir) {
-    let fileDir = path.resolve(apiDir);
-    if (importPath.startsWith('@arkts')) {
-        fileDir = path.resolve(inputDir, '../arkts');
-    }
-    return isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath) ||
-    isExistImportFile(fileDir, importPath);
-}
-
-function isExistArkUIFile(resolvedPath, importPath) {
-    const filePath = path.resolve(resolvedPath, importPath);
-    if (
-        filePath.includes(path.resolve(inputDir, '@internal', 'component', 'ets')) ||
-        filePath.includes(path.resolve(inputDir, 'arkui', 'component'))
-    ) {
-        const fileName = getPureName(filePath);
-        return componentEtsFiles.includes(fileName);
-    }
-    return isExistImportFile(resolvedPath, importPath);
-}
-
-function isExistImportFile(fileDir, importPath) {
-    return ['.d.ts', '.d.ets'].some(ext => {
-        return fs.existsSync(path.resolve(fileDir, `${importPath}${ext}`));
-    });
-}
-
-/**
- * 统一处理文件名称，修改后缀等
- * @param {string} filePath 文件路径
- * @returns {string} filename 文件名称
- */
-function processFileName(filePath) {
-    return path
-        .basename(filePath)
-        .replace(/\.d\.ts$/g, '.ts')
-        .replace(/\.d\.ets$/g, '.ets');
-}
-
-function processFileNameWithoutExt(filePath) {
-    return path
-        .basename(filePath)
-        .replace(/\.d\.ts$/g, '')
-        .replace(/\.d\.ets$/g, '')
-        .replace(/\.ts$/g, '')
-        .replace(/\.ets$/g, '');
-}
-
-/**
- * 对文件内容进行预处理，把下面的两行处理成符合1.1的语法：
- * @Retention({policy: "SOURCE"})
- * export declare @interface State {};
- *
- * 转成
- * /**@reserved @Retention({policy: "SOURCE"}) #/
- * export declare const State;
- * @param {string} content
- */
-function preprocessContent(content) {
-    stmtReplacementMap.clear();
-    let result = content.replace(/^(\s*)(\@Retention\(\{[^\(\)\{\}]*\}\)$)/mg, '$1/**@reserved $2 */');
-    const matches = result.match(/(^[^\*]*\s+\@interface\s+.*$)/mg);
-    if (matches) {
-        for (const match of matches) {
-            const transformedStmt = match.replace(/(?<=\s+)\@interface(\s+\w+)\s*\{\}/g, 'const$1');
-            result = result.replace(match, transformedStmt);
-            stmtReplacementMap.set(match, transformedStmt);
-        }
-    }
-    return result;
-}
-
-/**
- * 遍历所有文件进行处理
- * @param {Array} utFiles 所有文件
- * @param {deleteSystemApi} callback 回调函数
- */
-function tsTransform(utFiles, callback) {
-    utFiles.forEach((url) => {
-        exportElements = [];
-        const apiBaseName = path.basename(url);
-        let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-        let isTransformer = /\.d\.ts/.test(apiBaseName) || /\.d\.ets/.test(apiBaseName);
-        if (/\.json/.test(url)) {
-            isTransformer = false;
-        }
-        if (!isTransformer) {
-            writeFile(url, content);
-            return;
-        }
-        // dts文件处理
-        const fileName = processFileName(url);
-        ts.transpileModule(preprocessContent(content), {
-            compilerOptions: {
-                target: ts.ScriptTarget.ES2017,
-            },
-            fileName: fileName,
-            transformers: { before: [callback(url)] },
-        });
-    });
-}
-
-/**
- * 读取目录下所有文件
- * @param {string} dir 文件目录
- * @param {Array} utFiles 所有文件
- */
-function readFile(dir, utFiles) {
-    try {
-        const files = fs.readdirSync(dir);
-        files.forEach((element) => {
-            const filePath = path.join(dir, element);
-            const status = fs.statSync(filePath);
-            if (status.isDirectory()) {
-                readFile(filePath, utFiles);
-            } else {
-                utFiles.push(filePath);
-            }
-        });
-    } catch (e) {
-        console.log('ETS ERROR: ' + e);
-    }
-}
-
-function writeFile(url, data, option) {
-    const newFilePath = path.resolve(outputPath, path.relative(inputDir, url));
-    fs.mkdir(path.dirname(newFilePath), { recursive: true }, (err) => {
-        if (err) {
-            console.log(`ERROR FOR CREATE PATH ${err}`);
-        } else {
-            if (data === '') {
-                fs.rmSync(newFilePath);
-                return;
-            }
-            fs.writeFileSync(newFilePath, data, option, (err) => {
-                if (err) {
-                    console.log(`ERROR FOR CREATE FILE ${err}`);
-                }
-            });
-        }
-    });
-}
-
 const globalModules = new Map();
 
-function postProcessContent(content) {
-    for (const [originalStmt, transformedStmt] of stmtReplacementMap) {
-        content = content.replace(transformedStmt, originalStmt);
-    }
-    return content.replace(/^(\s*)\/\*\*\@reserved (.*) \*\/$/mg, '$1$2');
-}
+const GLOBAL_ESVALUE_FILE = '@ohos.arkui.GlobalESValue.d.ts';
+const ARKUI = 'arkui';
+const ARKTS = 'arkts';
+const COMPONENT = 'component';
 
-function outputFile(url, node, sourceFile, referencesMessage, copyrightMessage, isCopyrightDeleted) {
-    if (isEmptyFile(node)) {
-        return;
-    }
-    const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-    let result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-    if (isCopyrightDeleted) {
-        // 当第一个节点被删除时会同步删除整个文件jsdoc
-        result = copyrightMessage + '\n' + result;
-    }
-    copyrightMessage = node.getFullText().replace(node.getText(), '');
-    if (referencesMessage) {
-        // 将references写入文件
-        result =
-            result.substring(0, copyrightMessage.length) +
-                '\n' +
-                referencesMessage +
-            result.substring(copyrightMessage.length);
-    }
-    result = removeNonInteropDoc(result);
-    exportElementsMap.set(path.relative(inputDir, url), exportElements);
-    writeFile(url, postProcessContent(result));
-}
+const ANY = 'Any';
+const EXTNAME_D_TS = '.d.ts';
+const EXTNAME_D_ETS = '.d.ets';
+const EXTNAME_TS = '.ts';
+const EXTNAME_ETS = '.ets';
+const ETS = 'ets';
+const INTERNAL = '@internal';
+const EXIST = 'exist';
+const NON_EXIST = 'non-exist';
+const OHOS_ARKUI = '@ohos.arkui';
 
-function collectAllIdentifier(node, context) {
-    const identifierSet = new Set([]);
-    if (!ts.isSourceFile(node) || !node.statements) {
-        return identifierSet;
-    }
-    node.statements.forEach((stat) => {
-        if (!ts.isImportDeclaration(stat)) {
-            ts.visitEachChild(stat, collectAllNodes, context);
-        }
+const FRAMENODE = 'FrameNode';
+const TRUE = 'true';
+const TYPENODE = 'typeNode';
+const XCOMPONENT = 'XComponent';
+const ALERT_DIALOG = 'alert_dialog';
+const ALERT_DIALOG_TEXT_STYLE = 'AlertDialogTextStyle';
+const COMMON = 'common';
+const COMMON_LINEAR_GRADIENT = 'CommonLinearGradient';
+
+const whiteFileList = [
+  'web',
+];
+
+const specialFileList = [
+  'alert_dialog',
+  'common',
+];
+
+function start() {
+  const program = new commander.Command();
+  program
+    .name('noninterop')
+    .version('0.0.1');
+  program
+    .option('--input <string>', 'input path')
+    .option('--output <string>', 'output path')
+    .option('--export <string>', 'export flag', false)
+    .action((opts) => {
+      outputPath = opts.output;
+      inputDir = opts.input;
+      exportFlag = opts.export === TRUE;
+      transformFiles(inputDir, outputPath, exportFlag);
     });
-
-    function collectAllNodes(node) {
-        if (ts.isIdentifier(node)) {
-            identifierSet.add(node.escapedText.toString());
-        }
-        return ts.visitEachChild(node, collectAllNodes, context);
-    }
-
-    return identifierSet;
+  program.parse(process.argv);
 }
 
-/**
- * 每个文件处理前回调函数第二个
- * @param {string} url 文件路径
- * @returns {Function}
- */
-function formatImportDeclaration(url, copyrightMessage = '', isCopyrightDeleted = false) {
-    return (context) => {
-        return (node) => {
-            sourceFile = node;
-            const allIdentifierSet = collectAllIdentifier(node, context); // 获取所有标识符
-            formatValue = formatAllNodes(url, node, allIdentifierSet); // 获取所有节点
-            node = formatValue.node;
-            const referencesMessage = formatValue.referencesMessage;
-            if (formatValue.isCopyrightDeleted) {
-                copyrightMessage = formatValue.copyrightMessage;
-                isCopyrightDeleted = formatValue.isCopyrightDeleted;
-            }
-            outputFile(url, node, sourceFile, referencesMessage, copyrightMessage, isCopyrightDeleted);
-            return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
-        };
-    };
-}
-
-function formatAllNodes(url, node, allIdentifierSet, copyrightMessage = '', isCopyrightDeleted = false) {
-    let referencesMessage = '';
-    let currReferencesModule = [];
-    if (!ts.isSourceFile(node) || !node.statements) {
-        return { node, referencesMessage, copyrightMessage, isCopyrightDeleted };
-    }
-    const newStatements = [];
-    node.statements.forEach((statement) => {
-        if (ts.isImportDeclaration(statement)) {
-            const importInfo = formatAllNodesImportDeclaration(
-                node,
-                statement,
-                url,
-                currReferencesModule,
-                allIdentifierSet
-            );
-            if (importInfo.statement) {
-                newStatements.push(statement);
-            } else if (importInfo.isCopyrightDeleted) {
-                copyrightMessage = importInfo.copyrightMessage;
-                isCopyrightDeleted = importInfo.isCopyrightDeleted;
-            }
-        } else if (ts.isStructDeclaration(statement)) {
-            statement = ts.factory.updateStructDeclaration(
-                statement,
-                statement.modifiers,
-                statement.name,
-                statement.typeParameters,
-                statement.heritageClauses,
-                statement.members.slice(1)
-            );
-            newStatements.push(statement);
-        } else {
-            newStatements.push(statement);
-        }
-    });
-    currReferencesModule.forEach((item) => {
-        if (item.isUsed) {
-            referencesMessage += item.reference + '\n';
-        }
-    });
-    node = ts.factory.updateSourceFile(node, newStatements);
-    return { node, referencesMessage, copyrightMessage, isCopyrightDeleted };
-}
-
-function hasCopyright(node) {
-    return /http\:\/\/www\.apache\.org\/licenses\/LICENSE\-2\.0/g.test(node.getFullText().replace(node.getText(), ''));
-}
-
-function getClauseSet(statement) {
-    // 是import节点 import { AsyncCallback } from './@ohos.base';
-    const clauseSet = new Set([]);
-    if (!statement.importClause || !ts.isImportClause(statement.importClause)) {
-        return clauseSet;
-    }
-    // 标识符
-    const clauseNode = statement.importClause;
-    if (!clauseNode.namedBindings && clauseNode.name && ts.isIdentifier(clauseNode.name)) {
-        // 没有大括号的标识符
-        clauseSet.add(clauseNode.name.escapedText.toString());
-    } else if (
-        clauseNode.namedBindings &&
-        clauseNode.namedBindings.name &&
-        ts.isIdentifier(clauseNode.namedBindings.name)
-    ) {
-        // 没有标识符 *号
-        clauseSet.add(clauseNode.namedBindings.name.escapedText.toString());
-    } else if (clauseNode.namedBindings && clauseNode.namedBindings.elements) {
-        // 有花括号的标识符
-        clauseNode.namedBindings.elements.forEach((ele) => {
-            if (ele.name && ts.isIdentifier(ele.name)) {
-                clauseSet.add(ele.name.escapedText.toString());
-            }
-        });
-    }
-    return clauseSet;
-}
-
-function getExsitClauseSet(hasImportSpecifierInModules, importSpecifier, currReferencesModule, clauseSet,
-    allIdentifierSet) {
-    let currModule = [];
-    if (hasImportSpecifierInModules) {
-        let index = globalModules.get(importSpecifier);
-        currModule = currReferencesModule[index].modules[importSpecifier];
-    }
-    const clasueCheckList = [];
-    let exsitClauseSet = new Set([]);
-    for (const clause of clauseSet) {
-        let flag = allIdentifierSet.has(clause);
-        if (hasImportSpecifierInModules) {
-            flag = allIdentifierSet.has(clause) && currModule.includes(clause);
-        }
-        if (flag) {
-            // 标识符使用到了当前import中的引用
-            exsitClauseSet.add(clause);
-            clasueCheckList.push('exist');
-        } else {
-            clasueCheckList.push('non-exist');
-        }
-    }
-    let hasExsitStatus = false;
-    let hasNonExsitStatus = false;
-    clasueCheckList.forEach((ele) => {
-        if (ele === 'exist') {
-            hasExsitStatus = true;
-        } else {
-            hasNonExsitStatus = true;
-        }
-    });
-    return { exsitClauseSet, hasExsitStatus, hasNonExsitStatus };
-}
-
-function handleUsedImport(hasNonExsitStatus, statement, exsitClauseSet, hasImportSpecifierInModules,
-    currReferencesModule) {
-    // 有使用到的标识符
-    if (hasNonExsitStatus) {
-        // 有没有使用到的标识符
-        const newSpecifiers = [];
-        statement.importClause.namedBindings.elements.forEach((element) => {
-            if (exsitClauseSet.has(element.name.escapedText.toString())) {
-                newSpecifiers.push(element);
-            }
-        });
-        statement.importClause.namedBindings = ts.factory.updateNamedImports(
-            statement.importClause.namedBindings,
-            newSpecifiers
-        );
-    }
-    if (hasImportSpecifierInModules) {
-        let index = globalModules.get(importSpecifier);
-        currReferencesModule[index].isUsed = true;
-    }
-    return { statement };
-}
-
-
-/**
- * 处理Import节点 去除未使用、不存在、References中没有对应模块的导入
- * @param {ts.node} node 当前节点
- * @param {ts.ImportDeclaration} statement 导入节点
- * @param {string} url 文件路径
- * @param {string} url 文件路径
- * @param {Set} allIdentifierSet 该文件的所有Identifier关键字
- * @returns {{statement:ts.ImportDeclaration,copyrightMessage:string,isCopyrightDeleted:boolean}} statement 处理完成的导入节点、copyrightMessage
- */
-function formatAllNodesImportDeclaration(node, statement, url, currReferencesModule, allIdentifierSet) {
-    const clauseSet = getClauseSet(statement);
-    const importSpecifier = statement.moduleSpecifier.getText().replace(/[\'\"]/g, '');
-    const fileDir = path.dirname(url);
-    let hasImportSpecifierFile = hasFileByImportPath(importSpecifier, fileDir);
-    let hasImportSpecifierInModules = globalModules.has(importSpecifier);
-    if ((!hasImportSpecifierFile && !hasImportSpecifierInModules) || clauseSet.size === 0) {
-        if (hasCopyright(statement)) {
-            return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
-        } else {
-            return { statement: undefined, copyrightMessage: '', isCopyrightDeleted: false };
-        }
-    }
-    const clauseSetValue =
-        getExsitClauseSet(hasImportSpecifierInModules, importSpecifier, currReferencesModule, clauseSet,
-            allIdentifierSet);
-    const hasExsitStatus = clauseSetValue.hasExsitStatus;
-    const hasNonExsitStatus = clauseSetValue.hasNonExsitStatus;
-    let exsitClauseSet = clauseSetValue.exsitClauseSet;
-    if (hasExsitStatus) {
-        return handleUsedImport(hasNonExsitStatus, statement, exsitClauseSet, hasImportSpecifierInModules,
-            currReferencesModule);
-    } else if (hasCopyright(statement)) {
-        return { copyrightMessage: node.getFullText().replace(node.getText(), ''), isCopyrightDeleted: true };
-    } else {
-        return { statement: undefined, copyrightMessage: '', isCopyrightDeleted: false };
-    }
-}
-
-/**
- *
- * 防止@file和@kit段注释丢失
- * @param {string} fileFullText
- * @returns {string}
- *
- */
-function getFileAndKitComment(fileFullText) {
-    let fileAndKitComment = '';
-    let pattern = /\/\*\*\s*\*\s*@file[\s\S]*?@kit[\s\S]*?\*\//;
-    let comment = fileFullText.match(pattern);
-    if (comment) {
-        fileAndKitComment = comment[0];
-    }
-    return fileAndKitComment;
-}
-
-/**
- * 处理最终结果中的noninterop
- * @param {string} result
- */
-function removeNonInteropDoc(result) {
-    result.split;
-    return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
-        return /@noninterop/g.test(substring) ? '' : substring;
-    });
-}
-
-/**
- * 每个文件处理前回调函数第一个
- * @callback deleteSystemApi
- * @param {string} url 文件路径
- * @returns {Function}
- */
-function deleteSystemApi(url) {
-    return (context) => {
-        return (node) => {
-            const fullText = String(node.getFullText());
-            //获取文件头部的注释信息--这里可能会涉及到@file和@kit段注释丢失
-            let fileAndKitComment = getFileAndKitComment(fullText);
-            const copyrightMessage = fullText.replace(node.getText(), '').split(/\/\*\*/)[0] + fileAndKitComment + '\n';
-            let kitName = '';
-            if (fullText.match(/\@kit (.*)\r?\n/g)) {
-                kitName = RegExp.$1.replace(/\s/g, '');
-            }
-            sourceFile = node;
-            const deleteNode = processSourceFile(node, kitName, url); // 处理最外层节点
-            node = processVisitEachChild(context, deleteNode.node);
-            if (!isEmptyFile(node)) {
-                const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-                const result = printer.printNode(ts.EmitHint.Unspecified, node, sourceFile);
-                const fileName = processFileName(url);
-                ts.transpileModule(result, {
-                    compilerOptions: {
-                        target: ts.ScriptTarget.ES2017,
-                    },
-                    fileName: fileName,
-                    transformers: {
-                        before: [formatImportDeclaration(url, copyrightMessage, deleteNode.isCopyrightDeleted)]
-                    },
-                });
-            }
-            return ts.factory.createSourceFile([], ts.SyntaxKind.EndOfFileToken, ts.NodeFlags.None);
-        };
-    };
-}
-
-exports.deleteSystemApi = deleteSystemApi;
-
-/**
- * 遍历每个文件下的所有节点，然后删除节点
- * @param node
- * @returns
- */
-
-/**
- * 处理最外层的节点看是否删除
- * @param node 解析过后的节点
- * @param kitName 当前文件kitName
- * @returns
- */
-function processSourceFile(node, kitName, url) {
-    let isCopyrightDeleted = false;
-    const newStatements = [];
-    const newStatementsWithoutExport = [];
-    const deleteSystemApiSet = new Set();
-    let needDeleteExport = {
-        fileName: '',
-        default: '',
-        exportName: new Set(),
-    };
-    isCopyrightDeleted = addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport);
-    newStatements.forEach((statement) => {
-        const names = getExportIdentifierName(statement);
-        if (ts.isExportDeclaration(statement) && statement.moduleSpecifier &&
-        statement.moduleSpecifier.text.startsWith('./arkui/component/')) {
-            const importPath = statement.moduleSpecifier.text.replace('./arkui/component/', '');
-            const isDeleteSystemFile = componentEtsDeleteFiles.includes(getPureName(importPath));
-            const hasEtsFile = componentEtsFiles.includes(getPureName(importPath));
-            const existFile = isExistImportFile(path.dirname(url), statement.moduleSpecifier.text.toString());
-            if (isDeleteSystemFile || !hasEtsFile && !existFile) {
-                return;
-            }
-        }
-        if (names.length === 0) {
-            newStatementsWithoutExport.push(statement);
-            return;
-        }
-        if (names.length === 1 && !deleteSystemApiSet.has(names[0])) {
-            //exports.name = test;
-            //export default test1
-            //export {test1}
-            newStatementsWithoutExport.push(statement);
-            return;
-        }
-        processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport);
-    });
-    if (needDeleteExport.fileName !== '') {
-        kitFileNeedDeleteMap.set(needDeleteExport.fileName, needDeleteExport);
-    }
-    return {
-        node: ts.factory.updateSourceFile(node, newStatementsWithoutExport, node.isDeclarationFile,
-            node.referencedFiles),
-        isCopyrightDeleted,
-    };
-}
-
-function processExportNode(statement, node, needDeleteExport, names, deleteSystemApiSet, newStatementsWithoutExport) {
-    //删除export节点信息
-    if (ts.isExportAssignment(statement)) {
-        //export default abilityAccessCtrl;
-        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.default = statement.expression.escapedText.toString();
-    } else if (ts.isExportDeclaration(statement)) {
-        //export {test1 as test,testa as test2}
-        let needExport = false;
-        const newSpecifiers = [];
-        names.forEach((name, index) => {
-            const exportSpecifier = statement.exportClause.elements[index];
-            if (!deleteSystemApiSet.has(name)) {
-                //未被删除的节点
-                newSpecifiers.push(exportSpecifier);
-                needExport = true;
-            } else {
-                //被删除的节点
-                needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-                needDeleteExport.exportName.add(exportSpecifier.name.escapedText.toString());
-            }
-        });
-        if (needExport) {
-            statement.exportClause = ts.factory.updateNamedExports(statement.exportClause, newSpecifiers);
-            newStatementsWithoutExport.push(statement);
-        }
-    }
-}
-
-function addNewStatements(node, newStatements, deleteSystemApiSet, needDeleteExport) {
-    let isCopyrightDeleted = false;
-    node.statements.forEach((statement, index) => {
-        if (!isNonInterop(statement)) {
-            newStatements.push(statement);
-            return;
-        }
-        if (index === 0) {
-            isCopyrightDeleted = true;
-        }
-        if (ts.isVariableStatement(statement)) {
-            deleteSystemApiSet.add(variableStatementGetEscapedText(statement));
-        } else if (
-            ts.isModuleDeclaration(statement) ||
-            ts.isInterfaceDeclaration(statement) ||
-            ts.isClassDeclaration(statement) ||
-            ts.isEnumDeclaration(statement) ||
-            ts.isStructDeclaration(statement) ||
-            ts.isTypeAliasDeclaration(statement)
-        ) {
-            if (statement && statement.name && statement.name.escapedText) {
-                deleteSystemApiSet.add(statement.name.escapedText.toString());
-            }
-            setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
-        } else if (ts.isExportAssignment(statement) || ts.isExportDeclaration(statement)) {
-            setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet);
-        }
-    });
-
-    return isCopyrightDeleted;
-}
-
-function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) {
-    if (ts.isExportAssignment(statement) && deleteSystemApiSet.has(statement.expression.escapedText.toString())) {
-        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.default = statement.expression.escapedText.toString();
-    } else if (ts.isExportDeclaration(statement)) {
-        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        statement.exportClause.elements.forEach((element) => {
-            const exportName = element.propertyName ?
-            element.propertyName.escapedText.toString() :
-            element.name.escapedText.toString();
-            if (deleteSystemApiSet.has(exportName)) {
-                needDeleteExport.exportName.add(element.name.escapedText.toString());
-            }
-        });
-    }
-    //export namespace test {}
-    const modifiers = statement.modifiers;
-    if (modifiers === undefined) {
-        return;
-    }
-    const exportFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
-    const defaultFlag = modifiers.some((modifier) => modifier.kind === ts.SyntaxKind.DefaultKeyword);
-    if (exportFlag && defaultFlag) {
-        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.default = statement.name.escapedText.toString();
-    } else if (exportFlag) {
-        needDeleteExport.fileName = processFileNameWithoutExt(node.fileName);
-        needDeleteExport.exportName.add(statement.name.escapedText.toString());
-    }
-}
-
-/**
- * 获取export节点的名字，只获取第一个关键词
- * @param {ts.node} statement
- * @returns {Array<string>}
- */
-function getExportIdentifierName(statement) {
-    const names = [];
-    if (ts.isExpressionStatement(statement)) {
-        //exports.name = test;
-        if (ts.isBinaryExpression(statement.expression) && statement.expression.right.escapedText) {
-            names.push(statement.expression.right.escapedText.toString());
-        }
-    } else if (ts.isExportAssignment(statement)) {
-        //export default test1
-        names.push(statement.expression.escapedText.toString());
-    } else if (ts.isExportDeclaration(statement) && statement.exportClause) {
-        //export {test1} 、export {test1 as test} 、export * from './featureability'
-        const specifiers = statement.exportClause.elements;
-        specifiers.forEach((specifier) => {
-            if (ts.isExportSpecifier(specifier)) {
-                const name = specifier.propertyName ? specifier.propertyName : specifier.name;
-                names.push(name.escapedText.toString());
-            }
-        });
-    }
-    return names;
-}
-
-/**
- * 遍历处理tsnode节点
- * @param context 解析过后的内容
- * @param node 解析过后的节点
- * @returns ts.node
- */
-function processVisitEachChild(context, node) {
-    return ts.visitEachChild(node, processAllNodes, context); // 遍历所有子节点
-
-    function getNewStatements(node) {
-        const newStatements = [];
-        node.body.statements.forEach((statement) => {
-            if (!isNonInterop(statement)) {
-                newStatements.push(statement);
-            }
-        });
-        return newStatements;
-    }
-
-    function processAllNodes(node) {
-        if (ts.isInterfaceDeclaration(node)) {
-            node = processInterfaceDeclaration(node);
-        } else if (ts.isClassDeclaration(node)) {
-            node = processClassDeclaration(node);
-        } else if (ts.isModuleDeclaration(node) && node.body && ts.isModuleBlock(node.body)) {
-            const newModuleBody = ts.factory.updateModuleBlock(node.body, getNewStatements(node));
-            node = ts.factory.updateModuleDeclaration(
-                node,
-                node.modifiers,
-                node.name,
-                newModuleBody
-            );
-        } else if (ts.isEnumDeclaration(node)) {
-            node = processEnumDeclaration(node);
-        } else if (ts.isStructDeclaration(node)) {
-            node = processStructDeclaration(node);
-        } else if (ts.isTypeAliasDeclaration(node)) {
-            node = processTypeAliasDeclaration(node);
-        }
-        return ts.visitEachChild(node, processAllNodes, context);
-    }
-}
-
-/**
- * 处理type子节点
- */
-function processTypeAliasDeclaration(node) {
-    exportElements.push(node.name.text);
-    node = ts.factory.updateTypeAliasDeclaration(
-        node,
-        node.decorators,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.type
-    );
-    return node;
-}
-
-/**
- * 处理interface子节点
- */
-function processInterfaceDeclaration(node) {
-    exportElements.push(node.name.text);
-    const newMembers = [];
-    node.members.forEach((member) => {
-        if (!isNonInterop(member)) {
-            newMembers.push(member);
-        }
-    });
-    node = ts.factory.updateInterfaceDeclaration(
-        node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-    );
-    return node;
-}
-
-/**
- * 处理class子节点
- */
-function processClassDeclaration(node) {
-    exportElements.push(node.name.text);
-    const newMembers = [];
-    node.members.forEach((member) => {
-        if (!isNonInterop(member)) {
-            newMembers.push(member);
-        }
-    });
-    node = ts.factory.updateClassDeclaration(
-        node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-    );
-    return node;
-}
-
-/**
- * 处理enum子节点
- */
-function processEnumDeclaration(node) {
-    exportElements.push(node.name.text);
-    const newMembers = [];
-    node.members.forEach((member) => {
-        if (!isNonInterop(member)) {
-            newMembers.push(member);
-        }
-    });
-    node = ts.factory.updateEnumDeclaration(
-        node,
-        node.modifiers ? [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword), ...node.modifiers] : node.modifiers,
-        node.name,
-        newMembers
-    );
-    return node;
-}
-
-/**
- * 处理struct子节点
- */
-function processStructDeclaration(node) {
-    const newMembers = [];
-    node.members.forEach((member, index) => {
-        if (index >= 1 && !isNonInterop(member)) {
-            newMembers.push(member);
-        }
-    });
-    node = ts.factory.updateStructDeclaration(
-        node,
-        node.modifiers,
-        node.name,
-        node.typeParameters,
-        node.heritageClauses,
-        newMembers
-    );
-    return node;
-}
-
-function variableStatementGetEscapedText(statement) {
-    let name = '';
-    if (
-        statement &&
-        statement.declarationList &&
-        statement.declarationList.declarations &&
-            statement.declarationList.declarations.length > 0 &&
-        statement.declarationList.declarations[0].name &&
-        statement.declarationList.declarations[0].name.escapedText
-    ) {
-        name = statement.declarationList.declarations[0].name.escapedText.toString();
-    }
-    return name;
-}
-
-function isNonInterop(node) {
-    const notesContent = node.getFullText().replace(node.getText(), '').replace(/[\s]/g, '');
-    const notesArr = notesContent.split(/\/\*\*/);
-    for (const note of notesArr) {
-        if (note.length !== 0 && /@noninterop/g.test(note)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function isEmptyFile(node) {
-    let isEmpty = true;
-    if (ts.isSourceFile(node) && node.statements) {
-        for (let i = 0; i < node.statements.length; i++) {
-            const statement = node.statements[i];
-            if (ts.isImportDeclaration(statement)) {
-                continue;
-            }
-            isEmpty = false;
-            break;
-        }
-    }
-    const fileName = getPureName(node.fileName.replace('.ts', '').replace('.ets', ''));
-    if (isEmpty && componentEtsFiles.includes(fileName)) {
-        componentEtsDeleteFiles.push(fileName);
-    }
-    return isEmpty;
-}
-
-let outputPath = '';
-let inputDir = '';
-let exportFlag = false;
 start();
