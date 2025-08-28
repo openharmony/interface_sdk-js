@@ -2052,8 +2052,7 @@ declare namespace commonEventManager {
      * sent by the window manager service when the window mode is split.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * sent by the window manager service when the window mode is split.
