@@ -8182,6 +8182,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 21
+     * @arkts 1.1&1.2
      */
     MD_KEY_ORIGINAL_WIDTH = 'original_width',
 
@@ -8190,6 +8191,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
      * @since 21
+     * @arkts 1.1&1.2
      */
     MD_KEY_ORIGINAL_HEIGHT = 'original_height',
   }
