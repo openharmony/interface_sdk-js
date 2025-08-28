@@ -3333,6 +3333,147 @@ declare namespace osAccount {
   }
 
   /**
+   * Authenticates the specified domain account.
+   *
+   * @typedef { function } DomainPluginAuthFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } credential - Indicates the credential for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginAuthFunc = (domainAccountInfo: DomainAccountInfo,
+    credential: Uint8Array, callback: IUserAuthCallback) => void;
+
+  /**
+   * Authenticates the specified domain account with a popup.
+   *
+   * @typedef { function } DomainPluginAuthWithPopupFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginAuthWithPopupFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: IUserAuthCallback) => void;
+
+  /**
+   * Authenticates the specified domain account with an authorization token.
+   *
+   * @typedef { function } DomainPluginAuthWithTokenFunc
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { Uint8Array } token -
+   *     Indicates the authorization token generated when PIN or biometric authentication is successful.
+   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginAuthWithTokenFunc = (domainAccountInfo: DomainAccountInfo,
+    token: Uint8Array, callback: IUserAuthCallback) => void;
+
+  /**
+   * Gets the domain account information with the specified options.
+   *
+   * @typedef { function } DomainPluginGetAccountInfoFunc
+   * @param { GetDomainAccountInfoPluginOptions } options -
+   *     Indicates the options for getting domain account information.
+   * @param { AsyncCallback<DomainAccountInfo> } callback -
+   *     Indicates the callback for notifying the domain account information.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginGetAccountInfoFunc = (options: GetDomainAccountInfoPluginOptions,
+    callback: AsyncCallback<DomainAccountInfo>) => void;
+
+  /**
+   * Gets the domain authentication property for the specified domain account.
+   *
+   * @typedef { function } DomainPluginGetAuthStatusInfoFunc 
+   * @param { DomainAccountInfo } domainAccountInfo -
+   *     Indicates the domain account information for authentication.
+   * @param { AsyncCallback<AuthStatusInfo> } callback -
+   *     Indicates the callback for notifying the domain authentication status information.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginGetAuthStatusInfoFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: AsyncCallback<AuthStatusInfo>) => void;
+
+  /**
+   * Binds the specified domain account with an OS account.
+   *
+   * @typedef { function } DomainPluginBindAccountFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { int } localId - Indicates the local ID of the OS account.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginBindAccountFunc = (domainAccountInfo: DomainAccountInfo,
+    localId: int, callback: AsyncCallback<void>) => void;
+
+  /**
+   * Unbind the specified domain account.
+   *
+   * @typedef { function } DomainPluginUnbindAccountFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginUnbindAccountFunc = (domainAccountInfo: DomainAccountInfo,
+    callback: AsyncCallback<void>) => void;
+
+  /**
+   * Checks whether the token of specified domain account is valid.
+   *
+   * @typedef { function } DomainPluginIsAccountTokenValidFunc
+   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
+   * @param { Uint8Array } token - Indicates the account token.
+   * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginIsAccountTokenValidFunc = (
+    domainAccountInfo: DomainAccountInfo,
+    token: Uint8Array,
+    callback: AsyncCallback<boolean>
+  ) => void;
+
+  /**
+   * Gets the access token based on the specified options.
+   *
+   * @typedef { function } DomainPlugingetAccessTokenFunc
+   * @param { GetDomainAccessTokenOptions } options - Indicates the options for getting th access token.
+   * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  type DomainPluginGetAccessTokenFunc = (options: GetDomainAccessTokenOptions,
+    callback: AsyncCallback<Uint8Array>) => void;
+
+  /**
    * Provides the definition of domain plugin.
    *
    * @interface DomainPlugin
@@ -3350,10 +3491,18 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the authentication callback.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Authenticates the specified domain account.
+     *
+     * @type { DomainPluginAuthFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
+    auth: DomainPluginAuthFunc;
 
     /**
      * Authenticates the specified domain account with a popup.
@@ -3362,60 +3511,104 @@ declare namespace osAccount {
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Authenticates the specified domain account with a popup.
+     *
+     * @type { DomainPluginAuthWithPopupFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
+    authWithPopup: DomainPluginAuthWithPopupFunc;
 
     /**
      * Authenticates the specified domain account with an authorization token.
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-     * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is successful.
+     * @param { Uint8Array } token -
+     *     Indicates the authorization token generated when PIN or biometric authentication is successful.
      * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Authenticates the specified domain account with an authorization token.
+     *
+     * @type { DomainPluginAuthWithTokenFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
+    authWithToken: DomainPluginAuthWithTokenFunc;
 
     /**
      * Gets the domain account information with the specified options.
      *
-     * @param { GetDomainAccountInfoPluginOptions } options - Indicates the options for getting domain account information.
-     * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account information.
+     * @param { GetDomainAccountInfoPluginOptions } options -
+     *     Indicates the options for getting domain account information.
+     * @param { AsyncCallback<DomainAccountInfo> } callback -
+     *     Indicates the callback for notifying the domain account information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Gets the domain account information with the specified options.
+     *
+     * @type { DomainPluginGetAccountInfoFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
+    getAccountInfo: DomainPluginGetAccountInfoFunc;
 
     /**
      * Gets the domain authentication property for the specified domain account.
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-     * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication status information.
+     * @param { AsyncCallback<AuthStatusInfo> } callback -
+     *     Indicates the callback for notifying the domain authentication status information.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Gets the domain authentication property for the specified domain account.
+     *
+     * @type { DomainPluginGetAuthStatusInfoFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
+    getAuthStatusInfo: DomainPluginGetAuthStatusInfoFunc;
 
     /**
      * Binds the specified domain account with an OS account.
      *
      * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
-     * @param { int } localId - Indicates the local ID of the OS account.
+     * @param { number } localId - Indicates the local ID of the OS account.
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Binds the specified domain account with an OS account.
+     *
+     * @type { DomainPluginBindAccountFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    bindAccount(domainAccountInfo: DomainAccountInfo, localId: int, callback: AsyncCallback<void>): void;
+    bindAccount: DomainPluginBindAccountFunc;
 
     /**
      * Unbind the specified domain account.
@@ -3424,10 +3617,18 @@ declare namespace osAccount {
      * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Unbind the specified domain account.
+     *
+     * @type { DomainPluginUnbindAccountFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
+    unbindAccount: DomainPluginUnbindAccountFunc;
 
     /**
      * Checks whether the token of specified domain account is valid.
@@ -3437,14 +3638,18 @@ declare namespace osAccount {
      * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Checks whether the token of specified domain account is valid.
+     *
+     * @type { DomainPluginIsAccountTokenValidFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    isAccountTokenValid(
-      domainAccountInfo: DomainAccountInfo,
-      token: Uint8Array,
-      callback: AsyncCallback<boolean>
-    ): void;
+    isAccountTokenValid: DomainPluginIsAccountTokenValidFunc;
 
     /**
      * Gets the access token based on the specified options.
@@ -3453,10 +3658,18 @@ declare namespace osAccount {
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @since 10
+     */
+    /**
+     * Gets the access token based on the specified options.
+     *
+     * @type { DomainPluginGetAccessTokenFunc }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 20
      * @arkts 1.1&1.2
      */
-    getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
+    getAccessToken: DomainPluginGetAccessTokenFunc;
   }
 
   /**
@@ -4712,7 +4925,8 @@ declare namespace osAccount {
     /**
      * Notifies to set data.
      *
-     * @type { function }
+     * @param { AuthSubType } authSubType - Indicates the authentication credential subtype.
+     * @param { Uint8Array } data - Indicates the authentication credential data.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameter types.
@@ -4722,7 +4936,7 @@ declare namespace osAccount {
      * @since arkts {'1.1':'8', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onSetData: (authSubType: AuthSubType, data: Uint8Array) => void;
+    onSetData(authSubType: AuthSubType, data: Uint8Array): void;
   }
 
   /**

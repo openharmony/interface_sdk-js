@@ -19,12 +19,14 @@ const ts = require('typescript');
 const commander = require('commander');
 
 class HandleUIImports {
-  constructor(program, context, outPath) {
+  constructor(program, context, outPath, path, exportFlag) {
     this.context = context;
     this.typeChecker = program.getTypeChecker();
     this.printer = ts.createPrinter();
 
     this.outPath = outPath;
+    this.inputDir = path;
+    this.exportFlag = exportFlag;
     this.insertPosition = 0;
 
     this.importedInterfaces = new Set();
@@ -39,7 +41,10 @@ class HandleUIImports {
     if (sourceFile?.fileName) {
       const name = path.basename(sourceFile.fileName, path.extname(sourceFile.fileName));
       if (name.includes(OHOS_ARKUI_GLOBAL_ESVALUE)) {
-        if (exportFlag) {
+        if (this.outPath) {
+          this.writeSourceFileToOutPut(sourceFile);
+        }
+        if (this.exportFlag) {
           return ts.visitNode(sourceFile, this.visitGlobalESValueNode.bind(this));
         }
         return sourceFile;
@@ -209,7 +214,7 @@ class HandleUIImports {
 
     const updatedCode = this.printer.printFile(updatedSourceFile);
     if (this.outPath) {
-      fs.writeFileSync(this.outPath, updatedCode);
+      this.writeSourceFileToOutPut(updatedSourceFile, updatedCode);
     } else {
       fs.writeFileSync(updatedSourceFile.fileName, updatedCode);
     }
@@ -435,20 +440,33 @@ class HandleUIImports {
 
     const updatedCode = this.printer.printFile(updatedSourceFile);
     if (this.outPath) {
-      fs.writeFileSync(this.outPath, updatedCode);
+      this.writeSourceFileToOutPut(updatedSourceFile, updatedCode);
     } else {
       fs.writeFileSync(updatedSourceFile.fileName, updatedCode);
     }
   }
 
+  writeSourceFileToOutPut(sourceFile, context = sourceFile.text) {
+    const outFile = path.resolve(sourceFile.fileName.replace(this.inputDir,
+      this.outPath));
+    this.safeWriteFileSync(outFile, context);
+  }
+
+  safeWriteFileSync(filePath, content) {
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, content);
+  }
+
   addArkUIPath(node, moduleName) {
     if (ts.isSourceFile(node)) {
       const fileName = node.fileName;
-      const paths = ['ability', 'advertising', 'app', 'application', 'arkui', 'bundle',
-        'bundleManager', 'commonEvent', 'continuation', 'data', 'global', 'graphics3d',
-        'multimedia', 'notification', 'security', 'tag', 'wantAgent'];
-      if (paths.some(path => fileName.includes('/api/' + path + '/'))) {
+      if (apiDir.some(path => fileName.includes(API_PATH + path + '/'))) {
         return '.' + moduleName;
+      } else if (apiInternalDir.some(path => fileName.includes(API_PATH + path + '/'))) {
+        return '../.' + moduleName;
       }
     }
     return moduleName;
@@ -567,7 +585,7 @@ class HandleUIImports {
     }
 
     const fileName = rootNode.fileName;
-    if (fileName.includes(inputDir)) {
+    if (!fileName.includes('node_modules') && fileName.includes(this.inputDir)) {
       return true;
     }
 
@@ -598,18 +616,21 @@ class HandleUIImports {
   }
 }
 
-function processInteropUI(path, outPath = '') {
-  const filePaths = getDeclgenFiles(path);
+function processInteropUI(inputPath, exportFlag, outputPath = '') {
+  const filePaths = getDeclgenFiles(inputPath);
   const program = ts.createProgram(filePaths, defaultCompilerOptions());
   const sourceFiles = getSourceFiles(program, filePaths);
 
   const createTransformer = (ctx) => {
     return (sourceFile) => {
-      const handleUIImports = new HandleUIImports(program, ctx, outPath);
+      const handleUIImports = new HandleUIImports(program, ctx, outputPath, inputPath, exportFlag);
       return handleUIImports.createCustomTransformer(sourceFile);
     };
   };
-  ts.transform(sourceFiles, [createTransformer]);
+  const res = ts.transform(sourceFiles, [createTransformer]);
+
+  writeAnnotationFile(inputPath, outputPath);
+  return res;
 }
 
 function getDeclgenFiles(dir, filePaths = []) {
@@ -658,174 +679,299 @@ class ImportType {
   static DEFAULT_AND_NAMED = 3;
 }
 
-let outputPath = '';
-let inputDir = '';
-let exportFlag = false;
+exports.processInteropUI = processInteropUI;
+
+function writeAnnotationFile(inputPath, outputPath) {
+  if (!outputPath) {
+    outputPath = inputPath;
+  }
+
+  fs.writeFileSync(path.resolve(outputPath, ANNOTATION_FILENAME), ANNOTATION, 'utf8');
+}
+
+const ANNOTATION_FILENAME = '@ohos.arkui.GlobalAnnotation.d.ets';
+
+const ANNOTATION = `
+@Retention({policy: "SOURCE"})
+export declare @interface State {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Prop {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Link {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Observed {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Track {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface ObjectLink {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface StorageProp {
+  property: string;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface StorageLink {
+  property: string;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface LocalStorageProp {
+  property: string;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface LocalStorageLink {
+  property: string;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Provide {
+  alias: string = "";
+  allowOverride: boolean = false;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Consume {
+  alias: string = "";
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Watch {
+  callback: string;
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Require {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Local {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Param {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Once {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Event {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Provider {
+  alias: string = "";
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Consumer {
+  alias: string = "";
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Monitor {
+  path: string[];
+};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Computed {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface ObservedV2 {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Trace {};
+
+@Retention({policy: "SOURCE"})
+export declare @interface Builder {}
+
+@Retention({policy: "SOURCE"})
+export declare @interface BuilderParam {}
+
+@Retention({policy: "SOURCE"})
+export declare @interface AnimatableExtend {}
+
+@Retention({policy: "SOURCE"})
+export declare @interface Styles {}
+
+@Retention({policy: "SOURCE"})
+export declare @interface Extend {
+  extend: Any
+}
+
+@Retention({policy: "SOURCE"})
+export declare @interface Type {
+  type: Any
+}
+
+@Retention({policy: "SOURCE"})
+export @interface Reusable {}
+
+@Retention({policy: "SOURCE"})
+export @interface ReusableV2 {}
+
+@Retention({policy: "SOURCE"})
+export @interface Entry {
+  routeName: string = "";
+  storage: string = "";
+  useSharedStorage: boolean = false;
+}
+
+@Retention({policy: "SOURCE"})
+export @interface Component {}
+
+@Retention({policy: "SOURCE"})
+export @interface ComponentV2 {}
+
+@Retention({policy: "SOURCE"})
+export @interface CustomDialog {}
+`;
 
 const whiteList = new Set([
-  'ASTCResource', 'AbilityComponent', 'AbilityComponentAttribute', 'AbstractProperty',
-  'AccelerationOptions', 'AccessibilityAction', 'AccessibilityActionInterceptResult',
-  'AccessibilityCallback', 'AccessibilityHoverEvent', 'AccessibilityHoverType',
-  'AccessibilityOptions', 'AccessibilityRoleType', 'AccessibilitySamePageMode', 'ActionSheet',
-  'ActionSheetButtonOptions', 'ActionSheetOffset', 'ActionSheetOptions', 'AdaptiveColor',
-  'AdsBlockedDetails', 'Affinity', 'AlertDialog', 'AlertDialogButtonBaseOptions',
-  'AlertDialogButtonOptions', 'AlertDialogParam', 'AlertDialogParamWithButtons',
-  'AlertDialogParamWithConfirm', 'AlertDialogParamWithOptions', 'AlignRuleOption', 'Alignment',
-  'AlphabetIndexer', 'AlphabetIndexerAttribute', 'AlphabetIndexerOptions', 'AnchoredColorMode',
+  'ASTCResource', 'AbstractProperty', 'AccelerationOptions', 'AccessibilityAction',
+  'AccessibilityActionInterceptResult', 'AccessibilityCallback', 'AccessibilityHoverEvent',
+  'AccessibilityHoverType', 'AccessibilityOptions', 'AccessibilityRoleType',
+  'AccessibilitySamePageMode', 'ActionSheet', 'ActionSheetButtonOptions', 'ActionSheetOffset',
+  'ActionSheetOptions', 'AdaptiveColor', 'AdsBlockedDetails', 'Affinity', 'AlertDialog',
+  'AlertDialogButtonBaseOptions', 'AlertDialogButtonOptions', 'AlertDialogParam',
+  'AlertDialogParamWithButtons', 'AlertDialogParamWithConfirm', 'AlertDialogParamWithOptions',
+  'AlignRuleOption', 'Alignment', 'AlphabetIndexerOptions', 'AnchoredColorMode',
   'AnimatableArithmetic', 'AnimatableExtend', 'AnimateParam', 'AnimationExtender',
-  'AnimationMode', 'AnimationPropertyType', 'AnimationRange', 'AnimationStatus', 'Animator',
-  'AnimatorAttribute', 'AnimatorInterface', 'AppRotation', 'AppStorage', 'AppearSymbolEffect',
-  'Area', 'ArrowPointPosition', 'ArrowPosition', 'ArrowStyle', 'AttributeModifier',
-  'AutoCapitalizationMode', 'AutoPlayOptions', 'AvailableLayoutArea', 'AvoidanceMode', 'Axis',
-  'AxisAction', 'AxisEvent', 'AxisModel', 'BackgroundBlurStyleOptions',
-  'BackgroundBrightnessOptions', 'BackgroundColorStyle', 'BackgroundEffectOptions',
-  'BackgroundImageOptions', 'Badge', 'BadgeAttribute', 'BadgeParam', 'BadgeParamWithNumber',
-  'BadgeParamWithString', 'BadgePosition', 'BadgeStyle', 'BarGridColumnOptions', 'BarMode',
-  'BarPosition', 'BarState', 'BarStyle', 'BarrierDirection', 'BarrierStyle', 'BaseCustomComponent',
-  'BaseEvent', 'BaseGestureEvent', 'BaseHandlerOptions', 'BaseShape', 'BaseSpan',
-  'BaselineOffsetStyle', 'Bias', 'BindOptions', 'Blank', 'BlankAttribute', 'BlendApplyType',
-  'BlendMode', 'Blender', 'BlurOptions', 'BlurStyle', 'BlurStyleActivePolicy',
-  'BlurStyleOptions', 'BoardStyle', 'BorderImageOption', 'BorderOptions', 'BorderRadiuses',
-  'BorderStyle', 'BottomTabBarStyle', 'BounceSymbolEffect', 'BreakPoints', 'BreakpointsReference',
-  'Builder', 'BuilderAttachment', 'BuilderAttachmentInterface', 'BuilderParam', 'BusinessError',
-  'Button', 'ButtonAttribute', 'ButtonConfiguration', 'ButtonIconOptions', 'ButtonOptions',
-  'ButtonRole', 'ButtonStyle', 'ButtonStyleMode', 'ButtonTriggerClickCallback', 'ButtonType',
-  'CacheMode', 'Calendar', 'CalendarAlign', 'CalendarAttribute', 'CalendarController',
-  'CalendarDay', 'CalendarDialogOptions', 'CalendarOptions', 'CalendarPicker',
-  'CalendarPickerAttribute', 'CalendarPickerDialog', 'CalendarRequestedData',
-  'CalendarSelectedDate', 'Callback', 'CallbackBuffer', 'CallbackKind', 'CallbackResource',
-  'CallbackResourceHolder', 'CancelButtonOptions', 'CancelButtonStyle',
-  'CancelButtonSymbolOptions', 'Canvas', 'CanvasAttribute', 'CanvasDirection', 'CanvasFillRule',
-  'CanvasGradient', 'CanvasLineCap', 'CanvasLineJoin', 'CanvasOptions', 'CanvasPath',
-  'CanvasPattern', 'CanvasRenderer', 'CanvasRenderingContext2D', 'CanvasTextAlign',
-  'CanvasTextBaseline', 'CapsuleStyleOptions', 'CaretOffset', 'CaretStyle', 'ChainAnimationOptions',
-  'ChainEdgeEffect', 'ChainStyle', 'ChainWeightOptions', 'CheckBoxConfiguration',
-  'CheckBoxShape', 'Checkbox', 'CheckboxAttribute', 'CheckboxGroup', 'CheckboxGroupAttribute',
-  'CheckboxGroupOptions', 'CheckboxGroupResult', 'CheckboxOptions', 'ChildHitFilterOption',
-  'ChildrenMainSize', 'Circle', 'CircleAttribute', 'CircleOptions', 'CircleShape',
-  'CircleStyleOptions', 'ClickEffect', 'ClickEffectLevel', 'ClickEvent',
+  'AnimationMode', 'AnimationPropertyType', 'AnimationRange', 'AnimationStatus',
+  'AnimatorInterface', 'AppRotation', 'AppStorage', 'AppearSymbolEffect', 'Area',
+  'ArrowPointPosition', 'ArrowPosition', 'ArrowStyle', 'AutoCapitalizationMode',
+  'AutoPlayOptions', 'AvailableLayoutArea', 'AvoidanceMode', 'Axis', 'AxisAction',
+  'AxisEvent', 'AxisModel', 'BackgroundBlurStyleOptions', 'BackgroundBrightnessOptions',
+  'BackgroundColorStyle', 'BackgroundEffectOptions', 'BackgroundImageOptions', 'BadgeParam',
+  'BadgeParamWithNumber', 'BadgeParamWithString', 'BadgePosition', 'BadgeStyle',
+  'BarGridColumnOptions', 'BarMode', 'BarPosition', 'BarState', 'BarStyle',
+  'BarrierDirection', 'BarrierStyle', 'BaseCustomComponent', 'BaseEvent', 'BaseGestureEvent',
+  'BaseHandlerOptions', 'BaseShape', 'BaseSpan', 'BaselineOffsetStyle', 'Bias', 'BindOptions',
+  'BlendApplyType', 'BlendMode', 'Blender', 'BlurOptions', 'BlurStyle',
+  'BlurStyleActivePolicy', 'BlurStyleOptions', 'BoardStyle', 'BorderImageOption',
+  'BorderOptions', 'BorderRadiuses', 'BorderStyle', 'BottomTabBarStyle', 'BounceSymbolEffect',
+  'BreakPoints', 'BreakpointsReference', 'Builder', 'BuilderAttachment',
+  'BuilderAttachmentInterface', 'BuilderParam', 'BusinessError', 'ButtonConfiguration',
+  'ButtonIconOptions', 'ButtonOptions', 'ButtonRole', 'ButtonStyle', 'ButtonStyleMode',
+  'ButtonTriggerClickCallback', 'ButtonType', 'CacheMode', 'CalendarAlign',
+  'CalendarController', 'CalendarDay', 'CalendarDialogOptions', 'CalendarOptions',
+  'CalendarPickerDialog', 'CalendarRequestedData', 'CalendarSelectedDate', 'Callback',
+  'CallbackBuffer', 'CallbackKind', 'CallbackResource', 'CallbackResourceHolder',
+  'CancelButtonOptions', 'CancelButtonStyle', 'CancelButtonSymbolOptions', 'CanvasDirection',
+  'CanvasFillRule', 'CanvasGradient', 'CanvasLineCap', 'CanvasLineJoin', 'CanvasOptions',
+  'CanvasPath', 'CanvasPattern', 'CanvasRenderer', 'CanvasRenderingContext2D',
+  'CanvasTextAlign', 'CanvasTextBaseline', 'CapsuleStyleOptions', 'CaretOffset', 'CaretStyle',
+  'ChainAnimationOptions', 'ChainEdgeEffect', 'ChainStyle', 'ChainWeightOptions',
+  'CheckBoxConfiguration', 'CheckBoxShape', 'CheckboxGroupOptions', 'CheckboxGroupResult',
+  'CheckboxOptions', 'ChildHitFilterOption', 'ChildrenMainSize', 'CircleOptions',
+  'CircleShape', 'CircleStyleOptions', 'ClickEffect', 'ClickEffectLevel', 'ClickEvent',
   'ClientAuthenticationHandler', 'CloseSwipeActionOptions', 'Color', 'ColorContent',
-  'ColorFilter', 'ColorMetrics', 'ColorMode', 'ColorSpace', 'ColorStop', 'ColoringStrategy', 'Column',
-  'ColumnAttribute', 'ColumnOptions', 'ColumnOptionsV2', 'ColumnSplit', 'ColumnSplitAttribute',
-  'ColumnSplitDividerStyle', 'CommonAttribute', 'CommonConfiguration', 'CommonMethod',
+  'ColorFilter', 'ColorMetrics', 'ColorMode', 'ColorSpace', 'ColorStop', 'ColoringStrategy',
+  'ColumnOptions', 'ColumnOptionsV2', 'ColumnSplitDividerStyle', 'CommonConfiguration',
   'CommonProgressStyleOptions', 'CommonShape', 'CommonShapeMethod', 'CommonTransition',
-  'Component', 'Component3D', 'Component3DAttribute', 'ComponentContent', 'ComponentOptions',
-  'ComponentRoot', 'ComponentV2', 'Computed', 'ComputedBarAttribute', 'Concurrent',
-  'Configuration', 'ConsoleMessage', 'ConstraintSizeOptions', 'Consume', 'Consumer',
-  'ContainerSpan', 'ContainerSpanAttribute', 'Content', 'ContentClipMode', 'ContentCoverOptions',
-  'ContentDidScrollCallback', 'ContentModifier', 'ContentSlot', 'ContentSlotAttribute',
-  'ContentType', 'Context', 'ContextMenu', 'ContextMenuAnimationOptions',
-  'ContextMenuEditStateFlags', 'ContextMenuInputFieldType', 'ContextMenuMediaType',
-  'ContextMenuOptions', 'ContextMenuSourceType', 'ControlSize', 'ControllerHandler',
-  'CopyEvent', 'CopyOptions', 'Counter', 'CounterAttribute', 'CrownAction', 'CrownEvent',
+  'ComponentContent', 'ComponentOptions', 'ComponentRoot', 'Configuration',
+  'ConsoleMessage', 'ConstraintSizeOptions', 'Content', 'ContentClipMode', 'ContentCoverOptions',
+  'ContentDidScrollCallback', 'ContentType', 'Context', 'ContextMenu',
+  'ContextMenuAnimationOptions', 'ContextMenuEditStateFlags', 'ContextMenuInputFieldType',
+  'ContextMenuMediaType', 'ContextMenuOptions', 'ContextMenuSourceType', 'ControlSize',
+  'ControllerHandler', 'CopyEvent', 'CopyOptions', 'CrownAction', 'CrownEvent',
   'CrownSensitivity', 'CurrentDayStyle', 'Curve', 'CustomBuilder', 'CustomComponent',
-  'CustomComponentV2', 'CustomDialog', 'CustomDialogController', 'CustomDialogControllerOptions',
+  'CustomComponentV2', 'CustomDialogController', 'CustomDialogControllerOptions',
   'CustomNodeBuilder', 'CustomPopupOptions', 'CustomSpan', 'CustomSpanDrawInfo',
-  'CustomSpanMeasureInfo', 'CustomSpanMetrics', 'CustomTheme', 'CutEvent', 'DataAddOperation',
-  'DataChangeListener', 'DataChangeOperation', 'DataDeleteOperation', 'DataExchangeOperation',
-  'DataMoveOperation', 'DataOperation', 'DataOperationType', 'DataPanel', 'DataPanelAttribute',
+  'CustomSpanMeasureInfo', 'CustomSpanMetrics', 'CustomTheme', 'CutEvent',
+  'DataAddOperation', 'DataChangeListener', 'DataChangeOperation', 'DataDeleteOperation',
+  'DataExchangeOperation', 'DataMoveOperation', 'DataOperation', 'DataOperationType',
   'DataPanelConfiguration', 'DataPanelOptions', 'DataPanelShadowOptions', 'DataPanelType',
-  'DataReloadOperation', 'DataResubmissionHandler', 'DatePicker', 'DatePickerAttribute',
-  'DatePickerDialog', 'DatePickerDialogOptions', 'DatePickerMode', 'DatePickerOptions',
-  'DatePickerResult', 'DateRange', 'DateTimeOptions', 'DecorationStyle',
-  'DecorationStyleInterface', 'DecorationStyleResult', 'Degree', 'DeleteValue', 'Deserializer',
-  'DialogAlignment', 'DialogButtonDirection', 'DialogButtonStyle', 'DialogDisplayMode',
-  'DigitIndicator', 'Dimension', 'Direction', 'DirectionalEdgesT', 'DisableSymbolEffect',
-  'DisappearSymbolEffect', 'DismissContentCoverAction', 'DismissContinueReason',
-  'DismissDialogAction', 'DismissFollowUpAction', 'DismissMenuAction', 'DismissPopupAction',
-  'DismissReason', 'DismissSheetAction', 'DistributionType', 'DisturbanceFieldOptions',
-  'DisturbanceFieldShape', 'Divider', 'DividerAttribute', 'DividerMode', 'DividerOptions',
-  'DividerStyle', 'DividerStyleOptions', 'DotIndicator', 'DoubleAnimationParam',
-  'DpiFollowStrategy', 'DragBehavior', 'DragEvent', 'DragInteractionOptions', 'DragItemInfo',
-  'DragPointCoordinate', 'DragPreviewLiftingScale', 'DragPreviewMode', 'DragPreviewOptions',
-  'DragResult', 'DraggingSizeChangeEffect', 'DrawContext', 'DrawModifier', 'DrawableDescriptor',
-  'DrawingCanvas', 'DrawingColorFilter', 'DrawingLattice', 'DrawingRenderingContext',
-  'DropOptions', 'DynamicNode', 'DynamicRangeMode', 'EclipseStyleOptions', 'Edge', 'EdgeColors',
-  'EdgeEffect', 'EdgeEffectOptions', 'EdgeOutlineStyles', 'EdgeOutlineWidths', 'EdgeStyles',
-  'EdgeWidth', 'EdgeWidths', 'Edges', 'EditMenuOptions', 'EditMode', 'EditableTextChangeValue',
-  'EditableTextOnChangeCallback', 'EffectComponent', 'EffectComponentAttribute',
-  'EffectDirection', 'EffectEdge', 'EffectFillStyle', 'EffectScope', 'EffectType', 'Ellipse',
-  'EllipseAttribute', 'EllipseOptions', 'EllipseShape', 'EllipsisMode', 'EmbeddedComponent',
-  'EmbeddedComponentAttribute', 'EmbeddedDpiFollowStrategy', 'EmbeddedOptions', 'EmbeddedType',
+  'DataReloadOperation', 'DataResubmissionHandler', 'DatePickerDialog',
+  'DatePickerDialogOptions', 'DatePickerMode', 'DatePickerOptions', 'DatePickerResult',
+  'DateRange', 'DateTimeOptions', 'DecorationStyle', 'DecorationStyleInterface',
+  'DecorationStyleResult', 'Degree', 'DeleteValue', 'Deserializer', 'DialogAlignment',
+  'DialogButtonDirection', 'DialogButtonStyle', 'DialogDisplayMode', 'DigitIndicator',
+  'Dimension', 'Direction', 'DirectionalEdgesT', 'DisableSymbolEffect', 'DisappearSymbolEffect',
+  'DismissContentCoverAction', 'DismissContinueReason', 'DismissDialogAction',
+  'DismissFollowUpAction', 'DismissMenuAction', 'DismissPopupAction', 'DismissReason',
+  'DismissSheetAction', 'DistributionType', 'DisturbanceFieldOptions', 'DisturbanceFieldShape',
+  'DividerMode', 'DividerOptions', 'DividerStyle', 'DividerStyleOptions', 'DotIndicator',
+  'DoubleAnimationParam', 'DpiFollowStrategy', 'DragBehavior', 'DragEvent',
+  'DragInteractionOptions', 'DragItemInfo', 'DragPointCoordinate', 'DragPreviewLiftingScale',
+  'DragPreviewMode', 'DragPreviewOptions', 'DragResult', 'DraggingSizeChangeEffect',
+  'DrawContext', 'DrawModifier', 'DrawableDescriptor', 'DrawingCanvas', 'DrawingColorFilter',
+  'DrawingLattice', 'DrawingRenderingContext', 'DropOptions', 'DynamicNode',
+  'DynamicRangeMode', 'EclipseStyleOptions', 'Edge', 'EdgeColors', 'EdgeEffect',
+  'EdgeEffectOptions', 'EdgeOutlineStyles', 'EdgeOutlineWidths', 'EdgeStyles', 'EdgeWidth',
+  'EdgeWidths', 'Edges', 'EditMenuOptions', 'EditMode', 'EditableTextChangeValue',
+  'EditableTextOnChangeCallback', 'EffectDirection', 'EffectEdge', 'EffectFillStyle',
+  'EffectScope', 'EffectType', 'EllipseOptions', 'EllipseShape', 'EllipsisMode',
+  'EmbeddedDpiFollowStrategy', 'EmbeddedOptions', 'EmbeddedType',
   'EmbeddedWindowModeFollowStrategy', 'EmitterOptions', 'EmitterParticleOptions',
-  'EmitterProperty', 'EnterKeyType', 'Entry', 'EntryOptions', 'EnvPropsOptions', 'Environment',
-  'ErrorCallback', 'Event', 'EventEmulator', 'EventLocationInfo', 'EventQueryType', 'EventResult',
-  'EventTarget', 'EventTargetInfo', 'ExchangeIndex', 'ExchangeKey', 'ExpandedMenuItemOptions',
-  'ExpectedFrameRateRange', 'Extend', 'FP', 'FadingEdgeOptions', 'FileSelectorMode',
-  'FileSelectorParam', 'FileSelectorResult', 'FillMode', 'Filter', 'FingerInfo',
-  'FinishCallbackType', 'FirstMeaningfulPaint', 'Flex', 'FlexAlign', 'FlexAttribute',
-  'FlexDirection', 'FlexOptions', 'FlexSpaceOptions', 'FlexWrap', 'FlowItem', 'FlowItemAttribute',
+  'EmitterProperty', 'EnterKeyType', 'Entry', 'EntryOptions', 'EnvPropsOptions',
+  'Environment', 'ErrorCallback', 'Event', 'EventEmulator', 'EventLocationInfo',
+  'EventQueryType', 'EventResult', 'EventTarget', 'EventTargetInfo', 'ExchangeIndex',
+  'ExchangeKey', 'ExpandedMenuItemOptions', 'ExpectedFrameRateRange', 'Extend', 'FP',
+  'FadingEdgeOptions', 'FileSelectorMode', 'FileSelectorParam', 'FileSelectorResult',
+  'FillMode', 'Filter', 'FingerInfo', 'FinishCallbackType', 'FirstMeaningfulPaint',
+  'FlexAlign', 'FlexDirection', 'FlexOptions', 'FlexSpaceOptions', 'FlexWrap',
   'FocusAxisEvent', 'FocusBoxStyle', 'FocusController', 'FocusDrawLevel', 'FocusMovement',
-  'FocusPriority', 'FocusWrapMode', 'FoldStatus', 'FolderStack', 'FolderStackAttribute',
-  'FolderStackOptions', 'Font', 'FontInfo', 'FontOptions', 'FontSettingOptions', 'FontStyle',
-  'FontWeight', 'ForEach', 'ForEachAttribute', 'ForegroundBlurStyleOptions',
-  'ForegroundEffectOptions', 'FormCallbackInfo', 'FormComponent', 'FormComponentAttribute',
-  'FormDimension', 'FormInfo', 'FormLink', 'FormLinkAttribute', 'FormLinkOptions',
-  'FormRenderingMode', 'FormShape', 'FractionStop', 'FrameNode', 'FrictionMotion',
-  'FullScreenEnterEvent', 'FullScreenExitHandler', 'FullscreenInfo', 'FunctionKey', 'Gauge',
-  'GaugeAttribute', 'GaugeConfiguration', 'GaugeIndicatorOptions', 'GaugeOptions',
-  'GaugeShadowOptions', 'GeometryInfo', 'GeometryTransitionOptions', 'Gesture', 'GestureControl',
-  'GestureEvent', 'GestureGroup', 'GestureGroupGestureHandlerOptions', 'GestureGroupHandler',
-  'GestureHandler', 'GestureInfo', 'GestureJudgeResult', 'GestureMask', 'GestureMode',
-  'GestureModifier', 'GesturePriority', 'GestureRecognizer',
-  'GestureRecognizerJudgeBeginCallback', 'GestureRecognizerState', 'GestureStyle', 'GestureType',
-  'GetItemMainSizeByIndex', 'GradientDirection', 'Grid', 'GridAttribute', 'GridCol',
-  'GridColAttribute', 'GridColColumnOption', 'GridColOptions', 'GridContainer',
-  'GridContainerAttribute', 'GridContainerOptions', 'GridDirection', 'GridItem',
-  'GridItemAlignment', 'GridItemAttribute', 'GridItemOptions', 'GridItemStyle',
-  'GridLayoutOptions', 'GridRow', 'GridRowAttribute', 'GridRowColumnOption', 'GridRowDirection',
-  'GridRowOptions', 'GridRowSizeOption', 'GuideLinePosition', 'GuideLineStyle', 'GutterOption',
+  'FocusPriority', 'FocusWrapMode', 'FoldStatus', 'FolderStackOptions', 'Font',
+  'FontInfo', 'FontOptions', 'FontSettingOptions', 'FontStyle', 'FontWeight',
+  'ForegroundBlurStyleOptions', 'ForegroundEffectOptions', 'FormCallbackInfo',
+  'FormDimension', 'FormInfo', 'FormLinkOptions', 'FormRenderingMode', 'FormShape',
+  'FractionStop', 'FrameNode', 'FrictionMotion', 'FullScreenEnterEvent',
+  'FullScreenExitHandler', 'FullscreenInfo', 'FunctionKey', 'GaugeConfiguration',
+  'GaugeIndicatorOptions', 'GaugeOptions', 'GaugeShadowOptions', 'GeometryInfo',
+  'GeometryTransitionOptions', 'Gesture', 'GestureControl', 'GestureEvent', 'GestureGroup',
+  'GestureGroupGestureHandlerOptions', 'GestureGroupHandler', 'GestureHandler',
+  'GestureInfo', 'GestureJudgeResult', 'GestureMask', 'GestureMode', 'GestureModifier',
+  'GesturePriority', 'GestureRecognizer', 'GestureRecognizerJudgeBeginCallback',
+  'GestureRecognizerState', 'GestureStyle', 'GestureType', 'GetItemMainSizeByIndex',
+  'GradientDirection', 'GridColColumnOption', 'GridColOptions', 'GridContainerOptions',
+  'GridDirection', 'GridItemAlignment', 'GridItemOptions', 'GridItemStyle',
+  'GridLayoutOptions', 'GridRowColumnOption', 'GridRowDirection', 'GridRowOptions',
+  'GridRowSizeOption', 'GuideLinePosition', 'GuideLineStyle', 'GutterOption',
   'HapticFeedbackMode', 'Header', 'HeightBreakpoint', 'HierarchicalSymbolEffect',
   'HistoricalPoint', 'HitTestMode', 'HitTestType', 'HorizontalAlign', 'HoverCallback',
   'HoverEffect', 'HoverEvent', 'HoverEventParam', 'HoverModeAreaType', 'HttpAuthHandler',
-  'Hyperlink', 'HyperlinkAttribute', 'ICurve', 'IDataSource', 'IMonitor', 'IMonitorValue',
-  'IPropertySubscriber', 'ISinglePropertyChangeSubscriber', 'IconOptions', 'IlluminatedType',
-  'Image', 'ImageAIOptions', 'ImageAnalyzerConfig', 'ImageAnalyzerController',
-  'ImageAnalyzerType', 'ImageAnimator', 'ImageAnimatorAttribute', 'ImageAttachment',
-  'ImageAttachmentInterface', 'ImageAttachmentLayoutStyle', 'ImageAttribute', 'ImageBitmap',
+  'ICurve', 'IDataSource', 'IMonitor', 'IMonitorValue', 'IPropertySubscriber',
+  'ISinglePropertyChangeSubscriber', 'IconOptions', 'IlluminatedType', 'ImageAIOptions',
+  'ImageAnalyzerConfig', 'ImageAnalyzerController', 'ImageAnalyzerType', 'ImageAttachment',
+  'ImageAttachmentInterface', 'ImageAttachmentLayoutStyle', 'ImageBitmap',
   'ImageCompleteCallback', 'ImageContent', 'ImageData', 'ImageError', 'ImageErrorCallback',
   'ImageFit', 'ImageFrameInfo', 'ImageInterpolation', 'ImageLoadResult', 'ImageModifier',
   'ImageParticleParameters', 'ImageRenderMode', 'ImageRepeat', 'ImageRotateOrientation',
-  'ImageSize', 'ImageSmoothingQuality', 'ImageSourceSize', 'ImageSpan', 'ImageSpanAlignment',
-  'ImageSpanAttribute', 'IndexerAlign', 'Indicator', 'IndicatorComponent',
-  'IndicatorComponentAttribute', 'IndicatorComponentController', 'IndicatorStyle',
+  'ImageSize', 'ImageSmoothingQuality', 'ImageSourceSize', 'ImageSpanAlignment',
+  'IndexerAlign', 'Indicator', 'IndicatorComponentController', 'IndicatorStyle',
   'InputCounterOptions', 'InputType', 'InsertValue', 'IntelligentTrackingPreventionDetails',
   'IntentionCode', 'InteractionHand', 'InterceptionModeCallback', 'InterceptionShowCallback',
-  'Interop', 'InvertOptions', 'IsolatedComponent', 'IsolatedComponentAttribute',
-  'IsolatedOptions', 'ItemAlign', 'ItemDragEventHandler', 'ItemDragInfo', 'ItemState',
-  'JavaScriptProxy', 'JsGeolocation', 'JsResult', 'KVMContext', 'KeyEvent', 'KeyProcessingMode',
-  'KeySource', 'KeyType', 'KeyboardAppearance', 'KeyboardAvoidMode', 'KeyboardOptions',
-  'KeyframeAnimateParam', 'KeyframeState', 'LPX', 'LabelStyle', 'LargestContentfulPaint',
-  'LaunchMode', 'LayoutBorderInfo', 'LayoutChild', 'LayoutDirection', 'LayoutInfo',
-  'LayoutManager', 'LayoutMode', 'LayoutPolicy', 'LayoutSafeAreaEdge', 'LayoutSafeAreaType',
-  'LayoutStyle', 'Layoutable', 'LazyForEach', 'LazyForEachAttribute', 'LazyForEachOps',
-  'LazyGridLayoutAttribute', 'LazyVGridLayout', 'LazyVGridLayoutAttribute',
+  'Interop', 'InvertOptions', 'IsolatedOptions', 'ItemAlign', 'ItemDragEventHandler',
+  'ItemDragInfo', 'ItemState', 'JavaScriptProxy', 'JsGeolocation', 'JsResult', 'KVMContext',
+  'KeyEvent', 'KeyProcessingMode', 'KeySource', 'KeyType', 'KeyboardAppearance',
+  'KeyboardAvoidMode', 'KeyboardOptions', 'KeyframeAnimateParam', 'KeyframeState', 'LPX',
+  'LabelStyle', 'LargestContentfulPaint', 'LaunchMode', 'LayoutBorderInfo', 'LayoutChild',
+  'LayoutDirection', 'LayoutInfo', 'LayoutManager', 'LayoutMode', 'LayoutPolicy',
+  'LayoutSafeAreaEdge', 'LayoutSafeAreaType', 'LayoutStyle', 'Layoutable', 'LazyForEachOps',
   'LeadingMarginPlaceholder', 'Length', 'LengthConstrain', 'LengthMetrics',
-  'LengthMetricsUnit', 'LengthUnit', 'LetterSpacingStyle', 'LightSource', 'Line', 'LineAttribute',
+  'LengthMetricsUnit', 'LengthUnit', 'LetterSpacingStyle', 'LightSource',
   'LineBreakStrategy', 'LineCapStyle', 'LineHeightStyle', 'LineJoinStyle', 'LineMetrics',
   'LineOptions', 'LineSpacingOptions', 'LinearGradient', 'LinearGradientBlurOptions',
-  'LinearGradientOptions', 'LinearIndicator', 'LinearIndicatorAttribute',
-  'LinearIndicatorController', 'LinearIndicatorStartOptions', 'LinearIndicatorStyle',
-  'LinearStyleOptions', 'Link', 'List', 'ListAttribute', 'ListDividerOptions', 'ListItem',
-  'ListItemAlign', 'ListItemAttribute', 'ListItemGroup', 'ListItemGroupArea',
-  'ListItemGroupAttribute', 'ListItemGroupOptions', 'ListItemGroupStyle', 'ListItemOptions',
+  'LinearGradientOptions', 'LinearIndicatorController', 'LinearIndicatorStartOptions',
+  'LinearIndicatorStyle', 'LinearStyleOptions', 'ListDividerOptions', 'ListItemAlign',
+  'ListItemGroupArea', 'ListItemGroupOptions', 'ListItemGroupStyle', 'ListItemOptions',
   'ListItemStyle', 'ListOptions', 'ListScroller', 'LoadCommittedDetails', 'Loader',
-  'LoadingProgress', 'LoadingProgressAttribute', 'LoadingProgressConfiguration',
-  'LoadingProgressStyle', 'Local', 'LocalBuilder', 'LocalStorage', 'LocalStorageLink',
-  'LocalStorageProp', 'LocalizedAlignRuleOptions', 'LocalizedAlignment',
-  'LocalizedBarrierDirection', 'LocalizedBarrierStyle', 'LocalizedBorderRadiuses',
-  'LocalizedDragPointCoordinate', 'LocalizedEdgeColors', 'LocalizedEdgeWidths',
-  'LocalizedEdges', 'LocalizedHorizontalAlignParam', 'LocalizedMargin', 'LocalizedPadding',
-  'LocalizedPosition', 'LocalizedVerticalAlignParam', 'LocationButton', 'LocationButtonAttribute',
-  'LocationButtonOnClickResult', 'LocationButtonOptions', 'LocationDescription',
+  'LoadingProgressConfiguration', 'LoadingProgressStyle', 'LocalBuilder', 'LocalStorage',
+  'LocalizedAlignRuleOptions', 'LocalizedAlignment', 'LocalizedBarrierDirection',
+  'LocalizedBarrierStyle', 'LocalizedBorderRadiuses', 'LocalizedDragPointCoordinate',
+  'LocalizedEdgeColors', 'LocalizedEdgeWidths', 'LocalizedEdges',
+  'LocalizedHorizontalAlignParam', 'LocalizedMargin', 'LocalizedPadding',
+  'LocalizedPosition', 'LocalizedVerticalAlignParam', 'LocationDescription',
   'LocationIconStyle', 'LongPressGesture', 'LongPressGestureEvent', 'LongPressGestureHandler',
   'LongPressGestureHandlerOptions', 'LongPressGestureParams', 'LongPressRecognizer',
-  'LunarSwitchStyle', 'Margin', 'MarkStyle', 'Marquee', 'MarqueeAttribute', 'MarqueeOptions',
-  'MarqueeStartPolicy', 'MarqueeState', 'MarqueeUpdateStrategy', 'Materialized', 'Matrix2D',
-  'MaxLinesMode', 'MaxLinesOptions', 'Measurable', 'MeasureOptions', 'MeasureResult',
-  'MediaCachedImage', 'MediaCachedImageAttribute', 'Memo', 'Menu', 'MenuAlignType',
-  'MenuAttribute', 'MenuElement', 'MenuItem', 'MenuItemAttribute', 'MenuItemConfiguration',
-  'MenuItemGroup', 'MenuItemGroupAttribute', 'MenuItemGroupOptions', 'MenuItemOptions',
+  'LunarSwitchStyle', 'Margin', 'MarkStyle', 'MarqueeOptions', 'MarqueeStartPolicy',
+  'MarqueeState', 'MarqueeUpdateStrategy', 'Materialized', 'Matrix2D', 'MaxLinesMode',
+  'MaxLinesOptions', 'Measurable', 'MeasureOptions', 'MeasureResult', 'MenuAlignType',
+  'MenuElement', 'MenuItemConfiguration', 'MenuItemGroupOptions', 'MenuItemOptions',
   'MenuItemOptionsV2', 'MenuMaskType', 'MenuOnAppearCallback', 'MenuOptions',
   'MenuOutlineOptions', 'MenuPolicy', 'MenuPreviewMode', 'MenuType', 'MessageLevel',
   'MixedMode', 'ModalMode', 'ModalTransition', 'ModelType', 'ModifierKey', 'Monitor',
@@ -834,21 +980,19 @@ const whiteList = new Set([
   'MultiShadowOptions', 'MutableStyledString', 'NativeEmbedDataInfo', 'NativeEmbedInfo',
   'NativeEmbedStatus', 'NativeEmbedTouchInfo', 'NativeEmbedVisibilityInfo',
   'NativeMediaPlayerConfig', 'NativeXComponentParameters', 'NavBar', 'NavBarPosition',
-  'NavContentInfo', 'NavDestination', 'NavDestinationActiveReason', 'NavDestinationAttribute',
-  'NavDestinationCommonTitle', 'NavDestinationContext', 'NavDestinationCustomTitle',
-  'NavDestinationInfo', 'NavDestinationMode', 'NavDestinationTransition', 'NavExtender',
-  'NavPathInfo', 'NavPathStack', 'NavRouteMode', 'NavRouter', 'NavRouterAttribute',
-  'Navigation', 'NavigationAnimatedTransition', 'NavigationAttribute', 'NavigationCommonTitle',
-  'NavigationCustomTitle', 'NavigationDividerStyle', 'NavigationInfo', 'NavigationInterception',
-  'NavigationMenuItem', 'NavigationMenuOptions', 'NavigationMode', 'NavigationOperation',
-  'NavigationOptions', 'NavigationSystemTransitionType', 'NavigationTitleMode',
-  'NavigationTitleOptions', 'NavigationToolbarOptions', 'NavigationTransitionProxy',
-  'NavigationType', 'Navigator', 'NavigatorAttribute', 'NestedScrollInfo', 'NestedScrollMode',
-  'NestedScrollOptions', 'NestedScrollOptionsExt', 'Node', 'NodeContainer',
-  'NodeContainerAttribute', 'NodeController', 'NonCurrentDayStyle', 'Nullable', 'ObjectLink',
-  'ObscuredReasons', 'Observed', 'ObservedV2', 'OffscreenCanvas',
-  'OffscreenCanvasRenderingContext2D', 'Offset', 'OffsetOptions', 'OffsetResult',
-  'OnAdsBlockedCallback', 'OnAlertEvent', 'OnAlphabetIndexerPopupSelectCallback',
+  'NavContentInfo', 'NavDestinationActiveReason', 'NavDestinationCommonTitle',
+  'NavDestinationContext', 'NavDestinationCustomTitle', 'NavDestinationInfo',
+  'NavDestinationMode', 'NavDestinationTransition', 'NavExtender', 'NavPathInfo',
+  'NavPathStack', 'NavRouteMode', 'NavigationAnimatedTransition', 'NavigationCommonTitle',
+  'NavigationCustomTitle', 'NavigationDividerStyle', 'NavigationInfo',
+  'NavigationInterception', 'NavigationMenuItem', 'NavigationMenuOptions',
+  'NavigationMode', 'NavigationOperation', 'NavigationOptions',
+  'NavigationSystemTransitionType', 'NavigationTitleMode', 'NavigationTitleOptions',
+  'NavigationToolbarOptions', 'NavigationTransitionProxy', 'NavigationType',
+  'NestedScrollInfo', 'NestedScrollMode', 'NestedScrollOptions', 'NestedScrollOptionsExt',
+  'Node', 'NodeController', 'NonCurrentDayStyle', 'Nullable', 'ObscuredReasons',
+  'OffscreenCanvas', 'OffscreenCanvasRenderingContext2D', 'Offset', 'OffsetOptions',
+  'OffsetResult', 'OnAdsBlockedCallback', 'OnAlertEvent', 'OnAlphabetIndexerPopupSelectCallback',
   'OnAlphabetIndexerRequestPopupDataCallback', 'OnAlphabetIndexerSelectCallback',
   'OnAudioStateChangedEvent', 'OnBeforeUnloadEvent', 'OnCheckboxChangeCallback',
   'OnCheckboxGroupChangeCallback', 'OnClientAuthenticationEvent', 'OnConfirmEvent',
@@ -878,172 +1022,190 @@ const whiteList = new Set([
   'OnViewportFitChangedCallback', 'OnWillScrollCallback', 'OnWindowNewEvent', 'Once',
   'OptionWidthMode', 'Optional', 'OutlineOptions', 'OutlineRadiuses', 'OutlineStyle',
   'OverScrollMode', 'OverlayOffset', 'OverlayOptions', 'PX', 'Padding', 'PageFlipMode',
-  'PageTransitionCallback', 'PageTransitionEnter', 'PageTransitionExit', 'PageTransitionOptions',
-  'PanDirection', 'PanGesture', 'PanGestureEvent', 'PanGestureHandler',
-  'PanGestureHandlerOptions', 'PanGestureOptions', 'PanGestureParams', 'PanRecognizer',
-  'Panel', 'PanelAttribute', 'PanelHeight', 'PanelMode', 'PanelType', 'ParagraphStyle',
-  'ParagraphStyleInterface', 'Param', 'Particle', 'ParticleAnnulusRegion', 'ParticleAttribute',
-  'ParticleColorOptions', 'ParticleColorPropertyOptions',
-  'ParticleColorPropertyUpdaterConfigs', 'ParticleColorUpdaterOptions', 'ParticleConfigs',
-  'ParticleEmitterShape', 'ParticleOptions', 'ParticlePropertyAnimation',
-  'ParticlePropertyOptions', 'ParticlePropertyUpdaterConfigs', 'ParticleTuple', 'ParticleType',
-  'ParticleUpdater', 'ParticleUpdaterOptions', 'Particles', 'PasswordIcon', 'PasteButton',
-  'PasteButtonAttribute', 'PasteButtonOnClickResult', 'PasteButtonOptions', 'PasteDescription',
-  'PasteEvent', 'PasteEventCallback', 'PasteIconStyle', 'Path', 'Path2D', 'PathAttribute',
-  'PathOptions', 'PathShape', 'PathShapeOptions', 'PatternLock', 'PatternLockAttribute',
-  'PatternLockChallengeResult', 'PatternLockController', 'Percentage', 'PerfMonitorActionType',
-  'PerfMonitorSourceType', 'PermissionRequest', 'PersistPropsOptions', 'PersistentStorage',
-  'PickerBackgroundStyle', 'PickerDialogButtonStyle', 'PickerTextStyle', 'PinchGesture',
-  'PinchGestureEvent', 'PinchGestureHandler', 'PinchGestureHandlerOptions', 'PinchGestureParams',
+  'PageTransitionCallback', 'PageTransitionEnter', 'PageTransitionExit',
+  'PageTransitionOptions', 'PanDirection', 'PanGesture', 'PanGestureEvent',
+  'PanGestureHandler', 'PanGestureHandlerOptions', 'PanGestureOptions', 'PanGestureParams',
+  'PanRecognizer', 'PanelHeight', 'PanelMode', 'PanelType', 'ParagraphStyle',
+  'ParagraphStyleInterface', 'ParticleAnnulusRegion', 'ParticleColorOptions',
+  'ParticleColorPropertyOptions', 'ParticleColorPropertyUpdaterConfigs',
+  'ParticleColorUpdaterOptions', 'ParticleConfigs', 'ParticleEmitterShape',
+  'ParticleOptions', 'ParticlePropertyAnimation', 'ParticlePropertyOptions',
+  'ParticlePropertyUpdaterConfigs', 'ParticleTuple', 'ParticleType', 'ParticleUpdater',
+  'ParticleUpdaterOptions', 'Particles', 'PasswordIcon', 'PasteButtonOnClickResult',
+  'PasteButtonOptions', 'PasteDescription', 'PasteEvent', 'PasteEventCallback',
+  'PasteIconStyle', 'Path2D', 'PathOptions', 'PathShape', 'PathShapeOptions',
+  'PatternLockChallengeResult', 'PatternLockController', 'Percentage',
+  'PerfMonitorActionType', 'PerfMonitorSourceType', 'PermissionRequest',
+  'PersistPropsOptions', 'PersistentStorage', 'PickerBackgroundStyle',
+  'PickerDialogButtonStyle', 'PickerTextStyle', 'PinchGesture', 'PinchGestureEvent',
+  'PinchGestureHandler', 'PinchGestureHandlerOptions', 'PinchGestureParams',
   'PinchRecognizer', 'PixelMap', 'PixelMapMock', 'PixelRoundCalcPolicy', 'PixelRoundMode',
-  'PixelRoundPolicy', 'PixelStretchEffectOptions', 'PlaceholderStyle', 'Placement', 'PlayMode',
-  'PlaybackInfo', 'PlaybackSpeed', 'PluginComponent', 'PluginComponentAttribute',
-  'PluginComponentOptions', 'PluginComponentTemplate', 'PluginErrorCallback', 'PluginErrorData',
-  'Point', 'PointLightStyle', 'PointParticleParameters', 'PointerStyle', 'Polygon',
-  'PolygonAttribute', 'PolygonOptions', 'Polyline', 'PolylineAttribute', 'PolylineOptions',
-  'PopInfo', 'PopupBorderLinearGradient', 'PopupCommonOptions', 'PopupMaskType',
-  'PopupMessageOptions', 'PopupOptions', 'PopupStateChangeParam', 'Position', 'PositionT',
-  'PositionWithAffinity', 'PosterOptions', 'PreDragStatus', 'PreparedInfo', 'Preview',
-  'PreviewConfiguration', 'PreviewMenuOptions', 'PreviewParams', 'PreviewText', 'Profiler',
-  'Progress', 'ProgressAttribute', 'ProgressConfiguration', 'ProgressMask', 'ProgressOptions',
-  'ProgressStatus', 'ProgressStyle', 'ProgressStyleMap', 'ProgressStyleOptions', 'ProgressType',
-  'Prop', 'ProtectedResourceType', 'Provide', 'ProvideOptions', 'Provider', 'PulseSymbolEffect',
-  'QRCode', 'QRCodeAttribute', 'QuickReplaceSymbolEffect', 'RRect', 'RadialGradientOptions',
-  'Radio', 'RadioAttribute', 'RadioConfiguration', 'RadioIndicatorType', 'RadioOptions',
-  'RadioStyle', 'Rating', 'RatingAttribute', 'RatingConfiguration', 'RatingOptions',
-  'RawFileDescriptor', 'ReceiveCallback', 'Rect', 'RectAttribute', 'RectHeightStyle',
-  'RectOptions', 'RectResult', 'RectShape', 'RectShapeOptions', 'RectWidthStyle', 'Rectangle',
-  'Refresh', 'RefreshAttribute', 'RefreshOptions', 'RefreshStatus', 'RelateType',
-  'RelativeContainer', 'RelativeContainerAttribute', 'RemoteWindow', 'RemoteWindowAttribute',
-  'RenderExitReason', 'RenderFit', 'RenderMode', 'RenderProcessNotRespondingData',
-  'RenderProcessNotRespondingReason', 'RenderingContextSettings', 'RepeatAttribute',
-  'RepeatItem', 'RepeatMode', 'ReplaceSymbolEffect', 'Require', 'ResizableOptions',
-  'ResolutionQuality', 'Resource', 'ResourceColor', 'ResourceImageAttachmentOptions',
-  'ResourceStr', 'ResponseType', 'RestrictedWorker', 'Reusable', 'ReusableV2', 'ReuseOptions',
-  'RichEditor', 'RichEditorAttribute', 'RichEditorBaseController',
-  'RichEditorBuilderSpanOptions', 'RichEditorChangeValue', 'RichEditorController',
-  'RichEditorDeleteDirection', 'RichEditorDeleteValue', 'RichEditorGesture',
-  'RichEditorImageSpan', 'RichEditorImageSpanOptions', 'RichEditorImageSpanResult',
-  'RichEditorImageSpanStyle', 'RichEditorImageSpanStyleResult', 'RichEditorInsertValue',
-  'RichEditorLayoutStyle', 'RichEditorOptions', 'RichEditorParagraphResult',
-  'RichEditorParagraphStyle', 'RichEditorParagraphStyleOptions', 'RichEditorRange',
-  'RichEditorResponseType', 'RichEditorSelection', 'RichEditorSpan', 'RichEditorSpanPosition',
+  'PixelRoundPolicy', 'PixelStretchEffectOptions', 'PlaceholderStyle', 'Placement',
+  'PlayMode', 'PlaybackInfo', 'PlaybackSpeed', 'PluginComponentOptions',
+  'PluginComponentTemplate', 'PluginErrorCallback', 'PluginErrorData', 'Point',
+  'PointLightStyle', 'PointParticleParameters', 'PointerStyle', 'PolygonOptions',
+  'PolylineOptions', 'PopInfo', 'PopupBorderLinearGradient', 'PopupCommonOptions',
+  'PopupMaskType', 'PopupMessageOptions', 'PopupOptions', 'PopupStateChangeParam',
+  'Position', 'PositionT', 'PositionWithAffinity', 'PosterOptions', 'PreDragStatus',
+  'PreparedInfo', 'Preview', 'PreviewConfiguration', 'PreviewMenuOptions', 'PreviewParams',
+  'PreviewText', 'Profiler', 'ProgressConfiguration', 'ProgressMask', 'ProgressOptions',
+  'ProgressStatus', 'ProgressStyle', 'ProgressStyleMap', 'ProgressStyleOptions',
+  'ProgressType', 'Prop', 'ProtectedResourceType', 'Provide', 'ProvideOptions',
+  'Provider', 'PulseSymbolEffect', 'QuickReplaceSymbolEffect', 'RRect',
+  'RadialGradientOptions', 'RadioConfiguration', 'RadioIndicatorType', 'RadioOptions',
+  'RadioStyle', 'RatingConfiguration', 'RatingOptions', 'RawFileDescriptor',
+  'ReceiveCallback', 'RectHeightStyle', 'RectOptions', 'RectResult', 'RectShape',
+  'RectShapeOptions', 'RectWidthStyle', 'Rectangle', 'RefreshOptions', 'RefreshStatus',
+  'RelateType', 'RenderExitReason', 'RenderFit', 'RenderMode',
+  'RenderProcessNotRespondingData', 'RenderProcessNotRespondingReason',
+  'RenderingContextSettings', 'RepeatItem', 'RepeatMode', 'ReplaceSymbolEffect',
+  'ResizableOptions', 'ResolutionQuality', 'Resource', 'ResourceColor',
+  'ResourceImageAttachmentOptions', 'ResourceStr', 'ResponseType', 'RestrictedWorker',
+  'ReuseOptions', 'RichEditorBaseController', 'RichEditorBuilderSpanOptions',
+  'RichEditorChangeValue', 'RichEditorController', 'RichEditorDeleteDirection',
+  'RichEditorDeleteValue', 'RichEditorGesture', 'RichEditorImageSpan',
+  'RichEditorImageSpanOptions', 'RichEditorImageSpanResult', 'RichEditorImageSpanStyle',
+  'RichEditorImageSpanStyleResult', 'RichEditorInsertValue', 'RichEditorLayoutStyle',
+  'RichEditorOptions', 'RichEditorParagraphResult', 'RichEditorParagraphStyle',
+  'RichEditorParagraphStyleOptions', 'RichEditorRange', 'RichEditorResponseType',
+  'RichEditorSelection', 'RichEditorSpan', 'RichEditorSpanPosition',
   'RichEditorSpanStyleOptions', 'RichEditorSpanType', 'RichEditorStyledStringController',
-  'RichEditorStyledStringOptions', 'RichEditorSymbolSpanOptions', 'RichEditorSymbolSpanStyle',
-  'RichEditorSymbolSpanStyleResult', 'RichEditorTextSpan', 'RichEditorTextSpanOptions',
-  'RichEditorTextSpanResult', 'RichEditorTextStyle', 'RichEditorTextStyleResult',
-  'RichEditorUpdateImageSpanStyleOptions', 'RichEditorUpdateSymbolSpanStyleOptions',
-  'RichEditorUpdateTextSpanStyleOptions', 'RichEditorUrlStyle', 'RichText', 'RichTextAttribute',
-  'RingStyleOptions', 'Root', 'RootScene', 'RootSceneAttribute', 'RootSceneSession',
-  'RotateOptions', 'RotationGesture', 'RotationGestureEvent', 'RotationGestureHandler',
+  'RichEditorStyledStringOptions', 'RichEditorSymbolSpanOptions',
+  'RichEditorSymbolSpanStyle', 'RichEditorSymbolSpanStyleResult', 'RichEditorTextSpan',
+  'RichEditorTextSpanOptions', 'RichEditorTextSpanResult', 'RichEditorTextStyle',
+  'RichEditorTextStyleResult', 'RichEditorUpdateImageSpanStyleOptions',
+  'RichEditorUpdateSymbolSpanStyleOptions', 'RichEditorUpdateTextSpanStyleOptions',
+  'RichEditorUrlStyle', 'RingStyleOptions', 'Root', 'RootSceneSession', 'RotateOptions',
+  'RotationGesture', 'RotationGestureEvent', 'RotationGestureHandler',
   'RotationGestureHandlerOptions', 'RotationGestureParams', 'RotationRecognizer',
-  'RoundRectShapeOptions', 'RoundedRectOptions', 'RouteInfo', 'RouteMapConfig', 'RouteType',
-  'RouterPageInfo', 'Row', 'RowAttribute', 'RowOptions', 'RowOptionsV2', 'RowSplit',
-  'RowSplitAttribute', 'RuntimeType', 'SafeAreaEdge', 'SafeAreaType', 'SaveButton',
-  'SaveButtonAttribute', 'SaveButtonOnClickResult', 'SaveButtonOptions', 'SaveDescription',
-  'SaveIconStyle', 'ScaleOptions', 'ScaleRingStyleOptions', 'ScaleSymbolEffect',
-  'ScanEffectOptions', 'Scene', 'SceneOptions', 'Screen', 'ScreenAttribute',
-  'ScreenCaptureConfig', 'ScreenCaptureHandler', 'ScriptItem', 'Scroll', 'ScrollAlign',
-  'ScrollAnimationOptions', 'ScrollAttribute', 'ScrollBar', 'ScrollBarAttribute',
+  'RoundRectShapeOptions', 'RoundedRectOptions', 'RouteInfo', 'RouteMapConfig',
+  'RouteType', 'RouterPageInfo', 'RowOptions', 'RowOptionsV2', 'RuntimeType',
+  'SafeAreaEdge', 'SafeAreaType', 'SaveButtonOnClickResult', 'SaveButtonOptions',
+  'SaveDescription', 'SaveIconStyle', 'ScaleOptions', 'ScaleRingStyleOptions',
+  'ScaleSymbolEffect', 'ScanEffectOptions', 'Scene', 'SceneOptions', 'ScreenCaptureConfig',
+  'ScreenCaptureHandler', 'ScriptItem', 'ScrollAlign', 'ScrollAnimationOptions',
   'ScrollBarDirection', 'ScrollBarMargin', 'ScrollBarOptions', 'ScrollDirection',
   'ScrollEdgeOptions', 'ScrollMotion', 'ScrollOnScrollCallback', 'ScrollOnWillScrollCallback',
-  'ScrollOptions', 'ScrollPageOptions', 'ScrollResult', 'ScrollSizeMode', 'ScrollSnapAlign',
-  'ScrollSnapOptions', 'ScrollSource', 'ScrollState', 'ScrollToIndexOptions',
-  'ScrollableBarModeOptions', 'ScrollableCommonMethod', 'ScrollableTargetInfo', 'Scroller',
-  'Search', 'SearchAttribute', 'SearchButtonOptions', 'SearchController', 'SearchOptions',
-  'SearchSubmitCallback', 'SearchType', 'SectionOptions', 'SecurityComponentLayoutDirection',
-  'SecurityComponentMethod', 'SeekMode', 'Select', 'SelectAttribute', 'SelectOption',
-  'SelectStatus', 'SelectedMode', 'SelectionMenuOptions', 'SelectionMenuOptionsExt',
-  'SelectionOptions', 'Sendable', 'Serializer', 'ShadowOptions', 'ShadowStyle', 'ShadowType',
-  'Shape', 'ShapeAttribute', 'ShapeSize', 'SharedTransitionEffectType', 'SheetDismiss',
+  'ScrollOptions', 'ScrollPageOptions', 'ScrollResult', 'ScrollSizeMode',
+  'ScrollSnapAlign', 'ScrollSnapOptions', 'ScrollSource', 'ScrollState',
+  'ScrollToIndexOptions', 'ScrollableBarModeOptions', 'ScrollableCommonMethod',
+  'ScrollableTargetInfo', 'Scroller', 'SearchButtonOptions', 'SearchController',
+  'SearchOptions', 'SearchSubmitCallback', 'SearchType', 'SectionOptions',
+  'SecurityComponentLayoutDirection', 'SecurityComponentMethod', 'SeekMode',
+  'SelectOption', 'SelectStatus', 'SelectedMode', 'SelectionMenuOptions',
+  'SelectionMenuOptionsExt', 'SelectionOptions', 'Serializer', 'ShadowOptions',
+  'ShadowStyle', 'ShadowType', 'ShapeSize', 'SharedTransitionEffectType', 'SheetDismiss',
   'SheetInfo', 'SheetKeyboardAvoidMode', 'SheetMode', 'SheetOptions', 'SheetSize',
   'SheetTitleOptions', 'SheetType', 'ShouldBuiltInRecognizerParallelWithCallback',
-  'SideBarContainer', 'SideBarContainerAttribute', 'SideBarContainerType', 'SideBarPosition',
-  'Size', 'SizeChangeCallback', 'SizeOptions', 'SizeResult', 'SizeT', 'SizeType', 'SlideEffect',
-  'SlideRange', 'Slider', 'SliderAttribute', 'SliderBlockStyle', 'SliderBlockType',
-  'SliderChangeMode', 'SliderConfiguration', 'SliderCustomContentOptions', 'SliderInteraction',
-  'SliderOptions', 'SliderPrefixOptions', 'SliderShowStepOptions',
+  'SideBarContainerType', 'SideBarPosition', 'Size', 'SizeChangeCallback', 'SizeOptions',
+  'SizeResult', 'SizeT', 'SizeType', 'SlideEffect', 'SlideRange', 'SliderBlockStyle',
+  'SliderBlockType', 'SliderChangeMode', 'SliderConfiguration', 'SliderCustomContentOptions',
+  'SliderInteraction', 'SliderOptions', 'SliderPrefixOptions', 'SliderShowStepOptions',
   'SliderStepItemAccessibility', 'SliderStyle', 'SliderSuffixOptions',
-  'SliderTriggerChangeCallback', 'SnapshotOptions', 'SourceTool', 'SourceType', 'Span',
-  'SpanAttribute', 'SpanStyle', 'SpringBackAction', 'SpringMotion', 'SpringProp', 'SslError',
-  'SslErrorEvent', 'SslErrorHandler', 'Stack', 'StackAttribute', 'StackOptions',
-  'StarStyleOptions', 'State', 'StateStyles', 'Stepper', 'StepperAttribute', 'StepperItem',
-  'StepperItemAttribute', 'Sticky', 'StickyStyle', 'Storage', 'StorageLink', 'StorageProp',
-  'StyleOptions', 'StyledString', 'StyledStringChangeValue', 'StyledStringChangedListener',
-  'StyledStringController', 'StyledStringKey', 'StyledStringValue', 'Styles',
-  'SubMenuExpandingMode', 'SubTabBarStyle', 'SubmitCallback', 'SubmitEvent',
-  'SubscribaleAbstract', 'SubscribedAbstractProperty', 'Summary', 'SuperscriptStyle',
-  'SurfaceRect', 'SurfaceRotationOptions', 'SweepGradientOptions', 'SwipeActionItem',
-  'SwipeActionOptions', 'SwipeActionState', 'SwipeDirection', 'SwipeEdgeEffect', 'SwipeGesture',
-  'SwipeGestureEvent', 'SwipeGestureHandler', 'SwipeGestureHandlerOptions', 'SwipeGestureParams',
-  'SwipeRecognizer', 'Swiper', 'SwiperAnimationEvent', 'SwiperAnimationMode',
-  'SwiperAttribute', 'SwiperAutoFill', 'SwiperContentAnimatedTransition',
+  'SliderTriggerChangeCallback', 'SnapshotOptions', 'SourceTool', 'SourceType',
+  'SpanStyle', 'SpringBackAction', 'SpringMotion', 'SpringProp', 'SslError',
+  'SslErrorEvent', 'SslErrorHandler', 'StackOptions', 'StarStyleOptions', 'State',
+  'StateStyles', 'Sticky', 'StickyStyle', 'Storage', 'StyleOptions', 'StyledString',
+  'StyledStringChangeValue', 'StyledStringChangedListener', 'StyledStringController',
+  'StyledStringKey', 'StyledStringValue', 'Styles', 'SubMenuExpandingMode',
+  'SubTabBarStyle', 'SubmitCallback', 'SubmitEvent', 'SubscribaleAbstract',
+  'SubscribedAbstractProperty', 'Summary', 'SuperscriptStyle', 'SurfaceRect',
+  'SurfaceRotationOptions', 'SweepGradientOptions', 'SwipeActionItem', 'SwipeActionOptions',
+  'SwipeActionState', 'SwipeDirection', 'SwipeEdgeEffect', 'SwipeGesture',
+  'SwipeGestureEvent', 'SwipeGestureHandler', 'SwipeGestureHandlerOptions',
+  'SwipeGestureParams', 'SwipeRecognizer', 'Swiper', 'SwiperAnimationEvent',
+  'SwiperAnimationMode', 'SwiperAutoFill', 'SwiperContentAnimatedTransition',
   'SwiperContentTransitionProxy', 'SwiperContentWillScrollResult', 'SwiperController',
   'SwiperDisplayMode', 'SwiperNestedScrollMode', 'SwitchStyle', 'SymbolEffect',
-  'SymbolEffectStrategy', 'SymbolGlyph', 'SymbolGlyphAttribute', 'SymbolGlyphModifier',
-  'SymbolRenderingStrategy', 'SymbolSpan', 'SymbolSpanAttribute', 'SyncedPropertyOneWay',
-  'SyncedPropertyTwoWay', 'SystemAdaptiveOptions', 'SystemBarStyle', 'SystemOps',
-  'TabBarIconStyle', 'TabBarOptions', 'TabBarSymbol', 'TabContent',
-  'TabContentAnimatedTransition', 'TabContentAttribute', 'TabContentTransitionProxy', 'Tabs',
-  'TabsAnimationEvent', 'TabsAttribute', 'TabsCacheMode', 'TabsController',
-  'TabsCustomContentTransitionCallback', 'TabsOptions', 'Tag', 'TapGesture', 'TapGestureEvent',
-  'TapGestureHandler', 'TapGestureHandlerOptions', 'TapGestureParameters', 'TapGestureParams',
-  'TapRecognizer', 'TemplateOptions', 'TerminationInfo', 'Test', 'Text', 'TextAlign', 'TextArea',
-  'TextAreaAttribute', 'TextAreaController', 'TextAreaOptions', 'TextAreaSubmitCallback',
-  'TextAreaType', 'TextAttribute', 'TextBackgroundStyle', 'TextBaseController', 'TextBox',
-  'TextCascadePickerRangeContent', 'TextCase', 'TextChangeOptions', 'TextChangeReason',
-  'TextClock', 'TextClockAttribute', 'TextClockConfiguration', 'TextClockController',
-  'TextClockOptions', 'TextContentControllerBase', 'TextContentControllerOptions',
-  'TextContentStyle', 'TextController', 'TextDataDetectorConfig', 'TextDataDetectorType',
-  'TextDecorationOptions', 'TextDecorationStyle', 'TextDecorationType', 'TextDeleteDirection',
-  'TextEditControllerEx', 'TextHeightAdaptivePolicy', 'TextLayoutOptions', 'TextInput',
-  'TextInputAttribute', 'TextInputController', 'TextInputOptions', 'TextInputStyle',
-  'TextMarqueeOptions', 'TextMenuItem', 'TextMenuItemId', 'TextMenuOptions', 'TextMenuShowMode',
-  'TextMetrics', 'TextModifier', 'TextOptions', 'TextOverflow', 'TextOverflowOptions',
-  'TextPicker', 'TextPickerAttribute', 'TextPickerDialog', 'TextPickerDialogOptions',
-  'TextPickerOptions', 'TextPickerRangeContent', 'TextPickerResult', 'TextPickerTextStyle',
-  'TextRange', 'TextResponseType', 'TextSelectableMode', 'TextShadowStyle', 'TextSpanType',
-  'TextStyle', 'TextTimer', 'TextTimerAttribute', 'TextTimerConfiguration', 'TextTimerController',
-  'TextTimerOptions', 'Theme', 'ThemeColorMode', 'ThreatType', 'TimePicker', 'TimePickerAttribute',
-  'TimePickerDialog', 'TimePickerDialogOptions', 'TimePickerFormat', 'TimePickerOptions',
-  'TimePickerResult', 'TipsOptions', 'TitleHeight', 'TodayStyle', 'Toggle', 'ToggleAttribute',
-  'ToggleConfiguration', 'ToggleOptions', 'ToggleType', 'ToolBarItemAttribute',
+  'SymbolEffectStrategy', 'SymbolGlyphModifier', 'SymbolRenderingStrategy',
+  'SyncedPropertyOneWay', 'SyncedPropertyTwoWay', 'SystemAdaptiveOptions',
+  'SystemBarStyle', 'SystemOps', 'TabBarIconStyle', 'TabBarOptions', 'TabBarSymbol',
+  'TabContentAnimatedTransition', 'TabContentTransitionProxy', 'TabsAnimationEvent',
+  'TabsCacheMode', 'TabsController', 'TabsCustomContentTransitionCallback',
+  'TabsOptions', 'Tag', 'TapGesture', 'TapGestureEvent', 'TapGestureHandler',
+  'TapGestureHandlerOptions', 'TapGestureParameters', 'TapGestureParams',
+  'TapRecognizer', 'TemplateOptions', 'TerminationInfo', 'Test', 'TextAlign',
+  'TextAreaController', 'TextAreaOptions', 'TextAreaSubmitCallback', 'TextAreaType',
+  'TextBackgroundStyle', 'TextBaseController', 'TextBox', 'TextCascadePickerRangeContent',
+  'TextCase', 'TextChangeOptions', 'TextChangeReason', 'TextClockConfiguration',
+  'TextClockController', 'TextClockOptions', 'TextContentControllerBase',
+  'TextContentControllerOptions', 'TextContentStyle', 'TextController',
+  'TextDataDetectorConfig', 'TextDataDetectorType', 'TextDecorationOptions',
+  'TextDecorationStyle', 'TextDecorationType', 'TextDeleteDirection',
+  'TextEditControllerEx', 'TextHeightAdaptivePolicy', 'TextLayoutOptions',
+  'TextInputController', 'TextInputOptions', 'TextInputStyle', 'TextMarqueeOptions',
+  'TextMenuItem', 'TextMenuItemId', 'TextMenuOptions', 'TextMenuShowMode', 'TextMetrics',
+  'TextModifier', 'TextOptions', 'TextOverflow', 'TextOverflowOptions',
+  'TextPickerDialog', 'TextPickerDialogOptions', 'TextPickerOptions',
+  'TextPickerRangeContent', 'TextPickerResult', 'TextPickerTextStyle', 'TextRange',
+  'TextResponseType', 'TextSelectableMode', 'TextShadowStyle', 'TextSpanType',
+  'TextStyle', 'TextTimerConfiguration', 'TextTimerController', 'TextTimerOptions',
+  'Theme', 'ThemeColorMode', 'ThreatType', 'TimePickerDialog', 'TimePickerDialogOptions',
+  'TimePickerFormat', 'TimePickerOptions', 'TimePickerResult', 'TipsOptions',
+  'TitleHeight', 'TodayStyle', 'ToggleConfiguration', 'ToggleOptions', 'ToggleType',
   'ToolBarItemInterface', 'ToolBarItemOptions', 'ToolBarItemPlacement', 'ToolbarItem',
-  'ToolbarItemStatus', 'TouchEvent', 'TouchObject', 'TouchPoint', 'TouchResult', 'TouchTestInfo',
-  'TouchTestStrategy', 'TouchType', 'Trace', 'Track', 'TransitionEdge', 'TransitionEffect',
-  'TransitionEffects', 'TransitionFinishCallback', 'TransitionHierarchyStrategy',
-  'TransitionOptions', 'TransitionType', 'TranslateOptions', 'UICommonEvent', 'UIContext',
-  'UIExtensionComponent', 'UIExtensionComponentAttribute', 'UIExtensionOptions',
-  'UIExtensionProxy', 'UIGestureEvent', 'UnderlineColor', 'UnifiedData', 'UniformDataType',
-  'UrlStyle', 'UserDataSpan', 'VMContext', 'VP', 'VelocityOptions', 'VerticalAlign', 'Video',
-  'VideoAttribute', 'VideoController', 'VideoOptions', 'View', 'ViewportFit', 'ViewportRect',
-  'VirtualScrollOptions', 'Visibility', 'VisibleAreaChangeCallback', 'VisibleAreaEventOptions',
-  'VisibleListContentInfo', 'VisualEffect', 'VoiceButtonOptions', 'VoidCallback', 'Want', 'Watch',
-  'WaterFlow', 'WaterFlowAttribute', 'WaterFlowLayoutMode', 'WaterFlowOptions',
-  'WaterFlowSections', 'Web', 'WebAttribute', 'WebCaptureMode', 'WebContextMenuParam',
-  'WebContextMenuResult', 'WebController', 'WebCookie', 'WebDarkMode', 'WebElementType',
-  'WebHeader', 'WebKeyboardAvoidMode', 'WebKeyboardCallback', 'WebKeyboardCallbackInfo',
+  'ToolbarItemStatus', 'TouchEvent', 'TouchObject', 'TouchPoint', 'TouchResult',
+  'TouchTestInfo', 'TouchTestStrategy', 'TouchType', 'TransitionEdge',
+  'TransitionEffect', 'TransitionEffects', 'TransitionFinishCallback',
+  'TransitionHierarchyStrategy', 'TransitionOptions', 'TransitionType',
+  'TranslateOptions', 'UICommonEvent', 'UIContext', 'UIExtensionOptions',
+  'UIExtensionProxy', 'UIGestureEvent', 'UnderlineColor', 'UnifiedData',
+  'UniformDataType', 'UrlStyle', 'UserDataSpan', 'VMContext', 'VP', 'VelocityOptions',
+  'VerticalAlign', 'VideoController', 'VideoOptions', 'View', 'ViewportFit',
+  'ViewportRect', 'VirtualScrollOptions', 'Visibility', 'VisibleAreaChangeCallback',
+  'VisibleAreaEventOptions', 'VisibleListContentInfo', 'VisualEffect', 'VoiceButtonOptions',
+  'VoidCallback', 'Want', 'Watch', 'WaterFlowLayoutMode', 'WaterFlowOptions',
+  'WaterFlowSections', 'WebCaptureMode', 'WebContextMenuParam', 'WebContextMenuResult',
+  'WebController', 'WebCookie', 'WebDarkMode', 'WebElementType', 'WebHeader',
+  'WebKeyboardAvoidMode', 'WebKeyboardCallback', 'WebKeyboardCallbackInfo',
   'WebKeyboardController', 'WebKeyboardOptions', 'WebLayoutMode', 'WebMediaOptions',
   'WebNavigationType', 'WebOptions', 'WebResourceError', 'WebResourceRequest',
   'WebResourceResponse', 'WebResponseType', 'WebviewController', 'Week', 'WeekStyle',
-  'WidthBreakpoint', 'WindowAnimationTarget', 'WindowModeFollowStrategy', 'WindowScene',
-  'WindowSceneAttribute', 'WindowStatusType', 'WithTheme', 'WithThemeAttribute',
-  'WithThemeOptions', 'WordBreak', 'WorkStateStyle', 'WrappedBuilder', 'XComponent',
-  'XComponentAttribute', 'XComponentController', 'XComponentOptions', 'XComponentType',
-  'animateTo', 'animateToImmediately', 'cursorControl', 'focusControl', 'fp2px', 'getContext',
-  'getInspectorNodeById', 'getInspectorNodes', 'lpx2px', 'postCardAction', 'px2fp', 'px2lpx',
-  'px2vp', 'setAppBgColor', 'sharedTransitionOptions', 'vp2px'
+  'WidthBreakpoint', 'WindowAnimationTarget', 'WindowModeFollowStrategy',
+  'WindowStatusType', 'WithThemeOptions', 'WordBreak', 'WorkStateStyle', 'WrappedBuilder',
+  'XComponentController', 'XComponentOptions', 'XComponentType', 'animateTo',
+  'animateToImmediately', 'cursorControl', 'focusControl', 'fp2px', 'getContext',
+  'getInspectorNodeById', 'getInspectorNodes', 'lpx2px', 'postCardAction', 'px2fp',
+  'px2lpx', 'px2vp', 'setAppBgColor', 'sharedTransitionOptions', 'vp2px'
 ]);
 
 const decoratorsWhiteList = [
-  'State', 'Prop', 'Link', 'Observed', 'Track', 'ObjectLink', 'StorageProp',
-  'StorageLink', 'LocalStorageProp', 'LocalStorageLink', 'Provide', 'Consume', 'Watch', 'Require'
+  'State', 'Prop', 'Link', 'Observed', 'Track', 'ObjectLink', 'StorageProp', 'StorageLink',
+  'LocalStorageProp', 'LocalStorageLink', 'Provide', 'Consume', 'Watch',
+  'Local', 'Param', 'Once', 'Event', 'Provider', 'Consumer', 'Monitor', 'Computed', '@ObservedV2', 'Trace',
+  'Builder', 'BuildParam', 'Styles', 'Extend', 'AnimatableExtend', 'Type', 'Require',
+  'Reusable', 'ReusableV2', 'Entry', 'Component', 'ComponentV2', 'CustomDialog'
 ];
 
 const whiteFileList = [
-  '@ohos.graphics.drawing', '@ohos.web.webview', 'UIAbilityContext'
+  '@ohos.app.ability.continueManager',
+  '@ohos.app.ability.InsightIntentDecorator',
+  '@ohos.app.ability.UIExtensionContentSession',
+  '@ohos.distributedsched.proxyChannelManager',
+  '@ohos.graphics.displaySync',
+  '@ohos.graphics.drawing',
+  '@ohos.graphics.text',
+  '@ohos.i18n',
+  '@ohos.inputMethodEngine',
+  '@ohos.userIAM.userAuth',
+  '@ohos.web.webview',
+  'LiveFormExtensionContext',
+  'Scene',
+  'SceneResources',
+  'UIAbilityContext',
 ];
 
+const apiDir = [
+  'ability', 'advertising', 'app', 'application', 'arkui', 'bundle', 'bundleManager', 'commonEvent',
+  'continuation', 'data', 'global', 'graphics3d', 'multimedia', 'notification', 'security', 'tag',
+  'wantAgent'
+];
+
+const apiInternalDir = [
+  '@internal/full'
+];
+
+const API_PATH = '/api/';
 const EXTNAME_D_ETS = '.d.ets';
 const EXTNAME_D_TS = '.d.ts';
 const OHOS_ARKUI = '@ohos.arkui.';
@@ -1068,10 +1230,10 @@ function start() {
     .option('--output <string>', 'output path')
     .option('--export <string>', 'export flag', false)
     .action((opts) => {
-      outputPath = opts.output;
-      inputDir = opts.input;
-      exportFlag = opts.export === 'true';
-      processInteropUI(opts.input);
+      const outputPath = opts.output;
+      const inputDir = opts.input;
+      const exportFlag = opts.export === 'true';
+      processInteropUI(inputDir, exportFlag);
     });
   program.parse(process.argv);
 }

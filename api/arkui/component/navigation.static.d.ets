@@ -25,7 +25,7 @@ import { Resource } from '../../global/resource';
 import { TextModifier } from '../../arkui/TextModifier';
 import { LengthMetrics } from '../../arkui/Graphics';
 import { Callback, BlurStyle, CommonMethod, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, 
-  BackgroundBlurStyleOptions, PixelMap, Bindable } from './common';
+  BackgroundBlurStyleOptions, PixelMap, Bindable, AttributeModifier } from './common';
 import { CustomBuilder, PageMapBuilder } from './builder';
 import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units';
 import { TitleHeight } from './enums';
@@ -1297,7 +1297,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    navBarWidth(value: Length | Bindable<Length> | undefined): this;
+    default navBarWidth(value: Length | Bindable<Length> | undefined): this;
 
     /**
      * Sets the position of navigation bar.
@@ -1307,7 +1307,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    navBarPosition(value: NavBarPosition | undefined): this;
+    default navBarPosition(value: NavBarPosition | undefined): this;
 
     /**
      * Sets the minimum width and the maximum width of navigation bar.
@@ -1317,7 +1317,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    navBarWidthRange(value: [
+    default navBarWidthRange(value: [
         Dimension,
         Dimension
     ] | undefined): this;
@@ -1330,7 +1330,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    minContentWidth(value: Dimension | undefined): this;
+    default minContentWidth(value: Dimension | undefined): this;
 
     /**
      * Sets the mode of navigation.
@@ -1340,7 +1340,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    mode(value: NavigationMode | undefined): this;
+    default mode(value: NavigationMode | undefined): this;
 
     /**
      * Sets the back button icon.
@@ -1350,7 +1350,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier | undefined): this;
+    default backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier | undefined): this;
 
     /**
      * Sets the back button icon and accessibility broadcast content.
@@ -1361,7 +1361,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
+    default backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
 
     /**
      * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in all mode.
@@ -1372,7 +1372,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideNavBar(value: boolean | undefined): this;
+    default hideNavBar(value: boolean | undefined): this;
 
     /**
      * Navigation title
@@ -1383,7 +1383,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined, options?: NavigationTitleOptions | undefined): this;
+    default title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined, options?: NavigationTitleOptions | undefined): this;
 
     /**
      * Hide navigation title bar
@@ -1393,7 +1393,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideTitleBar(value: boolean | undefined): this;
+    default hideTitleBar(value: boolean | undefined): this;
 
     /**
      * Hide navigation title bar
@@ -1404,7 +1404,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
+    default hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
 
     /**
      * Hide navigation back button
@@ -1414,7 +1414,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideBackButton(value: boolean | undefined): this;
+    default hideBackButton(value: boolean | undefined): this;
 
     /**
      * Navigation title mode
@@ -1424,7 +1424,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    titleMode(value: NavigationTitleMode | undefined): this;
+    default titleMode(value: NavigationTitleMode | undefined): this;
 
     /**
      * Navigation title bar's menus
@@ -1434,7 +1434,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
+    default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
 
     /**
      * Navigation title bar's menus
@@ -1445,7 +1445,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
+    default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
 
     /**
       * Configure toolbar with default style parameter or custom parameter.
@@ -1456,7 +1456,7 @@ export declare interface NavigationAttribute extends CommonMethod {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
      `* @since 20
       */
-    toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
+    default toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
 
     /**
      * Hide tool bar
@@ -1466,7 +1466,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideToolBar(value: boolean | undefined): this;
+    default hideToolBar(value: boolean | undefined): this;
 
     /**
      * Hide tool bar
@@ -1477,7 +1477,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    hideToolBar(hide: boolean | undefined, animated: boolean | undefined): this;
+    default hideToolBar(hide: boolean | undefined, animated: boolean | undefined): this;
 
     /**
      * Enable tool bar adaptation
@@ -1487,7 +1487,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableToolBarAdaptation(enable: boolean | undefined): this;
+    default enableToolBarAdaptation(enable: boolean | undefined): this;
 
     /**
      * Trigger callback when title mode change finished at free mode.
@@ -1497,7 +1497,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onTitleModeChange(callback: ((titleMode: NavigationTitleMode) => void) | undefined): this;
+    default onTitleModeChange(callback: ((titleMode: NavigationTitleMode) => void) | undefined): this;
 
     /**
      * Trigger callback when the visibility of navigation bar change.
@@ -1507,7 +1507,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onNavBarStateChange(callback: ((isVisible: boolean) => void) | undefined): this;
+    default onNavBarStateChange(callback: ((isVisible: boolean) => void) | undefined): this;
 
     /**
      * Trigger callback when navigation mode changes.
@@ -1517,7 +1517,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onNavigationModeChange(callback: ((mode: NavigationMode) => void) | undefined): this;
+    default onNavigationModeChange(callback: ((mode: NavigationMode) => void) | undefined): this;
 
     /**
      * Set builder for user-defined NavDestination component.
@@ -1527,7 +1527,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    navDestination(builder: PageMapBuilder | undefined): this;
+    default navDestination(builder: PageMapBuilder | undefined): this;
 
     /**
      * Set custom navigation content transition animation.
@@ -1537,7 +1537,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    customNavContentTransition(delegate: ((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined) | undefined): this;
+    default customNavContentTransition(delegate: ((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined) | undefined): this;
 
     /**
      * Set navigation content expand types and edges.
@@ -1548,7 +1548,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
+    default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
 
     /**
      * Set the style of system bar
@@ -1558,7 +1558,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    systemBarStyle(style: SystemBarStyle | undefined): this;
+    default systemBarStyle(style: SystemBarStyle | undefined): this;
 
     /**
      * Set the Navigation can be restored after the application is terminated.
@@ -1569,7 +1569,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    recoverable(recoverable: boolean | undefined): this;
+    default recoverable(recoverable: boolean | undefined): this;
 
     /**
      * Enable dragbar
@@ -1579,7 +1579,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableDragBar(isEnabled: boolean | undefined): this;
+    default enableDragBar(isEnabled: boolean | undefined): this;
 
     /**
      * whether to enable modeChangeAnimation
@@ -1589,7 +1589,18 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableModeChangeAnimation(isEnabled: boolean | undefined): this;
+    default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
+
+    /**
+     * Set the attribute modifier of navigation.
+     *
+     * @param { AttributeModifier<NavigationAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     *     The attribute modifier of navigation.
+     * @returns { NavigationAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<NavigationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -1765,10 +1776,19 @@ export declare interface NavContentInfo {
     navDestinationId?: string;
 }
 
+/**
+ * Defines Navigation Component
+ *
+ * @param { NavPathStack } [pathInfos] - Navigation constructor options
+ * @param { function } [content_] - container
+ * @returns { NavigationAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Navigation(
-    pathInfos: NavPathStack, 
+    pathInfos?: NavPathStack, 
     @memo
     content_?: () => void,
 ): NavigationAttribute

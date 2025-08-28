@@ -56,6 +56,7 @@ export declare interface TextBackgroundStyle {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface BaseSpan extends CommonMethod {
     /**

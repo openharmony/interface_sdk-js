@@ -53,6 +53,30 @@ import { UIContext } from './@ohos.arkui.UIContext';
  */
 declare namespace autoFillManager {
   /**
+   * Called when auto save request is successfully handled.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  type OnSuccessFn = () => void;
+
+  /**
+   * Called when auto save request is failed to be handled.
+   *
+   * @typedef { function }
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  type OnFailureFn = () => void;
+
+  /**
    * Auto save callback.
    *
    * @interface AutoSaveCallback
@@ -81,13 +105,14 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is successfully handled.
      *
+     * @type { OnSuccessFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onSuccess(): void;
+    onSuccess: OnSuccessFn;
 
     /**
      * Called when auto save request is failed to be handled.
@@ -99,13 +124,14 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is failed to be handled.
      *
+     * @type { OnFailureFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onFailure(): void;
+    onFailure: OnFailureFn;
   }
 
   /**

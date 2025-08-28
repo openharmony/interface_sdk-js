@@ -674,6 +674,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     getSelfPermissionStatus(permissionName: Permissions): PermissionStatus;
   }

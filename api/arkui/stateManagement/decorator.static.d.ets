@@ -1045,6 +1045,17 @@ export declare interface IStateMgmtFactory {
    */
    makeLocal<T>(owningView: ExtendableComponent, varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
 
+    /**
+   * Create a static local variable instance.
+   *
+   * @param { string } varName - state variable name.
+   * @param { T } localInitValue - state variable initValue.
+   * @returns { ILocalDecoratedVariable<T> } Local instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+   makeStaticLocal<T>(varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
+
   /**
    * Create a Param variable instance.
    *
@@ -1239,14 +1250,6 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
    * @since 20
    */
   executeOnSubscribingWatches(propertyName: string): void;
-}
-
-export declare interface AbstractProperty<T> extends IDecoratedMutableVariable<T> {
-    info(): string;
-}
-
-export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
-    aboutToBeDeleted(): void;
 }
 
 /**

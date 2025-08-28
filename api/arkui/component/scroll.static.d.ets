@@ -202,8 +202,6 @@ export declare interface ScrollAnimationOptions {
  *
  * @interface OffsetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare interface OffsetOptions {
@@ -571,6 +569,7 @@ export type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =>
  * @interface ScrollAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ScrollAttribute extends ScrollableCommonMethod {
     /**
@@ -830,6 +829,7 @@ export type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scro
  * @returns { ScrollAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

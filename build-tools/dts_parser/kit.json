@@ -59,7 +59,6 @@
     { "filePath": "@internal/component/ets/list_item.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/list_item_group.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/loading_progress.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
-    { "filePath": "@internal/component/ets/location_button.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/marquee.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/matrix2d.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/media_cached_image.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },

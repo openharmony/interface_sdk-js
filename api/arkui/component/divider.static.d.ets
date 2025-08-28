@@ -31,7 +31,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    vertical(value: boolean | undefined): this;
+    default vertical(value: boolean | undefined): this;
     /**
      * Sets the color of the divider line.
      *
@@ -40,7 +40,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    color(value: ResourceColor | undefined): this;
+    default color(value: ResourceColor | undefined): this;
     /**
      * Sets the width of the dividing line.
      *
@@ -49,7 +49,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    strokeWidth(value: number | string | undefined): this;
+    default strokeWidth(value: number | string | undefined): this;
     /**
      * Sets the end style of the split line. The default value is Butt.
      *
@@ -58,8 +58,16 @@ export declare interface DividerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    lineCap(value: LineCapStyle | undefined): this;
-    attributeModifier(modifier: AttributeModifier<DividerAttribute>
+    default lineCap(value: LineCapStyle | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { DividerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<DividerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 

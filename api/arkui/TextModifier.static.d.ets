@@ -13,19 +13,24 @@
  * limitations under the License.
  */
 
+/**
+ * @file
+ * @kit ArkUI
+ * @arkts 1.2
+ */
+
+
+
+
 import { AttributeModifier } from './component/common';
 import { TextAttribute } from './component/text';
 
 /**
- * @file
- * @kit ArkUI
- */
-
-/**
  * Defines Text Modifier
  *
- * @implements TextAttribute, AttributeModifier<TextAttribute>
+ * @implements { TextAttribute, AttributeModifier<TextAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
 */
 export declare class TextModifier implements TextAttribute, AttributeModifier<TextAttribute> {}

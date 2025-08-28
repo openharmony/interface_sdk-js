@@ -13,22 +13,26 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { ContainerSpanAttribute } from './component/containerSpan';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { ContainerSpanAttribute } from './component/containerSpan';
+
 /**
  * Defines ContainerSpan Modifier
  *
- * @implements ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute>
+ * @implements { ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class ContainerSpanModifier implements
     ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> {
 }

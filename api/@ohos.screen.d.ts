@@ -62,7 +62,7 @@ declare namespace screen {
    *
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
    * type and cannot be empty.
-   * @param { Callback<number> } callback Callback used to return the screen ID. This parameter is callable.
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -71,14 +71,14 @@ declare namespace screen {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<number>): void;
+  function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
   /**
    * Unregister the callback for screen changes.
    *
    * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
    * type and cannot be empty.
-   * @param { Callback<number> } callback Callback used to return the screen ID. If this parameter is specified, it must
+   * @param { Callback<long> } callback Callback used to return the screen ID. If this parameter is specified, it must
    * be a callback.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -88,7 +88,7 @@ declare namespace screen {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<number>): void;
+  function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
 
   /**
    * Make screens as expand-screen
@@ -158,9 +158,9 @@ declare namespace screen {
   /**
    * Make screens as mirror-screen
    *
-   * @param { number } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<number> } mirrorScreen IDs of secondary screens
-   * @param { AsyncCallback<number> } callback Callback used to return the group ID of the secondary screens
+   * @param { long } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<long> } mirrorScreen IDs of secondary screens
+   * @param { AsyncCallback<long> } callback Callback used to return the group ID of the secondary screens
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -170,14 +170,14 @@ declare namespace screen {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function makeMirror(mainScreen: number, mirrorScreen: Array<number>, callback: AsyncCallback<number>): void;
+  function makeMirror(mainScreen: long, mirrorScreen: Array<long>, callback: AsyncCallback<long>): void;
 
   /**
    * Make screens as mirror-screen
    *
-   * @param { number } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<number> } mirrorScreen IDs of secondary screens
-   * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @param { long } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<long> } mirrorScreen IDs of secondary screens
+   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
@@ -187,27 +187,27 @@ declare namespace screen {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function makeMirror(mainScreen: number, mirrorScreen: Array<number>): Promise<number>;
+  function makeMirror(mainScreen: long, mirrorScreen: Array<long>): Promise<long>;
 
   /**
    * Make screens as mirror-screen
    *
-   * @param { number } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<number> } mirrorScreen IDs of secondary screens
+   * @param { long } mainScreen ID of the primary screen. It's type should be int.
+   * @param { Array<long> } mirrorScreen IDs of secondary screens
    * @param { Rect } mainScreenRegion mirror screen region
-   * @returns { Promise<number> } Promise used to return the group ID of the secondary screens
+   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 19
    */
-  function makeMirrorWithRegion(mainScreen: number, mirrorScreen: Array<number>, mainScreenRegion: Rect): Promise<number>;
+  function makeMirrorWithRegion(mainScreen: long, mirrorScreen: Array<long>, mainScreenRegion: Rect): Promise<long>;
 
   /**
    * Stop mirror screens
    *
-   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
+   * @param { Array<long> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
    * exceed 1000.
    * @param { AsyncCallback<void> } callback used to return the result
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -218,12 +218,12 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function stopMirror(mirrorScreen: Array<number>, callback: AsyncCallback<void>): void;
+  function stopMirror(mirrorScreen: Array<long>, callback: AsyncCallback<void>): void;
 
   /**
    * Stop mirror screens
    *
-   * @param { Array<number> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
+   * @param { Array<long> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
    * exceed 1000.
    * @returns { Promise<void> } promise used to return the result
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -234,13 +234,13 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function stopMirror(mirrorScreen: Array<number>): Promise<void>;
+  function stopMirror(mirrorScreen: Array<long>): Promise<void>;
   
   /**
    * Make screens as unique-screen
    *
-   * @param { Array<number> } uniqueScreen IDs of the unique screens. It's type should be int.
-   * @returns { Promise<Array<number>> } Promise used to return the display IDs of unique screens.
+   * @param { Array<long> } uniqueScreen IDs of the unique screens. It's type should be int.
+   * @returns { Promise<Array<long>> } Promise used to return the display IDs of unique screens.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * 2. Incorrect parameter types. 3. Parameter verification failed.
@@ -251,7 +251,7 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 18
    */
-  function makeUnique(uniqueScreen: Array<number>): Promise<Array<number>>;
+  function makeUnique(uniqueScreen: Array<long>): Promise<Array<long>>;
 
   /**
    * Create virtual screen. if surfaceId is valid, this permission is necessary.
@@ -290,7 +290,7 @@ declare namespace screen {
   /**
    * Destroy virtual screen.
    *
-   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @param { long } screenId Indicates the screen id of the virtual screen.
    * @param { AsyncCallback<void> } callback Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -300,12 +300,12 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function destroyVirtualScreen(screenId: number, callback: AsyncCallback<void>): void;
+  function destroyVirtualScreen(screenId: long, callback: AsyncCallback<void>): void;
 
   /**
    * Destroy virtual screen.
    *
-   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @param { long } screenId Indicates the screen id of the virtual screen.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -315,13 +315,13 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function destroyVirtualScreen(screenId: number): Promise<void>;
+  function destroyVirtualScreen(screenId: long): Promise<void>;
 
   /**
    * Set surface for the virtual screen.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @param { long } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @param { AsyncCallback<void> } callback Callback used to return the result
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -333,13 +333,13 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function setVirtualScreenSurface(screenId: number, surfaceId: string, callback: AsyncCallback<void>): void;
+  function setVirtualScreenSurface(screenId: long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
    * Set surface for the virtual screen.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { number } screenId Indicates the screen id of the virtual screen.
+   * @param { long } screenId Indicates the screen id of the virtual screen.
    * @param { string } surfaceId Indicates the surface id.
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -351,13 +351,13 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>;
+  function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
   /**
    * Set privacy mask image for the screen.
    *
-   * @param { number } screenId Indicates the screen id of the screen.
-   * @param { image.PixelMap } image Indicates the privacy mask image. This parameter is optional. If not provided,
+   * @param { long } screenId Indicates the screen id of the screen.
+   * @param { image.PixelMap } [image] Indicates the privacy mask image. This parameter is optional. If not provided,
    * the mask image will be cleared;
    * @returns { Promise<void> } Promise that returns no value
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -370,7 +370,7 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 19
    */
-  function setScreenPrivacyMaskImage(screenId: number, image?: image.PixelMap): Promise<void>;
+  function setScreenPrivacyMaskImage(screenId: long, image?: image.PixelMap): Promise<void>;
 
   /**
    * Get screen rotation lock status.
@@ -425,8 +425,8 @@ declare namespace screen {
   /**
    * Set multi screen mode(mirror/extend).
    *
-   * @param { number } primaryScreenId - primary screen id.
-   * @param { number } secondaryScreenId - secondary screen id.
+   * @param { long } primaryScreenId - primary screen id.
+   * @param { long } secondaryScreenId - secondary screen id.
    * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
@@ -437,7 +437,7 @@ declare namespace screen {
    * @systemapi Hide this for inner system use.
    * @since 13
    */
-  function setMultiScreenMode(primaryScreenId: number, secondaryScreenId: number,
+  function setMultiScreenMode(primaryScreenId: long, secondaryScreenId: long,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
 
     /**
@@ -498,32 +498,32 @@ declare namespace screen {
     /**
      * Screen id
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    id: number;
+    id: long;
 
     /**
      * The start coordinate X of the screen origin
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    startX: number;
+    startX: long;
 
     /**
      * The start coordinate Y of the screen origin
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13
      */
-    startY: number;
+    startY: long;
   }
 
   /**
@@ -538,32 +538,32 @@ declare namespace screen {
     /**
      * Screen id
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    screenId: number;
+    screenId: long;
 
     /**
      * The start coordinate X of the screen origin
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    startX: number;
+    startX: long;
 
     /**
      * The start coordinate Y of the screen origin
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    startY: number;
+    startY: long;
   }
 
   /**
@@ -588,32 +588,32 @@ declare namespace screen {
     /**
      * Indicates the width of the virtual screen.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    width: number;
+    width: long;
 
     /**
      * Indicates the height of the virtual screen.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    height: number;
+    height: long;
 
     /**
      * Indicates the density of the virtual screen.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    density: number;
+    density: double;
 
     /**
      * Indicates the surface id of the virtual screen.
@@ -690,26 +690,26 @@ declare namespace screen {
     /**
      * Screen id
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly id: number;
+    readonly id: long;
 
     /**
      * Group id
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly parent: number;
+    readonly parent: long;
 
     /**
      * Mode supported by the screen
@@ -726,14 +726,14 @@ declare namespace screen {
     /**
      * Currently active mode
      *
-     * @type { number }
+     * @type { long }
      * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly activeModeIndex: number;
+    readonly activeModeIndex: long;
 
     /**
      * Orientation of the screen
@@ -804,7 +804,7 @@ declare namespace screen {
     /**
      * Set the active mode of the screen.
      *
-     * @param { number } modeIndex Index of the mode to set.
+     * @param { long } modeIndex Index of the mode to set.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -814,12 +814,12 @@ declare namespace screen {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    setScreenActiveMode(modeIndex: number, callback: AsyncCallback<void>): void;
+    setScreenActiveMode(modeIndex: long, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the active mode of the screen.
      *
-     * @param { number } modeIndex Index of the mode to set.
+     * @param { long } modeIndex Index of the mode to set.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -829,12 +829,12 @@ declare namespace screen {
      * @systemapi Hide this for inner system use.
      * @since 9
      */
-    setScreenActiveMode(modeIndex: number): Promise<void>;
+    setScreenActiveMode(modeIndex: long): Promise<void>;
 
     /**
      * Set display density of the screen
      *
-     * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
+     * @param { double } densityDpi Pixel density. The value ranges from 80 to 640.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -845,12 +845,12 @@ declare namespace screen {
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setDensityDpi(densityDpi: number, callback: AsyncCallback<void>): void;
+    setDensityDpi(densityDpi: double, callback: AsyncCallback<void>): void;
 
     /**
      * Set display density of the screen
      *
-     * @param { number } densityDpi Pixel density. The value ranges from 80 to 640.
+     * @param { double } densityDpi Pixel density. The value ranges from 80 to 640.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -861,7 +861,7 @@ declare namespace screen {
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setDensityDpi(densityDpi: number): Promise<void>;
+    setDensityDpi(densityDpi: double): Promise<void>;
   }
 
   /**
@@ -938,46 +938,46 @@ declare namespace screen {
     /**
      * Mode id
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number;
+    id: long;
 
     /**
      * Indicates the width of the screen
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: long;
 
    /**
      * Indicates the height of the screen
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: long;
 
     /**
      * Indicates the refreshRate of the screen
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    refreshRate: number;
+    refreshRate: int;
   }
 
   /**
@@ -992,42 +992,42 @@ declare namespace screen {
     /**
      * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19
      */
-    left: number;
+    left: long;
 
     /**
      * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19
      */
-    top: number;
+    top: long;
 
     /**
      * Width of the rectangle, in pixels.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19
      */
-    width: number;
+    width: long;
 
     /**
      * Height of the rectangle, in pixels.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19
      */
-    height: number;
+    height: long;
   }
 }
 

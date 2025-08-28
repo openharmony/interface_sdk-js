@@ -540,8 +540,6 @@ export declare class LengthMetrics {
    *
    * @param { Resource } value - The value of the length metrics.
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
-   * @throws { BusinessError } 180001 - System resources does not exist.
-   * @throws { BusinessError } 180002 - The type of system resources is incorrect.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
@@ -575,6 +573,126 @@ export declare class LengthMetrics {
  * @since 20
  */
 export declare class ColorMetrics {
+  /**
+   * White.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly WHITE: int;
+  /**
+   * Black.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly BLACK: int;
+  /**
+   * Blue.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly BLUE: int;
+  /**
+   * Brown.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly BROWN: int;
+  /**
+   * Gray.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly GRAY: int;
+  /**
+   * Green.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly GREEN: int;
+  /**
+   * Grey.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly GREY: int;
+  /**
+   * Orange.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly ORANGE: int;
+  /**
+   * Pink.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly PINK: int;
+  /**
+   * Red.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly RED: int;
+  /**
+   * Yellow.
+   * 
+   * @type { int }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly YELLOW: int;
+  /**
+   * Transparent.
+   * 
+   * @type { string }
+   * @readonly
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  static readonly TRANSPARENT: string;
   /**
    * Instantiate the ColorMetrics class using color number
    *

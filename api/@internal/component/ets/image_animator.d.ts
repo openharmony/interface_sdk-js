@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from "../../global/resource";
-import image from '../../@ohos.multimedia.image'
-import { CommonMethod, PixelMap } from './common'
-import { AnimationStatus,FillMode } from './enums'
-/*** endif */
-
 /**
  * Defines the ImageAnimator Interface.
  *
@@ -49,8 +42,7 @@ import { AnimationStatus,FillMode } from './enums'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface ImageAnimatorInterface {
@@ -78,8 +70,7 @@ interface ImageAnimatorInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (): ImageAnimatorAttribute;
 }
@@ -108,8 +99,7 @@ interface ImageAnimatorInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ImageFrameInfo {
   /**
@@ -153,8 +143,7 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   src: string | Resource | PixelMap;
   /**
@@ -181,8 +170,7 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   width?: number | string;
   /**
@@ -209,8 +197,7 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   height?: number | string;
   /**
@@ -237,8 +224,7 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   top?: number | string;
   /**
@@ -265,8 +251,7 @@ interface ImageFrameInfo {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   left?: number | string;
   /**
@@ -291,8 +276,7 @@ interface ImageFrameInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   duration?: number;
 }
@@ -321,8 +305,7 @@ interface ImageFrameInfo {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute> {
@@ -357,8 +340,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   images(value: Array<ImageFrameInfo>): ImageAnimatorAttribute;
 
@@ -389,8 +371,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   state(value: AnimationStatus): ImageAnimatorAttribute;
 
@@ -426,8 +407,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   duration(value: number): ImageAnimatorAttribute;
 
@@ -458,8 +438,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   reverse(value: boolean): ImageAnimatorAttribute;
 
@@ -490,8 +469,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fixedSize(value: boolean): ImageAnimatorAttribute;
 
@@ -534,8 +512,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fillMode(value: FillMode): ImageAnimatorAttribute;
 
@@ -565,8 +542,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   iterations(value: number): ImageAnimatorAttribute;
 
@@ -577,12 +553,10 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @param { boolean } monitorInvisibleArea - 	Whether the component should automatically pause or resume based on
    * its visibility, using the system's onVisibleAreaChange event, Default value is false.
    * @returns { ImageAnimatorAttribute }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17
    */
   monitorInvisibleArea(monitorInvisibleArea: boolean) : ImageAnimatorAttribute;
 
@@ -613,8 +587,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onStart(event: () => void): ImageAnimatorAttribute;
 
@@ -645,8 +618,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onPause(event: () => void): ImageAnimatorAttribute;
 
@@ -675,8 +647,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onRepeat(event: () => void): ImageAnimatorAttribute;
 
@@ -707,8 +678,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onCancel(event: () => void): ImageAnimatorAttribute;
 
@@ -739,8 +709,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onFinish(event: () => void): ImageAnimatorAttribute;
 }

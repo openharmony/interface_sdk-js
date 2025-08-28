@@ -51,7 +51,8 @@ export interface RunningMultiAppInfo {
    * @type { MultiAppMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   mode: MultiAppMode;
 
@@ -72,7 +73,8 @@ export interface RunningMultiAppInfo {
    * @type { ?Array<RunningAppClone> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   runningAppClones?: Array<RunningAppClone>;
 }

@@ -25,3 +25,10 @@ import Notification, { ActionResult, ShowNotificationOptions } from '@system.not
 export {
   ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe
 };
+
+/*** if arkts 1.2 */
+import notificationManager from '@ohos.notificationManager';
+import notificationSubscribe from '@ohos.notificationSubscribe';
+
+export { notificationManager, notificationSubscribe };
+/*** endif */

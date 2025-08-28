@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 
-import { Bindable, CommonMethod } from './common';
+import { Bindable, CommonMethod, AttributeModifier } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
@@ -58,7 +58,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onFinish(callback: (() => void) | undefined): this;
+  default onFinish(callback: (() => void) | undefined): this;
 
   /**
    * Callback when the skip label is clicked.
@@ -68,7 +68,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onSkip(callback: (() => void) | undefined): this;
+  default onSkip(callback: (() => void) | undefined): this;
 
   /**
    * Callback when the change label is clicked.
@@ -78,7 +78,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
+  default onChange(callback: ((prevIndex: number, index: number) => void) | undefined): this;
 
   /**
    * Callback when the next label is clicked.
@@ -88,7 +88,7 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  default onNext(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
 
   /**
    * Callback when the previous label is clicked.
@@ -98,9 +98,29 @@ export declare interface StepperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+  default onPrevious(callback: ((index: number, pendingIndex: number) => void) | undefined): this;
+
+  /**
+   * Set the attribute modifier of stepper.
+   *
+   * @param { AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of stepper.
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<StepperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines Stepper Component
+ *
+ * @param { StepperOptions } [value] - Stepper constructor options
+ * @param { function } [content_] - container
+ * @returns { StepperAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Stepper(

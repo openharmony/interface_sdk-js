@@ -21,7 +21,7 @@
  */
 
 import { IndicatorComponentController } from './indicatorcomponent';
-import { CommonMethod, Callback, ICurve, Optional, Bindable } from './common';
+import { CommonMethod, Callback, ICurve, Optional, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -624,7 +624,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  index(value: number | Bindable<number> | undefined): this;
+  default index(value: number | Bindable<number> | undefined): this;
 
   /**
    * Set whether the subcomponent plays automatically.
@@ -635,7 +635,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
+  default autoPlay(autoPlay: boolean | undefined, options: AutoPlayOptions | undefined): this;
 
   /**
    * Called when the time interval for automatic playback is set.
@@ -645,7 +645,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  interval(value: number | undefined): this;
+  default interval(value: number | undefined): this;
 
   /**
    * Use indicator component controller.
@@ -656,7 +656,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
+  default indicator(indicator: IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined): this;
 
   /**
    * Set arrow is enabled, or set the arrow style.
@@ -667,7 +667,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
+  default displayArrow(value: ArrowStyle | boolean | undefined, isHoverShow?: boolean | undefined): this;
 
   /**
    * Called when setting whether to turn on cyclic sliding.
@@ -677,7 +677,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  loop(value: boolean | undefined): this;
+  default loop(value: boolean | undefined): this;
 
   /**
    * Called when the animation duration of the switch is set.
@@ -687,7 +687,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  duration(value: number | undefined): this;
+  default duration(value: number | undefined): this;
 
   /**
    * Called when setting whether to slide vertically.
@@ -697,7 +697,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  vertical(value: boolean | undefined): this;
+  default vertical(value: boolean | undefined): this;
 
   /**
    * Sets the space between child components.
@@ -707,7 +707,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  itemSpace(value: number | string | undefined): this;
+  default itemSpace(value: number | string | undefined): this;
 
   /**
    * Called when setting the size of the swiper container on the spindle.
@@ -717,7 +717,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  displayMode(value: SwiperDisplayMode | undefined): this;
+  default displayMode(value: SwiperDisplayMode | undefined): this;
 
   /**
    * Sets the number of child components to be preloaded(cached).
@@ -727,7 +727,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  cachedCount(value: number | undefined): this;
+  default cachedCount(value: number | undefined): this;
 
   /**
    * Sets the number of child components to be preloaded(cached).
@@ -738,7 +738,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  cachedCount(count: number | undefined, isShown: boolean | undefined): this;
+  default cachedCount(count: number | undefined, isShown: boolean | undefined): this;
 
   /**
    * Sets the number of elements to display per page.
@@ -756,7 +756,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
+  default displayCount(value: number | string | SwiperAutoFill | undefined, swipeByGroup?: boolean | undefined): this;
 
   /**
    * Invoked when setting the sliding effect
@@ -766,7 +766,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  effectMode(value: EdgeEffect | undefined): this;
+  default effectMode(value: EdgeEffect | undefined): this;
 
   /**
    * Sets whether to disable the swipe feature
@@ -776,7 +776,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  disableSwipe(value: boolean | undefined): this;
+  default disableSwipe(value: boolean | undefined): this;
 
   /**
    * Sets the animation curve
@@ -788,7 +788,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  curve(value: Curve | string | ICurve | undefined): this;
+  default curve(value: Curve | string | ICurve | undefined): this;
 
   /**
    * Called when the index value changes.
@@ -798,7 +798,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onChange(event: Callback<number> | undefined): this;
+  default onChange(event: Callback<number> | undefined): this;
 
   /**
    * Called when a new index becomes selected. Animation is not necessarily complete.
@@ -808,7 +808,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onSelected(event: Callback<number> | undefined): this;
+  default onSelected(event: Callback<number> | undefined): this;
 
   /**
    * The previous margin which can be used to expose a small portion of the previous item.
@@ -820,7 +820,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+  default prevMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
   /**
    * The next margin which can be used to expose a small portion of the latter item.
@@ -832,7 +832,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
+  default nextMargin(value: Length | undefined, ignoreBlank?: boolean | undefined): this;
 
   /**
    * Called when a new index becomes unselected. Animation is not necessarily complete.
@@ -842,7 +842,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onUnselected(event: Callback<number> | undefined): this;
+  default onUnselected(event: Callback<number> | undefined): this;
 
   /**
    * Called when the swiper animation start.
@@ -852,7 +852,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
+  default onAnimationStart(event: OnSwiperAnimationStartCallback | undefined): this;
 
   /**
    * Called when the swiper animation end.
@@ -862,7 +862,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
+  default onAnimationEnd(event: OnSwiperAnimationEndCallback | undefined): this;
 
   /**
    * Called when the swiper swipe with the gesture.
@@ -872,7 +872,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
+  default onGestureSwipe(event: OnSwiperGestureSwipeCallback | undefined): this;
 
   /**
    * Called to setting the nested scroll mode.
@@ -882,7 +882,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  nestedScroll(value: SwiperNestedScrollMode | undefined): this;
+  default nestedScroll(value: SwiperNestedScrollMode | undefined): this;
 
   /**
    * Custom swiper content transition animation.
@@ -892,7 +892,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
+  default customContentTransition(transition: SwiperContentAnimatedTransition | undefined): this;
 
   /**
    * Called when the swiper content did scroll.
@@ -906,7 +906,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
+  default onContentDidScroll(handler: ContentDidScrollCallback | undefined): this;
 
   /**
    * Setting whether the indicator is interactive.
@@ -916,7 +916,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  indicatorInteractive(value: boolean | undefined): this;
+  default indicatorInteractive(value: boolean | undefined): this;
 
   /**
    * Setting page flip mode on mouse wheel event.
@@ -926,7 +926,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  pageFlipMode(mode: PageFlipMode | undefined): this;
+  default pageFlipMode(mode: PageFlipMode | undefined): this;
 
   /**
    * Called when the swiper content will scroll.
@@ -936,7 +936,18 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+  default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
+
+  /**
+   * Set the attribute modifier of swiper.
+   *
+   * @param { AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of swiper.
+   * @returns { SwiperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -1083,6 +1094,15 @@ export type ContentDidScrollCallback = (selectedIndex: number, index: number, po
  */
 export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) => boolean;
 
+/**
+ * Defines Swiper Component
+ *
+ * @param { SwiperController } [controller] - Swiper constructor options
+ * @param { function } [content_] - container
+ * @returns { SwiperAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function Swiper(

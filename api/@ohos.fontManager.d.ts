@@ -33,7 +33,7 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } path - path indicates the font path.
-   * @returns { Promise<int> } - int indicates the font installation result.
+   * @returns { Promise<int> } - Number indicates the font installation result.
    *        0 - Install successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.
@@ -55,7 +55,7 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_FONT
    * @param { string } fullName - fullName indicates the font name.
-   * @returns { Promise<int> } - int indicates the font uninstallation result.
+   * @returns { Promise<int> } - number indicates the font uninstallation result.
    *        0 - Uninstall successful.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system application.

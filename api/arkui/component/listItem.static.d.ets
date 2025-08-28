@@ -36,7 +36,6 @@ export declare enum SwipeEdgeEffect {
      * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     Spring,
@@ -44,7 +43,6 @@ export declare enum SwipeEdgeEffect {
      * Sliding to the edge has no effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
      * @since 20
      */
     None
@@ -244,6 +242,7 @@ export declare interface ListItemOptions {
  * @interface ListItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ListItemAttribute extends CommonMethod {
     /**
@@ -302,6 +301,7 @@ export declare interface ListItemAttribute extends CommonMethod {
  * @returns { ListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

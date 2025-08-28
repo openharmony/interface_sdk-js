@@ -29,7 +29,8 @@ import type { MultiAppMode } from './bundleManager/ApplicationInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace dialogSession {
 
@@ -40,7 +41,8 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DialogAbilityInfo {
 
@@ -51,7 +53,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -62,7 +65,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     moduleName: string;
 
@@ -73,7 +77,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abilityName: string;
 
@@ -84,7 +89,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abilityIconId: int;
 
@@ -95,7 +101,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abilityLabelId: int;
 
@@ -106,7 +113,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleIconId: int;
 
@@ -117,7 +125,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleLabelId: int;
 
@@ -128,7 +137,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     visible: boolean;
 
@@ -139,7 +149,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     appIndex: int;
 
@@ -150,7 +161,8 @@ declare namespace dialogSession {
       * @syscap SystemCapability.Ability.AbilityRuntime.Core
       * @systemapi
       * @stagemodelonly
-      * @since 12
+      * @since arkts {'1.1':'12', '1.2':'20'}
+      * @arkts 1.1&1.2
       */
     multiAppMode: MultiAppMode;
   }
@@ -162,7 +174,8 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface DialogSessionInfo {
 
@@ -173,7 +186,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     callerAbilityInfo: DialogAbilityInfo;
 
@@ -184,7 +198,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     targetAbilityInfos: Array<DialogAbilityInfo>;
 
@@ -195,7 +210,8 @@ declare namespace dialogSession {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parameters?: Record<string, Object>;
   }
@@ -219,6 +235,24 @@ declare namespace dialogSession {
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo;
 
   /**
+   * Query the session info of dialog.
+   *
+   * @param { string } dialogSessionId - Query information by dialog session id.
+   * @returns { DialogSessionInfo | null } Returns the session info when the target DialogSessionInfo of
+   *     dialogSessionId exists. Returns null if the target DialogSessionInfo of dialogSessionId not exist.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
+
+  /**
    * Send the selection result of dialog.
    *
    * @param { string } dialogSessionId - Send Result by dialog session id.
@@ -234,7 +268,8 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean): Promise<void>;
 
@@ -254,7 +289,8 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function sendDialogResult(dialogSessionId: string, targetWant: Want, isAllowed: boolean, callback: AsyncCallback<void>): void;
 }

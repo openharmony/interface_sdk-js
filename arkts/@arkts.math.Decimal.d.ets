@@ -1481,8 +1481,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toBinary(): string;
 
@@ -1507,8 +1506,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toBinary(significantDigits: double): string;
 
@@ -1535,10 +1533,52 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toBinary(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 2.
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toBinaryWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
+   * significant digits.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toBinaryWithSignificantDigits(significantDigits: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 2, round to `significantDigits`
+   * significant digits using rounding mode `rounding`.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toBinaryWithSignificantDigitsRounding(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toBinary { toBinaryWithNoArg, toBinaryWithSignificantDigits, toBinaryWithSignificantDigitsRounding };
 
   /**
    * Return a string representing the value of this Decimal in base 8.
@@ -1555,8 +1595,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toOctal(): string;
 
@@ -1579,8 +1618,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toOctal(significantDigits: double): string;
 
@@ -1607,10 +1645,51 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toOctal(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 8.
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toOctalWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant.
+   *
+   * @param { double } significantDigits {double | string | Decimal}
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toOctalWithSignificantDigits(significantDigits: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 8, round to `significantDigits` significant
+   * digits using rounding mode `rounding`.
+   *
+   * @param { double } significantDigits {double | string | Decimal}
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toOctalWithSignificantDigitsRounding(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toOctal { toOctalWithNoArg, toOctalWithSignificantDigits, toOctalWithSignificantDigitsRounding };
 
   /**
    * Return a string representing the value of this Decimal in base 16
@@ -1627,8 +1706,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toHexadecimal(): string;
 
@@ -1651,8 +1729,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toHexadecimal(significantDigits: double): string;
 
@@ -1679,10 +1756,51 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toHexadecimal(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 16
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toHexadecimalWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toHexadecimalWithSignificantDigits(significantDigits: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal in base 16, round to `significantDigits` significant
+   * digits using rounding mode `rounding`.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toHexadecimalWithSignificantDigitsRounding(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toHexadecimal { toHexadecimalWithNoArg, toHexadecimalWithSignificantDigits, toHexadecimalWithSignificantDigitsRounding };
 
   /**
    * Return a new Decimal whose value is the value of this Decimal.
@@ -1699,8 +1817,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toDecimalPlaces(): Decimal;
 
@@ -1725,8 +1842,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toDecimalPlaces(decimalPlaces: double): Decimal;
 
@@ -1753,10 +1869,52 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toDecimalPlaces(decimalPlaces: double, rounding: Rounding): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal.
+   *
+   * @returns { Decimal } the Decimal type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toDecimalPlacesWithNoArg(): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
+   * decimal places.
+   *
+   * @param { double } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toDecimalPlacesWithDecimalPlaces(decimalPlaces: double): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `decimalPlaces`
+   * decimal places using rounding mode `rounding`.
+   *
+   * @param { double } decimalPlaces Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toDecimalPlacesWithDecimalPlacesRounding(decimalPlaces: double, rounding: Rounding): Decimal;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toDecimalPlaces { toDecimalPlacesWithNoArg, toDecimalPlacesWithDecimalPlaces, toDecimalPlacesWithDecimalPlacesRounding };
 
   /**
    * Return a string representing the value of this Decimal in exponential notation.
@@ -1773,8 +1931,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toExponential(): string;
 
@@ -1799,8 +1956,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toExponential(decimalPlaces: double): string;
 
@@ -1827,10 +1983,52 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toExponential(decimalPlaces: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal in exponential notation.
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toExponentialWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal in exponential notation rounded to
+   * `decimalPlaces` fixed decimal places.
+   *
+   * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toExponentialWithDecimalPlaces(decimalPlaces: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal in exponential notation rounded to
+   * `decimalPlaces` fixed decimal places using rounding mode `rounding`.
+   *
+   * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toExponentialWithDecimalPlacesRounding(decimalPlaces: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toExponential { toExponentialWithNoArg, toExponentialWithDecimalPlaces, toExponentialWithDecimalPlacesRounding };
 
   /**
    * Return a string representing the value of this Decimal in normal (fixed-point).
@@ -1847,8 +2045,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toFixed(): string;
 
@@ -1872,8 +2069,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toFixed(decimalPlaces: double): string;
 
@@ -1900,10 +2096,52 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toFixed(decimalPlaces: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal in normal (fixed-point).
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toFixedWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal in normal (fixed-point) notation to
+   * `decimalPlaces` fixed decimal places.
+   *
+   * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toFixedWithDecimalPlaces(decimalPlaces: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal in normal (fixed-point) notation to
+   * `decimalPlaces` fixed decimal places and rounded using rounding mode `rounding`.
+   *
+   * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `decimalPlaces | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toFixedWithDecimalPlacesRounding(decimalPlaces: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toFixed { toFixedWithNoArg, toFixedWithDecimalPlaces, toFixedWithDecimalPlacesRounding };
 
   /**
    * Return an array representing the value of this Decimal as a simple fraction with an integer
@@ -1922,8 +2160,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toFraction(): Decimal[];
 
@@ -1954,10 +2191,39 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toFraction(maxDenominator: Value): Decimal[];
+
+  /**
+   * Return an array representing the value of this Decimal as a simple fraction with an integer
+   * numerator and an integer denominator.
+   *
+   * @returns { Decimal[] } the Decimal[] type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toFractionWithNoArg(): Decimal[];
+
+  /**
+   * Return an array representing the value of this Decimal as a simple fraction with an integer
+   * numerator and an integer denominator. The denominator will be a positive non-zero value
+   * less than or equal to `max_denominator`.
+   *
+   * @param { Value } maxDenominator {double | string | Decimal}
+   * @returns { Decimal[] } the Decimal[] type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toFractionWithMaxDenominator(maxDenominator: Value): Decimal[];
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toFraction { toFractionWithNoArg, toFractionWithMaxDenominator };
 
   /**
    * Returns a new Decimal whose value is the nearest multiple of `n`.
@@ -1982,8 +2248,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toNearest(n: Value): Decimal;
 
@@ -2016,10 +2281,40 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toNearest(n: Value, rounding: Rounding): Decimal;
+
+  /**
+   * Returns a new Decimal whose value is the nearest multiple of `n`.
+   *
+   * @param { Value } n {double | string | Decimal}
+   * @returns { Decimal } the Decimal type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toNearestWithN(n: Value): Decimal;
+
+  /**
+   * Returns a new Decimal whose value is the nearest multiple of `n` in the direction of rounding
+   * mode `rounding`, to the value of this Decimal.
+   *
+   * @param { Value } n {double | string | Decimal}
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200001 - The value of `rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toNearestWithNRounding(n: Value, rounding: Rounding): Decimal;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toNearest { toNearestWithN, toNearestWithNRounding };
 
   /**
    * Return a string representing the value of this Decimal.
@@ -2036,8 +2331,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toPrecision(): string;
 
@@ -2060,8 +2354,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toPrecision(significantDigits: double): string;
 
@@ -2088,10 +2381,51 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toPrecision(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * Return a string representing the value of this Decimal.
+   *
+   * @returns { string } the string type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toPrecisionWithNoArg(): string;
+
+  /**
+   * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toPrecisionWithSignificantDigits(significantDigits: double): string;
+
+  /**
+   * Return a string representing the value of this Decimal rounded to `significantDigits` significant digits
+   * using rounding mode `rounding`.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { string } the string type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toPrecisionWithSignificantDigitsRounding(significantDigits: double, rounding: Rounding): string;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toPrecision { toPrecisionWithNoArg, toPrecisionWithSignificantDigits, toPrecisionWithSignificantDigitsRounding };
 
   /**
    * Return a new Decimal whose value is the value of this Decimal.
@@ -2108,8 +2442,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toSignificantDigits(): Decimal;
 
@@ -2134,8 +2467,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toSignificantDigits(significantDigits: double): Decimal;
 
@@ -2162,10 +2494,52 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   toSignificantDigits(significantDigits: double, rounding: Rounding): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal.
+   *
+   * @returns { Decimal } the Decimal type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toSignificantDigitsWithNoArg(): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
+   * significant digits.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toSignificantDigitsWithSignificantDigits(significantDigits: double): Decimal;
+
+  /**
+   * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of `significantDigits`
+   * significant digits using rounding mode `rounding`.
+   *
+   * @param { double } significantDigits Significant digits. Integer, 1 to MAX_DIGITS inclusive.
+   * @param { Rounding } rounding Rounding mode. Integer, 0 to 8 inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200001 - The value of `significantDigits | rounding` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  toSignificantDigitsWithSignificantDigitsRounding(significantDigits: double, rounding: Rounding): Decimal;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload toSignificantDigits { toSignificantDigitsWithNoArg, toSignificantDigitsWithSignificantDigits, toSignificantDigitsWithSignificantDigitsRounding };
 
   /**
    * Return the value of this Decimal converted to a number primitive. Zero keeps its sign.
@@ -2268,8 +2642,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   precision(): double;
 
@@ -2296,10 +2669,39 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   precision(includeZeros: boolean | int): double;
+
+  /**
+   * Return the number of significant digits of the value of this Decimal.
+   *
+   * @returns { double } the number type
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  precisionWithNoArg(): double;
+
+  /**
+   * Return the number of significant digits of the value of this Decimal, whether to count
+   * integer-part trailing zeros.
+   *
+   * @param { boolean | int } includeZeros Whether to count integer-part trailing zeros: true, false,
+   * 1 or 0.
+   * @returns { double } the number type
+   * @throws { BusinessError } 10200001 - The value of `includeZeros` is out of range.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  precisionWithIncludeZeros(includeZeros: boolean | int): double;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload precision { precisionWithNoArg, precisionWithIncludeZeros };
 
   /**
    * Return a new Decimal whose value is the absolute value of `n`.
@@ -3476,8 +3878,7 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   static random(): Decimal;
 
@@ -3510,10 +3911,41 @@ declare class Decimal {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   static random(significantDigits: double): Decimal;
+
+  /**
+   * Returns a new Decimal with a random value equal to or greater than 0 and less than 1.
+   *
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  static randomWithNoArg(): Decimal;
+
+  /**
+   * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and with
+   * `significantDigits` significant digits (or less if trailing zeros are produced).
+   *
+   * @param { double } significantDigits Significant digits. Integer, 0 to MAX_DIGITS inclusive.
+   * @returns { Decimal } the Decimal type
+   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @static
+   * @syscap SystemCapability.Utils.Lang
+   * @since 20
+   * @arkts 1.2
+   */
+  static randomWithSignificantDigits(significantDigits: double): Decimal;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  static overload random { randomWithNoArg, randomWithSignificantDigits };
 
   /**
    * Return the sign of the passed value to the method.

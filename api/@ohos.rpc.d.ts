@@ -1196,7 +1196,7 @@ declare namespace rpc {
     /**
      * Serialize a remote object and writes it to the {@link MessageSequence} object.
      *
-     * @param { IRemoteObject } object - Remote object to serialize.
+     * @param { IRemoteObject } obj - Remote object to serialize.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1206,7 +1206,7 @@ declare namespace rpc {
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    writeRemoteObject(object: IRemoteObject): void;
+    writeRemoteObject(obj: IRemoteObject): void;
 
     /**
      * Reads a remote object from {@link MessageSequence} object.
@@ -2832,8 +2832,7 @@ declare namespace rpc {
      * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     static TF_SYNC: int;
 
@@ -2844,8 +2843,7 @@ declare namespace rpc {
      * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     static TF_ASYNC: int;
 
@@ -2875,8 +2873,7 @@ declare namespace rpc {
      * @default 8
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static TF_WAIT_TIME: int;
 

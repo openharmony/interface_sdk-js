@@ -19,7 +19,6 @@
  * @arkts 1.2
  */
 import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
-import { CustomBuilder } from './builder';
 import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
@@ -359,7 +358,7 @@ export declare interface CustomDialogControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare interface CustomDialogControllerExternalOptions {
+export declare interface CustomDialogControllerExternalOptions {
     /**
      * Defines if use custom style.
      *

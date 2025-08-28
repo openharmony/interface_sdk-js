@@ -813,6 +813,16 @@ declare namespace observer {
      * @since 11
      */
     number: string;
+
+    /**
+     * Indicates call number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.StateRegistry
+     * @since 22
+     * @arkts 1.2
+     */
+    teleNumber: string;
   }
 
   /**

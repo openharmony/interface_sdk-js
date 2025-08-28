@@ -20,7 +20,7 @@
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { Optional, AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Defines the space property with string, number and resource unit.
  *
@@ -72,7 +72,7 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    alignItems(value: HorizontalAlign | undefined): this;
+    default alignItems(value: HorizontalAlign | undefined): this;
     /**
      * Sets the alignment format of the subassembly in the vertical direction.
      *
@@ -81,17 +81,35 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    justifyContent(value: FlexAlign | undefined): this;
+    default justifyContent(value: FlexAlign | undefined): this;
+    /**
+    * Defines the PointLight
+    *
+    * @param { PointLightStyle } value - The point light style.
+    * @returns { ColumnAttribute } The attribute of the column.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 20
+    */
+    default pointLight(value: PointLightStyle): ColumnAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *
-     * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+     * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { ColumnAttribute } The attribute of the column.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    reverse(isReversed: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default reverse(isReversed: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ColumnAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 @memo

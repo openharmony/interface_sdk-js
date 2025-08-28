@@ -30,4 +30,4 @@ import { BlankAttribute } from './component/blank';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class BlankModifier extends BlankAttribute implements AttributeModifier<BlankAttribute> {}
+export declare class BlankModifier implements BlankAttribute, AttributeModifier<BlankAttribute> {}

@@ -395,6 +395,16 @@ declare namespace reminderAgentManager {
   }
 
   /**
+   * Record data type
+   * 
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.Notification.ReminderAgent
+   * @since 20
+   * @arkts 1.2
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>
+
+  /**
    * Want agent information.
    * It will switch to target ability when you click the displayed reminder.
    *
@@ -433,16 +443,25 @@ declare namespace reminderAgentManager {
      * @arkts 1.1&1.2
      */
     uri?: string;
-	
+
     /**
      * The description of the WantParams object in an Want
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Notification.ReminderAgent
-     * @since arkts{ '1.1':'12', '1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The description of the WantParams object in an Want
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters?: RecordData;
   }
 
   /**

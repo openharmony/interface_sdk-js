@@ -91,6 +91,7 @@ declare interface TextBackgroundStyle {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare class BaseSpan<T> extends CommonMethod<T> {
   /**

@@ -13,20 +13,34 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from './component/common';
-import { SymbolSpanAttribute } from './component/symbolSpan';
-
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
  */
 
+
+
+
+import { AttributeModifier } from './component/common';
+import { SymbolSpanAttribute } from './component/symbolSpan';
+import { Resource } from '../global/resource';
+
 /**
- * Defines ContainerSpan Modifier
+ * Defines SymbolSpan Modifier
  *
- * @implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute>
+ * @implements { SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
-export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {}
+ * @noninterop
+ */
+export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {
+    /**
+     * constructor
+     *
+     * @param { Resource } [src]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    constructor(src?: Resource);
+}

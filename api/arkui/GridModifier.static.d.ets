@@ -29,7 +29,6 @@ import { GridAttribute } from './component/grid';
  *
  * @implements { GridAttribute, AttributeModifier<GridAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
  * @since 20
 */
 export declare class GridModifier implements GridAttribute, AttributeModifier<GridAttribute> {}

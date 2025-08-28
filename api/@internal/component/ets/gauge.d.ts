@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod,CommonConfiguration,ContentModifier,MultiShadowOptions,Optional  } from './common'
-import { CustomBuilder } from './builder'
-import { ResourceStr,Dimension,ResourceColor,Length } from './units'
-import { LinearGradient } from './dataPanel'
-/*** endif */
-
 /**
  * Defines Gauge constructor options.
  *
@@ -33,8 +26,7 @@ import { LinearGradient } from './dataPanel'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface GaugeOptions {
   /**
@@ -80,8 +72,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   value: number;
 
@@ -128,8 +119,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   min?: number;
 
@@ -176,8 +166,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   max?: number;
 }
@@ -214,8 +203,7 @@ interface GaugeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface GaugeInterface {
@@ -275,8 +263,7 @@ interface GaugeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options: GaugeOptions): GaugeAttribute;
 }
@@ -298,8 +285,7 @@ interface GaugeInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GaugeShadowOptions extends MultiShadowOptions {}
 
@@ -318,8 +304,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GaugeIndicatorOptions {
 
@@ -340,8 +325,7 @@ declare interface GaugeIndicatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   icon?: ResourceStr;
 
@@ -362,8 +346,7 @@ declare interface GaugeIndicatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   space?: Dimension;
 }
@@ -376,8 +359,7 @@ declare interface GaugeIndicatorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
   /**
@@ -387,8 +369,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   value: number;
 
@@ -399,8 +380,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   min: number;
 
@@ -411,8 +391,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   max: number;
 }
@@ -441,8 +420,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
@@ -482,8 +460,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   value(value: number): GaugeAttribute;
 
@@ -523,8 +500,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   startAngle(angle: number): GaugeAttribute;
 
@@ -564,8 +540,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   endAngle(angle: number): GaugeAttribute;
 
@@ -605,8 +580,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>): GaugeAttribute;
 
@@ -646,8 +620,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   strokeWidth(length: Length): GaugeAttribute;
 
@@ -668,8 +641,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   description(value: CustomBuilder): GaugeAttribute;
 
@@ -690,8 +662,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
 
@@ -712,8 +683,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
 
@@ -726,8 +696,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
 
@@ -739,8 +708,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
 }

@@ -26,6 +26,9 @@ import Context from './application/Context';
 /*** if arkts 1.1 */
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
 /*** endif */
+/***if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain
@@ -970,10 +973,19 @@ declare namespace wantAgent {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     extraInfo?: Record<string, Object>;
+
+    /**
+     * Extra information.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    extraInfo?: RecordData;
   }
 
   /**

@@ -24,6 +24,7 @@ import { NavPathStack, NavigationOperation, NavBar } from './arkui/component/nav
 import { UIContext } from '@ohos.arkui.UIContext';
 import UIAbilityContext from './application/UIAbilityContext';
 import { Callback } from './@ohos.base';
+import { NavDestinationMode } from './arkui/component/navDestination';
 
 /**
  * Register callbacks to observe ArkUI behavior.
@@ -100,6 +101,20 @@ declare namespace uiObserver {
          * @since 20
          */
         ON_WILL_DISAPPEAR = 7,
+        /**
+         * When the NavDestination is active.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
+        ON_ACTIVE = 8,
+        /**
+         * When the NavDestination is inactive.
+         *
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
+        ON_INACTIVE = 9,
         /**
          * When back press event happened in NavDestination.
          *
@@ -264,6 +279,24 @@ declare namespace uiObserver {
          * @since 20
          */
         navDestinationId: string;
+
+        /**
+         * NavDestination uniqueId.
+         *
+         * @type { number }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
+        uniqueId?: number;
+
+        /**
+         * NavDestination mode.
+         *
+         * @type { NavDestinationMode }
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @since 20
+         */
+        mode?: NavDestinationMode;
     }
     /**
      * Navigation info.

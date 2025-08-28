@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@
  * @kit FormKit
  */
 
+/*** if arkts 1.1 */
 import formAgent from '@ohos.app.form.formAgent';
 import formBindingData from '@ohos.app.form.formBindingData';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
@@ -33,3 +34,16 @@ export {
   FormExtensionAbility, formAgent, formBindingData, formError, formHost, formInfo, formObserver, formProvider,
   FormEditExtensionAbility, LiveFormExtensionAbility, LiveFormInfo
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import formBindingData from '@ohos.app.form.formBindingData';
+import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
+import formInfo from '@ohos.app.form.formInfo';
+import formProvider from '@ohos.app.form.formProvider';
+import formError from '@ohos.application.formError';
+
+export {
+  FormExtensionAbility, formBindingData, formError, formInfo, formProvider
+};
+/*** endif */

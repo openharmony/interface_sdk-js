@@ -20,6 +20,7 @@
  */
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
+import { Callback } from '@ohos.base'
 
 /**
  * Defines Builder Annotation.
@@ -111,3 +112,25 @@ export declare class WrappedBuilder<T> {
    */
   public constructor(builder: T);
 }
+
+/**
+ * Type for property getter in Builder parameter proxy.
+ *
+ * @typedef { function } BuilderParameterCallback
+ * @returns { Any } parameter value
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type BuilderParameterCallback = () => Any;
+
+/**
+ * Make proxy for Builder parameter.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param { T } instance initial literal instance
+ * @param { Map<string, BuilderParameterCallback> } propertyGetters override property getters
+ * @param { Callback<T> } initializer update proxied instance with literal's initial values
+ * @returns { T } proxied literal instance
+ * @since 20
+ */
+export declare function makeBuilderParameterProxy<T extends Object>(instance: T, propertyGetters: Map<string, BuilderParameterCallback>, initializer?: Callback<T>): T;

@@ -22,7 +22,7 @@
 
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
-import { CommonMethod, PixelMap, Bindable } from './common';
+import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
@@ -180,53 +180,6 @@ export declare interface ButtonStyle {
 }
 
 /**
- * Provides an interface for the style of a divider including stroke width, color, start margin
- * and end margin
- *
- * @interface DividerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export interface DividerStyle {
-  /**
-   * Define the stroke width of the divider
-   *
-   * @type { Length }
-   * @default 1vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  strokeWidth: Length;
-
-  /**
-   * Define the color of the divider
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  color?: ResourceColor;
-
-  /**
-   * Define the start margin of the divider
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  startMargin?: Length;
-
-  /**
-   * Define the end margin of the divider
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  endMargin?: Length;
-}
-
-/**
  * The attribute function of sidebar
  *
  * @extends CommonMethod
@@ -243,7 +196,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  showSideBar(value: boolean | Bindable<boolean> | undefined): this;
+  default showSideBar(value: boolean | Bindable<boolean> | undefined): this;
 
   /**
    * Callback controlButton function when setting the style of button
@@ -253,7 +206,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  controlButton(value: ButtonStyle | undefined): this;
+  default controlButton(value: ButtonStyle | undefined): this;
 
   /**
    * Callback showControlButton function when setting the status of button
@@ -263,7 +216,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  showControlButton(value: boolean | undefined): this;
+  default showControlButton(value: boolean | undefined): this;
 
   /**
    * Trigger callback when sidebar style of showing change finished.
@@ -273,7 +226,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onChange(callback: ((value: boolean) => void) | undefined): this;
+  default onChange(callback: ((value: boolean) => void) | undefined): this;
 
   /**
    * Sets the length of sidebar.
@@ -284,7 +237,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  sideBarWidth(value: Length | Bindable<Length> | undefined): this;
+  default sideBarWidth(value: Length | Bindable<Length> | undefined): this;
 
   /**
    * Sets the min length of sidebar.
@@ -295,7 +248,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  minSideBarWidth(value: number | undefined): this;
+  default minSideBarWidth(value: number | undefined): this;
 
   /**
    * Sets the max length of sidebar.
@@ -306,7 +259,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  maxSideBarWidth(value: number | undefined): this;
+  default maxSideBarWidth(value: number | undefined): this;
 
   /**
    * Sets the min length of sidebar.
@@ -317,7 +270,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  minSideBarWidth(value: Length | undefined): this;
+  default minSideBarWidth(value: Length | undefined): this;
 
   /**
    * Sets the max length of sidebar.
@@ -328,7 +281,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  maxSideBarWidth(value: Length | undefined): this;
+  default maxSideBarWidth(value: Length | undefined): this;
 
   /**
    * Sets whether to automatically hide when drag sidebar width is less than the minimum width.
@@ -339,7 +292,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  autoHide(value: boolean | undefined): this;
+  default autoHide(value: boolean | undefined): this;
 
   /**
    * Called when determining the location of the sidebar.
@@ -350,7 +303,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  sideBarPosition(value: SideBarPosition | undefined): this;
+  default sideBarPosition(value: SideBarPosition | undefined): this;
 
   /**
    * Set divider style for sideBarContainer
@@ -360,7 +313,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  divider(value: DividerStyle | null | undefined): this;
+  default divider(value: DividerStyle | null | undefined): this;
 
   /**
    * Sets the min length of content.
@@ -371,9 +324,29 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  minContentWidth(value: Dimension | undefined): this;
+  default minContentWidth(value: Dimension | undefined): this;
+
+  /**
+   * Set the attribute modifier of sidebar.
+   *
+   * @param { AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   *     The attribute modifier of sidebar.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines sidebar Component
+ *
+ * @param { SideBarContainerType } [type] - sidebar constructor options
+ * @param { function } [content_] - container
+ * @returns { SideBarContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function SideBarContainer(

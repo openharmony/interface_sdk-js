@@ -18,27 +18,20 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr } from './arkui/component/units';
-import { PropRef } from './arkui/stateManagement/decorator';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
-/*** endif */
-
 /**
  * Declare enum IconType
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 10
  */
+
+
 /**
  * Declare enum IconType
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare enum IconType
@@ -47,7 +40,7 @@ import { Builder } from './arkui/component/builder';
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare enum IconType {
   /**
@@ -67,7 +60,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   BADGE = 1,
   /**
@@ -87,7 +79,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   NORMAL_ICON = 2,
   /**
@@ -107,7 +98,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   SYSTEM_ICON = 3,
   /**
@@ -127,7 +117,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   HEAD_SCULPTURE = 4,
   /**
@@ -147,7 +136,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   APP_ICON = 5,
   /**
@@ -167,7 +155,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   PREVIEW = 6,
   /**
@@ -187,7 +174,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   LONGITUDINAL = 7,
   /**
@@ -207,7 +193,6 @@ export declare enum IconType {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   VERTICAL = 8
 }
@@ -222,7 +207,6 @@ export declare enum IconType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare type OperateIcon
@@ -230,7 +214,7 @@ export declare enum IconType {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class OperateIcon {
   /**
@@ -253,7 +237,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   value: ResourceStr;
 
@@ -271,7 +254,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -295,7 +277,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   action?: () => void;
 
@@ -315,7 +296,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityText?: ResourceStr;
 
@@ -335,7 +315,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 
@@ -357,7 +336,6 @@ export declare class OperateIcon {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 }
@@ -372,7 +350,6 @@ export declare class OperateIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare type OperateCheck
@@ -380,7 +357,7 @@ export declare class OperateIcon {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class OperateCheck {
   /**
@@ -403,7 +380,6 @@ export declare class OperateCheck {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   isCheck?: boolean;
 
@@ -427,7 +403,6 @@ export declare class OperateCheck {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   onChange?: (value: boolean) => void;
 
@@ -447,7 +422,6 @@ export declare class OperateCheck {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityText?: ResourceStr;
 
@@ -467,7 +441,6 @@ export declare class OperateCheck {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 
@@ -489,7 +462,6 @@ export declare class OperateCheck {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 }
@@ -504,7 +476,6 @@ export declare class OperateCheck {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare type OperateButton
@@ -512,7 +483,7 @@ export declare class OperateCheck {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class OperateButton {
   /**
@@ -535,7 +506,6 @@ export declare class OperateButton {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   text?: ResourceStr;
 
@@ -555,7 +525,6 @@ export declare class OperateButton {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityText?: ResourceStr;
 
@@ -575,7 +544,6 @@ export declare class OperateButton {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityDescription?: ResourceStr;
 
@@ -597,7 +565,6 @@ export declare class OperateButton {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   accessibilityLevel?: string;
 }
@@ -612,7 +579,6 @@ export declare class OperateButton {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare ContentItem
@@ -620,7 +586,7 @@ export declare class OperateButton {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class ContentItem {
   /**
@@ -643,7 +609,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   iconStyle?: IconType;
 
@@ -667,7 +632,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   icon?: ResourceStr;
 
@@ -685,7 +649,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -709,7 +672,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   primaryText?: ResourceStr;
 
@@ -733,7 +695,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   secondaryText?: ResourceStr;
 
@@ -757,7 +718,6 @@ export declare class ContentItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   description?: ResourceStr;
 }
@@ -772,7 +732,6 @@ export declare class ContentItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare OperateItem
@@ -780,7 +739,7 @@ export declare class ContentItem {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 export declare class OperateItem {
   /**
@@ -803,7 +762,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   icon?: OperateIcon;
 
@@ -827,7 +785,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   subIcon?: OperateIcon;
 
@@ -851,7 +808,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   button?: OperateButton;
 
@@ -875,20 +831,8 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1
    */
   switch?: OperateCheck;
-
-  /**
-   * Sets the toggle.
-   * @type { ?OperateCheck }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  toggle?: OperateCheck;
 
   /**
    * Sets the checkBox.
@@ -910,7 +854,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   checkbox?: OperateCheck;
 
@@ -934,7 +877,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   radio?: OperateCheck;
 
@@ -958,7 +900,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   image?: ResourceStr;
 
@@ -976,7 +917,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -1000,7 +940,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   text?: ResourceStr;
 
@@ -1024,7 +963,6 @@ export declare class OperateItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   arrow?: OperateIcon;
 }
@@ -1043,7 +981,6 @@ export declare class OperateItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declare ComposeListItem
@@ -1053,7 +990,7 @@ export declare class OperateItem {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
+ * @noninterop
  */
 @Component
 export declare struct ComposeListItem {
@@ -1077,20 +1014,8 @@ export declare struct ComposeListItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1
    */
   @Prop contentItem?: ContentItem;
-
-  /**
-   * The ContentItem.
-   * @type { ?ContentItem }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  @PropRef contentItem?: ContentItem;
 
   /**
    * The OperateItem.
@@ -1112,27 +1037,6 @@ export declare struct ComposeListItem {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1
    */
   @Prop operateItem?: OperateItem;
-
-  /**
-   * The OperateItem.
-   * @type { ?OperateItem }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  @PropRef operateItem?: OperateItem;
-
-  /**
-   * The method to build component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  @Builder build(): void;
 }

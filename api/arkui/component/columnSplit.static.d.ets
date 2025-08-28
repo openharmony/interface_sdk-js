@@ -56,7 +56,7 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    resizeable(value: boolean | undefined): this;
+    default resizeable(value: boolean | undefined): this;
     /**
      * Called when the ColumnSplit split line style is set.
      * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
@@ -65,8 +65,16 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    divider(value: ColumnSplitDividerStyle | null | undefined): this;
-    attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute>
+    default divider(value: ColumnSplitDividerStyle | null | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<ColumnSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ColumnSplitAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 

@@ -68,6 +68,7 @@ export declare interface GridItemOptions {
  * @interface GridItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface GridItemAttribute extends CommonMethod {
     /**
@@ -153,6 +154,7 @@ export declare interface GridItemAttribute extends CommonMethod {
  * @returns { GridItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

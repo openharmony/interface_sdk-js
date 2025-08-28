@@ -27,8 +27,6 @@ import stream from './@ohos.util.stream';
  *
  * @namespace fileIo
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 declare namespace fileIo {
@@ -38,8 +36,6 @@ declare namespace fileIo {
    *
    * @namespace OpenMode
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   namespace OpenMode {
@@ -48,8 +44,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const READ_ONLY = 0o0;
@@ -58,8 +52,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const WRITE_ONLY = 0o1;
@@ -68,8 +60,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const READ_WRITE = 0o2;
@@ -78,8 +68,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const CREATE = 0o100;
@@ -88,8 +76,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const TRUNC = 0o1000;
@@ -98,8 +84,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
     const APPEND = 0o2000;
@@ -108,7 +92,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
     const NONBLOCK = 0o4000;
@@ -117,7 +100,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
     const DIR = 0o200000;
@@ -126,7 +108,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
     const NOFOLLOW = 0o400000;
@@ -135,7 +116,6 @@ declare namespace fileIo {
    *
    * @constant
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
     const SYNC = 0o4010000;
@@ -160,8 +140,6 @@ declare namespace fileIo {
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function access(path: string, mode?: AccessModeType): Promise<boolean>;
@@ -184,8 +162,6 @@ function access(path: string, mode?: AccessModeType): Promise<boolean>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function access(path: string, callback: AsyncCallback<boolean>): void;
@@ -233,8 +209,6 @@ function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promi
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function accessSync(path: string, mode?: AccessModeType): boolean;
@@ -274,8 +248,6 @@ function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): b
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function close(file: int | File): Promise<void>;
@@ -292,8 +264,6 @@ function close(file: int | File): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function close(file: int | File, callback: AsyncCallback<void>): void;
@@ -309,8 +279,6 @@ function close(file: int | File, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function closeSync(file: int | File): void;
@@ -597,8 +565,6 @@ function copyDirSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function copyFile(src: string | int, dest: string | int, mode?: int): Promise<void>;
@@ -627,8 +593,6 @@ function copyFile(src: string | int, dest: string | int, mode?: int): Promise<vo
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function copyFile(src: string | int, dest: string | int, callback: AsyncCallback<void>): void;
@@ -658,8 +622,6 @@ function copyFile(src: string | int, dest: string | int, callback: AsyncCallback
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function copyFile(
@@ -694,8 +656,6 @@ function copyFile(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function copyFileSync(src: string | int, dest: string | int, mode?: int): void;
@@ -1077,7 +1037,6 @@ function dup(fd: int): File;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fdatasync(fd: int): Promise<void>;
@@ -1095,7 +1054,6 @@ function fdatasync(fd: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fdatasync(fd: int, callback: AsyncCallback<void>): void;
@@ -1112,7 +1070,6 @@ function fdatasync(fd: int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fdatasyncSync(fd: int): void;
@@ -1244,7 +1201,6 @@ function fdopenStreamSync(fd: int, mode: string): Stream;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fsync(fd: int): Promise<void>;
@@ -1262,7 +1218,6 @@ function fsync(fd: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fsync(fd: int, callback: AsyncCallback<void>): void;
@@ -1279,7 +1234,6 @@ function fsync(fd: int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function fsyncSync(fd: int): void;
@@ -1297,8 +1251,6 @@ function fsyncSync(fd: int): void;
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function listFile(
@@ -1318,8 +1270,6 @@ function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function listFile(path: string, callback: AsyncCallback<string[]>): void;
@@ -1337,8 +1287,6 @@ function listFile(path: string, callback: AsyncCallback<string[]>): void;
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function listFile(
@@ -1359,8 +1307,6 @@ function listFile(
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function listFileSync(
@@ -1381,7 +1327,6 @@ function listFileSync(
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function lseek(fd: int, offset: long, whence?: WhenceType): long;
@@ -1467,8 +1412,6 @@ function lstatSync(path: string): Stat;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdir(path: string): Promise<void>;
@@ -1495,8 +1438,6 @@ function mkdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdir(path: string, recursion: boolean): Promise<void>;
@@ -1522,8 +1463,6 @@ function mkdir(path: string, recursion: boolean): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdir(path: string, callback: AsyncCallback<void>): void;
@@ -1550,8 +1489,6 @@ function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
@@ -1576,8 +1513,6 @@ function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>):
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdirSync(path: string): void;
@@ -1603,8 +1538,6 @@ function mkdirSync(path: string): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function mkdirSync(path: string, recursion: boolean): void;
@@ -1630,7 +1563,6 @@ function mkdirSync(path: string, recursion: boolean): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function mkdtemp(prefix: string): Promise<string>;
@@ -1656,7 +1588,6 @@ function mkdtemp(prefix: string): Promise<string>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
@@ -1682,7 +1613,6 @@ function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function mkdtempSync(prefix: string): string;
@@ -1859,7 +1789,6 @@ function moveDirSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function moveFile(src: string, dest: string, mode?: int): Promise<void>;
@@ -1890,7 +1819,6 @@ function moveFile(src: string, dest: string, mode?: int): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
@@ -1922,7 +1850,6 @@ function moveFile(src: string, dest: string, callback: AsyncCallback<void>): voi
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
@@ -1953,7 +1880,6 @@ function moveFile(src: string, dest: string, mode: int, callback: AsyncCallback<
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function moveFileSync(src: string, dest: string, mode?: int): void;
@@ -1992,8 +1918,6 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function open(path: string, mode?: int): Promise<File>;
@@ -2030,8 +1954,6 @@ function open(path: string, mode?: int): Promise<File>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function open(path: string, callback: AsyncCallback<File>): void;
@@ -2069,8 +1991,6 @@ function open(path: string, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function open(path: string, mode: int, callback: AsyncCallback<File>): void;
@@ -2109,8 +2029,6 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function openSync(path: string, mode?: int): File;
@@ -2133,8 +2051,6 @@ function openSync(path: string, mode?: int): File;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function read(
@@ -2159,8 +2075,6 @@ function read(
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void;
@@ -2182,8 +2096,6 @@ function read(fd: int, buffer: ArrayBuffer, callback: AsyncCallback<long>): void
  * @throws { BusinessError } 13900034 - Operation would block
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function read(
@@ -2211,8 +2123,6 @@ function read(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function readSync(
@@ -2335,8 +2245,6 @@ function readLinesSync(filePath: string, options?: Options): ReaderIterator;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function readText(
@@ -2363,8 +2271,6 @@ function readText(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function readText(filePath: string, callback: AsyncCallback<string>): void;
@@ -2389,8 +2295,6 @@ function readText(filePath: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function readText(
@@ -2420,8 +2324,6 @@ function readText(
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function readTextSync(
@@ -2455,8 +2357,6 @@ function readTextSync(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function rename(oldPath: string, newPath: string): Promise<void>;
@@ -2487,8 +2387,6 @@ function rename(oldPath: string, newPath: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
@@ -2518,8 +2416,6 @@ function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>)
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function renameSync(oldPath: string, newPath: string): void;
@@ -2542,8 +2438,6 @@ function renameSync(oldPath: string, newPath: string): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function rmdir(path: string): Promise<void>;
@@ -2566,8 +2460,6 @@ function rmdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function rmdir(path: string, callback: AsyncCallback<void>): void;
@@ -2589,8 +2481,6 @@ function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function rmdirSync(path: string): void;
@@ -2614,8 +2504,6 @@ function rmdirSync(path: string): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function stat(file: string | int): Promise<Stat>;
@@ -2639,8 +2527,6 @@ function stat(file: string | int): Promise<Stat>;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function stat(file: string | int, callback: AsyncCallback<Stat>): void;
@@ -2664,8 +2550,6 @@ function stat(file: string | int, callback: AsyncCallback<Stat>): void;
  * @throws { BusinessError } 13900038 - Value too large for defined data type
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function statSync(file: string | int): Stat;
@@ -2767,8 +2651,6 @@ function symlinkSync(target: string, srcPath: string): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function truncate(file: string | int, len?: long): Promise<void>;
@@ -2795,8 +2677,6 @@ function truncate(file: string | int, len?: long): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function truncate(file: string | int, callback: AsyncCallback<void>): void;
@@ -2824,8 +2704,6 @@ function truncate(file: string | int, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function truncate(file: string | int, len: long, callback: AsyncCallback<void>): void;
@@ -2852,8 +2730,6 @@ function truncate(file: string | int, len: long, callback: AsyncCallback<void>):
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function truncateSync(file: string | int, len?: long): void;
@@ -2879,8 +2755,6 @@ function truncateSync(file: string | int, len?: long): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function unlink(path: string): Promise<void>;
@@ -2906,8 +2780,6 @@ function unlink(path: string): Promise<void>;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function unlink(path: string, callback: AsyncCallback<void>): void;
@@ -2932,8 +2804,6 @@ function unlink(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function unlinkSync(path: string): void;
@@ -2950,7 +2820,6 @@ function unlinkSync(path: string): void;
  * @throws { BusinessError } 13900027 - Read-only file system
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 function utimes(path: string, mtime: double): void;
@@ -2975,8 +2844,6 @@ function utimes(path: string, mtime: double): void;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function write(
@@ -3004,8 +2871,6 @@ function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<long>): void;
@@ -3030,8 +2895,6 @@ function write(fd: int, buffer: ArrayBuffer | string, callback: AsyncCallback<lo
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function write(
@@ -3061,8 +2924,6 @@ function write(
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 function writeSync(
@@ -3286,8 +3147,6 @@ type ProgressListener = (progress: Progress) => void;
  *
  * @interface File
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 interface File {
@@ -3296,8 +3155,6 @@ interface File {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   readonly fd: int;
@@ -3311,7 +3168,6 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly path: string;
@@ -3324,7 +3180,6 @@ interface File {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly name: string;
@@ -3337,7 +3192,6 @@ interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   getParent(): string;
@@ -3931,8 +3785,6 @@ export class AtomicFile {
  *
  * @interface Stat
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 interface Stat {
@@ -3943,7 +3795,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly ino: bigint;
@@ -3954,8 +3805,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   readonly mode: long;
@@ -3968,7 +3817,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly uid: long;
@@ -3979,7 +3827,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly gid: long;
@@ -3990,8 +3837,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   readonly size: long;
@@ -4002,8 +3847,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   readonly atime: long;
@@ -4014,8 +3857,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   readonly mtime: long;
@@ -4026,7 +3867,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   readonly ctime: long;
@@ -4078,7 +3918,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   isBlockDevice(): boolean;
@@ -4090,7 +3929,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   isCharacterDevice(): boolean;
@@ -4102,8 +3940,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   isDirectory(): boolean;
@@ -4115,7 +3951,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   isFIFO(): boolean;
@@ -4127,8 +3962,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   isFile(): boolean;
@@ -4140,7 +3973,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   isSocket(): boolean;
@@ -4152,7 +3984,6 @@ interface Stat {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   isSymbolicLink(): boolean;
@@ -4579,8 +4410,6 @@ enum LocationType {
  *
  * @enum { int } access mode type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 enum AccessModeType {
@@ -4588,8 +4417,6 @@ enum AccessModeType {
    * Check if the file exists.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   EXIST = 0,
@@ -4598,8 +4425,6 @@ enum AccessModeType {
    * Check if the file has write permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   WRITE = 2,
@@ -4608,8 +4433,6 @@ enum AccessModeType {
    * Check if the file has read permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   READ = 4,
@@ -4618,8 +4441,6 @@ enum AccessModeType {
    * Check if the file has read and write permission.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   READ_WRITE = 6,
@@ -4746,8 +4567,6 @@ export interface ReaderIteratorResult {
  *
  * @interface Filter
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface Filter {
@@ -4757,8 +4576,6 @@ export interface Filter {
    * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   suffix?: Array<string>;
@@ -4768,8 +4585,6 @@ export interface Filter {
    * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   displayName?: Array<string>;
@@ -4779,8 +4594,6 @@ export interface Filter {
    * 
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   mimeType?: Array<string>;
@@ -4790,8 +4603,6 @@ export interface Filter {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   fileSizeOver?: long;
@@ -4801,8 +4612,6 @@ export interface Filter {
    * 
    * @type { ?double }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   lastModifiedAfter?: double;
@@ -4812,8 +4621,6 @@ export interface Filter {
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   excludeMedia?: boolean;
@@ -4852,7 +4659,6 @@ export interface ConflictFiles {
  *
  * @interface Options
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
  * @since 20
  */
 export interface Options {
@@ -4861,7 +4667,6 @@ export interface Options {
    * 
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
    * @since 20
    */
   encoding?: string;
@@ -4872,8 +4677,6 @@ export interface Options {
  *
  * @interface ReadOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface ReadOptions {
@@ -4882,8 +4685,6 @@ export interface ReadOptions {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   offset?: long;
@@ -4892,8 +4693,6 @@ export interface ReadOptions {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   length?: long;
@@ -4905,8 +4704,6 @@ export interface ReadOptions {
  * @extends ReadOptions
  * @interface ReadTextOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface ReadTextOptions extends ReadOptions {
@@ -4915,8 +4712,6 @@ export interface ReadTextOptions extends ReadOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   encoding?: string;
@@ -4928,8 +4723,6 @@ export interface ReadTextOptions extends ReadOptions {
  * @extends Options
  * @interface WriteOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface WriteOptions extends Options {
@@ -4938,8 +4731,6 @@ export interface WriteOptions extends Options {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   offset?: long;
@@ -4948,8 +4739,6 @@ export interface WriteOptions extends Options {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform
-   * @atomicservice
    * @since 20
    */
   length?: long;
@@ -4960,7 +4749,6 @@ export interface WriteOptions extends Options {
  *
  * @interface ListFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @atomicservice
  * @since 20
  */
 export interface ListFileOptions {
@@ -4969,7 +4757,6 @@ export interface ListFileOptions {
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @since 20
    */
   recursion?: boolean;
@@ -4979,7 +4766,6 @@ export interface ListFileOptions {
    * 
    * @type { ?long }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @since 20
    */
   listNum?: long;
@@ -4989,7 +4775,6 @@ export interface ListFileOptions {
    * 
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @atomicservice
    * @since 20
    */
   filter?: Filter;

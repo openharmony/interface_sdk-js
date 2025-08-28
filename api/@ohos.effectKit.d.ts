@@ -72,14 +72,14 @@ declare namespace effectKit {
 
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 9
     */
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -88,7 +88,7 @@ declare namespace effectKit {
     */
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
@@ -97,29 +97,29 @@ declare namespace effectKit {
     * @since arkts {'1.1':'14', '1.2':'20'}
     * @arkts 1.1&1.2 
     */
-    blur(radius: number): Filter;
+    blur(radius: double): Filter;
 
     /**
     * A blur effect is added to the image.
-    * @param { number } radius - The degree of blur, the value is measured in pixels.
+    * @param { double } radius - The degree of blur, the value is measured in pixels.
     * @param { TileMode } tileMode - The tile mode of blur.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since arkts {'1.1':'14', '1.2':'20'}
     * @arkts 1.1&1.2 
     */
-    blur(radius: number, tileMode: TileMode): Filter;
+    blur(radius: double, tileMode: TileMode): Filter;
 
     /**
     * A Brightness effect is added to the image.
-    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @param { double } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @since 9
     */
     /**
     * A Brightness effect is added to the image.
-    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @param { double } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @form
@@ -128,7 +128,7 @@ declare namespace effectKit {
     */
     /**
     * A Brightness effect is added to the image.
-    * @param { number } bright - The degree of light and darkness,the value range is 0 to 1.
+    * @param { double } bright - The degree of light and darkness,the value range is 0 to 1.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
@@ -137,7 +137,7 @@ declare namespace effectKit {
     * @since arkts {'1.1':'14', '1.2':'20'}
     * @arkts 1.1&1.2 
     */
-    brightness(bright: number): Filter;
+    brightness(bright: double): Filter;
 
     /**
     * A Grayscale effect is added to the image.
@@ -184,7 +184,7 @@ declare namespace effectKit {
     /**
      * A custom effect is added to the image.
      *
-     * @param { Array<number> } colorMatrix - A matrix of 5x4 size for create effect filter.
+     * @param { Array<double> } colorMatrix - A matrix of 5x4 size for create effect filter.
      * @returns { Filter } Filters for the current effect have been added.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -193,7 +193,7 @@ declare namespace effectKit {
     /**
      * A custom effect is added to the image.
      *
-     * @param { Array<number> } colorMatrix - A matrix of 5x4 size for create effect filter.
+     * @param { Array<double> } colorMatrix - A matrix of 5x4 size for create effect filter.
      * @returns { Filter } Filters for the current effect have been added.
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -201,7 +201,7 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    setColorMatrix(colorMatrix: Array<number>): Filter;
+    setColorMatrix(colorMatrix: Array<double>): Filter;
 
     /**
     * Gets the PixelMap where all filter effects have been added to the image.
@@ -346,7 +346,7 @@ declare namespace effectKit {
 
     /**
      * Get top proportion color of an image
-     * @param { number } colorCount - The number of colors to require, the value is 1 to 10.
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
      * @returns { Array<Color | null> } An array of feature colors sorted by proportion, with a size equal to
      *                                  the minimum of colorCount and the actual number of extracted feature colors.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -356,7 +356,7 @@ declare namespace effectKit {
      */
     /**
      * Get top proportion color of an image
-     * @param { number } colorCount - The number of colors to require, the value is 1 to 10.
+     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.
      * @returns { Array<Color | null> } An array of feature colors sorted by proportion, with a size equal to
      *                                  the minimum of colorCount and the actual number of extracted feature colors.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -366,7 +366,7 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    getTopProportionColors(colorCount: number): Array<Color | null>;
+    getTopProportionColors(colorCount: int): Array<Color | null>;
 
     /**
      * Get highest saturation color of an image
@@ -422,14 +422,14 @@ declare namespace effectKit {
 
     /**
      * Determine whether the color is black or white or gray
-     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @param { int } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @param { int } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
@@ -438,7 +438,7 @@ declare namespace effectKit {
      */
     /**
      * Determine whether the color is black or white or gray
-     * @param { number } color - The 32 bit ARGB color to discriminate.
+     * @param { int } color - The 32 bit ARGB color to discriminate.
      * @returns { boolean } Result of judging black, white and gray.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -447,7 +447,7 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2 
      */
-    isBlackOrWhiteOrGrayColor(color: number): boolean;
+    isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
 
   /**
@@ -478,13 +478,13 @@ declare namespace effectKit {
 
     /**
      * Red
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Red
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -492,7 +492,7 @@ declare namespace effectKit {
      */
     /**
      * Red
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -500,17 +500,17 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    red: number;
+    red: int;
 
     /**
      * Green
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Green
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -518,7 +518,7 @@ declare namespace effectKit {
      */
     /**
      * Green
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -526,17 +526,17 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    green: number;
+    green: int;
 
     /**
      * Blue
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Blue
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -544,7 +544,7 @@ declare namespace effectKit {
      */
     /**
      * Blue
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -552,17 +552,17 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    blue: number;
+    blue: int;
 
     /**
      * Alpha
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9
      */
     /**
      * Alpha
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @form
      * @atomicservice
@@ -570,7 +570,7 @@ declare namespace effectKit {
      */
     /**
      * Alpha
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -578,7 +578,7 @@ declare namespace effectKit {
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    alpha: number;
+    alpha: int;
   }
 
   /**
@@ -645,7 +645,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -655,7 +655,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -667,7 +667,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @returns { Promise<ColorPicker> } - returns the ColorPicker generated.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -678,7 +678,7 @@ declare namespace effectKit {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>;
+  function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
   /**
    * Create a color picker to get color of an image.
@@ -715,7 +715,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -725,7 +725,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -737,7 +737,7 @@ declare namespace effectKit {
   /**
    * Create a color picker to get color of an image.
    * @param { image.PixelMap } source - the source pixelmap.
-   * @param { Array<number> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
+   * @param { Array<double> } region - contains 4 elements, represents the region's left, top, right, bottom coordinates,
    * default is [0, 0, 1, 1], represents the region of color picker is the whole pixelMap.
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
    * @throws { BusinessError } 401 - Input parameter error.
@@ -748,12 +748,12 @@ declare namespace effectKit {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void;
+  function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
   /**
    * TileMode enumeration description
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2

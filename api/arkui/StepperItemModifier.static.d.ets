@@ -21,23 +21,24 @@
  */
 
 import { AttributeModifier } from './component/common';
-import { SideBarContainerAttribute } from './component/sidebar';
+import { StepperItemAttribute } from './component/stepperItem';
 
 
 /**
- * Defines SideBarContainer Modifier
+ * Defines StepperItem Modifier
  *
- * @implements { SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> }
+ * @implements { StepperItemAttribute, AttributeModifier<StepperItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class SideBarContainerModifier implements SideBarContainerAttribute, AttributeModifier<SideBarContainerAttribute> {
+export declare class StepperItemModifier implements StepperItemAttribute, AttributeModifier<StepperItemAttribute> {
   /**
    * Defines the normal update attribute function.
    * 
-   * @param { SideBarContainerAttribute } instance
+   * @param { StepperItemAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  applyNormalAttribute(instance: SideBarContainerAttribute): void;  
+  applyNormalAttribute(instance: StepperItemAttribute): void;  
 }

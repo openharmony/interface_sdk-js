@@ -1537,7 +1537,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlotByBundle(bundle: BundleOption, slotType: SlotType): Promise<NotificationSlot>;
 
@@ -3835,6 +3836,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -4284,6 +4286,7 @@ declare namespace notificationManager {
    * @typedef NotificationSetting
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   export interface NotificationSetting {
     /**
@@ -4292,6 +4295,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     vibrationEnabled: boolean;
 
@@ -4301,6 +4305,7 @@ declare namespace notificationManager {
      * @type { boolean }
      * @syscap SystemCapability.Notification.Notification
      * @since 20
+     * @arkts 1.1&1.2
      */
     soundEnabled: boolean;
   }

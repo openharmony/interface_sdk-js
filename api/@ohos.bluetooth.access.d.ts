@@ -125,6 +125,62 @@ declare namespace access {
   function disableBluetooth(): void;
 
   /**
+   * Asynchronous interface for enables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900013 - The user does not respond.
+   * @throws { BusinessError } 2900014 - User refuse the action.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function enableBluetoothAsync(): Promise<void>;
+
+  /**
+   * Asynchronous interface for disables Bluetooth on a device.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900013 - The user does not respond.
+   * @throws { BusinessError } 2900014 - User refuse the action.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function disableBluetoothAsync(): Promise<void>;
+
+  /**
+   * Notify bluetooth the result of bluetooth dialog.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @param { NotifyDialogResultParams } notifyDialogResultParams - Indicates the params for dialog result.
+   * @returns { Promise<void> } Returns the promise object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function notifyDialogResult(notifyDialogResultParams: NotifyDialogResultParams): Promise<void>;
+
+  /**
    * Restrict Bluetooth BR/EDR ability on a device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
@@ -195,7 +251,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function factoryReset(callback: AsyncCallback<void>): void;
 
@@ -211,7 +268,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function factoryReset(): Promise<void>;
 
@@ -227,7 +285,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLocalAddress(): string;
 
@@ -288,7 +347,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'stateChange', callback: Callback<BluetoothState>): void;
 
@@ -349,7 +409,8 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'stateChange', callback?: Callback<BluetoothState>): void;
 
@@ -369,7 +430,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Add persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since arkts {'1.1':'16','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addPersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -387,7 +449,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - delete persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since arkts {'1.1':'16','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deletePersistentDeviceId(deviceId: string): Promise<void>;
 
@@ -402,7 +465,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Get persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since arkts {'1.1':'16','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPersistentDeviceIds(): string[];
 
@@ -420,7 +484,8 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Check persistent device address failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 16
+   * @since arkts {'1.1':'16','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isValidRandomDeviceId(deviceId: string): boolean;
 
@@ -587,6 +652,60 @@ declare namespace access {
      * @arkts 1.1&1.2
      */
     STATE_BLE_TURNING_OFF = 6
+  }
+
+  /**
+   * Describes the result of bluetooth dialog.
+   *
+   * @typedef NotifyDialogResultParams
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface NotifyDialogResultParams {
+    /**
+     * The type of bluetooth dialog.
+     *
+     * @type { DialogType }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    dialogType: DialogType;
+    /**
+     * The result of bluetooth dialog. The value true indicates that the user approves the request,
+     * and the value false indicates that the user rejects the request.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    dialogResult: boolean;
+  }
+
+  /**
+   * The enum of bluetooth dialog type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  enum DialogType {
+    /**
+     * The type of bluetooth switch dialog.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    BLUETOOTH_SWITCH = 0
   }
 }
 

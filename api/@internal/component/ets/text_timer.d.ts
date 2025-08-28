@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonConfiguration,CommonMethod,ShadowOptions,ContentModifier } from './common'
-import { ResourceColor,Length,ResourceStr } from './units'
-import { FontStyle,FontWeight } from './enums'
-/*** endif */
-
 /**
  * Provides a way to control the process.
  *
@@ -44,8 +38,7 @@ import { FontStyle,FontWeight } from './enums'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class TextTimerController {
   /**
@@ -70,8 +63,7 @@ declare class TextTimerController {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -101,18 +93,6 @@ declare class TextTimerController {
   start();
 
   /**
-   * Provides a start event for timer.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  start():void;
-
-  /**
    * Provides a pause event for timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -138,18 +118,6 @@ declare class TextTimerController {
   pause();
 
   /**
-   * Provides a pause event for timer.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  pause():void;
-
-  /**
    * Provides an event to reset timer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -173,18 +141,6 @@ declare class TextTimerController {
    * @since 11
    */
   reset();
-
-  /**
-   * Provides an event to reset timer.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  reset():void;
 }
 
 /**
@@ -195,8 +151,7 @@ declare class TextTimerController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
   /**
@@ -214,8 +169,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   count: number;
 
@@ -229,8 +183,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   isCountDown: boolean;
 
@@ -241,8 +194,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   started: boolean;
   
@@ -253,8 +205,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   elapsedTime: number;
 }
@@ -283,8 +234,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface TextTimerOptions {
   /**
@@ -313,8 +263,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   isCountDown?: boolean;
 
@@ -353,8 +302,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   count?: number;
 
@@ -382,8 +330,7 @@ interface TextTimerOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   controller?: TextTimerController;
 }
@@ -412,8 +359,7 @@ interface TextTimerOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 interface TextTimerInterface {
@@ -444,8 +390,7 @@ interface TextTimerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (options?: TextTimerOptions): TextTimerAttribute;
 }
@@ -473,8 +418,7 @@ interface TextTimerInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  * @noninterop
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
@@ -512,8 +456,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   format(value: string): TextTimerAttribute;
 
@@ -544,8 +487,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontColor(value: ResourceColor): TextTimerAttribute;
 
@@ -578,8 +520,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontSize(value: Length): TextTimerAttribute;
 
@@ -610,8 +551,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontStyle(value: FontStyle): TextTimerAttribute;
 
@@ -661,7 +601,6 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextTimerAttribute;
 
@@ -692,8 +631,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontFamily(value: ResourceStr): TextTimerAttribute;
 
@@ -726,8 +664,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 
@@ -750,8 +687,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
 
@@ -763,8 +699,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentModifier(modifier: ContentModifier<TextTimerConfiguration>): TextTimerAttribute;
 }

@@ -39,7 +39,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
-import { PacMap as _PacMap } from './ability/dataAbilityHelper';
+import * as _AppServiceExtensionContext from './application/AppServiceExtensionContext';
 /*** endif */
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
@@ -49,15 +49,16 @@ import _ApplicationContext from './application/ApplicationContext';
 import _BaseContext from './application/BaseContext';
 import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
-import _FormExtensionContext from './application/FormExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
 import type _AutoStartupCallback from './application/AutoStartupCallback';
 import type _AutoStartupInfo from './application/AutoStartupInfo';
+import type _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 /*** endif */
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
 import type _AbilityStartCallback from './application/AbilityStartCallback';
 import { ConnectOptions as _ConnectOptions } from './ability/connectOptions';
+import { PacMap as _PacMap } from './ability/dataAbilityHelper';
 
 /**
  * This module provides application context classes and common data structures.
@@ -241,7 +242,6 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -342,19 +342,6 @@ declare namespace common {
   export type FormExtensionContext = _FormExtensionContext.default;
 
   /**
-   * The context of form extension. It allows access to
-   * formExtension-specific resources.
-   *
-   * @typedef { _FormExtensionContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  export type FormExtensionContext = _FormExtensionContext;
-
-  /**
    * The context of service extension. It allows access to
    * serviceExtension-specific resources.
    *
@@ -413,7 +400,6 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
    * @since 20
    * @arkts 1.2
    */
@@ -432,7 +418,8 @@ declare namespace common {
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type PacMap = _PacMap;
 
@@ -568,7 +555,18 @@ declare namespace common {
    * @stagemodelonly
    * @since 12
    */
-    export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext.default;
+
+  /**
+   * The context of an photo editor extension ability.
+   *
+   * @typedef { _PhotoEditorExtensionContext }
+   * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type PhotoEditorExtensionContext = _PhotoEditorExtensionContext;
 
   /**
    * The context of a UI service ability.

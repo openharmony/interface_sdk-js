@@ -28,9 +28,17 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    resizeable(value: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<RowSplitAttribute>
-        | AttributeModifier<CommonMethod> | undefined): this;
+    default resizeable(value: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { RowSplitAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<RowSplitAttribute> | AttributeModifier<CommonMethod>
+        | undefined): this;
 }
 
 @memo
