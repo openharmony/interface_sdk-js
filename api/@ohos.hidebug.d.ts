@@ -901,7 +901,7 @@ declare namespace hidebug {
    * Sets the number of FDs, number of threads, JS memory, or native memory limit of the application.
    * 
    * @param { string } type - resource type. It could be pss_memory、js_heap、fd、or thread.
-   * @param { int } value - For different resource type, values could have different meaning:
+   * @param { number } value - For different resource type, values could have different meaning:
    *                           1.For pss_memory, it means the baseline PSS memory size for the application,
    *                             system memory control will be triggered if exceed the value too much.
    *                           2.For js_heap, it means the percentage of the used JS heap memory to the maximum limit exceed
@@ -919,7 +919,7 @@ declare namespace hidebug {
    * @atomicservice
    * @since 12
    */
-  function setAppResourceLimit(type: string, value: int, enableDebugLog: boolean): void;
+  function setAppResourceLimit(type: string, value: number , enableDebugLog: boolean): void;
 
   /**
    * Obtains the debugging state of an application process. If the Ark or native layer of the application process is in
