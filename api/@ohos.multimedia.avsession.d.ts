@@ -6021,7 +6021,8 @@ declare namespace avSession {
      * @type { DeviceType }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceType: DeviceType;
 
