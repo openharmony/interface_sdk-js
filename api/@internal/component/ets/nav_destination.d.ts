@@ -772,7 +772,7 @@ declare interface NavDestinationTransition {
  */
 declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribute> {
   /**
-   * Navigation title bar
+   * NavDestination title bar
    *
    * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
    * @returns { NavDestinationAttribute }
@@ -780,7 +780,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 9
    */
   /**
-   * Navigation title bar
+   * NavDestination title bar
    *
    * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
    * @returns { NavDestinationAttribute }
@@ -789,7 +789,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 10
    */
   /**
-   * Navigation title bar
+   * NavDestination title bar
    *
    * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle } value
    * @returns { NavDestinationAttribute }
@@ -829,7 +829,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
     options?: NavigationTitleOptions): NavDestinationAttribute;
 
   /**
-   * Hide navigation title bar
+   * Hide navDestination title bar
    *
    * @param { boolean } value
    * @returns { NavDestinationAttribute }
@@ -837,7 +837,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 9
    */
   /**
-   * Hide navigation title bar
+   * Hide navDestination title bar
    *
    * @param { boolean } value
    * @returns { NavDestinationAttribute }
@@ -849,6 +849,9 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Specifies whether to hide the title bar.
    *
    * @param { boolean } value
+   * <br>Default value: **false**.
+   * <br>**true**: Hide the title bar.
+   * <br>**false**: Show the title bar.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -862,7 +865,13 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Sets whether to hide the title bar and whether to animate the visibility change.
    *
    * @param { boolean } hide
+   * <br>Default value: **false**.
+   * <br>**true**: Hide the title bar.
+   * <br>**false**: Show the title bar.
    * @param { boolean } animated
+   * <br>Default value: **false**.
+   * <br>**true**: Animate the visibility change.
+   * <br>**false**: Do not animate the visibility change.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1449,6 +1458,8 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * <br>**NavDestination** component.
    * @param { boolean } [animated] - Whether to use an animation to show or hide the system status bar.
    * <br>Default value: **false**.
+   * <br>**true**: Hide/show the system status bar with animation.
+   * <br>**false**: Hide/show the system status bar without animation.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

@@ -1230,6 +1230,8 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
    * @param { Object | null | undefined } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1274,6 +1276,8 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1288,6 +1292,8 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1. Mandatory parameters are left unspecified.
@@ -1306,6 +1312,8 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1. Mandatory parameters are left unspecified.
@@ -1329,6 +1337,8 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1. Mandatory parameters are left unspecified.
@@ -1348,6 +1358,8 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1. Mandatory parameters are left unspecified.
@@ -1370,6 +1382,8 @@ declare class NavPathStack {
    * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @param { Callback<PopInfo> } onPop - The callback when next page returns.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
    *     1. Mandatory parameters are left unspecified.
@@ -1391,6 +1405,9 @@ declare class NavPathStack {
    *
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported.
+   * <br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -1543,7 +1560,9 @@ declare class NavPathStack {
   /**
    * Pops the top NavDestination out of the stack.
    *
-   * @param { boolean } [animated] - Indicates whether the transition is animated. Default value is **true**.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1557,7 +1576,9 @@ declare class NavPathStack {
    * Pops the top NavDestination out of the stack. Invokes the **onPop** callback to pass the page processing result.
    *
    * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated. Default value is **true**.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1567,7 +1588,9 @@ declare class NavPathStack {
    * Pops the top NavDestination out of the stack. Invokes the **onPop** callback to pass the page processing result.
    *
    * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated. Default value is **true**.
+   * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported. 
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1691,6 +1714,8 @@ declare class NavPathStack {
    *
    * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
    * @param { boolean } [animated] - Indicates whether the transition is animated.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1949,6 +1974,8 @@ declare class NavPathStack {
    *
    * @param { Array<NavPathInfo> } pathStack - The NavPathInfo array.
    * @param { boolean } [animated] - Indicate whether the operation has animation.
+   * <br>Default value: **true**.
+   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2618,6 +2645,8 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?boolean }
    * @default false
+   * <br>**true**: Enable hover effects.
+   * <br>**false**: Disable hover effects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2762,6 +2791,8 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?boolean }
    * @default false
+   * <br>**true**: Hide the toolbar text.
+   * <br>**false**: Show the toolbar text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
