@@ -3376,7 +3376,7 @@ declare namespace media {
     /**
      * Unsubscribes from the event that checks whether the bit rate is successfully set.
      * @param { 'bitrateDone' } type - Type of the playback event to listen for.
-     * @param { Callback<number> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<number> } [callback] - Callback invoked when the event is triggered.
      * It reports the effective bit rate.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 12
@@ -4002,7 +4002,7 @@ declare namespace media {
      * Unsubscribes from the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
      * The event is triggered when super resolution is enabled or disabled.
-     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @param { OnSuperResolutionChanged } [callback] - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
