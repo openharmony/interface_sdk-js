@@ -11083,7 +11083,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the number of rows in the result set.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22
@@ -11093,7 +11093,7 @@ declare namespace photoAccessHelper {
     /**
      * Obtains the current index of the result set.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22
