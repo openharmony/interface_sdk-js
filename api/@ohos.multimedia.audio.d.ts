@@ -4518,9 +4518,9 @@ declare namespace audio {
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
 
     /**
-     * Checks whether the system recording supports Intelligent noise reduction for current device
+     * Checks whether the system recording enables Intelligent noise reduction for current device
      * @param { SourceType } sourceType Type of audio source.
-     * @returns { boolean } Check result. The value <b>true</b> means that the system recording supports intelligent noise reduction for current device,
+     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent noise reduction for current device,
      *          and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
