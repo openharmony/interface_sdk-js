@@ -88,7 +88,6 @@ declare namespace unifiedDataChannel {
    * RrcordData is used for input parameter obj of the equal function
    * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
    * @since 20
    * @arkts 1.2
    */
@@ -127,7 +126,6 @@ declare namespace unifiedDataChannel {
    * Indicates type of value.
    * @typedef {int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined}
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
    * @since 20
    * @arkts 1.2
    */
@@ -412,10 +410,33 @@ declare namespace unifiedDataChannel {
      * @type { Record<string, long> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     summary: Record<string, long>;
+
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @type { Record<string, long> }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @returns { Record<string, long> } Type and size information of data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    get summary(): Record<string, long>;
     /**
      * Total data size of data in Bytes
      *
@@ -428,10 +449,33 @@ declare namespace unifiedDataChannel {
      * @type { long }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     totalSize: long;
+
+    /**
+     * Total data size of data in Bytes
+     *
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 10
+     */
+    /**
+     * Total data size of data in Bytes
+     *
+     * @type { long }
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 11
+     */
+    /**
+     * A map for each type and data size, key is data type, value is the corresponding data size
+     *
+     * @returns { long } Total size information of data
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    get totalSize(): long;
   }
 
   /**
@@ -683,7 +727,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -715,13 +758,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
-     * @param { Record<string, string> } the details of unified text
+     * @param { Record<string, string> | undefined } the details of unified text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, string>);
+    set details(value: Record<string, string> | undefined);
   }
 
   /**
@@ -803,7 +845,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the content of text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -837,7 +878,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the content of text
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -970,7 +1010,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the url of a link
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1004,7 +1043,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the url of a link
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1063,7 +1101,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the description of a link.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1095,13 +1132,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
-     * @param { string } the description of a link
+     * @param { string | undefined } the description of a link
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
-    set description(value: string);
+    set description(value: string | undefined);
   }
 
   /**
@@ -1183,7 +1219,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the content of html
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1217,7 +1252,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the content of html
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1276,7 +1310,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the plain content of html
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1308,13 +1341,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
-     * @param { string } the plain content of html
+     * @param { string | undefined} the plain content of html
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
-    set plainContent(value: string);
+    set plainContent(value: string | undefined);
   }
 
   /**
@@ -1396,7 +1428,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified File
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1428,13 +1459,12 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
-     * @param { Record<string, string> } the details of unified File
+     * @param { Record<string, string> | undefined} the details of unified File
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
-    set details(value: Record<string, string>);
+    set details(value: Record<string, string> | undefined);
 
     /**
      * URI of the local file or online file. The local file URI can be obtained using the getUriFromPath function.
@@ -1489,7 +1519,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the uri of file
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1523,7 +1552,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the uri of file
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1609,7 +1637,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the uri of image
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1643,7 +1670,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the uri of image
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1729,7 +1755,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the uri of video
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1763,7 +1788,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the uri of video
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1849,7 +1873,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the uri of audio
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1883,7 +1906,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the uri of audio
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -1969,7 +1991,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string } the uri of folder
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
@@ -2003,7 +2024,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string } the uri of folder
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
      * @since 20
      * @arkts 1.2
      */
