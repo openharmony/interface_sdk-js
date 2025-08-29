@@ -28,7 +28,7 @@ import rpc from './../@ohos.rpc';
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @param { rpc.IRemoteObject } remote - The remote object instance
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void;
@@ -39,7 +39,7 @@ type OnConnectFn = (elementName: ElementName, remote: rpc.IRemoteObject) => void
  * typedef { Function }
  * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'12', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 type OnDisconnectFn = (elementName: ElementName) => void;
@@ -50,7 +50,7 @@ type OnDisconnectFn = (elementName: ElementName) => void;
  * @typedef { Function }
  * @param { int } code - The error code of the failed.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'7', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 type OnFailedFn = (code: int) => void;
@@ -76,9 +76,17 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect successfully.
    *
+   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+   * @param { rpc.IRemoteObject } remote - The remote object instance
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
+   */
+  /**
+   * The callback interface was connect successfully.
+   *
    * @type { OnConnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   onConnect: OnConnectFn;
@@ -93,9 +101,16 @@ export interface ConnectOptions {
   /**
    * The callback interface was disconnect successfully.
    *
+   * @param { ElementName } elementName - The ohos.bundleManager.ElementName object of the service ability
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 12
+   */
+  /**
+   * The callback interface was disconnect successfully.
+   *
    * @type { OnDisconnectFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   onDisconnect: OnDisconnectFn;
@@ -103,9 +118,16 @@ export interface ConnectOptions {
   /**
    * The callback interface was connect failed.
    *
+   * @param { number } code - The error code of the failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 7
+   */
+  /**
+   * The callback interface was connect failed.
+   *
    * @typedef { OnFailedFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   onFailed: OnFailedFn;
