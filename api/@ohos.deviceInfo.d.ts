@@ -748,6 +748,25 @@ declare namespace deviceInfo {
    * @since 19
    */
   const performanceClass: PerformanceClassLevel;
+
+    /**
+   * Obtains the device CPU chipType by a string.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.Startup.SystemInfo
+   * @since 21
+   */
+    const chipType: string;
+
+    /**
+     * Obtains the deviceboot count by a number
+     * if get failed, it will return -1
+     * 
+     * @type { number }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 21
+     */
+    const bootCount: number;
 }
 
 export default deviceInfo;
