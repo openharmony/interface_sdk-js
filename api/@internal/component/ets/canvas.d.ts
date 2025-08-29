@@ -3969,7 +3969,7 @@ declare class CanvasRenderer extends CanvasPath {
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    *
-   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
@@ -3978,7 +3978,7 @@ declare class CanvasRenderer extends CanvasPath {
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    *
-   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
@@ -3988,7 +3988,7 @@ declare class CanvasRenderer extends CanvasPath {
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    *
-   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3999,7 +3999,7 @@ declare class CanvasRenderer extends CanvasPath {
    * From an existing ImageData object, copy an object with the same width and height as the image.
    *    The image content is not copied.
    *
-   * @param { ImageData } imagedata - ImageData object to be copied.
+   * @param { ImageData } imageData - ImageData object to be copied.
    * @returns { ImageData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4008,7 +4008,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  createImageData(imagedata: ImageData): ImageData;
+  createImageData(imageData: ImageData): ImageData;
 
   /**
    * Obtains the pixel data of a specified area on the current canvas.
@@ -4105,7 +4105,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4114,7 +4114,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4124,7 +4124,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4135,7 +4135,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4145,12 +4145,12 @@ declare class CanvasRenderer extends CanvasPath {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  putImageData(imagedata: ImageData, dx: number | string, dy: number | string): void;
+  putImageData(imageData: ImageData, dx: number | string, dy: number | string): void;
 
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
@@ -4167,7 +4167,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @param { number } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
@@ -4185,7 +4185,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
@@ -4204,7 +4204,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Draws the specified ImageData object onto the canvas
    *
-   * @param { ImageData } imagedata - ImageData object to be drawn.
+   * @param { ImageData } imageData - ImageData object to be drawn.
    * @param { number | string } dx - Position offset of the source image data in the target canvas (the offset in the x-axis direction).
    * @param { number | string } dy - Position offset of the source image data in the target canvas (the offset in the y-axis direction).
    * @param { number | string } dirtyX - Position of the upper left corner of the rectangular area in the source image data.
@@ -4223,7 +4223,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @arkts 1.1&1.2
    */
   putImageData(
-    imagedata: ImageData,
+    imageData: ImageData,
     dx: number | string,
     dy: number | string,
     dirtyX: number | string,
