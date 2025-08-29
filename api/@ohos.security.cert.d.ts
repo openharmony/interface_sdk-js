@@ -6221,6 +6221,25 @@ declare namespace cert {
     trustAnchors: Array<X509TrustAnchor>;
 
     /**
+     * Indicates whether to use system preinstalled CA certificates to verify the certificate chain.
+     *
+     * If set to true and trustAnchors is not an empty array, both user trustAnchors and system preinstalled CA
+     * certificates are used to verify the certificate chain.
+     *
+     * If set to true and trustAnchors is an empty array, only system preinstalled CA certificates are used to verify
+     * the certificate chain.
+     *
+     * @type { ?boolean }
+     * @default false
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    trustSystemCa?: boolean;
+
+    /**
      * The cert and CRL list to build cert chain and verify the certificate chain revocation state.
      *
      * @type { ?Array<CertCRLCollection> }
@@ -6692,7 +6711,7 @@ declare namespace cert {
    */
   interface CmsGenerator {
     /**
-     * Used to add the signer info.
+     * Used to add the signer info for the CMS of the SIGNED_DATA content type.
      *
      * @param { X509Cert } cert - the signer certificate.
      * @param { PrivateKeyInfo } keyInfo - the private key info of the signer certificate.
@@ -6713,7 +6732,10 @@ declare namespace cert {
     addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): void;
 
     /**
-     * Used to add the certificate, such as the issuer certificate of the signer certificate.
+     * Used to add the certificate for the CMS of the SIGNED_DATA content type.
+     *
+     * For example, the issuer certificate of the signer certificate. If the addSigner interface is not called, and only
+     * the certificate is added, the generated CMS signature data will only contain the certificate.
      *
      * @param { X509Cert } cert - the certificate.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -6731,7 +6753,7 @@ declare namespace cert {
     addCert(cert: X509Cert): void;
 
     /**
-     * Used to obtain the CMS final data, such as CMS signed data.
+     * Used to obtain the CMS final data, such as CMS signed data or CMS enveloped data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
      * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
@@ -6751,10 +6773,10 @@ declare namespace cert {
     doFinal(data: Uint8Array, options?: CmsGeneratorOptions): Promise<Uint8Array | string>;
 
     /**
-     * Used to obtain the CMS final data, such as CMS signed data.
+     * Used to obtain the CMS final data, such as CMS signed data or CMS enveloped data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
-     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @param { CmsGeneratorOptions } [options] - the configuration options for CMS operation.
      * @returns { Uint8Array | string } the CMS final data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
