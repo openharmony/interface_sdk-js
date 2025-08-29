@@ -2315,6 +2315,47 @@ declare enum TextVerticalAlign {
 }
 
 /**
+ * Alignment of text.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare enum TextContentAlign {
+  /**
+   * Top the text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  TOP = 0,
+
+  /**
+   * Center alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  CENTER = 1,
+
+  /**
+   * Bottom alignment.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  BOTTOM = 2
+}
+
+/**
  * Defines the input method client.
  *
  * @interface IMEClient
