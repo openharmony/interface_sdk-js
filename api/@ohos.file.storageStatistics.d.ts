@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace storageStatistics
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace storageStatistics {
   /**
@@ -112,35 +113,39 @@ parameters are left unspecified;
    *
    * @interface BundleStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface BundleStats {
     /**
      * The size of application installation data.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    appSize: number;
+    appSize: long;
 
     /**
      * The size of application cache data.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    cacheSize: number;
+    cacheSize: long;
 
     /**
      * The size of application local data, distributed data and database data.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    dataSize: number;
+    dataSize: long;
   }
   /**
    * Get the bundle statistics.
@@ -225,7 +230,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentBundleStats(callback: AsyncCallback<BundleStats>): void;
 
@@ -238,7 +244,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getCurrentBundleStats(): Promise<BundleStats>;
 
@@ -282,18 +289,20 @@ parameters are left unspecified;
    * @interface StorageStats
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface StorageStats {
     /**
      * The total size of device.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    total: number;
+    total: long;
 
     /**
      * The size of audio file.
@@ -360,7 +369,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(): Promise<StorageStats>;
 
@@ -378,7 +388,8 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getUserStorageStats(callback: AsyncCallback<StorageStats>): void;
 
@@ -386,7 +397,7 @@ parameters are left unspecified;
    * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { number } userId - The id of the user
+   * @param { long } userId - The id of the user
    * @returns { Promise<StorageStats> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -398,15 +409,16 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUserStorageStats(userId: number): Promise<StorageStats>;
+  function getUserStorageStats(userId: long): Promise<StorageStats>;
 
   /**
    * Get the user storage statistics.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { number } userId - The id of the user
+   * @param { long } userId - The id of the user
    * @param { AsyncCallback<StorageStats> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -418,15 +430,16 @@ parameters are left unspecified;
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUserStorageStats(userId: number, callback: AsyncCallback<StorageStats>): void;
+  function getUserStorageStats(userId: long, callback: AsyncCallback<StorageStats>): void;
 
   /**
    * Get the total size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -440,21 +453,22 @@ parameters are left unspecified;
   /**
    * Get the total size.
    *
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getTotalSize(callback: AsyncCallback<number>): void;
+  function getTotalSize(callback: AsyncCallback<long>): void;
 
   /**
    * Get the total size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -468,13 +482,14 @@ parameters are left unspecified;
   /**
    * Get the total size.
    *
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getTotalSize(): Promise<number>;
+  function getTotalSize(): Promise<long>;
 
   /**
    * Get the total size with sync interface
@@ -506,7 +521,7 @@ parameters are left unspecified;
    * Get the free size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -520,21 +535,22 @@ parameters are left unspecified;
   /**
    * Get the free size.
    *
-   * @param { AsyncCallback<number> } callback - callback
+   * @param { AsyncCallback<long> } callback - callback
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
 parameters are left unspecified;
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getFreeSize(callback: AsyncCallback<number>): void;
+  function getFreeSize(callback: AsyncCallback<long>): void;
 
   /**
    * Get the free size.
    *
    * @permission ohos.permission.STORAGE_MANAGER
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
@@ -548,13 +564,14 @@ parameters are left unspecified;
   /**
    * Get the free size.
    *
-   * @returns { Promise<number> } return Promise
+   * @returns { Promise<long> } return Promise
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getFreeSize(): Promise<number>;
+  function getFreeSize(): Promise<long>;
 
   /**
    * Get the free size with sync interface.
