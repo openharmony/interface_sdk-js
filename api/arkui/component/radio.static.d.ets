@@ -156,7 +156,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    checked(isChecked: boolean | undefined | Bindable<boolean>): this;
+    default checked(isChecked: boolean | undefined | Bindable<boolean>): this;
     /**
      * Called when the radio box selection status changes.
      *
@@ -165,7 +165,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnRadioChangeCallback | undefined): this;
+    default onChange(callback: OnRadioChangeCallback | undefined): this;
     /**
      * Set the radio style.
      *
@@ -174,7 +174,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    radioStyle(value?: RadioStyle | undefined): this;
+    default radioStyle(value?: RadioStyle | undefined): this;
     /**
      * Set the Configuration of radio.
      *
@@ -183,7 +183,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
     */
-    contentModifier(modifier: ContentModifier<RadioConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<RadioConfiguration> | undefined): this;
     /**
      * Set the attribute modifier of radio.
      *
@@ -193,7 +193,7 @@ export declare interface RadioAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<RadioAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<RadioAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * RadioConfiguration used by radio Configuration

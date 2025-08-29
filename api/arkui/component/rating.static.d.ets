@@ -159,7 +159,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stars(value: number | undefined): this;
+    default stars(value: number | undefined): this;
     /**
      * Called when the step size of the operation rating.
      *
@@ -168,7 +168,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    stepSize(value: number | undefined): this;
+    default stepSize(value: number | undefined): this;
     /**
      * Called when a picture is set.
      * Anonymous Object Rectification.
@@ -178,7 +178,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    starStyle(options: StarStyleOptions | undefined): this;
+    default starStyle(options: StarStyleOptions | undefined): this;
     /**
      * Called when the star rating of the operation scoring bar changes.
      *
@@ -187,7 +187,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnRatingChangeCallback | undefined): this;
+    default onChange(callback: OnRatingChangeCallback | undefined): this;
     /**
      * Set the content modifier of rating.
      *
@@ -196,7 +196,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<RatingConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<RatingConfiguration> | undefined): this;
     /**
      * Set the attribute modifier of rating.
      *
@@ -206,7 +206,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<RatingAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<RatingAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**

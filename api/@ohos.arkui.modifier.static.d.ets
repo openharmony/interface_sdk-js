@@ -366,3 +366,52 @@ export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
  * @since 20
  */
 export { ParticleModifier } from './arkui/ParticleModifier';
+
+/**
+ * Export SliderModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SliderModifier } from './arkui/SliderModifier';
+
+/**
+ * Export SelectModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { SelectModifier } from './arkui/SelectModifier';
+
+/**
+ * Export CheckboxModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { CheckboxModifier } from './arkui/CheckboxModifier';
+
+/**
+ * Export CheckboxGroupModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { CheckboxGroupModifier } from './arkui/CheckboxGroupModifier';
+
+/**
+ * Export ToggleModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { ToggleModifier } from './arkui/ToggleModifier';
+
+/**
+ * Export RadioModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { RadioModifier } from './arkui/RadioModifier';
+
+/**
+ * Export RatingModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export { RatingModifier } from './arkui/RatingModifier';
