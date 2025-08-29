@@ -87,6 +87,7 @@ export declare interface ScrollBarOptions {
  * @interface ScrollBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ScrollBarAttribute extends CommonMethod {
     /**
@@ -116,6 +117,7 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  * @returns { ScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

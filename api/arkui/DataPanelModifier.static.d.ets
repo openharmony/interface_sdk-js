@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { DataPanelAttribute } from './component/dataPanel';
 /**
  * Defines DataPanel Modifier
  *
- * @extends DataPanelAttribute
- * @implements { AttributeModifier<DataPanelAttribute> }
+ * @implements { DataPanelAttribute, AttributeModifier<DataPanelAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class DataPanelModifier extends DataPanelAttribute implements AttributeModifier<DataPanelAttribute> {}
+export declare class DataPanelModifier implements DataPanelAttribute, AttributeModifier<DataPanelAttribute> {}

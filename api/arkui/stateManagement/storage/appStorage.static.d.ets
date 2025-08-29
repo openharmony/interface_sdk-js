@@ -22,10 +22,10 @@
 import { LocalStorage } from './localStorage';
 
 /**
-AppStorage singleton is sub-class of see LocalStorage for
-UI state of app-wide access and same life cycle as the app.
-@type { LocalStorage }
-@syscap SystemCapability.ArkUI.ArkUI.Full
-@since 20
-*/
+ * AppStorage singleton is sub-class of see LocalStorage for
+ * UI state of app-wide access and same life cycle as the app.
+ * @type { LocalStorage }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare const AppStorage: LocalStorage;

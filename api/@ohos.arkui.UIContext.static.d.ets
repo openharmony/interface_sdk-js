@@ -116,11 +116,12 @@ export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @returns { inspector.ComponentObserver | undefined } create listener for observer component event.
+   *     If unable to obtain current ui context, the function will return undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  createComponentObserver(id: string): inspector.ComponentObserver;
+  createComponentObserver(id: string): inspector.ComponentObserver | undefined;
 }
 
 /**
@@ -1990,7 +1991,8 @@ export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
 export declare class DragController {
   /**
    * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
+   * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains
    * the drag event information.
@@ -2002,12 +2004,13 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
+  executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
 
   /**
    * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
+   * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
+   * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2018,14 +2021,14 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
+  executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
    * drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the
-   * objects are dragged.
+   * @param { Array<CustomBuilder | DragItemInfo> | undefined } customArray - Objects used for prompts 
+   * displayed when the objects are dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
    * @returns { dragController.DragAction } one drag action object
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2036,7 +2039,7 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  createDragAction(customArray: Array<CustomBuilder | DragItemInfo>,
+  createDragAction(customArray: Array<CustomBuilder | DragItemInfo> | undefined,
     dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**

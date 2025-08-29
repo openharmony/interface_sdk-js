@@ -629,6 +629,22 @@ declare namespace media {
    * @since 20
    * @arkts 1.2
    */
+  /**
+   * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
+   *
+   * **NOTE**
+   *
+   * A maximum of 2 **AVTranscoder** instances can be created.
+   *
+   * @returns {Promise<AVTranscoder | undefined>} Promise used to return the result. If the operation is successful, an
+   * **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
+   * transcoding.
+   * @throws { BusinessError } 5400101 - No memory. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+   * @atomicservice
+   * @since 21
+   * @arkts 1.2
+   */
   function createAVTranscoder(): Promise<AVTranscoder | undefined>;
 
   /**
@@ -6646,7 +6662,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11
      * @example
      * import { audio } from '@kit.AudioKit';
      *
@@ -6660,9 +6676,40 @@ declare namespace media {
      *     currentCapturerInfo = capturerInfo;
      *   }
      * });
-     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
+
+    /**
+     * Obtains the information about the current audio capturer.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     * @param { AsyncCallback<audio.AudioCapturerChangeInfo | undefined> } callback - Callback used to return the result.
+     * If the operation is successful, **err** is **undefined** and **data** is the
+     * **audio.AudioCapturerChangeInfo** object obtained; otherwise, **err** is an error object.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     *
+     * let currentCapturerInfo: audio.AudioCapturerChangeInfo;
+     *
+     * avRecorder.getCurrentAudioCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapturerChangeInfo) => {
+     *   if (err) {
+     *     console.error('Failed to get CurrentAudioCapturerInfo and error is ' + err.message);
+     *   } else {
+     *     console.info('Succeeded in getting CurrentAudioCapturerInfo');
+     *     currentCapturerInfo = capturerInfo;
+     *   }
+     * });
+     * @arkts 1.2
+     */
+    getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo | undefined>): void;
+
 
     /**
      * Obtains the information about the current audio capturer. This API uses a promise to return the result.
@@ -6674,7 +6721,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11
      * @example
      * import { audio } from '@kit.AudioKit';
      *
@@ -6686,9 +6733,34 @@ declare namespace media {
      * }).catch((err: BusinessError) => {
      *   console.error('Failed to get CurrentAudioCapturerInfo and catch error is ' + err.message);
      * });
-     * @arkts 1.1&1.2
      */
     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
+
+    /**
+     * Obtains the information about the current audio capturer. This API uses a promise to return the result.
+     *
+     * This API can be called only after the **prepare()** API is called.
+     * If this API is called after **stop()** is successfully called, an error is reported.
+     * @returns { Promise } Promise used to return the audio capturer information.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400103 - I/O error.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVRecorder
+     * @since 20
+     * @example
+     * import { audio } from '@kit.AudioKit';
+     *
+     * let currentCapturerInfo: audio.AudioCapturerChangeInfo;
+     *
+     * avRecorder.getCurrentAudioCapturerInfo().then((capturerInfo: audio.AudioCapturerChangeInfo) => {
+     *   console.info('Succeeded in getting CurrentAudioCapturerInfo');
+     *   currentCapturerInfo = capturerInfo;
+     * }).catch((err: BusinessError) => {
+     *   console.error('Failed to get CurrentAudioCapturerInfo and catch error is ' + err.message);
+     * });
+     * @arkts 1.2
+     */
+    getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo | undefined>;
 
     /**
      * Obtains the maximum amplitude of the current audio capturer.

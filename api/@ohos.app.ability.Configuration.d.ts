@@ -196,7 +196,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fontId?: string;
 

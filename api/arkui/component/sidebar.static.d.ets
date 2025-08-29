@@ -22,7 +22,7 @@
 
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
-import { CommonMethod, PixelMap, Bindable, AttributeModifier } from './common';
+import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
@@ -177,53 +177,6 @@ export declare interface ButtonStyle {
    * @since 20
    */
   icons?: ButtonIconOptions;
-}
-
-/**
- * Provides an interface for the style of a divider including stroke width, color, start margin
- * and end margin
- *
- * @interface DividerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export interface DividerStyle {
-  /**
-   * Define the stroke width of the divider
-   *
-   * @type { Length }
-   * @default 1vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  strokeWidth: Length;
-
-  /**
-   * Define the color of the divider
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  color?: ResourceColor;
-
-  /**
-   * Define the start margin of the divider
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  startMargin?: Length;
-
-  /**
-   * Define the end margin of the divider
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  endMargin?: Length;
 }
 
 /**
@@ -385,6 +338,15 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines sidebar Component
+ *
+ * @param { SideBarContainerType } [type] - sidebar constructor options
+ * @param { function } [content_] - container
+ * @returns { SideBarContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @memo
 @ComponentBuilder
 export declare function SideBarContainer(

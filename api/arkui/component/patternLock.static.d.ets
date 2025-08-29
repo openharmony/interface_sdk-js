@@ -1,5 +1,6 @@
+'use static';
 /*
-  * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+  * Copyright (c) 2025 Huawei Device Co., Ltd.
   * Licensed under the Apache License, Version 2.0 (the "License");
   * you may not use this file except in compliance with the License.
   * You may obtain a copy of the License at
@@ -12,20 +13,18 @@
   * See the License for the specific language governing permissions and
   * limitations under the License.
   */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { ResourceColor, Length } from './units';
+import { ResourceColor, Length, VoidCallback } from "./units";
 import { LengthMetrics } from '../Graphics';
 import { CommonMethod, Callback, Optional } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * The challenge result based on input pattern for control pattern lock component.
  * @enum { number }
@@ -116,6 +115,15 @@ export declare class PatternLockController {
      */
     setChallengeResult(result: PatternLockChallengeResult): void;
 }
+/**
+ * Defines the PatternLock component attributes.
+ *
+ * @extends CommonMethod
+ * @interface PatternLockAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface PatternLockAttribute extends CommonMethod {
     /**
      * Sets the width and height (same value) of the component.
@@ -124,12 +132,12 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * <br>If this attribute is set to 0 or a negative number, the component is not displayed.
      * </p>
      *
-     * @param { Length } value - Width and height of the component, Default value is 288vp.
+     * @param { Length | undefined } value - Width and height of the component, Default value is 288vp.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    sideLength(value: Length | undefined): this;
+    default sideLength(value: Length | undefined): this;
     /**
      * Sets the radius of the dots in a grid.
      *
@@ -137,57 +145,61 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * <br>If this attribute is set to 0 or a negative value, the default value is used.
      * </p>
      *
-     * @param { Length } value - Radius of the dots in a grid, Default value is 6vp.
+     * @param { Length | undefined } value - Radius of the dots in a grid, Default value is 6vp.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    circleRadius(value: Length | undefined): this;
+    default circleRadius(value: Length | undefined): this;
     /**
      * Sets the background color.
      *
-     * @param { ResourceColor } value - Background color.
+     * @param { ResourceColor | undefined } value - Background color.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    backgroundColor(value: ResourceColor | undefined): this;
+    default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Sets the fill color of the grid dot in the unselected state.
      *
-     * @param { ResourceColor } value - Fill color of the grid dot in the unselected state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - Fill color of the grid 
+     *     dot in the unselected state, Default value is '#ff182431'.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    regularColor(value: ResourceColor | undefined): this;
+    default regularColor(value: ResourceColor | undefined): this;
     /**
      * Sets the fill color of the grid dot in the selected state.
      *
-     * @param { ResourceColor } value - Fill color of the grid dot in the selected state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - Fill color of the 
+     *     grid dot in the selected state, Default value is '#ff182431'.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the fill color of the grid dot in the activated state, which is when the dot is highlighted but not selected.
+     * Sets the fill color of the grid dot in the activated state, 
+     *     which is when the dot is highlighted but not selected.
      *
-     * @param { ResourceColor } value - Fill color of the grid dot in the activated state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - Fill color of the grid dot 
+     *     in the activated state, Default value is '#ff182431'.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    activeColor(value: ResourceColor | undefined): this;
+    default activeColor(value: ResourceColor | undefined): this;
     /**
      * Sets the path color.
      *
-     * @param { ResourceColor } value - Path color, Default value is '#33182431'.
+     * @param { ResourceColor | undefined } value - Path color, Default value is '#33182431'.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    pathColor(value: ResourceColor | undefined): this;
+    default pathColor(value: ResourceColor | undefined): this;
     /**
      * Sets the width of the path stroke.
      *
@@ -195,49 +207,50 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
      * </p>
      *
-     * @param { number | string } value - Width of the path stroke, Default value is 12vp.
+     * @param { number | string | undefined } value - Width of the path stroke, Default value is 12vp.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    pathStrokeWidth(value: number | string | undefined): this;
+    default pathStrokeWidth(value: number | string | undefined): this;
     /**
      * Invoked when the pattern password input is complete.
      *
-     * @param { function } callback
+     * @param { function | undefined } callback
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onPatternComplete(callback: ((input: Array<number>) => void) | undefined): this;
+    default onPatternComplete(callback: ((input: Array<number>) => void) | undefined): this;
     /**
      * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
      * again after the input is complete.
      *
-     * @param { boolean } value - Whether to allow the user to reset the component status (that is, clear the input) by
+     * @param { boolean | undefined } value - Whether to allow the user to reset 
+     *     the component status (that is, clear the input) by
      * touching the component again after the input is complete, Default value is true.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    autoReset(value: boolean | undefined): this;
+    default autoReset(value: boolean | undefined): this;
     /**
      * Called when connecting to a grid dot.
-     * @param { Callback<number> } callback - A callback instance used when connection to a grid dot.
+     * @param {  Callback<number> | undefined } callback - A callback instance used when connection to a grid dot.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDotConnect(callback: Callback<number> | undefined): this;
+    default onDotConnect(callback: Callback<number> | undefined): this;
     /**
      * Sets the background circle style for the dots in a grid when they are in the activated state.
      *
-     * @param { Optional<CircleStyleOptions> } options - Background circle style of the dots in the activated state.
+     * @param { CircleStyleOptions | undefined } options - Background circle style of the dots in the activated state.
      * @returns { PatternLockAttribute } PatternLockAttribute
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    activateCircleStyle(options: CircleStyleOptions | undefined): this;
+    default activateCircleStyle(options: CircleStyleOptions | undefined): this;
     /**
      * Sets whether unselected dots in the grid are automatically selected when the password path passes over them.
      *
@@ -247,12 +260,31 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    skipUnselectedPoint(skipped: boolean | undefined): this;
-    attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default skipUnselectedPoint(skipped: boolean | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { PatternLockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the PatternLock component.
+ *
+ * @param { PatternLockController } [controller] - pattern lock controller.
+ * @param { VoidCallback } [content_]
+ * @returns { PatternLockAttribute } The attribute of the PatternLock.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
-export declare function PatternLock(controller?: PatternLockController, 
-@memo
-content_?: () => void): PatternLockAttribute;
+export declare function PatternLock(
+    controller?: PatternLockController, 
+    @memo
+    content_?: VoidCallback
+): PatternLockAttribute;

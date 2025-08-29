@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
- export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {
+export declare class TimePickerModifier extends TimePickerAttribute implements AttributeModifier<TimePickerAttribute> {
 
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { TimePickerAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    applyNormalAttribute?(instance: TimePickerAttribute): void;
-  }
-  
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { TimePickerAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  applyNormalAttribute?(instance: TimePickerAttribute): void;
+}

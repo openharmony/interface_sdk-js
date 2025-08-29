@@ -28,6 +28,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @interface FlowItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface FlowItemAttribute extends CommonMethod {
     /**
@@ -48,6 +49,7 @@ export declare interface FlowItemAttribute extends CommonMethod {
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

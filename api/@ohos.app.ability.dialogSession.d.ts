@@ -230,10 +230,27 @@ declare namespace dialogSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo;
+
+  /**
+   * Query the session info of dialog.
+   *
+   * @param { string } dialogSessionId - Query information by dialog session id.
+   * @returns { DialogSessionInfo | null } Returns the session info when the target DialogSessionInfo of
+   *     dialogSessionId exists. Returns null if the target DialogSessionInfo of dialogSessionId not exist.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  function getDialogSessionInfo(dialogSessionId: string): DialogSessionInfo | null;
 
   /**
    * Send the selection result of dialog.

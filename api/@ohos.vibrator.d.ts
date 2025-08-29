@@ -751,34 +751,34 @@ declare namespace vibrator {
      * The file descriptor of haptic effect source from file system. The caller
      * is responsible to close the file descriptor.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fd: number;
+    fd: int;
 
     /**
      * The offset into the file where the data to be read, in bytes. By default,
      * the offset is zero.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    offset?: number;
+    offset?: long;
 
     /**
      * The length in bytes of the data to be read. By default, the length is the
      * rest of bytes in the file from the offset.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    length?: number;
+    length?: long;
   }
 
   /**
@@ -831,12 +831,12 @@ declare namespace vibrator {
     /**
       * Gain in relative event vibration intensity
       *
-      * @type { ?int }
+      * @type { ?double }
       * @syscap SystemCapability.Sensors.MiscDevice
       * @since arkts {'1.1':'18', '1.2':'20'}
       * @arkts 1.1&1.2
       */
-    intensity?: int;
+    intensity?: double;
     /**
      * Changes in relative event vibration frequency
      *

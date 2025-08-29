@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { ImageAnimatorAttribute } from './component/imageAnimator';
 /**
  * Defines ImageAnimator Modifier
  *
- * @extends ImageAnimatorAttribute
- * @implements { AttributeModifier<ImageAnimatorAttribute> }
+ * @implements { ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class ImageAnimatorModifier extends ImageAnimatorAttribute implements AttributeModifier<ImageAnimatorAttribute> {}
+export declare class ImageAnimatorModifier implements ImageAnimatorAttribute, AttributeModifier<ImageAnimatorAttribute> {}

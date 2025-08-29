@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { Resource } from '../../global/resource';
-import { ResourceColor, Offset, Dimension, ResourceStr } from './units';
+import { Resource, ResourceColor, Offset, Dimension, ResourceStr, VoidCallback } from "./units";
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, Bindable, BindableResourceStr, BindableResourceStrArray } from './common';
-import { DialogAlignment } from './alertDialog';
-import { CrownSensitivity, TextOverflow } from './enums';
+import { DialogAlignment } from "./alertDialog";
+import { CrownSensitivity, TextOverflow } from "./enums";
 import { LengthMetrics } from './../Graphics';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier } from './common';
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Define the contents of each selector item.
  *
@@ -267,11 +267,20 @@ export type OnTextPickerChangeCallback = (selectItem: string | string[], index: 
  * @since 20
  */
 export type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void;
+/**
+ * Defines the TextPicker component attributes.
+ *
+ * @extends CommonMethod
+ * @interface TextPickerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface TextPickerAttribute extends CommonMethod {
     /**
      * Sets the height of each item in the picker.
      *
-     * @param { number | string } value - Height of each item in the picker.
+     * @param { number | string | undefined } value - Height of each item in the picker.
      * <br>For the number type, the value range is [0, +∞]. For the string type,
      * <br>only numeric string values, for example, "56", are supported.
      * @returns { TextPickerAttribute }
@@ -279,119 +288,119 @@ export declare interface TextPickerAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    defaultPickerItemHeight(value: number | string | undefined): this;
+    default defaultPickerItemHeight(value: number | string | undefined): this;
     /**
      * Sets whether scrolling is loopable.
      *
-     * @param { boolean } value - Whether scrolling is loopable. true: loopable; false: not loopable.
+     * @param { boolean | undefined } value - Whether scrolling is loopable. true: loopable; false: not loopable.
      * @default true
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    canLoop(value: boolean | undefined): this;
+    default canLoop(value: boolean | undefined): this;
     /**
      * Sets the font color, font size, and font weight for the top and bottom items.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the top and bottom items.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the top and bottom items.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    disappearTextStyle(value: PickerTextStyle | undefined): this;
+    default disappearTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the font color, font size, and font weight for all items except the top, bottom, and selected items.
      *
-     * @param { PickerTextStyle } value - indicates the text style of normal items.
+     * @param { PickerTextStyle | undefined } value - indicates the text style of normal items.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    textStyle(value: PickerTextStyle | undefined): this;
+    default textStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets the font color, font size, and font weight for the selected item.
      *
-     * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
+     * @param { PickerTextStyle | undefined } value - Font color, font size, and font weight of the selected item.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedTextStyle(value: PickerTextStyle | undefined): this;
+    default selectedTextStyle(value: PickerTextStyle | undefined): this;
     /**
      * Sets whether to enable the text style change animation during the scrolling process.
      *
-     * @param { boolean } disabled
+     * @param { boolean | undefined } disabled
      * @default false
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    disableTextStyleAnimation(disabled: boolean | undefined): this;
+    default disableTextStyleAnimation(disabled: boolean | undefined): this;
     /**
      * Sets the style of the text items when the text style change animation during the scrolling process is disabled.
      *
-     * @param { TextPickerTextStyle } style
+     * @param { TextPickerTextStyle | undefined } style
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    defaultTextStyle(style: TextPickerTextStyle | undefined): this;
+    default defaultTextStyle(style: TextPickerTextStyle | undefined): this;
     /**
      * Triggered when the text picker snaps to the selected item.
      * Compared to onChange, this API supports the undefined type for the callback parameter.
      *
-     * @param { Optional<OnTextPickerChangeCallback> } callback - the callback of onChange.
+     * @param { OnTextPickerChangeCallback | undefined } callback - the callback of onChange.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnTextPickerChangeCallback | undefined): this;
+    default onChange(callback: OnTextPickerChangeCallback | undefined): this;
     /**
      * Triggered when the scrolling in the text picker stops.
      * If the scrolling is initiated by a gesture,
      * this event is triggered when the finger is lifted from the screen and the scrolling stops.
      *
-     * @param { TextPickerScrollStopCallback } callback - Triggered when the scrolling
+     * @param { TextPickerScrollStopCallback | undefined } callback - Triggered when the scrolling
      * <br>in the text picker stops.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onScrollStop(callback: TextPickerScrollStopCallback | undefined): this;
+    default onScrollStop(callback: TextPickerScrollStopCallback | undefined): this;
     /**
      * Triggered during the scrolling of the text picker when an item enters the divider area.
      * When the picker contains text only or a combination of images and text,
      * value indicates the text of the selected item. When the picker contains images only, value is empty.
      *
-     * @param { TextPickerEnterSelectedAreaCallback } callback - Triggered during the scrolling of
+     * @param { TextPickerEnterSelectedAreaCallback | undefined } callback - Triggered during the scrolling of
      * <br>the text picker when an item enters the divider area.
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback | undefined): this;
+    default onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback | undefined): this;
     /**
      * Sets the index of the default selected item in the array.
      * Its priority is higher than that of the selected value in options.
      * For a single-column picker, use a value of the number type.
      * For a multi-column (linked) picker, use a value of the number[] type.
      *
-     * @param { number | number[] } value - Index of the default selected item in the array.
+     * @param { number | number[] | undefined } value - Index of the default selected item in the array.
      * @default 0
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedIndex(value: number | number[] | undefined): this;
+    default selectedIndex(value: number | number[] | undefined): this;
     /**
      * Sets the divider style.
      *
-     * @param { DividerOptions | null } value
+     * @param { DividerOptions | null | undefined } value
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    divider(value: DividerOptions | null | undefined): this;
+    default divider(value: DividerOptions | null | undefined): this;
     /**
      * Sets the height for the fade effect.
      * If this attribute is not set, the default fade effect is displayed.
@@ -400,34 +409,42 @@ export declare interface TextPickerAttribute extends CommonMethod {
      * <br>Avoid changing the attribute data during the animation process of this component.
      * </p>
      *
-     * @param { Dimension } value - Height of the fade effect at the top and bottom edges of the content area.
+     * @param { Dimension | undefined } value - Height of the fade effect at the top and bottom edges of the content area.
      * @default 36vp
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    gradientHeight(value: Dimension | undefined): this;
+    default gradientHeight(value: Dimension | undefined): this;
     /**
      * Specifies whether to enable haptic feedback.
      *
-     * @param { Optional<boolean> } enable - Whether to enable haptic feedback.
+     * @param { boolean | undefined } enable - Whether to enable haptic feedback.
      * @default true
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    enableHapticFeedback(enable: boolean | undefined): this;
+    default enableHapticFeedback(enable: boolean | undefined): this;
     /**
      * Sets the sensitivity to the digital crown rotation.
      *
-     * @param { Optional<CrownSensitivity> } sensitivity - Sensitivity to the digital crown rotation.
+     * @param { CrownSensitivity | undefined } sensitivity - Sensitivity to the digital crown rotation.
      * @default CrownSensitivity.MEDIUM
      * @returns { TextPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
-    attributeModifier(modifier: AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<TextPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 /**
  * Defines the struct of TextPickerResult.
@@ -785,11 +802,21 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class TextPickerDialog {
-}
-
+export declare class TextPickerDialog {}
+/**
+ * Defines the TextPicker component.
+ *
+ * @param { TextPickerOptions } [options] - text picker options.
+ * @param { VoidCallback } [content_]
+ * @returns { TextPickerAttribute } The attribute of the TextPicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
-export declare function TextPicker(options?: TextPickerOptions, 
-@memo
-content_?: () => void): TextPickerAttribute;
+export declare function TextPicker(
+    options?: TextPickerOptions, 
+    @memo
+    content_?: VoidCallback
+): TextPickerAttribute;

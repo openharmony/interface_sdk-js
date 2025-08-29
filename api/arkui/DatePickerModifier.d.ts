@@ -39,18 +39,18 @@
  * @crossplatform
  * @atomicservice
  * @since 20
+ * @noninterop
  */
- export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
+export declare class DatePickerModifier extends DatePickerAttribute implements AttributeModifier<DatePickerAttribute> {
 
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { DatePickerAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12
-     */
-    applyNormalAttribute?(instance: DatePickerAttribute): void;
-  }
-  
+  /**
+   * Defines the normal update attribute function.
+   * 
+   * @param { DatePickerAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 12
+   */
+  applyNormalAttribute?(instance: DatePickerAttribute): void;
+}

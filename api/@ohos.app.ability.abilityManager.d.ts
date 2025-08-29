@@ -22,10 +22,10 @@ import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
+import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
 /*** if arkts 1.1 */
 import { AbilityResult } from './ability/abilityResult';
-import { Configuration } from './@ohos.app.ability.Configuration';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
 /*** endif */
@@ -240,7 +240,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateConfiguration(config: Configuration, callback: AsyncCallback<void>): void;
 
@@ -257,7 +258,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function updateConfiguration(config: Configuration): Promise<void>;
 
@@ -381,7 +383,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function acquireShareData(missionId: int, callback: AsyncCallback<Record<string, Object>>): void;
 
@@ -409,7 +412,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function acquireShareData(missionId: int): Promise<Record<string, Object>>;
 
@@ -511,7 +515,8 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function notifyDebugAssertResult(sessionId: string, status: UserStatus): Promise<void>;
 
@@ -528,7 +533,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16200006 - The caller application can only set the resident status of the configured process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setResidentProcessEnabled(bundleName: string, enable: boolean): Promise<void>;
 

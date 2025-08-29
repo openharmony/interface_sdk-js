@@ -263,6 +263,7 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   hideStartWindow?: boolean;
 }

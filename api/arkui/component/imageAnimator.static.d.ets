@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,20 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
-import { Resource } from '../../global/resource';
+import { Resource } from "../../global/resource";
 import { CommonMethod, PixelMap } from './common';
-import { AnimationStatus, FillMode } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AnimationStatus, FillMode } from "./enums";
+import { VoidCallback } from "./units";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Defines the ImageFrameInfo Interface.
  *
@@ -83,6 +83,15 @@ export interface ImageFrameInfo {
      */
     duration?: number;
 }
+/**
+ * Defines the ImageAnimator component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ImageAnimatorAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface ImageAnimatorAttribute extends CommonMethod {
     /**
      * Sets the image frame information.
@@ -91,21 +100,22 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * <br>Dynamic update is not supported.
      * </p>
      *
-     * @param { Array<ImageFrameInfo> } value - Image frame informatio, Default value is [].
+     * @param { Array<ImageFrameInfo> | undefined } value - Image frame informatio, Default value is [].
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    images(value: Array<ImageFrameInfo> | undefined): this;
+    default images(value: Array<ImageFrameInfo> | undefined): this;
     /**
      * Sets the playback state of the animation.
      *
-     * @param { AnimationStatus } value - Playback state of the animation, Default value is AnimationStatus.Initial.
+     * @param { AnimationStatus | undefined } value - Playback state of the animation,
+     *     Default value is AnimationStatus.Initial.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    state(value: AnimationStatus | undefined): this;
+    default state(value: AnimationStatus | undefined): this;
     /**
      * Sets the playback duration.
      * The unit is millisecond.
@@ -114,113 +124,132 @@ export declare interface ImageAnimatorAttribute extends CommonMethod {
      * <br>This attribute does not take effect when a separate duration is set for any of the image frames.
      * </p>
      *
-     * @param { number } value - Playback duration, Default value is 1000.
+     * @param { number | undefined } value - Playback duration, Default value is 1000.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    duration(value: number | undefined): this;
+    default duration(value: number | undefined): this;
     /**
      * Sets the playback direction.
      *
-     * @param { boolean } value - Playback direction, Default value is false.
+     * @param { boolean | undefined } value - Playback direction, Default value is false.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    reverse(value: boolean | undefined): this;
+    default reverse(value: boolean | undefined): this;
     /**
      * Sets whether the image size is fixed at the component size.
      *
-     * @param { boolean } value - Whether the image size is fixed at the component size, Default value is true.
+     * @param { boolean | undefined } value - Whether the image size is fixed at the 
+     *     component size, Default value is true.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fixedSize(value: boolean | undefined): this;
+    default fixedSize(value: boolean | undefined): this;
     /**
      * Sets the status before and after execution of the animation in the current playback direction.
      *
-     * @param { FillMode } value - Status before and after execution of the animation in the current playback direction,
+     * @param { FillMode | undefined } value - Status before and after execution of the 
+     *     animation in the current playback direction,
      * Default value is FillMode.Forwards.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fillMode(value: FillMode | undefined): this;
+    default fillMode(value: FillMode | undefined): this;
     /**
      * Sets the number of times that the animation is played.
      * Played once by default
      *
-     * @param { number } value - Number of times that the animation is played, Default value is 1.
+     * @param { number | undefined } value - Number of times that the animation is played, Default value is 1.
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    iterations(value: number | undefined): this;
+    default iterations(value: number | undefined): this;
     /**
      * Sets whether the component should automatically pause or resume based on its visibility, using the system's
      * onVisibleAreaChange event.
      *
-     * @param { boolean } monitorInvisibleArea - 	Whether the component should automatically pause or resume based on
+     * @param { boolean | undefined } monitorInvisibleArea - 	Whether the component should automatically 
+     *     pause or resume based on
      * its visibility, using the system's onVisibleAreaChange event, Default value is false.
      * @returns { ImageAnimatorAttribute }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
+    default monitorInvisibleArea(monitorInvisibleArea: boolean | undefined): this;
     /**
      * Status callback, which is triggered when the animation starts to play.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onStart(event: (() => void) | undefined): this;
+    default onStart(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation pauses.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onPause(event: (() => void) | undefined): this;
+    default onPause(event: (() => void) | undefined): this;
     /**
      * Status callback, triggered when the animation is replayed
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onRepeat(event: (() => void) | undefined): this;
+    default onRepeat(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation playback returns to the initial state.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCancel(event: (() => void) | undefined): this;
+    default onCancel(event: (() => void) | undefined): this;
     /**
      * Status callback, which is triggered when the animation playback is complete or stopped.
      *
-     * @param { function } event
+     * @param { function | undefined } event
      * @returns { ImageAnimatorAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onFinish(event: (() => void) | undefined): this;
-    attributeModifier(
-        modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default onFinish(event: (() => void) | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { ImageAnimatorAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<ImageAnimatorAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the ImageAnimator component.
+ *
+ * @param { VoidCallback } [content_]
+ * @returns { ImageAnimatorAttribute } The attribute of the ImageAnimator.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function ImageAnimator(
-@memo
-content_?: () => void): ImageAnimatorAttribute;
+    @memo
+    content_?: VoidCallback
+): ImageAnimatorAttribute;

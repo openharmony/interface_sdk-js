@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use static';
 
 /**
  * @file
  * @kit ArkUI
- * @arkts static
+ * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
-import { ResourceColor, Length, ResourceStr } from './units';
-import { FontStyle, FontWeight } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { ResourceColor, Length, ResourceStr, VoidCallback } from "./units";
+import { FontStyle, FontWeight } from "./enums";
+import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { AttributeModifier } from "./common";
+
 /**
  * Provides a way to control the textclock status.
  *
@@ -118,6 +117,15 @@ export declare interface TextClockOptions {
      */
     controller?: TextClockController;
 }
+/**
+ * Defines the TextClock component attributes.
+ *
+ * @extends CommonMethod
+ * @interface TextClockAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface TextClockAttribute extends CommonMethod {
     /**
      * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
@@ -128,12 +136,12 @@ export declare interface TextClockAttribute extends CommonMethod {
      * The default value is "hh:mm" when TextClock is in a form.
      * If the value has second or millisecond, the value will be set to the default value.
      *
-     * @param { ResourceStr } value
+     * @param { ResourceStr | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    format(value: ResourceStr | undefined): this;
+    default format(value: ResourceStr | undefined): this;
     /**
      * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
      * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
@@ -143,12 +151,12 @@ export declare interface TextClockAttribute extends CommonMethod {
      * The default value is "hh:mm" when TextClock is in a form.
      * If the value has second or millisecond, the value will be set to the default value.
      *
-     * @param { string } value
+     * @param { string | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    format(value: string | undefined): this;
+    default format(value: string | undefined): this;
     /**
      * Provides a date change callback.
      * The callback parameter is Unix Time Stamp,
@@ -159,70 +167,70 @@ export declare interface TextClockAttribute extends CommonMethod {
      * You can listen to this callback,
      * Use the format attribute method to customize data display in the callback.
      *
-     * @param { function } event - Listening date event callback.
+     * @param { function | undefined } event - Listening date event callback.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onDateChange(event: ((value: number) => void) | undefined): this;
+    default onDateChange(event: ((value: number) => void) | undefined): this;
     /**
      * Called when the value of TextClock fontColor is set
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontColor(value: ResourceColor | undefined): this;
+    default fontColor(value: ResourceColor | undefined): this;
     /**
      * Called when the value of TextClock fontSize is set
      *
-     * @param { Length } value
+     * @param { Length | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontSize(value: Length | undefined): this;
+    default fontSize(value: Length | undefined): this;
     /**
      * Called when the value of TextClock fontStyle is set
      *
-     * @param { FontStyle } value
+     * @param { FontStyle | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontStyle(value: FontStyle | undefined): this;
+    default fontStyle(value: FontStyle | undefined): this;
     /**
      * Called when the value of TextClock fontWeight is set
      *
-     * @param { number | FontWeight | string } value
+     * @param { number | FontWeight | string | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: number | FontWeight | string | undefined): this;
     /**
      * Called when the value of TextClock fontFamily is set
      *
-     * @param { ResourceStr } value
+     * @param { ResourceStr | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontFamily(value: ResourceStr | undefined): this;
+    default fontFamily(value: ResourceStr | undefined): this;
     /**
      * Called when the text shadow is set.
      *
-     * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
+     * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
+    default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
     /**
      * Called when the text fontFeature is set.
      *
-     * @param { string } value - The fontFeature.
+     * @param { string | undefined } value - The fontFeature.
      * normal | <feature-tag-value>,
      * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
      * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
@@ -230,31 +238,49 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontFeature(value: string | undefined): this;
+    default fontFeature(value: string | undefined): this;
     /**
      * Set the content modifier of textclock.
      *
-     * @param { ContentModifier<TextClockConfiguration> } modifier - The content modifier of textclock.
+     * @param { ContentModifier<TextClockConfiguration> | undefined } modifier - The content modifier of textclock.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<TextClockConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<TextClockConfiguration> | undefined): this;
     /**
      * Set hour format
      *
-     * @param { Optional<DateTimeOptions> } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
+     * @param { DateTimeOptions | undefined } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
      * @returns { TextClockAttribute } the attribute of the text clock
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    dateTimeOptions(dateTimeOptions: DateTimeOptions | undefined): this;
-    attributeModifier(
-        modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default dateTimeOptions(dateTimeOptions: DateTimeOptions | undefined): this;
+    /**
+     * Set the attribute modifier
+     *
+     * @param { AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+     * @returns { TextClockAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default attributeModifier(modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
-
+/**
+ * Defines the TextClock component.
+ *
+ * @param { TextClockOptions } [options] - text clock options.
+ * @param { VoidCallback } [content_]
+ * @returns { TextClockAttribute } The attribute of the TextClock.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
-export declare function TextClock(options?: TextClockOptions, 
-@memo
-content_?: () => void): TextClockAttribute;
+export declare function TextClock(
+    options?: TextClockOptions, 
+    @memo
+    content_?: VoidCallback
+): TextClockAttribute;

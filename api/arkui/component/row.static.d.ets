@@ -20,7 +20,7 @@
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
-import { AttributeModifier, CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Define options used to construct a row.
  *
@@ -75,6 +75,16 @@ export declare interface RowAttribute extends CommonMethod {
      * @since 20
      */
     default justifyContent(value: FlexAlign | undefined): this;
+    /**
+    * Defines the PointLight
+    *
+    * @param { PointLightStyle } value - The point light style.
+    * @returns { RowAttribute } The attribute of the row.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @systemapi
+    * @since 20
+    */
+    default pointLight(value: PointLightStyle): RowAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *

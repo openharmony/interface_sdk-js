@@ -29,6 +29,7 @@ import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { ImageModifier } from '../../arkui/ImageModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '@ohos.arkui.observer';
 import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
@@ -399,7 +400,7 @@ export declare function $r(value: string, ...params: (Object | null | undefined)
 export declare function $rawfile(value: string): Resource;
 /**
  * Defines the same page mode
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
@@ -420,7 +421,7 @@ export declare enum AccessibilitySamePageMode {
 }
 /**
  * Enum for accessibility component type
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
@@ -1185,6 +1186,66 @@ export declare enum AccessibilityRoleType {
  * @since 20
  */
 export type AccessibilityFocusCallback = (isFocus: boolean) => void;
+
+/**
+ * Enum for accessibility action type
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum AccessibilityAction {
+  /**
+  * undefined action type
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+  UNDEFINED_ACTION = 0,
+  /**
+  * accessibility click action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+  ACCESSIBILITY_CLICK = 1,
+}
+
+/**
+ * Enum for the result of accessibility action intercept function
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare enum AccessibilityActionInterceptResult {
+  /**
+  * intercept the accessibility action
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+  ACTION_INTERCEPT = 0,
+  /**
+  * the accessibility action can be continued
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+  ACTION_CONTINUE = 1,
+  /**
+  * the accessibility action need to bubble up for execution
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+  ACTION_RISE = 2,
+}
+
+/**
+ * Defines the callback type used in accessibility action intercept.
+ * The value of action indicates the accessibility action type.
+ * @typedef { function } AccessibilityActionInterceptCallback
+ * @param { AccessibilityAction } action - the enum of accessibility action type.
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction) => AccessibilityActionInterceptResult;
+
 /**
  * Enum for FinishCallbackType.
  *
@@ -8432,6 +8493,14 @@ export declare interface DragPreviewOptions {
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
     /**
+     * Drag preview modifier.
+     *
+     * @type { ?ImageModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    modifier?: ImageModifier;
+    /**
      * The flag for number showing.
      *
      * @type { ?(boolean | number) }
@@ -8718,11 +8787,11 @@ export declare interface BackgroundOptions {
 /**
  * Defines the value of the custom property..
  *
- * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @typedef { undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty> } CustomProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
+export declare type CustomProperty = undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty>;
 
 /**
  * CommonMethod
@@ -9283,6 +9352,17 @@ export declare interface CommonMethod {
      * @since 20
      */
     default onAccessibilityHover(callback: AccessibilityCallback | undefined): this;
+
+    /**
+     * prompt for current component and descendants unable to handle accessibility hover event
+     *
+     * @param { AccessibilityTransparentCallback | undefined } callback - A callback instance used when current component and 
+     * descendants not handled accessibility hover event
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    default onAccessibilityHoverTransparent(callback: AccessibilityTransparentCallback | undefined): this;
     /**
      * Set hover effect.
      *
@@ -12495,6 +12575,17 @@ export type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * @since 20
  */
 export type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
+
+/**
+ * Defines the callback type used in accessibility hover transparent event.
+ *
+ * @typedef { function } AccessibilityTransparentCallback
+ * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type AccessibilityTransparentCallback = (event: TouchEvent) => void
+
 /**
  * Defines the options about VisibleAreaEvent.
  *

@@ -975,7 +975,8 @@ declare class UIAbility extends Ability {
    * accepts the collaboration request.	
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult;
 }

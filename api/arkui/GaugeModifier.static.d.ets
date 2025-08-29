@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { GaugeAttribute } from './component/gauge';
 /**
  * Defines Gauge Modifier
  *
- * @extends GaugeAttribute
- * @implements { AttributeModifier<GaugeAttribute> }
+ * @implements { GaugeAttribute, AttributeModifier<GaugeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class GaugeModifier extends GaugeAttribute implements AttributeModifier<GaugeAttribute> {}
+export declare class GaugeModifier implements GaugeAttribute, AttributeModifier<GaugeAttribute> {}

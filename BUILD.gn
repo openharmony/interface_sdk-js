@@ -215,6 +215,14 @@ ohos_declaration_template("ohos_declaration_ets") {
   input_project_dir = interface_sdk_path_ets1
 }
 
+ohos_copy("ohos_declaration_ets_api") {
+  deps = [ ":ohos_declaration_ets" ]
+  sources =
+      [ root_out_dir + "/ohos_declaration/${sdk_type}/ohos_declaration_ets" ]
+
+  outputs = [ target_out_dir + "/../api" ]
+}
+
 # ets2/api执行脚本
 ohos_declaration_template("ohos_declaration_ets2") {
   sdk_type = "ets2"
@@ -228,11 +236,29 @@ ohos_copy_internal("ets_internal_api") {
   input_project_dir = interface_sdk_path_ets1
 }
 
+ohos_prebuilt_etc("ets_internal_api_etc") {
+  source = "OAT.xml"
+  deps = [ ":ets_internal_api" ]
+  install_enable = false
+  output = string_replace(source, "OAT", "ets_internal_api_etc")
+  part_name = "sdk"
+  subsystem_name = "sdk"
+}
+
 # ets/arkts执行脚本
 ohos_copy_internal("bundle_arkts") {
   sdk_type = "ets"
   iv_input = interface_sdk_path_ets1 + "/arkts"
   input_project_dir = interface_sdk_path_ets1
+}
+
+ohos_prebuilt_etc("bundle_arkts_etc") {
+  source = "OAT.xml"
+  deps = [ ":bundle_arkts" ]
+  install_enable = false
+  output = string_replace(source, "OAT", "bundle_arkts_etc")
+  part_name = "sdk"
+  subsystem_name = "sdk"
 }
 
 # ets1.2/arkts执行脚本
@@ -268,6 +294,14 @@ ohos_copy_internal("ets_component") {
   input_project_dir = interface_sdk_path_ets1
 }
 
+ohos_prebuilt_etc("ets_component_etc") {
+  source = "OAT.xml"
+  deps = [ ":ets_component" ]
+  install_enable = false
+  output = string_replace(source, "OAT", "ets_component_etc")
+  part_name = "sdk"
+  subsystem_name = "sdk"
+}
 
 # ets1.2/arkui/component执行脚本
 ohos_copy_internal("ets_component2") {
@@ -283,6 +317,14 @@ ohos_copy_internal("bundle_kits") {
   input_project_dir = interface_sdk_path_ets1
 }
 
+ohos_prebuilt_etc("bundle_kits_etc") {
+  source = "OAT.xml"
+  deps = [ ":bundle_kits" ]
+  install_enable = false
+  output = string_replace(source, "OAT", "ohos_prebuilt_etc")
+  part_name = "sdk"
+  subsystem_name = "sdk"
+}
 
 # ets2/kits执行脚本
 ohos_copy_internal("bundle_kits2") {
@@ -411,14 +453,14 @@ action("build_sdk_interop2") {
 group("build_ohos_ets") {
   external_deps = [
     ohos_ets_build_system_deps,
-    ohos_ets_stdlib_deps
+    ohos_ets_stdlib_deps,
+    ohos_ets_koala_wrapper_deps
   ]
   deps = [
     ":ohos_base_split",
     ":ohos_ets_api",
     ":ohos_ets_arkts",
-    ":ohos_ets_kits",
-    ohos_ets_koala_wrapper_deps,  
+    ":ohos_ets_kits", 
     ohos_ets_ark_link_deps,
     ohos_ets_es2panda_deps,
     ohos_ets_libes2panda_public_deps
@@ -579,8 +621,8 @@ group("ohos_ets_dynamic") {
 }
 
 action("gen_api_check_plugin") {
-  deps = [
-    "//developtools/ace_ets2bundle/arkui-plugins:ui_plugin"
+  external_deps = [
+    "ace_ets2bundle:ui_plugin"
   ]
   npm_path = "//prebuilts/build-tools/common/nodejs/current/bin/npm"
   script = "build_api_check_plugin.py"

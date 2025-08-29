@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -24,9 +25,9 @@ import { QRCodeAttribute } from './component/qrcode';
 /**
  * Defines QRCode Modifier
  *
- * @extends QRCodeAttribute
- * @implements { AttributeModifier<QRCodeAttribute> }
+ * @implements { QRCodeAttribute, AttributeModifier<QRCodeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-export declare class QRCodeModifier extends QRCodeAttribute implements AttributeModifier<QRCodeAttribute> {}
+export declare class QRCodeModifier implements QRCodeAttribute, AttributeModifier<QRCodeAttribute> {}
