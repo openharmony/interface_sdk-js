@@ -41,6 +41,7 @@
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare interface SelectOption {
   /**
@@ -138,6 +139,7 @@ declare interface SelectOption {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 interface SelectInterface {
   /**
@@ -385,6 +387,7 @@ declare interface MenuOutlineOptions {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
@@ -1215,7 +1218,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20
    */
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
-
+  
   /**
    * Sets whether to display in the sub window.
    *
@@ -1227,6 +1230,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20
    */
   showInSubWindow(showInSubWindow: Optional<boolean>): SelectAttribute;
+
 
   /**
    * Set whether to display the default selected icon
@@ -1250,6 +1254,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 12
+ * @noninterop
  */
 declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
   /**
