@@ -83,7 +83,6 @@
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
     "SystemCapability.PowerManager.DisplayPowerManager",
     "SystemCapability.BundleManager.DistributedBundleFramework",
-    "SystemCapability.DistributedHardware.DistributedHardwareFWK",
     "SystemCapability.Notification.Notification",
     "SystemCapability.Notification.ReminderAgent",
     "SystemCapability.Multimedia.Drm.Core",
