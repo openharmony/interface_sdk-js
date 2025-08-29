@@ -106,7 +106,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-    selected(value: boolean | undefined | Bindable<boolean>): this;
+    default selected(value: boolean | undefined | Bindable<boolean>): this;
     /**
      * Whether the relevant check icon is displayed when a menu item is selected.
      * Use type ResourceStr or SymbolGlyphModifier to specify icon instead of the default check mark.
@@ -119,7 +119,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier | undefined): this;
+    default selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier | undefined): this;
     /**
      * Triggers a callback when a menu item is selected or unchecked.
      *
@@ -128,7 +128,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: ((selected: boolean) => void) | undefined): this;
+    default onChange(callback: ((selected: boolean) => void) | undefined): this;
     /**
      * Sets the content font style.
      * Family and style are not supported currently and will be fixed in future.
@@ -138,7 +138,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentFont(value: Font | undefined): this;
+    default contentFont(value: Font | undefined): this;
     /**
      * Sets the font color of content text.
      *
@@ -147,7 +147,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentFontColor(value: ResourceColor | undefined): this;
+    default contentFontColor(value: ResourceColor | undefined): this;
     /**
      * Sets the label info font style.
      * Family and style are not supported currently and will be fixed in future.
@@ -157,7 +157,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    labelFont(value: Font | undefined): this;
+    default labelFont(value: Font | undefined): this;
     /**
      * Sets the font color of label info text.
      *
@@ -166,7 +166,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    labelFontColor(value: ResourceColor | undefined): this;
+    default labelFontColor(value: ResourceColor | undefined): this;
     /**
      * Set the attribute modifier of menu item.
      *
@@ -176,7 +176,7 @@ export declare interface MenuItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(
+    default attributeModifier(
         modifier: AttributeModifier<MenuItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
