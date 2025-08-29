@@ -317,7 +317,7 @@ declare namespace floatingBall {
     STATIC = 1,
   
     /**
-     * Normal layout, support title and content with different color.
+     * Normal layout, support title and content.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -325,7 +325,7 @@ declare namespace floatingBall {
     NORMAL = 2,
   
     /**
-     * Emphatic layout, support title and content with different size.
+     * Emphatic layout, support icon, title, and content.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
