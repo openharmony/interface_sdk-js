@@ -751,9 +751,9 @@ declare namespace deviceInfo {
 
     /**
    * Obtains the device CPU chipType by a string.
-   *
-   * @syscap SystemCapability.Startup.SystemInfo
+   * 
    * @type { string }
+   * @syscap SystemCapability.Startup.SystemInfo
    * @since 21
    */
     const chipType: string;
@@ -761,9 +761,9 @@ declare namespace deviceInfo {
     /**
      * Obtains the deviceboot count by a number
      * if get failed, it will return -1
-     *
-     * @syscap SystemCapability.Startup.SystemInfo
+     * 
      * @type { number }
+     * @syscap SystemCapability.Startup.SystemInfo
      * @since 21
      */
     const bootCount: number;
