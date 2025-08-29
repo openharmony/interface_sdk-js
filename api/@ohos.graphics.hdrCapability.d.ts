@@ -40,14 +40,14 @@ declare namespace hdrCapability {
   /**
    * Enumerates the HDR Format
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 11
    */
   /**
    * Enumerates the HDR Format
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}

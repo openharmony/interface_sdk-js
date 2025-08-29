@@ -20,6 +20,7 @@
 
 /*** if arkts 1.2 */
 import { Resource } from './global/resource';
+import { SizeOptions } from '@ohos.arkui.component';
 /*** endif */
 import { AsyncCallback, BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
@@ -3127,7 +3128,8 @@ declare namespace webview {
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
   }
@@ -3170,7 +3172,8 @@ declare namespace webview {
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     size?: SizeOptions;
 

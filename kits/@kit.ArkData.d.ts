@@ -50,8 +50,9 @@ export {
 import relationalStore from '@ohos.data.relationalStore';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
+import preferences from '@ohos.data.preferences';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
 export {
-  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor
+  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor, preferences
 };
 /*** endif */
