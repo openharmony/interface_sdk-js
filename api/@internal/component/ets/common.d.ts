@@ -34012,7 +34012,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the effect used when the scroll boundary is reached.
    *
    * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
+   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>,
+   * and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
    * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
    * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
    * <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components,
