@@ -759,7 +759,7 @@ declare namespace text {
 
     /**
      * Left bottom radius of the rectangle.
-     * @type { number } it is double type data.
+     * @type { number } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
