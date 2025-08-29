@@ -4526,7 +4526,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
-    isCurrentDeviceEnableIntelligentNoiseReduction(sourceType: SourceType): boolean;
+    isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean;
+
   }
 
   /**
