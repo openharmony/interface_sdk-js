@@ -28,7 +28,16 @@
  */
 export interface ChildProcessOptions {
   /**
-   * Whether the child process runs in an isolated environment.
+   * Controls whether the child process runs in an isolated data sandbox and network environment.
+   * 
+   * - When `true`: 
+   *   - Child process runs in an independent data sandbox
+   *   - Network access is disabled
+   *   - Enables UID isolation functionality
+   * - When `false` (default):
+   *   - Shares parent process's data sandbox
+   *   - Inherits parent's network permissions
+   *   - Disables UID isolation control
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -36,4 +45,20 @@ export interface ChildProcessOptions {
    * @since 12
    */
   isolationMode?: boolean;
+
+  /**
+   * Controls UID isolation for the child process, effective only when `isolationMode=true`.
+   * 
+   * - When `true`:
+   *   - Child process uses independent UID
+   * - When `false` (default):
+   *   - Child process uses parent process's UID
+   * 
+   * @type { ?boolean }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  isolationUid?: boolean;
 }
