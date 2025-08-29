@@ -33,8 +33,8 @@ export {
 
 /*** if arkts 1.2 */
 import inputMethod from '@ohos.inputMethod';
-import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 import InputMethodSubtype from '@ohos.InputMethodSubtype';
+import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
 
 export {
   inputMethod, InputMethodSubtype, PanelInfo, PanelType, PanelFlag
