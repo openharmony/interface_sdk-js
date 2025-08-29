@@ -30,3 +30,13 @@ export {
   InputMethodExtensionAbility, InputMethodExtensionContext, InputMethodSubtype, inputMethod, inputMethodEngine,
   InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag
 };
+
+/*** if arkts 1.2 */
+import inputMethod from '@ohos.inputMethod';
+import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';
+import InputMethodSubtype from '@ohos.InputMethodSubtype';
+
+export {
+  inputMethod, InputMethodSubtype, PanelInfo, PanelType, PanelFlag
+};
+/*** endif */
