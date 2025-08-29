@@ -53,7 +53,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   type OnSuccessFn = () => void;
@@ -65,7 +65,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   type OnFailureFn = () => void;
