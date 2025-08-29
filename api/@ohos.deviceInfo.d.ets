@@ -485,7 +485,7 @@ declare class deviceInfo {
      */
     static get chipType(): string;
 
-    **
+    /**
      * Obtaining the drive boot count.
      * if get failed, it will be -1
      *
