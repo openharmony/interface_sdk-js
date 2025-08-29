@@ -1026,7 +1026,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * </p>
    *
    * @param { ResourceStr | PixelMap | SymbolGlyphModifier } icon - Icon of the back button on the title bar.
-   * @param { ResourceStr } accessibilityText - Accessibility text for the back button.
+   * @param { ResourceStr } [accessibilityText] - Accessibility text for the back button.
    * <br>Default value: **back** when the system language is English.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

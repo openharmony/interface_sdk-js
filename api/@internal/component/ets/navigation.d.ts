@@ -3084,7 +3084,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * Sets the back button icon and accessibility broadcast content.
    *
    * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
-   * @param { ResourceStr } accessibilityText - Indicates content needs to broadcast.
+   * @param { ResourceStr } [accessibilityText] - Indicates content needs to broadcast.
    *                                            Default value: **back** when the system language is English.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
