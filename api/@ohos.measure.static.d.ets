@@ -19,6 +19,9 @@
  * @arkts 1.2
  */
 
+
+
+
 import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
 import { SizeOptions } from './arkui/component/units';
 import { Resource } from './global/resource'
@@ -31,7 +34,6 @@ import { Resource } from './global/resource'
  * @since 20
  */
 export interface MeasureOptions {
-
   /**
    * Text to display.
    *
@@ -41,7 +43,6 @@ export interface MeasureOptions {
    */
   textContent: string | Resource;
 
-  
   /**
    * Text display area of width.
    *
@@ -51,7 +52,6 @@ export interface MeasureOptions {
    */
   constraintWidth?: number | string | Resource;
 
-  
   /**
    * Font Size.
    *
@@ -61,7 +61,6 @@ export interface MeasureOptions {
    */
   fontSize?: number | string | Resource;
 
-  
   /**
    * Font style.
    *
@@ -71,7 +70,6 @@ export interface MeasureOptions {
    */
   fontStyle?: number | FontStyle;
 
-  
   /**
    * Font weight.
    *
@@ -81,7 +79,6 @@ export interface MeasureOptions {
    */
   fontWeight?: number | string | FontWeight;
 
-  
   /**
    * Font list of text.
    *
@@ -91,7 +88,6 @@ export interface MeasureOptions {
    */
   fontFamily?: string | Resource;
 
-  
   /**
    * Distance between text fonts.
    *
@@ -101,7 +97,6 @@ export interface MeasureOptions {
    */
   letterSpacing?: number | string;
 
-  
   /**
    * Alignment of text.
    *
@@ -111,7 +106,6 @@ export interface MeasureOptions {
    */
   textAlign?: number | TextAlign;
 
-  
   /**
    * Overflow mode of the font.
    *
@@ -121,7 +115,6 @@ export interface MeasureOptions {
    */
   overflow?: number | TextOverflow;
 
-  
   /**
    * Maximum number of lines of text.
    *
@@ -131,7 +124,6 @@ export interface MeasureOptions {
    */
   maxLines?: number;
 
-  
   /**
    * Vertical center mode of the font.
    *
@@ -141,7 +133,6 @@ export interface MeasureOptions {
    */
   lineHeight?: number | string | Resource;
 
-  
   /**
    * Baseline offset.
    *
@@ -151,7 +142,6 @@ export interface MeasureOptions {
    */
   baselineOffset?: number | string;
 
-  
   /**
    * Type of letter in the text font
    *
@@ -160,8 +150,7 @@ export interface MeasureOptions {
    * @since 20
    */
   textCase?: number | TextCase;
- 
-  
+
   /**
    * Specify the indentation of the first line in a text-block.
    *
@@ -171,7 +160,6 @@ export interface MeasureOptions {
    */
   textIndent?: number | string;
 
-  
   /**
    * Set the word break type.
    *
@@ -182,16 +170,13 @@ export interface MeasureOptions {
   wordBreak?: WordBreak;
 }
 
-
 /**
  * Defines the Measure interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class MeasureText {
-  
-  
+export default declare class MeasureText {
   /**
    * Displays the textWidth.
    *
@@ -202,8 +187,6 @@ export declare class MeasureText {
    */
   static measureText(options: MeasureOptions): number;
 
-  
-  
   /**
    * Displays the text width and height.
    *
