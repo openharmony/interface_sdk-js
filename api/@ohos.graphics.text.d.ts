@@ -1052,6 +1052,15 @@ declare namespace text {
      * @since 20
      */
     badgeType?: TextBadgeType;
+
+    /**
+     * Font width. The default value is NORMAL.
+     * @type {  ?FontWidth  } it is uint32_t type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    fontWidth?: FontWidth;
   }
 
   /**
