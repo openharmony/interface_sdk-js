@@ -749,6 +749,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    */
   textVerticalAlign(textVerticalAlign: Optional<TextVerticalAlign>): TextAttribute;
 
+
+  /**
+   * Set the vertical align of the whole text content.
+   *
+   * @param { Optional<TextContentAlign> } textContentAlign - The default value is TOP.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  textContentAlign(textContentAlign: Optional<TextContentAlign>): TextAttribute;
+
   /**
    * Called when the vertical center mode of the font is set.
    *
