@@ -493,6 +493,6 @@ declare class deviceInfo {
      * @since 22
      * @arkts 1.2
      */
-    static get majorVersion(): int;
+    static get bootCount(): int;
 }
 export default deviceInfo;
