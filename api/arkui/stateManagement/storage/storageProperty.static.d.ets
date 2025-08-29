@@ -132,7 +132,7 @@ export declare enum ColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  DARK = 1
+  DARK
 }
 
 /**
@@ -149,7 +149,7 @@ export declare enum LayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  LTR = 0,
+  LTR,
 
   /**
    * Elements are laid out from right to left.
@@ -157,7 +157,7 @@ export declare enum LayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  RTL = 1,
+  RTL,
 
   /**
    * Elements are laid out from auto.
@@ -165,5 +165,5 @@ export declare enum LayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Auto = 2
+  Auto
 }
