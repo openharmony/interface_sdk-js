@@ -1426,7 +1426,7 @@ declare namespace text {
 
     /**
      * Line spacing. The value is a double number.
-     * @type { ?double } it is double type data
+     * @type { ?double } It is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
      * @arkts 1.1&1.2
