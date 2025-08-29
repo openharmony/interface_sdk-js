@@ -23,6 +23,10 @@ import { Resource } from '../global/resource';
 import type notificationManager from '../@ohos.notificationManager';
 /*** if arkts 1.1 */
 import notification from '../@ohos.notification';
+import { WantAgent } from '../@ohos.wantAgent';
+/*** endif */
+/*** if arkts 1.2 */
+import { WantAgent } from '../@ohos.app.ability.wantAgent';
 /*** endif */
 
 /**
@@ -412,6 +416,17 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * @arkts 1.1&1.2
    */
   lines: Array<string>;
+
+  /**
+   * Multi-line wantAgent of the multi-line text notification.
+   * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+   * @type { ?Array<WantAgent> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  lineWantAgents?: Array<WantAgent>;
 }
 
 /**
