@@ -98,6 +98,35 @@ declare namespace osAccount {
     activateOsAccount(localId: number, callback: AsyncCallback<void>): void;
 
     /**
+     * Activates a specified OS account on the target display.
+     * <p>
+     * If multiple OS accounts and displays are available, you can call this method to enable a
+     * specific OS account to run in the foreground on a target display.
+     * Currently, cross-display activation is not supported, which means that a foreground OS account
+     * cannot be activated from its original display to another display.
+     * </p>
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { number } localId - Indicates the local ID of the OS account.
+     * @param { number } displayId - Indicates the ID of the target display.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300008 - Restricted Account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target account is being operated.
+     * @throws { BusinessError } 12300016 - The number of logged in accounts reaches the upper limit.
+     * @throws { BusinessError } 12300018 - Display not found.
+     * @throws { BusinessError } 12300019 - Cross-display activation not supported.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     */
+    activateOsAccount(localId: number, displayId: number): Promise<void>;
+
+    /**
      * Activates a specified OS account.
      * <p>
      * If multiple OS accounts are available, you can call this method to enable a specific OS account
@@ -1172,6 +1201,38 @@ declare namespace osAccount {
     getForegroundOsAccountLocalId(): Promise<number>;
 
     /**
+     * Gets the local ID of the foreground OS account by displayId.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } displayId - Indicates the display ID of the target foreground OS account.
+     * @returns { Promise<number> } Returns local ID of the target foreground OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300017 - The foreground OS account is not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     */
+    getForegroundOsAccountLocalId(displayId: number): Promise<number>;
+
+    /**
+     * Gets the disyplay ID of the foreground OS account by localId.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { number } localId - Indicates the local ID of the target foreground OS account.
+     * @returns { Promise<number> } Returns display ID of the target foreground OS account.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300017 - The foreground OS account is not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     */
+    getForegroundOsAccountDisplayId(localId: number): Promise<number>;
+
+    /**
      * Creates an OS account using the local name and account type.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
@@ -1894,6 +1955,20 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    /**
+     * Subscribes to the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { 'switching' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
@@ -1911,6 +1986,20 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
+     */
+    /**
+     * Unsubscribes from the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { 'switching' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -1930,6 +2019,20 @@ declare namespace osAccount {
      * @systemapi Hide this for inner system use.
      * @since 12
      */
+    /**
+     * Subscribes to the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { 'switched' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
+     */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
@@ -1947,6 +2050,20 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12
+     */
+    /**
+     * Unsubscribes from the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { 'switched' } type - Indicates the event type.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid type.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 21
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2294,6 +2411,16 @@ declare namespace osAccount {
      * @since 12
      */
     toAccountId: number;
+
+    /**
+     * Indicates which display the switch event occurred on.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 21
+     */
+    displayId?: number;
   }
 
   /**
