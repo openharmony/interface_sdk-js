@@ -24,7 +24,7 @@
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 type OnPrepareFn = () => void;
@@ -35,7 +35,7 @@ type OnPrepareFn = () => void;
  * @typedef { Function }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
+ * @since 20
  * @arkts 1.1&1.2
  */
 type OnRunFn = () => void;
@@ -67,11 +67,18 @@ interface TestRunner {
    */
   /**
    * Prepare the unit testing environment for running test cases.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Prepare the unit testing environment for running test cases.
    * 
    * @type { OnPrepareFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   onPrepare: OnPrepareFn;
@@ -85,10 +92,17 @@ interface TestRunner {
   /**
    * Run all test cases.
    *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 11
+   */
+  /**
+   * Run all test cases.
+   *
    * @typedef { OnRunFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   onRun: OnRunFn;

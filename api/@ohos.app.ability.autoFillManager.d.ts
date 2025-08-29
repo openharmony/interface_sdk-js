@@ -59,7 +59,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   type OnSuccessFn = () => void;
@@ -71,7 +71,7 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
   type OnFailureFn = () => void;
@@ -105,11 +105,19 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is successfully handled.
      *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    /**
+     * Called when auto save request is successfully handled.
+     *
      * @type { OnSuccessFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     onSuccess: OnSuccessFn;
@@ -124,11 +132,19 @@ declare namespace autoFillManager {
     /**
      * Called when auto save request is failed to be handled.
      *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 12
+     */
+    /**
+     * Called when auto save request is failed to be handled.
+     *
      * @type { OnFailureFn }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     onFailure: OnFailureFn;
