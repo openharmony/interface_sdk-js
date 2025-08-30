@@ -6740,7 +6740,6 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     getProgress() : number;
 
