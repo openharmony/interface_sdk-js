@@ -290,6 +290,15 @@ export declare interface ButtonLabelStyle {
      */
     font?: Font;
 }
+
+/**
+ * Defines the Button component attributes.
+ *
+ * @extends CommonMethod
+ * @interface ButtonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 export declare interface ButtonAttribute extends CommonMethod {
     /**
      * Describes the button style.
