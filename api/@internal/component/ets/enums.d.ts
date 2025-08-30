@@ -4421,20 +4421,20 @@ declare enum LineCapStyle {
   Round,
 
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -4442,7 +4442,7 @@ declare enum LineCapStyle {
    * @since 10
    */
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the line width.
+   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

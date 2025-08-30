@@ -180,7 +180,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   vertical(value: boolean): DividerAttribute;
 
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -188,7 +188,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 7
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -197,7 +197,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 9
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -207,7 +207,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 10
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -262,7 +262,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -270,7 +270,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 7
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -279,7 +279,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 9
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -289,7 +289,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 10
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }

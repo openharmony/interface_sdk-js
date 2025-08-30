@@ -23036,7 +23036,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the safe area to be expanded to.
-   * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
+   * default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
    * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}
    *
    * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
