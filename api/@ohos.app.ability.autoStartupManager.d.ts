@@ -30,6 +30,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @systemapi
  * @since 11
  */
+/**
+ * The class of auto startup manager.
+ *
+ * @namespace autoStartupManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 21
+ * @arkts 1.1&1.2
+ */
 declare namespace autoStartupManager {
   /**
    * Register the listener that watches for all applications auto startup state.
@@ -189,6 +197,21 @@ declare namespace autoStartupManager {
    * @since 11
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
+
+  /**
+   * Retrieves the auto-start status of the current application.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the current application has been enabled for
+   *     auto-start on boot by the user; returns {@code false} otherwise.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getAutoStartupStatusForSelf(): Promise<boolean>;
 }
 
 export default autoStartupManager;
