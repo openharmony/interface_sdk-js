@@ -23660,7 +23660,7 @@ declare class CommonMethod<T> {
    * Background image
    *
    * @param { ResourceStr | PixelMap } src - the background image source
-   * @param { BackgroundImageOptions } options - config the options
+   * @param { BackgroundImageOptions } [options] - config the options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

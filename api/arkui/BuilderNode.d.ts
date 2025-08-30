@@ -549,7 +549,7 @@ export class BuilderNode<Args extends Object[]> {
    */
    updateConfiguration(): void;
 
-   /**
+  /**
    * Dispatch event to targetNode.
    *
    * @param { InputEventType  } event - The event which will be sent to the targetNode.

@@ -141,14 +141,14 @@ export declare abstract class NodeController {
   aboutToAppear(): void;
 
   /**
-   * AboutToDisappear Method. Executed before the associated NodeContainer is destroyed.
+   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * AboutToDisappear Method. Executed before the associated NodeContainer is destroyed.
+   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
