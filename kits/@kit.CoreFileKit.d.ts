@@ -55,7 +55,6 @@ export {
 /*** if arkts 1.2 */
 import BackupExtensionAbility from '@ohos.application.BackupExtensionAbility';
 import { BundleVersion } from '@ohos.application.BackupExtensionAbility';
-import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
 import Environment from '@ohos.file.environment';
