@@ -20,6 +20,7 @@
 
 import { Builder } from './builder';
 import { ComponentBuilder } from './../stateManagement/runtime';
+import { DynamicNode } from './common';
 
 /**
  * Defines type to operation data source.
@@ -466,11 +467,12 @@ export interface IDataSource<T> {
 /**
  * declare LazyForEachAttribute
  *
+ * @extends DynamicNode
  * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export interface LazyForEachAttribute {}
+export interface LazyForEachAttribute extends DynamicNode {}
 
 /**
  * Define item generator function.

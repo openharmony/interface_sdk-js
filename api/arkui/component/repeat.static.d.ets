@@ -21,6 +21,7 @@
 
 import { Builder } from './builder';
 import { ComponentBuilder } from './../stateManagement/runtime';
+import { DynamicNode } from './common'
 
 /**
  * Indicates the type of Repeat's Data Source.
@@ -183,11 +184,12 @@ export interface TemplateOptions {
 /**
  * Defines the Repeat component attribute functions.
  *
+ * @extends DynamicNode
  * @typedef RepeatAttribute<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export interface RepeatAttribute<T> {
+export interface RepeatAttribute<T> extends DynamicNode {
   /**
    * Executes itemGenerator of each item.
    *
