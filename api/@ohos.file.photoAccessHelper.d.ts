@@ -2066,6 +2066,29 @@ declare namespace photoAccessHelper {
      */
     convertImageFormat(title: string, imageFormat: SupportedImageFormat): Promise<PhotoAsset>;
     /**
+     * Create a compatibility copy of the asset for applications that do not support the encoding format.
+     * The current HEIF image will generate a JPEG image when this interface is called.
+     * The API supports media types include normal picture,movingphoto(only picture part), and burst photo,
+     * but video is not included.
+     * The API supports image format incluse heif and heic.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Returns the void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *    1. The original file does not exist locally in PhotoAsset;
+     *    2. The original file format is not within the supported rrange
+     *    3. The original file is a temporary file or is being editted;
+     * @throws { BusinessError } 23800301 - Internal systerm error.It is recommended to retry and check the
+     *    logs.Possible causes:
+     *    1. Database corrupted.2. The file system is abnorma1.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    createTemporaryCompatibleDuplicate(): Promise<void>;
+    /**
      * Opens the source file to obtain the FD. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -6229,6 +6252,21 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
+
+    /**
+     * checks whether the application supports compatiblle copies by bundleName
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } bundleName - BundleName of target applicaation
+     * @returns { Promise<boolean> } - Returns the whether appplication supports compatible copies
+     * @throws {BusinessError } 201 - Permission denied
+     * @throws {BusinessError } 202 - Called by non-system aapplication
+     * @throws {BusinessError } 23800301 - Internal system eerror. It is recommended to retry and check the logs
+     *    <br>Possible causes: 1. The IPC request timed out. 2.system running error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isCompatibleDuplicateSupported(bundleName: string): Promise<boolean>;
 
     /**
      * Obtains photo albums based on the specified options. This API uses a promise to return the result.
