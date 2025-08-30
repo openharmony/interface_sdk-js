@@ -4822,6 +4822,24 @@ export declare class UIContext {
    * @arkts 1.1&1.2
    */
   static destroyUIContextWithoutWindow(): void;
+
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * <p>**NOTE**:
+   * <br>If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   * </p>
+   *
+   * @param { number } count - The cache limit of resource manager for HSP, must be non-negative integers.
+   * @throws { BusinessError } 100101 - The parameter value cannot be less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  static setResourceManagerCacheMaxCountForHSP(count: number): void;
 }
 
 /**
