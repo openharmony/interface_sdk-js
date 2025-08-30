@@ -768,6 +768,31 @@ declare namespace text {
   }
 
   /**
+   * Enumerates line height scaling type.
+   * @enum { number }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  enum LineHeightStyle {
+    /**
+     * Use the font size as the scale factor for line height scaling.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    FONT_SIZE = 0,
+
+    /**
+     * Use the text height after shaping as the scale factor for line height scaling.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    FONT_HEIGHT = 1
+  }
+
+  /**
    * Describes font feature of text.
    * @typedef FontFeature
    * @syscap SystemCapability.Graphics.Drawing
@@ -939,6 +964,33 @@ declare namespace text {
      * @arkts 1.1&1.2
      */
     wordSpacing?: number;
+
+    /**
+     * Maximum line height. The value is a double number.
+     * @type { ?double } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    lineHeightMaximum?: double;
+
+    /**
+     * Minimum line height. The value is a double number.
+     * @type { ?double } it is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    lineHeightMinimum?: double;
+
+    /**
+     * Line height scaling base style. The default value is FONT_SIZE.
+     * @type { ?LineHeightStyle } Line height scaling style.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    lineHeightStyle?: LineHeightStyle;
 
     /**
      * Scale factor of the line height. The value is a floating point number.
@@ -1380,6 +1432,15 @@ declare namespace text {
      * @since 20
      */
     verticalAlign?: TextVerticalAlign;
+
+    /**
+     * Line spacing. The value is a double number.
+     * @type { ?double } It is double type data
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    lineSpacing?: double;
   }
 
   /**
