@@ -315,9 +315,7 @@ declare namespace webview {
    * Enum type for ArkWeb Engine Version.
    *
    * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
-   * There may be two ArkWeb Web Engine deployed:
-   *   Legacy is the old version from last release, it is used only for temporary compatibility downgrade.
-   *   Evergreen is the new version for current release, this is the preferred Web Engine for application.
+   * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
@@ -326,7 +324,6 @@ declare namespace webview {
   enum ArkWebEngineVersion {
     /**
      * Use the system default ArkWeb engine.
-     * This is the default behaviour for each application.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      * @arkts 1.1&1.2
@@ -334,8 +331,7 @@ declare namespace webview {
     SYSTEM_DEFAULT = 0,
 
     /**
-     * ArkWeb M114 version. Applications may use this version explictly.
-     * As the evolution of system, this version may be disabled or removed.
+     * ArkWeb M114 version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      * @arkts 1.1&1.2
@@ -349,14 +345,6 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     M132 = 2,
-
-    /**
-     * ArkWeb Evergreen Web Engine, always use the new ArkWeb Engine.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    SYSTEM_EVERGREEN = 99999
   }
 
   /**
@@ -3784,13 +3772,12 @@ declare namespace webview {
     /**
      * Set active ArkWeb engine version.
      * If the system does not support the specified version, it will not take effect.
-     *
      * This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
      * Web components are loaded.
      *
      * <strong>Legacy Web Engine Compatibility Note</strong>:
-     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,
-     * see [Compatible with Legacy Web Engine]{@link https://gitcode.com/openharmony-tpc/chromium_src/blob/132_trunk/web/ReleaseNote/CompatibleWithLegacyWebEngine.md} for compatibility guidelines.
+     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
+     * see [Compatible with Legacy Web Engine in release note]  for compatibility guidelines.
      * </p>
      *
      * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
@@ -3810,16 +3797,6 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
-
-    /**
-     * Check if the currently active ArkWeb engine is Evergreen.
-     * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    static isActiveWebEngineEvergreen(): boolean;
 
     /**
      * Set web engine to use HttpDns server to resolve dns.
