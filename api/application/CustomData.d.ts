@@ -51,12 +51,12 @@ export default interface CustomData {
      * User defined data. When the modal window of AutoFillExtension needs to be raised again,
      * pass this parameter to the application framework.
      *
-     * @type { Record<string, RecordData> }
+     * @type { RecordData }
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
      * @stagemodelonly
      * @since 20
      * @arkts 1.2
      */
-    data: Record<string, RecordData>;
+    data: RecordData;
   }

@@ -60,11 +60,11 @@ export default class AtomicServiceOptions extends StartOptions {
   /**
    * The description of the WantParams object in an AtomicServiceOptions
    *
-   * @type { ?Record<string, RecordData> }
+   * @type { ?RecordData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
    * @arkts 1.2
    */
-  parameters?: Record<string, RecordData>;
+  parameters?: RecordData;
 }
