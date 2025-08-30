@@ -492,7 +492,7 @@ export declare class TimePickerDialog {
  * Defines the TimePicker component.
  *
  * @param { TimePickerOptions } [options] - timer picker options.
- * @param { VoidCallback } [content_]
+ * @param { function } [content_]
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
@@ -503,5 +503,5 @@ export declare class TimePickerDialog {
 export declare function TimePicker(
     options?: TimePickerOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): TimePickerAttribute;

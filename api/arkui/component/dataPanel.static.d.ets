@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Length, VoidCallback } from "./units";
+import { ResourceColor, Length } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 import { AttributeModifier } from "./common";
@@ -252,5 +252,5 @@ export declare interface DataPanelAttribute extends CommonMethod {
 export declare function DataPanel(
     options: DataPanelOptions, 
     @memo
-    content_?: VoidCallback
+    content_?: () => void
 ): DataPanelAttribute;
