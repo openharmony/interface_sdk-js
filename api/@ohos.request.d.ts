@@ -2712,14 +2712,6 @@ declare namespace request {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11
      */
-    /**
-     * Broadcast events for the request.
-     *
-     * @enum { string } BroadcastEvent
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 20
-     */
     enum BroadcastEvent {
       /**
        * Completion event for the task.
@@ -2728,15 +2720,6 @@ declare namespace request {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11
-       */
-      /**
-       * Completion event for the task.
-       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
-       * The data in the commonEventData contains the id of the task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
@@ -3197,7 +3180,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       overwrite?: boolean;
       /**
@@ -3910,7 +3894,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly sizes: Array<long>;
       /**
@@ -4810,7 +4795,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
