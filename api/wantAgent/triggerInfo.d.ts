@@ -129,12 +129,12 @@ export interface TriggerInfo {
   /**
    * Custom extra data you want to add for triggering a WantAgent.
    *
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
    */
-  extraInfo?: RecordData;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Custom extra data you want to add for triggering a WantAgent.
@@ -159,12 +159,12 @@ export interface TriggerInfo {
    * Custom extra data you want to add for triggering a WantAgent.
    * The ability of this property is same as extraInfo. If both are set, this property will be used.
    *
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
    */
-  extraInfos?: RecordData;
+  extraInfos?: Record<string, RecordData>;
 
   /**
    * Specific options for triggering a wantagent which is used for starting an ability.

@@ -310,12 +310,12 @@ export default class Want {
   /**
    * The description of the WantParams object in an Want
    * 
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityBase
    * @since 20
    * @arkts 1.2
    */
-  parameters?: RecordData;
+  parameters?: Record<string, RecordData>;
 
   /**
    * The description of a entities in a Want.

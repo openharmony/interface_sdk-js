@@ -980,12 +980,12 @@ declare namespace wantAgent {
     /**
      * Extra information.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 20
      * @arkts 1.2
      */
-    extraInfo?: RecordData;
+    extraInfo?: Record<string, RecordData>;
   }
 
   /**
