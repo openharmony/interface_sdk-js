@@ -595,6 +595,22 @@ export declare enum MouseAction {
   Hover = 3,
 
   /**
+   * Triggered when mouse enters the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  ENTER_WINDOW = 4,
+
+  /**
+   * Triggered when mouse leaves the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  LEAVE_WINDOW = 5,
+
+  /**
    * Triggered when the mouse event is canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
