@@ -4377,7 +4377,6 @@ declare interface sharedTransitionOptions {
    * Animation curve.<br>You are advised to specify the curve using the Curve or ICurve type.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -4389,7 +4388,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4402,7 +4400,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16196,7 +16193,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16205,7 +16202,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16792,7 +16789,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16801,7 +16798,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16852,7 +16849,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
