@@ -188,7 +188,7 @@ declare namespace settings {
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
-    const AUTO_SCREEN_BRIGHTNESS_MODE: number
+    const AUTO_SCREEN_BRIGHTNESS_MODE: int
 
     /**
      * Indicates the value of {@code AUTO_SCREEN_BRIGHTNESS} when manual screen brightness adjustment is used.
@@ -197,7 +197,7 @@ declare namespace settings {
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
      */
-    const MANUAL_SCREEN_BRIGHTNESS_MODE: number
+    const MANUAL_SCREEN_BRIGHTNESS_MODE: int
 
     /**
      * Indicates the duration that the device waits before going to sleep after a period of inactivity, in
