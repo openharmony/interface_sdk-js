@@ -337,20 +337,20 @@ declare enum DynamicRangeMode {
  */
 declare enum ImageInterpolation {
   /**
-   * Do not use interpolated image data.
+   * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Do not use interpolated image data.
+   * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Do not use interpolated image data.
+   * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -358,7 +358,7 @@ declare enum ImageInterpolation {
    * @since 10
    */
   /**
-   * Do not use interpolated image data.
+   * Nearest Neighbor Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -370,20 +370,20 @@ declare enum ImageInterpolation {
   None,
 
   /**
-   * Low usage of interpolated image data.
+   * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Low usage of interpolated image data.
+   * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Low usage of interpolated image data.
+   * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -391,7 +391,7 @@ declare enum ImageInterpolation {
    * @since 10
    */
   /**
-   * Low usage of interpolated image data.
+   * Bilinear Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -403,20 +403,20 @@ declare enum ImageInterpolation {
   Low,
 
   /**
-   * Interpolated image data is used moderately.
+   * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Interpolated image data is used moderately.
+   * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Interpolated image data is used moderately.
+   * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -424,7 +424,7 @@ declare enum ImageInterpolation {
    * @since 10
    */
   /**
-   * Interpolated image data is used moderately.
+   * MipMap Interpolation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -436,20 +436,20 @@ declare enum ImageInterpolation {
   Medium,
 
   /**
-   * High usage of interpolated image data may affect the speed of image rendering.
+   * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * High usage of interpolated image data may affect the speed of image rendering.
+   * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * High usage of interpolated image data may affect the speed of image rendering.
+   * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -457,7 +457,7 @@ declare enum ImageInterpolation {
    * @since 10
    */
   /**
-   * High usage of interpolated image data may affect the speed of image rendering.
+   * Cubic interpolation offers the highest interpolation quality, but may impact image rendering speed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -812,14 +812,14 @@ interface ImageInterface {
 
 interface ImageSourceSize {
   /**
-   * Set width.
+   * Image decode width. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Set width.
+   * Image decode width. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -827,7 +827,7 @@ interface ImageSourceSize {
    * @since 9
    */
   /**
-   * Set width.
+   * Image decode width. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -836,7 +836,7 @@ interface ImageSourceSize {
    * @since 10
    */
   /**
-   * Set width.
+   * Image decode width. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -846,7 +846,7 @@ interface ImageSourceSize {
    * @since 11
    */
   /**
-   * Set width.
+   * Image decode width. The unit of the number type is vp.
    * Anonymous Object Rectification.
    *
    * @type { number }
@@ -860,14 +860,14 @@ interface ImageSourceSize {
   width: number;
 
   /**
-   * Set height.
+   * Image decode height. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Set height.
+   * Image decode height. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -875,7 +875,7 @@ interface ImageSourceSize {
    * @since 9
    */
   /**
-   * Set height.
+   * Image decode height. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -884,7 +884,7 @@ interface ImageSourceSize {
    * @since 10
    */
   /**
-   * Set height.
+   * Image decode height. The unit of the number type is vp.
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -894,7 +894,7 @@ interface ImageSourceSize {
    * @since 11
    */
   /**
-   * Set height.
+   * Image decode height. The unit of the number type is vp.
    * Anonymous Object Rectification.
    *
    * @type { number }
@@ -1396,9 +1396,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * <br>This attribute is not applicable to SVG images.
    * </p>
    *
-   * @param { DynamicRangeMode } value - Dynamic range of the image.
-   * @returns { ImageAttribute } Returns the instance of the ImageAttribute, Default value is
-   * dynamicRangeMode.Standard.
+   * @param { DynamicRangeMode } value - Dynamic range of the image, Default value is DynamicRangeMode.Standard.
+   * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -1465,7 +1464,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * Specifies the picture decoding size.
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * The original picture is decoded into a picture of a specified size.
    *
    * @param { object } value
    * @returns { ImageAttribute }
@@ -1474,7 +1473,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Specifies the picture decoding size.
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * The original picture is decoded into a picture of a specified size.
    *
    * @param { object } value
    * @returns { ImageAttribute }
@@ -1484,7 +1483,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Specifies the picture decoding size.
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * The original picture is decoded into a picture of a specified size.
    *
    * @param { object } value
    * @returns { ImageAttribute }
@@ -1495,7 +1494,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Specifies the picture decoding size.
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * The original picture is decoded into a picture of a specified size.
    *
    * @param { object } value
    * @returns { ImageAttribute }
@@ -1507,7 +1506,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Sets the decoding size of the image. 
-   * The original picture is decoded into a picture of a specified size. The unit of the number type is px.
+   * The original picture is decoded into a picture of a specified size.
    * Anonymous Object Rectification.
    *
    * <p><strong>NOTE</strong>:
@@ -1682,10 +1681,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   /**
    * Specifies whether the image is draggable. 
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute cannot be used together with the onDragStart event.
-   * </p>
    *
    * @param { boolean } value - Whether the image is draggable, Default value is true.
    * @returns { ImageAttribute }
