@@ -103,7 +103,9 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<number>): void;
 
@@ -119,7 +121,9 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   function makeExpand(options: Array<ExpandOption>): Promise<number>;
 
@@ -135,7 +139,9 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   function stopExpand(expandScreen: Array<number>, callback: AsyncCallback<void>): void;
 
@@ -151,7 +157,9 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @deprecated since 20
+   * @arkts 1.1&1.2
    */
   function stopExpand(expandScreen: Array<number>): Promise<void>;
 
@@ -200,7 +208,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function makeMirrorWithRegion(mainScreen: long, mirrorScreen: Array<long>, mainScreenRegion: Rect): Promise<long>;
 
@@ -216,7 +225,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopMirror(mirrorScreen: Array<long>, callback: AsyncCallback<void>): void;
 
@@ -232,7 +242,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopMirror(mirrorScreen: Array<long>): Promise<void>;
   
@@ -249,7 +260,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function makeUnique(uniqueScreen: Array<long>): Promise<Array<long>>;
 
@@ -266,7 +278,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createVirtualScreen(options: VirtualScreenOption, callback: AsyncCallback<Screen>): void;
 
@@ -283,7 +296,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createVirtualScreen(options: VirtualScreenOption): Promise<Screen>;
 
@@ -298,7 +312,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function destroyVirtualScreen(screenId: long, callback: AsyncCallback<void>): void;
 
@@ -313,7 +328,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function destroyVirtualScreen(screenId: long): Promise<void>;
 
@@ -331,7 +347,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string, callback: AsyncCallback<void>): void;
 
@@ -349,7 +366,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
@@ -368,7 +386,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenPrivacyMaskImage(screenId: long, image?: image.PixelMap): Promise<void>;
 
@@ -379,7 +398,8 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isScreenRotationLocked(callback: AsyncCallback<boolean>): void;
 
@@ -390,7 +410,8 @@ declare namespace screen {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isScreenRotationLocked(): Promise<boolean>;
 
@@ -404,7 +425,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenRotationLocked(isLocked: boolean, callback: AsyncCallback<void>): void;
 
@@ -418,7 +440,8 @@ declare namespace screen {
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setScreenRotationLocked(isLocked: boolean): Promise<void>;
 
@@ -435,7 +458,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setMultiScreenMode(primaryScreenId: long, secondaryScreenId: long,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
@@ -452,7 +476,8 @@ declare namespace screen {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setMultiScreenRelativePosition(mainScreenOptions: MultiScreenPositionOptions,
     secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
@@ -463,7 +488,8 @@ declare namespace screen {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MultiScreenMode {
 
@@ -472,7 +498,8 @@ declare namespace screen {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREEN_MIRROR = 0,
 
@@ -481,7 +508,8 @@ declare namespace screen {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCREEN_EXTEND = 1
   }
@@ -492,7 +520,8 @@ declare namespace screen {
    * @interface MultiScreenPositionOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface MultiScreenPositionOptions {
     /**
@@ -501,7 +530,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: long;
 
@@ -511,7 +541,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startX: long;
 
@@ -521,7 +552,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startY: long;
   }
@@ -532,7 +564,8 @@ declare namespace screen {
    * @interface ExpandOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ExpandOption {
     /**
@@ -541,7 +574,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     screenId: long;
 
@@ -551,7 +585,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startX: long;
 
@@ -561,7 +596,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     startY: long;
   }
@@ -572,7 +608,8 @@ declare namespace screen {
    * @interface VirtualScreenOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VirtualScreenOption {
     /**
@@ -581,7 +618,8 @@ declare namespace screen {
      * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -591,7 +629,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: long;
 
@@ -601,7 +640,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: long;
 
@@ -611,7 +651,8 @@ declare namespace screen {
      * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     density: double;
 
@@ -621,7 +662,8 @@ declare namespace screen {
      * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     surfaceId: string;
   }
@@ -782,7 +824,8 @@ declare namespace screen {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
@@ -797,7 +840,8 @@ declare namespace screen {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setOrientation(orientation: Orientation): Promise<void>;
 
@@ -812,7 +856,8 @@ declare namespace screen {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setScreenActiveMode(modeIndex: long, callback: AsyncCallback<void>): void;
 
@@ -827,7 +872,8 @@ declare namespace screen {
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setScreenActiveMode(modeIndex: long): Promise<void>;
 
@@ -986,7 +1032,8 @@ declare namespace screen {
    * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Rect {
     /**
@@ -995,7 +1042,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     left: long;
 
@@ -1005,7 +1053,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     top: long;
 
@@ -1015,7 +1064,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: long;
 
@@ -1025,7 +1075,8 @@ declare namespace screen {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: long;
   }
