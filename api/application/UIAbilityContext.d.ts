@@ -4536,7 +4536,7 @@ declare class UIAbilityContext extends Context {
    * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
-   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { RecordData } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @param { AsyncCallback<void> } callback - The callback of startAbility.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -4545,7 +4545,7 @@ declare class UIAbilityContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
+  startAbilityByType(type: string, wantParam: RecordData,
     abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void;
 
   /**
@@ -4594,7 +4594,7 @@ declare class UIAbilityContext extends Context {
    * If the caller application is in the background, it is not allowed to call this interface.
    *
    * @param { string } type - The type of target ability.
-   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { RecordData } wantParam - Indicates the want parameter.
    * @param { AbilityStartCallback } abilityStartCallback - Indicates the abilityStartCallback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -4603,7 +4603,7 @@ declare class UIAbilityContext extends Context {
    * @since 20
    * @arkts 1.2
    */
-  startAbilityByType(type: string, wantParam: Record<string, RecordData>,
+  startAbilityByType(type: string, wantParam: RecordData,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
 
   /**
