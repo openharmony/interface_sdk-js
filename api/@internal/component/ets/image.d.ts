@@ -78,7 +78,7 @@ declare type DrawingColorFilter = drawing.ColorFilter;
  * @systemapi
  * @since 12
  */
-declare type ResolutionQuality  = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
+declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default.ResolutionQuality;
 
 /**
  * Enumerates all the levels available for the image resolution quality.
@@ -2228,7 +2228,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
@@ -2248,18 +2249,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @arkts 1.1&1.2
    */
   privacySensitive(supported: boolean): ImageAttribute;
-
-  /**
-   * Set the quality enhancement level of image.
-   *
-   * @param { ResolutionQuality } imageQuality
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
-  enhancedImageQuality(imageQuality: ResolutionQuality): ImageAttribute;
 
   /**
    * Sets the display orientation of the image content.
