@@ -23759,8 +23759,8 @@ declare class CommonMethod<T> {
 
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23772,8 +23772,8 @@ declare class CommonMethod<T> {
    */
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23786,8 +23786,8 @@ declare class CommonMethod<T> {
    */
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23804,10 +23804,10 @@ declare class CommonMethod<T> {
 
   /**
    * Background blur style.
-   * blurStyle:Blur style type.
    *
-   * @param { Optional<BlurStyle> } style
-   * @param { BackgroundBlurStyleOptions } [options]
+   * @param { Optional<BlurStyle> } style - Settings of the background blur style
+   * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
+   * @param { BackgroundBlurStyleOptions } [options] - Background blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -30492,12 +30492,11 @@ declare class CommonMethod<T> {
 
   /**
    * Background blur style.
-   * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
    *
-   * @param { Optional<BlurStyle> } style
-   * @param { BackgroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
+   * @param { Optional<BlurStyle> } style - Settings of the background blur style
+   * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
+   * @param { BackgroundBlurStyleOptions } [options] - Background blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - System adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
