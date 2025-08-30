@@ -1025,8 +1025,7 @@ export declare enum KeyCode {
    * KEYCODE_MEDIA_PLAY
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   /**
    * KEYCODE_MEDIA_PLAY
