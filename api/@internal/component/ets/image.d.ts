@@ -2263,6 +2263,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @arkts 1.1&1.2
    */
   orientation(orientation: ImageRotateOrientation) : ImageAttribute;
+
+  /**
+   * Set the range of SVG parsing capabilities supported through enable switch.
+   *
+   * @param { boolean } enable - switch
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 21
+   */
+  supportSvg2(enable: boolean) : ImageAttribute;
 }
 
 /**
