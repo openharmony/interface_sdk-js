@@ -3486,6 +3486,34 @@ declare namespace webview {
   }
 
   /**
+   * Defines the site isolation mode.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 12
+   */
+  enum SiteIsolationMode {
+    /**
+     * The partial site isolation mode
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    PARTIAL = 0,
+
+    /**
+     * The strict site isolation mode
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    STRICT,
+  }
+
+  /**
    * Options of generating code cache
    * @typedef CacheOptions
    * @syscap SystemCapability.Web.Webview.Core
@@ -6317,6 +6345,30 @@ declare namespace webview {
     * @since 12
     */
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
+
+    /**
+     * Set the site isolation mode. If the device is in Secure Shield mode, calling the function will be invalid.
+     *
+     * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
+     * @returns { WebAttribute }
+     * @throws { BusinessError } 1700001 - Init error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static setSiteIsolationMode(mode: SiteIsolationMode): void;
+
+    /**
+     * Get the site isolation mode. 
+     *
+     * @param { SiteIsolationMode } mode - The site isolation mode of the application.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static getSiteIsolationMode(): SiteIsolationMode;
 
     /**
      * Set render process mode of the ArkWeb.
