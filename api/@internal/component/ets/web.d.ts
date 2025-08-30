@@ -10405,6 +10405,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Enable or disable haptic feedback.
+   * 
+   * <p><strong>API Note</strong>:<br>
+   * Permissions need to be configured: ohos.permission.VIBRATE.
+   * </p>
    *
    * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
    * @returns { WebAttribute }
