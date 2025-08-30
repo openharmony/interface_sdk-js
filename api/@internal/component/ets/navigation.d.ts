@@ -3729,6 +3729,22 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 20
    */
   splitPlaceholder(placeholder: ComponentContent): NavigationAttribute;
+
+  /**
+   * Whether to enable the show or hide lifecycle with bindContentCover.
+   * The true means that bindContentCover can affect the show or hide lifecycle of Navigation, and the false not.
+   *
+   * @param { Optional<boolean> } isEnabled - enable the show or hide lifecycle with bindContentCover.
+   *                                          Default value: **true**.
+   *                                          **true**: The bindContentCover can affect the show or hide lifecycle of Navigation.
+   *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  enableShowHideWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
