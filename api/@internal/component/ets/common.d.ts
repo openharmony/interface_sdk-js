@@ -6853,7 +6853,7 @@ declare interface RotateOptions {
 }
 
 /**
- * The param of rotate about angle.
+ * The rotation parameters containing multi-axis angle information.
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
