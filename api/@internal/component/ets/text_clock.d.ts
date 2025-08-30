@@ -395,10 +395,10 @@ interface TextClockInterface {
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * set display time format,such as "yyyy/MM/dd","yyyy-MM-dd".
+   * support time format：yyyy,MM,MMM(English month abbreviation),MMMM(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * HH/hh(24-hour clock/12-hour clock),mm(minute),ss(second).
    *
    * @param { string } value
    * @returns { TextClockAttribute }
@@ -406,10 +406,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 8
    */
   /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * set display time format,such as "yyyy/MM/dd","yyyy-MM-dd".
+   * support time format：yyyy,MM,MMM(English month abbreviation),MMMM(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * HH/hh(24-hour clock/12-hour clock),mm(minute),ss(second).
    *
    * @param { string } value
    * @returns { TextClockAttribute }
@@ -418,10 +418,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 10
    */
   /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * set display time format,such as "yyyy/MM/dd","yyyy-MM-dd".
+   * support time format：yyyy,MM,MMM(English month abbreviation),MMMM(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * HH/hh(24-hour clock/12-hour clock),mm(minute),ss(second).
    * The default value is "hh:mm:ss" when TextClock is not in a form.
    * The default value is "hh:mm" when TextClock is in a form.
    * If the value has second or millisecond, the value will be set to the default value.
@@ -435,10 +435,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 11
    */
   /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
+   * set display time format,such as "yyyy/MM/dd","yyyy-MM-dd".
+   * support time format：yyyy,MM,MMM(English month abbreviation),MMMM(Full name of the month in English),
    * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
+   * HH/hh(24-hour clock/12-hour clock),mm(minute),ss(second).
    * The default value is "hh:mm:ss" when TextClock is not in a form.
    * The default value is "hh:mm" when TextClock is in a form.
    * If the value has second or millisecond, the value will be set to the default value.
@@ -452,26 +452,6 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * @since 20
    */
   format(value: ResourceStr): TextClockAttribute;
-
-  /**
-   * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-   * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
-   * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-   * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
-   * The default value is "hh:mm:ss" when TextClock is not in a form.
-   * The default value is "hh:mm" when TextClock is in a form.
-   * If the value has second or millisecond, the value will be set to the default value.
-   *
-   * @param { string } value
-   * @returns { TextClockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  format(value: string): TextClockAttribute;
 
   /**
    * Provides a date change callback.
