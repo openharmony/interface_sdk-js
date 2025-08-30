@@ -27,6 +27,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
 /*** if arkts 1.2 */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+/*** endif */
 
 /**
  * Describes icon type.
