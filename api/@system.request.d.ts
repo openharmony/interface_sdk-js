@@ -32,6 +32,7 @@ export interface UploadResponse {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.HttpResponse.statusCode
    */
   code: number;
 
@@ -42,6 +43,7 @@ export interface UploadResponse {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Progress.extras
    */
   data: string;
 
@@ -51,6 +53,7 @@ export interface UploadResponse {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.HttpResponse.headers
    */
   headers: Object;
 }
@@ -60,6 +63,7 @@ export interface UploadResponse {
  * @syscap SystemCapability.MiscServices.Download
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.Progress
  */
 export interface DownloadResponse {
   /**
@@ -68,6 +72,7 @@ export interface DownloadResponse {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.tid
    */
   token: string;
 }
@@ -77,6 +82,7 @@ export interface DownloadResponse {
  * @syscap SystemCapability.MiscServices.Download
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.Progress
  */
 export interface OnDownloadCompleteResponse {
   /**
@@ -85,6 +91,7 @@ export interface OnDownloadCompleteResponse {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.config.saveas
    */
   uri: string;
 }
@@ -94,6 +101,7 @@ export interface OnDownloadCompleteResponse {
  * @syscap SystemCapability.MiscServices.Upload
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.FileSpec
  */
 export interface RequestFile {
   /**
@@ -102,6 +110,7 @@ export interface RequestFile {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FileSpec.filename
    */
   filename?: string;
 
@@ -111,6 +120,7 @@ export interface RequestFile {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FormItem.name
    */
   name?: string;
 
@@ -120,6 +130,7 @@ export interface RequestFile {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FileSpec.path
    */
   uri: string;
 
@@ -130,6 +141,7 @@ export interface RequestFile {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FileSpec.contentType
    */
   type?: string;
 }
@@ -139,6 +151,7 @@ export interface RequestFile {
  * @syscap SystemCapability.MiscServices.Upload
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.FormItem
  */
 export interface RequestData {
   /**
@@ -147,6 +160,7 @@ export interface RequestData {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FormItem.name
    */
   name: string;
 
@@ -156,6 +170,7 @@ export interface RequestData {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.FormItem.value
    */
   value: string;
 }
@@ -165,6 +180,7 @@ export interface RequestData {
  * @syscap SystemCapability.MiscServices.Upload
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.Config
  */
 export interface UploadRequestOptions {
   /**
@@ -173,6 +189,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.url
    */
   url: string;
 
@@ -182,6 +199,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.data
    */
   data?: Array<RequestData>;
 
@@ -191,6 +209,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.data
    */
   files: Array<RequestFile>;
 
@@ -200,6 +219,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.headers
    */
   header?: Object;
 
@@ -209,6 +229,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.method
    */
   method?: string;
 
@@ -218,6 +239,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   success?: (data: UploadResponse) => void;
 
@@ -227,6 +249,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   fail?: (data: any, code: number) => void;
 
@@ -236,6 +259,7 @@ export interface UploadRequestOptions {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   complete?: () => void;
 }
@@ -245,6 +269,7 @@ export interface UploadRequestOptions {
  * @syscap SystemCapability.MiscServices.Download
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.Config
  */
 export interface DownloadRequestOptions {
   /**
@@ -253,6 +278,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.url
    */
   url: string;
 
@@ -263,6 +289,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.saveas
    */
   filename?: string;
 
@@ -272,6 +299,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.headers
    */
   header?: string;
 
@@ -282,6 +310,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Config.description
    */
   description?: string;
 
@@ -291,6 +320,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   success?: (data: DownloadResponse) => void;
 
@@ -300,6 +330,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   fail?: (data: any, code: number) => void;
 
@@ -309,6 +340,7 @@ export interface DownloadRequestOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   complete?: () => void;
 }
@@ -318,6 +350,7 @@ export interface DownloadRequestOptions {
  * @syscap SystemCapability.MiscServices.Download
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent.Progress
  */
 export interface OnDownloadCompleteOptions {
   /**
@@ -326,6 +359,7 @@ export interface OnDownloadCompleteOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.tid
    */
   token: string;
 
@@ -335,6 +369,7 @@ export interface OnDownloadCompleteOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   success?: (data: OnDownloadCompleteResponse) => void;
 
@@ -344,6 +379,7 @@ export interface OnDownloadCompleteOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   fail?: (data: any, code: number) => void;
 
@@ -353,6 +389,7 @@ export interface OnDownloadCompleteOptions {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   complete?: () => void;
 }
@@ -360,6 +397,7 @@ export interface OnDownloadCompleteOptions {
 /**
  * @since 3
  * @deprecated since 9
+ * @useinstead ohos.request.agent
  */
 export default class Request {
   /**
@@ -369,6 +407,7 @@ export default class Request {
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.create
    */
   static upload(options: UploadRequestOptions): void;
 
@@ -379,6 +418,7 @@ export default class Request {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.create
    */
   static download(options: DownloadRequestOptions): void;
 
@@ -389,6 +429,7 @@ export default class Request {
    * @syscap SystemCapability.MiscServices.Download
    * @since 3
    * @deprecated since 9
+   * @useinstead ohos.request.agent.Task.on
    */
   static onDownloadComplete(options: OnDownloadCompleteOptions): void;
 }
