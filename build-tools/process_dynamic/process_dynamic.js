@@ -15,7 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const blackList = require('./blackList.json');
+const ignoreApiFileConfig = require('./ignoreApiFile.json');
 // 转换配置
 const DirType = {
   undefined: 'dynamic',
@@ -67,22 +67,7 @@ const HIGH_LEVEL_KIT_SET = new Set([
   'NetworkBoostKit',
 ]);
 // 非P0级别KIT的API文件，需要将动态接口转换为dynamic
-const SPEC_KIT_FILE_SET = new Set([
-  '@hms.graphic.apsManager.d.ts',
-  '@hms.userIAM.fingerAuthManager.d.ts',
-  '@hms.theme.themeManager.d.ts',
-  '@hms.security.dlpHideInfo.d.ts',
-  '@hms.security.superPrivacyManager.d.ts',
-  '@hms.core.findDevice.findNetwork.d.ts',
-  '@hms.security.appLock.d.ts',
-  '@hms.utilityApplication.parentControl.d.ts',
-  '@hms.hiviewdfx.helpsfwk.d.ts',
-  '@hms.xrGlassesService.xrGlassesAppService.d.ts',
-  '@hms.hiviewdfx.infosec.d.ts',
-  '@hms.multimedia.mediaImageLoader.d.ts',
-  '@hms.telephony.vsim.d.ts',
-  '@hms.virtService.bmsBrokerAdapter.d.ts',
-]);
+const SPEC_KIT_FILE_SET = new Set([]);
 // 脚本输入
 const inputDir = process.argv[2] ? process.argv[2] : '';
 // 脚本输出
@@ -100,14 +85,14 @@ function main() {
   readFile(path.join(inputDir, 'kits'), apiFiles);
   apiFiles.forEach((filePath) => {
     let content = fs.readFileSync(filePath, 'utf-8'); // 文件内容
-    const relativeFilePath = path.relative(inputDir, filePath).replace(/\\/g, '/');
     // 非api文件，直接打印输出
     if (!isEtsFile(filePath) && !isTsFile(filePath) && !isStaticFile(filePath)) {
       writeFile(getOutFilePath(filePath), content);
       return;
     }
-    if (blackList.files.includes(relativeFilePath)) {
-      console.log("当前文件工具不支持直接输出", relativeFilePath);
+    const relativeFilePath = path.relative(inputDir, filePath).replace(/\\/g, '/');
+    if (ignoreApiFileConfig.files.includes(relativeFilePath)) {
+      console.log('当前文件工具不支持直接输出', relativeFilePath);
       writeFile(getOutFilePath(filePath), content);
       return;
     }
@@ -126,7 +111,7 @@ function main() {
     if (content.match(/\@kit (.*)\r?\n/g)) {
       kitName = RegExp.$1.replace(/\s/g, '');
     }
-    content = processConent(filePath, content, kitName);
+    content = processContent(filePath, content, kitName);
     writeFile(getOutFilePath(filePath), content);
   });
 
@@ -142,7 +127,7 @@ function main() {
  * @param {string} content
  * @returns
  */
-function processConent(filePath, content, kitName) {
+function processContent(filePath, content, kitName) {
   content = content.replace(/(\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*?)+/g, (substring, p1) => {
     return substring.replace(p1, () => getNewCommont(p1, kitName, filePath));
   });
@@ -343,7 +328,7 @@ function getSinceInfoString(sinceInfo) {
     sinceInfoStr += `toDynamic:${sinceInfo.toDynamic},`;
     sinceInfoStr += `toStatic:${sinceInfo.toStatic},`;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   return sinceInfoStr;
 }
@@ -394,14 +379,14 @@ function readFile(dir, utFiles) {
       }
     });
   } catch (e) {
-    console.log('ETS ERROR: ' + e);
+    console.error('ETS ERROR: ' + e);
   }
 }
 
 function writeFile(url, data, option) {
   fs.mkdir(path.dirname(url), { recursive: true }, (err) => {
     if (err) {
-      console.log(`ERROR FOR CREATE PATH ${err}`);
+      console.error(`ERROR FOR CREATE PATH ${err}`);
     } else {
       if (data === '') {
         fs.rmSync(url);
@@ -409,7 +394,7 @@ function writeFile(url, data, option) {
       }
       fs.writeFileSync(url, data, option, (err) => {
         if (err) {
-          console.log(`ERROR FOR CREATE FILE ${err}`);
+          console.error(`ERROR FOR CREATE FILE ${err}`);
         }
       });
     }
