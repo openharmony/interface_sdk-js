@@ -333,23 +333,25 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
  * Defines the BorderRadiusMode type.
- *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  */
 declare enum BorderRadiusMode {
-  /**
+ /**
   * Default mode, radius is auto calculated by framework.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
   * @since 20
   */
   DEFAULT = 0,
 
-  /**
+ /**
   * Custom mode, radius can be set by developers.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
   * @since 20
