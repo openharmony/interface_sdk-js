@@ -308,13 +308,13 @@ export declare interface TextBaseController {
     /**
      * Set selection to select a range of content.
      *
-     * @param { number } selectionStart - The start position of the selected text.
-     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { int } selectionStart - The start position of the selected text.
+     * @param { int } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of selection.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    setSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Close the select menu when menu is on.
      *
@@ -358,20 +358,20 @@ export declare interface TextEditControllerEx extends TextBaseController {
     /**
      * Set caret offset.
      *
-     * @param { number } offset - caret offset.
+     * @param { int } offset - caret offset.
      * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setCaretOffset(offset: number): boolean;
+    setCaretOffset(offset: int): boolean;
     /**
      * Get caret offset from controller.
      *
-     * @returns { number }
+     * @returns { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    getCaretOffset(): number;
+    getCaretOffset(): int;
     /**
      * Get PreviewText.
      *
