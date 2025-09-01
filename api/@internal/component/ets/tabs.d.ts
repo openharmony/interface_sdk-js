@@ -448,7 +448,7 @@ declare class TabsController {
   /**
    * Called when need to preload specified tab content.
    *
-   * @param { Optional<Array<number>> } indices - Indices of tab content to be preloaded.
+   * @param { Optional<Array<number>> } indices - Indices of tab content to be preloaded, default to an empty array.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
    * <br> 1. The parameter type is not Array<number>.
@@ -477,7 +477,7 @@ declare class TabsController {
   /**
    * Set tab bar opacity.
    *
-   * @param { number } opacity - opacity
+   * @param { number } opacity - opacity, default to 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -517,6 +517,7 @@ declare interface TabsOptions {
    * Set the tab location for Tabs.
    *
    * @type { ?BarPosition }
+   * @default BarPosition.Start
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -544,6 +545,7 @@ declare interface TabsOptions {
    * Set the index of the currently displayed tab.
    *
    * @type { ?number }
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1441,7 +1443,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Called when the animation duration of the bar graph is set.
    *
-   * @param { number } value
+   * @param { number } value - default value:
+   *                           When this property is not set or set to null, the default value is 0.
+   *                           When set to a value less than 0 or undefined, the default value is 300.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1451,7 +1455,9 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Sets the length of time required to complete the tab switching animation,
    * which is initiated by clicking a specific tab or by calling the changeIndex API of TabsController.
    *
-   * @param { number } value
+   * @param { number } value - default value:
+   *                           When this property is not set or set to null, the default value is 0.
+   *                           When set to a value less than 0 or undefined, the default value is 300.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1983,8 +1989,8 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Sets the maximum number of child components to be cached.
    *
-   * @param { number } count - the maximum number of child components to be cached.
-   * @param { TabsCacheMode } mode - the mode of caching child components.
+   * @param { number } count - the maximum number of child components to be cached, default to 0.
+   * @param { TabsCacheMode } mode - the mode of caching child components, default to TabsCacheMode.CACHE_BOTH_SIDE.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
