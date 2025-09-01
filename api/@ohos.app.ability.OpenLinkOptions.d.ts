@@ -60,11 +60,11 @@ export default interface OpenLinkOptions {
   /**
    * OpenLinkOptions parameters in the form of custom key-value pairs.
    *
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
    * @arkts 1.2
    */
-  parameters?: RecordData;
+  parameters?: Record<string, RecordData>;
 }

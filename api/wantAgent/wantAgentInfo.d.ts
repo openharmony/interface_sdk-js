@@ -181,12 +181,12 @@ export interface WantAgentInfo {
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
    *
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
    */
-  extraInfo?: RecordData;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extra information about how the Want starts an ability.
@@ -214,12 +214,12 @@ export interface WantAgentInfo {
    * If there is no extra information to set, this constant can be left empty.
    * The ability of this property is same as extraInfo. If both are set, this property will be used.
    *
-   * @type { ?RecordData }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 20
    * @arkts 1.2
    */
-  extraInfos?: RecordData;
+  extraInfos?: Record<string, RecordData>;
 }
 
 /**
