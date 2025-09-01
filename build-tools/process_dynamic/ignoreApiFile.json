@@ -1,0 +1,30 @@
+{
+  "files": [
+    "api/arkui/runtime-api@koalaui.runtime.tree.ReadonlyTreeNode.d.ets",
+    "api/arkui/runtime-api@koalaui.runtime.tree.IncrementalNode.d.ets",
+    "api/arkui/runtime-api@koalaui.runtime.states.State.d.ets",
+    "api/arkui/runtime-api@koalaui.runtime.states.Disposable.d.ets",
+    "api/arkui/runtime-api@koalaui.runtime.common.d.ets",
+    "api/arkui/external/resource.d.ets",
+    "api/arkui/component/securityComponent.d.ets",
+    "api/arkui/component/saveButton.d.ets",
+    "api/arkui/component/progress.d.ets",
+    "api/arkui/component/pasteButton.d.ets",
+    "api/arkui/component/mediaCachedImage.d.ets",
+    "api/arkui/component/imageCommon.d.ets",
+    "api/arkui/component/image.d.ets",
+    "api/arkui/component/animation.d.ets",
+    "api/arkui/UserView.d.ets",
+    "api/@ohos.util.d.ets",
+    "api/@internal/component/ets/web.d.ets",
+    "api/@ohos.usbManager.d.ets",
+    "api/@ohos.arkui.component.d.ets",
+    "api/common/full/canvaspattern.d.ets",
+    "api/@internal/ets/global.d.ets",
+    "api/@system.router.d.ets",
+    "api/@system.prompt.d.ets",
+    "api/@system.app.d.ets",
+    "api/@ohos.uiExtensionHost.d.ets",
+    "api/@ohos.prompt.d.ets"
+  ]
+}
