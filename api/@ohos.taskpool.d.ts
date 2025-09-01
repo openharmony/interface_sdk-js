@@ -1926,7 +1926,7 @@ declare namespace taskpool {
      * Tasks that have been executed cannot be added to the asynchronous queue.
      *
      * @param { Task } task - Task to be added to the asynchronous queue.
-     * @param { ?Priority } priority - Priority of the task. The default value is taskpool.Priority.MEDIUM.
+     * @param { ?Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
      * @returns { Promise<Object> }
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.

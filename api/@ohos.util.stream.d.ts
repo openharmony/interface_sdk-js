@@ -248,9 +248,9 @@ declare namespace stream {
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to be written.
+     * @param { string } encoding - Encoding type.
+     * @param { Function } callback - Callback after writing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -265,9 +265,9 @@ declare namespace stream {
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { StreamCb } [callback] - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to be written.
+     * @param { string } encoding - Encoding type.
+     * @param { StreamCb } callback - Callback after writing.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -279,8 +279,8 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data to be written.
+     * @param { Function } callback - Callback after writing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -295,8 +295,8 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
-     * @param { StreamCb } [callback] - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data to be written.
+     * @param { StreamCb } callback - Callback after writing.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -969,9 +969,9 @@ declare namespace stream {
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to be written.
+     * @param { string } encoding - Encoding type.
+     * @param { Function } callback - Callback after writing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -987,9 +987,9 @@ declare namespace stream {
      * Implemented by subclass inheritance. The implementation logic of flushing chunks in the buffer must not be
      * directly called. The call is controlled by Writable.write.
      *
-     * @param { string | Uint8Array } [chunk] - Data to be written.
-     * @param { string } [encoding] - Encoding type.
-     * @param { StreamCb } [callback] - Callback after writing.
+     * @param { string | Uint8Array } chunk - Data to be written.
+     * @param { string } encoding - Encoding type.
+     * @param { StreamCb } callback - Callback after writing.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -1002,8 +1002,8 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
-     * @param { Function } [callback] - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data to be written.
+     * @param { Function } callback - Callback after writing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types;
@@ -1019,8 +1019,8 @@ declare namespace stream {
      * The implementation logic of flushing chunks in the buffer in batches should not be actively called.
      * The call is controlled by Writable.write.
      *
-     * @param { string[] | Uint8Array[] } [chunks] - Data to be written.
-     * @param { StreamCb } [callback] - Callback after writing.
+     * @param { string[] | Uint8Array[] } chunks - Data to be written.
+     * @param { StreamCb } callback - Callback after writing.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
