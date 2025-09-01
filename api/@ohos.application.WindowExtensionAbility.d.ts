@@ -32,7 +32,7 @@ import window from './@ohos.window';
  * @since 9
  * @deprecated since 21
  */
-export default class WindowExtensionAbility {
+declare class WindowExtensionAbility {
   /**
    * Indicates window extension ability context.
    *
@@ -81,6 +81,8 @@ export default class WindowExtensionAbility {
    */
   onWindowReady(window: window.Window): void;
 }
+
+export default WindowExtensionAbility;
 
 /**
  * The context of window extension. It allows access to

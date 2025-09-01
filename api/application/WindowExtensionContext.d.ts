@@ -34,7 +34,7 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @since 9
  * @deprecated since 21
  */
-export default class WindowExtensionContext extends ExtensionContext {
+declare class WindowExtensionContext extends ExtensionContext {
   /**
    * Window extension uses this method to start a specific ability.
    *
@@ -95,3 +95,4 @@ export default class WindowExtensionContext extends ExtensionContext {
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 }
+export default WindowExtensionContext;
