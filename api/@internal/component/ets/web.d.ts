@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
-import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent } from './common';
+import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode} from './common';
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
@@ -7397,6 +7397,7 @@ declare enum WebElementType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
     */
   LINK = 2
 }
@@ -7471,6 +7472,7 @@ declare enum AudioSessionType {
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface PreviewMenuOptions {
   /**
@@ -7479,6 +7481,7 @@ declare interface PreviewMenuOptions {
    * @type { ?HapticFeedbackMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   hapticFeedbackMode?: HapticFeedbackMode;
 }
@@ -7538,6 +7541,7 @@ declare interface SelectionMenuOptionsExt {
    * @type { ?PreviewMenuOptions }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   previewMenuOptions?: PreviewMenuOptions;
 }
