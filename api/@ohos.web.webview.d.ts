@@ -3486,32 +3486,6 @@ declare namespace webview {
   }
 
   /**
-   * Indicates the site isolation mode of the application, default value depends on different devices type.
-   *
-   * @enum {number}
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 21
-   */
-  enum SiteIsolationMode {
-    /**
-     * The partial site isolation mode
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     */
-    PARTIAL = 0,
-
-    /**
-     * The strict site isolation mode
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     */
-    STRICT,
-  }
-
-  /**
    * Options of generating code cache
    * @typedef CacheOptions
    * @syscap SystemCapability.Web.Webview.Core
@@ -6345,29 +6319,6 @@ declare namespace webview {
     static clearPrefetchedResource(cacheKeyList: Array<string>): void;
 
     /**
-     * Set the site isolation mode. If the device is in Secure Shield mode, calling the function will be invalid.
-     *
-     * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
-     * @throws { BusinessError } 1700001 - Init error.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
-     */
-    static setSiteIsolationMode(mode: SiteIsolationMode): void;
-
-    /**
-     * Get the site isolation mode. 
-     *
-     * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 21
-     * @arkts 1.1&1.2
-     */
-    static getSiteIsolationMode(): SiteIsolationMode;
-
-    /**
      * Set render process mode of the ArkWeb.
      *
      * @param { RenderProcessMode } mode - The render process mode for the ArkWeb.
@@ -6960,6 +6911,29 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static isAutoPreconnectEnabled(): boolean;
+
+    /**
+     * Set the site isolation mode. If the device is in Secure Shield mode, calling the function will be invalid.
+     *
+     * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
+     * @throws { BusinessError } 1700001 - Init error.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static setSiteIsolationMode(mode: SiteIsolationMode): void;
+
+    /**
+     * Get the site isolation mode. 
+     *
+     * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static getSiteIsolationMode(): SiteIsolationMode;
   }
 
   /**
@@ -9837,6 +9811,32 @@ declare namespace webview {
      * @since 20
      */
     FAST_MODE = 1
+  }
+
+  /**
+   * Indicates the site isolation mode of the application, default value depends on different devices type.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice
+   * @since 21
+   */
+  enum SiteIsolationMode {
+    /**
+     * The partial site isolation mode
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    PARTIAL = 0,
+
+    /**
+     * The strict site isolation mode
+     *
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    STRICT,
   }
 
 }
