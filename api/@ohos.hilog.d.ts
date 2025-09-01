@@ -18,6 +18,10 @@
  * @kit PerformanceAnalysisKit
  */
 
+/*** if arkts 1.2 */
+import { RecordData } from '@ohos.base';
+/*** endif */
+
 /**
  * Provides interfaces to generate system logs.
  *
@@ -44,18 +48,6 @@
  * @arkts 1.1&1.2
  */
 declare namespace hilog {
-
-  /**
-   * Using RecordData Replace any, unknown, ESObject.
-   * 
-   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
-   * @syscap SystemCapability.HiviewDFX.HiLog
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
   /**
    * Outputs debug-level logs.
