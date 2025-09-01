@@ -27800,7 +27800,7 @@ declare class CommonMethod<T> {
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
    *
    * @param { function } event
    * @returns { T }
@@ -27809,7 +27809,7 @@ declare class CommonMethod<T> {
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
    *
    * @param { function } event
    * @returns { T }
@@ -27819,7 +27819,7 @@ declare class CommonMethod<T> {
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
+   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
    * 
    * <strong>NOTE</strong>:<br>
    * The global builder is not supported.
