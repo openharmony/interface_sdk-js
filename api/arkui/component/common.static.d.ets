@@ -29,6 +29,7 @@ import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { ImageModifier } from '../../arkui/ImageModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '@ohos.arkui.observer';
 import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
@@ -8534,6 +8535,14 @@ export declare interface DragPreviewOptions {
      * @since 20
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
+    /**
+     * Drag preview modifier.
+     *
+     * @type { ?ImageModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    modifier?: ImageModifier;
     /**
      * The flag for number showing.
      *
