@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { StepperAttribute } from './component/stepper';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { StepperAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Stepper Modifier

@@ -19,10 +19,10 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceStr } from './arkui/component/units';
+import { ResourceStr } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declare component SwipeRefresher
  * @struct { SwipeRefresher }

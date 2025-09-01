@@ -30,7 +30,7 @@ import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
 /*** endif */
 /*** if arkts 1.2 */
-import { UIContext } from './@ohos.arkui.UIContext';
+import { UIContext } from '@ohos.arkui.UIContext';
 import _ViewData from './application/ViewData';
 import _PageNodeInfo from './application/PageNodeInfo';
 import { AutoFillType as _AutoFillType } from './application/AutoFillType';
