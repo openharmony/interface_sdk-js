@@ -109,7 +109,8 @@ declare namespace display {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPrimaryDisplaySync(): Display;
 
@@ -742,7 +743,8 @@ declare namespace display {
    * @throws { BusinessError } 801 - Capability not supported.function createVirtualScreen can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createVirtualScreen(config: VirtualScreenConfig): Promise<long>;
 
@@ -759,7 +761,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function destroyVirtualScreen(screenId: long): Promise<void>;
   
@@ -777,7 +780,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
 
@@ -794,7 +798,8 @@ declare namespace display {
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function makeUnique(screenId: long): Promise<void>;
 
@@ -865,7 +870,8 @@ declare namespace display {
    *
    * @interface VirtualScreenConfig
    * @syscap SystemCapability.Window.SessionManager
-   * @since 16
+   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface VirtualScreenConfig {
     /**
@@ -873,7 +879,8 @@ declare namespace display {
      *
      * @type { string }
      * @syscap  SystemCapability.Window.SessionManager
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -902,7 +909,8 @@ declare namespace display {
      *
      * @type { double }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     density: double;
 
@@ -911,7 +919,8 @@ declare namespace display {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 16
+     * @since arkts {'1.1':'16', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     surfaceId: string;
   }
@@ -2427,8 +2436,9 @@ declare namespace display {
     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
     * @syscap SystemCapability.Window.SessionManager
     * @atomicservice
-    * @since 18
+    * @since arkts {'1.1':'18', '1.2':'20'}
     * @test
+    * @arkts 1.1&1.2
     */
     getDisplayCapability(): string;
   }
