@@ -166,7 +166,7 @@ declare class BlankAttribute extends CommonMethod<BlankAttribute> {
    * @since 10
    */
   /**
-   * Sets the color to fill the blank.<br>
+   * Sets the color to fill the blank.
    * Default value: **Color.Transparent**.
    *
    * @param { ResourceColor } value

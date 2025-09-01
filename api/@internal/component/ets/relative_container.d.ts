@@ -25,7 +25,7 @@ import { CommonMethod } from './common';
 /*** endif */
 
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,7 +33,7 @@ import { CommonMethod } from './common';
  * @since 9
  */
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -42,7 +42,7 @@ import { CommonMethod } from './common';
  * @since 10
  */
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -121,7 +121,7 @@ declare interface GuideLinePosition {
 }
 
 /**
- * Specifies the GuideLineStyle of relative container
+ * Specifies the GuideLineStyle of relativeContainer
  *
  * @interface GuideLineStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -134,7 +134,7 @@ declare interface GuideLineStyle {
   /**
    * Specifies the id of guideLine
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -146,7 +146,7 @@ declare interface GuideLineStyle {
   /**
    * Specifies the direction of guideLine
    *
-   * @type {Axis}
+   * @type { Axis }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -158,7 +158,7 @@ declare interface GuideLineStyle {
   /**
    * Specifies the position of guideLine
    *
-   * @type {GuideLinePosition}
+   * @type { GuideLinePosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -171,7 +171,7 @@ declare interface GuideLineStyle {
 /**
  * Specifies the direction value of Barrier.
  *
- * @enum {number}
+ * @enum { number }
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
@@ -281,7 +281,7 @@ declare enum LocalizedBarrierDirection {
 }
 
 /**
- * Specifies the BarrierStyle of relative container
+ * Specifies the BarrierStyle of relativeContainer
  *
  * @interface BarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -294,7 +294,7 @@ declare interface BarrierStyle {
   /**
    * Specifies the id of barrier
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -306,7 +306,7 @@ declare interface BarrierStyle {
   /**
    * Specifies the direction of barrier
    *
-   * @type {BarrierDirection}
+   * @type { BarrierDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -318,7 +318,7 @@ declare interface BarrierStyle {
   /**
    * Specifies the referencedId of barrier
    *
-   * @type {Array<string>}
+   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -329,7 +329,7 @@ declare interface BarrierStyle {
 }
 
 /**
- * Specifies the Localized BarrierStyle of relative container
+ * Specifies the Localized BarrierStyle of relativeContainer
  *
  * @interface LocalizedBarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
