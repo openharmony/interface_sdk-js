@@ -3491,7 +3491,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 12
+   * @since 21
    */
   enum SiteIsolationMode {
     /**
