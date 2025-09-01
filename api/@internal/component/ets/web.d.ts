@@ -6932,7 +6932,6 @@ declare interface OnOverScrollEvent {
  * @typedef OnPdfScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface OnPdfScrollEvent {
 
@@ -6942,7 +6941,6 @@ declare interface OnPdfScrollEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   url:string;
 }
@@ -6953,7 +6951,6 @@ declare interface OnPdfScrollEvent {
  * @typedef OnPdfLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface OnPdfLoadEvent {
   /**
@@ -6962,7 +6959,6 @@ declare interface OnPdfLoadEvent {
    * @type { PdfLoadResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   result: PdfLoadResult;
 
@@ -6972,7 +6968,6 @@ declare interface OnPdfLoadEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   url: string;
 }
@@ -7253,7 +7248,6 @@ declare enum AudioSessionType {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare enum PdfLoadResult {
 
@@ -7262,7 +7256,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   LOAD_SUCCESS = 0,
 
@@ -7271,7 +7264,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_FILE = 1,
 
@@ -7280,7 +7272,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_FORMAT = 2,
 
@@ -7289,7 +7280,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_PASSWORD = 3,
 
@@ -7298,7 +7288,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_HANDLER = 4
 }
@@ -9980,7 +9969,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent>): WebAttribute;
 
@@ -9990,7 +9978,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   onPdfLoadEvent(callback: Callback<OnPdfLoadEvent>): WebAttribute;
 
