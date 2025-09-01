@@ -3486,7 +3486,7 @@ declare namespace webview {
   }
 
   /**
-   * Defines the site isolation mode.
+   * Indicates the site isolation mode of the application, default value depends on different devices type.
    *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
@@ -3499,7 +3499,6 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     PARTIAL = 0,
 
@@ -3508,7 +3507,6 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     STRICT,
   }
@@ -6350,11 +6348,9 @@ declare namespace webview {
      * Set the site isolation mode. If the device is in Secure Shield mode, calling the function will be invalid.
      *
      * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
-     * @returns { WebAttribute }
      * @throws { BusinessError } 1700001 - Init error.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Web.Webview.Core
+     * @static
      * @since 21
      * @arkts 1.1&1.2
      */
@@ -6363,8 +6359,9 @@ declare namespace webview {
     /**
      * Get the site isolation mode. 
      *
-     * @param { SiteIsolationMode } mode - The site isolation mode of the application.
+     * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
      * @syscap SystemCapability.Web.Webview.Core
+     * @static
      * @since 21
      * @arkts 1.1&1.2
      */
