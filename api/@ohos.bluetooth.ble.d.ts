@@ -241,10 +241,31 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   function startBLEScan(filters: Array<ScanFilter>, options?: ScanOptions): void;
+
+  /**
+   * Starts scanning for specified BLE devices with filters.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { Array<ScanFilter> | null } filters - Indicates the list of filters used to filter out specified devices.
+   * If you do not want to use filter, set this parameter to {@code null}.
+   * @param { ScanOptions } [options] - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
+   * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+   * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+   * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @since 20
+   * @arkts 1.2
+   */
+  function startBLEScan(filters: Array<ScanFilter> | null, options?: ScanOptions): void;
 
   /**
    * Stops BLE scanning.
@@ -3426,10 +3447,36 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15
      */
     startScan(filters: Array<ScanFilter>, options?: ScanOptions): Promise<void>;
+
+    /**
+     * Starts scanning for specified BLE devices with filters.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Array<ScanFilter> | null } filters - Indicates the list of filters used to filter out specified devices.
+     * If you do not want to use filter, set this parameter to {@code null}.
+     * @param { ScanOptions } [options] - Indicates the parameters for scanning and if the user does not assign a value,
+     * the default value will be used. {@link ScanOptions#interval} set to 0,
+     * and {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+     * and {@link ScanOptions#phyType} set to {@link PHY_LE_ALL_SUPPORTED}.
+     * and {@link ScanOptions#reportMode} set to {@link ScanReportMode#NORMAL}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900009 - Fails to start scan as it is out of hardware resources.
+     * @throws { BusinessError } 2900099 - Operation failed.
+     * @throws { BusinessError } 2902050 - Failed to start scan as Ble scan is already started by the app.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    startScan(filters: Array<ScanFilter> | null, options?: ScanOptions): Promise<void>;
     /**
      * Stops BLE scanning.
      *
