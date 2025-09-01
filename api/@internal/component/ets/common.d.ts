@@ -10088,14 +10088,14 @@ declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface BlurOptions {
   /**
-   * Fuzzy gray scale parameter.
+   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Fuzzy gray scale parameter.
+   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
