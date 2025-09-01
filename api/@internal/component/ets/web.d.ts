@@ -85,7 +85,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 /**
  * The callback of onOverrideErrorPage.
  *
- * @typedef { function } OnOverrideErrorpageCallback
+ * @typedef { function } OnOverrideErrorPageCallback
  * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
