@@ -9072,7 +9072,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9085,7 +9085,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9094,14 +9094,15 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setBlur(radius: number): void;
+    setBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9116,7 +9117,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9125,9 +9126,10 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setBackdropBlur(radius: number): void;
+    setBackdropBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur style.
@@ -9215,7 +9217,7 @@ declare namespace window {
     /**
      * Sets corner radius.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9228,7 +9230,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for this window.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9237,9 +9239,10 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setCornerRadius(cornerRadius: number): void;
+    setCornerRadius(cornerRadius: double): void;
 
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
