@@ -9199,7 +9199,7 @@ declare namespace window {
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
      *
-     * @param { number } radius - Radius of the shadow, measured in px.
+     * @param { double } radius - Radius of the shadow, measured in px.
      *                            The value is a floating point number greater than or equal to 0.0,
      *                            and the value 0.0 means that the shadow is disabled for the window borders.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -9210,9 +9210,10 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setWindowShadowRadius(radius: number): void;
+    setWindowShadowRadius(radius: double): void;
 
     /**
      * Sets corner radius.
@@ -9247,7 +9248,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
      *
-     * @param { number } cornerRadius - Radius of the rounded corners, measured in vp.
+     * @param { double } cornerRadius - Radius of the rounded corners, measured in vp.
      *                                  The value is a floating point number greater than or equal to 0.0.
      *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
@@ -9260,22 +9261,24 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+    setWindowCornerRadius(cornerRadius: double): Promise<void>;
 
     /**
      * Obtains the radius of rounded corners of a child window or floating window.
      *
-     * @returns { number } - Radius of the rounded corner of the child window or floating window, measured in vp.
+     * @returns { double } - Radius of the rounded corner of the child window or floating window, measured in vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getWindowCornerRadius(): number;
+    getWindowCornerRadius(): double;
 
     /**
      * Raise app sub window to app top
