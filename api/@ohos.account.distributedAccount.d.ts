@@ -19,6 +19,9 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/***if arkts 1.2 */
+import type { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * This module provides the capability to manage distributed accounts.
@@ -380,10 +383,19 @@ declare namespace distributedAccount {
      *
      * @type { ?object }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
     scalableData?: object;
+
+    /**
+     * The scalable data in the distributed information of the OS account.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    scalableData?: RecordData;
   }
 }
 
