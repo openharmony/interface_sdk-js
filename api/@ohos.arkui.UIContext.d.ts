@@ -4122,7 +4122,7 @@ export declare class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * Sets the avoidance mode for the virtual keyboard.<br>
+   * Sets the avoidance mode for the virtual keyboard.
    * Default mode: **KeyboardAvoidMode.OFFSET**.
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
