@@ -6707,6 +6707,7 @@ declare namespace webview {
      * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
