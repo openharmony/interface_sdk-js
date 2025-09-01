@@ -10689,7 +10689,7 @@ declare namespace window {
     /**
      * Set the parent window of the child window.
      *
-     * @param { number } windowId - Indicates parent window id.
+     * @param { int } windowId - Indicates parent window id.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10700,7 +10700,7 @@ declare namespace window {
      * @atomicservice
      * @since 19
      */
-    setParentWindow(windowId: number): Promise<void>;
+    setParentWindow(windowId: int): Promise<void>;
 
     /**
      * Get the parent window.
