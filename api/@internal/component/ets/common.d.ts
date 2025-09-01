@@ -23076,7 +23076,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the safe area to be expanded to.
-   * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
+   * default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
    * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}
    *
    * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
@@ -31965,7 +31965,7 @@ declare interface LayoutBorderInfo {
   margin: Margin,
 
   /**
-   * Sub component padding info.
+   * Custom component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32098,7 +32098,7 @@ declare interface LayoutChild {
 }
 
 /**
- * Sub component layout info.
+ * Custom component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -32107,7 +32107,7 @@ declare interface LayoutChild {
  * @since 10
  */
 /**
- * Sub component layout info.
+ * Custom component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -32119,7 +32119,7 @@ declare interface LayoutChild {
  */
 declare interface GeometryInfo extends SizeResult {
   /**
-   * Sub component borderWidth info.
+   * Custom component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32127,7 +32127,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component borderWidth info.
+   * Custom component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32139,7 +32139,7 @@ declare interface GeometryInfo extends SizeResult {
   borderWidth: EdgeWidth;
 
   /**
-   * Sub component margin info.
+   * Custom component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32147,7 +32147,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component margin info.
+   * Custom component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32167,7 +32167,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component padding info.
+   * Custom component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32188,7 +32188,7 @@ declare interface GeometryInfo extends SizeResult {
  * @since 10
  */
 /**
- * Provides the child component layout information.
+ * Provides the sub component layout information.
  *
  * @interface Layoutable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32199,7 +32199,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Measurement result of the child component.
+   * Measurement result of the sub component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32207,7 +32207,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Measurement result of the child component.
+   * Measurement result of the sub component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32219,7 +32219,7 @@ declare interface Layoutable {
   measureResult: MeasureResult,
 
   /**
-   * Unique ID of the child component.
+   * Unique ID of the sub component.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32239,7 +32239,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Applies the specified position information to the child component.
+   * Applies the specified position information to the sub component.
    *
    * @param { Position } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32251,7 +32251,7 @@ declare interface Layoutable {
   layout(position: Position): void,
 
   /**
-   * Obtains the margin of the child component.
+   * Obtains the margin of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32265,7 +32265,7 @@ declare interface Layoutable {
   /**
    * Call this method to get the padding of sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Padding of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Padding of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32275,7 +32275,7 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border width of the child component.
+   * Obtains the border width of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32307,7 +32307,7 @@ declare interface Layoutable {
  */
 declare interface Measurable {
   /**
-   * Unique ID that the system assigns to the child component.
+   * Unique ID that the system assigns to the sub component.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32328,7 +32328,7 @@ declare interface Measurable {
    * @since 10
    */
   /**
-   * Applies the size constraint to the child component.
+   * Applies the size constraint to the sub component.
    *
    * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult } Provides the measurement result of the component.
@@ -32341,9 +32341,9 @@ declare interface Measurable {
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
   /**
-   * Obtains the margin of the child component.
+   * Obtains the margin of the sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Margin of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Margin of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32353,7 +32353,7 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the padding of the child component.
+   * Obtains the padding of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32365,9 +32365,9 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border width of the child component.
+   * Obtains the border width of the sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Border width of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Border width of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32378,7 +32378,7 @@ declare interface Measurable {
 }
 
 /**
- * Sub component SizeResult info.
+ * Component SizeResult info.
  *
  * @interface SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32438,7 +32438,7 @@ declare interface SizeResult {
 }
 
 /**
- * Sub component MeasureResult info.
+ * Component MeasureResult info.
  *
  * @extends SizeResult
  * @interface MeasureResult
