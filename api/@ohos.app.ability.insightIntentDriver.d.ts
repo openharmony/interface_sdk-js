@@ -110,14 +110,14 @@ declare namespace insightIntentDriver {
     /**
      * Indicates the insight intent param.
      *
-     * @type { RecordData }
+     * @type { Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @StageModelOnly
      * @since 20
      * @arkts 1.2
      */
-    insightIntentParam: RecordData;
+    insightIntentParam: Record<string, RecordData>;
 
     /**
      * Indicates the execute mode.

@@ -127,13 +127,13 @@ declare namespace insightIntent {
     /**
      * Indicates execute result.
      *
-     * @type { ?RecordData }
+     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 20
      * @arkts 1.2
      */
-    result?: RecordData;
+    result?: Record<string, RecordData>;
 
     /**
      * Indicates the URIs will be authorized to the insight intent driver.
