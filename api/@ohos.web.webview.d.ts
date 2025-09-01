@@ -6349,10 +6349,12 @@ declare namespace webview {
      *
      * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
      * @throws { BusinessError } 1700001 - Init error.
+     * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
+     * <br>2. Incorrect parameter types.
      * @static
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      * @arkts 1.1&1.2
-     * @syscap SystemCapability.Web.Webview.Core
      */
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
@@ -6361,9 +6363,9 @@ declare namespace webview {
      *
      * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
      * @static
+     * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      * @arkts 1.1&1.2
-     * @syscap SystemCapability.Web.Webview.Core
      */
     static getSiteIsolationMode(): SiteIsolationMode;
 
