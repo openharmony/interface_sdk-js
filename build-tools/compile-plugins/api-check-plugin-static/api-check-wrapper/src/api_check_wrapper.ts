@@ -75,7 +75,7 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
 
   // 获取当前ets文件路径，设置参数
   let program = arkts.getOrUpdateGlobalContext(contextPtr).program;
-  const visited = new Set();
+  const visited: Set<number> = new Set();
   const queue: arkts.Program[] = [program];
   getLegacyModule(legacyStructMap, legacyModuleList);
   while (queue.length > 0) {
@@ -149,13 +149,13 @@ function matchPrefix(prefixCollection: (string | RegExp)[], name: string): boole
  * 将program节点加入遍历队列并记录文件名。
  * 
  * @param { arkts.Program[] } queue 程序遍历队列，用于存储待处理的程序对象
- * @param { Set<unknown> } visited 已访问程序的标识集合，用于去重
+ * @param { Set<number> } visited 已访问程序的标识集合，用于去重
  * @param { arkts.ExternalSource } externalSource 外部源对象，包含关联的程序
  * @param { Map<number,string> } fileNames 用于存储程序标识与文件名映射的Map
  */
 function visitNextProgramInQueue(
   queue: arkts.Program[],
-  visited: Set<unknown>,
+  visited: Set<number>,
   externalSource: arkts.ExternalSource,
   fileNames: Map<number, string>
 ): void {
@@ -208,7 +208,7 @@ export function checkIdentifier(node: arkts.AstNode) {
  * @param { number } col 节点所在的列号
  */
 function confirmNodeChecked(nodeName: string, line: number, col: number) {
-  let nodeKey = curApiCheckWrapper.fileName + "_" + nodeName + "_" + line + "_" + col;
+  const nodeKey = `${curApiCheckWrapper.fileName}_${nodeName}_${line}_${col}`;
   if (checkedNode.has(nodeKey) && checkedNode.get(nodeKey) !== undefined) {
     return true;
   } else {
