@@ -122,7 +122,7 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export default class AccessibilityExtensionAbility {
+declare class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
@@ -222,6 +222,8 @@ export default class AccessibilityExtensionAbility {
    */
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
+
+export default AccessibilityExtensionAbility;
 
 /**
  * Indicates the accessibility event.
