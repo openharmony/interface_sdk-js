@@ -6349,10 +6349,10 @@ declare namespace webview {
      *
      * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
      * @throws { BusinessError } 1700001 - Init error.
-     * @syscap SystemCapability.Web.Webview.Core
      * @static
      * @since 21
      * @arkts 1.1&1.2
+     * @syscap SystemCapability.Web.Webview.Core
      */
     static setSiteIsolationMode(mode: SiteIsolationMode): void;
 
@@ -6360,10 +6360,10 @@ declare namespace webview {
      * Get the site isolation mode. 
      *
      * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
-     * @syscap SystemCapability.Web.Webview.Core
      * @static
      * @since 21
      * @arkts 1.1&1.2
+     * @syscap SystemCapability.Web.Webview.Core
      */
     static getSiteIsolationMode(): SiteIsolationMode;
 
