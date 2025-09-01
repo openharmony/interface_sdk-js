@@ -1,4 +1,4 @@
-"use static"
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,8 +21,8 @@
  */
 
 import curves from '../../@ohos.curves';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 
 /**
  * common enum of the checkbox shape
@@ -1110,63 +1110,63 @@ declare enum LocalizedAlignment {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  TOP_START = "top_start",
+  TOP_START = 'top_start',
   /**
    * The top is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  TOP = "top",
+  TOP = 'top',
   /**
    * Top tail end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  TOP_END = "top_end",
+  TOP_END = 'top_end',
   /**
    * The starting end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  START = "start",
+  START = 'start',
   /**
    * Center horizontal and vertical.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  CENTER = "center",
+  CENTER = 'center',
   /**
    * The tail end is centered longitudinally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  END = "end",
+  END = 'end',
   /**
    * Bottom starting end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  BOTTOM_START = "bottom_start",
+  BOTTOM_START = 'bottom_start',
   /**
    * The bottom is centered horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  BOTTOM = "bottom",
+  BOTTOM = 'bottom',
   /**
    * Bottom end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  BOTTOM_END = "bottom_end"
+  BOTTOM_END = 'bottom_end'
 }
 
 /**
