@@ -2962,7 +2962,7 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @since arkts { '1.1':'14','1.2':'20' }
  * @arkts 1.1&1.2
  */
-export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the MarqueeDynamicSyncSceneType.
   * @type { MarqueeDynamicSyncSceneType }
