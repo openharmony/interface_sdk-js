@@ -29,7 +29,7 @@ import type {
   Rect as _Rect,
   Parameter as _Parameter,
 } from './application/AccessibilityExtensionContext';
-import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 import { AccessibilityEventType } from './@ohos.accessibility';
 
 
@@ -114,7 +114,7 @@ export type Parameter = _Parameter;
  * @since 10
  */
 
-export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+export { AccessibilityExtensionContext };
 
 /**
  * class of accessibility extension ability.
