@@ -10025,6 +10025,7 @@ declare enum AdaptiveColor {
 declare enum ModalTransition {
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10032,6 +10033,7 @@ declare enum ModalTransition {
    */
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
