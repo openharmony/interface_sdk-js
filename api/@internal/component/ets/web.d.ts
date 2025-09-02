@@ -2755,22 +2755,6 @@ declare enum ContextMenuMediaType {
    * @arkts 1.1&1.2
    */
   Image = 1
-
-  /**
-   * Video.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  VIDEO = 2,
-
-  /**
-   * Audio.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  AUDIO = 3
 }
 
 /**
