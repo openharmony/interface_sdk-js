@@ -10065,7 +10065,7 @@ declare namespace audio {
      * @returns { Promise<AudioTimestampInfo> } The Promise used to return timestamp info.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getAudioTimestampInfo(): Promise<AudioTimestampInfo>;
@@ -10076,7 +10076,7 @@ declare namespace audio {
       * @returns { AudioTimestampInfo } The returned timestamp info.
       * @throws { BusinessError } 6800103 - Operation not permit at current state.
       * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @since arkts {'1.1':'18','1.2':'20'}
+     * @since arkts {'1.1':'19','1.2':'20'}
      * @arkts 1.1&1.2
       */
     getAudioTimestampInfoSync(): AudioTimestampInfo;
