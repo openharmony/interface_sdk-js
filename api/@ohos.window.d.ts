@@ -1245,7 +1245,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 20
    */
-  interface Position {
+  export interface Position {
 
     /**
      * The X-coordinate
