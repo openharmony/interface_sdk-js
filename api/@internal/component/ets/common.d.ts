@@ -10171,14 +10171,14 @@ declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface BlurOptions {
   /**
-   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
+   * Fuzzy gray scale parameter.
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
+   * Fuzzy gray scale parameter.
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -27938,7 +27938,7 @@ declare class CommonMethod<T> {
 
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
+   * (To be triggered, press and hold for 170 milliseconds (ms))
    *
    * @param { function } event
    * @returns { T }
@@ -27947,7 +27947,7 @@ declare class CommonMethod<T> {
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
+   * (To be triggered, press and hold for 170 milliseconds (ms))
    *
    * @param { function } event
    * @returns { T }
@@ -27957,7 +27957,7 @@ declare class CommonMethod<T> {
    */
   /**
    * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
+   * (To be triggered, press and hold for 170 milliseconds (ms))
    * 
    * <strong>NOTE</strong>:<br>
    * The global builder is not supported.
