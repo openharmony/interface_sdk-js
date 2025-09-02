@@ -193,14 +193,12 @@ export declare class ToolBarOption {
 }
 /**
  * Declare ToolBarOptions use in ToolBar.
- * @extends Array<ToolBarOption>
+ * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-@Observed
-export declare class ToolBarOptions extends Array<ToolBarOption> {
-}
+export type ToolBarOptions = Array<ToolBarOption>
 /**
  * Declare ToolBarModifier use in ToolBar.
  *
@@ -262,7 +260,8 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @ObjectLink toolBarList: ToolBarOptions;
+  @ObjectLink
+  toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
    *
@@ -270,7 +269,8 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef activateIndex?: number;
+  @PropRef
+  activateIndex?: number;
   /**
    * Define toolbar controller.
    *
@@ -286,7 +286,8 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef dividerModifier?: DividerModifier;
+  @PropRef
+  dividerModifier?: DividerModifier;
   /**
    * Define toolbar modifier.
    *
@@ -294,12 +295,14 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef toolBarModifier?: ToolBarModifier;
+  @PropRef
+  toolBarModifier?: ToolBarModifier;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }
