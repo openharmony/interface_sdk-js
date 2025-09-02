@@ -9819,6 +9819,7 @@ declare namespace webview {
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21
+   * @arkts 1.1&1.2
    */
   enum SiteIsolationMode {
     /**
