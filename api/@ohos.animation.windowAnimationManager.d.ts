@@ -204,6 +204,89 @@ declare namespace windowAnimationManager {
   }
 
   /**
+   * Callback function on starting an application.
+   *
+   * @typedef { function } AppStartCallback
+   * @param { WindowAnimationTarget } startingWindowTarget - Window target of the starting application.
+   * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type AppStartCallback = (startingWindowTarget: WindowAnimationTarget,
+    finishCallback: WindowAnimationFinishedCallback) => void;
+
+  /**
+   * Callback function on application transition.
+   *
+   * @typedef { function } AppTransitionCallback
+   * @param { WindowAnimationTarget } fromWindowTarget - Window target of the source application.
+   * @param { WindowAnimationTarget } toWindowTarget - Window target of the destination application.
+   * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type AppTransitionCallback = (fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
+    finishCallback: WindowAnimationFinishedCallback) => void;
+
+  /**
+   * Callback function on minimizing a window.
+   *
+   * @typedef { function } WindowMinimizationCallback
+   * @param { WindowAnimationTarget } minimizingWindowTarget - Window target of the minimizing window.
+   * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type WindowMinimizationCallback = (minimizingWindowTarget: WindowAnimationTarget,
+    finishCallback: WindowAnimationFinishedCallback) => void;
+
+  /**
+   * Callback function on closing a window.
+   *
+   * @typedef { function } WindowCloseCallback
+   * @param { WindowAnimationTarget }closingWindowTarget - Window target of the closing window.
+   * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type WindowCloseCallback = (closingWindowTarget: WindowAnimationTarget,
+    finishCallback: WindowAnimationFinishedCallback) => void;
+
+  /**
+   * Callback function on unlocking the screen.
+   *
+   * @typedef { function } ScreenUnlockCallback
+   * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type ScreenUnlockCallback = (finishCallback: WindowAnimationFinishedCallback) => void;
+
+  /**
+   * Callback function on window animation targets update.
+   *
+   * @typedef { function } WindowAnimationTargetsUpdationCallback
+   * @param { WindowAnimationTarget } fullScreenWindowTarget - The fullscreen window target.
+   * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type WindowAnimationTargetsUpdationCallback = (fullScreenWindowTarget: WindowAnimationTarget,
+    floatingWindowTargets: Array<WindowAnimationTarget>) => void;
+
+  /**
    * Window animation controller.
    *
    * @interface WindowAnimationController
@@ -220,11 +303,18 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on starting an application form launcher.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onStartAppFromLauncher(startingWindowTarget: WindowAnimationTarget,
-      finishCallback: WindowAnimationFinishedCallback): void;
+    onStartAppFromLauncher?: AppStartCallback;
 
     /**
      * Called on starting an application form recent.
@@ -233,11 +323,18 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on starting an application form recent.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onStartAppFromRecent(startingWindowTarget: WindowAnimationTarget,
-      finishCallback: WindowAnimationFinishedCallback): void;
+    onStartAppFromRecent?: AppStartCallback;
 
     /**
      * Called on starting an application form other.
@@ -246,11 +343,18 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on starting an application form other.
+     *
+     * @type { ?AppStartCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onStartAppFromOther(startingWindowTarget: WindowAnimationTarget,
-      finishCallback: WindowAnimationFinishedCallback): void;
+    onStartAppFromOther?: AppStartCallback;
 
     /**
      * Called on application transition.
@@ -260,11 +364,18 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on application transition.
+     *
+     * @type { ?AppTransitionCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onAppTransition(fromWindowTarget: WindowAnimationTarget, toWindowTarget: WindowAnimationTarget,
-      finishCallback: WindowAnimationFinishedCallback): void;
+    onAppTransition?: AppTransitionCallback;
 
     /**
      * Called on minimizing a window.
@@ -273,11 +384,18 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on minimizing a window.
+     *
+     * @type { ?WindowMinimizationCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onMinimizeWindow(minimizingWindowTarget: WindowAnimationTarget,
-      finishCallback: WindowAnimationFinishedCallback): void;
+    onMinimizeWindow?: WindowMinimizationCallback;
 
     /**
      * Called on closing a window.
@@ -286,22 +404,36 @@ declare namespace windowAnimationManager {
      * @param { WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on closing a window.
+     *
+     * @type { ?WindowCloseCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onCloseWindow(closingWindowTarget: WindowAnimationTarget, finishCallback: WindowAnimationFinishedCallback): void;
+    onCloseWindow?: WindowCloseCallback;
 
     /**
      * Called on unlocking the screen.
      *
      * @param {WindowAnimationFinishedCallback } finishCallback - Animation finished callback.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 9
+     */
+    /**
+     * Callback function on unlocking the screen.
+     *
+     * @type { ?ScreenUnlockCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onScreenUnlock(finishCallback: WindowAnimationFinishedCallback): void;
-
+    onScreenUnlock?: ScreenUnlockCallback;
 
     /**
      * Called on window animation targets update.
@@ -310,11 +442,18 @@ declare namespace windowAnimationManager {
      * @param { Array<WindowAnimationTarget> } floatingWindowTargets - All the floating window targets.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @since 9
+     */
+    /**
+     * Callback function on window animation targets update.
+     *
+     * @type { ?WindowAnimationTargetsUpdationCallback }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 22
      * @arkts 1.1&1.2
      */
-    onWindowAnimationTargetsUpdate(fullScreenWindowTarget: WindowAnimationTarget,
-      floatingWindowTargets: Array<WindowAnimationTarget>): void;
+    onWindowAnimationTargetsUpdate?: WindowAnimationTargetsUpdationCallback;
   }
 }
 
