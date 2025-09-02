@@ -19264,7 +19264,7 @@ declare interface PopupOptions {
    * @arkts 1.1&1.2
    */
   followTransformOfTarget?: boolean;
-
+   
   /**
    * Define the popup avoid keyboard mode.
    *
