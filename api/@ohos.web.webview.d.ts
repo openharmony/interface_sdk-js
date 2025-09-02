@@ -9824,14 +9824,14 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      */
-    PARTIAL,
+    PARTIAL = 0,
 
     /**
      * The strict site isolation mode
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
      */
-    STRICT
+    STRICT = 1
   }
 
 }
