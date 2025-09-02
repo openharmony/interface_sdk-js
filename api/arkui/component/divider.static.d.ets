@@ -21,6 +21,16 @@ import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+
+/**
+ * The DividerAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface DividerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface DividerAttribute extends CommonMethod {
     /**
      * Indicates whether to use a horizontal splitter or a vertical splitter.
@@ -71,6 +81,15 @@ export declare interface DividerAttribute extends CommonMethod {
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines Divider Component.
+ *
+ * @param { function } [content_] - container
+ * @returns { DividerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Divider(

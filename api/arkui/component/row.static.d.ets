@@ -56,6 +56,16 @@ export interface RowOptionsV2 {
      */
     space?: SpaceType;
 }
+
+/**
+ * The RowAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface RowAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface RowAttribute extends CommonMethod {
     /**
      * Called when the vertical alignment is set.
@@ -106,6 +116,16 @@ export declare interface RowAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines Row Component.
+ *
+ * @param { RowOptions | RowOptions | RowOptionsV2 } [options] - Row options.
+ * @param { function } [content_] - container
+ * @returns { RowAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Row(
