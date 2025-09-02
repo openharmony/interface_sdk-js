@@ -474,7 +474,7 @@ declare namespace eSIM {
    * @interface AccessRule
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 20
-   * arkts 1.1&1.2
+   * @arkts 1.1&1.2
    */
   export interface AccessRule {
     /**
@@ -491,7 +491,7 @@ declare namespace eSIM {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     certificateHashHexStr: string;
 
@@ -509,7 +509,7 @@ declare namespace eSIM {
      * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     packageName: string;
 
@@ -527,7 +527,7 @@ declare namespace eSIM {
      * @type { number }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 20
-     * arkts 1.1&1.2
+     * @arkts 1.1&1.2
      */
     accessType: number;
   }
