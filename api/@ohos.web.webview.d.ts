@@ -6908,6 +6908,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     static isAutoPreconnectEnabled(): boolean;
 
@@ -6930,7 +6931,6 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     static getSiteIsolationMode(): SiteIsolationMode;
   }
