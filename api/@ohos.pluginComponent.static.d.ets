@@ -72,7 +72,7 @@ declare namespace pluginComponentManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>  
+  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>;
   /**
    * Plugin component push parameters.
    *
