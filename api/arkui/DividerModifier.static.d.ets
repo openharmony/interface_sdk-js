@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { DividerAttribute } from './component/divider';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { DividerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Divider Modifier

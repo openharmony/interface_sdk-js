@@ -19,10 +19,10 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceStr } from './arkui/component/units';
+import { ResourceStr } from '@ohos.arkui.component';
 import { State, PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @struct { SplitLayout }

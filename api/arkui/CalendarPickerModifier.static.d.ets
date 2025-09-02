@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { CalendarPickerAttribute } from './component/calendarPicker';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { CalendarPickerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines CalendarPicker Modifier

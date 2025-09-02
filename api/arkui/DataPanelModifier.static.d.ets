@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { DataPanelAttribute } from './component/dataPanel';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { DataPanelAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines DataPanel Modifier

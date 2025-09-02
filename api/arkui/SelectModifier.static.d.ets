@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { SelectAttribute } from './component/select';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { SelectAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Select Modifier
