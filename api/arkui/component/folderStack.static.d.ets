@@ -85,6 +85,16 @@ export type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
  * @since 20
  */
 export type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
+
+/**
+ * The FolderStackAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface FolderStackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface FolderStackAttribute extends CommonMethod {
     /**
      * Set the alignment of folderStack.
@@ -186,6 +196,16 @@ export declare interface HoverEventParam {
     windowStatusType: WindowStatusType;
 }
 
+/**
+ * Defines FolderStack Component.
+ *
+ * @param { FolderStackOptions } [options] - FolderStack options.
+ * @param { function } [content_] - container
+ * @returns { FolderStackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function FolderStack(

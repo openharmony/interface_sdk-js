@@ -110,6 +110,15 @@ export declare interface FlexSpaceOptions {
      */
     cross?: LengthMetrics;
 }
+/**
+ * The FlexAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface FlexAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface FlexAttribute extends CommonMethod {
     /**
     * Defines the PointLight
@@ -133,6 +142,16 @@ export declare interface FlexAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines Flex Component.
+ *
+ * @param { FlexOptions } [value] - Flex options.
+ * @param { function } [content_] - container
+ * @returns { FlexAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Flex(
