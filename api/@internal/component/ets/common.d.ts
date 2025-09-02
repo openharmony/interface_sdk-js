@@ -30593,7 +30593,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 20
    */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T
 }
 
 /**
