@@ -847,11 +847,11 @@ export type CornerRadius = Corners<Vector2>;
 /**
  * BorderRadiuses info.
  *
- * @typedef { Corners<number> } BorderRadiuses
+ * @typedef { Corners<number> } NodeBorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type BorderRadiuses = Corners<number>;
+export type NodeBorderRadiuses = Corners<number>;
 
 /**
  * Rect info.
@@ -1130,8 +1130,8 @@ export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * Obtain a BorderRadiuses object with all edges are set to the same radius.
  *
  * @param { number } all - The edge radius will be set.
- * @returns { BorderRadiuses } - The BorderRadiuses object.
+ * @returns { NodeBorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare function borderRadiuses(all: number): BorderRadiuses;
+export declare function borderRadiuses(all: number): NodeBorderRadiuses;
