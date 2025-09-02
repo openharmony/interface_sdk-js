@@ -6913,9 +6913,10 @@ declare namespace webview {
     static isAutoPreconnectEnabled(): boolean;
 
     /**
-     * Set the site isolation mode. If the device is in Secure Shield mode, calling the function will be invalid.
+     * Set the site isolation mode.
      *
-     * @param { SiteIsolationMode } mode - The site isolation mode of the application, default value depends on different device type.
+     * @param { SiteIsolationMode } mode  The site isolation mode of the application, 
+     *      default value depends on different device type.
      * @throws { BusinessError } 1700001 - Init error.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
@@ -6927,7 +6928,7 @@ declare namespace webview {
     /**
      * Get the site isolation mode. 
      *
-     * @returns { SiteIsolationMode } mode - The site isolation mode of the application.
+     * @returns { SiteIsolationMode } The site isolation mode of the application.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
@@ -9815,28 +9816,26 @@ declare namespace webview {
 
   /**
    * Indicates the site isolation mode of the application, default value depends on different devices type.
-   *
    * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
    * @since 21
    */
   enum SiteIsolationMode {
     /**
      * The partial site isolation mode
-     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
-    PARTIAL = 0,
+    PARTIAL,
 
     /**
      * The strict site isolation mode
-     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
-    STRICT,
+    STRICT
   }
 
 }
