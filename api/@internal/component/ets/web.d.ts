@@ -4563,7 +4563,7 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Sets the event consumption result.
    *
    * @param { boolean } result -  Whether to consume the gesture event.
    *    {@code true} Indicates the consumption of the gesture event.
@@ -4595,9 +4595,15 @@ declare class EventResult {
   /**
    * Sets the mouse event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
-   * @param { boolean } [stopPropagation] - {@code true} means to prevent mouse events from bubbling up
-   * {code false} otherwise, The default value is true.
+   * @param { boolean } result -  Whether to consume the mouse event.
+   *    {@code true} Indicates the consumption of the mouse event.
+   *    {@code false} Indicates the non-consumption of the mouse event.
+   *    Default value: true.
+   * @param { boolean } [stopPropagation] - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true. 
+   *    {@code true} Indicates stops the propagation of events farther along.
+   *    {@code false} Indicates the propagation of events farther along.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
