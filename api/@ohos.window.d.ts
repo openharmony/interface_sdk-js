@@ -5720,13 +5720,14 @@ declare namespace window {
     setDefaultDensityEnabled(enabled: boolean): void;
 
     /**
-     * Set window container background color in the active and inactive states.
+     * Set window container color in the active and inactive states.
      *
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
      * @throws { BusinessError } 202 - Permission verification
-     * failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
