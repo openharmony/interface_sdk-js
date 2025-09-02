@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import("//build/config/components/sdk/interface.gni")
 common_api_src = [
   "//interface/sdk-js/api/@system.app.d.ts",
   "//interface/sdk-js/api/@system.configuration.d.ts",

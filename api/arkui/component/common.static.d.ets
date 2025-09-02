@@ -29,6 +29,7 @@ import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { ImageModifier } from '../../arkui/ImageModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '@ohos.arkui.observer';
 import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
@@ -2327,6 +2328,13 @@ export declare class DrawModifier {
      * @since 20
      */
     drawContent(drawContext: DrawContext): void;
+    /**
+     * drawFront Method. Executed after drawing associated Node and its children.
+     * @param { DrawContext } drawContext - The drawContext used to draw.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+     drawFront(drawContext: DrawContext): void;
     /**
      * Invalidate the component, which will cause a re-render of the component.
      * No overloading is allowed or needed.
@@ -8528,6 +8536,14 @@ export declare interface DragPreviewOptions {
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
     /**
+     * Drag preview modifier.
+     *
+     * @type { ?ImageModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    modifier?: ImageModifier;
+    /**
      * The flag for number showing.
      *
      * @type { ?(boolean | number) }
@@ -8814,11 +8830,11 @@ export declare interface BackgroundOptions {
 /**
  * Defines the value of the custom property..
  *
- * @typedef { Object | undefined | Record<string, CustomProperty> } CustomProperty
+ * @typedef { undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty> } CustomProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare type CustomProperty = Object | undefined | Record<string, CustomProperty>;
+export declare type CustomProperty = undefined | null | Object | Record<string, CustomProperty> | Array<CustomProperty>;
 
 /**
  * CommonMethod
@@ -13019,6 +13035,25 @@ export declare interface Bindable<T> {
      */
     readonly onChange: Callback<T>;
 }
+
+/**
+ * Defines the Two-way binding type of ResourceStr.
+ *
+ * @typedef { ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare type BindableResourceStr = ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
+
+/**
+ * Defines the Two-way binding type of ResourceStr[].
+ *
+ * @typedef { ResourceStr[] | Bindable<ResourceStr[]> | Bindable<Resource[]> | Bindable<string[]> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare type BindableResourceStrArray = ResourceStr[] | Bindable<ResourceStr[]> | Bindable<Resource[]> | Bindable<string[]>;
+
 /**
  * Convert to a bindable property.
  *

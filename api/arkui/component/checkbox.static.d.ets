@@ -118,7 +118,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    select(isSelected: boolean | undefined | Bindable<boolean>): this;
+    default select(isSelected: boolean | undefined | Bindable<boolean>): this;
     /**
      * setting the display color of checkbox.
      *
@@ -127,7 +127,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selectedColor(value: ResourceColor | undefined): this;
+    default selectedColor(value: ResourceColor | undefined): this;
     /**
     * setting the shape of checkbox.
     *
@@ -136,7 +136,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20
     */
-    shape(value: CheckBoxShape | undefined): this;
+    default shape(value: CheckBoxShape | undefined): this;
     /**
      * Set the display border color of unselected checkbox.
      *
@@ -145,7 +145,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    unselectedColor(value: ResourceColor | undefined): this;
+    default unselectedColor(value: ResourceColor | undefined): this;
     /**
      * Set the mark style of checkbox.
      *
@@ -154,7 +154,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    mark(value: MarkStyle | undefined): this;
+    default mark(value: MarkStyle | undefined): this;
     /**
      * Called when the selection status changes.
      * Anonymous Object Rectification.
@@ -164,7 +164,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onChange(callback: OnCheckboxChangeCallback | undefined): this;
+    default onChange(callback: OnCheckboxChangeCallback | undefined): this;
     /**
      * Set the content modifier of checkbox.
      *
@@ -173,7 +173,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    contentModifier(modifier: ContentModifier<CheckBoxConfiguration> | undefined): this;
+    default contentModifier(modifier: ContentModifier<CheckBoxConfiguration> | undefined): this;
     /**
      * Set the attribute modifier of checkbox.
      *
@@ -183,7 +183,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(
+    default attributeModifier(
         modifier: AttributeModifier<CheckboxAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 

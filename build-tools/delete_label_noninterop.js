@@ -52,6 +52,26 @@ function deleteLabel(content) {
   return result;
 }
 
+function getFileName(filePath) {
+  return path
+    .basename(filePath);
+}
+
+function getKitName(content) {
+  let kitName = '';
+  if (content.match(/\@kit (.*)\r?\n/g)) {
+    kitName = RegExp.$1.replace(/\s/g, '');
+  }
+  return kitName;
+}
+
+function needDeleteLabelNonInterop(fileName, kitName) {
+  if (inputDir.endsWith('component') || fileName.startsWith('@ohos.arkui') || kitName === 'ArkUI') {
+    return true;
+  }
+  return false;
+}
+
 /**
  * 遍历所有文件进行处理
  * @param {Array} utFiles 所有文件
@@ -59,7 +79,13 @@ function deleteLabel(content) {
 function tsTransform(utFiles) {
   utFiles.forEach((url) => {
     let content = fs.readFileSync(url, 'utf-8'); // 文件内容
-    writeFile(url, deleteLabel(content));
+    const fileName = getFileName(url);
+    const kitName = getKitName(content);
+    if (needDeleteLabelNonInterop(fileName, kitName)) {
+      writeFile(url, deleteLabel(content));
+    } else {
+      writeFile(url, content);
+    }
   });
 }
 

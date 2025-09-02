@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -55,7 +55,6 @@ export {
 /*** if arkts 1.2 */
 import BackupExtensionAbility from '@ohos.application.BackupExtensionAbility';
 import { BundleVersion } from '@ohos.application.BackupExtensionAbility';
-import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
 import Environment from '@ohos.file.environment';
@@ -68,12 +67,15 @@ import {
 import hash from '@ohos.file.hash';
 import securityLabel from '@ohos.file.securityLabel';
 import statfs from '@ohos.file.statvfs';
+import storageStatistics from '@ohos.file.storageStatistics';
+import volumeManager from '@ohos.file.volumeManager';
+import keyManager from '@ohos.file.keyManager';
 import fileShare from '@ohos.fileshare';
 
 export {
   BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
-  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs, DfsListeners,
-  TaskSignal
+  cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs,
+  storageStatistics, volumeManager, keyManager, DfsListeners, TaskSignal
 };
 /*** endif */

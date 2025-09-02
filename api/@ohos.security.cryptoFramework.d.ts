@@ -348,7 +348,7 @@ declare namespace cryptoFramework {
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'} 
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface GcmParamsSpec extends ParamsSpec {
@@ -2208,7 +2208,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'} 
+     * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
     mdName: string;
@@ -4977,7 +4977,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'} 
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     update(data: DataBlob): Promise<void>;
@@ -6625,7 +6625,7 @@ declare namespace cryptoFramework {
   /**
    * Specifies the set of parameters used in the DSA algorithm. It can be used to randomly generate a public or private key.
    * To generate a key based on key parameters, pass it to createAsyKeyGeneratorBySpec to create a key generator.
-   * 
+   *
    * @typedef DSACommonParamsSpec
    * @extends AsyKeySpec
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -7100,7 +7100,7 @@ declare namespace cryptoFramework {
      * Indicates the affine y-coordinate.
      *
      * @type { bigint }
-     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey 
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'12','1.2':'20'}
@@ -8141,7 +8141,7 @@ declare namespace cryptoFramework {
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'} 
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     sk: bigint;

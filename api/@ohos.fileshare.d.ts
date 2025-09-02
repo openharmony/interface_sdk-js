@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (C) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -38,7 +38,7 @@ declare namespace fileShare {
   /**
    * Enumerates the uri operate mode types.
    *
-   * @enum { number } OperationMode
+   * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -186,12 +186,12 @@ declare namespace fileShare {
     /**
      * Indicates the mode of operation for the URI, example { OperationMode.READ_MODE } or { OperationMode.READ_MODE | OperationMode.WRITE_MODE }
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    operationMode: number;
+    operationMode: int;
   }
 
   /**
@@ -199,7 +199,8 @@ declare namespace fileShare {
    *
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PathPolicyInfo {
     /**
@@ -207,7 +208,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     path: string;
  
@@ -216,7 +218,8 @@ declare namespace fileShare {
      *
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     operationMode: OperationMode;
   }
@@ -226,14 +229,16 @@ declare namespace fileShare {
    *
    * @enum { number } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum PolicyType {
     /**
      * Indicates that the policy is temporary.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TEMPORARY_TYPE = 0,
  
@@ -241,7 +246,8 @@ declare namespace fileShare {
      * Indicates that the policy is persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PERSISTENT_TYPE = 1,
   }
@@ -357,7 +363,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -374,7 +381,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -421,7 +429,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }

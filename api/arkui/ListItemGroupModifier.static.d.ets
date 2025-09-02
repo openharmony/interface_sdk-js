@@ -29,8 +29,6 @@ import { ListItemGroupAttribute } from './component/listItemGroup';
  *
  * @implements { ListItemGroupAttribute, AttributeModifier<ListItemGroupAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare class ListItemGroupModifier

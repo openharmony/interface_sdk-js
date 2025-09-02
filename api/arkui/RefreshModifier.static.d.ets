@@ -29,8 +29,6 @@ import { RefreshAttribute } from './component/refresh';
  *
  * @implements { RefreshAttribute, AttributeModifier<RefreshAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
 */
 export declare class RefreshModifier implements RefreshAttribute, AttributeModifier<RefreshAttribute> {}

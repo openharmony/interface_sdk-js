@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,6 +18,7 @@
  * @kit DistributedServiceKit
  */
 
+/*** if arkts 1.1 */
 import cooperate from '@ohos.cooperate';
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';
@@ -32,3 +33,12 @@ export {
   cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager,
   linkEnhance, DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager
 };
+/*** endif */
+
+/*** if arkts 1.2 */
+import distributedDeviceManager from '@ohos.distributedDeviceManager';
+
+export { 
+  distributedDeviceManager
+};
+/*** endif */

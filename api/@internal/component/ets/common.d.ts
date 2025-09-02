@@ -8559,6 +8559,7 @@ declare enum AdaptiveColor {
 declare enum ModalTransition {
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8566,6 +8567,7 @@ declare enum ModalTransition {
    */
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -12089,7 +12091,8 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 20
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
+  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
@@ -24687,36 +24690,6 @@ declare class CommonMethod<T> {
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * Enables the component as a drag-and-drop target with spring loading functionality.
-   *
-   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
-   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
-   * by hovering (hover) without needing to use another hand.
-   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
-   * some common scenarios suitable for supporting this feature:
-   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-   *  automatically opened.
-   *
-   * Please note:
-   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
-   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
-   *   child components always have higher priority.
-   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
-   *   dragged object leaves and re-enters the component's range.
-   *
-   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
-   *    sets it to null to disable the support for spring loading.
-   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-   *    only used when the entire spring detecting.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
-
-  /**
    * Allowed drop uniformData type for this node.
    *
    * @param { Array<UniformDataType> } value - the uniformData type for this node.
@@ -26719,8 +26692,7 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
-   * This callback is triggered when the component size changes due to layout updates.
-   * This event is not triggered for render attribute changes caused by re-rendering.
+   * This callback is triggered when the size of this component change finished.
    *
    * @param { SizeChangeCallback } event - event callback.
    * @returns { T }
@@ -26759,6 +26731,36 @@ declare class CommonMethod<T> {
    * @since 20
    */
   onTouchTestDone(callback: TouchTestDoneCallback): T;
+
+  /**
+   * Enables the component as a drag-and-drop target with spring loading functionality.
+   *
+   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+   * by hovering (hover) without needing to use another hand.
+   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+   * some common scenarios suitable for supporting this feature:
+   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+   *  automatically opened.
+   *
+   * Please note:
+   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
+   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
+   *   child components always have higher priority.
+   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
+   *   dragged object leaves and re-enters the component's range.
+   *
+   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
+   *    sets it to null to disable the support for spring loading.
+   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
+   *    only used when the entire spring detecting.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
 }
 
 /**
