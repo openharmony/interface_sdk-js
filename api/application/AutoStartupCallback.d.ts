@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,7 +18,12 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { AutoStartupInfo } from './AutoStartupInfo';
+/*** endif */
+/*** if arkts 1.2 */
+import type AutoStartupInfo from './AutoStartupInfo';
+/*** endif */
 
 /**
  * The class of auto startup callback.
@@ -27,7 +32,8 @@ import type { AutoStartupInfo } from './AutoStartupInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AutoStartupCallback {
   /**
@@ -37,7 +43,8 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAutoStartupOn(info: AutoStartupInfo): void;
 
@@ -48,7 +55,8 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAutoStartupOff(info: AutoStartupInfo): void;
 }

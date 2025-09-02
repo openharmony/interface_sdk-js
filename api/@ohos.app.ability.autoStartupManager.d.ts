@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,9 +18,16 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type { AutoStartupCallback } from './application/AutoStartupCallback';
 import type { AutoStartupInfo } from './application/AutoStartupInfo';
+/*** endif */
+/*** if arkts 1.2 */
+import type AutoStartupCallback from './application/AutoStartupCallback';
+import type AutoStartupInfo from './application/AutoStartupInfo';
+/*** endif */
 import type { AsyncCallback } from './@ohos.base';
+
 
 /**
  * The class of auto startup manager.
@@ -28,7 +35,8 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace autoStartupManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace autoStartupManager {
   /**
@@ -46,7 +54,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'systemAutoStartup', callback: AutoStartupCallback): void;
 
@@ -65,7 +74,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'systemAutoStartup', callback?: AutoStartupCallback): void;
 
@@ -86,7 +96,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -107,7 +118,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -128,7 +140,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo, callback: AsyncCallback<void>): void;
 
@@ -149,7 +162,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelApplicationAutoStartup(info: AutoStartupInfo): Promise<void>;
 
@@ -168,7 +182,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAllAutoStartupApplications(callback: AsyncCallback<Array<AutoStartupInfo>>): void;
 
@@ -186,7 +201,8 @@ declare namespace autoStartupManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
 }
