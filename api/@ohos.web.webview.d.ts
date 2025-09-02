@@ -6915,9 +6915,9 @@ declare namespace webview {
     /**
      * Set the site isolation mode.
      *
-     * @param { SiteIsolationMode } mode  The site isolation mode of the application, 
-     *      default value depends on different device type.
-     * @throws { BusinessError } 1700001 - Init error.
+     * @param { SiteIsolationMode } mode The site isolation mode of the application, 
+     *      default value depends on different devices type.
+     * @throws { BusinessError } 17100001 - Init error.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 21
