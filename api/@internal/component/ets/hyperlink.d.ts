@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Resource } from './../../../api/global/resource'
-import { CommonMethod } from './common'
-import { Color } from './enums'
-/*** endif */
-
 /**
  * Defines the hyperlink interface.
  *
@@ -47,7 +41,6 @@ import { Color } from './enums'
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 interface HyperlinkInterface {
   /**
@@ -85,7 +78,6 @@ interface HyperlinkInterface {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -113,7 +105,6 @@ interface HyperlinkInterface {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
   /**
@@ -142,7 +133,6 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }

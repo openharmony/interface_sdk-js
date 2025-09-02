@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { Callback, Optional, CommonMethod } from './common'
-import { CustomBuilder } from './builder'
-import { ResourceStr } from './units'
-import { ComponentContent } from '../ComponentContent'
-/*** endif */
 
 /**
  * The refresh status of the drop-down refresh.
@@ -47,8 +41,7 @@ import { ComponentContent } from '../ComponentContent'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum RefreshStatus {
   /**
@@ -70,8 +63,7 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Inactive,
 
@@ -94,8 +86,7 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Drag,
 
@@ -118,8 +109,7 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   OverDrag,
 
@@ -142,8 +132,7 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Refresh,
 
@@ -166,8 +155,7 @@ declare enum RefreshStatus {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Done,
 }
@@ -194,8 +182,7 @@ declare enum RefreshStatus {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface RefreshOptions {
   /**
@@ -280,8 +267,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   promptText?: ResourceStr;
 
@@ -300,8 +286,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   builder?: CustomBuilder;
 
@@ -312,8 +297,7 @@ interface RefreshOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   refreshingContent?: ComponentContent;
 }
@@ -340,8 +324,7 @@ interface RefreshOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface RefreshInterface {
   /**
@@ -369,8 +352,7 @@ interface RefreshInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (value: RefreshOptions): RefreshAttribute;
 }
@@ -397,8 +379,7 @@ interface RefreshInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
@@ -426,8 +407,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
@@ -456,8 +436,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onRefreshing(callback: () => void): RefreshAttribute;
 
@@ -469,8 +448,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   refreshOffset(value: number): RefreshAttribute;
 
@@ -482,8 +460,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   pullToRefresh(value: boolean): RefreshAttribute;
   
@@ -496,8 +473,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onOffsetChange(callback: Callback<number>): RefreshAttribute;
 
@@ -509,8 +485,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   pullDownRatio(ratio: Optional<number>): RefreshAttribute;
 

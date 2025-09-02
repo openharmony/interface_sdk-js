@@ -49,9 +49,8 @@ declare function getInspectorNodeById(id: number): object;
  * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'8','1.2':'20'}
+ * @since 8
  * @test
- * @arkts 1.1&1.2
  */
 declare namespace Profiler {
   /**
@@ -60,9 +59,8 @@ declare namespace Profiler {
    * @param { function } callback - the callback info is json string with ui update info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @test
-   * @arkts 1.1&1.2
    */
   function registerVsyncCallback(callback: (info: string) => void): void;
 
@@ -71,9 +69,8 @@ declare namespace Profiler {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8
    * @test
-   * @arkts 1.1&1.2
    */
   function unregisterVsyncCallback(): void;
 }
@@ -84,8 +81,7 @@ declare namespace Profiler {
  * @param { string } value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'8','1.2':'20'}
+ * @since 8
  * @test
- * @arkts 1.1&1.2
  */
 declare function setAppBgColor(value: string): void;

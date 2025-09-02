@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CommonMethod } from './common'
-import { ResourceColor, ResourceStr } from './units'
-import { Resource } from '../../global/resource'
-/*** endif */
-
 /**
  * Provides an interface for generating QR codes.
  *
@@ -56,8 +50,7 @@ import { Resource } from '../../global/resource'
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface QRCodeInterface {
   /**
@@ -108,23 +101,8 @@ interface QRCodeInterface {
    * @form
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   (value: ResourceStr): QRCodeAttribute;
-
-  /**
-   * Called when a QR code is set.
-   *
-   * @param { string } value
-   * @returns { QRCodeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (value: string): QRCodeAttribute;
 }
 
 /**
@@ -159,8 +137,7 @@ interface QRCodeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
@@ -199,8 +176,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color(value: ResourceColor): QRCodeAttribute;
 
@@ -240,8 +216,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 
@@ -260,8 +235,7 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentOpacity(value: number | Resource): QRCodeAttribute;
 }
