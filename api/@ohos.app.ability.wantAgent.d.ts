@@ -26,9 +26,9 @@ import Context from './application/Context';
 /*** if arkts 1.1 */
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
 /*** endif */
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * Provide the method obtain trigger, cancel, and compare and to obtain

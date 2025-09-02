@@ -20,9 +20,9 @@
 
 import Want from '../@ohos.app.ability.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from '../@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * Provides the information required for triggering a WantAgent.

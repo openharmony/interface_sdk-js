@@ -22,9 +22,9 @@ import Want from './@ohos.app.ability.Want';
 import wantConstant from './@ohos.app.ability.wantConstant';
 import type { AsyncCallback } from './@ohos.base';
 import type insightIntent from './@ohos.app.ability.insightIntent';
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * Insight intent driver.

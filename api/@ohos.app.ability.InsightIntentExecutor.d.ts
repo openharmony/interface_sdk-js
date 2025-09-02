@@ -22,9 +22,9 @@ import type window from './@ohos.window';
 import type insightIntent from './@ohos.app.ability.insightIntent';
 import type InsightIntentContext from './@ohos.app.ability.InsightIntentContext';
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * The class of insight intent executor.
