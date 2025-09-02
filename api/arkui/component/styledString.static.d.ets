@@ -20,16 +20,16 @@
  */
 
 import { Callback, ShadowOptions, ClickEvent, Optional, PixelMap, AttributeModifier, CommonMethod } from './common';
-import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from "./enums";
-import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from "./units";
-import { TextBackgroundStyle } from "./span";
-import { GestureEvent } from "./gesture";
-import { DrawingColorFilter } from "./image";
-import { LeadingMarginPlaceholder } from "./richEditor";
+import { TextAlign, FontStyle, FontWeight, TextDecorationType, TextDecorationStyle, WordBreak, TextOverflow, ImageFit, ImageSpanAlignment } from './enums';
+import { ResourceStr, ResourceColor, LengthMetrics, SizeOptions, Margin, Padding, BorderRadiuses, ColorFilter } from './units';
+import { TextBackgroundStyle } from './span';
+import { GestureEvent } from './gesture';
+import { DrawingColorFilter } from './image';
+import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -166,7 +166,8 @@ export declare class StyledString {
      * Returns ArrayBuffer from the serialized styled string.
      *
      * @param { StyledString } styledString - StyledString parameter.
-     * @param { StyledStringMarshallCallback } callback - When marshalling StyledStringMarshingValue, will trigger this callback to get ArrayBuffer
+     * @param { StyledStringMarshallCallback } callback - When marshalling StyledStringMarshingValue,
+     * will trigger this callback to get ArrayBuffer
      * @returns { ArrayBuffer }
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,7 +179,8 @@ export declare class StyledString {
      * Returns StyledString from the deserialized ArrayBuffer.
      *
      * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @param { StyledStringUnmarshallCallback } callback - When unmarshalling ArrayBuffer, will trigger this callback to get StyledStringMarshingValue
+     * @param { StyledStringUnmarshallCallback } callback - When unmarshalling ArrayBuffer,
+     * will trigger this callback to get StyledStringMarshingValue
      * @returns { Promise<StyledString> }
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      * <br> 1. Mandatory parameters are left unspecified.
@@ -838,7 +840,9 @@ export declare class UrlStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
+export type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+                        TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle |
+                        LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
 /**
  * MutableStyledString
  *
@@ -850,7 +854,8 @@ export declare class MutableStyledString extends StyledString {
     /**
      * constructor.
      *
-     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the MutableStyledString.
+     * @param { string | ImageAttachment | CustomSpan } value
+     * - indicates the current object value of the MutableStyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20

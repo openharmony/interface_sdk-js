@@ -17,12 +17,12 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, ResourceStr, Length } from "./units";
-import { DecorationStyleInterface, MutableStyledString, StyledString } from "./styledString";
+import { ResourceColor, ResourceStr, Length } from './units';
+import { DecorationStyleInterface, MutableStyledString, StyledString } from './styledString';
 import { SelectionOptions, Callback } from './common';
-import { TextDecorationType, TextDecorationStyle } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { TextDecorationType, TextDecorationStyle } from './enums';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the text data detector type.
  *
@@ -292,11 +292,13 @@ export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange
  * @typedef { function } EditableTextOnChangeCallback
  * @param { string } value - Value of body text, without previewText value.
  * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
- * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as the old content.
+ * @param { TextChangeOptions } [options] - contains the selection range before and after the change,
+ * as well as the old content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
+export type EditableTextOnChangeCallback = 
+                                    (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 /**
  * Define the text selection controller.
  *

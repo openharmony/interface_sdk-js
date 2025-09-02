@@ -1155,7 +1155,9 @@ declare class UrlStyle {
  * @atomicservice
  * @since 14
  */
-declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
+declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
+                            TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle |
+                            LineHeightStyle | UrlStyle | CustomSpan | UserDataSpan | BackgroundColorStyle;
 /**
  * MutableStyledString
  *
