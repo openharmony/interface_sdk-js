@@ -60,6 +60,7 @@ import { ImageAttribute, ImageContent } from './component/image';
 import { DrawableDescriptor } from '../@ohos.arkui.drawableDescriptor';
 import { ButtonAttribute, ButtonOptions } from './component/button';
 import { CheckboxOptions, CheckboxAttribute } from './component/checkbox';
+import { CheckboxGroupOptions, CheckboxGroupAttribute } from './component/checkboxgroup';
 import { RadioOptions, RadioAttribute } from './component/radio';
 import { SliderAttribute, SliderOptions } from './component/slider';
 import { ToggleAttribute, ToggleOptions } from './component/toggle';
@@ -786,6 +787,7 @@ export declare namespace typeNode {
     createBadgeNode,
     createButtonNode,
     createCheckboxNode,
+    createCheckboxGroupNode,
     createRadioNode,
     createSelectNode,
     createSliderNode,
@@ -2213,6 +2215,45 @@ export declare namespace typeNode {
    * @since 20
    */
   export function createCheckboxNode(context: UIContext, nodeType: 'Checkbox'): Checkbox;
+
+  /**
+   * Define the CheckboxGroup type of FrameNode.
+   *
+   * @extends TypedFrameNode<CheckboxGroupAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  abstract class CheckboxGroupFrameNode extends TypedFrameNode<CheckboxGroupAttribute> {
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { CheckboxGroupOptions } [options] - CheckboxGroup options
+     * @returns { CheckboxGroupAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    abstract initialize(options?: CheckboxGroupOptions): CheckboxGroupAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for CheckboxGroup.
+   *
+   * @typedef { CheckboxGroupFrameNode } CheckboxGroup
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  type CheckboxGroup = CheckboxGroupFrameNode;
+
+  /**
+   * Create a FrameNode of CheckboxGroup type.
+   *
+   * @param { UIContext } context - uiContext used to create the FrameNode.
+   * @param { 'CheckboxGroup' } nodeType - node type.
+   * @returns { CheckboxGroup } - Return CheckboxGroup type FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20
+   */
+  export function createCheckboxGroupNode(context: UIContext, nodeType: 'CheckboxGroup'): CheckboxGroup;
 
   /**
    * Define the Radio type of FrameNode.
