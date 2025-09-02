@@ -130,6 +130,7 @@ function tsTransform(inputurl, outputPath, utFiles, callback) {
       ts.transpileModule(content, {
         compilerOptions: {
           target: ts.ScriptTarget.ES2017,
+          etsAnnotationsEnable: true
         },
         fileName: fileName,
         transformers: { before: [callback(inputurl + url, outputPath)] }
@@ -307,7 +308,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
   if (finalContent.includes('number') && typeExpr.kind === ts.SyntaxKind.JSDocNullableType && !finalContent.includes('?number') && isChange) {
     if (typeExpr.type.type && typeExpr.type.type.kind === ts.SyntaxKind.UnionType) {
       const data = {
-        isDelete: false,
         pos: typeExpr.pos,
         end: typeExpr.end,
         convertedText: '?' + `(${finalContent})`
@@ -315,7 +315,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
       tagDataList.push(data);
     } else {
       const data = {
-        isDelete: false,
         pos: typeExpr.pos,
         end: typeExpr.end,
         convertedText: '?' + finalContent
@@ -324,7 +323,6 @@ function applJSDocTransformations(typeExpr, newTypeExpr, tagDataList, isChange) 
     }
   } else if (finalContent.includes('number')) {
     const data = {
-      isDelete: true,
       pos: typeExpr.pos,
       end: typeExpr.end,
       convertedText: finalContent
@@ -344,10 +342,11 @@ function changeContent(tagDataList) {
   for (const data of tagDataList) {
     const before = jsDocContent.substring(0, data.pos);
     const after = jsDocContent.substring(data.end);
-    if (data.isDelete) {
-      jsDocContent = before + `${data.convertedText}` + after;
-    } else {
+    // 保证转换后注释空格和源码文件空格一致
+    if (jsDocContent.substring(data.pos, data.pos + 1) === ' ') {
       jsDocContent = before + ` ${data.convertedText}` + after;
+    } else {
+      jsDocContent = before + `${data.convertedText}` + after;
     }
   }
 }
@@ -384,7 +383,7 @@ function parseJSDocVisitEachChild2(context, node) {
   }
   function writeDataToFile(tag) {
     const typeExpr = tag.typeExpression;
-    if (ts.isJSDocNullableType(node) && typeExpr.type.type) {
+    if (ts.isJSDocNullableType(typeExpr.type) && typeExpr.type.type) {
       const newTypeExpr = parseTypeExpression(typeExpr.type.type);
       applJSDocTransformations(typeExpr.type.type, newTypeExpr, tagDataList, false);
     } else {
