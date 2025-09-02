@@ -280,7 +280,7 @@ declare namespace display {
    * Unregister the callback for display changes.
    *
    * @param { 'add' | 'remove' | 'change' } type the event of display change event
-   * @param { Callback<number> } callback the display id of changed
+   * @param { Callback<number> } [callback] the display id of changed
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -447,7 +447,7 @@ declare namespace display {
    * Unregister the callback for fold status changes.
    *
    * @param { 'foldStatusChange' } type the event of fold status changes
-   * @param { Callback<FoldStatus> } callback Callback used to return the current fold status of device
+   * @param { Callback<FoldStatus> } [callback] Callback used to return the current fold status of device
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -503,7 +503,7 @@ declare namespace display {
    * Unregister the callback for fold angle changes.
    *
    * @param { 'foldAngleChange' } type the event of fold angle changes.
-   * @param { Callback<Array<number>> } callback Callback used to return the current fold angle of device.
+   * @param { Callback<Array<number>> } [callback] Callback used to return the current fold angle of device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
@@ -683,7 +683,7 @@ declare namespace display {
    * Unregister the callback for fold display mode changes.
    *
    * @param { 'foldDisplayModeChange' } type the event of fold display mode changes
-   * @param { Callback<FoldDisplayMode> } callback Callback used to return the current fold display mode
+   * @param { Callback<FoldDisplayMode> } [callback] Callback used to return the current fold display mode
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
