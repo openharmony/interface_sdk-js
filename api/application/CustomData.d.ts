@@ -18,9 +18,9 @@
  * @kit AbilityKit
  */
 
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from '../@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * User defined data. When the modal window of AutoFillExtension needs to be raised again,

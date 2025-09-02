@@ -19,9 +19,9 @@
  */
 
 import StartOptions from './@ohos.app.ability.StartOptions';
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * AtomicServiceOptions is the basic communication component of the system.

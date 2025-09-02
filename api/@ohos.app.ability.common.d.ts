@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,6 +44,7 @@ import * as _AppServiceExtensionContext from './application/AppServiceExtensionC
 /*** if arkts 1.2 */
 import _UIAbilityContext from './application/UIAbilityContext';
 import type _UIExtensionContext from './application/UIExtensionContext';
+import type _AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import _AbilityStageContext from './application/AbilityStageContext';
 import _ApplicationContext from './application/ApplicationContext';
 import _BaseContext from './application/BaseContext';
@@ -51,6 +52,8 @@ import _Context from './application/Context';
 import _ExtensionContext from './application/ExtensionContext';
 import _ServiceExtensionContext from './application/ServiceExtensionContext';
 import _EventHub from './application/EventHub';
+import type _AutoStartupCallback from './application/AutoStartupCallback';
+import type _AutoStartupInfo from './application/AutoStartupInfo';
 import type _PhotoEditorExtensionContext from './application/PhotoEditorExtensionContext';
 /*** endif */
 import { AbilityResult as _AbilityResult } from './ability/abilityResult';
@@ -487,6 +490,19 @@ declare namespace common {
   export type AutoFillExtensionContext = _AutoFillExtensionContext.default;
 
   /**
+   * The context of auto fill extension. It allows access to
+   * AutoFillExtension-specific resources.
+   *
+   * @typedef { _AutoFillExtensionContext }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AutoFillExtensionContext = _AutoFillExtensionContext;
+
+  /**
    * The function Called when some error occurred except disconnected from UIAbility or UIExtensionAbility
    *
    * @typedef { _AbilityStartCallback }
@@ -505,7 +521,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AutoStartupInfo = _AutoStartupInfo;
 
@@ -516,7 +533,8 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type AutoStartupCallback = _AutoStartupCallback;
 

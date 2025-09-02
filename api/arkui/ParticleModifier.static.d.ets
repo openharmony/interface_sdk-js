@@ -21,8 +21,8 @@
  */
 
 
-import { AttributeModifier } from './component/common';
-import { ParticleAttribute } from './component/particle';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ParticleAttribute } from '@ohos.arkui.component';
 
 
 /**

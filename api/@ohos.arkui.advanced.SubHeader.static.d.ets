@@ -20,13 +20,13 @@
  * @arkts 1.2
  */
 import { TextModifier } from './arkui/TextModifier';
-import { ResourceStr, Resource, ResourceColor, LocalizedMargin, LocalizedPadding } from './arkui/component/units';
-import { SelectOption } from './arkui/component/select';
+import { ResourceStr, Resource, ResourceColor, LocalizedMargin, LocalizedPadding } from '@ohos.arkui.component';
+import { SelectOption } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from './arkui/component/customComponent';
-import { FontWeight } from './arkui/component/enums';
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from './arkui/component/symbolglyph';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { FontWeight } from '@ohos.arkui.component';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from '@ohos.arkui.component';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**
  * Control style of operation element
  *

@@ -19,14 +19,14 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr, Resource, ResourceColor } from './arkui/component/units';
+import { Component } from '@ohos.arkui.component';
+import { ResourceStr, Resource, ResourceColor } from '@ohos.arkui.component';
 import { PropRef, Observed, ObjectLink } from './arkui/stateManagement/decorator';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { DividerModifier } from './arkui/DividerModifier';
-import { LengthMetrics } from './arkui/Graphics';
-import { TabsController } from './arkui/component/tabs';
-import { Builder } from './arkui/component/builder';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { DividerModifier } from 'arkui.DividerModifier';
+import { LengthMetrics } from 'arkui.Graphics';
+import { TabsController } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Declare enum ItemState.
  *

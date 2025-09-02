@@ -19,10 +19,10 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Component } from './arkui/component/customComponent';
-import { ResourceStr } from './arkui/component/units';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { BuilderParam, Builder } from './arkui/component/builder';
+import { Component } from '@ohos.arkui.component';
+import { ResourceStr } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { BuilderParam, Builder } from '@ohos.arkui.component';
 /**
  * Declaration of the menu item on the right side.
  *

@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { StackAttribute } from './component/stack';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { StackAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Stack Modifier
