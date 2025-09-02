@@ -4122,7 +4122,7 @@ export declare class UIContext {
   runScopedTask(callback: () => void): void;
 
   /**
-   * Sets the avoidance mode for the virtual keyboard.
+   * Sets the avoidance mode for the virtual keyboard.<br>
    * Default mode: **KeyboardAvoidMode.OFFSET**.
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
@@ -4173,6 +4173,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The key event to be sent.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
