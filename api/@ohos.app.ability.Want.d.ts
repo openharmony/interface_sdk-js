@@ -18,9 +18,9 @@
  * @kit AbilityKit
  */
 
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * Want is the basic communication component of the system.

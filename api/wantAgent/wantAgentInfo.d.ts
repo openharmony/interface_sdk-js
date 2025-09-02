@@ -23,7 +23,7 @@ import Want from '../@ohos.app.ability.Want';
 /*** if arkts 1.1 */
 import wantAgent from '../@ohos.wantAgent';
 /*** endif */
-/***if arkts 1.2 */
+/*** if arkts 1.2 */
 import { RecordData } from '../@ohos.base';
 /*** endif */
 
