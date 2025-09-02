@@ -3089,7 +3089,11 @@ declare namespace webview {
     id?: string;
 
     /**
-     * Size of the web.
+     * Size for web rendering.
+     * The maximum size is 16000 px × 16000 px. The length unit can be px, vp, or %.
+     * The length unit must be the consistent across parameters. The default unit is vp.
+     * If the size exceeds the specifications, the maximum size is returned.
+     * (Example: width: '100px', height: '200px' or width: '20%', height'30%'. If only digits are written, the unit is vp.)
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3100,7 +3104,7 @@ declare namespace webview {
   }
 
   /**
-   * Defines the snapshot result.
+   * Represents a full drawing result.
    *
    * @typedef SnapshotResult
    * @syscap SystemCapability.Web.Webview.Core
@@ -3120,7 +3124,9 @@ declare namespace webview {
 
     /**
      * The status of the snapshot.
-     *
+     * The value can be true (normal) or false (failure). If the full drawing result fails to be obtained,
+     * the width and height of the returned size are both 0, and the map is empty.
+     * 
      * @type { ?boolean }
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3129,7 +3135,8 @@ declare namespace webview {
     status?: boolean;
 
     /**
-     * Size of the web.
+     * Actual size drawn on the web page.
+     * The value is of the number type, and the unit is vp.
      *
      * @type { ?SizeOptions }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3139,7 +3146,7 @@ declare namespace webview {
     size?: SizeOptions;
 
     /**
-     * The image in PixelMap format.
+     * Full drawing result in image.PixelMap format.
      *
      * @type { ?image.PixelMap }
      * @syscap SystemCapability.Web.Webview.Core
