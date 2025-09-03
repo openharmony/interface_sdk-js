@@ -18,7 +18,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
- import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
+import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from '../stateManagement/runtime';
 import OriginalContext from '../../application/Context';
 import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
@@ -48,6 +48,7 @@ import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
 import curves from '../../@ohos.curves';
+import matrix4 from '../../@ohos.matrix4';
 /**
  * Define the ratio of characters entered by the the percentage of InputCounterOptions.
  *
@@ -1401,6 +1402,14 @@ export declare interface AnimateParam {
  * @since 20
  */
 export type ICurve = curves.ICurve;
+/**
+ * Interface for matrix object.
+ *
+ * @typedef { matrix4.Matrix4Transit } Matrix4Transit
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type Matrix4Transit = matrix4.Matrix4Transit;
 /**
  * Defines the motion path options.
  *
@@ -5891,11 +5900,10 @@ export declare interface SpringBackAction {
     /**
      * Defines spring back function
      *
-     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    springBack: VoidCallback;
+    springBack(): void;
 }
 /**
  * Defines the detent array of a single length.
@@ -9956,14 +9964,14 @@ export declare interface CommonMethod {
      */
     default rotate(value: RotateOptions | undefined): this;
     /**
-     * Sets the transformation matrix of the component.
+     * Sets the transformation matrix of the component. Set undefined value to reset the transform matrix.
      *
-     * @param { object | undefined } value - Transformation matrix of the component.
+     * @param { Matrix4Transit | undefined } value - Transformation matrix of the component.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default transform(value: object | undefined): this;
+    default transform(value: Matrix4Transit | undefined): this;
     /**
      * This callback is triggered when a component mounts a display.
      *
