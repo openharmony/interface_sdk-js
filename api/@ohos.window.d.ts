@@ -111,7 +111,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowType {
+  enum WindowType {
     /**
      * App.
      *
@@ -427,7 +427,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum AvoidAreaType {
+  enum AvoidAreaType {
     /**
      * Default area of the system
      *
@@ -551,7 +551,7 @@ declare namespace window {
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowMode {
+  enum WindowMode {
     /**
      * Undefined mode of the window
      *
@@ -603,7 +603,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  export enum WindowLayoutMode {
+  enum WindowLayoutMode {
     /**
      * CASCADE
      *
@@ -647,7 +647,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowStatusType {
+  enum WindowStatusType {
     /**
      * Undefined status of the window
      *
@@ -805,7 +805,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarProperties {
+  interface SystemBarProperties {
     /**
      * The color of the status bar.
      *
@@ -1006,7 +1006,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarStyle {
+  interface SystemBarStyle {
     /**
      * The content color of the status bar
      *
@@ -1028,7 +1028,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarRegionTint {
+  interface SystemBarRegionTint {
     /**
      * System bar type
      *
@@ -1089,7 +1089,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarTintState {
+  interface SystemBarTintState {
     /**
      * Id of display
      *
@@ -1135,7 +1135,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Rect {
+  interface Rect {
 
     /**
      * The left of the Rect.
@@ -1364,7 +1364,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface AvoidArea {
+  interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
      *
@@ -1517,7 +1517,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Size {
+  interface Size {
     /**
      * The width of the window.
      *
@@ -1587,7 +1587,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  export interface WindowInfo {
+  interface WindowInfo {
     /**
      * The position and size of the window
      *
@@ -1718,7 +1718,7 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowDensityInfo {
+  interface WindowDensityInfo {
     /**
      * System density
      *
@@ -1778,7 +1778,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowProperties {
+  interface WindowProperties {
     /**
      * The position and size of the window
      *
@@ -2168,7 +2168,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ColorSpace {
+  enum ColorSpace {
     /**
      * Default color space.
      *
@@ -2225,7 +2225,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface ScaleOptions {
+  interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
      *
@@ -2280,7 +2280,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface RotateOptions {
+  interface RotateOptions {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
@@ -2346,7 +2346,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TranslateOptions {
+  interface TranslateOptions {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
@@ -2390,7 +2390,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TransitionContext {
+  interface TransitionContext {
     /**
      * The target window with animation
      *
@@ -2436,7 +2436,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TransitionController {
+  interface TransitionController {
     /**
      * Animation configuration when showing window
      *
@@ -2500,7 +2500,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  export interface Configuration {
+  interface Configuration {
     /**
      * Indicates window id.
      *
@@ -2642,7 +2642,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowLimits {
+  interface WindowLimits {
     
     /**
      * The maximum width of the window.
@@ -2733,7 +2733,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TitleButtonRect {
+  interface TitleButtonRect {
 
     /**
      * The right of the Rect.
@@ -2814,7 +2814,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface RectChangeOptions {
+  interface RectChangeOptions {
     /**
      * Rect
      *
@@ -2855,7 +2855,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface AvoidAreaOptions {
+  interface AvoidAreaOptions {
     /**
      * Avoid area type
      *
@@ -2906,7 +2906,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum RectChangeReason {
+  enum RectChangeReason {
     /**
      * Default RectChangeReason.
      *
@@ -3033,7 +3033,7 @@ declare namespace window {
    * @atomicservice
    * @since 17
    */
-  export function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
+  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -3091,7 +3091,7 @@ declare namespace window {
    * @atomicservice
    * @since 17
    */
-  export function createWindow(config: Configuration): Promise<Window>;
+  function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -3105,7 +3105,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -3119,7 +3119,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(id: string, type: WindowType): Promise<Window>;
+  function create(id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -3133,7 +3133,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
+  function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -3147,7 +3147,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -3159,7 +3159,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  export function find(id: string, callback: AsyncCallback<Window>): void;
+  function find(id: string, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -3171,7 +3171,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  export function find(id: string): Promise<Window>;
+  function find(id: string): Promise<Window>;
 
   /**
    * Find the window by name.
@@ -3210,7 +3210,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function findWindow(name: string): Window;
+  function findWindow(name: string): Window;
 
   /**
    * Get the final show window.
@@ -3222,7 +3222,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(callback: AsyncCallback<Window>): void;
+  function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3234,7 +3234,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(): Promise<Window>;
+  function getTopWindow(): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -3246,7 +3246,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext): Promise<Window>;
+  function getTopWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -3258,7 +3258,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3301,7 +3301,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3344,7 +3344,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getLastWindow(ctx: BaseContext): Promise<Window>;
+  function getLastWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Minimize all app windows.
@@ -3375,7 +3375,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
@@ -3406,7 +3406,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: number): Promise<void>;
+  function minimizeAll(id: number): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -3428,7 +3428,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -3450,7 +3450,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function toggleShownStateForAllAppWindows(): Promise<void>;
+  function toggleShownStateForAllAppWindows(): Promise<void>;
 
   /**
    * Set the layout mode of a window.
@@ -3479,7 +3479,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
   /**
    * Set the layout mode of a window.
@@ -3508,7 +3508,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -3524,7 +3524,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+  function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -3540,7 +3540,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+  function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -3556,7 +3556,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -3572,7 +3572,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
@@ -3607,7 +3607,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
@@ -3667,7 +3667,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  export function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
+  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
@@ -3684,7 +3684,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function getSnapshot(windowId: number): Promise<image.PixelMap>;
+  function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
    * Get windows by coordinate.
@@ -3701,7 +3701,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  export function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
       Promise<Array<Window>>;
 
   /**
@@ -3795,7 +3795,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
+  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
   /**
    * Unregister the callback of systemBarTintChange
@@ -3810,7 +3810,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
@@ -3828,7 +3828,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
+  function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for gesture navigation enabled changes.
@@ -3845,7 +3845,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+  function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for watermark flag change.
@@ -3936,7 +3936,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum Orientation {
+  enum Orientation {
     /**
      * Default value. The direction mode is not clearly defined. It is determined by the system.
      *
@@ -4239,7 +4239,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum BlurStyle {
+  enum BlurStyle {
     /**
      * Close blur.
      *
@@ -4295,7 +4295,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowEventType {
+  enum WindowEventType {
     /**
      * The value of window event is window show
      *
@@ -4380,7 +4380,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum MaximizePresentation {
+  enum MaximizePresentation {
     /**
      * The value means follow immersive state which set by app
      *
@@ -4427,7 +4427,7 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface MoveConfiguration {
+  interface MoveConfiguration {
     /**
      * The display id of the screen
      *
@@ -4809,7 +4809,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Window {
+  interface Window {
     /**
      * Hide window.
      *
@@ -10890,7 +10890,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowStageEventType {
+  enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
@@ -11071,7 +11071,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ModalityType {
+  enum ModalityType {
     /**
      * The value means window modality.
      *
@@ -11130,7 +11130,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SubWindowOptions {
+  interface SubWindowOptions {
     /**
      * Indicates subwindow title
      * 
@@ -11253,7 +11253,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowStage {
+  interface WindowStage {
     /**
      * Get main window of the stage.
      *
@@ -12224,7 +12224,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ExtensionWindowAttribute {
+  enum ExtensionWindowAttribute {
     /**
      * System window.
      *
@@ -12258,7 +12258,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemWindowOptions {
+  interface SystemWindowOptions {
     /**
      * Indicates window type.
      *
@@ -12282,7 +12282,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface ExtensionWindowConfig {
+  interface ExtensionWindowConfig {
     /**
      * Window name.
      *
