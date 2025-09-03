@@ -7186,7 +7186,6 @@ declare interface OnOverScrollEvent {
  * @crossplatform
  * @atomicservice
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface JavaScriptProxy {
   /**
@@ -7205,7 +7204,6 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   object: object;
 
@@ -7227,7 +7225,6 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   name: string;
 
@@ -7249,7 +7246,6 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   methodList: Array<string>;
 
@@ -7273,17 +7269,6 @@ declare interface JavaScriptProxy {
   controller: WebController | WebviewController;
 
   /**
-   * Controller.
-   *
-   * @type { WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 20
-   * @arkts 1.2
-   */
-    controller: WebviewController;
-
-  /**
    * The async method of the application side JavaScript object participating in the registration.
    *
    * @type { ?Array<string> }
@@ -7299,7 +7284,6 @@ declare interface JavaScriptProxy {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   asyncMethodList?: Array<string>;
 
@@ -7310,8 +7294,7 @@ declare interface JavaScriptProxy {
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   permission?: string;
 }
@@ -7878,7 +7861,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
