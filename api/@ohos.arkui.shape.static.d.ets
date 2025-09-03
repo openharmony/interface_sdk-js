@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 
-import { Position, ResourceColor, Length, SizeOptions } from '@ohos.arkui.component';
+import { Position, ResourceColor, Length, SizeOptions } from './arkui/component/units';
 /**
  * Interface for shape size properties.
  *

@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ColumnAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ColumnAttribute } from './component/column';
 
 /**
  * Defines Column Modifier
@@ -29,4 +29,4 @@ import { ColumnAttribute } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
 */
-export declare class ColumnModifier implements ColumnAttribute, AttributeModifier<ColumnAttribute> {}
+export declare class ColumnModifier implements ColumnAttribute, AttributeModifier<ColumnAttribute> {}

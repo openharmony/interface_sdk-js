@@ -19,9 +19,9 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Component } from '@ohos.arkui.component';
-import { ResourceStr } from '@ohos.arkui.component';
-import { BuilderParam, Builder } from '@ohos.arkui.component';
+import { Component } from './arkui/component/customComponent';
+import { ResourceStr } from './arkui/component/units';
+import { BuilderParam, Builder } from './arkui/component/builder';
 import { PropRef } from './arkui/stateManagement/decorator';
 /**
  * Declare FilterType

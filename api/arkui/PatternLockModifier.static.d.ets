@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { PatternLockAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { PatternLockAttribute } from './component/patternLock';
 
 /**
  * Defines PatternLock Modifier

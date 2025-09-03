@@ -19,12 +19,12 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceStr, ResourceColor, LocalizedMargin } from '@ohos.arkui.component';
-import { SafeAreaType, SafeAreaEdge, BlurStyle } from '@ohos.arkui.component';
-import { Component } from '@ohos.arkui.component';
-import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { ResourceStr, ResourceColor, LocalizedMargin } from './arkui/component/units';
+import { SafeAreaType, SafeAreaEdge, BlurStyle } from './arkui/component/common';
+import { Component } from './arkui/component/customComponent';
+import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Builder } from '@ohos.arkui.component';
+import { Builder } from './arkui/component/builder';
 /**
  * Declaration of the menu item on the right side.
  *

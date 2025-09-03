@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { CheckboxAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { CheckboxAttribute } from './component/checkbox';
 
 /**
  * Defines Checkbox Modifier

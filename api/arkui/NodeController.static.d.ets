@@ -20,11 +20,11 @@
  * @arkts 1.2
  */
 
-import { UIContext } from '@ohos.arkui.UIContext';
-import { FrameNode } from 'arkui.FrameNode';
-import { Size } from 'arkui.Graphics';
-import { Callback } from '@ohos.base';
-import { TouchEvent } from '@ohos.arkui.component';
+import { UIContext } from '../@ohos.arkui.UIContext';
+import { FrameNode } from './FrameNode';
+import { Size } from './Graphics';
+import { Callback } from '../@ohos.base';
+import { TouchEvent } from './component/common';
 
 
 /**

@@ -22,9 +22,9 @@
 
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { SymbolSpanAttribute } from '@ohos.arkui.component';
-import { Resource } from 'global.resource';
+import { AttributeModifier } from './component/common';
+import { SymbolSpanAttribute } from './component/symbolSpan';
+import { Resource } from '../global/resource';
 
 /**
  * Defines SymbolSpan Modifier

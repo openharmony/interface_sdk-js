@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { TextAreaAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { TextAreaAttribute } from './component/textArea';
 
 /**
  * Defines TextArea Modifier
