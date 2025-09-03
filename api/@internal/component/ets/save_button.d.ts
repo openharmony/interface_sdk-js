@@ -368,7 +368,16 @@ declare enum SaveButtonOnClickResult {
    * @atomicservice
    * @since 11
    */
-  TEMPORARY_AUTHORIZATION_FAILED = 1
+  TEMPORARY_AUTHORIZATION_FAILED = 1,
+
+  /**
+   * Canceled by user.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  CANCELED_BY_USER = 2,
 }
 
 /**
@@ -543,6 +552,16 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    */
   stateEffect(enabled: boolean): SaveButtonAttribute;
 
+  /**
+   * Receives the event when the user clicks cancel.
+   *
+   * @param { boolean } enabled - Whether to receive the event when the user clicks cancel.
+   * @returns { SaveButtonAttribute } Returns the attributes of the save button.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  userCancelEvent(enabled: boolean): SaveButtonAttribute;
 }
 
 /**
