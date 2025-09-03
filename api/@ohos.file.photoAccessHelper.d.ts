@@ -10126,6 +10126,7 @@ declare namespace photoAccessHelper {
      * Set the relationship in the album with the phone owner
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } relationship - The relationship with the phone owner
+     * @returns { Promise<void> } Returns void
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
