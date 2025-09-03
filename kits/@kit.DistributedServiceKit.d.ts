@@ -30,8 +30,8 @@ import DistributedExtensionContext from '@ohos.application.DistributedExtensionC
 import proxyChannelManager from '@ohos.distributedsched.proxyChannelManager';
 
 export { 
-  cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager,
-  linkEnhance, DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager
+  cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager, linkEnhance,
+  DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager
 };
 /*** endif */
 
