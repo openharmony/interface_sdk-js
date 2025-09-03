@@ -25,6 +25,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @namespace onScreen
  * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+ * @systemapi
  * @since 20
  */
 
@@ -34,6 +35,7 @@ declare namespace onScreen {
    *
    * @enum { number } Scenario
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
    * @since 20
   */
   export enum Scenario {
@@ -60,6 +62,7 @@ declare namespace onScreen {
    *
    * @enum { number } EventType
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
+   * @systemapi
    * @since 20
   */
   export enum EventType {
