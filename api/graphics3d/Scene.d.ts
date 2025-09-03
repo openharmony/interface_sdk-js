@@ -183,8 +183,9 @@ export interface RenderResourceFactory {
 
   /**
    * Create a new scene from a Resource.
+   * If uri is not provided, will return an empty scene.
    * 
-   * @param { ResourceStr } uri - the resource of creating a scene
+   * @param { ResourceStr } [uri] - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
@@ -371,8 +372,9 @@ export declare class Scene {
 
   /**
    * Create a new scene from a ResourceStr.
+   * If uri is not provided, will return an empty scene.
    *
-   * @param { ResourceStr } uri - the resource of creating a scene
+   * @param { ResourceStr } [uri] - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D
