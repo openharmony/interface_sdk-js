@@ -5338,7 +5338,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasImage(): Promise<boolean>;
 
@@ -5362,42 +5363,10 @@ declare namespace webview {
      *                           The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     hasImage(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * Asynchronous search for image existence on the current page through Promise method.
-     *
-     * @returns { Promise<boolean> } A promise resolved after query image has finished.
-     * @throws { BusinessError } 17100001 - Init error.
-     *     The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    hasImageWithPromise(): Promise<boolean>;
-
-    /**
-     * Asynchronous search for the presence of an image on the current page through callback method.
-     *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 17100001 - Init error.
-     *     The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 20
-     * @arkts 1.2
-     */
-    hasImageWithCallback(callback: AsyncCallback<boolean>): void;
-
-    /**
-     * @arkts 1.2
-     */
-    overload hasImage{hasImageWithPromise,hasImageWithCallback};
 
     /**
      * Get back forward stack list from current webview.
