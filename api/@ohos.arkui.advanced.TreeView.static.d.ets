@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+ 
 /**
  * @file
  * @kit ArkUI
@@ -95,7 +95,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    on(type: TreeListenType, callback: (callbackParam: OnChangedCallback) => void): void;
+    on(type: TreeListenType, callback: OnChangedCallback): void;
     /**
      * Event registration and processing.
      * After the event is processed once, it will be destroyed.
@@ -105,7 +105,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    once(type: TreeListenType, callback: (callbackParam: OnChangedCallback) => void): void;
+    once(type: TreeListenType, callback: OnChangedCallback): void;
     /**
      * Destroy event.
      *
@@ -114,7 +114,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    off(type: TreeListenType, callback?: (callbackParam: OnChangedCallback) => void): void;
+    off(type: TreeListenType, callback?: OnChangedCallback): void;
 }
 /**
  * Declare class TreeListenerManager
@@ -127,7 +127,7 @@ export declare class TreeListenerManager {
     /**
      * Get instance of treeListenerManager.
      *
-     * @returns { TreeListenerManager } Return the treeListenerManager instance.
+     * @returns { TreeListenerManager } Returns the treeListenerManager instance.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
