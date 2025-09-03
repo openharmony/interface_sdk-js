@@ -4761,6 +4761,40 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the categories app pefer to use when recording with Bluetooth or Nearlink.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 21
+   */
+  enum BluetoothAndNearlinkPreferredRecordCategory {
+    /**
+     * Not prefer to use Bluetooth an Nearlink record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_NONE = 0,
+    /**
+     * Prefer to use Bluetooth an Nearlink record. However,
+     * whether to use low latency or high-quality recording is up to the system.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_DEFAULT = 1,
+    /**
+     * Prefer to use Bluetooth an Nearlink low latency record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_LOW_LATENCY = 2,
+    /**
+     * Prefer to use Bluetooth an Nearlink high-quality record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_HIGH_QUALITY = 3,
+  }
+
+  /**
    * Audio session input device change info.
    * @typedef CurrentInputDeviceChangedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4985,9 +5019,14 @@ declare namespace audio {
      * Select the media input device. It uses an asynchronous callback to return the result.
      * This function is not valid for call recording, whose SourceType is
      * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
+     * In scenarios where there are concurrent recording stream with higher priority,
+     * the actual input device used by the app may differ from the selected one.
+     * The app can obtain the currently active input device by listening to the
+     * currentInputDeviceChanged event.
      * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     * the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
@@ -4995,7 +5034,7 @@ declare namespace audio {
     selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Gets the selected media input device. If never set, it returns an device descriptor
+     * Get the selected media input device. If never set, it returns an device descriptor
      * with INVALID DeviceType.
      * @returns { AudioDeviceDescriptor } - Audio device description.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -5014,23 +5053,29 @@ declare namespace audio {
     clearSelectedMediaInputDevice(): Promise<void>;
 
     /**
-     * prefer bluetooth and nearlink device to record.
+     * Set the prefered record category with bluetooth and nearlink device.
+     * The app can set this category before Bluetooth or Nearlink connected, and the system will
+     * prefer to use Bluetooth or Nearlink to record when the device connected.
+     * In scenarios where there are concurrent recording stream with higher priority,
+     * the actual input device used by the app may differ from the prefered one.
+     * The app can obtain the currently active input device by listening to the
+     * currentInputDeviceChanged event.
      * @param { boolean } enable - Indicates whether prefer wireless device to record. 
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
-    preferBluetoothAndNearlinkRecord(enable: boolean): Promise<void>;
+    setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise<void>;
 
     /**
-     * Gets whether prefer bluetooth and nearlink device to record.
+     * Get the prefered record category with bluetooth and nearlink device.
      * @returns { boolean } - Indicates whether prefer wireless device to record. 
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
      */
-    isPreferredBluetoothAndNearlinkRecord(): boolean;
+    getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory;
 
     /**
      * Subscribes input device change event callback. The event is triggered when current input device change.
@@ -7506,6 +7551,16 @@ declare namespace audio {
      * @since 18
      */
     readonly dmDeviceType?: number;
+
+    /**
+     * whether supports high-quality recording.
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 21
+     */
+    readonly highQualityRecordingSupported?: boolean;
   }
 
   /**
