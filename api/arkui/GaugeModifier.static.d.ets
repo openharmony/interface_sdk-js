@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { GaugeAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { GaugeAttribute } from './component/gauge';
 
 /**
  * Defines Gauge Modifier

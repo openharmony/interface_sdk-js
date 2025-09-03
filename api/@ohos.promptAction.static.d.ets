@@ -18,15 +18,15 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses } from '@ohos.arkui.component';
-import { AsyncCallback, Callback } from '@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from '@ohos.arkui.component';
-import { CustomBuilder } from '@ohos.arkui.component';
-import { DialogAlignment } from '@ohos.arkui.component';
-import { DismissDialogAction } from '@ohos.arkui.component';
-import { BorderStyle, Alignment } from '@ohos.arkui.component';
-import { Resource } from 'global.resource';
-import { LengthMetrics } from 'arkui.Graphics';
+import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses } from './arkui/component/units';
+import { AsyncCallback, Callback } from './@ohos.base';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './arkui/component/common';
+import { CustomBuilder } from './arkui/component/builder';
+import { DialogAlignment } from './arkui/component/alertDialog';
+import { DismissDialogAction } from './arkui/component/actionSheet';
+import { BorderStyle, Alignment } from './arkui/component/enums';
+import { Resource } from './global/resource';
+import { LengthMetrics } from './arkui/Graphics';
 /**
  * Define the display mode of all kind of dialog
  *

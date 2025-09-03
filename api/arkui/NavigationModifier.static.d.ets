@@ -19,8 +19,8 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { AttributeModifier } from '@ohos.arkui.component';
-import { NavigationAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { NavigationAttribute } from './component/navigation';
 
 /**
  * Defines Navigation Modifier

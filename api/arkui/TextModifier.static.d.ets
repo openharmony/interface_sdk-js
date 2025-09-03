@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { TextAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { TextAttribute } from './component/text';
 
 /**
  * Defines Text Modifier

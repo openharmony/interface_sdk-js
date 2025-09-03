@@ -21,8 +21,8 @@
  */
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ListAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ListAttribute } from './component/list';
 
 
 /**

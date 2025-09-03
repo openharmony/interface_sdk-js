@@ -259,24 +259,7 @@ function hasFileByImportPath(apiDir, importPath) {
     fileDir = path.resolve(inputDir, '../arkts');
   }
   return isExistImportFile(fileDir, importPath) ||
-    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath) ||
-    isDotPathExist(fileDir, importPath);
-}
-
-/**
- * Dot路径特殊处理
- * @param {string} resolvedPath 引用接口所在目录
- * @param {string} importPath kit文件import
- * @returns {boolean} importPath是否存在
- */
-function isDotPathExist(fileDir, importPath) {
-  if (['./', '@ohos', '@system'].every(str => {
-    return importPath.includes(str);
-  })) {
-    return false;
-  }
-  const replaced = importPath.replace(/\./g, '/');
-  return isExistImportFile(fileDir, replaced);
+    isExistArkUIFile(path.resolve(inputDir, 'arkui', 'component'), importPath);
 }
 
 

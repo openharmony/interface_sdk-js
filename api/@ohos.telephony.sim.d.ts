@@ -1145,9 +1145,9 @@ declare namespace sim {
    * Set the SIM card number in the specified slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { string } number - Indicates SIM card number.
+   * @param { string } teleNumber - Indicates SIM card number.
    * @param { AsyncCallback<void> } callback - The callback of setShowNumber.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1160,17 +1160,18 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setShowNumber(slotId: number, number: string, callback: AsyncCallback<void>): void;
+  function setShowNumber(slotId: int, teleNumber: string, callback: AsyncCallback<void>): void;
 
   /**
    * Set the SIM card number in the specified slot.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { string } number - Indicates SIM card number.
+   * @param { string } teleNumber - Indicates SIM card number.
    * @returns { Promise<void> } The promise returned by the setShowNumber.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1183,9 +1184,10 @@ declare namespace sim {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setShowNumber(slotId: number, number: string): Promise<void>;
+  function setShowNumber(slotId: int, teleNumber: string): Promise<void>;
 
   /**
    * Get the SIM card number of the specified card slot.
@@ -2420,6 +2422,17 @@ declare namespace sim {
      * @since 8
      */
     number: string;
+
+    /**
+     * Indicates the call transfer number.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.2
+     */
+    teleNumber: string;
 
     /**
      * Indicates the record number.

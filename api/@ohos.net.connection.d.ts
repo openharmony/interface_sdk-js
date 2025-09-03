@@ -2056,6 +2056,15 @@ declare namespace connection {
     interface: string;
 
     /**
+     * Network card name.
+     * @type {string}
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @since 20
+     * @arkts 1.2
+     */
+    iface: string;    
+
+    /**
      * Destination Address
      * @type {LinkAddress}
      * @syscap SystemCapability.Communication.NetManager.Core
