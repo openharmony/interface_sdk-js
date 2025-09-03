@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ShapeAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ShapeAttribute } from './component/shape';
 
 /**
  * @file

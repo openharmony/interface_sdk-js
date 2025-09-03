@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { VideoAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { VideoAttribute } from './component/video';
 
 /**
  * @file

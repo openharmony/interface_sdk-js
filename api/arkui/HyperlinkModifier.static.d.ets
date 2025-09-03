@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { HyperlinkAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { HyperlinkAttribute } from './component/hyperlink';
 
 /**
  * Defines Hyperlink Modifier

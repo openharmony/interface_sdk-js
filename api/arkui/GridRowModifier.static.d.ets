@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { GridRowAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { GridRowAttribute } from './component/gridRow';
 
 /**
  * Defines GridRow Modifier

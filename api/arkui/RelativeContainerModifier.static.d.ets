@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { RelativeContainerAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { RelativeContainerAttribute } from './component/relativeContainer';
 
 /**
  * Defines RelativeContainer Modifier

@@ -17,7 +17,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { CustomBuilder } from '@ohos.arkui.component';
+import { CustomBuilder } from './arkui/component/builder';
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 

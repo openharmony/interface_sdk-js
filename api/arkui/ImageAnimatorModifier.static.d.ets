@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ImageAnimatorAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ImageAnimatorAttribute } from './component/imageAnimator';
 
 /**
  * Defines ImageAnimator Modifier

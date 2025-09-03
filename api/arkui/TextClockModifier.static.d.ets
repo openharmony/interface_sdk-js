@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { TextClockAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { TextClockAttribute } from './component/textClock';
 
 /**
  * Defines TextClock Modifier

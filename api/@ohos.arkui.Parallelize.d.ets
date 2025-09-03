@@ -20,7 +20,7 @@
  */
 
 import { ComponentBuilder } from './arkui/stateManagement/runtime'
-import { CustomBuilder } from '@ohos.arkui.component';
+import { CustomBuilder } from './arkui/component/builder';
 
 /**
 * Describe the options for the ParallelizeUI.

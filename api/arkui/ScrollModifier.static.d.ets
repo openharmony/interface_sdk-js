@@ -21,8 +21,8 @@
  */
 
 
-import { AttributeModifier } from '@ohos.arkui.component';
-import { ScrollAttribute } from '@ohos.arkui.component';
+import { AttributeModifier } from './component/common';
+import { ScrollAttribute } from './component/scroll';
 
 
 
