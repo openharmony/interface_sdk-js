@@ -106,7 +106,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
@@ -118,7 +119,8 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function pick(): Promise<PickInfo>;
 
@@ -138,7 +140,8 @@ declare namespace screenshot {
      * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pickRect: Rect;
 
@@ -148,7 +151,8 @@ declare namespace screenshot {
      * @type { image.PixelMap }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     pixelMap: image.PixelMap;
   }
@@ -247,7 +251,8 @@ declare namespace screenshot {
    * @interface CaptureOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CaptureOption {
     /**
@@ -256,7 +261,8 @@ declare namespace screenshot {
      * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayId?: long;
   }
