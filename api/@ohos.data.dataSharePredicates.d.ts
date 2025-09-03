@@ -636,10 +636,24 @@ declare namespace dataSharePredicates {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 20
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
+     * are within a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @stagemodelonly
+     * @since 20
+     * @arkts 1.2
+     */
+    inValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
@@ -652,10 +666,25 @@ declare namespace dataSharePredicates {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
+
+    /**
+     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
+     * are out of a given range.
+     * Currently only used for RDB and KVDB(schema).
+     *
+     * @param { string } field - Indicates the column name in the database table.
+     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
+     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 20
+     * @arkts 1.2
+     */
+    notInValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
