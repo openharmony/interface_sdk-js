@@ -97,8 +97,8 @@ declare enum EffectLayer {
  * @since 20
  */
 declare interface EffectComponentOptions {
-
-  /** Use this to determine the component layer 1evel. Default value is none.
+  /**
+   * Use this to determine the component layer 1evel. Default value is none.
    *
    * @type { ?EffectLayer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
