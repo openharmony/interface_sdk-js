@@ -386,6 +386,7 @@ interface BoardStyle {
    * Define the border radius of the board
    *
    * @type { ?Length }
+   * @default 8.0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -465,6 +466,7 @@ declare interface LabelStyle {
    * Minimum font size of the label text.
    *
    * @type { ?(number | ResourceStr) }
+   * @default 0.0fp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -484,6 +486,7 @@ declare interface LabelStyle {
    * Maximum font size of the label text.
    *
    * @type { ?(number | ResourceStr) }
+   * @default 0.0fp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -523,6 +526,8 @@ declare interface LabelStyle {
    * Font of the label text.
    *
    * @type { ?Font }
+   * When setting the tabBar to BottomTabBarStyle, the default font size is 10.0fp.
+   * When setting the tabBar to SubTabBarStyle, the default font size is 16.0fp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -679,6 +684,7 @@ declare interface TabBarIconStyle {
    * The icon color of the selected tab bar.
    *
    * @type { ?ResourceColor }
+   * @default #FF007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -691,6 +697,7 @@ declare interface TabBarIconStyle {
    * The icon color of the unselected tab bar.
    *
    * @type { ?ResourceColor }
+   * @default #33182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1086,7 +1093,8 @@ declare class SubTabBarStyle {
    * <br>When the parameter is of the Dimension type, the value applies to all sides.
    * </p>
    *
-   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
+   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar, default value:
+   *                                        left: 8.0vp, right: 8.0vp, top: 17.0vp, bottom: 18.0vp.
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1103,7 +1111,9 @@ declare class SubTabBarStyle {
    * <br>This API supports mirroring but does not support percentage-based settings.
    * </p>
    *
-   * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar
+   * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar, default value:
+   *                                       start: LengthMetircs.vp(8), end: LengthMetircs.vp(8),
+   *                                       top: LengthMetircs.vp(17), bottom: LengthMetircs.vp(18).
    * @returns { SubTabBarStyle } the style of the sub tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1654,6 +1664,7 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TabContent: TabContentInterface;
 
@@ -1677,5 +1688,6 @@ declare const TabContent: TabContentInterface;
  * @crossplatform
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 declare const TabContentInstance: TabContentAttribute;

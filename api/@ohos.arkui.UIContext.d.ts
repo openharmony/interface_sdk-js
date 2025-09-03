@@ -1303,7 +1303,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.DialogController } controller - Dialog controller.
-   * @param { promptAction.BaseDialogOptions } options - Options.
+   * @param { promptAction.BaseDialogOptions } [options] - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1385,8 +1385,8 @@ export declare class PromptAction {
    * isModal = true and showInSubWindow = true cannot be used at the same time.
    *
    * @param { CustomBuilder | CustomBuilderWithId } builder - Dialog builder.
-   * @param { promptAction.DialogController } controller - Dialog controller.
-   * @param { promptAction.DialogOptions } options - Options.
+   * @param { promptAction.DialogController } [controller] - Dialog controller.
+   * @param { promptAction.DialogOptions } [options] - Options.
    * @returns { Promise<number> } return the dialog id that will be used by closeCustomDialog.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1448,7 +1448,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } content - The content of popup.
    * @param { TargetInfo } target - The target of popup.
-   * @param { PopupCommonOptions } options - Options.
+   * @param { PopupCommonOptions } [options] - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1471,7 +1471,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } content - The content of popup.
    * @param { PopupCommonOptions } options - Options.
-   * @param { boolean } partialUpdate - If true, only the specified properties in the options are updated,
+   * @param { boolean } [partialUpdate] - If true, only the specified properties in the options are updated,
    *                                    otherwise the rest of the properties are overwritten with the default values.
    *                                    Default value is false.
    * @returns { Promise<void> } the promise returned by the function.
@@ -1513,7 +1513,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } content - The content of menu.
    * @param { TargetInfo } target - The target of menu.
-   * @param { MenuOptions } options - Options.
+   * @param { MenuOptions } [options] - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1536,7 +1536,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } content - The content of menu.
    * @param { MenuOptions } options - Options.
-   * @param { boolean } partialUpdate - If true, only the specified properties in the MenuOptions are updated,
+   * @param { boolean } [partialUpdate] - If true, only the specified properties in the MenuOptions are updated,
    *                                    otherwise the rest of the properties are overwritten with the default values.
    *                                    Default value is false.
    * @returns { Promise<void> } the promise returned by the function.
@@ -2962,7 +2962,7 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @since arkts { '1.1':'14','1.2':'20' }
  * @arkts 1.1&1.2
  */
-export class MarqueeDynamicSyncScene extends DynamicSyncScene {
+export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the MarqueeDynamicSyncSceneType.
   * @type { MarqueeDynamicSyncSceneType }
@@ -4173,6 +4173,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The key event to be sent.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform

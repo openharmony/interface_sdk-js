@@ -166,10 +166,10 @@ function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) 
   if (isEndWithStatic) {
     if (type === 'ets2') {
       if (isPublic === 'true') {
-        writeFile(outputPath, fileContent);
+        writeFile(outputPath, deleteArktsTag(fileContent));
         return;
       } else {
-        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), fileContent);
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
         return;
       }
     } else {
@@ -538,23 +538,20 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
 
 /**
  * 获取删除overload节点后的文件内容
- * @param {*} sourceFile 
+ * @param {*} newContent 文件内容 
+ * @param {*} filePath 文件路径 
  * @returns 
  */
 function getFileContent(newContent, filePath) {
   const regex = /^overload\s+.+$/;
-  if (isArkTsSpecialSyntax(newContent) || !regex.test(newContent)) {
+  if (!regex.test(newContent)) {
     return newContent;
   }
   const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
   const printer = ts.createPrinter();
-  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc]);
+  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
   const output = printer.printFile(result.transformed[0]);
   return output;
-}
-
-function isArkTsSpecialSyntax(content) {
-  return /\@memo|(?<!\*\s*)\s*\@interface/.test(content);
 }
 
 /**
@@ -579,7 +576,7 @@ function deleteOverLoadJsDoc(context) {
 }
 
 /**
- * 处理struct子节点 
+ * 处理struct子节点，防止tsc自动增加constructor方法
  */
 function processStructDeclaration(node) {
   const newMembers = [];
@@ -744,7 +741,7 @@ function validateExportDeclaration(node) {
  * @returns 
  */
 function deleteApi(sourceFile) {
-  let result = ts.transform(sourceFile, [transformer]);
+  let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -753,7 +750,7 @@ function deleteApi(sourceFile) {
   // 打印结果
   const printer = ts.createPrinter();
   let fileContent = printer.printFile(newSourceFile);
-  result = ts.transform(newSourceFile, [transformExportApi]);
+  result = ts.transform(newSourceFile, [transformExportApi], { etsAnnotationsEnable: true });
   fileContent = printer.printFile(result.transformed[0]);
   deleteApiSet.clear();
   return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');

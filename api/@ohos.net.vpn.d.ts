@@ -83,6 +83,21 @@ declare namespace vpn {
   function on(type: 'connect', callback: Callback<VpnConnectState>): void;
 
   /**
+   * Subscribes to vpn connect state changes.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
+   * @param { Callback<MultiVpnConnectState> } callback - The callback of the multi vpn connect state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 19900001 - Invalid parameter value.
+   * @throws { BusinessError } 19900002 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function on(type: 'connectMulti', callback: Callback<MultiVpnConnectState>): void;
+
+  /**
    * Unsubscribes from vpn connect state changes.
    * @permission ohos.permission.MANAGE_VPN
    * @param { 'connect' } type - Indicates vpn connect state changes.
@@ -98,6 +113,21 @@ declare namespace vpn {
    * @since 12
    */
   function off(type: 'connect', callback?: Callback<VpnConnectState>): void;
+
+  /**
+   * Unsubscribes from vpn connect state changes.
+   * @permission ohos.permission.MANAGE_VPN
+   * @param { 'connectMulti' } type - Indicates multi vpn connect state changes.
+   * @param { Callback<MultiVpnConnectState> } [callback] - The callback of the multi vpn connect state.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 19900001 - Invalid parameter value.
+   * @throws { BusinessError } 19900002 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function off(type: 'connectMulti', callback?: Callback<MultiVpnConnectState>): void;
 
   /**
    * Add a system VPN network configuration.
@@ -177,6 +207,20 @@ declare namespace vpn {
    * @since 12
    */
   function getConnectedSysVpnConfig(): Promise<SysVpnConfig>;
+
+  /**
+   * Get the connected VPN App Info.
+   * @permission ohos.permission.MANAGE_VPN
+   * @returns { Promise<Array<string>> } The promise returned by the connected VPN App Info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 19900001 - Invalid parameter value.
+   * @throws { BusinessError } 19900002 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Vpn
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   */
+  function getConnectedVpnAppInfo(): Promise<Array<string>>;
 
   /**
    * Defines a VPN connection.
@@ -301,6 +345,15 @@ declare namespace vpn {
    * @since 10
    */
   export interface VpnConfig {
+    /**
+     * The uuid for the VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    vpnId?: string;
+
     /**
      * The array of addresses for VPN interface.
      * @type {Array<LinkAddress>}
@@ -482,6 +535,33 @@ declare namespace vpn {
      * @since 12
      */
     forwardingRoutes?: string;
+
+    /**
+     * The array of addresses for remote server.
+     * @type {?Array<string>}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    remoteAddresses?: Array<string>;
+
+    /**
+     * The p12 cert password for the ipsec VPN network.
+     * @type {?string}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    pkcs12Password?: string;
+
+    /**
+     * The p12 cert data for the ipsec VPN network.
+     * @type {?Uint8Array}
+     * @syscap SystemCapability.Communication.NetManager.Vpn
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    pkcs12FileData?: Uint8Array;
   }
 
   /**

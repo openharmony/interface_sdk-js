@@ -71,6 +71,26 @@ import { CustomBuilder } from './builder';
 /*** endif */
 
 /**
+ * The type for SpringLoadingContext, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
+
+/**
+ * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ *
+ * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 20
+ */
+declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
+
+/**
  * Defines the options of Component ClassDecorator.
  *
  * @interface ComponentOptions
@@ -4357,7 +4377,6 @@ declare interface sharedTransitionOptions {
    * Animation curve.<br>You are advised to specify the curve using the Curve or ICurve type.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -4369,7 +4388,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -4382,7 +4400,6 @@ declare interface sharedTransitionOptions {
    * <br>Default value: **Curve.Linear**.
    *
    * @type { ?(Curve | string | ICurve) }
-   * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -6836,7 +6853,7 @@ declare interface RotateOptions {
 }
 
 /**
- * The param of rotate about angle.
+ * The rotation parameters containing multi-axis angle information.
  *
  * @interface RotateAngleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10008,6 +10025,7 @@ declare enum AdaptiveColor {
 declare enum ModalTransition {
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -10015,6 +10033,7 @@ declare enum ModalTransition {
    */
   /**
    * Use default animation.
+   * Upward animation when entering and downward animation when exiting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -13798,14 +13817,15 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @param { BaseGestureEvent } event - the event information
  * @param { GestureRecognizer } current - the current gesture recognizer of the component
  * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } touchRecognizers - the touch recognizers of the component on the response chain
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
+  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * Defines the callback type used in onGestureRecognizerJudgeBegin.
@@ -14100,25 +14120,6 @@ declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').de
  * @arkts 1.2
  */
 declare type UniformDataType = uniformTypeDescriptor.UniformDataType;
-/**
- * The type for SpringLoadingContext, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
- 
-/**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
- *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 20
- */
-declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
  * Import the DataLoadParams type object for ui component.
@@ -16194,7 +16195,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16203,7 +16204,7 @@ declare interface ContentCoverOptions extends BindOptions {
    * Defines transition type
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16790,7 +16791,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
@@ -16799,7 +16800,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines sheet height
    *
    * @type { ?(SheetSize | Length) }
-   * @default Sheet.LARGE
+   * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -16850,7 +16851,7 @@ declare interface SheetOptions extends BindOptions {
    * Defines transition type when preferType is SheetType.CONTENT_COVER.
    *
    * @type { ?ModalTransition }
-   * @default ModalTransition.Default
+   * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17248,7 +17249,6 @@ declare interface SheetOptions extends BindOptions {
    * <br>The return value is in px.
    * </p>
    * @type { ?Callback<number> }
-   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -17933,7 +17933,6 @@ declare interface DismissPopupAction {
 declare interface PopupStateChangeParam {
   /**
    * is Visible.
-   * Anonymous Object Rectification.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -17971,7 +17970,6 @@ declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 declare interface PopupMaskType {
   /**
    * Color.
-   * Anonymous Object Rectification.
    *
    * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -19263,7 +19261,7 @@ declare interface PopupOptions {
    * @arkts 1.1&1.2
    */
   followTransformOfTarget?: boolean;
-
+   
   /**
    * Define the popup avoid keyboard mode.
    *
@@ -20145,7 +20143,7 @@ interface ContextMenuAnimationOptions {
    * Sets the start animator scale and end animator scale.
    *
    * @type { ?AnimationRange<number> }
-   * @default -
+   * @default [0.95, 1.1]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
@@ -22518,18 +22516,6 @@ declare interface DragInteractionOptions {
   defaultAnimationBeforeLifting?: boolean;
 
   /**
-  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
-  *
-  * @type { ?boolean }
-  * @default true
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @atomicservice
-  * @since arkts {'1.1':'18','1.2':'20'}
-  * @arkts 1.1&1.2
-  */
-  enableEdgeAutoScroll?: boolean;
-
-  /**
   * Define whether to enable the haptic feedback when dragging, the default value is false.
   *
   * @type { ?boolean }
@@ -22540,6 +22526,18 @@ declare interface DragInteractionOptions {
   * @arkts 1.1&1.2
   */
   enableHapticFeedback?: boolean;
+
+  /**
+  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
+  *
+  * @type { ?boolean }
+  * @default true
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @atomicservice
+  * @since arkts {'1.1':'18','1.2':'20'}
+  * @arkts 1.1&1.2
+  */
+  enableEdgeAutoScroll?: boolean;
 
   /**
   * Define whether to lifting trigger drag by finger.
@@ -23076,7 +23074,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the safe area to be expanded to.
-   * <br>default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
+   * default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
    * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}
    *
    * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
@@ -23700,7 +23698,7 @@ declare class CommonMethod<T> {
    * Background image
    *
    * @param { ResourceStr | PixelMap } src - the background image source
-   * @param { BackgroundImageOptions } options - config the options
+   * @param { BackgroundImageOptions } [options] - config the options
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -23799,8 +23797,8 @@ declare class CommonMethod<T> {
 
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23812,8 +23810,8 @@ declare class CommonMethod<T> {
    */
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23826,8 +23824,8 @@ declare class CommonMethod<T> {
    */
   /**
    * Defines the blur style to apply between the background and content of a component.
-   * It encapsulates various blur radius, mask color, mask opacity, saturation.
-   * And brightness values through enum values.
+   * It encapsulates various blur radius, mask color, mask opacity, saturation
+   * and brightness values through enum values.
    *
    * @param { BlurStyle } value - Settings of the background blur style
    * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
@@ -23844,10 +23842,10 @@ declare class CommonMethod<T> {
 
   /**
    * Background blur style.
-   * blurStyle:Blur style type.
    *
-   * @param { Optional<BlurStyle> } style
-   * @param { BackgroundBlurStyleOptions } [options]
+   * @param { Optional<BlurStyle> } style - Settings of the background blur style
+   * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
+   * @param { BackgroundBlurStyleOptions } [options] - Background blur options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -23859,12 +23857,11 @@ declare class CommonMethod<T> {
 
   /**
    * Background blur style.
-   * blurStyle:Blur style type.
-   * sysOptions: system adaptive options.
-   *
-   * @param { Optional<BlurStyle> } style
-   * @param { BackgroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
+   * 
+   * @param { Optional<BlurStyle> } style - Settings of the background blur style
+   * <br>including the blur radius, mask color, mask opacity, saturation, and brightness.
+   * @param { BackgroundBlurStyleOptions } [options] - Background blur options.
+   * @param { SystemAdaptiveOptions } [sysOptions] - System adaptive options.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -24713,7 +24710,7 @@ declare class CommonMethod<T> {
    *
    * <p><strong>NOTE</strong>:
    * <br> If the distanceThreshold value specified is less than or equal to 0 vp, it will be converted to the default value.
-   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
+   * <br> Since API version 12, the following constraints apply when this API is used in service widgets:
    * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
    * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
    * </p>
@@ -24916,7 +24913,7 @@ declare class CommonMethod<T> {
   /**
    * Digital crown input.
    *
-   * @param { Callback<CrownEvent> } event
+   * @param { Optional<Callback<CrownEvent>> } handler
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -28144,36 +28141,6 @@ declare class CommonMethod<T> {
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * Enables the component as a drag-and-drop target with spring loading functionality.
-   *
-   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
-   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
-   * by hovering (hover) without needing to use another hand.
-   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
-   * some common scenarios suitable for supporting this feature:
-   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-   *  automatically opened.
-   *
-   * Please note:
-   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
-   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
-   *   child components always have higher priority.
-   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
-   *   dragged object leaves and re-enters the component's range.
-   *
-   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
-   *    sets it to null to disable the support for spring loading.
-   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-   *    only used when the entire spring detecting.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20
-   */
-  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T;
-
-  /**
    * Allowed drop uniformData type for this node.
    *
    * @param { Array<UniformDataType> } value - the uniformData type for this node.
@@ -30594,6 +30561,36 @@ declare class CommonMethod<T> {
    * @since 20
    */
   onTouchTestDone(callback: TouchTestDoneCallback): T;
+
+  /**
+   * Enables the component as a drag-and-drop target with spring loading functionality.
+   *
+   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
+   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
+   * by hovering (hover) without needing to use another hand.
+   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
+   * some common scenarios suitable for supporting this feature:
+   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
+   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
+   *  automatically opened.
+   *
+   * Please note:
+   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
+   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
+   *   child components always have higher priority.
+   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
+   *   dragged object leaves and re-enters the component's range.
+   *
+   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
+   *    sets it to null to disable the support for spring loading.
+   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
+   *    only used when the entire spring detecting.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   */
+  onDragSpringLoading(callback: Callback<SpringLoadingContext> | null, configuration?: DragSpringLoadingConfiguration): T
 }
 
 /**
@@ -31965,7 +31962,7 @@ declare interface LayoutBorderInfo {
   margin: Margin,
 
   /**
-   * Sub component padding info.
+   * Custom component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32098,7 +32095,7 @@ declare interface LayoutChild {
 }
 
 /**
- * Sub component layout info.
+ * Custom component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -32107,7 +32104,7 @@ declare interface LayoutChild {
  * @since 10
  */
 /**
- * Sub component layout info.
+ * Custom component layout info.
  *
  * @extends SizeResult
  * @interface GeometryInfo
@@ -32119,7 +32116,7 @@ declare interface LayoutChild {
  */
 declare interface GeometryInfo extends SizeResult {
   /**
-   * Sub component borderWidth info.
+   * Custom component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32127,7 +32124,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component borderWidth info.
+   * Custom component borderWidth info.
    *
    * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32139,7 +32136,7 @@ declare interface GeometryInfo extends SizeResult {
   borderWidth: EdgeWidth;
 
   /**
-   * Sub component margin info.
+   * Custom component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32147,7 +32144,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component margin info.
+   * Custom component margin info.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32167,7 +32164,7 @@ declare interface GeometryInfo extends SizeResult {
    * @since 10
    */
   /**
-   * Sub component padding info.
+   * Custom component padding info.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32188,7 +32185,7 @@ declare interface GeometryInfo extends SizeResult {
  * @since 10
  */
 /**
- * Provides the child component layout information.
+ * Provides the sub component layout information.
  *
  * @interface Layoutable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32199,7 +32196,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Measurement result of the child component.
+   * Measurement result of the sub component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32207,7 +32204,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Measurement result of the child component.
+   * Measurement result of the sub component.
    *
    * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32219,7 +32216,7 @@ declare interface Layoutable {
   measureResult: MeasureResult,
 
   /**
-   * Unique ID of the child component.
+   * Unique ID of the sub component.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32239,7 +32236,7 @@ declare interface Layoutable {
    * @since 10
    */
   /**
-   * Applies the specified position information to the child component.
+   * Applies the specified position information to the sub component.
    *
    * @param { Position } position
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32251,7 +32248,7 @@ declare interface Layoutable {
   layout(position: Position): void,
 
   /**
-   * Obtains the margin of the child component.
+   * Obtains the margin of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32265,7 +32262,7 @@ declare interface Layoutable {
   /**
    * Call this method to get the padding of sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Padding of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Padding of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32275,7 +32272,7 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border width of the child component.
+   * Obtains the border width of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32307,7 +32304,7 @@ declare interface Layoutable {
  */
 declare interface Measurable {
   /**
-   * Unique ID that the system assigns to the child component.
+   * Unique ID that the system assigns to the sub component.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32328,7 +32325,7 @@ declare interface Measurable {
    * @since 10
    */
   /**
-   * Applies the size constraint to the child component.
+   * Applies the size constraint to the sub component.
    *
    * @param { ConstraintSizeOptions } constraint
    * @returns { MeasureResult } Provides the measurement result of the component.
@@ -32341,9 +32338,9 @@ declare interface Measurable {
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
   /**
-   * Obtains the margin of the child component.
+   * Obtains the margin of the sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Margin of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Margin of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32353,7 +32350,7 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the padding of the child component.
+   * Obtains the padding of the sub component.
    *
    * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32365,9 +32362,9 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border width of the child component.
+   * Obtains the border width of the sub component.
    *
-   * @returns { DirectionalEdgesT<number> } Border width of the child component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Border width of the sub component, unit is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -32378,7 +32375,7 @@ declare interface Measurable {
 }
 
 /**
- * Sub component SizeResult info.
+ * Component SizeResult info.
  *
  * @interface SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32438,7 +32435,7 @@ declare interface SizeResult {
 }
 
 /**
- * Sub component MeasureResult info.
+ * Component MeasureResult info.
  *
  * @extends SizeResult
  * @interface MeasureResult
@@ -34010,7 +34007,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the effect used when the scroll boundary is reached.
    *
    * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
+   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>,
+   * and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
    * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
    * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
    * <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components,
@@ -34389,7 +34387,7 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when an item is moved through other items.
    *
-   * @type { ?Callback<number> }
+   * @type { ?OnMoveHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -34436,10 +34434,7 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * Invoked when data is moved during drag and drop sorting.
-   * This callback is only applicable in a List component.
-   * where each ForEach iteration generates a ListItem component.
-   * It allows you to define custom drag actions and handle various drag events.
+   * Set the move action.
    *
    * @param { Optional<OnMoveHandler> } handler
    * @param { ItemDragEventHandler } eventHandler
@@ -35177,7 +35172,7 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * @since arkts {'1.1':'12','1.2':'20'}
  * @arkts 1.1&1.2
  */
-declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void
+declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
 /**
  * Defines the callback type used in accessibility hover transparent event.

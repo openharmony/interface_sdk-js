@@ -4838,7 +4838,7 @@ declare namespace audio {
      * @param { AudioSessionScene } scene - Audio session scene.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -4852,7 +4852,7 @@ declare namespace audio {
      * @param { Callback<AudioSessionStateChangedEvent> } callback - Callback invoked for the audio session state change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800102 - Allocate memory failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -4864,7 +4864,7 @@ declare namespace audio {
     * Only the audioSessionStateChanged event is supported.
     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - Callback invoked for the audio session state change event.
     * @throws { BusinessError } 6800101 - Parameter verification failed.
-    * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+    * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @since 20
     */
@@ -4895,7 +4895,7 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800102 - Allocate memory failed. Return by promise.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */
@@ -4908,7 +4908,7 @@ declare namespace audio {
      * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen device change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800102 - Allocate memory failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */
@@ -4919,7 +4919,7 @@ declare namespace audio {
      * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
      * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used to listen device change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */

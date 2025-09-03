@@ -752,7 +752,7 @@ declare namespace screen {
      *
      * @type { ?string }
      * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 15
      */

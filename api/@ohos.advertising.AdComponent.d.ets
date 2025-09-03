@@ -84,6 +84,13 @@ declare struct AdComponent {
      * @syscap SystemCapability.Advertising.Ads
      * @since 12
      */
+    /**
+     * The builder param to render customized ad content.
+     * @type { ?() => void }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 20
+     */
     @BuilderParam adRenderer?: () => void;
 
     /**
@@ -91,6 +98,13 @@ declare struct AdComponent {
      * @type { ?number }
      * @syscap SystemCapability.Advertising.Ads
      * @since 15
+     */
+    /**
+     * The property to control the playback status of the roll ad.
+     * @type { ?number }
+     * @syscap SystemCapability.Advertising.Ads
+     * @atomicservice
+     * @since 20
      */
     @Prop rollPlayState?: number;
 

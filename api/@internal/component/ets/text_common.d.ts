@@ -2055,7 +2055,7 @@ declare enum MaxLinesMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
+ * @systemapi
  * @since 20
  */
 declare enum TextChangeReason {
@@ -2063,16 +2063,16 @@ declare enum TextChangeReason {
    * Default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   UNKNOWN = 0,
 
   /**
-   * Reason for input.
+   * Reason for input from input method.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   INPUT = 1,
@@ -2081,7 +2081,7 @@ declare enum TextChangeReason {
    * Reason for paste.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   PASTE = 2,
@@ -2090,7 +2090,7 @@ declare enum TextChangeReason {
    * Reason for cut.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   CUT = 3,
@@ -2099,7 +2099,7 @@ declare enum TextChangeReason {
    * Reason for drag.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   DRAG = 4,
@@ -2108,7 +2108,7 @@ declare enum TextChangeReason {
    * Reason for auto fill.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   AUTO_FILL = 5,
@@ -2117,7 +2117,7 @@ declare enum TextChangeReason {
    * Reason for ai write.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   AI_WRITE = 6,
@@ -2126,7 +2126,7 @@ declare enum TextChangeReason {
    * Reason for redo.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   REDO = 7,
@@ -2135,7 +2135,7 @@ declare enum TextChangeReason {
    * Reason for undo.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   UNDO = 8,
@@ -2144,7 +2144,7 @@ declare enum TextChangeReason {
    * Reason for controller methods.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   CONTROLLER = 9,
@@ -2153,7 +2153,7 @@ declare enum TextChangeReason {
    * Reason for accessibilty methods.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   ACCESSIBILITY = 10,
@@ -2162,7 +2162,7 @@ declare enum TextChangeReason {
    * Reason for collarboration input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   COLLABORATION = 11,
@@ -2171,7 +2171,7 @@ declare enum TextChangeReason {
    * Reason for stylus input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
+   * @systemapi
    * @since 20
    */
   STYLUS = 12
@@ -2264,6 +2264,28 @@ declare interface KeyboardAppearanceConfig {
 }
 
 /**
+ * Defines the input method client.
+ *
+ * @interface IMEClient
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ */
+declare interface IMEClient {
+  /**
+   * The unique ID of this input component node.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  nodeId: number;
+}
+
+/**
  * Vertical Alignment of text.
  *
  * @enum { number }
@@ -2312,28 +2334,6 @@ declare enum TextVerticalAlign {
    * @since 20
    */
   TOP = 3,
-}
-
-/**
- * Defines the input method client.
- *
- * @interface IMEClient
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
-declare interface IMEClient {
-  /**
-   * The unique ID of this input component node.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   */
-  nodeId: number;
 }
 
 /**

@@ -312,6 +312,38 @@ declare namespace webview {
   }
 
   /**
+   * Enum type for ArkWeb Engine Version.
+   *
+   * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
+   * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 20
+   */
+  enum ArkWebEngineVersion {
+    /**
+     * Use the system default ArkWeb engine.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    SYSTEM_DEFAULT = 0,
+
+    /**
+     * ArkWeb M114 version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    M114 = 1,
+
+    /**
+     * ArkWeb M132 version.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    M132 = 2,
+  }
+
+  /**
    * Defines the security level for the page.
    *
    * @enum {number}
@@ -3734,6 +3766,33 @@ declare namespace webview {
     static initializeWebEngine(): void;
 
     /**
+     * Set active ArkWeb engine version.
+     * If the system does not support the specified version, it will not take effect.
+     * This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
+     * Web components are loaded.
+     *
+     * <strong>Legacy Web Engine Compatibility Note</strong>:
+     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
+     * see [Compatible with Legacy Web Engine in release note]  for compatibility guidelines.
+     * </p>
+     *
+     * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
+
+    /**
+     * Get the currently active ArkWeb engine version.
+     * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 20
+     */
+    static getActiveWebEngineVersion(): ArkWebEngineVersion;
+
+    /**
      * Set web engine to use HttpDns server to resolve dns.
      * @param { SecureDnsMode } secureDnsMode - using HttpDns.
      * @param { string } secureDnsConfig - The configuration of the HttpDns server.
@@ -6523,6 +6582,7 @@ declare namespace webview {
      * The current scroll offset of the web page (excluding over-scroll offset).
      *
      * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
@@ -6628,6 +6688,7 @@ declare namespace webview {
      * Gets the loading progress for the current page.
      *
      * @returns { number } The loading progress for the current page.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
@@ -6647,6 +6708,7 @@ declare namespace webview {
      * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
