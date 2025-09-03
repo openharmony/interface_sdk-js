@@ -3503,7 +3503,7 @@ declare class WebContextMenuResult {
    * <p><strong>API Note</strong>:<br>
    * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
    * </p>
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -4600,7 +4600,7 @@ declare class EventResult {
    *    {@code false} Indicates the non-consumption of the mouse event.
    *    Default value: true.
    * @param { boolean } [stopPropagation] - Whether to stop propagation.
-   *    This parameter is valid only when result is set to true. 
+   *    This parameter is valid only when result is set to true.
    *    {@code true} Indicates stops the propagation of events farther along.
    *    {@code false} Indicates the propagation of events farther along.
    *    Default value: true.
@@ -5551,7 +5551,7 @@ declare interface LargestContentfulPaint {
   largestImagePaintTime?: number;
 
   /**
-   * Paint time of largest text, in milliseconds. 
+   * Paint time of largest text, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9080,16 +9080,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { function } callback Function triggered when the web page scroll to the specified position.
@@ -9099,16 +9099,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { function } callback Function triggered when the web page scroll to the specified position.
@@ -9120,16 +9120,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified position.
@@ -9534,7 +9534,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * Scroll bar resident is not supported in full expansion mode,
    * that is, when layoutMode is WebLayoutMode.FIT_CONTENT mode, the parameter enabled is false.
-   * 
+   *
    * @param { boolean } enabled {@code true} means show; {@code false} otherwise. default is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10247,10 +10247,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether automatic text resizing is enabled.
    * After the automatic text font size adjustment takes effect,
-   * the font size will be automatically increased to 16px~32px 
-   * for text with too small font size to avoid the readability problem of 
+   * the font size will be automatically increased to 16px~32px
+   * for text with too small font size to avoid the readability problem of
    * small fonts due to the lack of mobile adaptation for devices with small screens (default viewport width < 980px).
-   * 
+   *
    * <p><strong>API Note</strong>:<br>
    * Prerequisites for the automatic adjustment of text font size to take effect:
    * 1.The device forms are: Phone, Tablet, Wearable, TV.
@@ -10411,7 +10411,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Enable or disable haptic feedback.
-   * 
+   *
    * <p><strong>API Note</strong>:<br>
    * Permissions need to be configured: ohos.permission.VIBRATE.
    * </p>
@@ -10568,9 +10568,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether to comply with the zoom restrictions set by the<meta name="viewport">tag in the webpage.
    *
-   * @param { boolean } enable {@code true} means the Web Comply with the zoom restrictions
+   * @param { boolean } enable {@code true} means the Web will not comply with the zoom restrictions
    *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
-   *     The default value is true.
+   *     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21
