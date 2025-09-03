@@ -19,18 +19,14 @@
  * @arkts 1.2
  */
 
-import { ComponentBuilder } from './arkui/stateManagement/runtime'
-import { CustomBuilder } from './arkui/component/builder';
+import { memo, ComponentBuilder } from './arkui/stateManagement/runtime'
 
 /**
 * Describe the options for the ParallelizeUI.
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
 * @since 20
-* @arkts 1.2
 */
 export interface ParallelOption {
 	/**
@@ -38,10 +34,7 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @crossplatform
-	* @atomicservice
 	* @since 20
-  	* @arkts 1.2
 	*/
 	enable?: boolean,
 }
@@ -51,10 +44,7 @@ export interface ParallelOption {
 *
 * @interface UIParallelAttribute
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @crossplatform
-* @atomicservice
 * @since 20
-* @arkts 1.2
 */
 export interface UIParallelAttribute {
 }
@@ -63,16 +53,14 @@ export interface UIParallelAttribute {
  * Define the constructor of ParallelizeUI.
  * 
  * @param { ParallelOption | undefined } [options] - ParallelizeUI Option
- * @param { CustomBuilder } [content] - tail closure for ParallelizeUI
+ * @param { () => void } [content_] - tail closure for ParallelizeUI
  * @returns { UIParallelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
- * @arkts 1.2
  */
 @ComponentBuilder
 export declare function ParallelizeUI(
   options?: ParallelOption | undefined,
-  content?: CustomBuilder,
+  @memo
+  content_?: () => void,
 ): UIParallelAttribute
