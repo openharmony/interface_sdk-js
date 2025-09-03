@@ -26,15 +26,125 @@ import { ValuesBucket } from './@ohos.data.ValuesBucket';
 import dataShare from './@ohos.data.dataShare';
 
 /**
-   * Struct for a batch update operation.
-   *
-   * @typedef { dataShare.UpdateOperation }
-   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
-   * @systemapi
-   * @stagemodelonly
-   * @since 12
-   */
+ * Struct for a batch update operation.
+ *
+ * @typedef { dataShare.UpdateOperation }
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @stagemodelonly
+ * @since 12
+ */
 type UpdateOperation = dataShare.UpdateOperation;
+
+/**
+ * Called back when a datashare extension ability is started for initialization.
+ *
+ * @typedef { function }
+ * @param { Want } want - Indicates connection information about the datashare extension ability.
+ * @param { AsyncCallback<void> } callback - callback function, no return value.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type OnCreateFn = (want: Want, callback: AsyncCallback<void>) => void;
+
+/**
+ * Inserts a data record into the database. This method should be implemented by a data share.
+ *
+ * @typedef { function }
+ * @param { string } uri - Indicates the position where the data is to insert.
+ * @param { ValuesBucket } valueBucket - Indicates the data to insert.
+ * @param { AsyncCallback<number> } callback - Returns the index of the newly inserted data record.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>) => void;
+
+/**
+ * Updates one or more data records in the database. This method should be implemented by a data share.
+ *
+ * @typedef { function }
+ * @param { string } uri - Indicates the database table storing the data to update.
+ * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria. If this parameter is
+ *                                                               null, all data records will be updated by default.
+ * @param { ValuesBucket } valueBucket - Indicates the data to update. This parameter can be null.
+ * @param { AsyncCallback<number> } callback - Returns the number of data records updated.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type UpdateFn = (
+  uri: string,
+  predicates: dataSharePredicates.DataSharePredicates,
+  valueBucket: ValuesBucket,
+  callback: AsyncCallback<number>
+) => void;
+
+/**
+ * Deletes one or more data records. This method should be implemented by a data share.
+ *
+ * @typedef { function }
+ * @param { string } uri - Indicates the database table storing the data to delete.
+ * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria. If this parameter is
+ *                                                                 null, all data records will be deleted by default.
+ * @param { AsyncCallback<number> } callback - Returns the number of data records deleted.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type DeleteFn = (
+  uri: string,
+  predicates: dataSharePredicates.DataSharePredicates,
+  callback: AsyncCallback<number>
+) => void;
+
+/**
+ * Queries one or more data records in the database. This method should be implemented by a data share.
+ * Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
+ *
+ * @typedef { function }
+ * @param { string } uri - Indicates the database table storing the data to query.
+ * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria. If this parameter is
+ *                                                                 null, all data records will be queried by default.
+ * @param { Array<string> } columns - Indicates the columns to be queried, in array, for example, {"name","age"}.
+ *                                    You should define the processing logic when this parameter is null.
+ * @param { AsyncCallback<Object> } callback - Returns the queried data, only support result set of rdb or kvstore.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type QueryFn = (
+  uri: string,
+  predicates: dataSharePredicates.DataSharePredicates,
+  columns: Array<string>,
+  callback: AsyncCallback<Object>
+) => void;
+
+/**
+ * Inserts multiple data records into the database. This method should be implemented by a data share.
+ *
+ * @typedef { function }
+ * @param { string } uri - Indicates the position where the data is to insert.
+ * @param { Array<ValuesBucket> } valueBuckets - Indicates the data to insert.
+ * @param { AsyncCallback<number> } callback - Returns the number of data records inserted.
+ * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+ * @systemapi
+ * @StageModelOnly
+ * @since 20
+ * @arkts 1.2
+ */
+type BatchInsertFn = (uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>) => void;
 
 /**
  * This module provides data sharing and expansion capabilities.
@@ -45,7 +155,7 @@ type UpdateOperation = dataShare.UpdateOperation;
  * @since arkts {'1.1':'9', '1.2':'20'}
  * @arkts 1.1&1.2
  */
-export default class DataShareExtensionAbility {
+declare class DataShareExtensionAbility {
   /**
    * Indicates datashare extension ability context.
    *
@@ -66,10 +176,21 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   onCreate?(want: Want, callback: AsyncCallback<void>): void;
+
+  /**
+   * Called back when a datashare extension ability is started for initialization.
+   *
+   * @type { ?OnCreateFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  onCreate?: OnCreateFn;
 
   /**
    * Inserts a data record into the database. This method should be implemented by a data share.
@@ -85,6 +206,18 @@ export default class DataShareExtensionAbility {
   insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
 
   /**
+   * Inserts a data record into the database. This method should be implemented by a data share.
+   *
+   * @type { ?InsertFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  insert?: InsertFn;
+
+  /**
    * Updates one or more data records in the database. This method should be implemented by a data share.
    *
    * @param { string } uri - Indicates the database table storing the data to update.
@@ -95,8 +228,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   update?(
     uri: string,
@@ -104,6 +236,18 @@ export default class DataShareExtensionAbility {
     valueBucket: ValuesBucket,
     callback: AsyncCallback<number>
   ): void;
+
+  /**
+   * Updates one or more data records in the database. This method should be implemented by a data share.
+   *
+   * @type { ?UpdateFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  update?: UpdateFn;
 
   /**
    * Updates data records in the database.
@@ -130,10 +274,21 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+
+  /**
+   * Deletes one or more data records. This method should be implemented by a data share.
+   *
+   * @type { ?DeleteFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  delete?: DeleteFn;
 
   /**
    * Queries one or more data records in the database. This method should be implemented by a data share.
@@ -148,8 +303,7 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   query?(
     uri: string,
@@ -157,6 +311,19 @@ export default class DataShareExtensionAbility {
     columns: Array<string>,
     callback: AsyncCallback<Object>
   ): void;
+
+  /**
+   * Queries one or more data records in the database. This method should be implemented by a data share.
+   * Only RDB and distributed KVDB resultsets are supported. The current version does not support custom resultsets.
+   *
+   * @type { ?QueryFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  query?: QueryFn;
 
   /**
    * Inserts multiple data records into the database. This method should be implemented by a data share.
@@ -167,10 +334,21 @@ export default class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9
    */
   batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+
+  /**
+   * Inserts multiple data records into the database. This method should be implemented by a data share.
+   *
+   * @type { ?BatchInsertFn }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
+   * @systemapi
+   * @StageModelOnly
+   * @since 20
+   * @arkts 1.2
+   */
+  batchInsert?: BatchInsertFn;
 
   /**
    * Converts the given {@code uri} that refer to the data share into a normalized URI. A normalized URI can be
@@ -202,3 +380,5 @@ export default class DataShareExtensionAbility {
    */
   denormalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 }
+
+export default DataShareExtensionAbility;
