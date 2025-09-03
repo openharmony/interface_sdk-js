@@ -1989,7 +1989,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
   /**
    * Sets the maximum number of child components to be cached.
    *
-   * @param { number } count - the maximum number of child components to be cached, default to 0.
+   * @param { number } count - the maximum number of child components to be cached, value range: [0, +∞)
    * @param { TabsCacheMode } mode - the mode of caching child components, default to TabsCacheMode.CACHE_BOTH_SIDE.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
