@@ -28,10 +28,17 @@ import hiSysEvent from '@ohos.hiSysEvent';
 import hiTraceChain from '@ohos.hiTraceChain';
 import hiTraceMeter from '@ohos.hiTraceMeter';
 import logLibrary from '@ohos.logLibrary';
-import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
   FaultLogger, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-  logLibrary, jsLeakWatcher
+  logLibrary
+};
+/*** endif */
+
+/*** if arkts 1.1*/
+import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
+
+export {
+  jsLeakWatcher 
 };
 /*** endif */
