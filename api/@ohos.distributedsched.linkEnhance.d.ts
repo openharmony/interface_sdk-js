@@ -173,7 +173,7 @@ declare namespace linkEnhance {
    * @returns { Server } Returns a server instance {@code Server}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 32390206 - Invalid parameter.
-   * @throws { BusinessError } 32390203	- Duplicate server name.
+   * @throws { BusinessError } 32390203 - Duplicate server name.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @since 20
    */
