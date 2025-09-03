@@ -1861,36 +1861,29 @@ export declare interface ScaleOptions {
 /**
  * Defines the align rule options of relative container.
  *
- * @interface AlignRuleParam
+ * @interface VerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
-export declare interface AlignRuleParam<T> {
+export declare interface VerticalAlignParam {
     /**
-     * The param of anchor.
+     * Specifies the anchor component
      *
-     * @type { ?string }
+     * Anonymous Object Rectification
+     * @type { string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     anchor: string;
     /**
-     * The param of align.
+     * Sets the vertical alignment relative to the anchor component.
      *
-     * @type { T }
+     * Anonymous Object Rectification
+     * @type { VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    align: T;
+    align: VerticalAlign;
 }
 /**
  * Defines the horizontal align rule options of relative container.
@@ -1919,33 +1912,6 @@ export declare interface HorizontalAlignParam {
      * @since 20
      */
     align: HorizontalAlign;
-}
-/**
- * Defines the align rule options of relative container.
- *
- * @interface VerticalAlignParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export declare interface VerticalAlignParam {
-    /**
-     * Specifies the anchor component
-     *
-     * Anonymous Object Rectification
-     * @type { string } anchor
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    anchor: string;
-    /**
-     * Sets the vertical alignment relative to the anchor component.
-     *
-     * Anonymous Object Rectification
-     * @type { VerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    align: VerticalAlign;
 }
 /**
  * Defines the align rule options of relative container.
