@@ -3170,7 +3170,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       overwrite?: boolean;
       /**
@@ -3883,7 +3884,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       readonly sizes: Array<long>;
       /**
@@ -4783,7 +4785,8 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
-       * @since 11
+       * @since arkts {'1.1':'11', '1.2':'20'}
+       * @arkts 1.1&1.2
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
