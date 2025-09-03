@@ -4761,33 +4761,33 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the categories app pefer to use when recording with Bluetooth or Nearlink.
+   * Enumerates the categories that app pefer to use when recording with Bluetooth or Nearlink.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
    */
   enum BluetoothAndNearlinkPreferredRecordCategory {
     /**
-     * Not prefer to use Bluetooth an Nearlink record.
+     * Not prefer to use Bluetooth and Nearlink record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
     PREFERRED_NONE = 0,
     /**
-     * Prefer to use Bluetooth an Nearlink record. However,
+     * Prefer to use Bluetooth and Nearlink record. However,
      * whether to use low latency or high-quality recording is up to the system.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
     PREFERRED_DEFAULT = 1,
     /**
-     * Prefer to use Bluetooth an Nearlink low latency record.
+     * Prefer to use Bluetooth and Nearlink low latency record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
     PREFERRED_LOW_LATENCY = 2,
     /**
-     * Prefer to use Bluetooth an Nearlink high-quality record.
+     * Prefer to use Bluetooth and Nearlink high-quality record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      */
@@ -5019,9 +5019,9 @@ declare namespace audio {
      * Select the media input device. It uses an asynchronous callback to return the result.
      * This function is not valid for call recording, whose SourceType is
      * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
-     * In scenarios where there are concurrent recording stream with higher priority,
+     * In scenarios where there are concurrent recording streams with higher priority,
      * the actual input device used by the app may differ from the selected one.
-     * The app can obtain the currently active input device by listening to the
+     * The app can obtain currently active input device by listening to the
      * currentInputDeviceChanged event.
      * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
@@ -5056,9 +5056,9 @@ declare namespace audio {
      * Set the prefered record category with bluetooth and nearlink device.
      * The app can set this category before Bluetooth or Nearlink connected, and the system will
      * prefer to use Bluetooth or Nearlink to record when the device connected.
-     * In scenarios where there are concurrent recording stream with higher priority,
+     * In scenarios where there are concurrent recording streams with higher priority,
      * the actual input device used by the app may differ from the prefered one.
-     * The app can obtain the currently active input device by listening to the
+     * The app can obtain currently active input device by listening to the
      * currentInputDeviceChanged event.
      * @param { boolean } enable - Indicates whether prefer wireless device to record. 
      * @returns { Promise<void> } Promise used to return the result.
