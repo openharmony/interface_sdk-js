@@ -9400,14 +9400,18 @@ export declare interface CommonMethod {
      */
     default onTouch(event: ((event: TouchEvent) => void) | undefined): this;
     /**
+     * @since 20
+     */
+    overload onKeyEvent { onKeyEventWithVoid, onKeyEventWithBoolean };
+    /**
      * Keyboard input
      *
-     * @param { ((event: KeyEvent) => void) | undefined } event
+     * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onKeyEvent(event: ((event: KeyEvent) => void) | undefined): this;
+    default onKeyEventWithVoid(event: ((event: KeyEvent) => void) | undefined): this;
     /**
      * Keyboard input
      *
@@ -9416,7 +9420,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onKeyEvent(event: Callback<KeyEvent, boolean> | undefined): this;
+    default onKeyEventWithBoolean(event: Callback<KeyEvent, boolean> | undefined): this;
     /**
      * Digital crown input.
      *
