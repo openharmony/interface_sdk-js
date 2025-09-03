@@ -43,6 +43,34 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
 /**
+ * Called when the system shares the form.
+ *
+ * @typedef { function }
+ * @param { string } formId - Indicates the ID of the form.
+ * @returns { Record<string, Object> } Returns the wantParams object.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+type OnShareFormFn = (formId: string) => Record<string, Object>;
+
+/**
+ * Called when the system acquire the form data.
+ *
+ * @typedef { function }
+ * @param { string } formId - Indicates the ID of the form.
+ * @returns { Record<string, Object> } Returns the wantParams object.
+ * @syscap SystemCapability.Ability.Form
+ * @systemapi
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
+
+/**
  * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
  *
  * @typedef { function }
@@ -339,6 +367,18 @@ declare class FormExtensionAbility {
   onShareForm?(formId: string): Record<string, Object>;
 
   /**
+   * Called when the system shares the form.
+   *
+   * @type { ?OnShareFormFn }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onShareForm?: OnShareFormFn;
+
+  /**
    * Called when the system acquire the form data.
    *
    * @param { string } formId - Indicates the ID of the form.
@@ -359,6 +399,18 @@ declare class FormExtensionAbility {
    * @since 11
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
+
+  /**
+   * Called when the system acquire the form data.
+   *
+   * @type { ?OnAcquireFormDataFn }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onAcquireFormData?: OnAcquireFormDataFn;
 
   /**
    * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
@@ -391,6 +443,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 }

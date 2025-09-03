@@ -18,11 +18,9 @@
  * @kit FormKit
  */
 
-/*** if arkts 1.1 */
 import { AsyncCallback } from '../@ohos.base';
 import type { ConnectOptions } from '../ability/connectOptions';
 import Want from '../@ohos.app.ability.Want';
-/*** endif */
 import ExtensionContext from './ExtensionContext';
 
 /**
@@ -77,7 +75,8 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -112,7 +111,8 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want): Promise<void>;
 
@@ -128,7 +128,7 @@ declare class FormExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the service extension to connect.
    * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @returns { long } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -145,14 +145,15 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
+   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
    * @param { AsyncCallback<void> } callback - The callback of disconnectServiceExtensionAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -161,14 +162,15 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void;
+  disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
    * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connection - the connection id returned from connectServiceExtensionAbility api.
+   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -177,9 +179,10 @@ declare class FormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connection: number): Promise<void>;
+  disconnectServiceExtensionAbility(connection: long): Promise<void>;
 }
 
 export default FormExtensionContext;
