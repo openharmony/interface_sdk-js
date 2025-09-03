@@ -37,7 +37,7 @@ declare namespace kioskManager {
    * @param { UIAbilityContext } context - The context that initiates to enter kiosk mode.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @throws { BusinessError } 16000110 - Current application is not in kiosk app list, can not enter kiosk mode.
    * @throws { BusinessError } 16000111 - System is already in kiosk mode, can not enter again.
    * @throws { BusinessError } 16000113 - Current ability is not in foreground.
@@ -54,7 +54,7 @@ declare namespace kioskManager {
    * @param { UIAbilityContext } context - The context that initiates to exit kiosk mode.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @throws { BusinessError } 16000110 - Current application is not in kiosk app list, can not exit kiosk mode.
    * @throws { BusinessError } 16000112 - Current application is not in kiosk mode, can not exit.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -70,7 +70,7 @@ declare namespace kioskManager {
    * @returns { Promise<KioskStatus> } Current kiosk status.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
