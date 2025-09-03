@@ -3655,8 +3655,8 @@ declare namespace window {
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
    * It takes effect only for the main window and its child windows on 2-in-1 devices.
    *
-   * @param { number } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
-   * @param { number } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } sourceWindowId - ID of the source window. You are advised to call getWindowProperties() to obtain the window ID.
+   * @param { int } targetWindowId - ID of the target window. You are advised to call getWindowProperties() to obtain the window ID.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types.
@@ -3666,9 +3666,10 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowPointerEvent(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
   /**
    * Shift window touch event within the same application. And the window type contains only main window and subwindow.
@@ -7820,7 +7821,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDialogBackGestureEnabled(enabled: boolean): Promise<void>;
 
@@ -9066,7 +9068,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9079,7 +9081,7 @@ declare namespace window {
     /**
      * Sets the window blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9088,14 +9090,15 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setBlur(radius: number): void;
+    setBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur radius.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9110,7 +9113,7 @@ declare namespace window {
      * The window background refers to the lower-layer area covered by the window, which is the same as the window size.
      * To make the blur effect visible, you must set the window background transparent by calling setWindowBackgroundColor.
      *
-     * @param { number } radius the blur radius.
+     * @param { double } radius the blur radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9119,9 +9122,10 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setBackdropBlur(radius: number): void;
+    setBackdropBlur(radius: double): void;
 
     /**
      * Sets the window backdrop blur style.
@@ -9191,7 +9195,7 @@ declare namespace window {
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
      *
-     * @param { number } radius - Radius of the shadow, measured in px.
+     * @param { double } radius - Radius of the shadow, measured in px.
      *                            The value is a floating point number greater than or equal to 0.0,
      *                            and the value 0.0 means that the shadow is disabled for the window borders.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -9202,14 +9206,15 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setWindowShadowRadius(radius: number): void;
+    setWindowShadowRadius(radius: double): void;
 
     /**
      * Sets corner radius.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9222,7 +9227,7 @@ declare namespace window {
     /**
      * Sets the radius of the rounded corners for this window.
      *
-     * @param { number } cornerRadius the corner radius.
+     * @param { double } cornerRadius the corner radius.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9231,14 +9236,15 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setCornerRadius(cornerRadius: number): void;
+    setCornerRadius(cornerRadius: double): void;
 
     /**
      * Sets the radius of the rounded corners for a child window or floating window.
      *
-     * @param { number } cornerRadius - Radius of the rounded corners, measured in vp.
+     * @param { double } cornerRadius - Radius of the rounded corners, measured in vp.
      *                                  The value is a floating point number greater than or equal to 0.0.
      *                                  The value 0.0 means that the window does not use rounded corners.
      * @returns { Promise<void> } Promise that returns no value.
@@ -9251,22 +9257,24 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setWindowCornerRadius(cornerRadius: number): Promise<void>;
+    setWindowCornerRadius(cornerRadius: double): Promise<void>;
 
     /**
      * Obtains the radius of rounded corners of a child window or floating window.
      *
-     * @returns { number } - Radius of the rounded corner of the child window or floating window, measured in vp.
+     * @returns { double } - Radius of the rounded corner of the child window or floating window, measured in vp.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getWindowCornerRadius(): number;
+    getWindowCornerRadius(): double;
 
     /**
      * Raise app sub window to app top
@@ -10091,7 +10099,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTouchableAreas(rects: Array<Rect>): void;
 	
@@ -10373,7 +10382,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
@@ -10675,7 +10685,7 @@ declare namespace window {
     /**
      * Set the parent window of the child window.
      *
-     * @param { number } windowId - Indicates parent window id.
+     * @param { int } windowId - Indicates parent window id.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -10684,9 +10694,10 @@ declare namespace window {
      * @throws { BusinessError } 1300009 - The parent window is invaild.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    setParentWindow(windowId: number): Promise<void>;
+    setParentWindow(windowId: int): Promise<void>;
 
     /**
      * Get the parent window.
