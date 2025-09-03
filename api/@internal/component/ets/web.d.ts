@@ -1356,6 +1356,16 @@ type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
 
 /**
+ * The callback when the param element which is a child item of the object element has changed.
+ *
+ * @typedef { function } OnNativeEmbedObjectParamChangeCallback
+ * @param { NativeEmbedParamDataInfo } event - callback information of param element.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) => void;
+
+/**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
  *
  * @enum { number }
@@ -5489,6 +5499,120 @@ declare interface NativeEmbedMouseInfo {
    * @since 20
    */
   result?: EventResult;
+}
+
+/**
+ * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare enum  NativeEmbedParamStatus {
+  /**
+   * The param element is created.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  ADD = 0,
+
+  /**
+   * The param element is updated.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  UPDATE = 1,
+
+  /**
+   *The param element is deleted.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  DELETE = 2,
+}
+
+/**
+ * Defines the information of param element.
+ *
+ * @typedef NativeEmbedParamItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare interface NativeEmbedParamItem {
+   /**
+   * The status of the param.
+   *
+   * @type { NativeEmbedParamStatus }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   status: NativeEmbedParamStatus;
+
+   /**
+   * The id attribute of the param element.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   id: string;
+
+   /**
+   * The name attribute of the param element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   name?: string;
+
+   /**
+   * The value attribute of the param element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   value?: string;
+}
+
+/**
+ * Defines the param data info.
+ *
+ * @typedef NativeEmbedParamDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare interface NativeEmbedParamDataInfo {
+  /**
+   * The native embed id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  embedId: string;
+
+  /**
+   * The id attribute of the object element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   objectAttributeId?: string;
+
+  /**
+   * The param element array
+   *
+   * @type { ?Array<NativeEmbedParamItem> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  paramItems?: Array<NativeEmbedParamItem>;
 }
 
 /**
@@ -10220,6 +10344,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 20
    */
   onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
+
+  /**
+   * Triggered when the param element which is a child item of the object element has changed.
+   *
+   * @param { OnNativeEmbedObjectParamChangeCallback } callback - callback Triggered when the param element has changed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute;
 
   /**
    * Called to set copy option
