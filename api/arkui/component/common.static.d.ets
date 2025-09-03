@@ -11240,14 +11240,14 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * Sets the offset of the start point for drawing the stroke.
      * An invalid value is handled as the default value.
      *
-     * @param { number | string | undefined } value - Offset of the start point for drawing the stroke.
+     * @param { double | string | undefined } value - Offset of the start point for drawing the stroke.
      *     Default value: 0
      *     Default unit: vp
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeDashOffset(value: number | string | undefined): this;
+    default strokeDashOffset(value: double | string | undefined): this;
     /**
      * Sets the cap style of the stroke.
      *
@@ -11270,36 +11270,36 @@ export declare interface CommonShapeMethod extends CommonMethod {
     /**
      * Limits for drawing acute angles as bevels
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeMiterLimit(value: number | string | undefined): this;
+    default strokeMiterLimit(value: double | string | undefined): this;
     /**
      * Sets the stroke opacity.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource | undefined } value - Stroke opacity. Default value: 1
+     * @param { double | string | Resource | undefined } value - Stroke opacity. Default value: 1
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeOpacity(value: number | string | Resource | undefined): this;
+    default strokeOpacity(value: double | string | Resource | undefined): this;
     /**
      * Sets the opacity of the fill area.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
+     * @param { double | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default fillOpacity(value: number | string | Resource | undefined): this;
+    default fillOpacity(value: double | string | Resource | undefined): this;
     /**
      * Sets the stroke width.
      * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
