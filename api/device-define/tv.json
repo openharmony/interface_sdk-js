@@ -193,6 +193,7 @@
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.USB.USBManager",
     "SystemCapability.Advertising.OAID",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }

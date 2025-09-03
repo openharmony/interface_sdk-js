@@ -188,6 +188,7 @@
     "SystemCapability.ArkUi.Graphics3D",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
-    "SystemCapability.ResourceSchedule.SystemLoad"
+    "SystemCapability.ResourceSchedule.SystemLoad",
+    "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }
