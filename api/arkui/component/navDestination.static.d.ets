@@ -783,6 +783,7 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
  * @returns { NavDestinationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
