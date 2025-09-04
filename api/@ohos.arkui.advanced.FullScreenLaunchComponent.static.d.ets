@@ -49,6 +49,7 @@ type ContentBuilder = () => void;
  * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @Component
 export declare struct FullScreenLaunchComponent {
