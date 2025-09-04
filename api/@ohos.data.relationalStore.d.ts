@@ -1138,7 +1138,6 @@ declare namespace relationalStore {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface SqlExecutionInfo {
     /**
@@ -1155,7 +1154,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     sql: Array<string>;
 
@@ -1173,7 +1171,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     totalTime: long;
 
@@ -1191,7 +1188,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     waitTime: long;
 
@@ -1209,7 +1205,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     prepareTime: long;
 
@@ -1227,7 +1222,6 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
-     * @arkts 1.1&1.2
      */
     executeTime: long;
   }
@@ -6309,8 +6303,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     getModifyTime(table: string, columnName: string, primaryKeys: PRIKeyType[]): Promise<ModifyTime>;
 
@@ -6523,8 +6516,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     cleanDirtyData(table: string, cursor?: long): Promise<void>;
 
@@ -8520,8 +8512,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     attach(fullPath: string, attachName: string, waitTime?: long) : Promise<int>;
 
@@ -8561,8 +8552,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     attach(context: Context, config: StoreConfig, attachName: string, waitTime?: long) : Promise<int>;
 
@@ -8594,8 +8584,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800033 - SQLite: Data type mismatch.
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     detach(attachName: string, waitTime?: long) : Promise<int>;
 
