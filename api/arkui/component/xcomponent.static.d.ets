@@ -307,6 +307,16 @@ export declare interface XComponentAttribute extends CommonMethod {
      */
     default enableSecure(isSecure: boolean | undefined): this;
     /**
+     * Enable transparent layer for XComponent.
+     *
+     * @param { boolean | undefined } enabled - whether to enable transparent layer for XComponent.
+     * @returns { XComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20
+     */
+    default enableTransparentLayer(enabled: boolean | undefined): this;
+    /**
      * Set hdrBrightness for XComponent.
      *
      * @param { double | undefined } brightness - control the brightness of HDR video

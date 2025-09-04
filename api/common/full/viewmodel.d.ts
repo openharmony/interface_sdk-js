@@ -1750,13 +1750,13 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Create an ImageData object.
    *
-   * @param { ImageData } imagedata - Copy an object of the same width and height from an existing ImageData object
+   * @param { ImageData } imageData - Copy an object of the same width and height from an existing ImageData object
    * The image itself is not allowed to be copied.
    * @returns { ImageData } ImageData New ImageData object with width and height specified.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  createImageData(imagedata: ImageData): ImageData;
+  createImageData(imageData: ImageData): ImageData;
 
   /**
    * Creates a path that is later used by the CanvasRenderingContext2D object.
@@ -1807,18 +1807,18 @@ export interface OffscreenCanvasRenderingContext2D {
   /**
    * Draws the specified ImageData object to the canvas.
    *
-   * @param { ImageData } imagedata - An array object containing pixel values.
+   * @param { ImageData } imageData - An array object containing pixel values.
    * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
    * @param { number } dy - The offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
-  putImageData(imagedata: ImageData, dx: number, dy: number): void;
+  putImageData(imageData: ImageData, dx: number, dy: number): void;
 
   /**
    * Draws the specified ImageData object to the canvas.
    *
-   * @param { ImageData } imagedata - An array object containing pixel values.
+   * @param { ImageData } imageData - An array object containing pixel values.
    * @param { number } dx - The offset of the position of the source image data in the target canvas (the offset in the X-axis direction).
    * @param { number } dy - he offset of the position of the source image data in the target canvas (the Y-axis offset).
    * @param { number } dirtyX - In the source image data,
@@ -1831,7 +1831,7 @@ export interface OffscreenCanvasRenderingContext2D {
    * @since 7
    */
   putImageData(
-    imagedata: ImageData,
+    imageData: ImageData,
     dx: number,
     dy: number,
     dirtyX: number,
@@ -2721,12 +2721,12 @@ export interface CanvasRenderingContext2D {
   /**
    * Creates an ImageData object.
    *
-   * @param { ImageData } imagedata - ImageData object with the same width and height copied from the original ImageData object.
+   * @param { ImageData } imageData - ImageData object with the same width and height copied from the original ImageData object.
    * @returns { ImageData } Returns the newly created FunctionCallable object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 4
    */
-  createImageData(imagedata: ImageData): ImageData;
+  createImageData(imageData: ImageData): ImageData;
 
   /**
    * ImageData object created with pixels in the specified area on the canvas.
