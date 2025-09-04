@@ -2123,55 +2123,57 @@ declare namespace window {
     /**
      * button background size when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    buttonBackgroundSize? : number;
+    buttonBackgroundSize? : int;
 
     /**
      * button spacing.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    spacingBetweenButtons? : number;
+    spacingBetweenButtons? : int;
 
     /**
      * close button right Margin.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'14', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    closeButtonRightMargin? : number;
+    closeButtonRightMargin? : int;
 
     /**
      * button icon size.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    buttonIconSize? : number;
+    buttonIconSize? : int;
 
     /**
      * corner radius of button background when hover.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    buttonBackgroundCornerRadius? : number;
+    buttonBackgroundCornerRadius? : int;
   }
 
   /**
@@ -2777,71 +2779,75 @@ declare namespace window {
     /**
      * The right of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
      * The right of the Rect.
      *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12
-     */
-    right: number;
-
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The top of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12
-     */
-    top: number;
-
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * The width of the Rect.
-     *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
-
+    right: int;
     /**
-     * The height of the Rect.
+     * The top of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     /**
-     * The height of the Rect.
+     * The top of the Rect.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    height: number;
+    top: int;
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * The width of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    width: int;
+    /**
+     * The height of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * The height of the Rect.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    height: int;
   }
 
   /**
@@ -8817,7 +8823,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setHandwritingFlag(enable: boolean): Promise<void>;
 
@@ -9890,7 +9897,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowDecorVisible(): boolean;
 
@@ -9906,7 +9914,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowTitleMoveEnabled(enabled: boolean): void;
 
@@ -9921,7 +9930,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowTitle(titleName: string): Promise<void>;
 
@@ -10074,7 +10084,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDecorButtonStyle(): DecorButtonStyle;
     
@@ -10113,7 +10124,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTitleButtonRect(): TitleButtonRect;
 
@@ -10131,7 +10143,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTitleButtonVisible(isMaximizeVisible: boolean, isMinimizeVisible: boolean, isSplitVisible: boolean): void;
     
@@ -10749,7 +10762,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>;
 
@@ -10779,7 +10793,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowDelayRaiseOnDrag(isEnabled: boolean): void;
 
@@ -12031,7 +12046,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowRectAutoSave(enabled: boolean): Promise<void>;
 
@@ -12050,7 +12066,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 17
+     * @since arkts {'1.1':'17', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>;
 
@@ -12076,7 +12093,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWindowRectAutoSave(): Promise<boolean>;
 
