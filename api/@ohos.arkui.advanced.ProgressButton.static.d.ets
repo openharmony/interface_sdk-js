@@ -21,10 +21,9 @@
  */
 import { Component } from './arkui/component/customComponent';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { ResourceColor, ResourceStr } from './arkui/component/units';
+import { ResourceColor, ResourceStr, Length } from './arkui/component/units';
 import { Builder } from './arkui/component/builder';
 import { LengthMetrics } from './arkui/Graphics';
-import { Length } from './arkui/component/common';
 /**
  * Declare Component ProgressButton
  * @struct { ProgressButton }
@@ -41,7 +40,8 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef progress: number;
+  @PropRef 
+  progress: number;
   /**
    * Sets the ProgressButton content.
    *
@@ -49,7 +49,8 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef content: ResourceStr;
+  @PropRef 
+  content: ResourceStr;
   /**
    * Sets the ProgressButton progressButtonWidth.
    *
@@ -73,7 +74,8 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef enable: boolean;
+  @PropRef 
+  enable: boolean;
   /**
    * Set Color options of the ProgressButton.
    *
@@ -81,7 +83,8 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef colorOptions?: ProgressButtonColorOptions;
+  @PropRef 
+  colorOptions?: ProgressButtonColorOptions;
   /**
    * Set border rounded corner radius of progress.
    *
@@ -89,14 +92,16 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef progressButtonRadius?: LengthMetrics;
+  @PropRef 
+  progressButtonRadius?: LengthMetrics;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder 
+  build(): void;
 }
 /**
  * Declare Color options of the ProgressButton.
