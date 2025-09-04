@@ -493,7 +493,7 @@ export declare class ImageBitmap {
   /**
    * Indicates the height of the CSS pixel unit of ImageData.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -501,7 +501,7 @@ export declare class ImageBitmap {
   /**
    * Indicates the width of the CSS pixel unit of ImageData.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -534,7 +534,7 @@ export declare class ImageData {
   /**
    * Array containing image pixel data
    *
-   * @return { Uint8ClampedArray }
+   * @returns { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -542,7 +542,7 @@ export declare class ImageData {
   /**
    * Height of the image.
    *
-   * @return { int }
+   * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -550,7 +550,7 @@ export declare class ImageData {
   /**
    * Width of the image.
    *
-   * @return { int }
+   * @returns { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -613,7 +613,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get spacing for letter.
    *
-   * @return { LengthMetrics | string }
+   * @returns { LengthMetrics | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -630,7 +630,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * Get transparency. The value ranges from 0.0 (completely transparent) to 1.0 (completely opaque).
    *    If the value is out of range, the assignment is invalid.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -662,7 +662,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * copy: Only new graphics are displayed.
    * xor: In the image, those overlaps and other places outside of the normal drawing are transparent.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -786,7 +786,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the attributes specifie the color, gradient, or pattern to use inside shapes. The options are as follows:
    *
-   * @return { string | Color | int | CanvasGradient | CanvasPattern }
+   * @returns { string | Color | int | CanvasGradient | CanvasPattern }
    *     string: Color String.
    *     Color: Common enum of Color.
    *     int: Indicates the color with double.
@@ -813,7 +813,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * Get the attributes specifie the color, gradient, or pattern to use for the strokes (outlines) around shapes.
    * The options are as follows:
    *
-   * @return { string | Color | int | CanvasGradient | CanvasPattern }
+   * @returns { string | Color | int | CanvasGradient | CanvasPattern }
    *     string: Color String.
    *     Color: Common enum of Color.
    *     int: Indicates the color with double.
@@ -918,7 +918,7 @@ export declare class CanvasRenderer extends CanvasPath {
    *     When the value is 0%, there is no change in the image.
    * none: Turn off filter effects.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1037,7 +1037,7 @@ export declare class CanvasRenderer extends CanvasPath {
    * Get the status whether to smooth the image. The value true indicates that the image is smooth.
    *    The value false indicates that the image is not smooth.
    *
-   * @return { boolean }
+   * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1054,7 +1054,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the smoothness level of the current image. For details, see {@link ImageSmoothingQuality}.
    *
-   * @return { ImageSmoothingQuality }
+   * @returns { ImageSmoothingQuality }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1070,7 +1070,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the line segment endpoint attribute. For details, see {@link CanvasLineCap}.
    *
-   * @return { CanvasLineCap }
+   * @returns { CanvasLineCap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1086,7 +1086,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the dotted line offset attribute.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1102,7 +1102,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the line segment connection point attribute. For details, see {@link CanvasLineJoin}.
    *
-   * @return { CanvasLineJoin }
+   * @returns { CanvasLineJoin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1118,7 +1118,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the line thickness attribute. The value cannot be 0 or a negative double.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1134,7 +1134,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the value of this parameter cannot be 0 or a negative double.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1200,7 +1200,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the shadow blur radius. The value cannot be a negative double.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1216,7 +1216,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the shadow color.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1232,7 +1232,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the horizontal offset distance of the shadow.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1248,7 +1248,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the vertical offset distance of the shadow.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1309,7 +1309,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the text drawing direction. For details, see {@link CanvasDirection}.
    *
-   * @return { CanvasDirection }
+   * @returns { CanvasDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1325,7 +1325,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the font style.
    *
-   * @return { string }
+   * @returns { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1341,7 +1341,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the text alignment mode. For details, see {@link CanvasTextAlign}.
    *
-   * @return { CanvasTextAlign }
+   * @returns { CanvasTextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1357,7 +1357,7 @@ export declare class CanvasRenderer extends CanvasPath {
   /**
    * Get the text baseline. For details, see {@link CanvasTextBaseline}.
    *
-   * @return { CanvasTextBaseline }
+   * @returns { CanvasTextBaseline }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1499,7 +1499,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the height of the specified canvas. The value is read-only.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1507,7 +1507,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * The default value is 0, which is bound to the width of the specified canvas. The value is read-only.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1515,7 +1515,7 @@ export declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Frame node of the canvas. The default value is null.
    *
-   * @return { FrameNode }
+   * @returns { FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1665,7 +1665,7 @@ export declare class OffscreenCanvas {
   /**
    * Get the height of the off-screen canvas.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -1681,7 +1681,7 @@ export declare class OffscreenCanvas {
   /**
    * Get the width of the off-screen canvas.
    *
-   * @return { double }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
