@@ -1147,7 +1147,7 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1165,7 +1165,7 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1221,7 +1221,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1236,7 +1236,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1259,7 +1259,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1271,7 +1271,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1287,7 +1287,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1329,7 +1329,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1341,7 +1341,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1357,7 +1357,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1371,7 +1371,7 @@ declare namespace accessibility {
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
@@ -1434,7 +1434,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1449,7 +1449,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1464,7 +1464,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1479,7 +1479,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
