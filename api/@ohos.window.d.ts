@@ -11110,7 +11110,8 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title: string;
     /**
@@ -11126,7 +11127,8 @@ declare namespace window {
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     decorEnabled: boolean;
     /**
@@ -11165,7 +11167,8 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect?: Rect;
     /**
@@ -11174,7 +11177,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     maximizeSupported?: boolean;
     /**
@@ -11193,7 +11197,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     outlineEnabled?: boolean;
 
