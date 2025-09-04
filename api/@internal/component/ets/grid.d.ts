@@ -558,7 +558,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Allows you to set the spacing between columns.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between columns.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -566,7 +566,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Allows you to set the spacing between columns.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between columns.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -575,7 +575,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Allows you to set the spacing between columns.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between columns.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -588,7 +588,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Lets you set the spacing between rows.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between rows.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -596,7 +596,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Lets you set the spacing between rows.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between rows.<br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -605,7 +605,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Lets you set the spacing between rows.
    *
-   * @param { Length } value
+   * @param { Length } value - Spacing between rows. <br>Default value: <em>0</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -618,7 +618,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * This parameter specifies the width of the scroll bar.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
@@ -626,7 +626,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * This parameter specifies the width of the scroll bar.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -635,7 +635,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * This parameter specifies the width of the scroll bar.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -645,26 +645,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBarWidth(value: number | string): GridAttribute;
 
   /**
-   * Sets the color of the scroll bar.
+   * Set the color of the scroll bar.
    *
-   * @param { Color | number | string } value
+   * @param { Color | number | string } value - Scrollbar color.<br>Default value: '#182431'
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Sets the color of the scroll bar.
+   * Set the color of the scroll bar.
    *
-   * @param { Color | number | string } value
+   * @param { Color | number | string } value - Scrollbar color.<br>Default value: '#182431'
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Sets the color of the scroll bar.
+   * Set the color of the scroll bar.
    *
-   * @param { Color | number | string } value
+   * @param { Color | number | string } value - Scrollbar color.<br>Default value: '#182431'
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -674,26 +674,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBarColor(value: Color | number | string): GridAttribute;
 
   /**
-   * Lets you set the spacing between rows.
+   * Let you set the scrollbar state.
    *
-   * @param { BarState } value
+   * @param { BarState } value - Scrollbar state.<br>Default value: <em>BarState.Off</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Lets you set the spacing between rows.
+   * Let you set the scrollbar state.
    *
-   * @param { BarState } value
+   * @param { BarState } value - Scrollbar state.<br>Default value: <em>BarState.Auto</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Lets you set the spacing between rows.
+   * Lets you set the scrollbar state.
    *
-   * @param { BarState } value
+   * @param { BarState } value - Scrollbar state.<br>Default value: <em>BarState.Auto</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -764,26 +764,27 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   onScrollIndex(event: (first: number, last: number) => void): GridAttribute;
 
   /**
-   * cached Count
+   * Set the number of rows of grid items to be cached (preloaded).
    *
-   * @param { number } value
+   * @param { number } value - Number of rows of GridItems to be preloaded.<br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * cached Count
+   * Set the number of rows of grid items to be cached (preloaded).
    *
-   * @param { number } value
+   * @param { number } value - Number of rows of GridItems to be preloaded.<br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * cached Count
+   * Set the number of rows of grid items to be cached (preloaded).
    *
-   * @param { number } value
+   * @param { number } value - Number of rows of GridItems to be preloaded.
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -794,9 +795,12 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cachedCount(value: number): GridAttribute;
 
   /**
-   * Called to set number of GridItems to be preloaded (cached) in LazyForEach / Repeat. 
-   * @param { number } count - number of GridItems to be preloaded (cached).
-   * @param { boolean } show - if true, cached items are displayed when clip is disabled.
+   * Set number of rows of GridItems to be preloaded (cached) in LazyForEach / Repeat. 
+   * @param { number } count - number of rows of GridItems to be preloaded (cached).
+   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
+   * <br>Value range: [0, +∞).
+   * <br>Values less than 0 are treated as <em>1</em>.
+   * @param { boolean } show - if true, cached items are displayed when clip is disabled.<br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -807,26 +811,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cachedCount(count: number, show: boolean): GridAttribute;
 
   /**
-   * editMode
+   * Set whether to enable edit mode.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * editMode
+   * Set whether to enable edit mode.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * editMode
+   * Set whether to enable edit mode.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -837,26 +841,32 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   editMode(value: boolean): GridAttribute;
 
   /**
-   * Called when judging whether it is multiSelectable.
+   * Set whether to enable multi-select.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable multiselect.
+   * <br><em>false</em> (default): Multiselect is disabled.
+   * <br><em>true</em>: Multiselect is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Called when judging whether it is multiSelectable.
+   * Set whether to enable multi-select.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable multiselect.
+   * <br><em>false</em> (default): Multiselect is disabled.
+   * <br><em>true</em>: Multiselect is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Called when judging whether it is multiSelectable.
+   * Set whether to enable multi-select.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable multiselect.
+   * <br><em>false</em> (default): Multiselect is disabled.
+   * <br><em>true</em>: Multiselect is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -867,26 +877,32 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   multiSelectable(value: boolean): GridAttribute;
 
   /**
-   * maxCount
+   * Set the maximum number of rows or columns to be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The maximum number of rows or columns to be displayed. 
+   * <br>Default value: <em>Infinity</em>
+   * <br>Values less than 1 are treated as <em>Infinity</em>.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * maxCount
+   * Set the maximum number of rows or columns to be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The maximum number of rows or columns to be displayed. 
+   * <br>Default value: <em>Infinity</em>
+   * <br>Values less than 0 are treated as <em>Infinity</em>.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * maxCount
+   * Set the maximum number of rows or columns that can be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The maximum number of rows or columns that can be displayed. 
+   * <br>Default value: <em>Infinity</em>
+   * <br>Values less than 0 are treated as <em>Infinity</em>.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -897,26 +913,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   maxCount(value: number): GridAttribute;
 
   /**
-   * minCount
+   * Set the maximum number of rows or columns that can be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * minCount
+   * Set the minimun number of rows or columns that can be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * minCount
+   * Set the minimun number of rows or columns that can be displayed.
    *
-   * @param { number } value
+   * @param { number } value - The minimun number of rows or columns that can be displayed. <br>Default value: <em>1</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -927,26 +943,29 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   minCount(value: number): GridAttribute;
 
   /**
-   * cellLength
+   * Set the height per row or width per column.
    *
-   * @param { number } value
+   * @param { number } value - the height per row or width per column.
+   * <br>Default value: the size of the first element.<br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * cellLength
+   * Set the height per row or width per column.
    *
-   * @param { number } value
+   * @param { number } value - the height per row or width per column.
+   * <br>Default value: the size of the first element.<br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * cellLength
+   * Set the height per row or width per column.
    *
-   * @param { number } value
+   * @param { number } value - the height per row or width per column.
+   * <br>Default value: the size of the first element.<br>Unit: vp
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -957,26 +976,26 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   cellLength(value: number): GridAttribute;
 
   /**
-   * Control GridDirection of the grid.
+   * Set the main axis layout direction of the grid.
    *
-   * @param { GridDirection } value
+   * @param { GridDirection } value - main axis layout direction of the grid.<br>Default value: <em>GridDirection.Row</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Control GridDirection of the grid.
+   * Set the main axis layout direction of the grid.
    *
-   * @param { GridDirection } value
+   * @param { GridDirection } value - main axis layout direction of the grid.<br>Default value: <em>GridDirection.Row</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Control GridDirection of the grid.
+   * Set the main axis layout direction of the grid.
    *
-   * @param { GridDirection } value
+   * @param { GridDirection } value - main axis layout direction of the grid.<br>Default value: <em>GridDirection.Row</em>
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -987,26 +1006,32 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   layoutDirection(value: GridDirection): GridAttribute;
 
   /**
-   * Control if the grid supports animation.
+   * Set weather to enable grid drag-and-drop animation.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable drag-and-drop animation.
+   * <br><em>false</em> (default): drag-and-drop animation is disabled.
+   * <br><em>true</em>:  drag-and-drop animation is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Control if the grid supports animation.
+   * Set weather to enable grid drag-and-drop animation.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable drag-and-drop animation.
+   * <br><em>false</em> (default): drag-and-drop animation is disabled.
+   * <br><em>true</em>:  drag-and-drop animation is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Control if the grid supports animation.
+   * Set weather to enable grid drag-and-drop animation.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable drag-and-drop animation.
+   * <br><em>false</em> (default): drag-and-drop animation is disabled.
+   * <br><em>true</em>:  drag-and-drop animation is enabled.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1187,19 +1212,23 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   ): GridAttribute;
 
   /**
-   * Called when the sliding effect is set.
+   * Set the effect used when the scroll boundary is reached.
    *
    * @param { EdgeEffect } value - Scroll effect. For details, see EdgeEffect.
+   * <br>Default value: <em>EdgeEffect.None</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Called when the sliding effect is set.
+   * Set the effect used when the scroll boundary is reached.
    *
-   * @param { EdgeEffect } value
-   * @param { EdgeEffectOptions } options
+   * @param { EdgeEffect } value  - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
+   * <br>Default value: <em>EdgeEffect.None</em>
+   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
+   * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
+   * <br>Default value: <em>{ alwaysEnabled: false }</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1209,17 +1238,21 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): GridAttribute;
 
   /**
-   * Called to setting the nested scroll options.
+   * Set the nested scrolling options. You can set the nested scrolling mode in the forward and backward directions
+   * to implement scrolling linkage with the parent component.
    *
    * @param { NestedScrollOptions } value - options for nested scrolling.
+   * <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
-   * Called to setting the nested scroll options.
+   * Set the nested scrolling options. You can set the nested scrolling mode in the forward and backward directions
+   * to implement scrolling linkage with the parent component.
    *
    * @param { NestedScrollOptions } value - options for nested scrolling.
+   * <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1229,18 +1262,19 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   nestedScroll(value: NestedScrollOptions): GridAttribute;
 
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Set whether to enable scroll by gesture or mouse.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Set whether to enable scroll by gesture or mouse. When this attribute is set to <em>false</em>,
+   * scrolling by finger or mouse is not supported, but the scroll controller API is not affected.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
    * @returns { GridAttribute } The attribute of the grid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1250,7 +1284,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   enableScrollInteraction(value: boolean): GridAttribute;
 
   /**
-   * Called to setting the friction.
+   * Set the friction coefficient.
    *
    * @param { number | Resource } value - options for scrolling friction.
    * @returns { GridAttribute } the attribute of the grid.
@@ -1259,9 +1293,14 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 10
    */
   /**
-   * Called to setting the friction.
+   * Set the friction coefficient. It applies only to gestures in the scrolling area,
+   * and it affects only indirectly the scroll chaining during the inertial scrolling process.
+   * A value less than or equal to 0 evaluates to the default value.
    *
-   * @param { number | Resource } value - options for scrolling friction.
+   * @param { number | Resource } value - Friction coefficient.
+   * <br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices.
+   * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
+   * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
    * @returns { GridAttribute } the attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1273,7 +1312,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Set the alignment of grid items.
    *
-   * @param { Optional<GridItemAlignment> } alignment - Items alignment
+   * @param { Optional<GridItemAlignment> } alignment - Items alignment<br>Default value: <em>GridItemAlignment.DEFAULT</em>
    * @returns { GridAttribute } The attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1284,7 +1323,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
     alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
   /**
-     * Sets the focus wrap mode of the grid.
+     * Set the focus wrap mode of the grid.
      *
      * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the grid.
      * <br>Default value: **FocusWrapMode.DEFAULT**.
@@ -1299,7 +1338,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   /**
    * Set whether to synchronously load child nodes within one frame.
    *
-   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
+   * @param { boolean } enable - Whether to synchronously load child nodes within one frame.<br>Default value: <em>true<em/>
    * @returns { GridAttribute } The attribute of the grid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
