@@ -72,6 +72,7 @@ export declare interface ViewportRect {
  * @interface ShapeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ShapeAttribute extends CommonMethod {
     /**
@@ -212,6 +213,7 @@ export declare interface ShapeAttribute extends CommonMethod {
  * @returns { ShapeAttribute } The attribute of the Shape.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
