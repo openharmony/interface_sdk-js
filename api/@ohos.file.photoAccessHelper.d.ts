@@ -10135,7 +10135,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 20
+     * @since 21
      * @arkts 1.1&1.2
      */
      setRelationship(relationship: string): Promise<void>;
@@ -10189,7 +10189,7 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
-     * @since 20
+     * @since 21
      * @arkts 1.1&1.2
      */
      getRelationship(): Promise<string>;
