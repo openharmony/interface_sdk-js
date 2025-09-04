@@ -29,6 +29,7 @@ import { State } from '@ohos.arkui.stateManagement';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare enum SplitPolicy {
   /**
@@ -63,6 +64,7 @@ export declare enum SplitPolicy {
  * @param { NavigationMode } mode - current NavigationMode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  
@@ -73,6 +75,7 @@ declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  * @param { string } name - the name of home NavDestination shown in top.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 declare type OnHomeShowOnTopCallback = (name: string) => void;
  
@@ -82,6 +85,7 @@ declare type OnHomeShowOnTopCallback = (name: string) => void;
  * @struct { MultiNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @Component
 export declare struct MultiNavigation {
@@ -138,6 +142,7 @@ export declare struct MultiNavigation {
  * @extends NavPathStack
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class MultiNavPathStack extends NavPathStack {
   /**
