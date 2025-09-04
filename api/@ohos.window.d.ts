@@ -12022,7 +12022,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     removeStartingWindow(): Promise<void>;
 
