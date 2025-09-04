@@ -109,16 +109,6 @@ declare namespace inspector {
     }
     
     /**
-     * Sets the component after layout or draw criteria and returns the corresponding listening handle
-     * @param { string } id - component id.
-     * @returns { ComponentObserver } create listener for observer component event.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 18
-     * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
-     */
-    function createComponentObserver(id: string): ComponentObserver;
-    /**
      * Obtains all attributes of the component with the specified ID.
      *
      * @param { string } id - ID of the component whose attributes are to be obtained.

@@ -10866,12 +10866,12 @@ export declare interface CommonMethod {
      * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
      * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
      * </p>
-     * @param { Resource | undefined } text - set accessibility text
+     * @param { Resource } text - set accessibility text
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default accessibilityTextOfResourceType(text: Resource | undefined): this;
+    default accessibilityTextOfResourceType(text: Resource): this;
     /**
      * @since 20
      */
@@ -10922,12 +10922,12 @@ export declare interface CommonMethod {
      * <br>cannot be learned from component attributes and accessibility text. If a component contains
      * <br>both text information and the accessibility description, the text is read first and then the
      * <br>accessibility description, when the component is selected.</p>
-     * @param { Resource | undefined } description - set description of accessibility
+     * @param { Resource } description - set description of accessibility
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default accessibilityDescriptionOfResourceType(description: Resource | undefined): this;
+    default accessibilityDescriptionOfResourceType(description: Resource): this;
     /**
      * @since 20
      */
