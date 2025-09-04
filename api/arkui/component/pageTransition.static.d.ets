@@ -204,6 +204,7 @@ export type PageTransitionCallback = (type: RouteType, progress: number) => void
  * @extends CommonTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class PageTransitionEnter extends CommonTransition {
     /**
@@ -214,6 +215,7 @@ export declare class PageTransitionEnter extends CommonTransition {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     static $_invoke(value: PageTransitionOptions): PageTransitionEnter;
     /**
@@ -233,6 +235,7 @@ export declare class PageTransitionEnter extends CommonTransition {
  * @extends CommonTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class PageTransitionExit extends CommonTransition {
     /**
@@ -243,6 +246,7 @@ export declare class PageTransitionExit extends CommonTransition {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     static $_invoke(value: PageTransitionOptions): PageTransitionExit;
     /**

@@ -256,6 +256,7 @@ export declare interface TabBarIconStyle {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class TabBarSymbol {
   /**
@@ -447,6 +448,7 @@ export declare class BottomTabBarStyle {
    * @param { ResourceStr } text - indicates the text of the bottom tab bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
   /**
@@ -458,6 +460,7 @@ export declare class BottomTabBarStyle {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
   /**
@@ -544,6 +547,7 @@ export declare class BottomTabBarStyle {
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TabContentAttribute extends CommonMethod {
   /**
@@ -561,6 +565,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   tabBar(content: ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions | undefined): this;
   /**
@@ -571,6 +576,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   onWillShow(event: VoidCallback | undefined): this;
   /**
@@ -581,6 +587,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   onWillHide(event: VoidCallback | undefined): this;
 
@@ -591,6 +598,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
+   * @noninterop
    */
   attributeModifier(modifier: AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -602,6 +610,7 @@ export declare interface TabContentAttribute extends CommonMethod {
  * @returns { TabContentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

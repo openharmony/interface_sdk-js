@@ -43,6 +43,7 @@ export type ParticleTuple<T1, T2> = [
  * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface VelocityOptions {
     /**
@@ -101,6 +102,7 @@ export interface ParticleOptions {
      * @type { EmitterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     emitter: EmitterOptions;
     /**
@@ -109,6 +111,7 @@ export interface ParticleOptions {
      * @default {range:['#FFFFFF','#FFFFFF']}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     color?: ParticleColorPropertyOptions;
     /**
@@ -117,6 +120,7 @@ export interface ParticleOptions {
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     opacity?: ParticlePropertyOptions;
     /**
@@ -125,6 +129,7 @@ export interface ParticleOptions {
      * @default {range:[1.0,1.0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     scale?: ParticlePropertyOptions;
     /**
@@ -134,6 +139,7 @@ export interface ParticleOptions {
      * @default {speed:[0,0];angle:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     velocity?: VelocityOptions;
     /**
@@ -143,6 +149,7 @@ export interface ParticleOptions {
      * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     acceleration?: AccelerationOptions;
     /**
@@ -151,6 +158,7 @@ export interface ParticleOptions {
      * @default {range:[0,0]}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     spin?: ParticlePropertyOptions;
 }
@@ -166,6 +174,7 @@ export interface PointParticleParameters {
      * @type { VP }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     radius: VP;
 }
@@ -181,6 +190,7 @@ export interface ImageParticleParameters {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     src: ResourceStr;
     /**
@@ -190,6 +200,7 @@ export interface ImageParticleParameters {
      * @type { ParticleTuple<Dimension, Dimension> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     size: ParticleTuple<Dimension, Dimension>;
     /**
@@ -198,6 +209,7 @@ export interface ImageParticleParameters {
      * @default ImageFit.Cover
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     objectFit?: ImageFit;
 }
@@ -271,6 +283,7 @@ export interface EmitterParticleOptions {
      * @type { ParticleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     type: ParticleType;
     /**
@@ -279,6 +292,7 @@ export interface EmitterParticleOptions {
      * @type { ParticleConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     config: ParticleConfigs;
     /**
@@ -287,6 +301,7 @@ export interface EmitterParticleOptions {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     count: number;
     /**
@@ -296,6 +311,7 @@ export interface EmitterParticleOptions {
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     lifetime?: number;
     /**
@@ -306,6 +322,7 @@ export interface EmitterParticleOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     lifetimeRange?: number;
 }
@@ -393,6 +410,7 @@ export interface ParticleUpdaterOptions {
      * @type { ParticleUpdater }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     type: ParticleUpdater;
     /**
@@ -401,6 +419,7 @@ export interface ParticleUpdaterOptions {
      * @type { ParticlePropertyUpdaterConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     config: ParticlePropertyUpdaterConfigs;
 }
@@ -496,6 +515,7 @@ export interface ParticlePropertyOptions {
      * @default  {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     updater?: ParticleUpdaterOptions;
 }
@@ -536,6 +556,7 @@ export interface ParticleColorPropertyOptions {
      * @default {type:UPDATER.NONE;config:undefined}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     updater?: ParticleColorUpdaterOptions;
 }
@@ -709,6 +730,7 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     default disturbanceFields(fields: Array<DisturbanceFieldOptions> | undefined): this;
     /**
@@ -718,6 +740,7 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     default emitter(value: Array<EmitterProperty> | undefined): this;
 
@@ -729,6 +752,7 @@ export declare interface ParticleAttribute extends CommonMethod {
      * @returns { ParticleAttribute } Returns the particle attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -909,6 +933,7 @@ export declare interface ParticleAnnulusRegion {
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

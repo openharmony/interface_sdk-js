@@ -68,6 +68,7 @@ export declare enum IndexerAlign {
  * @interface AlphabetIndexerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface AlphabetIndexerOptions {
     /**
@@ -95,6 +96,7 @@ export interface AlphabetIndexerOptions {
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export type OnAlphabetIndexerSelectCallback = (index: number) => void;
 /**
@@ -104,6 +106,7 @@ export type OnAlphabetIndexerSelectCallback = (index: number) => void;
  * @param { number } index - selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
 /**
@@ -114,6 +117,7 @@ export type OnAlphabetIndexerPopupSelectCallback = (index: number) => void;
  * @returns { Array<string> } string array corresponding to the index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array<string>;
 
@@ -375,6 +379,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @returns { AlphabetIndexerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -387,6 +392,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
  * @returns { AlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

@@ -237,6 +237,7 @@ export declare class TabsController {
  * @typedef TabsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TabsOptions {
     /**
@@ -437,6 +438,7 @@ export type TabsCustomContentTransitionCallback = (from: number, to: number) => 
  * Tabs can not change from currentIndex to comingIndex if function return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
 
@@ -447,6 +449,7 @@ export type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex
  * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface TabsAttribute extends CommonMethod {
     /**
@@ -465,6 +468,7 @@ export declare interface TabsAttribute extends CommonMethod {
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     barPosition(value: BarPosition | undefined): this;
     /**
@@ -496,6 +500,7 @@ export declare interface TabsAttribute extends CommonMethod {
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     barWidth(value: Length | undefined): this;
     /**
@@ -507,6 +512,7 @@ export declare interface TabsAttribute extends CommonMethod {
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     barHeight(value: Length | undefined): this;
     /**
@@ -638,6 +644,7 @@ export declare interface TabsAttribute extends CommonMethod {
      * @returns { TabsAttribute } the attribute of the tabs
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     divider(value: DividerStyle | null | undefined): this;
     /**
@@ -780,6 +787,7 @@ export declare interface TabsAttribute extends CommonMethod {
      * @returns { TabsAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */ 
     attributeModifier(modifier: AttributeModifier<TabsAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -840,6 +848,7 @@ export declare interface TabContentTransitionProxy {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
+     * @noninterop
      */
     finishTransition(): void;
 }
@@ -852,6 +861,7 @@ export declare interface TabContentTransitionProxy {
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
