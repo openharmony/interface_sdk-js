@@ -113,6 +113,7 @@ export declare enum ArcDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20
+ * @noninterop
  */
 export declare class ArcDotIndicator {
   /**
@@ -315,6 +316,7 @@ export declare interface ArcSwiperContentTransitionProxy {
  * @typedef ArcSwiperAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 20
+ * @noninterop
  */
 export declare interface ArcSwiperAttribute extends CommonMethod {
   /**
@@ -469,6 +471,7 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
  * @returns { ArcSwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

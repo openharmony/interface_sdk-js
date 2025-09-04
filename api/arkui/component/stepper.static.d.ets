@@ -120,6 +120,7 @@ export declare interface StepperAttribute extends CommonMethod {
  * @returns { StepperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

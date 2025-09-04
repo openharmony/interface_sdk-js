@@ -1784,6 +1784,7 @@ export declare interface NavContentInfo {
  * @returns { NavigationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

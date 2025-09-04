@@ -346,6 +346,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
  * @returns { SideBarContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

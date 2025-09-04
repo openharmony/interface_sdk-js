@@ -145,6 +145,7 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
  * @returns { IndicatorComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
