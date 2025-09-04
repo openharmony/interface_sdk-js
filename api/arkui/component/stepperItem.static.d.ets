@@ -115,6 +115,15 @@ export declare interface StepperItemAttribute extends CommonMethod {
   default attributeModifier(modifier: AttributeModifier<StepperItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines StepperItem Component
+ *
+ * @param { function } [content_] - container
+ * @returns { StepperItemAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function StepperItem(
