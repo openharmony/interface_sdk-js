@@ -55,6 +55,7 @@ export declare interface WithThemeOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface WithThemeAttribute {}
 
@@ -66,6 +67,7 @@ export declare interface WithThemeAttribute {}
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
