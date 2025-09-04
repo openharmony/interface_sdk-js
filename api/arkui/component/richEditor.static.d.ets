@@ -1525,6 +1525,7 @@ export declare interface SelectionMenuOptions {
  * @interface PreviewMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface PreviewMenuOptions {
     /**
