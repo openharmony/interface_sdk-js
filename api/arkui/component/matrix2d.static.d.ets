@@ -31,7 +31,7 @@ export declare class Matrix2D {
     /**
      * Get the horizontal zoom.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -47,7 +47,7 @@ export declare class Matrix2D {
     /**
      * Get the vertical zoom.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -63,7 +63,7 @@ export declare class Matrix2D {
     /**
      * Get the horizontal tilt.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -79,7 +79,7 @@ export declare class Matrix2D {
     /**
      * Get the vertical tilt.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -95,7 +95,7 @@ export declare class Matrix2D {
     /**
      * Get the horizontal movement.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -111,7 +111,7 @@ export declare class Matrix2D {
     /**
      * Get the vertical movement.
      *
-     * @return { double | undefined }
+     * @returns { double | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
