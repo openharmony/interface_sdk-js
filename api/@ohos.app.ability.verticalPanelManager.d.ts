@@ -20,6 +20,9 @@
 
 import type common from './@ohos.app.ability.common';
 import { AbilityResult } from './ability/abilityResult';
+/*** if arkts 1.2 */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Defines a OnError function.
@@ -31,7 +34,8 @@ import { AbilityResult } from './ability/abilityResult';
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since 20
+ * @since arkts {'1.1':'20', '1.2':'22'}
+ * @arkts 1.1&1.2
  */
 type OnErrorFn = (code: number, name: string, message: string) => void;
 
@@ -43,7 +47,8 @@ type OnErrorFn = (code: number, name: string, message: string) => void;
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since 20
+ * @since arkts {'1.1':'20', '1.2':'22'}
+ * @arkts 1.1&1.2
  */
 type OnResultFn = (parameter: AbilityResult) => void;
 
@@ -54,7 +59,8 @@ type OnResultFn = (parameter: AbilityResult) => void;
  * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
  * @systemapi
  * @stagemodelonly
- * @since 20
+ * @since arkts {'1.1':'20', '1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare namespace verticalPanelManager {
 
@@ -83,6 +89,33 @@ declare namespace verticalPanelManager {
       panelConfig: PanelConfig,
       panelStartCallback: PanelStartCallback
   ): Promise<void>;
+ 
+  /**
+   * Starts the vertical domain picker with panel config.
+   * If the target ability is visible, you can start the target ability; If the target ability is invisible,
+   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to start target invisible ability.
+   * If the caller application is in the background, it is not allowed to call this interface.
+   * 
+   * @param { common.UIAbilityContext } context - Indicates the ui ability context of the application.
+   * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
+   * @param { PanelConfig } panelConfig - Indicates the panel config.
+   * @param { PanelStartCallback } panelStartCallback - indicates the panelStartCallback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service or system server handle failed.
+   * @throws { BusinessError } 16000135 - The main window of this ability of this context does not exits.
+   * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
+   * @systemapi
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.2
+   */
+  function startVerticalPanel(
+      context: common.UIAbilityContext,
+      wantParam: Record<string, RecordData>,
+      panelConfig: PanelConfig,
+      panelStartCallback: PanelStartCallback
+  ): Promise<void>;
 
   /**
    * Indicates the panel config
@@ -91,7 +124,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   interface PanelConfig {
     /**
@@ -101,7 +135,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     type: VerticalType;
 
@@ -120,7 +155,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     sourceAppInfo: Record<string, string>;
   }
@@ -132,7 +168,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export enum VerticalType {
     /**
@@ -141,7 +178,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     NAVIGATION = 'navigation',
   }
@@ -153,7 +191,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   interface PanelStartCallback {
     /**
@@ -163,7 +202,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     onError: OnErrorFn;
     
@@ -174,7 +214,8 @@ declare namespace verticalPanelManager {
      * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
      * @systemapi
      * @stagemodelonly
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     onResult?: OnResultFn;
   }
@@ -185,7 +226,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export const SOURCE_APP_BUNDLE_NAME = 'bundleName';
 
@@ -195,7 +237,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export const SOURCE_APP_MODULE_NAME = 'moduleName';
 
@@ -205,7 +248,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export const SOURCE_APP_ABILITY_NAME = 'abilityName';
 
@@ -215,7 +259,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export const SOURCE_APP_WINDOW_ID = 'windowId';
 
@@ -225,7 +270,8 @@ declare namespace verticalPanelManager {
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   export const SOURCE_APP_SCREEN_MODE = 'screenMode';
 }
