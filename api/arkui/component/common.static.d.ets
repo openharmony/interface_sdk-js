@@ -11935,6 +11935,7 @@ export declare enum ContentClipMode {
  * @interface ScrollableCommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface ScrollableCommonMethod extends CommonMethod {
     /**
