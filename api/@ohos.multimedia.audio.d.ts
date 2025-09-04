@@ -5060,7 +5060,8 @@ declare namespace audio {
      * the actual input device used by the app may differ from the prefered one.
      * The app can obtain currently active input device by listening to the
      * currentInputDeviceChanged event.
-     * @param { boolean } enable - Indicates whether prefer wireless device to record. 
+     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category app pefer
+     * to use when recording with Bluetooth or Nearlink.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -5070,7 +5071,8 @@ declare namespace audio {
 
     /**
      * Get the prefered record category with bluetooth and nearlink device.
-     * @returns { boolean } - Indicates whether prefer wireless device to record. 
+     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category app pefer
+     * to use when recording with Bluetooth or Nearlink.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
