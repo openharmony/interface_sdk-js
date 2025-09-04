@@ -336,6 +336,7 @@ export interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @since 20
  */
 export interface CancelButtonSymbolOptions {

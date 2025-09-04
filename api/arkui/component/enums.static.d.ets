@@ -1931,7 +1931,7 @@ export declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Center = 0,
+  Center = 1,
 
   /**
    * The text is aligned in the same direction as the writing
@@ -1939,7 +1939,7 @@ export declare enum TextAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  Start = 1,
+  Start = 0,
 
   /**
    * The text is aligned in the opposite direction of writing

@@ -40,21 +40,21 @@ export declare enum InputType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    Normal,
+    Normal = 0,
     /**
      * Pure digital input mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    Number,
+    Number = 2,
     /**
      * Phone number entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    PhoneNumber,
+    PhoneNumber = 3,
     /**
      * E-mail address input mode.
      *
@@ -66,7 +66,7 @@ export declare enum InputType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    Email,
+    Email = 5,
     /**
      * Password entry mode.
      *
@@ -81,7 +81,7 @@ export declare enum InputType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    Password,
+    Password = 7,
     /**
      * Number Password entry mode.
      *
