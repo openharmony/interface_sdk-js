@@ -21,7 +21,9 @@
 import type { AsyncCallback, BusinessError, Callback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
+/*** if arkts 1.1 */
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
+/*** endif */
 import type Want from '../@ohos.app.ability.Want';
 
 /*** if arkts 1.1 */
@@ -116,7 +118,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window root element.
    *
-   * @param { int } windowId Indicates the window ID.
+   * @param { number } windowId Indicates the window ID.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -127,12 +129,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 9
    * @deprecated since 12
    */
-  getWindowRootElement(windowId: int, callback: AsyncCallback<AccessibilityElement>): void;
+  getWindowRootElement(windowId: number, callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
    * Get window root element.
    *
-   * @param { int } [windowId] Indicates the window ID.
+   * @param { number } [windowId] Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -143,7 +145,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 9
    * @deprecated since 12
    */
-  getWindowRootElement(windowId?: int): Promise<AccessibilityElement>;
+  getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
 
   /**
    * Get window root element.
@@ -162,7 +164,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window list.
    *
-   * @param { long } displayId Indicates the display ID.
+   * @param { number } displayId Indicates the display ID.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -173,12 +175,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 9
    * @deprecated since 12
    */
-  getWindows(displayId: long, callback: AsyncCallback<Array<AccessibilityElement>>): void;
+  getWindows(displayId: number, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
   /**
    * Get window list.
    *
-   * @param { long } displayId Indicates the display ID.
+   * @param { number } displayId Indicates the display ID.
    * @returns { Promise<Array<AccessibilityElement>> }
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -189,7 +191,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 9
    * @deprecated since 12
    */
-  getWindows(displayId?: long): Promise<Array<AccessibilityElement>>;
+  getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
 
   /**
    * Get window list.

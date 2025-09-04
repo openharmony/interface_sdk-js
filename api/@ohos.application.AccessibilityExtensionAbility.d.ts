@@ -28,7 +28,13 @@ import type {
   WindowType as _WindowType,
   Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
+/*** if arkts 1.1 */
+import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+/*** endif */
+/*** if arkts 1.2 */
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+export { AccessibilityExtensionContext };
+/*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
 
 /**
@@ -116,11 +122,11 @@ export { Parameter } from './application/AccessibilityExtensionContext';
  *
  * @typedef {_AccessibilityExtensionContext.default}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
-
-export { AccessibilityExtensionContext };
+/*** if arkts 1.1 */
+export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+/*** endif */
 
 /**
  * class of accessibility extension ability.
