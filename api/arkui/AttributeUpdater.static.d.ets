@@ -40,6 +40,7 @@ export type Initializer<T> = (...params:FixedArray<Object>) => T;
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    
