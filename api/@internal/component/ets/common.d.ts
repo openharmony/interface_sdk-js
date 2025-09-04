@@ -20412,6 +20412,40 @@ declare enum AvailableLayoutArea {
 }
 
 /**
+ * Defines the content transition effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare class ContentTransitionEffect {
+  /**
+   * When the content changes, there is no animation effect.
+   *
+   * @type { ContentTransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static get IDENTITY(): ContentTransitionEffect;
+
+  /**
+   * When the content changes, there is a smooth fade-in and fade-out effect.
+   *
+   * @type { ContentTransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static get OPACITY(): ContentTransitionEffect;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
