@@ -32,5 +32,6 @@ import { ScrollAttribute } from './component/scroll';
  * @implements { ScrollAttribute,AttributeModifier<ScrollAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class ScrollModifier implements ScrollAttribute, AttributeModifier<ScrollAttribute> {}

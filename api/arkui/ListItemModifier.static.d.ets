@@ -30,5 +30,6 @@ import { ListItemAttribute } from './component/listItem';
  * @implements { ListItemAttribute, AttributeModifier<ListItemAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
-*/
+ * @noninterop
+ */
 export declare class ListItemModifier implements ListItemAttribute, AttributeModifier<ListItemAttribute> {}

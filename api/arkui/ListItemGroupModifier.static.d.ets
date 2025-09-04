@@ -30,6 +30,7 @@ import { ListItemGroupAttribute } from './component/listItemGroup';
  * @implements { ListItemGroupAttribute, AttributeModifier<ListItemGroupAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class ListItemGroupModifier
     implements

@@ -30,5 +30,6 @@ import { WaterFlowAttribute } from './component/waterFlow';
  * @implements { WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare class WaterFlowModifier implements WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> {}
