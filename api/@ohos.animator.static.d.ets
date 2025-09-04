@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { FillMode, PlayMode } from './arkui/component/enums';
-import { ExpectedFrameRateRange } from './arkui/component/common';
+import { FillMode, PlayMode } from '@ohos.arkui.component';
+import { ExpectedFrameRateRange } from '@ohos.arkui.component';
 
 
 /**
