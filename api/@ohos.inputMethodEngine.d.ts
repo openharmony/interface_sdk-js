@@ -2338,7 +2338,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
      *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING. 
-     * @throws { BusinessError } 12800020 - invalid displayId.
+     * @throws { BusinessError } 12800022 - invalid displayId.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 21
      */
