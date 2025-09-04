@@ -29,12 +29,7 @@ import type {
   Rect as _Rect,
   Parameter as _Parameter,
 } from './application/AccessibilityExtensionContext';
-/*** if arkts 1.1 */
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
-/*** endif */
-/*** if arkts 1.2 */
-import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
-/*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
 
 
@@ -122,22 +117,12 @@ export type Parameter = _Parameter;
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 
 /**
- * The accessibility extension context. Used to configure, query information, and inject gestures.
- *
- * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 20
- * @arkts 1.2
- */
-
-export { AccessibilityExtensionContext };
-
-/**
  * class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-declare class AccessibilityExtensionAbility {
+export default class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
@@ -237,8 +222,6 @@ declare class AccessibilityExtensionAbility {
    */
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
-
-export default AccessibilityExtensionAbility;
 
 /**
  * Indicates the accessibility event.

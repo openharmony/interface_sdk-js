@@ -32,7 +32,7 @@ import { AccessibilityAction } from '../@ohos.accessibility';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-declare class AccessibilityExtensionContext extends ExtensionContext {
+export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Set the bundle names that is interested in sending the event.
    *
@@ -410,8 +410,6 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getAccessibilityWindowsSync(displayId?: number): Array<AccessibilityElement>;
 }
 
-export default AccessibilityExtensionContext;
-
 /**
  * Indicates an accessibility element.
  * Supports querying element attributes, requesting execution actions, and finding child elements by condition.
@@ -420,7 +418,7 @@ export default AccessibilityExtensionContext;
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export declare interface AccessibilityElement {
+declare interface AccessibilityElement {
   /**
    * Get a list of attribute names.
    *
@@ -1636,7 +1634,7 @@ export declare class Parameter {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 11
  */
-export interface ElementAttributeValues {
+interface ElementAttributeValues {
   /**
    * Indicates accessibility focus state.
    *
@@ -2092,7 +2090,7 @@ export interface ElementAttributeValues {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
+type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
 /**
  * Indicates the type of the focus.
@@ -2101,7 +2099,7 @@ export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'bac
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export type FocusType = 'accessibility' | 'normal';
+type FocusType = 'accessibility' | 'normal';
 
 /**
  * Indicates the type of the window.
@@ -2110,7 +2108,7 @@ export type FocusType = 'accessibility' | 'normal';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export type WindowType = 'application' | 'system';
+type WindowType = 'application' | 'system';
 
 /**
  * Indicates rectangle.
@@ -2119,7 +2117,7 @@ export type WindowType = 'application' | 'system';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9
  */
-export interface Rect {
+interface Rect {
   /**
    * The left position of Rect
    *
