@@ -6887,6 +6887,28 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static isAutoPreconnectEnabled(): boolean;
+
+    /**
+     * Set the site isolation mode.
+     *
+     * @param { SiteIsolationMode } mode The site isolation mode of the application, 
+     *      default value depends on different devices type.
+     * @throws { BusinessError } 17100001 - Init error.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    static setSiteIsolationMode(mode: SiteIsolationMode): void;
+
+    /**
+     * Get the site isolation mode. 
+     *
+     * @returns { SiteIsolationMode } The site isolation mode of the application.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    static getSiteIsolationMode(): SiteIsolationMode;
   }
 
   /**
@@ -9764,6 +9786,28 @@ declare namespace webview {
      * @since 20
      */
     FAST_MODE = 1
+  }
+
+  /**
+   * Indicates the site isolation mode of the application, default value depends on different devices type.
+   * @enum {number}
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  enum SiteIsolationMode {
+    /**
+     * The partial site isolation mode
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    PARTIAL = 0,
+
+    /**
+     * The strict site isolation mode
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     */
+    STRICT = 1
   }
 
 }
