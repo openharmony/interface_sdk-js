@@ -52,7 +52,8 @@ import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';
 import preferences from '@ohos.data.preferences';
 import { ValueType, ValuesBucket } from '@ohos.data.ValuesBucket';
+import distributedKVStore from '@ohos.data.distributedKVStore';
 export {
-  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor, preferences
+  ValueType, ValuesBucket, relationalStore, unifiedDataChannel, uniformTypeDescriptor, preferences, distributedKVStore
 };
 /*** endif */
