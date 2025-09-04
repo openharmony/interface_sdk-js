@@ -582,7 +582,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly WHITE: int;
+  public static readonly WHITE: int;
   /**
    * Black.
    * 
@@ -592,7 +592,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly BLACK: int;
+  public static readonly BLACK: int;
   /**
    * Blue.
    * 
@@ -602,7 +602,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly BLUE: int;
+  public static readonly BLUE: int;
   /**
    * Brown.
    * 
@@ -612,7 +612,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly BROWN: int;
+  public static readonly BROWN: int;
   /**
    * Gray.
    * 
@@ -622,7 +622,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly GRAY: int;
+  public static readonly GRAY: int;
   /**
    * Green.
    * 
@@ -632,7 +632,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly GREEN: int;
+  public static readonly GREEN: int;
   /**
    * Grey.
    * 
@@ -642,7 +642,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly GREY: int;
+  public static readonly GREY: int;
   /**
    * Orange.
    * 
@@ -652,7 +652,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly ORANGE: int;
+  public static readonly ORANGE: int;
   /**
    * Pink.
    * 
@@ -662,7 +662,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly PINK: int;
+  public static readonly PINK: int;
   /**
    * Red.
    * 
@@ -672,7 +672,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly RED: int;
+  public static readonly RED: int;
   /**
    * Yellow.
    * 
@@ -682,7 +682,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly YELLOW: int;
+  public static readonly YELLOW: int;
   /**
    * Transparent.
    * 
@@ -692,7 +692,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  static readonly TRANSPARENT: string;
+  public static readonly TRANSPARENT: string;
   /**
    * Instantiate the ColorMetrics class using color number
    *
