@@ -29495,7 +29495,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Bind content cover
+   * Binds a modal page to the component, whose visibility is subject to the isShow settings.
    *
    * @param { boolean } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.
