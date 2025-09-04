@@ -28,9 +28,14 @@ import type {
   WindowType as _WindowType,
   Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
+/*** if arkts 1.1 */
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+/*** endif */
+/*** if arkts 1.2 */
+import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
+export { AccessibilityExtensionContext };
+/*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
-
 
 /**
  * Indicates an accessibility element.
@@ -38,7 +43,8 @@ import { AccessibilityEventType } from './@ohos.accessibility';
  *
  * @typedef {_AccessibilityElement}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type AccessibilityElement = _AccessibilityElement;
 
@@ -47,7 +53,8 @@ export type AccessibilityElement = _AccessibilityElement;
  *
  * @typedef {_ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type ElementAttributeValues = _ElementAttributeValues;
 
@@ -56,7 +63,8 @@ export type ElementAttributeValues = _ElementAttributeValues;
  *
  * @typedef {_FocusDirection}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type FocusDirection = _FocusDirection;
 
@@ -65,7 +73,8 @@ export type FocusDirection = _FocusDirection;
  *
  * @typedef {keyof ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type ElementAttributeKeys = keyof ElementAttributeValues;
 
@@ -74,7 +83,8 @@ export type ElementAttributeKeys = keyof ElementAttributeValues;
  *
  * @typedef {_FocusType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type FocusType = _FocusType;
 
@@ -83,7 +93,8 @@ export type FocusType = _FocusType;
  *
  * @typedef {_WindowType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type WindowType = _WindowType;
 
@@ -92,7 +103,8 @@ export type WindowType = _WindowType;
  *
  * @typedef {_Rect}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Rect = _Rect;
 
@@ -112,22 +124,25 @@ export { Parameter } from './application/AccessibilityExtensionContext';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
-
+/*** if arkts 1.1 */
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
+/*** endif */
 
 /**
  * class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AccessibilityExtensionAbility {
+declare class AccessibilityExtensionAbility {
   /**
    * Indicates accessibility extension ability context.
    *
    * @type {AccessibilityExtensionContext}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: AccessibilityExtensionContext;
 
@@ -179,6 +194,7 @@ export default class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   onAccessibilityConnect(): void;
 
@@ -191,6 +207,7 @@ export default class AccessibilityExtensionAbility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   onAccessibilityDisconnect(): void;
 
@@ -222,6 +239,8 @@ export default class AccessibilityExtensionAbility {
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
 
+export default AccessibilityExtensionAbility;
+
 /**
  * Indicates the accessibility event.
  * It provides the event type and the target element of the event if any.
@@ -231,7 +250,7 @@ export default class AccessibilityExtensionAbility {
  * @systemapi
  * @since 20
  */
-declare interface AccessibilityEventInfo {
+export declare interface AccessibilityEventInfo {
   /**
    * EventType
    *
@@ -255,12 +274,12 @@ declare interface AccessibilityEventInfo {
   /**
    * TimeStamp
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  timestamp?: number;
+  timestamp?: long;
 
   /**
    * The content of add/remove accessibility extraInfo text.
@@ -279,15 +298,17 @@ declare interface AccessibilityEventInfo {
  *
  * @typedef AccessibilityEvent
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-declare interface AccessibilityEvent {
+export declare interface AccessibilityEvent {
   /**
    * EventType
    *
    * @type { accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
 
@@ -296,34 +317,38 @@ declare interface AccessibilityEvent {
    *
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   target?: AccessibilityElement;
 
   /**
    * TimeStamp
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  timeStamp?: number;
+  timeStamp?: long;
 
   /**
    * ElementId
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  elementId?: number;
+  elementId?: long;
 
   /**
    * The content of announce accessibility text.
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textAnnouncedForAccessibility?: string;
 
@@ -333,6 +358,7 @@ declare interface AccessibilityEvent {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   extraInfo?: string;
 }
@@ -360,7 +386,8 @@ declare interface AccessibilityEvent {
  * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
 * @typedef {'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' | 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' | 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' | 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' | 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' | 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' | 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
-* @since 11
+* @since arkts {'1.1':'11', '1.2':'20'}
+* @arkts 1.1&1.2
 */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
@@ -378,7 +405,8 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
  *
  * @typedef {'pageContentUpdate' | 'pageStateUpdate'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
@@ -387,6 +415,7 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  *
  * @typedef {'touchBegin' | 'touchEnd'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';

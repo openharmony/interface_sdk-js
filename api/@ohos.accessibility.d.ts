@@ -25,7 +25,7 @@ import { Resource } from './global/resource';
 /**
  * Accessibility action that the ability can execute.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
@@ -212,32 +212,23 @@ export enum AccessibilityAction {
   CONTROL_CENTER = 19,
 
   /**
-   * Common
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 20
-   */
-  COMMON = 20,
-
-  /**
    * SpanClick
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  SPAN_CLICK = 21
+  SPAN_CLICK = 20
 }
-
 
 /**
  * AccessibilityEvent type
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
 export enum AccessibilityEventType {
   //EventType
@@ -247,6 +238,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_ACCESSIBILITY_FOCUS = 0,
 
@@ -256,6 +248,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_ACCESSIBILITY_FOCUS_CLEAR = 1,
 
@@ -265,6 +258,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_CLICK = 2,
 
@@ -274,6 +268,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_LONG_CLICK = 3,
 
@@ -283,6 +278,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SELECT = 4,
 
@@ -292,6 +288,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_HOVER_ENTER = 5,
 
@@ -301,6 +298,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_HOVER_EXIT = 6,
 
@@ -310,6 +308,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOCUS = 7,
 
@@ -319,6 +318,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TEXT_UPDATE = 8,
 
@@ -328,6 +328,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TEXT_SELECTION_UPDATE = 9,
 
@@ -337,6 +338,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SCROLL = 10,
 
@@ -346,6 +348,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY = 11,
 
@@ -355,6 +358,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_ANNOUNCE_FOR_ACCESSIBILITY = 12,
 
@@ -364,6 +368,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_REQUEST_FOCUS_FOR_ACCESSIBILITY_NOT_INTERRUPT = 13,
 
@@ -373,6 +378,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_ANNOUNCE_FOR_ACCESSIBILITY_NOT_INTERRUPT = 14,
 
@@ -382,6 +388,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_ELEMENT_INFO_CHANGE = 15,
 
@@ -391,6 +398,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SCROLLING = 16,
 
@@ -401,6 +409,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_ADD = 17,
 
@@ -410,6 +419,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_REMOVE = 18,
 
@@ -419,6 +429,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_BOUNDS = 19,
 
@@ -428,6 +439,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_ACTIVE = 20,
 
@@ -437,6 +449,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_FOCUS = 21,
 
@@ -446,6 +459,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_PROPERTY = 22,
 
@@ -455,6 +469,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_WINDOW_LAYER = 23,
 
@@ -465,6 +480,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TOUCH_BEGIN = 24,
 
@@ -474,6 +490,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TOUCH_END = 25,
 
@@ -484,6 +501,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_PAGE_CONTENT_UPDATE = 26,
 
@@ -493,6 +511,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_PAGE_STATE_UPDATE = 27,
 
@@ -502,6 +521,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_PAGE_OPEN = 28,
 
@@ -511,6 +531,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_PAGE_CLOSE = 29,
 
@@ -521,6 +542,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_LEFT = 30,
 
@@ -530,6 +552,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_LEFT_THEN_RIGHT = 31,
 
@@ -539,6 +562,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_LEFT_THEN_UP = 32,
 
@@ -548,6 +572,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_LEFT_THEN_DOWN = 33,
 
@@ -557,6 +582,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_RIGHT = 34,
 
@@ -566,6 +592,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_RIGHT_THEN_LEFT = 35,
 
@@ -575,6 +602,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_RIGHT_THEN_UP = 36,
 
@@ -584,6 +612,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_RIGHT_THEN_DOWN = 37,
 
@@ -593,6 +622,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_UP = 38,
 
@@ -602,6 +632,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_UP_THEN_LEFT = 39,
 
@@ -611,6 +642,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_UP_THEN_RIGHT = 40,
 
@@ -620,6 +652,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_UP_THEN_DOWN = 41,
 
@@ -629,6 +662,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_DOWN = 42,
 
@@ -638,6 +672,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_DOWN_THEN_LEFT = 43,
 
@@ -647,6 +682,7 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
   TYPE_SWIPE_DOWN_THEN_RIGHT = 44,
 
@@ -656,6 +692,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_SWIPE_DOWN_THEN_UP = 45,
 
@@ -665,6 +702,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TWO_FINGER_SINGLE_TAP = 46,
 
@@ -674,6 +712,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TWO_FINGER_DOUBLE_TAP = 47,
 
@@ -683,6 +722,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TWO_FINGER_DOUBLE_TAP_AND_HOLD = 48,
 
@@ -692,6 +732,7 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
   TYPE_TWO_FINGER_TRIPLE_TAP = 49,
 
@@ -701,6 +742,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_TWO_FINGER_TRIPLE_TAP_AND_HOLD = 50,
 
@@ -710,6 +752,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_SINGLE_TAP = 51,
 
@@ -719,6 +762,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_DOUBLE_TAP = 52,
 
@@ -728,6 +772,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_DOUBLE_TAP_AND_HOLD = 53,
 
@@ -737,6 +782,7 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
   TYPE_THREE_FINGER_TRIPLE_TAP = 54,
 
@@ -746,6 +792,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_TRIPLE_TAP_AND_HOLD = 55,
 
@@ -755,6 +802,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_SINGLE_TAP = 56,
 
@@ -764,6 +812,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_DOUBLE_TAP = 57,
 
@@ -773,6 +822,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_DOUBLE_TAP_AND_HOLD = 58,
 
@@ -782,6 +832,7 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
   TYPE_FOUR_FINGER_TRIPLE_TAP = 59,
 
@@ -791,6 +842,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_TRIPLE_TAP_AND_HOLD = 60,
 
@@ -800,6 +852,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_SWIPE_UP = 61,
 
@@ -809,6 +862,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_SWIPE_DOWN = 62,
 
@@ -818,6 +872,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_SWIPE_LEFT = 63,
 
@@ -827,6 +882,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_THREE_FINGER_SWIPE_RIGHT = 64,
 
@@ -836,6 +892,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_SWIPE_UP = 65,
 
@@ -845,6 +902,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_SWIPE_DOWN = 66,
 
@@ -854,6 +912,7 @@ export enum AccessibilityEventType {
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 20
+ * @arkts 1.1&1.2
  */
   TYPE_FOUR_FINGER_SWIPE_LEFT = 67,
 
@@ -863,6 +922,7 @@ export enum AccessibilityEventType {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   TYPE_FOUR_FINGER_SWIPE_RIGHT = 68
 }
@@ -898,7 +958,8 @@ declare namespace accessibility {
    *
    *{ 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   /**
    * The type of the Ability app.
@@ -906,7 +967,8 @@ declare namespace accessibility {
    * { 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all' }
    * @typedef {'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all';
 
@@ -994,7 +1056,8 @@ declare namespace accessibility {
    *
    * @typedef {'enable' | 'disable' | 'install'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type AbilityState = 'enable' | 'disable' | 'install';
 
@@ -1009,7 +1072,8 @@ declare namespace accessibility {
    *
    * @typedef {'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type Capability = 'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture';
 
@@ -1116,7 +1180,8 @@ declare namespace accessibility {
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isScreenReaderOpenSync(): boolean;
 
@@ -1156,12 +1221,13 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAccessibilityExtensionList(
     abilityType: AbilityType,
@@ -1174,12 +1240,13 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAccessibilityExtensionList(
     abilityType: AbilityType,
@@ -1194,7 +1261,8 @@ declare namespace accessibility {
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @returns { Array<AccessibilityAbilityInfo> } Returns the list of abilityInfos.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAccessibilityExtensionListSync(
     abilityType: AbilityType,
@@ -1230,7 +1298,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1255,7 +1323,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1293,7 +1361,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1305,7 +1373,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1332,7 +1400,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1356,7 +1424,7 @@ declare namespace accessibility {
    * Register the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type.
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
@@ -1376,11 +1444,6 @@ declare namespace accessibility {
   function onScreenReaderStateChange(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
   /**
-   * @arkts 1.2
-   */
-  overload on { onAccessibilityStateChange, onTouchGuideStateChange, onScreenReaderStateChange };
-
-  /**
    * Register the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
    * @param { Callback<string> } callback callback Asynchronous callback interface.
@@ -1394,11 +1457,16 @@ declare namespace accessibility {
   function on(type: 'touchModeChange', callback: Callback<string>): void;
 
   /**
+   * @arkts 1.2
+   */
+  overload on { onAccessibilityStateChange, onTouchGuideStateChange, onScreenReaderStateChange};
+
+  /**
    * Unregister the observe of the accessibility state changed.
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1410,7 +1478,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1437,7 +1505,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1461,7 +1529,7 @@ declare namespace accessibility {
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
@@ -1481,11 +1549,6 @@ declare namespace accessibility {
   function offScreenReaderStateChange(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * @arkts 1.2
-   */
-  overload off { offAccessibilityStateChange, offTouchGuideStateChange, offScreenReaderStateChange };
-
-  /**
    * Unregister the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
    * @param { Callback<string> } callback callback Asynchronous callback interface.
@@ -1497,6 +1560,12 @@ declare namespace accessibility {
    * @since 20
    */
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
+
+  /**
+   * @since 20
+   * @arkts 1.2
+   */
+  overload off { offAccessibilityStateChange, offTouchGuideStateChange, offScreenReaderStateChange};
 
   /**
    * Get the captions manager.
@@ -1538,7 +1607,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1553,7 +1622,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1568,7 +1637,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1583,7 +1652,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1599,7 +1668,8 @@ declare namespace accessibility {
    *
    * @typedef {'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow';
   /**
@@ -1607,7 +1677,8 @@ declare namespace accessibility {
    *
    * @typedef {'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals'}     
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
   'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
@@ -1616,7 +1687,8 @@ declare namespace accessibility {
    *
    * @typedef CaptionsStyle
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CaptionsStyle {
     /**
@@ -1624,44 +1696,50 @@ declare namespace accessibility {
      *
      * @type {CaptionsFontFamily}
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontFamily: CaptionsFontFamily;
     /**
      * Indicates the font scaling of captions.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    fontScale: number;
+    fontScale: int;
     /**
      * Indicates the font color of captions.
-     * @type { number | string }
+     * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    fontColor: number | string;
+    fontColor: int | string;
     /**
      * Indicates the edge type of the captions font.
      * @type { CaptionsFontEdgeType }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     fontEdgeType: CaptionsFontEdgeType;
     /**
      * Indicates the background color of captions.
-     * @type { number | string }
+     * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    backgroundColor: number | string;
+    backgroundColor: int | string;
     /**
      * Indicates the window color of captions.
-     * @type { number | string }
+     * @type { int | string }
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    windowColor: number | string;
+    windowColor: int | string;
   }
 
   /**
@@ -1669,7 +1747,8 @@ declare namespace accessibility {
    *
    * @typedef AccessibilityAbilityInfo
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AccessibilityAbilityInfo {
     /**
@@ -1677,7 +1756,8 @@ declare namespace accessibility {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly id: string;
 
@@ -1686,7 +1766,8 @@ declare namespace accessibility {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly name: string;
 
@@ -1695,7 +1776,8 @@ declare namespace accessibility {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly bundleName: string;
     /**
@@ -1703,7 +1785,8 @@ declare namespace accessibility {
      * @type { Array<string> }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly targetBundleNames: Array<string>;
 
@@ -1712,7 +1795,8 @@ declare namespace accessibility {
      * @type { Array<AbilityType> }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly abilityTypes: Array<AbilityType>;
 
@@ -1721,7 +1805,8 @@ declare namespace accessibility {
      * @type { Array<Capability> }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly capabilities: Array<Capability>;
 
@@ -1730,7 +1815,8 @@ declare namespace accessibility {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly description: string;
 
@@ -1739,7 +1825,8 @@ declare namespace accessibility {
      * @type { Array<EventType> }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly eventTypes: Array<EventType>;
 
@@ -1748,7 +1835,8 @@ declare namespace accessibility {
      * @type { boolean }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly needHide: boolean;
 
@@ -1757,7 +1845,8 @@ declare namespace accessibility {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     readonly label: string;
   }
@@ -1827,11 +1916,12 @@ declare namespace accessibility {
 
     /**
      * The page id of the event source.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    pageId?: number;
+    pageId?: int;
 
     /**
      * The accessibility event description.
@@ -1880,43 +1970,48 @@ declare namespace accessibility {
 
     /**
      * The start index of listed items on the screen.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    beginIndex?: number;
+    beginIndex?: int;
 
     /**
      * The index of the current item on the screen.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    currentIndex?: number;
+    currentIndex?: int;
 
     /**
      * The end index of listed items on the screen.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    endIndex?: number;
+    endIndex?: int;
 
     /**
      * The total of the items, talkback used it when scroll.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    itemCount?: number;
+    itemCount?: int;
 
     /**
      * The id of element.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    elementId?: number;
+    elementId?: int;
 
     /**
      * The content of announce accessibility text.
@@ -1931,7 +2026,8 @@ declare namespace accessibility {
      * The content of announce accessibility text.
      * @type { ?Resource }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     textResourceAnnouncedForAccessibility?: Resource;
 

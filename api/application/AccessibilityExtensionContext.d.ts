@@ -21,24 +21,30 @@
 import type { AsyncCallback, BusinessError, Callback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
+/*** if arkts 1.1 */
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
+/*** endif */
 import type Want from '../@ohos.app.ability.Want';
+
+/*** if arkts 1.1 */
 import { AccessibilityAction } from '../@ohos.accessibility';
+/*** endif */
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class AccessibilityExtensionContext extends ExtensionContext {
+declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Set the bundle names that is interested in sending the event.
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -53,7 +59,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -68,7 +74,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -84,7 +90,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -98,7 +104,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get focus element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -114,7 +120,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } windowId Indicates the window ID.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -130,7 +136,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } [windowId] Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -144,7 +150,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window root element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -160,7 +166,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -176,7 +182,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -190,7 +196,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window list.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -206,7 +212,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -223,7 +229,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -239,7 +245,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * Inject gesture path events.
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -256,48 +262,51 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the start options.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 - The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want): Promise<void>;
 
   /**
    * get all subElements in window.
-   * @param { number } windowId Indicates the window ID.
-   * @param { number } elementId Indicates the elementId.
+   * @param { int } windowId Indicates the window ID.
+   * @param { long } elementId Indicates the elementId.
    * @returns { Promise<Array<AccessibilityElement>> }
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *    1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameter types;
    *    3. Parameter verification failed.
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getElements(windowId: number, elementId?: number): Promise<Array<AccessibilityElement>>;
+  getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
   /**
    * Get default focused element ids.
-   * @param { number } windowId Indicates whether the windowid can be used as the default focus.
-   * @returns { Promise<Array<number>> }
+   * @param { int } windowId Indicates whether the windowid can be used as the default focus.
+   * @returns { Promise<Array<long>> }
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *    1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameter types;
    *    3. Parameter verification failed.
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getDefaultFocusedElementIds(windowId: number): Promise<Array<number>>;
+  getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
   /**
    * Hold running lock to prevent screen turning off automatically.
@@ -382,7 +391,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * Get window root element.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { number } [windowId] Indicates the window ID.
+   * @param { int } [windowId] Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -392,13 +401,13 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @systemapi
    * @since 20
    */
-  getRootInActiveWindow(windowId?: number): Promise<AccessibilityElement>;
+  getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
   /**
    * Get window list.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { number } [displayId] Indicates the display ID. If this parameter is not provided, indicates the default displayId.
+   * @param { long } [displayId] Indicates the display ID. If this parameter is not provided, indicates the default displayId.
    * @returns { Array<AccessibilityElement> }
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -407,8 +416,9 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @systemapi
    * @since 20
    */
-  getAccessibilityWindowsSync(displayId?: number): Array<AccessibilityElement>;
+  getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
 }
+export default AccessibilityExtensionContext;
 
 /**
  * Indicates an accessibility element.
@@ -416,9 +426,10 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
  *
  * @typedef AccessibilityElement
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-declare interface AccessibilityElement {
+export declare interface AccessibilityElement {
   /**
    * Get a list of attribute names.
    *
@@ -443,7 +454,7 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @param { AsyncCallback<ElementAttributeValues[T]> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -462,7 +473,7 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @returns { Promise<ElementAttributeValues[T]> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -499,7 +510,7 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -516,7 +527,7 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -532,7 +543,7 @@ declare interface AccessibilityElement {
    *
    * @param { string } actionName Indicates the action name.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -546,36 +557,39 @@ declare interface AccessibilityElement {
   /**
    * Get the position of cursor in TextInput.
    *
-   * @param { AsyncCallback<number> } callback Indicates the listener.
+   * @param { AsyncCallback<int> } callback Indicates the listener. 
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getCursorPosition(callback: AsyncCallback<number>): void;
+  getCursorPosition(callback: AsyncCallback<int>): void;
 
   /**
    * Get the position of cursor in TextInput.
    *
-   * @returns { Promise<number> }
+   * @returns { Promise<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  getCursorPosition(): Promise<number>;
+  getCursorPosition(): Promise<int>;
 
   /**
    * Set the screen curtain enable or disable.
    *
    * @param { boolean } isEnable Indicates whether the screen curtain is enabled.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableScreenCurtain(isEnable: boolean): void;
 
@@ -585,7 +599,7 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -601,7 +615,7 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -617,7 +631,7 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -633,7 +647,7 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -649,7 +663,7 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -665,7 +679,7 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -681,13 +695,14 @@ declare interface AccessibilityElement {
    * @param { 'textType' } type The type of query condition is text type.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -695,17 +710,18 @@ declare interface AccessibilityElement {
    * Find elements that match the condition.
    *
    * @param { 'elementId' } type The type of query condition is element id.
-   * @param { number } condition Indicates the specific content to be queried.
+   * @param { long } condition Indicates the specific content to be queried.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  findElement(type: 'elementId', condition: number): Promise<AccessibilityElement>;
+  findElement(type: 'elementId', condition: long): Promise<AccessibilityElement>;
 
   /**
    * Indicates accessibility focus state.
@@ -760,12 +776,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the component ID to which the element belongs.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  componentId?: number;
+  componentId?: long;
 
   /**
    * Indicates the component type to which the element belongs.
@@ -790,12 +806,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the index of the current item.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  currentIndex?: number;
+  currentIndex?: int;
 
   /**
    * Indicates the description of the element.
@@ -820,12 +836,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the list index of the last item displayed on the screen.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  endIndex?: number;
+  endIndex?: int;
 
   /**
    * Indicates the string of error state.
@@ -860,12 +876,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the type of input text.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  inputType?: number;
+  inputType?: int;
 
   /**
    * Indicates the inspector key.
@@ -940,12 +956,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the total count of the items.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  itemCount?: number;
+  itemCount?: int;
 
   /**
    * Indicates the last content.
@@ -960,12 +976,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the display layer of the element.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  layer?: number;
+  layer?: int;
 
   /**
    * Indicates whether the element is long clickable.
@@ -980,12 +996,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the page id.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  pageId?: number;
+  pageId?: int;
 
   /**
    * Indicates whether the element supports multiple lines of text.
@@ -1050,12 +1066,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the list index of the first item displayed on the screen.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  startIndex?: number;
+  startIndex?: int;
 
   /**
    * Indicates the text of the element.
@@ -1070,12 +1086,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the maximum length limit of the element text.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  textLengthLimit?: number;
+  textLengthLimit?: int;
 
   /**
    * Indicates the unit of movement of the element text as it is read.
@@ -1110,52 +1126,52 @@ declare interface AccessibilityElement {
   /**
    * Indicates the maximum value.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  valueMax?: number;
+  valueMax?: double;
 
   /**
    * Indicates the minimum value.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  valueMin?: number;
+  valueMin?: double;
 
   /**
    * Indicates the current value.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  valueNow?: number;
+  valueNow?: double;
 
   /**
    * Indicates the window id.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  windowId?: number;
+  windowId?: int;
 
   /**
    * Indicates the offset.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  offset?: number;
+  offset?: double;
 
   /**
    * Indicates the text type.
@@ -1200,22 +1216,22 @@ declare interface AccessibilityElement {
   /**
    * Indicates the component next accessibility focus id.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  accessibilityNextFocusId?: number;
+  accessibilityNextFocusId?: long;
 
   /**
    * Indicates the component previous accessibility focus id.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  accessibilityPreviousFocusId?: number;
+  accessibilityPreviousFocusId?: long;
 
   /**
    * Indicates the extra info of the element.
@@ -1270,12 +1286,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the navDestination id of component.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  navDestinationId?: number;
+  navDestinationId?: long;
 
   /**
    * Indicates the current item in grid of component.
@@ -1310,12 +1326,12 @@ declare interface AccessibilityElement {
   /**
    * Indicates the main windowId of component.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  mainWindowId?: number;
+  mainWindowId?: int;
 
   /**
    * Indicates whether the component need clip.
@@ -1330,22 +1346,22 @@ declare interface AccessibilityElement {
   /**
    * Indicates the parent element id of component.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  parentId?: number;
+  parentId?: long;
 
   /**
    * Indicates the children elements id list of component.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<long> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  childrenIds?: Array<number>;
+  childrenIds?: Array<long>;
 
   /**
    * Execute the specified action.
@@ -1451,7 +1467,7 @@ declare interface AccessibilityElement {
    * Find elements that match the elementId.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { number } condition Indicates the elementId to query.
+   * @param { long } condition Indicates the elementId to query.
    * @returns { Promise<AccessibilityElement> }
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1460,7 +1476,7 @@ declare interface AccessibilityElement {
    * @systemapi
    * @since 20
    */
-  findElementById(condition: number): Promise<AccessibilityElement>;
+  findElementById(condition: long): Promise<AccessibilityElement>;
 }
 
 /**
@@ -1475,21 +1491,21 @@ interface AccessibilityGrid {
   /**
    * The row index in grid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  rowIndex: number;
+  rowIndex: int;
   /**
    * The colum index in grid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  columnIndex: number;
+  columnIndex: int;
 }
 
 /**
@@ -1504,12 +1520,12 @@ interface AccessibilitySpan {
   /**
    * The id of span.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  spanId: number;
+  spanId: int;
   /**
    * The text of span.
    *
@@ -1632,15 +1648,17 @@ export declare class Parameter {
  *
  * @typedef ElementAttributeValues
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface ElementAttributeValues {
+export interface ElementAttributeValues {
   /**
    * Indicates accessibility focus state.
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityFocused: boolean;
   /**
@@ -1648,7 +1666,8 @@ interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
   /**
@@ -1656,7 +1675,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checkable: boolean;
   /**
@@ -1664,7 +1684,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   checked: boolean;
   /**
@@ -1672,7 +1693,8 @@ interface ElementAttributeValues {
    *
    * @type {Array<AccessibilityElement>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   children: Array<AccessibilityElement>;
   /**
@@ -1680,23 +1702,26 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clickable: boolean;
   /**
    * Indicates the component ID to which the element belongs.
    *
-   * @type {number}
+   * @type {long}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  componentId: number;
+  componentId: long;
   /**
    * Indicates the component type to which the element belongs.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   componentType: string;
   /**
@@ -1704,23 +1729,26 @@ interface ElementAttributeValues {
    *
    * @type {Array<string>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contents: Array<string>;
   /**
    * Indicates the index of the current item.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  currentIndex: number;
+  currentIndex: int;
   /**
    * Indicates the description of the element.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   description: string;
   /**
@@ -1728,23 +1756,26 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   editable: boolean;
   /**
    * Indicates the list index of the last item displayed on the screen.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  endIndex: number;
+  endIndex: int;
   /**
    * Indicates the string of error state.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   error: string;
   /**
@@ -1752,7 +1783,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   focusable: boolean;
   /**
@@ -1760,23 +1792,26 @@ interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hintText: string;
   /**
    * Indicates the type of input text.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  inputType: number;
+  inputType: int;
   /**
    * Indicates the inspector key.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   inspectorKey: string;
   /**
@@ -1784,7 +1819,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isActive: boolean;
   /**
@@ -1792,7 +1828,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isEnable: boolean;
   /**
@@ -1800,7 +1837,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isHint: boolean;
   /**
@@ -1808,7 +1846,8 @@ interface ElementAttributeValues {
    * 
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isFocused: boolean;
   /**
@@ -1816,7 +1855,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isPassword: boolean;
   /**
@@ -1824,55 +1864,62 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isVisible: boolean;
   /**
    * Indicates the total count of the items.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  itemCount: number;
+  itemCount: int;
   /**
    * Indicates the last content.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lastContent: string;
   /**
    * Indicates the display layer of the element.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  layer: number;
+  layer: int;
   /**
    * Indicates whether the element is long clickable.
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   longClickable: boolean;
   /**
    * Indicates the page id.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  pageId: number;
+  pageId: int;
   /**
    * Indicates the parent of the element.
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   parent: AccessibilityElement;
   /**
@@ -1880,7 +1927,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pluralLineSupported: boolean;
   /**
@@ -1888,7 +1936,8 @@ interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rect: Rect;
   /**
@@ -1896,7 +1945,8 @@ interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resourceName: string;
   /**
@@ -1904,7 +1954,8 @@ interface ElementAttributeValues {
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   rootElement: AccessibilityElement;
   /**
@@ -1912,7 +1963,8 @@ interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   screenRect: Rect;
   /**
@@ -1920,7 +1972,8 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   scrollable: boolean;
   /**
@@ -1928,39 +1981,44 @@ interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected: boolean;
   /**
    * Indicates the list index of the first item displayed on the screen.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  startIndex: number;
+  startIndex: int;
   /**
    * Indicates the text of the element.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: string;
   /**
    * Indicates the maximum length limit of the element text.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  textLengthLimit: number;
+  textLengthLimit: int;
   /**
    * Indicates the unit of movement of the element text as it is read.
    *
    * @type {accessibility.TextMoveUnit}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textMoveUnit: accessibility.TextMoveUnit;
   /**
@@ -1968,7 +2026,8 @@ interface ElementAttributeValues {
    *
    * @type {accessibility.Action}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   triggerAction: accessibility.Action;
   /**
@@ -1976,55 +2035,62 @@ interface ElementAttributeValues {
    *
    * @type {WindowType}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type: WindowType;
   /**
    * Indicates the maximum value.
    *
-   * @type {number}
+   * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  valueMax: number;
+  valueMax: double;
   /**
    * Indicates the minimum value.
    *
-   * @type {number}
+   * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  valueMin: number;
+  valueMin: double;
   /**
    * Indicates the current value.
    * 
-   * @type {number}
+   * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  valueNow: number;
+  valueNow: double;
   /**
    * Indicates the window id.
    *
-   * @type {number}
+   * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  windowId: number;
+  windowId: int;
   /**
    * Indicates the offset.
    *
-   * @type {number}
+   * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  offset: number;
+  offset: double;
   /**
    * Indicates the text type.
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textType: string;
   /**
@@ -2032,7 +2098,8 @@ interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityText: string;
   /**
@@ -2040,45 +2107,51 @@ interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hotArea: Rect;
   /**
    * Indicates the component next accessibility focus id.
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  accessibilityNextFocusId?: number;
+  accessibilityNextFocusId?: long;
   /**
    * Indicates the custom component type.
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   customComponentType?: string;
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extraInfo?: string;
   /**
    * Indicates the component Previous accessibility focus id.
    *
-   * @type { ?number }
+   * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  accessibilityPreviousFocusId?: number;
+  accessibilityPreviousFocusId?: long;
   /**
    * Indicates whether the element is scrollable for accessibility.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   accessibilityScrollable?: boolean;
 }
@@ -2088,66 +2161,74 @@ interface ElementAttributeValues {
  *
  * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
+export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
 /**
  * Indicates the type of the focus.
  *
  * @typedef {'accessibility' | 'normal'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-type FocusType = 'accessibility' | 'normal';
+export type FocusType = 'accessibility' | 'normal';
 
 /**
  * Indicates the type of the window.
  *
  * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-type WindowType = 'application' | 'system';
+export type WindowType = 'application' | 'system';
 
 /**
  * Indicates rectangle.
  *
  * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-interface Rect {
+export interface Rect {
   /**
    * The left position of Rect
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  left: number;
+  left: int;
   /**
    * The top position of Rect
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  top: number;
+  top: int;
   /**
    * The width position of Rect
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  width: number;
+  width: int;
   /**
    * The height position of Rect
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  height: number;
+  height: int;
 }
