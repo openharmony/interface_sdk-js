@@ -145,8 +145,8 @@ declare class PermissionRequestResult {
    *   2  The requested permission has not been declared.
    *   3  The conditions for requesting the permission are not met.
    *   4  The user does not agree to the Privacy Statement.
-   *   5  The permission cannot be requested in a pop-up window.
-   *   6  The permission is a manual_settings permsssion and cannot be requested via a pop-up window.
+   *   5  The permission cannot be requested via a pop-up window.
+   *   6  The permission is a manual_settings permission and cannot be requested via a pop-up window.
    *   12 The service is abnormal.
    *
    * @type { ?Array<int> }
