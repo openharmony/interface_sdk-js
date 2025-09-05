@@ -19,6 +19,8 @@
  */
 
 import { Builder } from './builder';
+import { ComponentBuilder } from './../stateManagement/runtime';
+import { DynamicNode } from './common'
 
 /**
  * Define item generator function.
@@ -45,6 +47,15 @@ declare type ItemGeneratorFunc<T> = (item: T, index: number) => void;
 declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
 
 /**
+ * declare ForEachAttribute
+ *
+ * @interface ForEachAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export interface ForEachAttribute extends DynamicNode {}
+
+/**
  * Defines ForEach Component.
  *
  * @param { Array<T> } arr - the array collection to be used in UI
@@ -53,8 +64,8 @@ declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-@Builder
+@ComponentBuilder
 export declare function ForEach<T>(arr: Array<T>,
     itemGenerator: ItemGeneratorFunc<T>,
     keyGenerator?: KeyGeneratorFunc<T>,
-): void;
+): ForEachAttribute;
