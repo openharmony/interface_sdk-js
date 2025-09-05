@@ -21,6 +21,7 @@ const commander = require('commander');
 let dirType = '';
 const deleteApiSet = new Set();
 const importNameSet = new Set();
+const ARKTS_FLAG = 'use static';
 
 // 处理的目录类型，ets代表处理的是1.1目录，ets2代表处理的是1.2目录里有@arkts 1.1&1.2标签的文件，
 // noTagInEts2代表处理的是1.2目录里无标签的文件
@@ -435,8 +436,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
-      let newFileContent = deleteUnsportedTag(fileContent);
-      newFileContent = getFileContent(newFileContent, fullPath);
+      let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
+      newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -461,8 +462,8 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     }
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
-      let newFileContent = deleteUnsportedTag(fileContent);
-      newFileContent = getFileContent(newFileContent, fullPath);
+      let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
+      newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
@@ -620,6 +621,7 @@ function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
   });
   let fileJsdoc = firstNode ? getFileJsdoc(firstNode) + '*/\n' : '';
   let newContent = copyrightMessage + fileJsdoc + Array.from(fileContent.matchAll(regx), match => match[4]).join('\n');
+  newContent = addStaticString(newContent);
 
   writeFile(outputPath, saveLatestJsDoc(newContent));
 }
@@ -654,6 +656,7 @@ function joinFileJsdoc(deletionContent, sourceFile) {
 
   if (dirType !== DirType.typeOne) {
     // TODO：添加use static字符串
+   newContent = addStaticString(newContent);
   }
   return newContent;
 }
@@ -695,14 +698,18 @@ function writeFile(outputPath, fileContent) {
  * @param {*} copyrightMessage 版权头内容
  * @returns 
  */
-function addStaticString(fileContent, copyrightMessage) {
-  const hasStaticMessage = /use\s+static/g.test(fileContent);
-  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
-  const staticMessage = 'use static';
+function addStaticString(fileContent) {
   let newContent = fileContent;
+  //判断是否存在use static且位置在第一个行
+  const fileContentRegex = /^\s*(['"])use static\1\s*;?$/gm;
+  if (fileContentRegex.test(fileContent) && fileContentRegex.exec(fileContent) &&
+    fileContentRegex.exec(fileContent).index > 0) {
+    newContent = newContent.replace(/^\s*(['"])use static\1\s*;?$/gm, '');
+  }
+  const hasStaticMessage = fileContentRegex.test(newContent);
+  const staticMessage = 'use static';
   if (!hasStaticMessage) {
-    const newfileJsdoc = `${copyrightMessage}'${staticMessage}'\r\n`;
-    newContent = newContent.replace(regex, newfileJsdoc);
+    newContent = `'${staticMessage}'\r\n${newContent}`;
   }
   return newContent;
 }
@@ -805,12 +812,28 @@ const transformExportApi = (context) => {
   };
 };
 
+/**
+ * 判断是否为use static标记
+ * @param { ts.Node } node 
+ * @returns { boolean }
+ */
+function isStaticFlag(node) {
+  return ts.isExpressionStatement(node) &&
+    node.expression &&
+    ts.isStringLiteral(node.expression) &&
+    node.expression.text &&
+    node.expression.text === ARKTS_FLAG;
+}
+
 function isEmptyFile(node) {
   let isEmpty = true;
   if (ts.isSourceFile(node) && node.statements) {
     const needExportName = new Set();
     for (let i = 0; i < node.statements.length; i++) {
       const statement = node.statements[i];
+      if (isStaticFlag(statement)) {
+        continue;
+      }
       if (ts.isExportDeclaration(statement) && statement.moduleSpecifier) {
         isEmpty = false;
         break;
