@@ -21,21 +21,25 @@
 /*** if arkts 1.1&1.2 */
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
-import { GesturePath } from '@ohos.accessibility.GesturePath';
-import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, ElementAttributeKeys, AccessibilityExtensionContext,
   ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent
 } from '@ohos.application.AccessibilityExtensionAbility';
-export {
-  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
-  ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
-  GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent
-};
 /*** endif */
 /*** if arkts 1.1 */
+import { GesturePath } from '@ohos.accessibility.GesturePath';
+import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import { Parameter, AccessibilityEventInfo
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityAction, AccessibilityEventType } from '@ohos.accessibility';
-export { Parameter, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType };
+/*** endif */
+/*** if arkts 1.1&1.2 */
+export {
+  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
+  ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType,
+  Rect, WindowType, accessibility, config, AccessibilityEvent
+};
+/*** endif */
+/*** if arkts 1.1 */
+export { GesturePath, GesturePoint, Parameter, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType };
 /*** endif */
