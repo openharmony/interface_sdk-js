@@ -6912,11 +6912,13 @@ declare namespace webview {
     /**
      * Gets the loading progress for the current page.
      *
-     * @returns { number } The loading progress for the current page.
+     * @returns { int } The loading progress for the current page.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
-    getProgress() : number;
+    getProgress() : int;
 
     /**
      * Sets the bottom avoidance height of the web visible viewport.
