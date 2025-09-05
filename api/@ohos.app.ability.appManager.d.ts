@@ -781,7 +781,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearUpApplicationData(bundleName: string): Promise<void>;
 
@@ -798,9 +799,10 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>);
+  function clearUpApplicationData(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
    * Is it a ram-constrained device
@@ -1107,7 +1109,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationRunning(bundleName: string): Promise<boolean>;
 
@@ -1125,7 +1128,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isApplicationRunning(bundleName: string, callback: AsyncCallback<boolean>): void;
 
@@ -1205,7 +1209,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000073 - The app clone index is invalid.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearUpAppData(bundleName: string, appCloneIndex?: int): Promise<void>;
 
@@ -1222,7 +1227,8 @@ declare namespace appManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function terminateMission(missionId: int): Promise<void>;
 
@@ -1309,6 +1315,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function setKeepAliveForAppServiceExtension(bundleName: string, enabled: boolean): Promise<void>;
 
@@ -1324,6 +1331,7 @@ declare namespace appManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getKeepAliveAppServiceExtensions(): Promise<Array<KeepAliveBundleInfo>>;
 
