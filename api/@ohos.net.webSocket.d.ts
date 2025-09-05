@@ -179,7 +179,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21
-     * @arkts 1.2
      */
     pingInterval?: int;
 
@@ -190,7 +189,6 @@ declare namespace webSocket {
      * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21
-     * @arkts 1.2
      */
     pongTimeout?: int;
   }
