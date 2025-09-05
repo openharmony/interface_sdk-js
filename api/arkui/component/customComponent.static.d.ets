@@ -23,7 +23,7 @@ import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../
 import { ExtendableComponent } from './extendableComponent';
 import { GeometryInfo, Layoutable, Measurable, SizeResult } from './common'
 import { ConstraintSizeOptions } from './units'
-import { Builder } from './builder'
+import { Builder, CustomBuilder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
 
@@ -32,8 +32,6 @@ import { CustomDialogController } from './customDialogController';
  *
  * Entry is an Annotation and it supports parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 @Retention({policy: "SOURCE"})
@@ -43,7 +41,6 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     routeName: string = "";
@@ -53,7 +50,6 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
     storage: string = "";
@@ -63,8 +59,6 @@ export @interface Entry {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     useSharedStorage: boolean = false;
@@ -181,10 +175,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * Definition of base custom component, which is base class of custom component.
  *
  * @extends ExtendableComponent
- * @implements CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare abstract class BaseCustomComponent extends ExtendableComponent {
@@ -200,6 +191,16 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
 }
 
 /**
+ * function for creating custom component instance.
+ *
+ * @typedef { function } CustomComponentFactory<T>
+ * @return { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+type CustomComponentFactory<T> = () => T;
+
+/**
  * Definition of custom component class.
  *
  * @extends BaseCustomComponent
@@ -211,7 +212,8 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
    /**
     * Constructor to use to create a customComponent instance.
-    * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
+    * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by
+    *     UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20
@@ -221,21 +223,20 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     /**
      * Define the constructor of custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { CustomComponentFactory<T> } factory - factory to create instance of custom component
+     * @param { T_Options } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
+     * @returns { T } custom component new instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     @ComponentBuilder
     static $_instantiate(
-        factory: () => T,
+        factory: CustomComponentFactory<T>,
         initializers?: T_Options,
         reuseId?: string,
-        @Builder content?: () => void
+        content?: CustomBuilder
     ): T
 
     /**
@@ -243,8 +244,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      *
      * @param { Record<string, Object> } params - Custom component init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     aboutToReuse(params: Record<string, Object>): void;
@@ -263,21 +262,20 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
     /**
      * Define the constructor of custom component
      *
-     * @param { () => T } factory - factory to create instance of custom component
-     * @param { T_Options } initializers - initial data for all the fields in custom component
-     * @param { string } reuseId - reuse id for reusable. Only valid if custom component decorated with @Reusable
-     * @param { @Builder () => void } content - tail closure for custom component
+     * @param { CustomComponentFactory } factory - factory to create instance of custom component
+     * @param { T_Options } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
+     * @returns { T } custom component new instance
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     @ComponentBuilder
     static $_instantiate(
-        factory: () => T,
+        factory: CustomComponentFactory<T>,
         initializers?: T_Options,
         reuseId?: string,
-        @Builder content?: () => void
+        content?: CustomBuilder
     ): T
 
     /**
@@ -294,20 +292,18 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
 /**
  * Defining interface of PageLifeCycle for custom component, when decorate with @Entry.
  *
+ * @typedef PageLifeCycle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export interface PageLifeCycle {
     /**
      * onPageShow Method.
      *
-     * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
+     * The page is triggered once each time it is displayed, including scenarios such as 
+     *     the routing process and the application entering the foreground
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     onPageShow(): void {}
@@ -315,11 +311,10 @@ export interface PageLifeCycle {
     /**
      * onPageHide Method.
      *
-     * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
+     * It is triggered once each time the page is hidden, including scenarios such as 
+     *     the routing process and the application entering the background
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     onPageHide(): void {}
@@ -330,21 +325,17 @@ export interface PageLifeCycle {
      * Triggered when the user clicks the back button
      *
      * @returns { boolean } true means that the page itself processes the return logic.
-     * false means that the default return logic is used.
+     *     false means that the default return logic is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onBackPress(): boolean { return false }
+    onBackPress(): boolean { return false; }
 
     /**
      * PageTransition Method.
      * Implement Animation when enter this page or move to other pages.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     pageTransition(): void {}
@@ -354,8 +345,6 @@ export interface PageLifeCycle {
      *
      * @param { object | undefined | null } param - New parameters pushed with singleton mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     onNewParam(param: object | undefined | null): void {}

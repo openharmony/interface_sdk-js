@@ -26,12 +26,11 @@ import { Optional, NavDestinationInfo, NavigationInfo, RouterPageInfo } from './
 /**
  * Defining interface of LifeCycle for custom component and custom dialog
  *
+ * @typedef LifeCycle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
-export interface LifeCycle {
+export declare interface LifeCycle {
     /**
      * aboutToAppear Method.
      *
@@ -39,11 +38,9 @@ export interface LifeCycle {
      * before its build() function is executed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    aboutToAppear(): void {}
+    default aboutToAppear(): void;
 
     /**
      * aboutToDisappear Method.
@@ -51,11 +48,9 @@ export interface LifeCycle {
      * The aboutToDisappear function executes before a custom component is destroyed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    aboutToDisappear(): void {}
+    default aboutToDisappear(): void;
 
     /**
      * The callback method after the custom component is built.
@@ -63,18 +58,14 @@ export interface LifeCycle {
      * Triggered when the custom component has been built.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
-    onDidBuild(): void {}
+    default onDidBuild(): void;
 
     /**
      * Customize the build process of the custom component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     @Builder
@@ -86,8 +77,6 @@ export interface LifeCycle {
  *
  * @implements LifeCycle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
  * @since 20
  */
 export declare abstract class ExtendableComponent implements LifeCycle {
@@ -96,8 +85,6 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      *
      * @returns { UIContext } The UIContext that the custom component belongs to.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     getUIContext(): UIContext
@@ -107,8 +94,6 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      *
      * @returns { int } - The uniqueId of the custom component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
      * @since 20
      */
     getUniqueId(): int
