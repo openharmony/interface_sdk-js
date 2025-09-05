@@ -3702,14 +3702,14 @@ declare class ConsoleMessage {
   /**
    * Gets the line number of a console message.
    *
-   * @returns { number } Return the line number of a console message.
+   * @returns { int } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the line number of a console message.
    *
-   * @returns { number } Return the line number of a console message.
+   * @returns { int } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -3717,14 +3717,14 @@ declare class ConsoleMessage {
   /**
    * Gets the line number of a console message.
    *
-   * @returns { number } Return the line number of a console message.
+   * @returns { int } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getLineNumber(): number;
+  getLineNumber(): int;
 
   /**
    * Gets the message level of a console message.
@@ -4025,27 +4025,27 @@ declare class WebResourceResponse {
   /**
    * Gets the response data.
    *
-   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *                                                                   string type indicate string in HTML format.
-   *                                                                   number type indicate file handle.
-   *                                                                   Resource type indicate $rawfile resource.
-   *                                                                   ArrayBuffer type indicate binary data.
+   * @returns { string | int | ArrayBuffer | Resource | undefined } Return the response data.
+   *     string type indicate string in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
+   *     ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 13
    */
   /**
    * Gets the response data.
    *
-   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *                                                                   string type indicate string in HTML format.
-   *                                                                   number type indicate file handle.
-   *                                                                   Resource type indicate $rawfile resource.
-   *                                                                   ArrayBuffer type indicate binary data.
+   * @returns { string | int | ArrayBuffer | Resource | undefined } Return the response data.
+   *     string type indicate string in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
+   *     ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 18
    */
-  getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
+  getResponseDataEx(): string | int | ArrayBuffer | Resource | undefined;
 
   /**
    * Gets the response encoding.
@@ -4141,53 +4141,53 @@ declare class WebResourceResponse {
   /**
    * Gets the response code.
    *
-   * @returns { number } Return the response code.
+   * @returns { int } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the response code.
    *
-   * @returns { number } Return the response code.
+   * @returns { int } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getResponseCode(): number;
+  getResponseCode(): int;
 
   /**
    * Sets the response data.
    *
-   * @param { string | number | Resource } data - the response data.
+   * @param { string | int | Resource } data - the response data.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Sets the response data.
    *
-   * @param { string | number | Resource } data - the response data.
-   *                                              string type indicate strings in HTML format.
-   *                                              number type indicate file handle.
-   *                                              Resource type indicate $rawfile resource.
+   * @param { string | int | Resource } data - the response data.
+   *     string type indicate strings in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 10
    */
   /**
    * Sets the response data.
    *
-   * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *                                              string type indicate strings in HTML format.
-   *                                              number type indicate file handle.
-   *                                              Resource type indicate $rawfile resource.
-   *                                              ArrayBuffer type indicate binary data.
+   * @param { string | int | Resource | ArrayBuffer } data - the response data.
+   *     string type indicate strings in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
+   *     ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setResponseData(data: string | number | Resource | ArrayBuffer): void;
+  setResponseData(data: string | int | Resource | ArrayBuffer): void;
 
   /**
    * Sets the response encoding.
@@ -4295,14 +4295,14 @@ declare class WebResourceResponse {
   /**
    * Sets the response code.
    *
-   * @param { number } code the response code.
+   * @param { int } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
    * Sets the response code.
    *
-   * @param { number } code the response code.
+   * @param { int } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
@@ -4310,13 +4310,13 @@ declare class WebResourceResponse {
   /**
    * Sets the response code.
    *
-   * @param { number } code the response code.
+   * @param { int } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  setResponseCode(code: number): void;
+  setResponseCode(code: int): void;
 
   /**
    * Sets the response is ready or not.
@@ -4527,14 +4527,14 @@ declare class WebResourceError {
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { number } Return the code of the Web resource error.
+   * @returns { int } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { number } Return the code of the Web resource error.
+   * @returns { int } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @since 10
@@ -4542,14 +4542,14 @@ declare class WebResourceError {
   /**
    * Gets the code of the Web resource error.
    *
-   * @returns { number } Return the code of the Web resource error.
+   * @returns { int } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  getErrorCode(): number;
+  getErrorCode(): int;
 }
 
 /**
@@ -6378,14 +6378,14 @@ declare interface OnDownloadStartEvent {
   /**
    * The contentLength of page.
    *
-   * @type { number }
+   * @type { long }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  contentLength: number;
+  contentLength: long;
 }
 
 /**
@@ -6864,13 +6864,13 @@ declare interface OnClientAuthenticationEvent {
   /**
    * The port number of the request certificate server.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  port : number;
+  port : int;
 
   /**
    * Acceptable asymmetric key types.

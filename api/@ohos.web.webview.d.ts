@@ -3398,14 +3398,14 @@ declare namespace webview {
 
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3413,7 +3413,7 @@ declare namespace webview {
      */
     /**
      * Get the number value of the JavaScript code execution result.
-     * @returns { number } - Returns data of number type
+     * @returns { double | long } - Returns data of number type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3421,7 +3421,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getNumber(): number;
+    getNumber(): double | long;
 
     /**
      * Get the boolean value of the JavaScript code execution result.
@@ -3470,14 +3470,14 @@ declare namespace webview {
 
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 10
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -3485,7 +3485,7 @@ declare namespace webview {
      */
     /**
      * Get the array value of the the JavaScript code execution result.
-     * @returns { Array<string | number | boolean> } - Returns data of Array type
+     * @returns { Array<string | double | long | boolean> } - Returns data of Array type
      * @throws { BusinessError } 17100014 - The type and value of the message do not match.
      * @syscap SystemCapability.Web.Webview.Core
      * @crossplatform
@@ -3493,7 +3493,7 @@ declare namespace webview {
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getArray(): Array<string | number | boolean>;
+    getArray(): Array<string | double | long | boolean>;
   }
 
   /**
@@ -9417,23 +9417,23 @@ declare namespace webview {
      * Set the maximum size of pages that can cache.
      * Default is 1, max is 50.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    size: number;
+    size: int;
 
     /**
      * Set the lifetime in seconds in the BackForwardCache.
      * Default is 600.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timeToLive: number;
+    timeToLive: int;
 
     /**
      * @syscap SystemCapability.Web.Webview.Core
