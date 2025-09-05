@@ -2346,8 +2346,9 @@ declare namespace inputMethodEngine {
   }
 
   /** 
-   * Input method system panel's insets, used to indicate the distance between the input method panel and the system panel.
-   * The distance unit is px.
+   * <p>Input method system panel's insets.</p>
+   * <p>It is used to indicate the distance between the input method panel and the system panel.</p>
+   * <p>The distance unit is px.</p>
    * 
    * @interface SystemPanelInsets.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
