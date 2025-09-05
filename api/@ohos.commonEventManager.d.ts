@@ -1243,334 +1243,377 @@ declare namespace commonEventManager {
      * Bluetooth.handsfree.ag.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_UPDATE =
+        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CURRENT_DEVICE_UPDATE =
+        "usual.event.bluetooth.handsfree.ag.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.handsfree.ag.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_AUDIO_STATE_UPDATE =
+        "usual.event.bluetooth.handsfree.ag.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.current.device.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE = 'usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CURRENT_DEVICE_UPDATE =
+        "usual.event.bluetooth.a2dpsource.CURRENT_DEVICE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_PLAYING_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsource.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.avrcp.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dpsource.codec.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE = 'usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_UPDATE =
+        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.discovered.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED = 'usual.event.bluetooth.remotedevice.DISCOVERED',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_DISCOVERED =
+        "usual.event.bluetooth.remotedevice.DISCOVERED",
 
     /**
      * Bluetooth.remotedevice.class.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CLASS_VALUE_UPDATE =
+        "usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.acl.connected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED = 'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_CONNECTED =
+        "usual.event.bluetooth.remotedevice.ACL_CONNECTED",
 
     /**
      * Bluetooth.remotedevice.acl.disconnected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED = 'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_DISCONNECTED =
+        "usual.event.bluetooth.remotedevice.ACL_DISCONNECTED",
 
     /**
      * Bluetooth.remotedevice.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE = 'usual.event.bluetooth.remotedevice.NAME_UPDATE',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_NAME_UPDATE =
+        "usual.event.bluetooth.remotedevice.NAME_UPDATE",
 
     /**
      * Bluetooth.remotedevice.pair.state.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
+     * @useinstead commonEventManager.Support#COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE_CHANGE
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE = 'usual.event.bluetooth.remotedevice.PAIR_STATE',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE =
+        "usual.event.bluetooth.remotedevice.PAIR_STATE",
 
     /**
      * Bluetooth.remotedevice.battery.value.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE = 'usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_BATTERY_VALUE_UPDATE =
+        "usual.event.bluetooth.remotedevice.BATTERY_VALUE_UPDATE",
 
     /**
      * Bluetooth.remotedevice.sdp.result.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT = 'usual.event.bluetooth.remotedevice.SDP_RESULT',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_SDP_RESULT =
+        "usual.event.bluetooth.remotedevice.SDP_RESULT",
 
     /**
      * Bluetooth.remotedevice.uuid.value.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE = 'usual.event.bluetooth.remotedevice.UUID_VALUE',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_UUID_VALUE =
+        "usual.event.bluetooth.remotedevice.UUID_VALUE",
 
     /**
      * Bluetooth.remotedevice.pairing.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ = 'usual.event.bluetooth.remotedevice.PAIRING_REQ',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_REQ =
+        "usual.event.bluetooth.remotedevice.PAIRING_REQ",
 
     /**
      * Bluetooth.remotedevice.pairing.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL = 'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIRING_CANCEL =
+        "usual.event.bluetooth.remotedevice.PAIRING_CANCEL",
 
     /**
      * Bluetooth.remotedevice.connect.req.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ = 'usual.event.bluetooth.remotedevice.CONNECT_REQ',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REQ =
+        "usual.event.bluetooth.remotedevice.CONNECT_REQ",
 
     /**
      * Bluetooth.remotedevice.connect.reply.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY = 'usual.event.bluetooth.remotedevice.CONNECT_REPLY',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_REPLY =
+        "usual.event.bluetooth.remotedevice.CONNECT_REPLY",
 
     /**
      * Bluetooth.remotedevice.connect.cancel.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL = 'usual.event.bluetooth.remotedevice.CONNECT_CANCEL',
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_CONNECT_CANCEL =
+        "usual.event.bluetooth.remotedevice.CONNECT_CANCEL",
 
     /**
      * Bluetooth.handsfreeunit.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_CONNECT_STATE_UPDATE =
+        "usual.event.bluetooth.handsfreeunit.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AUDIO_STATE_UPDATE =
+        "usual.event.bluetooth.handsfreeunit.AUDIO_STATE_UPDATE",
 
     /**
      * Bluetooth.handsfreeunit.ag.common.event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT = 'usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT',
+    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_COMMON_EVENT =
+        "usual.event.bluetooth.handsfreeunit.AG_COMMON_EVENT",
 
     /**
      * Bluetooth.handsfreeunit.ag.call.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE = 'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HANDSFREEUNIT_AG_CALL_STATE_UPDATE =
+        "usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE",
 
     /**
      * Bluetooth.host.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE = 'usual.event.bluetooth.host.STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HOST_STATE_UPDATE =
+        "usual.event.bluetooth.host.STATE_UPDATE",
 
     /**
      * Bluetooth.host.req.discoverable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE = 'usual.event.bluetooth.host.REQ_DISCOVERABLE',
+    COMMON_EVENT_BLUETOOTH_HOST_REQ_DISCOVERABLE =
+        "usual.event.bluetooth.host.REQ_DISCOVERABLE",
 
     /**
      * Bluetooth.host.req.enable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = 'usual.event.bluetooth.host.REQ_ENABLE',
+    COMMON_EVENT_BLUETOOTH_HOST_REQ_ENABLE = "usual.event.bluetooth.host.REQ_ENABLE",
 
     /**
      * Bluetooth.host.req.disable.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE = 'usual.event.bluetooth.host.REQ_DISABLE',
+    COMMON_EVENT_BLUETOOTH_HOST_REQ_DISABLE =
+        "usual.event.bluetooth.host.REQ_DISABLE",
 
     /**
      * Bluetooth.host.scan.mode.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE = 'usual.event.bluetooth.host.SCAN_MODE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HOST_SCAN_MODE_UPDATE =
+        "usual.event.bluetooth.host.SCAN_MODE_UPDATE",
 
     /**
      * Bluetooth.host.discovery.stated.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED = 'usual.event.bluetooth.host.DISCOVERY_STARTED',
+    COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_STARTED =
+        "usual.event.bluetooth.host.DISCOVERY_STARTED",
 
     /**
      * Bluetooth.host.discovery.finished.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED = 'usual.event.bluetooth.host.DISCOVERY_FINISHED',
+    COMMON_EVENT_BLUETOOTH_HOST_DISCOVERY_FINISHED =
+        "usual.event.bluetooth.host.DISCOVERY_FINISHED",
 
     /**
      * Bluetooth.host.name.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE = 'usual.event.bluetooth.host.NAME_UPDATE',
+    COMMON_EVENT_BLUETOOTH_HOST_NAME_UPDATE =
+        "usual.event.bluetooth.host.NAME_UPDATE",
 
     /**
      * Bluetooth.a2dp.connect.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSINK_CONNECT_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsink.CONNECT_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.playing.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSINK_PLAYING_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsink.PLAYING_STATE_UPDATE",
 
     /**
      * Bluetooth.a2dp.audio.state.update.
      *
      * @syscap SystemCapability.Notification.CommonEvent
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
+     * @deprecated since 20
      */
-    COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE = 'usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE',
+    COMMON_EVENT_BLUETOOTH_A2DPSINK_AUDIO_STATE_UPDATE =
+        "usual.event.bluetooth.a2dpsink.AUDIO_STATE_UPDATE",
 
     /**
      * Nfc state change.
@@ -2460,6 +2503,17 @@ declare namespace commonEventManager {
     COMMON_EVENT_AUDIO_QUALITY_CHANGE = 'usual.event.AUDIO_QUALITY_CHANGE',
 
     /**
+     * Indicates the action of a common event that bluetooth handsfree ag connection state change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_HANDSFREE_AG_CONNECT_STATE_CHANGE =
+        "usual.event.bluetooth.handsfree.ag.CONNECT_STATE_CHANGE",
+
+    /**
       * Indicates that the privacy status is changed.
       * This is a protected common event that can only be sent by system.
       *
@@ -2561,6 +2615,61 @@ declare namespace commonEventManager {
      * @arkts 1.1&1.2
      */
     COMMON_EVENT_RESTORE_START = 'usual.event.RESTORE_START',
+
+    /**
+     * Indicates the action of a common event that bluetooth a2dp source connection state change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CONNECT_STATE_CHANGE =
+        "usual.event.bluetooth.a2dpsource.CONNECT_STATE_CHANGE",
+
+    /**
+     * Indicates the action of a common event that bluetooth avrcp connection state change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_AVRCP_CONNECT_STATE_CHANGE =
+        "usual.event.bluetooth.a2dpsource.AVRCP_CONNECT_STATE_CHANGE",
+
+    /**
+     * Indicates the action of a common event that bluetooth codec change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_A2DPSOURCE_CODEC_VALUE_CHANGE =
+        "usual.event.bluetooth.a2dpsource.CODEC_VALUE_CHANGE",
+
+    /**
+     * Indicates the action of a common event that bluetooth remote device acl state change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_ACL_STATE_CHANGE = 
+        "usual.event.bluetooth.remotedevice.ACL_STATE_CHANGE",
+
+    /**
+     * Indicates the action of a common event that bluetooth pair state change.
+     * To subscribe to this protected common event, your application must have the ohos.permission.ACCESS_BLUETOOTH
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_BLUETOOTH_REMOTEDEVICE_PAIR_STATE_CHANGE =
+        "usual.event.bluetooth.remotedevice.PAIR_STATE_CHANGE",
 
     /**
      * Indicates that the managed browser policy is changed.
