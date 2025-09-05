@@ -4823,6 +4823,21 @@ declare namespace wifiManager {
    */
     GO_BAND_5GHZ = 2
   }
+  
+  /**
+   * is random mac disabled
+   * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
+   * @returns { boolean } Returns {@code true} is random mac disabled; Returns {@code false} otherwise.
+   * @throws {BusinessError} 201 - Permission denied.
+   * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
+   * @throws {BusinessError} 801 - Capability not supported.
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @syscap SystemCapability.Communication.WiFi.STA
+   * @systemapi Hide this for inner system use.
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function isRandomMacDisabled(): boolean;
 }
 
 export default wifiManager;
