@@ -992,7 +992,8 @@ declare namespace window {
    * @interface StatusBarProperty
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface StatusBarProperty {
     /**
@@ -1001,7 +1002,8 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contentColor: string;
   }
@@ -1611,7 +1613,8 @@ declare namespace window {
    *
    * @interface WindowInfo
    * @syscap SystemCapability.Window.SessionManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WindowInfo {
     /**
@@ -1637,7 +1640,8 @@ declare namespace window {
      *
      * @type { ?Rect } 
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     globalDisplayRect?: Rect;
 
@@ -1654,7 +1658,8 @@ declare namespace window {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     bundleName: string;
 
@@ -1671,7 +1676,8 @@ declare namespace window {
      *
      * @type { string }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     abilityName: string;
 
@@ -1688,7 +1694,8 @@ declare namespace window {
      *
      * @type { int }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowId: int;
 
@@ -1713,7 +1720,8 @@ declare namespace window {
      * @type { WindowStatusType }
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowStatusType: WindowStatusType;
 
@@ -1730,7 +1738,8 @@ declare namespace window {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isFocused?: boolean;
   }
@@ -3570,7 +3579,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3586,7 +3596,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
@@ -3602,7 +3613,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
@@ -3618,7 +3630,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3714,7 +3727,8 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported. Function getVisibleWindowInfo can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
@@ -3731,7 +3745,8 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - This operation is not accessible.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSnapshot(windowId: int): Promise<image.PixelMap>;
 
@@ -3748,7 +3763,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
       Promise<Array<Window>>;
@@ -3780,7 +3796,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
 
@@ -5695,7 +5712,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowDensityInfo(): WindowDensityInfo;
 
@@ -5792,7 +5810,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSystemAvoidAreaEnabled(enabled: boolean): Promise<void>;
 
@@ -5806,7 +5825,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSystemAvoidAreaEnabled(): boolean;
 
@@ -6168,7 +6188,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowSystemBarProperties(): SystemBarProperties;
 
@@ -6185,7 +6206,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setStatusBarColor(color: ColorMetrics): Promise<void>;
 
@@ -6197,7 +6219,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getStatusBarProperty(): StatusBarProperty;
 
@@ -6214,7 +6237,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setGestureBackEnabled(enabled: boolean): Promise<void>;
 
@@ -6228,7 +6252,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isGestureBackEnabled(): boolean;
 
@@ -8052,7 +8077,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getWindowColorSpace(): ColorSpace;
 
@@ -8242,7 +8268,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowBrightness(brightness: double): Promise<void>;
 
@@ -8283,7 +8310,8 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowBrightness(brightness: double, callback: AsyncCallback<void>): void;
 
@@ -8572,7 +8600,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWakeUpScreen(wakeUp: boolean): void;
 
@@ -8733,7 +8762,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSnapshotSkip(isSkip: boolean): void;
 
@@ -8927,7 +8957,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     snapshotIgnorePrivacy(): Promise<image.PixelMap>;
 
@@ -9797,7 +9828,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setSingleFrameComposerEnabled(enable: boolean): Promise<void>;
 
@@ -10623,7 +10655,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowGrayScale(grayScale: double): Promise<void>;
 
@@ -10652,7 +10685,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getImmersiveModeEnabledState(): boolean;
 
@@ -11991,7 +12025,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setDefaultDensityEnabled(enabled: boolean): void;
 
@@ -12007,7 +12042,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setCustomDensity(density: double): void;
 
@@ -12312,7 +12348,8 @@ declare namespace window {
    * @interface WindowLayoutInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface WindowLayoutInfo {
     /**
@@ -12321,7 +12358,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect: Rect;
   }
