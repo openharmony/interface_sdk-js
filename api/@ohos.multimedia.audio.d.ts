@@ -2265,6 +2265,17 @@ declare namespace audio {
      * @since 12
      */
     PRIVACY_TYPE_PRIVATE = 1,
+
+    /**
+     * Privacy type that stream can be safely captured or screen casted.
+     * For example, the audio renderer with {@link StreamUsage#STREAM_USAGE_VOICE_COMMUNICATION} cannot be
+     * captured or screen casted by third party applications under the PRIVACY_TYPE_PUBLIC policy.
+     * However, the internal capture is allowed under the PRIVACY_TYPE_SHARED policy.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    PRIVACY_TYPE_SHARED = 2,
   }
 
   /**
@@ -11839,7 +11850,7 @@ declare namespace audio {
      * Get the current reverberation.
      * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
      * users do not modify the preset.
-     * 
+     *
      * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
@@ -11861,7 +11872,7 @@ declare namespace audio {
      * Gets the current equalizer preset.
      * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
      * users do not modify the preset.
-     * 
+     *
      * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
