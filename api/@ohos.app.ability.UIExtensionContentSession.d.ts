@@ -22,9 +22,9 @@ import type AbilityStartCallback from './application/AbilityStartCallback';
 import type { AsyncCallback } from './@ohos.base';
 import type uiExtensionHost from './@ohos.uiExtensionHost';
 import type uiExtension from './@ohos.arkui.uiExtension';
-/*** if arkts 1.1 */
 import type Want from './@ohos.app.ability.Want';
 import type StartOptions from './@ohos.app.ability.StartOptions';
+/*** if arkts 1.1 */
 import type { AbilityResult } from './ability/abilityResult';
 /*** endif */
 /*** if arkts 1.2 */
@@ -176,7 +176,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
@@ -211,7 +212,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
@@ -248,7 +250,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -392,7 +395,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void;
 
@@ -427,7 +431,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void;
 
@@ -464,7 +469,8 @@ declare class UIExtensionContentSession {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
 
