@@ -1301,7 +1301,7 @@ declare namespace accessibility {
    * Register the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type.
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
