@@ -33,7 +33,6 @@ import type * as _AccessibilityExtensionContext from './application/Accessibilit
 /*** endif */
 /*** if arkts 1.2 */
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
-export { AccessibilityExtensionContext };
 /*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
 
@@ -124,9 +123,16 @@ export { Parameter } from './application/AccessibilityExtensionContext';
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 10
  */
-/*** if arkts 1.1 */
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
-/*** endif */
+
+/**
+ * The accessibility extension context. Used to configure, query information, and inject gestures.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @since 20
+ * @arkts 1.2
+ */
+export { AccessibilityExtensionContext };
 
 /**
  * class of accessibility extension ability.
