@@ -1323,6 +1323,16 @@ declare namespace photoAccessHelper {
    * @arkts 1.1&1.2
    */
   type MemberType = number | string | boolean;
+  
+  /**
+   * Indicates the type of a batch photo asset member.
+   *
+   * @typedef { Record<string, MemberType>[] } PhotoAssetParams
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  type PhotoAssetParams = Record<string, MemberType>[];
 
   /**
    * Provides APIs for encapsulating file asset attributes.
@@ -3760,6 +3770,23 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     getObjectByPosition(index: number): Promise<T>;
+    /**
+     * Obtains the objects in the fetch result in segments.
+     *
+     * @param { number } index - Index of the asset to obtain.
+     * @param { number } offset - Offset of the asset to obtain.
+     * @returns { Promise<T[]> } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 'index or 'offset' validity check failed.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getRangeObjects(index: number, offset: number): Promise<T[]>
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
      *
@@ -6252,6 +6279,23 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
+
+    /**
+     * Batchly obtain the values of PhotoAsset members.
+     *
+     * @param {PhotoAsset[]} assets - The array of PhotoAsset objects.
+     * @param {string[]} members - The array of member property names to get.
+     * @returns { PhotoAssetParams } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: The attribute to be queried does not exist in assets.
+     * @throws { BusinessError } 23800104 - The provided member must be a property name of PhotoKey.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    batchGetPhotoAssetParams(assets: PhotoAsset[], members: string[]): PhotoAssetParams
 
     /**
      * checks whether the application supports compatiblle copies by bundleName
