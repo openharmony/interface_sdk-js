@@ -191,6 +191,9 @@ import abilityAccessCtrl, {
   Context, PermissionRequestResult, Permissions
 } from '@ohos.abilityAccessCtrl';
 import privacyManager from '@ohos.privacyManager';
+import ExtensionAbility from '@ohos.app.ability.ExtensionAbility';
+import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
+import dialogRequest from '@ohos.app.ability.dialogRequest';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -202,7 +205,7 @@ export {
   application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
-  EnvironmentCallback, abilityDelegatorRegistry, TestRunner,
+  EnvironmentCallback, abilityDelegatorRegistry, TestRunner, ExtensionAbility, ShareExtensionAbility, dialogRequest,
   Context, abilityAccessCtrl, PermissionRequestResult, Permissions, privacyManager
 };
 /*** endif */
