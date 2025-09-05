@@ -1851,7 +1851,7 @@ declare namespace dlpPermission {
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { DlpConnPlugin } plugin Plugin.
-     * @param { number } Id for plugin.
+     * @returns { number } Id for plugin.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
