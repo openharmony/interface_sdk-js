@@ -9861,41 +9861,6 @@ declare namespace webview {
      */
     static removeProxyOverride(callback: OnProxyConfigChangeCallback): void;
   }
-  /**
-   * The function with zero parameter.
-   *
-   * @typedef { function } zeroParamFn
-   * @returns { V } The return value.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type ZeroParamFn<V=void> = () => V;
-
-  /**
-   * The function with one parameter.
-   *
-   * @typedef { function } oneParamFn
-   * @param { T } param - the first param.
-   * @returns { V } The return value.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type OneParamFn<T,V=void> = (param: T) => V;
-
-  /**
-   * The function with two parameter.
-   *
-   * @typedef { function } twoParamFn
-   * @param { T } paramA - the first param.
-   * @param { C } paramB - the second param.
-   * @returns { V } The return value.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   * @arkts 1.2
-   */
-  type TwoParamFn<T,C,V=void> = (paramA: T,paramB: C) => V;
 }
 
 export default webview;
