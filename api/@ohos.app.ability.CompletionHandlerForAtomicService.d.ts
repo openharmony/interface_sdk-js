@@ -64,39 +64,12 @@ declare enum FailureCode {
 }
 
 /**
-  * Notify the success result of openAtomicService.
-  *
-  * @typedef { function }
-  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @since 22
-  * @arkts 1.2
-  */
-type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
-
-/**
-  * Notify the failure result of openAtomicService.
-  *
-  * @typedef { function }
-  * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
-  * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
-  * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @since 22
-  * @arkts 1.2
-  */
-type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
-
-/**
  * CompletionHandlerForAtomicService is a handler to handle the completion events of openAtomicService.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'20', '1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 20
  */
 declare class CompletionHandlerForAtomicService {
   /**
@@ -122,30 +95,6 @@ declare class CompletionHandlerForAtomicService {
    * @since 20
    */
   onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void;
-
-  /*** if arkts 1.2 */
-  /**
-   * Notify the success result of openAtomicService.
-   *
-   * @type { OnAtomicServiceRequestSuccessFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
-   */
-  onAtomicServiceRequestSuccess: OnAtomicServiceRequestSuccessFn;
-
-  /**
-   * Notify the failure result of openAtomicService.
-   *
-   * @type { OnAtomicServiceRequestFailureFn }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.2
-   */
-  onAtomicServiceRequestFailure: OnAtomicServiceRequestFailureFn;
-  /*** endif */
 }
 
 export { FailureCode };
