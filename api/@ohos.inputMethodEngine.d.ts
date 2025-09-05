@@ -2333,7 +2333,7 @@ declare namespace inputMethodEngine {
      * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
      * reinvoke this interface to get the latest values.</p>
      * 
-     * @param { displayId } displayId - specify which display's system panel insets.
+     * @param { number } displayId - specify which display's system panel insets.
      * @returns { Promise<SystemPanelInsets> } the promise returned by the function.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
@@ -2345,11 +2345,11 @@ declare namespace inputMethodEngine {
     getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
   }
 
-  /**
-   * @interface SystemPanelInsets. 
+  /** 
    * Input method system panel's insets, used to indicate the distance between the input method panel and the system panel.
    * The distance unit is px.
    * 
+   * @interface SystemPanelInsets.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 21
    */
