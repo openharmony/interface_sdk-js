@@ -176,11 +176,11 @@ declare namespace webSocket {
      * Self defined interval of ping frame.
      * default: 30. disable: 0. max: 30000. unit:second.
      * Ping is performed at every pingInterval.
-     * @type {?number}
+     * @type {?int}
      * @syscap SystemCapability.Communication.NetStack
      * @since 21
      */
-    pingInterval?: number;
+    pingInterval?: int;
 
     /**
      * Self defined timeout of pong frame.
@@ -190,7 +190,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @since 21
      */
-    pongTimeout?: number;
+    pongTimeout?: int;
   }
 
   /**
