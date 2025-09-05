@@ -2979,6 +2979,73 @@ declare namespace window {
   }
 
   /**
+   * Main window info
+   *
+   * @interface MainWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  interface MainWindowInfo {
+    /**
+     * Display id of the window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    displayId: number,
+    /**
+     * Window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    windowId: number,
+    /**
+     * Showing state of the window.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    showing: boolean,
+    /**
+     * Label of the window.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    label: string
+  }
+
+  /**
+   * Configuration for getting windows' snapshot.
+   *
+   * @interface WindowSnapshotConfiguration
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  interface WindowSnapshotConfiguration {
+    /**
+     * Whether use cached windows' snapshot.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    useCache?: boolean
+  }
+
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -3910,6 +3977,37 @@ declare namespace window {
    * @since 20
    */
   function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
+
+  /**
+   * Get all main window info on device
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
+   * @returns { Promise<Array<MainWindowInfo>> } Promise used to return the list of main window info.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
+
+  /**
+   * Get snapshot of the specified windows
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
+   * @param { Array<number> } windowId - List of main window IDs to be obtained.
+   * @param { WindowSnapshotConfiguration } config - Configuration for getting windows' snapshot.
+   * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
+   *     arranged in the order of the provided window ID array.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration): Promise<Array<image.PixelMap>>;
 
   /**
    * Display orientation
