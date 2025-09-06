@@ -584,6 +584,7 @@ declare namespace dataShare {
   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
   * @stagemodelonly
   * @since 20
+  * @arkts 1.1&1.2
   */
   enum ChangeType {
     /**
