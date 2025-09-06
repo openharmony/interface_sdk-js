@@ -27,7 +27,8 @@ import image from '../@ohos.multimedia.image';
  * @typedef MissionSnapshot
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface MissionSnapshot {
   /**
@@ -44,7 +45,8 @@ export interface MissionSnapshot {
    * @type { ElementName }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ability: ElementName;
 
@@ -54,7 +56,8 @@ export interface MissionSnapshot {
    * @type { image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   snapshot: image.PixelMap;
 }

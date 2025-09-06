@@ -26,7 +26,8 @@ import image from '../@ohos.multimedia.image';
  * @interface MissionListener
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 8
+ * @since arkts {'1.1':'8', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface MissionListener {
   /**
@@ -35,7 +36,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of created mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionCreated(mission: int): void;
 
@@ -45,7 +47,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of destroyed mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionDestroyed(mission: int): void;
 
@@ -55,7 +58,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of the mission which the snapshot changes
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionSnapshotChanged(mission: int): void;
 
@@ -65,7 +69,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of the mission being moved to the foreground.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionMovedToFront(mission: int): void;
 
@@ -75,7 +80,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of the mission whose label has changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionLabelUpdated(mission: int): void;
 
@@ -86,7 +92,8 @@ export interface MissionListener {
    * @param { image.PixelMap } icon - Indicates the icon of the mission whose icon has changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionIconUpdated(mission: int, icon: image.PixelMap): void;
 
@@ -96,7 +103,8 @@ export interface MissionListener {
    * @param { int } mission - Indicates the id of the mission whose ability instance is destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onMissionClosed(mission: int): void;
 }
