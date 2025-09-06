@@ -20,6 +20,9 @@
 
 import type distributedAccount from './@ohos.account.distributedAccount';
 import type { AsyncCallback, Callback } from './@ohos.base';
+/***if arkts 1.2 */
+import type { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * This module provides the capability to manage os accounts.
@@ -3248,10 +3251,20 @@ declare namespace osAccount {
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     businessParams: Record<string, Object>;
+
+    /**
+     * Indicates the business parameters.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.2
+     */
+    businessParams: RecordData;
 
     /**
      * Indicates caller UID.
@@ -4075,10 +4088,32 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static getAccessToken(businessParams: Record<string, Object>, callback: AsyncCallback<Uint8Array>): void;
+
+    /**
+     * Gets the business access token of the current domain account.
+     *
+     * @param { RecordData } businessParams - Indicates the business parameters.
+     * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.2
+     */
+    static getAccessToken(businessParams: RecordData, callback: AsyncCallback<Uint8Array>): void;
 
     /**
      * Gets the business access token for the current domain account.
@@ -4100,10 +4135,32 @@ declare namespace osAccount {
      * @static
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
+
+    /**
+     * Gets the business access token for the current domain account.
+     *
+     * @param { RecordData } businessParams - Indicates the business parameters.
+     * @returns { Promise<Uint8Array> } The promise returned by the function.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid business parameters.
+     * @throws { BusinessError } 12300003 - Domain account not found.
+     * @throws { BusinessError } 12300013 - Network exception.
+     * @throws { BusinessError } 12300014 - The domain account is not authenticated.
+     * @throws { BusinessError } 12300111 - The operation time out.
+     * @throws { BusinessError } 12300114 - The authentication service works abnormally.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     * @arkts 1.2
+     */
+    static getAccessToken(businessParams: RecordData): Promise<Uint8Array>;
 
     /**
      * Checks whether the authentication of the target domain account is expired.
@@ -4141,10 +4198,19 @@ declare namespace osAccount {
      *
      * @type { Record<string, Object> }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     parameters: Record<string, Object>;
+
+    /**
+     * Indicates the detail config parameters.
+     *
+     * @type { RecordData }
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters: RecordData;
 
     /**
      * Indicates the config identifier.
@@ -4190,10 +4256,29 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Adds a domain server config.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { RecordData } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the added domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300215 - The number of server config reaches the upper limit.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    static addServerConfig(parameters: RecordData): Promise<DomainServerConfig>;
 
     /**
      * Removes a domain server config.
@@ -4230,10 +4315,31 @@ declare namespace osAccount {
      * @throws { BusinessError } 12300214 - Server config has been associated with an account.
      * @static
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
+
+    /**
+     * Updates the target server config with the specified parameters.
+     *
+     * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
+     * @param { string } configId - Indicates the server config identifier.
+     * @param { RecordData } parameters - Indicates the server config parameters.
+     * @returns { Promise<DomainServerConfig> } Returns the updated domain server config.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid server config parameters.
+     * @throws { BusinessError } 12300211 - Server unreachable.
+     * @throws { BusinessError } 12300212 - Server config not found.
+     * @throws { BusinessError } 12300213 - Server config already exists.
+     * @throws { BusinessError } 12300214 - Server config has been associated with an account.
+     * @static
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    static updateServerConfig(configId: string, parameters: RecordData): Promise<DomainServerConfig>;
 
     /**
      * Gets the specified server config by identifier.

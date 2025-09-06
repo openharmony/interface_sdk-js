@@ -21,6 +21,9 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import type rpc from './@ohos.rpc';
+/***if arkts 1.2 */
+import type { RecordData } from './@ohos.base';
+/***endif */
 
 /**
  * This module provides the capability to manage application accounts.
@@ -1296,14 +1299,39 @@ declare namespace appAccount {
      * @throws { BusinessError } 12300113 - Authenticator service not found.
      * @throws { BusinessError } 12300114 - Authenticator service exception.
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     auth(
       name: string,
       owner: string,
       authType: string,
       options: Record<string, Object>,
+      callback: AuthCallback
+    ): void;
+
+    /**
+     * Authenticates an application account to get an auth token.
+     *
+     * @param { string } name - Indicates the account name of your application or third-party applications.
+     * @param { string } owner - Indicates the account owner of your application or third-party applications.
+     * @param { string } authType - Indicates the authentication type.
+     * @param { RecordData } options - Indicates the authenticator-specific options for the request.
+     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid name, owner, authType or options.
+     * @throws { BusinessError } 12300003 - Account not found.
+     * @throws { BusinessError } 12300010 - Account service busy.
+     * @throws { BusinessError } 12300113 - Authenticator service not found.
+     * @throws { BusinessError } 12300114 - Authenticator service exception.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    auth(
+      name: string,
+      owner: string,
+      authType: string,
+      options: RecordData,
       callback: AuthCallback
     ): void;
 
@@ -2419,10 +2447,22 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The authenticator-specific parameters.
+     * The list of reserved parameter name:
+     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
+     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters?: RecordData;
   }
 
   /**
@@ -2502,10 +2542,22 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The authenticator-specific parameters.
+     * The list of reserved parameter name:
+     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
+     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters?: RecordData;
   }
 
   /**
@@ -2522,10 +2574,19 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     properties?: Record<string, Object>;
+
+    /**
+     * The properties to be set.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    properties?: RecordData;
 
     /**
      * The authenticator-specific parameters.
@@ -2535,10 +2596,22 @@ declare namespace appAccount {
      *
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     parameters?: Record<string, Object>;
+
+    /**
+     * The authenticator-specific parameters.
+     * The list of reserved parameter name:
+     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
+     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     *
+     * @type { ?RecordData }
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    parameters?: RecordData;
   }
 
   /**
@@ -3026,10 +3099,22 @@ declare namespace appAccount {
      * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
      * @param { AuthCallback } callback - Indicates the authenticator callback.
      * @syscap SystemCapability.Account.AppAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void;
+
+    /**
+     * Authenticates an application account to get an oauth token.
+     *
+     * @param { string } name - Indicates the account name.
+     * @param { string } authType - Indicates the authentication type.
+     * @param { RecordData } options - Indicates the authenticator-specific options for the request.
+     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 20
+     * @arkts 1.2
+     */
+    auth(name: string, authType: string, options: RecordData, callback: AuthCallback): void;
 
     /**
      * Verifies the credential to ensure the user is the owner of the specified application account.
