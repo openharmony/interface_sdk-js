@@ -20,9 +20,7 @@
 import contextConstant from "./@ohos.app.ability.contextConstant";
 import image from "./@ohos.multimedia.image";
 import bundleManager from './@ohos.bundle.bundleManager';
-/*** if arkts 1.1 */
 import CompletionHandler from './@ohos.app.ability.CompletionHandler';
-/*** endif */
 
 /**
  * StartOptions is the basic communication component of the system.
@@ -253,6 +251,7 @@ export default class StartOptions {
    * @stagemodelonly
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   completionHandler?: CompletionHandler;
 

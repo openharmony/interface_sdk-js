@@ -21,14 +21,40 @@
 import { ElementName } from './bundleManager/ElementName';
 
 /**
+ * Notify the success result of startAbility.
+ *
+ * @typedef { function }
+ * @param { ElementName } elementName - Indicates the component to start.
+ * @param { string } message - Indicates the message of the request result.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
+/**
+ * Notify the failure result of startAbility.
+ *
+ * @typedef { function }
+ * @param { ElementName } elementName - Indicates the component to start.
+ * @param { string } message - Indicates the message of the request result.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @since 20
+ * @arkts 1.2
+ */
+type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
+
+/**
  * CompletionHandler is a handler to handle the completion events of start ability.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
-export default class CompletionHandler {
+declare class CompletionHandler {
   /**
    * Notify the success result of startAbility.
    *
@@ -52,4 +78,27 @@ export default class CompletionHandler {
    * @since 20
    */
   onRequestFailure(elementName: ElementName, message: string): void;
+
+  /**
+   * Notify the success result of startAbility.
+   *
+   * @type { OnRequestSuccessFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onRequestSuccess: OnRequestSuccessFn;
+
+  /**
+   * Notify the failure result of startAbility.
+   *
+   * @type { OnRequestFailureFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onRequestFailure: OnRequestFailureFn;
 }
+export default CompletionHandler;
