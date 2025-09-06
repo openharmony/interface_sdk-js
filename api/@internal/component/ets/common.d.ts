@@ -11700,6 +11700,18 @@ declare interface BaseEvent {
   axisVertical?: number;
 
   /**
+   * Indicates the Pinch axis coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 21
+   */
+  axisPinch?: number;
+
+  /**
    * Touch pressure.
    *
    * @type { number }
@@ -13697,6 +13709,16 @@ declare interface AxisEvent extends BaseEvent {
    * @arkts 1.1&1.2
    */
   getVerticalAxisValue(): number;
+
+  /**
+   * Obtains the value of the pinch axis for this axis event.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  getPinchAxisScaleValue(): number;
 }
 
 /**
