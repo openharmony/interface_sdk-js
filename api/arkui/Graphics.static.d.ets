@@ -19,11 +19,11 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import drawing from '../@ohos.graphics.drawing';
-import type common2D from '../@ohos.graphics.common2D';
-import { Resource } from '../global/resource';
-import { ResourceColor } from './component/units';
-import { BorderStyle } from './component/enums';
+import drawing from '@ohos.graphics.drawing';
+import type common2D from '@ohos.graphics.common2D';
+import { Resource } from 'global.resource';
+import { ResourceColor } from '@ohos.arkui.component';
+import { BorderStyle } from '@ohos.arkui.component';
 
 /**
  * Size info.

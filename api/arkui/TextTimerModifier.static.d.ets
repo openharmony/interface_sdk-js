@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { TextTimerAttribute } from './component/textTimer';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { TextTimerAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines TextTimer Modifier

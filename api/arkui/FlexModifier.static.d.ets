@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { FlexAttribute } from './component/flex';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { FlexAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Flex Modifier

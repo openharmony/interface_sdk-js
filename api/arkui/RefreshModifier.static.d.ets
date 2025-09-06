@@ -21,8 +21,8 @@
  */
 
 
-import { AttributeModifier } from './component/common';
-import { RefreshAttribute } from './component/refresh';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { RefreshAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Refresh Modifier

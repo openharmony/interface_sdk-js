@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common'
+import { AttributeModifier } from '@ohos.arkui.component';
 
 
 /**

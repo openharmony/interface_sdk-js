@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { GridColAttribute } from './component/gridCol';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { GridColAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines GridCol Modifier

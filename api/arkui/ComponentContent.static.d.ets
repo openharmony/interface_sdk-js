@@ -20,10 +20,10 @@
  * @arkts 1.2
  */
 
-import { BuildOptions } from './BuilderNode';
-import { Content } from './Content';
-import { UIContext } from '../@ohos.arkui.UIContext';
-import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
+import { BuildOptions } from 'arkui.BuilderNode';
+import { Content } from 'arkui.Content';
+import { UIContext } from '@ohos.arkui.UIContext';
+import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 /**
  * Defines the base class for ComponentContent.
  *

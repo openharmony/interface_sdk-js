@@ -19,11 +19,8 @@
  * @arkts 1.2
  */
 
-
-
-
-import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
-import { SizeOptions } from './arkui/component/units';
+import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from '@ohos.arkui.component'
+import { SizeOptions } from '@ohos.arkui.component';
 import { Resource } from './global/resource'
 
 /**
