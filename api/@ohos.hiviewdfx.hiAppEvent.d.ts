@@ -401,7 +401,6 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     const APP_KILLED: string;
   }
@@ -2385,7 +2384,6 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     configName?: string;
   }
@@ -2422,7 +2420,6 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   function addProcessorFromConfig(processorName: string, configName?: string): Promise<long>;
 
