@@ -94,7 +94,7 @@ export declare class SubHeaderV2Title {
    * @since 20
    */
   @Trace
-  primaryTitle?: ResourceStr;
+  public primaryTitle?: ResourceStr;
   /**
    * Text modifier for primary title.
    *
@@ -103,7 +103,7 @@ export declare class SubHeaderV2Title {
    * @since 20
    */
   @Trace
-  primaryTitleModifier?: TextModifier;
+  public primaryTitleModifier?: TextModifier;
   /**
    * The secondary line text of content area.
    *
@@ -112,7 +112,7 @@ export declare class SubHeaderV2Title {
    * @since 20
    */
   @Trace
-  secondaryTitle?: ResourceStr;
+  public secondaryTitle?: ResourceStr;
   /**
    * Text modifier for secondary title.
    *
@@ -121,7 +121,7 @@ export declare class SubHeaderV2Title {
    * @since 20
    */
   @Trace
-  secondaryTitleModifier?: TextModifier;
+  public secondaryTitleModifier?: TextModifier;
   /**
    * The constructor of SubHeaderV2Title
    *
@@ -129,19 +129,19 @@ export declare class SubHeaderV2Title {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  constructor(options: SubHeaderV2TitleOptions);
+  public constructor(options: SubHeaderV2TitleOptions);
 }
 /**
  * The callback function that will be invoked when the selectedIndex of the SubHeaderV2Select is selected.
  *
  * @typedef { function } SubHeaderV2SelectOnSelect
- * @param { number } selectedIndex - the index of selected item
+ * @param { int } selectedIndex - the index of selected item
  * @param { string } [selectedContent] - the content of selected item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void;
+export type SubHeaderV2SelectOnSelect = (selectedIndex: int, selectedContent?: string) => void;
 /**
  * Defines the SubHeaderV2SelectOptions.
  *
@@ -162,11 +162,11 @@ export interface SubHeaderV2SelectOptions {
   /**
    * Sets the selected index of the SubHeaderV2SelectOptions.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedIndex?: number;
+  selectedIndex?: int;
   /**
    * Sets the selected content of the SubHeaderV2SelectOptions.
    *
@@ -210,16 +210,16 @@ export declare class SubHeaderV2Select {
    * @since 20
    */
   @Trace
-  options: SelectOption[];
+  public options: SelectOption[];
   /**
    * Sets the selected index of the SubHeaderV2SelectOptions.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   @Trace
-  selectedIndex?: number;
+  public selectedIndex?: int;
   /**
    * Sets the selected content of the SubHeaderV2SelectOptions.
    *
@@ -228,7 +228,7 @@ export declare class SubHeaderV2Select {
    * @since 20
    */
   @Trace
-  selectedContent?: ResourceStr;
+  public selectedContent?: ResourceStr;
   /**
    * Sets the onSelect of the SubHeaderV2SelectOptions.
    *
@@ -237,7 +237,7 @@ export declare class SubHeaderV2Select {
    * @since 20
    */
   @Trace
-  onSelect?: SubHeaderV2SelectOnSelect;
+  public onSelect?: SubHeaderV2SelectOnSelect;
   /**
    * Sets the default focus state of SubHeaderV2SelectOptions.
    * @type { ?boolean }
@@ -246,7 +246,7 @@ export declare class SubHeaderV2Select {
    * @since 20
    */
   @Trace
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
   /**
    * The constructor of SubHeaderV2Select
    *
@@ -254,12 +254,12 @@ export declare class SubHeaderV2Select {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  constructor(options: SubHeaderV2SelectOptions);
+  public constructor(options: SubHeaderV2SelectOptions);
 }
 /**
  * Control style of operation element
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
@@ -394,7 +394,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  content: SubHeaderV2OperationItemType;
+  public content: SubHeaderV2OperationItemType;
   /**
    * callback function when operate the text or icon.
    *
@@ -403,7 +403,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  action?: SubHeaderV2OperationItemAction;
+  public action?: SubHeaderV2OperationItemAction;
   /**
    * The constructor of SubHeaderV2OperationItem
    *
@@ -420,7 +420,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this text or icon.
    *
@@ -429,7 +429,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this text or icon.
    *
@@ -444,7 +444,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
   /**
    * Sets the default focus state of the text or icon.
    *
@@ -454,7 +454,7 @@ export declare class SubHeaderV2OperationItem {
    * @since 20
    */
   @Trace
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
 }
 /**
  * The callback function that will be invoked when the title build.

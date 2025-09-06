@@ -49,12 +49,12 @@ export declare enum FilterType {
 }
 /**
  * This parameter is used to define the input of each filtering dimension.
- *
+ * @typedef FilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export declare class FilterParams {
+export declare interface FilterParams {
     /**
      * filter item name.
      *
@@ -75,12 +75,12 @@ export declare class FilterParams {
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
- *
+ * @typedef FilterResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export declare class FilterResult {
+export declare interface FilterResult {
     /**
      * result name.
      *
@@ -92,11 +92,11 @@ export declare class FilterResult {
     /**
      * result index.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    index: number;
+    index: int;
     /**
      * result value.
      *
@@ -134,7 +134,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    @BuilderParam 
+    @BuilderParam
     container: () => void;
     /**
      * Multi-dimensional filtering parameters.
@@ -143,7 +143,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    @PropRef 
+    @PropRef
     multiFilters: Array<FilterParams>;
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
@@ -152,7 +152,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    @PropRef 
+    @PropRef
     additionFilters?: FilterParams;
     /**
      * FilterParams, Callback method after a user clicks a filter item.
@@ -169,7 +169,7 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    @PropRef 
+    @PropRef
     filterType?: FilterType;
     /**
      * The method to build component.
@@ -177,6 +177,6 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    @Builder 
+    @Builder
     build(): void;
 }

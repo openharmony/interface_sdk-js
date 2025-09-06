@@ -37,7 +37,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Symbol resource for this menu item.
    *
@@ -45,7 +45,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Icon label for this menu item.
    *
@@ -53,7 +53,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  label?: ResourceStr;
+  public label?: ResourceStr;
   /**
    * Whether to enable this menu item.
    *
@@ -61,7 +61,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  isEnabled?: boolean;
+  public isEnabled?: boolean;
   /**
    * Callback function when click on this menu item.
    *
@@ -69,7 +69,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of this menu item.
    *
@@ -77,7 +77,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this menu item.
    *
@@ -85,7 +85,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this menu item.
    *
@@ -94,7 +94,7 @@ export declare class TabTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declaration of the tab item.
@@ -111,7 +111,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  title: ResourceStr;
+  public title: ResourceStr;
   /**
    * Icon resource for this tab item.
    *
@@ -119,7 +119,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  icon?: ResourceStr;
+  public icon?: ResourceStr;
   /**
    * Symbol resource for this tab item.
    *
@@ -127,7 +127,7 @@ export declare class TabTitleBarTabItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
 }
 /**
  * Declaration of the tabbed title bar.
@@ -170,5 +170,6 @@ export declare struct TabTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

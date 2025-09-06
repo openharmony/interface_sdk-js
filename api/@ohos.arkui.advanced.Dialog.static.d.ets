@@ -24,7 +24,7 @@ import { Component, CustomDialog } from './arkui/component/customComponent';
 import { ResourceStr, ResourceColor, Padding, LocalizedPadding, SizeOptions } from './arkui/component/units';
 import { ButtonStyleMode, ButtonRole } from './arkui/component/button';
 import { PixelMap, ThemeColorMode, CustomPopupOptions } from './arkui/component/common';
-import { PropRef, Prop, Link, Require } from './arkui/stateManagement/decorator';
+import { PropRef, Link, Require } from './arkui/stateManagement/decorator';
 import { Callback } from './@ohos.base';
 import { CustomDialogController } from './arkui/component/customDialogController';
 import { BuilderParam, Builder } from './arkui/component/builder';
@@ -40,35 +40,35 @@ export declare class ButtonOptions {
   /**
    * Sets the Display Content of a Button.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Sets the Button Callback.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * Sets the background color of a button.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  background?: ResourceColor;
+  public background?: ResourceColor;
   /**
    * Sets the Button Text Color.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  fontColor?: ResourceColor;
+  public fontColor?: ResourceColor;
   /**
    * Describes the Button style.
    *
@@ -77,7 +77,7 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  buttonStyle?: ButtonStyleMode;
+  public buttonStyle?: ButtonStyleMode;
   /**
    * Describes the Button role.
    *
@@ -86,7 +86,7 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  role?: ButtonRole;
+  public role?: ButtonRole;
   /**
    * Set the default focus of a button.
    *
@@ -95,7 +95,7 @@ export declare class ButtonOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
 }
 /**
  * Declare CustomDialog TipsDialog
@@ -109,7 +109,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -125,7 +125,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog image size.
    *
-   * @type { ?SizeOptions }.
+   * @type { ?SizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -133,7 +133,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog title.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -141,7 +141,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -149,7 +149,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog checkbox tips.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -157,7 +157,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog checkbox check state.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -165,7 +165,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog CheckBox Callback.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -173,7 +173,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -181,7 +181,7 @@ export declare struct TipsDialog {
   /**
    * Sets the TipsDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -230,7 +230,7 @@ export declare struct SelectDialog {
   /**
    * Sets the SelectDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -238,7 +238,7 @@ export declare struct SelectDialog {
   /**
    * Sets the SelectDialog title.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -246,7 +246,7 @@ export declare struct SelectDialog {
   /**
    * Sets the SelectDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -254,15 +254,15 @@ export declare struct SelectDialog {
   /**
    * Sets the SelectDialog selected index.
    *
-   * @type { ?number }.
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  selectedIndex?: number;
+  selectedIndex?: int;
   /**
    * Sets the SelectDialog confirm button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -270,7 +270,7 @@ export declare struct SelectDialog {
   /**
    * Sets the SelectDialog sheets.
    *
-   * @type { Array<SheetInfo> }.
+   * @type { Array<SheetInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -311,7 +311,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -319,7 +319,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog title.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -327,7 +327,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -335,7 +335,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog checkbox tips.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -343,7 +343,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog checkbox state.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -351,7 +351,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -359,7 +359,7 @@ export declare struct ConfirmDialog {
   /**
    * Sets the ConfirmDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -408,7 +408,7 @@ export declare struct AlertDialog {
   /**
    * Sets the AlertDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -432,7 +432,7 @@ export declare struct AlertDialog {
   /**
    * Sets the AlertDialog content.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -440,7 +440,7 @@ export declare struct AlertDialog {
   /**
    * Sets the AlertDialog primary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -448,7 +448,7 @@ export declare struct AlertDialog {
   /**
    * Sets the AlertDialog secondary button.
    *
-   * @type { ?ButtonOptions }.
+   * @type { ?ButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -489,7 +489,7 @@ export declare struct LoadingDialog {
   /**
    * Sets the LoadingDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -497,7 +497,7 @@ export declare struct LoadingDialog {
   /**
    * Sets the LoadingDialog content.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -538,7 +538,7 @@ export declare struct CustomContentDialog {
   /**
    * Sets the CustomContentDialog Controller.
    *
-   * @type { CustomDialogController }.
+   * @type { CustomDialogController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -566,7 +566,8 @@ export declare struct CustomContentDialog {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @BuilderParam contentBuilder: () => void;
+  @BuilderParam
+  contentBuilder: () => void;
   /**
    * Sets the CustomContentDialog content area padding.
    *
