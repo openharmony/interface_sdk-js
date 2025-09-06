@@ -71,7 +71,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    font(value: Font | undefined): this;
+    default font(value: Font | undefined): this;
     /**
      * Sets the Menu font color.
      *
@@ -80,7 +80,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontColor(value: ResourceColor | undefined): this;
+    default fontColor(value: ResourceColor | undefined): this;
     /**
      * Sets the radius of the corner around the menu.
      * When the radius is less than the menu width, the default border radius is used.
@@ -90,7 +90,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    radius(value: Dimension | BorderRadiuses | undefined): this;
+    default radius(value: Dimension | BorderRadiuses | undefined): this;
     /**
      * Set the divider of menu item
      *
@@ -99,7 +99,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    menuItemDivider(options: DividerStyleOptions | undefined): this;
+    default menuItemDivider(options: DividerStyleOptions | undefined): this;
     /**
      * Set the divider of menu item group
      *
@@ -108,7 +108,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    menuItemGroupDivider(options: DividerStyleOptions | undefined): this;
+    default menuItemGroupDivider(options: DividerStyleOptions | undefined): this;
     /**
      * Set the expanding mode of sub-menu
      *
@@ -117,7 +117,7 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
+    default subMenuExpandingMode(mode: SubMenuExpandingMode | undefined): this;
     /**
      * Set the attribute modifier
      *
@@ -126,7 +126,8 @@ export declare interface MenuAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    attributeModifier(modifier: AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(
+        modifier: AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
