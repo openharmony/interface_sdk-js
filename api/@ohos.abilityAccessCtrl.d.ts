@@ -704,7 +704,7 @@ declare namespace abilityAccessCtrl {
      *     granted with the specified permission. Either the application is a sandbox or the tokenID is from
      *     a remote device.
      * @throws { BusinessError } 12100007 - The service is abnormal.
-     * @throws { BusinessError } 12100014 - Unexpected permission. The Specified permission is not a
+     * @throws { BusinessError } 12100014 - Unexpected permission. The specified permission is not a
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
@@ -733,7 +733,7 @@ declare namespace abilityAccessCtrl {
      *     to be revoked with the specified permission. Either the application is a sandbox or the tokenID
      *     is from a remote device.
      * @throws { BusinessError } 12100007 - The service is abnormal.
-     * @throws { BusinessError } 12100014 - Unexpected permission. The Specified permission is not a
+     * @throws { BusinessError } 12100014 - Unexpected permission. The specified permission is not a
      *     user_grant or manual_settings permission.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
