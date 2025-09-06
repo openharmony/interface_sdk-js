@@ -60,15 +60,6 @@ declare namespace distributedKVStore {
      * @since arkts {'1.1':'9','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    /**
-     * Indicates the ability or hap context
-     *
-     * @type { BaseContext }
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
     context: BaseContext;
   }
 
@@ -1169,24 +1160,8 @@ declare namespace distributedKVStore {
    * @arkts 1.1&1.2
    */
   interface SingleKVStore {
-    /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @param { AsyncCallback<void> } callback - the callback of put.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
+
+
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
      * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
@@ -1208,24 +1183,6 @@ declare namespace distributedKVStore {
      */
     put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback<void>): void;
 
-    /**
-     * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
-     * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
-     * database.
-     *
-     * @param { string } key - Indicates the key. Length must be less than {@code MAX_KEY_LENGTH}.
-     * Spaces before and after the key will be cleared.
-     * @param { Uint8Array | string | number | boolean } value - Indicates the value to be inserted.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types;
-     * <br>3.Parameter verification failed.
-     * @throws { BusinessError } 15100003 - Database corrupted.
-     * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
-     */
     /**
      * Writes a key-value pair of the string type into the {@code SingleKVStore} database.
      * <p>If you do not want to synchronize this key-value pair to other devices, set the write option in the local
