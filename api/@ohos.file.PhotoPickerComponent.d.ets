@@ -559,6 +559,37 @@ export declare class BaseItemInfo {
    * @since 12
    */
   duration?: number;
+
+  /**
+   * PhotoSubtype. Asset subtype, non-special type images default to DEFAULT(0).
+   *
+   * @type { ?photoAccessHelper.PhotoSubtype }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  photoSubType?: photoAccessHelper.PhotoSubtype;
+
+  /**
+   * DynamicRangeType. Dynamic range type of media files.
+   * For movingPhoto, this specifically refers to the dynamic range type of the cover image.
+   *
+   * @type { ?photoAccessHelper.DynamicRangeType }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  dynamicRangeType?: photoAccessHelper.DynamicRangeType;
+
+  /**
+   * Orientation. Image/Video orientation information.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+  orientation?: number;
 }
 
 /**
