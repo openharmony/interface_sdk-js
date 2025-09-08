@@ -788,6 +788,7 @@ export declare namespace typeNode {
     createCheckboxNode,
     createCheckboxGroupNode,
     createRadioNode,
+    createRatingNode,    
     createSelectNode,
     createSliderNode,
     createToggleNode,
