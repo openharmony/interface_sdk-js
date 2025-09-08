@@ -137,7 +137,6 @@
     "SystemCapability.Communication.NetStack",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.Account.OsAccount",
-    "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.Multimedia.Media.AVImageGenerator",
     "SystemCapability.Multimedia.Media.AVMetadataExtractor",
