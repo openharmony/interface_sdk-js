@@ -4761,38 +4761,38 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the categories application pefer to use
-   * when recording with Bluetooth and Nearlink.
-   * @enum { number }
+   * Enumerates the categories application prefer to use
+   * when recording with bluetooth and nearlink.
+   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
    * @arkts 1.1&1.2
    */
   enum BluetoothAndNearlinkPreferredRecordCategory {
     /**
-     * Not prefer to use Bluetooth and Nearlink record.
+     * Not prefer to use bluetooth and nearlink to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      * @arkts 1.1&1.2
      */
     PREFERRED_NONE = 0,
     /**
-     * Prefer to use Bluetooth and Nearlink record.
-     * However, whether to use low latency or high quality recording dpends on system.
+     * Prefer to use bluetooth and nearlink to record.
+     * However, whether to use low latency or high quality recording depends on system.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      * @arkts 1.1&1.2
      */
     PREFERRED_DEFAULT = 1,
     /**
-     * Prefer to use Bluetooth and Nearlink low latency mode to record.
+     * Prefer to use bluetooth and nearlink low latency mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      * @arkts 1.1&1.2
      */
     PREFERRED_LOW_LATENCY = 2,
     /**
-     * Prefer to use Bluetooth and Nearlink high quality mode to record.
+     * Prefer to use bluetooth and nearlink high quality mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
      * @arkts 1.1&1.2
