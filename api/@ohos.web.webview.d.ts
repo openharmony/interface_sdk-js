@@ -6909,6 +6909,20 @@ declare namespace webview {
      * @since 21
      */
     static getSiteIsolationMode(): SiteIsolationMode;
+  
+    /**
+     * Set web engine socket idle timeout.
+     * <p><strong>API Note</strong>:<br>
+     * Unit: seconds, minimum 30s, maximum 5 minutes. If not set, the default is five minutes.
+     * </p>
+     *
+     * @param { int } timeout - Socket idle timeout.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    static setSocketIdleTimeout(timeout: int): void;
   }
 
   /**
