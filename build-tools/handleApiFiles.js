@@ -364,11 +364,11 @@ function deleteArktsTag(fileContent) {
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });
-  const arktsSinceTagRegx = /\*\s*@since\s\S*\s(dynamic&static|dynamic|static)\s*(\r|\n)\s*/g;
+  const arktsSinceTagRegx = /\*\s*@since\s\S*\s(dynamic&static|dynamiconly|dynamic|static)\s*(\r|\n)\s*/g;
   // 处理@since xx dynamic&static格式标签文本
   fileContent = fileContent.replace(arktsSinceTagRegx, (substring, p1) => {
     if (dirType === DirType.typeOne && substring.indexOf('dynamic') !== -1) {
-      substring = substring.replace(/\sdynamic(&static)?/g, '');
+      substring = substring.replace(/\s(dynamiconly|dynamic(&static)?)/g, '');
     } else if ((dirType === DirType.typeTwo || dirType === DirType.typeThree) && substring.indexOf('static') !== -1) {
       substring = substring.replace(/\s(dynamic&)?static/g, '');
     } else {
@@ -943,7 +943,9 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeTwo) {
-    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) || /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) || (/@since\s\S*\sdynamic/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr));
+    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) || 
+      /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) || 
+      (/@since\s\S*\s(dynamiconly|dynamic)/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr));
   }
 
   if (dirType === DirType.typeThree) {
