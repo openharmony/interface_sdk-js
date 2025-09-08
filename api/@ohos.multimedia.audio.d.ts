@@ -4761,35 +4761,41 @@ declare namespace audio {
   }
 
   /**
-   * Enumerates the categories that app pefer to use when recording with Bluetooth or Nearlink.
+   * Enumerates the categories application pefer to use
+   * when recording with Bluetooth and Nearlink.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
+   * @arkts 1.1&1.2
    */
   enum BluetoothAndNearlinkPreferredRecordCategory {
     /**
      * Not prefer to use Bluetooth and Nearlink record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     PREFERRED_NONE = 0,
     /**
-     * Prefer to use Bluetooth and Nearlink record. However,
-     * whether to use low latency or high-quality recording is up to the system.
+     * Prefer to use Bluetooth and Nearlink record.
+     * However, whether to use low latency or high quality recording dpends on system.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     PREFERRED_DEFAULT = 1,
     /**
-     * Prefer to use Bluetooth and Nearlink low latency record.
+     * Prefer to use Bluetooth and Nearlink low latency mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     PREFERRED_LOW_LATENCY = 2,
     /**
-     * Prefer to use Bluetooth and Nearlink high-quality record.
+     * Prefer to use Bluetooth and Nearlink high quality mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     PREFERRED_HIGH_QUALITY = 3,
   }
@@ -4894,7 +4900,7 @@ declare namespace audio {
      * @param { AudioSessionScene } scene - Audio session scene.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -4908,7 +4914,7 @@ declare namespace audio {
      * @param { Callback<AudioSessionStateChangedEvent> } callback - Callback invoked for the audio session state change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800102 - Allocate memory failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -4920,7 +4926,7 @@ declare namespace audio {
     * Only the audioSessionStateChanged event is supported.
     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - Callback invoked for the audio session state change event.
     * @throws { BusinessError } 6800101 - Parameter verification failed.
-    * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+    * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @since 20
     */
@@ -4951,7 +4957,7 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800102 - Allocate memory failed. Return by promise.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */
@@ -4964,7 +4970,7 @@ declare namespace audio {
      * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen device change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800102 - Allocate memory failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */
@@ -4975,7 +4981,7 @@ declare namespace audio {
      * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
      * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used to listen device change event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Audio client call audio audio service error, System error.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20
      */
@@ -4989,39 +4995,44 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
 
     /**
-     * Subscribes to available device change events. When a device is connected/disconnected, registered clients will receive
-     * the callback.
-     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients
+     * will receive the callback.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
+     *     event is supported.
      * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
      * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * UnSubscribes available device change events.
-     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange event is supported.
-     * @param { Callback<DeviceChangeAction> } [callback] - Callback used to obtain the device update details.
+     * UnSubscribes to available device change events.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
+     *     event is supported.
+     * @param { Callback<DeviceChangeAction> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
-     * Select the media input device. It uses an asynchronous callback to return the result.
+     * Selects the media input device. It uses a promise to return the result.
      * This function is not valid for call recording, whose SourceType is
      * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
      * In scenarios where there are concurrent recording streams with higher priority,
-     * the actual input device used by the app may differ from the selected one.
-     * The app can obtain currently active input device by listening to the
+     * the actual input device used by the application may differ from the selected one.
+     * The application can obtain currently active input device by subsribing to the
      * currentInputDeviceChanged event.
      * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
@@ -5030,52 +5041,58 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Get the selected media input device. If never set, it returns an device descriptor
+     * Gets the selected media input device. If never set, it returns an device descriptor
      * with INVALID DeviceType.
-     * @returns { AudioDeviceDescriptor } - Audio device description.
+     * @returns { AudioDeviceDescriptor } - Selected audio device.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     getSelectedMediaInputDevice(): AudioDeviceDescriptor;
 
     /**
-     * clear the selected media input device.
+     * clears the selected media input device.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     clearSelectedMediaInputDevice(): Promise<void>;
 
     /**
-     * Set the prefered record category with bluetooth and nearlink device.
-     * The app can set this category before Bluetooth or Nearlink connected, and the system will
-     * prefer to use Bluetooth or Nearlink to record when the device connected.
+     * Sets the prefered record category with bluetooth and nearlink device.
+     * The application can set this category before Bluetooth or Nearlink connected, and the system will
+     * prefer to use Bluetooth and Nearlink to record when the device connected.
      * In scenarios where there are concurrent recording streams with higher priority,
-     * the actual input device used by the app may differ from the prefered one.
-     * The app can obtain currently active input device by listening to the
+     * the actual input device used by the application may differ from the prefered one.
+     * The application can obtain currently active input device by subsribing to the
      * currentInputDeviceChanged event.
-     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category app pefer
-     * to use when recording with Bluetooth or Nearlink.
+     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category application pefer
+     *     to use when recording with Bluetooth and Nearlink.
      * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise<void>;
 
     /**
-     * Get the prefered record category with bluetooth and nearlink device.
-     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category app pefer
-     * to use when recording with Bluetooth or Nearlink.
+     * Gets the prefered record category with bluetooth and nearlink device.
+     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category application pefer
+     *     to use when recording with Bluetooth and Nearlink.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory;
 
@@ -5087,16 +5104,18 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'currentInputDeviceChanged', callback: Callback<CurrentInputDeviceChangedEvent>): void;
 
     /**
      * Unsubscribes current input device change events.
      * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
-     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used to listen input device change event.
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
