@@ -7578,7 +7578,7 @@ declare namespace audio {
 
     /**
      * whether supports high-quality recording.
-     * @type { boolean }
+     * @type { ?boolean }
      * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
