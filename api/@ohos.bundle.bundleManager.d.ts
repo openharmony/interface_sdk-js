@@ -980,6 +980,14 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
+     * Indicates extension info with type of the web native messaging
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @since 21
+     */
+    WEB_NATIVE_MESSAGING = 32,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

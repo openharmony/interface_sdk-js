@@ -614,6 +614,29 @@ declare namespace abilityAccessCtrl {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
+    /**
+     * Requests certain permissions on setting from the user.
+     *
+     * @param { Context } context - The context that initiates the permission request.
+     *     <br> The context must belong to the Stage model and only supports UIAbilityContext and UIExtensionContext.
+     * @param { Array<Permissions> } permissionList - Indicates the list of permission to be requested. This parameter
+     *     cannot be null or empty.
+     * @returns { Promise<Array<GrantStatus>> } Returns the list of status of the specified permission.
+     * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it
+     *     does not belong to the application itself; 2. The permission list contains the permission that is not
+     *     declared in the module.json file; 3. The permission list is invalid because the permissions in it do not
+     *     belong to the same permission group.
+     * @throws { BusinessError } 12100011 - All permissions in the permission list have been granted.
+     * @throws { BusinessError } 12100012 - The permission list contains the permission that has not been revoked by
+     *     the user.
+     * @throws { BusinessError } 12100014 - Unexpected permission. You cannot request this type of permission
+     *     from users via a pop-up window.
+     * @syscap SystemCapability.Security.AccessToken
+     * @stagemodelonly
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     requestPermissionOnSetting(context: Context, permissionList: Array<Permissions>): Promise<Array<GrantStatus>>;
 
     /**
@@ -661,6 +684,63 @@ declare namespace abilityAccessCtrl {
      * @since 20
      */
     getSelfPermissionStatus(permissionName: Permissions): PermissionStatus;
+
+    /**
+     * Grants a specified permission to the given application.
+     *
+     * @permission ohos.permission.GRANT_SENSITIVE_PERMISSIONS
+     * @param { int } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be granted.
+     * @param { int } permissionFlags - Flags of permission state.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GRANT_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName
+     *     exceeds 256 characters or is not declared in the module.json file, or the flags value is invalid.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed to be
+     *     granted with the specified permission. Either the application is a sandbox or the tokenID is from
+     *     a remote device.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100014 - Unexpected permission. The specified permission is not a
+     *     user_grant or manual_settings permission.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    grantPermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
+
+    /**
+     * Revoke a specified permission to the given application.
+     *
+     * @permission ohos.permission.REVOKE_SENSITIVE_PERMISSIONS
+     * @param { int } tokenID - Token ID of the application.
+     * @param { Permissions } permissionName - Name of the permission to be revoked.
+     * @param { int } permissionFlags - Flags of permission state.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.REVOKE_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenID is 0, the permissionName
+     *     exceeds 256 characters or is not declared in the module.json file,
+     *     or the flags value is invalid.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100006 - The application specified by the tokenID is not allowed
+     *     to be revoked with the specified permission. Either the application is a sandbox or the tokenID
+     *     is from a remote device.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100014 - Unexpected permission. The specified permission is not a
+     *     user_grant or manual_settings permission.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    revokePermission(tokenID: int, permissionName: Permissions, permissionFlags: int): Promise<void>;
   }
 
   /**

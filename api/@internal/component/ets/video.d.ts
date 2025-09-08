@@ -440,6 +440,18 @@ declare interface PosterOptions {
    * @arkts 1.1&1.2
    */
   showFirstFrame?: boolean;
+
+  /**
+   * Animation effect when the poster image content changes.
+   *
+   * @type { ?ContentTransitionEffect }
+   * @default ContentTransitionEffect.IDENTITY
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  contentTransitionEffect?: ContentTransitionEffect;
 }
 
 /**

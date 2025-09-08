@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,38 @@
  */
 
 import image from './@ohos.multimedia.image';
+
+/**
+ * The result of loading image.
+ *
+ * @typedef DrawableDescriptorLoadedResult
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+export interface DrawableDescriptorLoadedResult {
+  /**
+   * The width of the image, in px.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  imageWidth: number
+  /**
+   * The height of the image, in px.
+   *
+   * @type { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  imageHeight: number
+}
 
 /**
  * Use the DrawableDescriptor class to get drawable image.
@@ -79,6 +111,30 @@ export declare class DrawableDescriptor {
    * @arkts 1.1&1.2
    */
   getPixelMap(): image.PixelMap;
+
+  /**
+   * Synchronously loads the image and returns the loading result.
+   *
+   * @returns { DrawableDescriptorLoadResult } loading outcome.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  loadSync(): DrawableDescriptorLoadResult;
+
+  /**
+   * Asynchronously loads image and returns loading result.
+   *
+   * @returns { Promise<DrawableDescriptorLoadResult> } The image loading result.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  load(): Promise<DrawableDescriptorLoadResult>;
 }
 
 /**
@@ -296,6 +352,88 @@ export declare interface AnimationOptions {
    * @arkts 1.1&1.2
    */
   iterations?: number;
+  /**
+   * Animation frames duration of playback once.
+   *
+   * @type { ?Array<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  frameDurations?: Array<number>;
+  /**
+   * Auto play animated images, default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  autoPlay?: boolean;
+}
+
+/**
+ * Define the data structure for PixelMap animations.
+ *
+ * @interface AnimationController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+export interface AnimationController {
+  /**
+   * Start animtion playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  start(): void;
+
+  /**
+   * Stop animation playback, and reset to first frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  stop(): void;
+
+  /**
+   * Pause animation playback, and keep it to the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  pause(): void;
+
+  /**
+   * Resume animation playback from the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  resume(): void;
+
+  /**
+   * Get animtion status of the current component.
+   *
+   * @returns { AnimationStatus } Return the status of animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  getStatus(): AnimationStatus;
 }
 
 /**
@@ -321,4 +459,28 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @arkts 1.1&1.2
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
+
+  /**
+   * Creates a new AnimatedDrawableDescriptor.
+   *
+   * @param { ResourceStr | Array<image.PixelMap> } src - animated images or local resource.
+   * @param { AnimationOptions } [options] - Animation control options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions);
+
+  /**
+   * Get the animation controller of the component based on the component id.
+   *
+   * @param { string } [id] - component id.
+   * @returns { AnimationController | undefined } Return the component of animation controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  getAnimationController(id?: string): AnimationController | undefined;
 }

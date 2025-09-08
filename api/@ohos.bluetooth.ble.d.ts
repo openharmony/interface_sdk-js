@@ -180,6 +180,24 @@ declare namespace ble {
   function getConnectedBLEDevices(): Array<string>;
 
   /**
+   * Obtains the list of devices in the connected status.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { BleProfile } profile - The profile in the BLE protocol.
+   *     It is used to obtain the connected devices corresponding to the profile.
+   * @returns { Array<string> } Returns the list of device address.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getConnectedBLEDevices(profile: BleProfile): Array<string>;
+
+  /**
    * Starts scanning for specified BLE devices with filters.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
@@ -6843,6 +6861,41 @@ declare namespace ble {
      * @since 19
      */
     ON_BATCH = 3,
+  }
+
+  /**
+   * The Profile of the BLE protocol.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  enum BleProfile {
+    /**
+     * Indicates the profile type of the gatt, including gatt client and gatt server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT = 1,
+    /**
+     * Indicates the profile type of the gatt client.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT_CLIENT = 2,
+    /**
+     * Indicates the profile type of the gatt server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT_SERVER = 3
   }
 
   /**

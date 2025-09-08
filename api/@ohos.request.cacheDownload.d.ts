@@ -29,6 +29,30 @@ import { BusinessError } from './@ohos.base';
  */
 declare namespace cacheDownload {
     /**
+     * The secure communication protocol.
+     *
+     * @enum { string }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 21
+     */
+    enum SslType {
+        /**
+         * Transport Layer Security.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        TLS = 'TLS',
+        /**
+         * Transport layer cryptography protocol.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        TLCP = 'TLCP'
+    }
+
+    /**
      * Options of the cache download task.
      *
      * @typedef CacheDownloadOptions
@@ -44,6 +68,24 @@ declare namespace cacheDownload {
          * @since 18
          */
         headers?: Record<string, string>;
+        /**
+         * Which secure communication protocol is used.
+         * If this value is not specified, use { @link SslType#TLS } by default.
+         *
+         * @type { ?SslType }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        sslType?: SslType;
+        /**
+         * The path to the CA certificate within the application.
+         * The default value is an empty string.
+         * 
+         * @type { ?string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        caPath?: string;
     }
 
     /**

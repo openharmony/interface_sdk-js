@@ -85,7 +85,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 /**
  * The callback of onOverrideErrorPage.
  *
- * @typedef { function } OnOverrideErrorpageCallback
+ * @typedef { function } OnOverrideErrorPageCallback
  * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
@@ -1354,6 +1354,16 @@ type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
  * @since 20
  */
 type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
+
+/**
+ * The callback when the param element which is a child item of the object element has changed.
+ *
+ * @typedef { function } OnNativeEmbedObjectParamChangeCallback
+ * @param { NativeEmbedParamDataInfo } event - callback information of param element.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+type OnNativeEmbedObjectParamChangeCallback = (event: NativeEmbedParamDataInfo) => void;
 
 /**
  * Enum type supplied to {@link renderExitReason} when onRenderExited being called.
@@ -3503,7 +3513,7 @@ declare class WebContextMenuResult {
    * <p><strong>API Note</strong>:<br>
    * Permissions need to be configured: ohos.permission.READ_PASTEBOARD.
    * </p>
-   * 
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -4563,7 +4573,7 @@ declare class EventResult {
   constructor();
 
   /**
-   * Set whether the event is consumed.
+   * Sets the gesture event consumption result.
    *
    * @param { boolean } result -  Whether to consume the gesture event.
    *    {@code true} Indicates the consumption of the gesture event.
@@ -4595,9 +4605,15 @@ declare class EventResult {
   /**
    * Sets the mouse event consumption result.
    *
-   * @param { boolean } result - True if the event is consumed.
-   * @param { boolean } [stopPropagation] - {@code true} means to prevent mouse events from bubbling up
-   * {code false} otherwise, The default value is true.
+   * @param { boolean } result -  Whether to consume the mouse event.
+   *    {@code true} Indicates the consumption of the mouse event.
+   *    {@code false} Indicates the non-consumption of the mouse event.
+   *    Default value: true.
+   * @param { boolean } [stopPropagation] - Whether to stop propagation.
+   *    This parameter is valid only when result is set to true.
+   *    {@code true} Indicates stops the propagation of events farther along.
+   *    {@code false} Indicates the propagation of events farther along.
+   *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
    */
@@ -5233,7 +5249,7 @@ declare interface NativeEmbedInfo {
   id?: string;
 
   /**
-   * Only when enableEmbedMode is true and type is marked as native/xxx will be recognized as a same layer component.
+   * Type of the same-layer tag. The value is in lowercase.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5253,7 +5269,8 @@ declare interface NativeEmbedInfo {
   src?: string;
 
   /**
-   * The coordinate position of embed element relative to the webComponent.
+   * Position of the same-layer tag relative to the Web component in the screen coordinate system,
+   * which is different from the standard Position. The unit is px.
    *
    * @type { ?Position }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5263,7 +5280,7 @@ declare interface NativeEmbedInfo {
   position?: Position;
 
   /**
-   * The embed tag width.
+   * The embed tag width, in px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5273,7 +5290,7 @@ declare interface NativeEmbedInfo {
   width?: number;
 
   /**
-   * The embed tag height.
+   * The embed tag height, in px.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5293,7 +5310,7 @@ declare interface NativeEmbedInfo {
   url?: string;
 
   /**
-   * The embed tag name.
+   * The embed tag name, which is in uppercase.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5303,7 +5320,8 @@ declare interface NativeEmbedInfo {
   tag?: string;
 
   /**
-   * The embed param list information used by object tag.
+   * List of key-value pairs contained in the object tag that form a map of the Object type.
+   * Use the methods provided by the Object type, such as embed.info?.param?.["name"] to operate the map object.
    *
    * @type { ?Map<string, string> }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5322,7 +5340,7 @@ declare interface NativeEmbedInfo {
  * @since 11
  */
 /**
- * Defines the Embed Data info.
+ * Provides detailed information about the changes of the same-layer tag lifecycle.
  *
  * @typedef NativeEmbedDataInfo
  * @syscap SystemCapability.Web.Webview.Core
@@ -5331,7 +5349,7 @@ declare interface NativeEmbedInfo {
  */
 declare interface NativeEmbedDataInfo {
   /**
-   * The embed status.
+   * Lifecycle status of the same-layer tag.
    *
    * @type { ?NativeEmbedStatus }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5341,7 +5359,7 @@ declare interface NativeEmbedDataInfo {
   status?: NativeEmbedStatus;
 
   /**
-   * The surface id.
+   * Psurfaceid of the NativeImage.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5351,7 +5369,7 @@ declare interface NativeEmbedDataInfo {
   surfaceId?: string;
 
   /**
-   * The embed id.
+   * Unique id of the same-layer tag.
    *
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5361,7 +5379,7 @@ declare interface NativeEmbedDataInfo {
   embedId?: string;
 
   /**
-   * The embed info.
+   * Detailed information about the same-layer tag.
    *
    * @type { ?NativeEmbedInfo }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5372,7 +5390,7 @@ declare interface NativeEmbedDataInfo {
 }
 
 /**
- * Defines the Embed Visibility info.
+ * Provides visibility information about the same-layer tag.
  *
  * @typedef NativeEmbedVisibilityInfo
  * @syscap SystemCapability.Web.Webview.Core
@@ -5380,7 +5398,8 @@ declare interface NativeEmbedDataInfo {
  */
 declare interface NativeEmbedVisibilityInfo {
   /**
-   * The embed visibility.
+   * Whether the same-layer tag is visible.
+   * The value true indicates that the same-layer tag is visible, and false indicates the opposite.
    *
    * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5389,7 +5408,7 @@ declare interface NativeEmbedVisibilityInfo {
   visibility: boolean;
 
   /**
-   * The embed id.
+   * ID of the same-layer rendered tag.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5407,7 +5426,7 @@ declare interface NativeEmbedVisibilityInfo {
  * @since 11
  */
 /**
- * Defines the user touch info.
+ * Provides touch information of the same-layer tag.
  *
  * @typedef NativeEmbedTouchInfo
  * @syscap SystemCapability.Web.Webview.Core
@@ -5426,7 +5445,7 @@ declare interface NativeEmbedTouchInfo {
   embedId?: string;
 
   /**
-   * An event sent when the state of contacts with a touch-sensitive surface changes.
+   * Touch action information.
    *
    * @type { ?TouchEvent }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5436,7 +5455,7 @@ declare interface NativeEmbedTouchInfo {
   touchEvent?: TouchEvent;
 
   /**
-   * Handle the user's touch result.
+   * Gesture event consumption result.
    *
    * @type { ?EventResult }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5483,7 +5502,121 @@ declare interface NativeEmbedMouseInfo {
 }
 
 /**
- * Defines the first content paint rendering of web page.
+ * Enum type supplied to {@link NativeEmbedParamItem} when onNativeEmbedObjectParamChange being called.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare enum  NativeEmbedParamStatus {
+  /**
+   * The param element is created.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  ADD = 0,
+
+  /**
+   * The param element is updated.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  UPDATE = 1,
+
+  /**
+   *The param element is deleted.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  DELETE = 2,
+}
+
+/**
+ * Defines the information of param element.
+ *
+ * @typedef NativeEmbedParamItem
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare interface NativeEmbedParamItem {
+   /**
+   * The status of the param.
+   *
+   * @type { NativeEmbedParamStatus }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   status: NativeEmbedParamStatus;
+
+   /**
+   * The id attribute of the param element.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   id: string;
+
+   /**
+   * The name attribute of the param element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   name?: string;
+
+   /**
+   * The value attribute of the param element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   value?: string;
+}
+
+/**
+ * Defines the param data info.
+ *
+ * @typedef NativeEmbedParamDataInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ */
+declare interface NativeEmbedParamDataInfo {
+  /**
+   * The native embed id.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  embedId: string;
+
+  /**
+   * The id attribute of the object element.
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+   objectAttributeId?: string;
+
+  /**
+   * The param element array
+   *
+   * @type { ?Array<NativeEmbedParamItem> }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  paramItems?: Array<NativeEmbedParamItem>;
+}
+
+/**
+ * Provides detailed information about the first meaningful paint.
  *
  * @typedef FirstMeaningfulPaint
  * @syscap SystemCapability.Web.Webview.Core
@@ -5492,7 +5625,7 @@ declare interface NativeEmbedMouseInfo {
  */
 declare interface FirstMeaningfulPaint {
   /**
-   * Start time of navigation.
+   * Start time of navigation, in microseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5502,7 +5635,7 @@ declare interface FirstMeaningfulPaint {
   navigationStartTime?: number;
 
   /**
-   * Paint time of first meaningful content.
+   * Paint time of first meaningful content, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5522,7 +5655,7 @@ declare interface FirstMeaningfulPaint {
  */
 declare interface LargestContentfulPaint {
   /**
-   *  Start time of navigation.
+   * Start time of navigation, in microseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5532,7 +5665,7 @@ declare interface LargestContentfulPaint {
   navigationStartTime?: number;
 
   /**
-   * Paint time of largest image.
+   * Paint time of largest image, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5542,7 +5675,7 @@ declare interface LargestContentfulPaint {
   largestImagePaintTime?: number;
 
   /**
-   * Paint time of largest text.
+   * Paint time of largest text, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5552,7 +5685,7 @@ declare interface LargestContentfulPaint {
   largestTextPaintTime?: number;
 
   /**
-   * Bits per pixel of image.
+   * Bits per pixel of image, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5562,7 +5695,7 @@ declare interface LargestContentfulPaint {
   imageBPP?: number;
 
   /**
-   * Load start time of largest image.
+   * Load start time of largest image, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5572,7 +5705,7 @@ declare interface LargestContentfulPaint {
   largestImageLoadStartTime?: number;
 
   /**
-   * Load end time of largest image.
+   * Number of pixels of the maximum image.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -6932,7 +7065,6 @@ declare interface OnOverScrollEvent {
  * @typedef OnPdfScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface OnPdfScrollEvent {
 
@@ -6942,7 +7074,6 @@ declare interface OnPdfScrollEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   url:string;
 }
@@ -6953,7 +7084,6 @@ declare interface OnPdfScrollEvent {
  * @typedef OnPdfLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare interface OnPdfLoadEvent {
   /**
@@ -6962,7 +7092,6 @@ declare interface OnPdfLoadEvent {
    * @type { PdfLoadResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   result: PdfLoadResult;
 
@@ -6972,7 +7101,6 @@ declare interface OnPdfLoadEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   url: string;
 }
@@ -7253,7 +7381,6 @@ declare enum AudioSessionType {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
- * @arkts 1.1&1.2
  */
 declare enum PdfLoadResult {
 
@@ -7262,7 +7389,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   LOAD_SUCCESS = 0,
 
@@ -7271,7 +7397,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_FILE = 1,
 
@@ -7280,7 +7405,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_FORMAT = 2,
 
@@ -7289,7 +7413,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_PASSWORD = 3,
 
@@ -7298,7 +7421,6 @@ declare enum PdfLoadResult {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   PARSE_ERROR_HANDLER = 4
 }
@@ -7947,7 +8069,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { number } textZoomRatio Text zoom ratio to set. The value is an integer. The value range is (0, 2147483647].
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
@@ -7955,7 +8077,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets the ratio of the text zoom.
    *
-   * @param { number } textZoomRatio The ratio of the text zoom.  The default value is 100, ranging from 1 to +∞.
+   * @param { number } textZoomRatio Text zoom ratio to set. The value is an integer. The value range is (0, 2147483647].
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -8037,12 +8159,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * </p>
    *
    * @param { boolean } enabled Whether the viewport property of the meta tag is enabled.
-   *    {@code true} means support the viewport attribute of the meta tag,
-   *    the viewport property of the meta tag is not enabled.
-   *    This means that the property will not be parsed and a default layout will be used.;
-   *    {@code false} means not support the viewport attribute of the meta tag,
-   *    the viewport property of the meta tag is enabled.
-   *    This means that the property will be parsed and used for the layout.
+   *    {@code true} means support the viewport attribute of the meta tag is enabled and parsed,
+   *    and the layout is performed based on the viewport attribute.
+   *    {@code false} means not support the viewport attribute of the meta tag is disabled and not parsed,
+   *    and the default layout is used.
    *    Default value: true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9084,16 +9204,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { function } callback Function triggered when the web page scroll to the specified position.
@@ -9103,16 +9223,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { function } callback Function triggered when the web page scroll to the specified position.
@@ -9124,16 +9244,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    */
   /**
    * Notify the global scroll position of the web page
-   * 
+   *
    * Description:
-   * 
+   *
    * What is notified is the global scroll position of the page.
    * Changes in the local scroll position cannot trigger this callback.
-   * 
-   * Determine whether the page is globally scrolled and print window.pagYOffset 
+   *
+   * Determine whether the page is globally scrolled and print window.pagYOffset
    * or window.pagXOffset before and after scrolling.
-   * 
-   * If it is global scrolling, the value of window.pagYOffset 
+   *
+   * If it is global scrolling, the value of window.pagYOffset
    * or window.pagXOffset will change before and after scrolling, and vice versa.
    *
    * @param { Callback<OnScrollEvent> } callback Function triggered when the web page scroll to the specified position.
@@ -9342,10 +9462,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets the standard font family for the web page.
+   * Sets a serif font family for the web page.
    *
-   * @param { string } family Sets the standard font family for the web page.
-   *    Default value: sans-serif.
+   * @param { string } family Serif font family to set.
+   *    Default value: serif.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9442,7 +9562,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 9
    */
   /**
-   * Sets the default font size for the web page.
+   * Sets the default fixed font size for the web page.
    *
    * @param { number } size Default fixed font size to set, in px.
    *    The value ranges from -2^31 to 2^31-1. In actual rendering,
@@ -9538,7 +9658,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * Scroll bar resident is not supported in full expansion mode,
    * that is, when layoutMode is WebLayoutMode.FIT_CONTENT mode, the parameter enabled is false.
-   * 
+   *
    * @param { boolean } enabled {@code true} means show; {@code false} otherwise. default is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9873,9 +9993,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFirstContentfulPaint(callback: Callback<OnFirstContentfulPaintEvent>): WebAttribute;
 
   /**
-   * Called when the First rendering of meaningful content time(FMP)
+   * Triggered when the first meaningful paint occurs on the web page.
    *
-   * @param { OnFirstMeaningfulPaintCallback } callback Function Triggered when the firstMeaningfulPaint.
+   * @param { OnFirstMeaningfulPaintCallback } callback Callback invoked when the First Meaningful Paint occurs on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9884,9 +10004,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFirstMeaningfulPaint(callback: OnFirstMeaningfulPaintCallback): WebAttribute;
 
   /**
-   * Called when the Maximum content rendering time(LCP).
+   * Triggered when the largest content paint occurs on the web page.
    *
-   * @param { OnLargestContentfulPaintCallback } callback Function Triggered when the largestContentfulPaint.
+   * @param { OnLargestContentfulPaintCallback } callback Callback invoked when the largest content paint occurs on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9980,7 +10100,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent>): WebAttribute;
 
@@ -9990,7 +10109,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   onPdfLoadEvent(callback: Callback<OnPdfLoadEvent>): WebAttribute;
 
@@ -10083,7 +10201,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
    *   which can affect the user experience.
    * - Waterfall web pages are not supported (drop down to the bottom to load more).
-   * - Only height adaptation is supported(VH units are not supported). Width adaptation is not supported.
+   * - Only height adaptation is supported. Width adaptation is not supported.
    * - Because the height is adaptive to the web page height,
    *   the component height cannot be changed by modifying the component height attribute.
    * </p>
@@ -10132,7 +10250,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   nestedScroll(value: NestedScrollOptions | NestedScrollOptionsExt): WebAttribute;
 
   /**
-   * Sets the enable native embed mode for web.
+   * Sets whether to enable the same-layer rendering feature.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -10140,7 +10258,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * see [Rendering Native Components on the Web Using Same-Layer Rendering]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-render-web-using-same-layer-render}
    * </p>
    *
-   * @param { boolean } mode - True if it needs to enable native embed mode.
+   * @param { boolean } mode - Whether to enable the same-layer rendering feature.
+   *    The value true means to enable the same-layer rendering feature, and false means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10156,7 +10275,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * the ArkWeb kernel identifies the type as a non-same-layer tag.<br>
    * This API is also controlled by the enableNativeEmbedMode API and
    * does not take effect if same-layer rendering is not enabled. When this API is not used,
-   * the ArkWeb engine recognizes the embed tags with the "native/" prefix as same-layer tags.
+   * the ArkWeb kernel recognizes the embed tags with the "native/" prefix as same-layer tags.
    *
    * @param { string } tag - Tag name.
    * @param { string } type - Type of the tag, The kernel matches this parameter with a prefix.
@@ -10185,14 +10304,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedLifecycleChange(callback: (event: NativeEmbedDataInfo) => void): WebAttribute;
 
   /**
-   * Called when the visibility of a same-layer tag (such as an Embed tag or an Object tag) on a web page changes in the viewport.
+   * Called when the visibility of a same-layer tag (such as an embed tag or an object tag) on a web page changes in the viewport.
    * By default, the same-layer tag is invisible. If the rendering tag is visible when you access the page for the first time,
    * the callback is triggered; otherwise, it is not triggered. That is, if the same-layer tag changes from a non-zero value to 0 x 0,
    * the callback is triggered. If the rendering tag size changes from 0 x 0 to a non-zero value, the callback is not triggered.
    * If all the same-layer tags are invisible, they are reported as invisible. If all the same-layer rendering tags or part of them are visible,
    * they are reported as invisible.
    *
-   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback triggered when embed visibility changes.
+   * @param { OnNativeEmbedVisibilityChangeCallback } callback - Callback invoked when the visibility of a same-layer tag changes.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12
@@ -10227,6 +10346,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
 
   /**
+   * Triggered when the param element which is a child item of the object element has changed.
+   *
+   * @param { OnNativeEmbedObjectParamChangeCallback } callback - callback Triggered when the param element has changed.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   */
+  onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute;
+
+  /**
    * Called to set copy option
    *
    * @param { CopyOptions } value - copy option.The default value is CopyOptions.LocalDevice.
@@ -10251,6 +10380,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets whether automatic text resizing is enabled.
+   * After the automatic text font size adjustment takes effect,
+   * the font size will be automatically increased to 16px~32px
+   * for text with too small font size to avoid the readability problem of
+   * small fonts due to the lack of mobile adaptation for devices with small screens (default viewport width < 980px).
+   *
+   * <p><strong>API Note</strong>:<br>
+   * Prerequisites for the automatic adjustment of text font size to take effect:
+   * 1.The device forms are: Phone, Tablet, Wearable, TV.
+   * 2.Web component viewport width < 980px.
+   * 3.The page text is large, and the font size * number of characters of the page text is ≥ 3920.
+   * 4.There is no metaViewport setting on the frontend, or no "width" and "initial-scale" attributes in the metaViewport setting.
    *
    * @param { boolean } textAutosizing - Whether automatic text resizing is enabled.
    *    {@code true} means enable text autosizing;
@@ -10405,7 +10545,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Enable or disable haptic feedback.
-   * 
+   *
    * <p><strong>API Note</strong>:<br>
    * Permissions need to be configured: ohos.permission.VIBRATE.
    * </p>
@@ -10455,6 +10595,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Sets whether to enable AVSession for web pages.
    *
    * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   *    False when passing in undefined and null.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18
@@ -10561,9 +10702,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Set whether to comply with the zoom restrictions set by the<meta name="viewport">tag in the webpage.
    *
-   * @param { boolean } enable {@code true} means the Web Comply with the zoom restrictions
+   * @param { boolean } enable {@code true} means the Web will not comply with the zoom restrictions
    *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
-   *     The default value is true.
+   *     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21

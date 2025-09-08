@@ -1250,6 +1250,18 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    * @arkts 1.1&1.2
    */
   blockColor(value: ResourceColor): SliderAttribute;
+  /**
+   * Called when the slider color of the slider bar is set.
+   *
+   * @param { ResourceColor | LinearGradient } value
+   * @returns { SliderAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 21
+   */
+  blockColor(value: ResourceColor | LinearGradient): SliderAttribute;
 
   /**
    * Called when the track color of the slider is set.

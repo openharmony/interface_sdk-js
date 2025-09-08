@@ -118,7 +118,6 @@
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
     "SystemCapability.Security.DataTransitManager",
-    "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",

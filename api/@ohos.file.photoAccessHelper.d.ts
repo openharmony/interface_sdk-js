@@ -1323,6 +1323,16 @@ declare namespace photoAccessHelper {
    * @arkts 1.1&1.2
    */
   type MemberType = number | string | boolean;
+  
+  /**
+   * Indicates the type of a batch photo asset member.
+   *
+   * @typedef { Record<string, MemberType>[] } PhotoAssetParams
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  type PhotoAssetParams = Record<string, MemberType>[];
 
   /**
    * Provides APIs for encapsulating file asset attributes.
@@ -3760,6 +3770,23 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     getObjectByPosition(index: number): Promise<T>;
+    /**
+     * Obtains the objects in the fetch result in segments.
+     *
+     * @param { number } index - Index of the asset to obtain.
+     * @param { number } offset - Offset of the asset to obtain.
+     * @returns { Promise<T[]> } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 'index or 'offset' validity check failed.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getRangeObjects(index: number, offset: number): Promise<T[]>
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
      *
@@ -6252,6 +6279,23 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
+
+    /**
+     * Batchly obtain the values of PhotoAsset members.
+     *
+     * @param {PhotoAsset[]} assets - The array of PhotoAsset objects.
+     * @param {string[]} members - The array of member property names to get.
+     * @returns { PhotoAssetParams } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: The attribute to be queried does not exist in assets.
+     * @throws { BusinessError } 23800104 - The provided member must be a property name of PhotoKey.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    batchGetPhotoAssetParams(assets: PhotoAsset[], members: string[]): PhotoAssetParams
 
     /**
      * checks whether the application supports compatiblle copies by bundleName
@@ -9947,7 +9991,16 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    PLAY_INFO
+    PLAY_INFO = 1,
+    /**
+     * Highlight Album information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    ALBUM_INFO = 2
   }
 
   /**
@@ -10053,6 +10106,47 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates the types of the highlights album attribute which can be set.
+   *
+   * @enum { number } HighlightAlbumChangeAttribute
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
+   */
+  enum HighlightAlbumChangeAttribute {
+    /**
+     * The highlight has been viewed or not.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    IS_VIEWED = 0,
+
+    /**
+     * Time of this highlight notification.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    NOTIFICATION_TIME = 1,
+
+    /**
+     * Favorite of this highlight album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    IS_FAVORITE = 2
+  }
+
+  /**
    * Enumerates thumbnail types.
    *
    * @enum { number } ThumbnailType
@@ -10121,6 +10215,54 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
+  }
+
+  /**
+   * Defines the class of media highlight album change request.
+   *
+   * @extends MediaAnalysisAlbumChangeRequest
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
+   */
+  class MediaHighlightAlbumChangeRequest extends MediaAnalysisAlbumChangeRequest {
+    /**
+     * The constructor to create a MediaHighlightAlbumChangeRequest instance.
+     *
+     * @param { Album } album - Album
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    constructor(album: Album);
+
+    /**
+     * Set attribute values of highlight album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { HighlightAlbumChangeAttribute } attribute - Highlight attribute to be set.
+     * @param { string } value - Value of attribute.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    setHighlightAttribute(attribute: HighlightAlbumChangeAttribute, value: string): void;
   }
 
   /**
