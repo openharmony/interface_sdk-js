@@ -988,6 +988,15 @@ declare namespace bundleManager {
     WEB_NATIVE_MESSAGING = 32,
 
     /**
+     * Indicates extension info with type of the faultLog
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    FAULT_LOG = 33,
+
+    /**
      * Indicates extension info with type of unspecified
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
