@@ -1415,6 +1415,29 @@ declare namespace geoLocationManager {
   function isBeaconFenceSupported(): boolean;
 
   /**
+   * Check whether the WLAN scan results match the WLAN BSSID list.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { Array<string> } wlanBssidArray - Indicates the list of WLAN BSSIDs that need to be matched.
+   * @param { int } rssiThreshold - Indicates the WLAN RSSI threshold, only matching WLAN BSSID with
+   * RSSI greater than this threshold.
+   * @param { boolean } needStartScan - Indicates whether a WLAN scan needs to be initiated.
+   * @returns { Promise<boolean> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   * required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   * ${geoLocationManager.isWlanBssidMatched} due to limited device capabilities.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301800 - Failed to start WiFi scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function isWlanBssidMatched(
+    wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
+
+  /**
    * Configuration parameters for simulating reverse geocoding.
    *
    * @typedef ReverseGeocodingMockInfo
