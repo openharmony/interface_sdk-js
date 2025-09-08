@@ -188,6 +188,7 @@ export interface TemplateOptions {
  * @typedef RepeatAttribute<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface RepeatAttribute<T> extends DynamicNode {
   /**
@@ -247,6 +248,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
  * @returns { RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>;

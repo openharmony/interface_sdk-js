@@ -52,6 +52,7 @@ declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
  * @interface ForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface ForEachAttribute extends DynamicNode {}
 
@@ -63,6 +64,7 @@ export interface ForEachAttribute extends DynamicNode {}
  * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @ComponentBuilder
 export declare function ForEach<T>(arr: Array<T>,
