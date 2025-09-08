@@ -102,6 +102,7 @@ export type Rect = _Rect;
  *
  * @typedef {_Parameter}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
  * @since 20
  */
 export type Parameter = _Parameter;

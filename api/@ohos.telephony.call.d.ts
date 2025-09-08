@@ -35,8 +35,7 @@ import type image from './@ohos.multimedia.image';
  * @namespace call
  * @syscap SystemCapability.Telephony.CallManager
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare namespace call {
   /**
@@ -184,8 +183,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function makeCall(phoneNumber: string, callback: AsyncCallback<void>): void;
 
@@ -216,8 +214,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   function makeCall(phoneNumber: string): Promise<void>;
 

@@ -45,7 +45,9 @@ export default class CompletionHandler {
    * Notify the failure result of startAbility.
    *
    * @param { ElementName } elementName - Indicates the component to start.
-   * @param { string } message - Indicates the message of the request result.
+   * Returns an empty value if the target application cannot be found.
+   * @param { string } message - The message is a JSON string.
+   * The key represents the failureCode, and the value represents the detailed description of the failureCode.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

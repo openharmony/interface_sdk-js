@@ -89,7 +89,6 @@
     "SystemCapability.PowerManager.PowerManager.Core",
     "SystemCapability.HiviewDFX.HiSysEvent",
     "SystemCapability.PowerManager.BatteryStatistics",
-    "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.DistributedDataManager.DataShare.Provider",
     "SystemCapability.DistributedDataManager.DataShare.Core",
     "SystemCapability.DistributedDataManager.DataShare.Consumer",

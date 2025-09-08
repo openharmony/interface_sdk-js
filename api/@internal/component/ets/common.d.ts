@@ -10088,14 +10088,14 @@ declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
  */
 declare interface BlurOptions {
   /**
-   * Fuzzy gray scale parameter.
+   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 11
    */
   /**
-   * Fuzzy gray scale parameter.
+   * Fuzzy gray scale parameter.The range of values for the two parameters is [0, 127].
    * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -11698,6 +11698,18 @@ declare interface BaseEvent {
    * @arkts 1.1&1.2
    */
   axisVertical?: number;
+
+  /**
+   * Indicates the Pinch axis coordinate.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 21
+   */
+  axisPinch?: number;
 
   /**
    * Touch pressure.
@@ -13697,6 +13709,16 @@ declare interface AxisEvent extends BaseEvent {
    * @arkts 1.1&1.2
    */
   getVerticalAxisValue(): number;
+
+  /**
+   * Obtains the value of the pinch axis for this axis event.
+   *
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  getPinchAxisScaleValue(): number;
 }
 
 /**
@@ -20409,6 +20431,40 @@ declare enum AvailableLayoutArea {
    * @since 20
    */    
   SAFE_AREA = 0,
+}
+
+/**
+ * Defines the content transition effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+declare class ContentTransitionEffect {
+  /**
+   * When the content changes, there is no animation effect.
+   *
+   * @type { ContentTransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static get IDENTITY(): ContentTransitionEffect;
+
+  /**
+   * When the content changes, there is a smooth fade-in and fade-out effect.
+   *
+   * @type { ContentTransitionEffect }
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  static get OPACITY(): ContentTransitionEffect;
 }
 
 /**
@@ -29343,7 +29399,7 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Bind content cover
+   * Binds a modal page to the component, whose visibility is subject to the isShow settings.
    *
    * @param { boolean } isShow - true means display content, false means hide content.
    * @param { CustomBuilder } builder - the content to be displayed.

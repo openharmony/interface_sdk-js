@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
+import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** endif */
+
 /**
  * Define the available options for openLink API.
  *
@@ -53,6 +57,17 @@ export default interface OpenLinkOptions {
    * @arkts 1.1&1.2
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The completion handler of openLink.
+   *
+   * @type { ?CompletionHandler }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21
+   */
+  completionHandler?: CompletionHandler;
 
   /**
    * Determines whether to hide a dialog when deep linking fails to match an application.

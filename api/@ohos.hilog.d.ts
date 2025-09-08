@@ -365,6 +365,18 @@ declare namespace hilog {
    function setMinLogLevel(level: LogLevel): void;
 
   /**
+   * Sets the lowest log level of the current application process. Different preference strategy can be set.
+   * 
+   * @param { LogLevel } level log level.
+   * @param { PreferStrategy } prefer preference strategy. See detail in PreferStrategy.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
+
+  /**
    * Log level define
    *
    * @syscap SystemCapability.HiviewDFX.HiLog
@@ -504,6 +516,50 @@ declare namespace hilog {
      * @arkts 1.1&1.2
      */
     FATAL = 7
+  }
+
+  /**
+   * Enumerates preference strategy to be used in setLogLevel.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  enum PreferStrategy {
+      /**
+       * UNSET_LOGLEVEL Used to unset SetLogLevel, then none is set
+       * 
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      UNSET_LOGLEVEL = 0,
+      /**
+       * PREFER_CLOSE_LOG The actual lowest log level is determined by
+       * the maximum level between the new level and the system-controlled level.
+       * This is equivalent to calling OH_LOG_SetMinLogLevel.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      PREFER_CLOSE_LOG = 1,
+      /**
+       * PREFER_OPEN_LOG The actual lowest log level is determined by
+       * the minimum level between the new level and the system-controlled level.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      PREFER_OPEN_LOG = 2,
   }
 }
 

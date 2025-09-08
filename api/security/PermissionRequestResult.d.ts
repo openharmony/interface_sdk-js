@@ -138,6 +138,25 @@ declare class PermissionRequestResult {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Enumerates the return values of the permission request operation.
+   *   0  The operation is successful.
+   *   1  The permission name is invalid.
+   *   2  The requested permission has not been declared.
+   *   3  The conditions for requesting the permission are not met.
+   *   4  The user does not agree to the Privacy Statement.
+   *   5  The permission cannot be requested via a pop-up window.
+   *   6  The permission is a manual_settings permission and cannot be requested via a pop-up window.
+   *   12 The service is abnormal.
+   *
+   * @type { ?Array<int> }
+   * @syscap SystemCapability.Security.AccessToken
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
   errorReasons?: Array<int>;
 }
 

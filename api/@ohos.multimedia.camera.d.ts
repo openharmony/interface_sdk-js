@@ -12008,6 +12008,34 @@ declare namespace camera {
   }
 
   /**
+   * Enum for photo quality prioritization.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 21
+   */
+  enum PhotoQualityPrioritization {
+    /**
+     * High quality photos are the top preference, even at the expense of shot-to-shot time.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     */
+    HIGH_QUALITY = 0,
+
+    /**
+     * Prefering speed over quality, even at the expense of quality.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     */
+    SPEED = 1,
+  }
+
+  /**
    * Photo output object.
    *
    * @extends CameraOutput
@@ -13031,6 +13059,32 @@ declare namespace camera {
      * @since 18
      */
     off(type: 'offlineDeliveryFinished', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Query whether photo quality prioritization is supported.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization type.
+     * @returns { boolean } - Whether the choosed quality prioritization type is supported.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+    */
+    isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
+
+    /**
+     * Set photo quality prioritization.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+    */
+    setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
   }
 
   /**
