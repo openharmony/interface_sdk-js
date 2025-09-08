@@ -4824,15 +4824,16 @@ declare namespace wifiManager {
     GO_BAND_5GHZ = 2
   }
 
-  /**
+
+   /**
    * Start Wi-Fi network detection
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
-   * @throws {BusinessError} 25010000 - Operation failed.
-   * @throws {BusinessError} 25010001 - Wi-Fi STA disabled.
-   * @syscap SystemCapability.Communication.Wifi.STA
+   * @throws {BusinessError} 2501000 - Operation failed.
+   * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
+   * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 20
    * @arkts 1.1&1.2
