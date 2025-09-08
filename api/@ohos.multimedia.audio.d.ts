@@ -1013,7 +1013,6 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21
-   * @arkts 1.1&1.2
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -1021,7 +1020,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
-     * @arkts 1.1&1.2
      */
     SELECT_STRATEGY_DEFAULT = 0,
     /**
@@ -1029,7 +1027,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
-     * @arkts 1.1&1.2
      */
     SELECT_STRATEGY_INDEPENDENT = 1,
   }
@@ -3760,7 +3757,6 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
-     * @arkts 1.1&1.2
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy: AudioDevcieSelectStrategy): Promise<void>;
 
