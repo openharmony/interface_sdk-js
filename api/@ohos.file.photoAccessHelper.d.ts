@@ -9997,7 +9997,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     ALBUM_INFO = 2
   }
@@ -10110,7 +10111,8 @@ declare namespace photoAccessHelper {
    * @enum { number } HighlightAlbumChangeAttribute
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 21
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   enum HighlightAlbumChangeAttribute {
     /**
@@ -10118,7 +10120,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     IS_VIEWED = 0,
 
@@ -10127,7 +10130,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     NOTIFICATION_TIME = 1,
 
@@ -10136,7 +10140,8 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     IS_FAVORITE = 2
   }
@@ -10225,6 +10230,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
      * @since 21
+     * @arkts 1.1&1.2
      */
      setRelationship(relationship: string): Promise<void>;
   }
@@ -10235,7 +10241,8 @@ declare namespace photoAccessHelper {
    * @extends MediaAnalysisAlbumChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since 21
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   class MediaHighlightAlbumChangeRequest extends MediaAnalysisAlbumChangeRequest {
     /**
@@ -10249,7 +10256,8 @@ declare namespace photoAccessHelper {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     constructor(album: Album);
 
@@ -10269,7 +10277,8 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 21
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     setHighlightAttribute(attribute: HighlightAlbumChangeAttribute, value: string): void;
   }
@@ -10323,6 +10332,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
      * @since 21
+     * @arkts 1.1&1.2
      */
      getRelationship(): Promise<string>;
   }
