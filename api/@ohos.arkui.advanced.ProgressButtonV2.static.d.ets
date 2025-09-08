@@ -36,14 +36,14 @@ export declare struct ProgressButtonV2 {
   /**
    * Sets the ProgressButtonV2 progress.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   @Require
   @Param
-  readonly progress: number;
+  readonly progress: int;
   /**
    * Sets the ProgressButtonV2 content.
    *
@@ -129,7 +129,7 @@ export declare class ProgressButtonV2Color {
    * @since 20
    */
   @Trace
-  progressColor?: ColorMetrics;
+  public progressColor?: ColorMetrics;
   /**
    * Set border color of the ProgressButtonV2.
    *
@@ -138,7 +138,7 @@ export declare class ProgressButtonV2Color {
    * @since 20
    */
   @Trace
-  borderColor?: ColorMetrics;
+  public borderColor?: ColorMetrics;
   /**
    * Set text color of the ProgressButtonV2.
    *
@@ -147,7 +147,7 @@ export declare class ProgressButtonV2Color {
    * @since 20
    */
   @Trace
-  textColor?: ColorMetrics;
+  public textColor?: ColorMetrics;
   /**
    * Set background color of the ProgressButtonV2.
    *
@@ -156,7 +156,7 @@ export declare class ProgressButtonV2Color {
    * @since 20
    */
   @Trace
-  backgroundColor?: ColorMetrics;
+  public backgroundColor?: ColorMetrics;
   /**
    * The constructor of ProgressButtonV2
    *

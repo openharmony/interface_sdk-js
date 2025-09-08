@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * @file
  * @kit ArkUI
@@ -95,7 +95,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    on(type: TreeListenType, callback: OnChangedCallback): void;
+    public on(type: TreeListenType, callback: OnChangedCallback): void;
     /**
      * Event registration and processing.
      * After the event is processed once, it will be destroyed.
@@ -105,7 +105,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    once(type: TreeListenType, callback: OnChangedCallback): void;
+    public once(type: TreeListenType, callback: OnChangedCallback): void;
     /**
      * Destroy event.
      *
@@ -114,7 +114,7 @@ export declare class TreeListener {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    off(type: TreeListenType, callback?: OnChangedCallback): void;
+    public off(type: TreeListenType, callback?: OnChangedCallback): void;
 }
 /**
  * Declare class TreeListenerManager
@@ -140,7 +140,7 @@ export declare class TreeListenerManager {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    getTreeListener(): TreeListener;
+    public getTreeListener(): TreeListener;
 }
 /**
  * Declare TreeView Component
@@ -179,27 +179,27 @@ export interface CallbackParam {
     /**
      * Get the currentNodeId.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    currentNodeId: number,
+    currentNodeId: int,
     /**
      * Get the parentNodeId.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    parentNodeId?: number,
+    parentNodeId?: int,
     /**
      * Get the childIndex.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    childIndex?: number
+    childIndex?: int
 }
 /**
  * Declare NodeParam
@@ -213,19 +213,19 @@ export interface NodeParam {
     /**
      * Set the parentNodeId.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    parentNodeId?: number,
+    parentNodeId?: int,
     /**
      * Set currentNodeId.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    currentNodeId?: number,
+    currentNodeId?: int,
     /**
      * Set catalog whether is floder.
      *
@@ -323,7 +323,7 @@ export declare class TreeController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    removeNode(): void;
+    public removeNode(): void;
     /**
      * Modify the node name.
      * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
@@ -331,35 +331,36 @@ export declare class TreeController {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    modifyNode(): void;
+    public modifyNode(): void;
     /**
      * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
      * addNode is only designed for initialization. It can only be invoked during initialization.
      * A maximum of 50 directory levels can be added.
      * For details, see the comment description of NodeParam.
-     *
+     * 
      * @param { NodeParam } [nodeParam] Configuration information of the newly added node.
      * @returns { TreeController } ListTreeNode Tree view component proxy class.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    addNode(nodeParam?: NodeParam): TreeController;
+    public addNode(nodeParam?: NodeParam): TreeController;
     /**
      * This interface is called when a secondaryTitle needs to be updated
      *
-     * @param { number } parentId - ID of the parent node.
+     * @param { int } parentId - ID of the parent node.
      * @param { ResourceStr } parentSubTitle - secondaryTitle of parent node.
      * @param { ResourceStr } currentSubtitle - secondaryTitle of current node.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
+    public refreshNode(parentId: int, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
     /**
-     * After the initialization is complete by calling the addNode interface, call this interface to complete initialization.
+     * After the initialization is complete by calling the addNode interface,
+     * call this interface to complete initialization.
      * This interface must be called when you finish initializing the ListTreeView by addNode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    buildDone(): void;
+    public buildDone(): void;
 }

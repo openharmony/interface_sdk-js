@@ -29,7 +29,7 @@ import { Builder } from './arkui/component/builder';
 /**
  * Declare enum ToolBarV2ItemState.
  *
- * @enum { number }.
+ * @enum { int }.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
@@ -74,7 +74,7 @@ export declare class ToolBarV2SymbolGlyph {
    * @since 20
    */
   @Trace
-  normal: SymbolGlyphModifier;
+  public normal: SymbolGlyphModifier;
   /**
    * Modifier of toolbarV2's activated symbol.
    *
@@ -83,7 +83,7 @@ export declare class ToolBarV2SymbolGlyph {
    * @since 20
    */
   @Trace
-  activated?: SymbolGlyphModifier;
+  public activated?: SymbolGlyphModifier;
   /**
    * The constructor used to create a ToolBarV2SymbolGlyph object.
    *
@@ -137,7 +137,7 @@ export declare class ToolBarV2ItemText {
    * @since 20
    */
   @Trace
-  text: ResourceStr;
+  public text: ResourceStr;
   /**
    * Define text fontColor.
    *
@@ -146,7 +146,7 @@ export declare class ToolBarV2ItemText {
    * @since 20
    */
   @Trace
-  color?: ColorMetrics;
+  public color?: ColorMetrics;
   /**
    * Text fontColor when the item is activated.
    *
@@ -155,7 +155,7 @@ export declare class ToolBarV2ItemText {
    * @since 20
    */
   @Trace
-  activatedColor?: ColorMetrics;
+  public activatedColor?: ColorMetrics;
   /**
    * The constructor used to create a ToolBarV2ItemText object.
    *
@@ -225,7 +225,7 @@ export declare class ToolBarV2ItemImage {
    * @since 20
    */
   @Trace
-  src: ResourceStr;
+  public src: ResourceStr;
   /**
    * Define icon fillColor.
    *
@@ -234,7 +234,7 @@ export declare class ToolBarV2ItemImage {
    * @since 20
    */
   @Trace
-  color?: ColorMetrics;
+  public color?: ColorMetrics;
   /**
    * Icon fillColor when the item is activated.
    *
@@ -243,7 +243,7 @@ export declare class ToolBarV2ItemImage {
    * @since 20
    */
   @Trace
-  activatedColor?: ColorMetrics;
+  public activatedColor?: ColorMetrics;
   /**
    * The constructor used to create a ToolBarV2ItemImage object.
    *
@@ -305,7 +305,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  content: ToolBarV2ItemText;
+  public content: ToolBarV2ItemText;
   /**
    * Define the action event.
    *
@@ -314,7 +314,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  action?: ToolBarV2ItemAction;
+  public action?: ToolBarV2ItemAction;
   /**
    * Define icon resource.
    *
@@ -323,7 +323,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  icon?: ToolBarV2ItemIconType;
+  public icon?: ToolBarV2ItemIconType;
   /**
    * Define item type.
    *
@@ -332,7 +332,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  state?: ToolBarV2ItemState;
+  public state?: ToolBarV2ItemState;
   /**
    * The accessibilityText of item.
    *
@@ -341,7 +341,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of item.
    *
@@ -350,7 +350,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of item.
    *
@@ -360,7 +360,7 @@ export declare class ToolBarV2Item {
    * @since 20
    */
   @Trace
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
   /**
    * The constructor used to create a ToolBarV2Item object.
    *
@@ -440,12 +440,12 @@ export interface ToolBarV2ItemOptions {
 /**
  * Defines the action callback of ToolBarV2Item.
  * @typedef { function } ToolBarV2ItemAction
- * @param { number } index - toolBarV2's ItemAction.
+ * @param { int } index - toolBarV2's ItemAction.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-export type ToolBarV2ItemAction = (index: number) => void;
+export type ToolBarV2ItemAction = (index: int) => void;
 /**
  * Declare ToolBarV2Modifier used in ToolBar.
  *
@@ -462,7 +462,7 @@ export declare class ToolBarV2Modifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  height(height: LengthMetrics): ToolBarV2Modifier;
+  public height(height: LengthMetrics): ToolBarV2Modifier;
   /**
    * Sets the backgroundColor of the toolBarV2.
    *
@@ -471,7 +471,7 @@ export declare class ToolBarV2Modifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier;
+  public backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier;
   /**
    * Sets the left and right padding of the toolbarV2.
    *
@@ -480,7 +480,7 @@ export declare class ToolBarV2Modifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  padding(padding: LengthMetrics): ToolBarV2Modifier;
+  public padding(padding: LengthMetrics): ToolBarV2Modifier;
   /**
    * Sets whether or not to display the press status effect.
    *
@@ -489,7 +489,7 @@ export declare class ToolBarV2Modifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  stateEffect(stateEffect: boolean): ToolBarV2Modifier;
+  public stateEffect(stateEffect: boolean): ToolBarV2Modifier;
 }
 /**
  * Declare Component ToolBarV2
@@ -514,12 +514,12 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 activate item index, default is -1.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   @Param
-  activatedIndex?: number;
+  activatedIndex?: int;
   /**
    * Define divider Modifier.
    *

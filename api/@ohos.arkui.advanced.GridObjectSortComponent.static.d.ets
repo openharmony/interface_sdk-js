@@ -30,6 +30,7 @@ import { Builder } from './arkui/component/builder';
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare enum GridObjectSortComponentType {
   /**
@@ -38,14 +39,14 @@ export declare enum GridObjectSortComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  IMAGE_TEXT = "image_text",
+  IMAGE_TEXT = 'image_text',
   /**
    * The GridObjectSortComponent text type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  TEXT = "text"
+  TEXT = 'text'
 }
 /**
  * Declaration of the GridObjectSortComponent item.
@@ -53,6 +54,7 @@ export declare enum GridObjectSortComponentType {
  * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface GridObjectSortComponentItem {
   /**
@@ -110,6 +112,7 @@ export interface GridObjectSortComponentItem {
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface GridObjectSortComponentOptions {
   /**
@@ -168,6 +171,7 @@ export interface GridObjectSortComponentOptions {
  * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @Component
 export declare struct GridObjectSortComponent {
@@ -210,5 +214,6 @@ export declare struct GridObjectSortComponent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

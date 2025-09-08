@@ -34,43 +34,43 @@ export declare class ComposeTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Symbol resource for this menu item.
    *
-   * @type { ?SymbolGlyphModifier }.
+   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Icon label for this menu item.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  label?: ResourceStr;
+  public label?: ResourceStr;
   /**
    * Whether to enable this menu item.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  isEnabled?: boolean;
+  public isEnabled?: boolean;
   /**
    * Callback function when click on this menu item.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of this menu item.
    *
@@ -78,7 +78,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this menu item.
    *
@@ -86,7 +86,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this menu item.
    *
@@ -100,7 +100,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declaration of the composable title bar.
@@ -114,7 +114,7 @@ export declare struct ComposeTitleBar {
   /**
    * Avatar resource and event callback of this title bar.
    *
-   * @type { ?ComposeTitleBarMenuItem }.
+   * @type { ?ComposeTitleBarMenuItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -122,7 +122,7 @@ export declare struct ComposeTitleBar {
   /**
    * Title of this title bar.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -130,7 +130,7 @@ export declare struct ComposeTitleBar {
   /**
    * Sub-title of this title bar.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -138,7 +138,7 @@ export declare struct ComposeTitleBar {
   /**
    * Menu items on the right side.
    *
-   * @type { ?Array<ComposeTitleBarMenuItem> }.
+   * @type { ?Array<ComposeTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -149,5 +149,6 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }
