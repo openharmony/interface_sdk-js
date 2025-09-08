@@ -5015,7 +5015,7 @@ declare namespace audio {
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * UnSubscribes to available device change events.
+     * Unsubscribes to available device change events.
      * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
      *     event is supported.
      * @param { Callback<DeviceChangeAction> } [callback] - Callback used in subscribe.
@@ -5032,12 +5032,12 @@ declare namespace audio {
      * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
      * In scenarios where there are concurrent recording streams with higher priority,
      * the actual input device used by the application may differ from the selected one.
-     * The application can obtain currently active input device by subsribing to the
+     * The application can obtain currently active input device by subscribing to the
      * currentInputDeviceChanged event.
      * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
-     * the selected device does not exist.
+     *     the selected device does not exist.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
@@ -5046,7 +5046,7 @@ declare namespace audio {
     selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
 
     /**
-     * Gets the selected media input device. If never set, it returns an device descriptor
+     * Gets the selected media input device. If never set, it returns a device descriptor
      * with INVALID DeviceType.
      * @returns { AudioDeviceDescriptor } - Selected audio device.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -5057,7 +5057,7 @@ declare namespace audio {
     getSelectedMediaInputDevice(): AudioDeviceDescriptor;
 
     /**
-     * clears the selected media input device.
+     * Clears the selected media input device.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -5068,14 +5068,14 @@ declare namespace audio {
 
     /**
      * Sets the prefered record category with bluetooth and nearlink device.
-     * The application can set this category before Bluetooth or Nearlink connected, and the system will
-     * prefer to use Bluetooth and Nearlink to record when the device connected.
+     * The application can set this category before bluetooth or nearlink connected, and the system will
+     * prefer to use bluetooth and nearlink to record when the device connected.
      * In scenarios where there are concurrent recording streams with higher priority,
      * the actual input device used by the application may differ from the prefered one.
-     * The application can obtain currently active input device by subsribing to the
+     * The application can obtain currently active input device by subscribing to the
      * currentInputDeviceChanged event.
-     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category application pefer
-     *     to use when recording with Bluetooth and Nearlink.
+     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category application prefer
+     *     to use when recording with bluetooth and nearlink.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -5087,8 +5087,8 @@ declare namespace audio {
 
     /**
      * Gets the prefered record category with bluetooth and nearlink device.
-     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category application pefer
-     *     to use when recording with Bluetooth and Nearlink.
+     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category application prefer
+     *     to use when recording with bluetooth and nearlink.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
