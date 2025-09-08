@@ -79,7 +79,6 @@ declare namespace connection {
    * @typedef { socket.TCPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @atomicservice
    * @since 10
    */
   type TCPSocket = socket.TCPSocket;
@@ -94,7 +93,6 @@ declare namespace connection {
    * @typedef { socket.UDPSocket }
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @atomicservice
    * @since 10
    */
   type UDPSocket = socket.UDPSocket;
@@ -898,6 +896,62 @@ declare namespace connection {
    * @since 15
    */
   function getPacUrl(): string;
+
+  /**
+   * Set the URL {@link pacFileUrl} of the current PAC script.
+   * Proxy information can be obtained through parsing the script address.
+   * To invoke this method, you must have the {@code ohos.permission.SET_PAC_URL} permission.
+   * @permission ohos.permission.SET_PAC_URL
+   * @param { string } pacFileUrl - Indicates the URL of the current PAC script.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 20
+   */
+  function setPacFileUrl(pacFileUrl: string): void;
+
+  /**
+   * Obtain the URL {@link pacFileUrl} of the current PAC script.
+   * @returns { string } Returns the URL of the current PAC script or empty string if there is no PAC script.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 20
+   */
+  function getPacFileUrl(): string;
+
+  /**
+   * Find pac proxy info for the url.
+   * @param { string } url - the url.
+   * @returns { string } Returns the proxy infomation.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @since 20
+   */
+  function findProxyForUrl(url: string): string;
+
+  /**
+   * Set the proxy mode {@link ProxyMode}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { ProxyMode } mode - Indicates the proxy mode.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  function setProxyMode(mode: ProxyMode): Promise<void>;
+
+  /**
+   * Obtain the proxy mode {@link ProxyMode}.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<ProxyMode> } the promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  function getProxyMode(): Promise<ProxyMode>;
 
   /**
    * Add a custom {@link host} and corresponding {@link ip} mapping for current application.
@@ -1885,6 +1939,31 @@ declare namespace connection {
      * @since 12
      */
     BEARER_VPN = 4,
+  }
+
+  /**
+   * Enumerates proxy modes.
+   * @enum {number}
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use. Only used for system app.
+   * @since 20
+   */
+  export enum ProxyMode{
+    /**
+     * Off proxy mode.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use. Only used for system app.
+     * @since 20
+     */
+    PROXY_MODE_OFF = 0,
+  
+    /**
+     * Auto proxy mode.
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use. Only used for system app.
+     * @since 20
+     */
+    PROXY_MODE_AUTO = 1
   }
 
   /**

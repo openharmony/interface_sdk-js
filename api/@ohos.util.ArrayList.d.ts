@@ -960,8 +960,8 @@ declare class ArrayList<T> {
    *
    * @typedef { function } ArrayListCbFn
    * @param { T } value - The current element being processed
-   * @param { number } index - The index of the current element
-   * @param { ArrayList<T> } arrlist - The ArrayList instance being traversed
+   * @param { number } [index] - The index of the current element
+   * @param { ArrayList<T> } [arrlist] - The ArrayList instance being traversed
    * @returns { T } This callback does not return a value
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice

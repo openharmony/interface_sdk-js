@@ -18,13 +18,19 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common'
+import { VoidCallback } from './units'
+/*** endif */
+
 /**
  * PluginComponentTemplate
  *
  * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PluginComponentTemplate {
   /**
@@ -33,7 +39,8 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   source: string;
   /**
@@ -42,7 +49,8 @@ interface PluginComponentTemplate {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 }
@@ -54,7 +62,8 @@ interface PluginComponentTemplate {
  * @interface PluginComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PluginComponentOptions {
   /**
@@ -70,7 +79,8 @@ declare interface PluginComponentOptions {
    * @type { PluginComponentTemplate }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   template: PluginComponentTemplate;
 
@@ -90,6 +100,16 @@ declare interface PluginComponentOptions {
    * @since 18
    */
   data: any;
+  /**
+   * Plugin component data.
+   * AnonyMous Object Rectification
+   * @type { Object|undefined|null }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  data: Object|undefined|null;
 }
 
 /**
@@ -99,7 +119,8 @@ declare interface PluginComponentOptions {
  * @interface PluginErrorData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PluginErrorData {
   /**
@@ -115,7 +136,8 @@ declare interface PluginErrorData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   errcode: number;
 
@@ -132,7 +154,8 @@ declare interface PluginErrorData {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   msg: string;
 }
@@ -145,7 +168,8 @@ declare interface PluginErrorData {
  * @param { PluginErrorData } info - Plugin error data
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type PluginErrorCallback = (info: PluginErrorData) => void;
 
@@ -155,7 +179,8 @@ declare type PluginErrorCallback = (info: PluginErrorData) => void;
  * @interface PluginComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PluginComponentInterface {
   /**
@@ -175,7 +200,8 @@ interface PluginComponentInterface {
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options: PluginComponentOptions): PluginComponentAttribute;
 }
@@ -186,7 +212,8 @@ interface PluginComponentInterface {
  * @extends CommonMethod<PluginComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttribute> {
   /**
@@ -206,7 +233,8 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onComplete(callback: VoidCallback): PluginComponentAttribute;
 
@@ -227,7 +255,8 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onError(callback: PluginErrorCallback): PluginComponentAttribute;
 }

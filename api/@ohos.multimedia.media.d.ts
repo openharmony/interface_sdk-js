@@ -411,6 +411,20 @@ declare namespace media {
    */
   function reportAVScreenCaptureUserChoice(sessionId: number, choice: string): Promise<void>;
 
+   /**
+   * get Configurations which user can changes from AVScreenCapture server
+   * 
+   * @param { number } sessionId The AVScreenCapture server session ID.
+   * @returns { Promise<string> } Returns a configurable configuration item string.
+   * @throws { BusinessError } 202 Called from Non-System applications. Return by promise.
+   * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
+   * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function getAVScreenCaptureConfigurableParameters(sessionId: number): Promise<string>;
+  
   /**
    * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
    *
@@ -742,19 +756,13 @@ declare namespace media {
 
     /**
      * Sets the network media source URL and configures request headers.
-     * @permission ohos.permission.INTERNET
      * @param { string } url - The URL of the media resource.
      * @param { Record<string, string> } [headers] - Optional request headers.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 201 - Permission denied, requires internet access permission. Returned by promise.
-     * @throws { BusinessError } 5400102 - Operation not allowed,
-     * the URL source has already been set and cannot be modified. Returned by promise.
-     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20
      * @arkts 1.1&1.2
      */
-    setUrlSource(url: string, headers?: Record<string, string>): Promise<void>;
+    setUrlSource(url: string, headers?: Record<string, string>): void;
 
     /**
      * It will decode the given video resource. Then fetch a picture
@@ -1392,6 +1400,18 @@ declare namespace media {
      * @since 11
      */
     colorFormat?: PixelFormat;
+
+    /**
+     * Auto flip the thumbnail when video has mirror attribute(Vertical Flip or Horizontal Flip).
+     * If the value is false, the returned thumbnail will not be flipped.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    autoFlip?: boolean;
   }
 
   /**
@@ -1666,6 +1686,14 @@ declare namespace media {
      * @since 12
      */
     AVERR_AUDIO_INTERRUPTED = 5400107,
+    /**
+     * The parameter value means session does not exist
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    AVERR_SESSION_NOT_EXIST = 5400109,
     /**
      * The address of server is incorrect, and IO can not find host.
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -3000,6 +3028,27 @@ declare namespace media {
     setBitrate(bitrate: number): void;
 
     /**
+     * Sets the loudness gain of current media. The default gain is 0.0 dB.
+     * This API can be called only when the AVPlayer is in the prepared, playing, paused completed or stopped state.
+     * The stream usage of audioRendererInfo must be {@link StreamUsage#STREAM_USAGE_MUSIC},
+     * {@link StreamUsage#STREAM_USAGE_MOVIE}, or {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * After this API is called, the loudness gain takes effect immediately.
+     * @param { double } loudnessGain - Loudness gain to set, expressed in dB. The value is a 
+     *     floating int ranging from -90.0 dB to 24.0 dB.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     *     e.g. The function is called in an incorrect state, or the stream usage of audioRendererInfo is not one of
+     *     {@link StreamUsage#STREAM_USAGE_MUSIC}, {@link StreamUsage#STREAM_USAGE_MOVIE} or
+     *     {@link StreamUsage#STREAM_USAGE_AUDIOBOOK}.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setLoudnessGain(loudnessGain: double): Promise<void>;
+
+    /**
      * Set decryption session to codec module.
      * @param { drm.MediaKeySession } mediaKeySession - Handle of MediaKeySession to decrypt encrypted media.
      * @param { boolean } secureVideoPath - Secure video path required or not.
@@ -3047,13 +3096,12 @@ declare namespace media {
      */
     /**
      * Register listens for mediaKeySystemInfoUpdate events.
-     * @param { 'mediaKeySystemInfoUpdate' } type - Event type, which is **'mediaKeySystemInfoUpdate'** in this case.
-     * This event is triggered when the copyright protection information of the media asset being played changes.
-     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
-     * It reports a **MediaKeySystemInfo** array.
+     * @param { 'mediaKeySystemInfoUpdate' } type - Type of the event to listen for.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback used to listen for the mediaKeySystemInfoUpdate event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -3328,7 +3376,7 @@ declare namespace media {
     /**
      * Unregister listens for media playbackRateDone event.
      * @param { 'playbackRateDone' } type - Type of the playback event to listen for.
-     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @param { OnPlaybackRateDone } [callback] - Callback used to listen for the playbackRateDone event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 20
@@ -3713,11 +3761,8 @@ declare namespace media {
      * @since 12
      */
     /**
-     * Subscribes to AVPlayer errors. This event is used only for error prompt and does not require the user to stop
-     * playback control. If AVPlayerState is also switched to error, call {@link #reset()} or {@link #release()}
-     * to exit the playback.
-     * @param { 'error' } type - Event type, which is **'error'** in this case. This event can be triggered by
-     * both user operations and the system.
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed.
@@ -3742,6 +3787,36 @@ declare namespace media {
      * @crossplatform
      * @atomicservice
      * @since 14
+     */
+    /**
+     * Register listens for playback error events.
+     * @param { 'error' } type - Type of the playback error event to listen for.
+     * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 5400101 - No memory.
+     * @throws { BusinessError } 5400102 - Operation not allowed.
+     * @throws { BusinessError } 5400104 - Time out.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 5400106 - Unsupported format.
+     * @throws { BusinessError } 5410002 - Seek continuous unsupported.
+     * @throws { BusinessError } 5411001 - IO can not find host.
+     * @throws { BusinessError } 5411002 - IO connection timeout.
+     * @throws { BusinessError } 5411003 - IO network abnormal.
+     * @throws { BusinessError } 5411004 - IO network unavailable.
+     * @throws { BusinessError } 5411005 - IO no permission.
+     * @throws { BusinessError } 5411006 - IO request denied.
+     * @throws { BusinessError } 5411007 - IO resource not found.
+     * @throws { BusinessError } 5411008 - IO SSL client cert needed.
+     * @throws { BusinessError } 5411009 - IO SSL connect fail.
+     * @throws { BusinessError } 5411010 - IO SSL server cert untrusted.
+     * @throws { BusinessError } 5411011 - IO unsupported request.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @crossplatform
+     * @atomicservice
+     * @since arkts{ '1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'error', callback: ErrorCallback): void;
     /**
@@ -3960,7 +4035,7 @@ declare namespace media {
      * Unsubscribes from the event indicating that super resolution is enabled or disabled.
      * @param { 'superResolutionChanged' } type - Type of the super-resolution event to listen for.
      * The event is triggered when super resolution is enabled or disabled.
-     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @param { OnSuperResolutionChanged } [callback] - Callback used to listen for the super-resolution changed event.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
      * @since 18
@@ -4635,6 +4710,18 @@ declare namespace media {
      * @since 20
      */
     keepDecodingOnMute?: boolean;
+
+    /**
+     * Indicates whether to enable camera post-processing during video playback,
+     * which is used to apply image enhancements when playing back video content.
+     * @type { ?boolean } The default value is false, which means that the video
+     *                    will be played back without any camera post-processing effects.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    enableCameraPostprocessing?: boolean;
   }
 
   /**
@@ -5171,7 +5258,6 @@ declare namespace media {
      * **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * 2. Incorrect parameter types. 3.Parameter verification failed.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -5227,8 +5313,8 @@ declare namespace media {
      */
     /**
      * Sets audio and video recording parameters. This API uses a promise to return the result.
-     * @permission ohos.permission.MICROPHONE
      * This permission is required only if audio recording is involved.
+     * @permission ohos.permission.MICROPHONE
      * @param { AVRecorderConfig } config - Recording parameters.
      * @returns { Promise<void> } A Promise instance used to return when prepare completed.
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
@@ -6276,6 +6362,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AMR_NB
      */
     AMR_NB = 1,
 
@@ -6284,6 +6371,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AMR_WB
      */
     AMR_WB = 2,
 
@@ -6292,6 +6380,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AAC
      */
     AAC_LC = 3,
 
@@ -6300,6 +6389,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.CodecMimeType#AUDIO_AAC
      */
     HE_AAC = 4
   }
@@ -6327,6 +6417,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_MPEG_4
      */
     MPEG_4 = 2,
 
@@ -6335,6 +6426,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AMR
      */
     AMR_NB = 3,
 
@@ -6343,6 +6435,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AMR
      */
     AMR_WB = 4,
 
@@ -6351,6 +6444,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 8
+     * @useinstead ohos.multimedia.media/media.ContainerFormatType#CFT_AAC
      */
     AAC_ADTS = 6
   }
@@ -6453,6 +6547,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioBitrate
      */
     audioEncodeBitRate?: number;
 
@@ -6462,6 +6557,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioSampleRate
      */
     audioSampleRate?: number;
 
@@ -6471,6 +6567,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioChannels
      */
     numberOfChannels?: number;
 
@@ -6494,6 +6591,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderConfig#url
      */
     uri: string;
 
@@ -6503,6 +6601,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVMetadata#location
      */
     location?: Location;
 
@@ -6512,6 +6611,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#audioCodec
      */
     audioEncoderMime?: CodecMimeType;
     /**
@@ -6520,6 +6620,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8
      * @deprecated since 9
+     * @useinstead ohos.multimedia.media/media.AVRecorderProfile#fileFormat
      */
     fileFormat?: ContainerFormatType;
   }
@@ -8096,6 +8197,24 @@ declare namespace media {
      * @since 12
      */
     MD_KEY_HDR_TYPE = 'hdr_type',
+
+    /**
+     * Key for video original width, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    MD_KEY_ORIGINAL_WIDTH = 'original_width',
+
+    /**
+     * Key for video original height, value type is number.
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    MD_KEY_ORIGINAL_HEIGHT = 'original_height',
   }
 
   /**

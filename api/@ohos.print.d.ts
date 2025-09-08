@@ -159,7 +159,7 @@ declare namespace print {
      * @param { string } jobId - Indicates print job id.
      * @param { PrintAttributes } oldAttrs - Indicates old print attributes.
      * @param { PrintAttributes } newAttrs - Indicates new print attributes.
-     * @param { number } fd - Indicates print file fd.
+     * @param { int } fd - Indicates print file fd.
      * @param { function } writeResultCallback - Indicates this function should execute after the file is updated.
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -167,7 +167,7 @@ declare namespace print {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number,
+    onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: int,
       writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
@@ -265,12 +265,12 @@ declare namespace print {
   interface PrintAttributes {
     /**
      * Copies of document list.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    copyNumber?: number;
+    copyNumber?: int;
 
     /**
      * Range size to be printed.
@@ -328,30 +328,30 @@ declare namespace print {
   interface PrintPageRange {
     /**
      * Start page of sequence.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    startPage?: number;
+    startPage?: int;
 
     /**
      * End page of sequence.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endPage?: number;
+    endPage?: int;
 
     /**
      * Discrete page of sequence.
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pages?: Array<number>;
+    pages?: Array<int>;
   }
 
   /**
@@ -365,43 +365,43 @@ declare namespace print {
   interface PrintMargin {
     /**
      * Top margin.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    top?: number;
+    top?: int;
 
     /**
      * Bottom margin.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    bottom?: number;
+    bottom?: int;
 
     /**
      * Left margin.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    left?: number;
+    left?: int;
 
     /**
      * Right margin.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    right?: number;
+    right?: int;
   }
 
   /**
@@ -415,33 +415,33 @@ declare namespace print {
   interface PrinterRange {
     /**
      * Start page of sequence.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    startPage?: number;
+    startPage?: int;
 
     /**
      * End page of sequence.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    endPage?: number;
+    endPage?: int;
 
     /**
      * Discrete page of sequence.
-     * @type { ?Array<number> }
+     * @type { ?Array<int> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pages?: Array<number>;
+    pages?: Array<int>;
   }
 
   /**
@@ -465,13 +465,13 @@ declare namespace print {
 
     /**
      * Preview file result.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    result?: number;
+    result?: int;
   }
 
   /**
@@ -495,23 +495,23 @@ declare namespace print {
 
     /**
      * Horizontal DPI.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    horizontalDpi: number;
+    horizontalDpi: int;
 
     /**
      * Vertical DPI.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    verticalDpi: number;
+    verticalDpi: int;
   }
 
   /**
@@ -542,21 +542,21 @@ declare namespace print {
 
     /**
      * Unit: millimeter width.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    width: number;
+    width: int;
 
     /**
      * Unit: millimeter height.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    height: number;
+    height: int;
   }
 
   /**
@@ -570,23 +570,23 @@ declare namespace print {
   interface PrinterCapability {
     /**
      * Color mode.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    colorMode: number;
+    colorMode: int;
 
     /**
      * Duplex mode.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duplexMode: number;
+    duplexMode: int;
 
     /**
      * The page size list supported by the printer.
@@ -670,13 +670,13 @@ declare namespace print {
 
     /**
      * Resource id of printer icon.
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    printerIcon?: number;
+    printerIcon?: int;
 
     /**
      * Printer description.
@@ -720,13 +720,13 @@ declare namespace print {
   interface PrintJob {
     /**
      * Document fd list to be printed.
-     * @type { Array<number> }
+     * @type { Array<int> }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    fdList: Array<number>;
+    fdList: Array<int>;
 
     /**
      * Job id.
@@ -770,13 +770,13 @@ declare namespace print {
 
     /**
      * Copies of document list.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    copyNumber: number;
+    copyNumber: int;
 
     /**
      * Range size to be printed.
@@ -820,23 +820,23 @@ declare namespace print {
 
     /**
      * Color mode.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    colorMode: number;
+    colorMode: int;
 
     /**
      * Duplex mode.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    duplexMode: number;
+    duplexMode: int;
 
     /**
      * Current margin setting.
@@ -871,7 +871,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Direction Mode.
-   * @enum { number } PrintDirectionMode
+   * @enum { int } PrintDirectionMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -904,7 +904,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Color Mode.
-   * @enum { number } PrintColorMode
+   * @enum { int } PrintColorMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -929,7 +929,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Duplex Mode.
-   * @enum { number } PrintDuplexMode
+   * @enum { int } PrintDuplexMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -962,7 +962,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Page Type.
-   * @enum { number } PrintPageType
+   * @enum { int } PrintPageType
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1067,7 +1067,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Document Adapter State.
-   * @enum { number } PrintDocumentAdapterState
+   * @enum { int } PrintDocumentAdapterState
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1116,7 +1116,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print File Creation State.
-   * @enum { number } PrintFileCreationState
+   * @enum { int } PrintFileCreationState
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1149,7 +1149,7 @@ declare namespace print {
 
   /**
    * Enumeration of Printer State.
-   * @enum { number } PrinterState
+   * @enum { int } PrinterState
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1206,7 +1206,7 @@ declare namespace print {
 
   /**
    * Enumeration of  Print Job State.
-   * @enum { number } PrintJobState
+   * @enum { int } PrintJobState
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1255,7 +1255,7 @@ declare namespace print {
 
   /**
    * Enumeration of  Print Job Sub State.
-   * @enum { number } PrintJobSubState
+   * @enum { int } PrintJobSubState
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1398,6 +1398,14 @@ declare namespace print {
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
+     * Print printer driver exception.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17,
+
+    /**
      * Print an error occurred when printing the account.
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'14','1.2':'20'}
@@ -1486,6 +1494,30 @@ declare namespace print {
     PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
 
     /**
+     * Print driver file missing.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_DRIVER_MISSING = 34,
+
+    /**
+     * Print job interrupt.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_INTERRUPT = 35,
+
+    /**
+     * Print on an unavailable printer.
+     * @syscap SystemCapability.Print.PrintFramework
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98,
+
+    /**
      * Print unknown issue.
      * @syscap SystemCapability.Print.PrintFramework
      * @since arkts {'1.1':'14','1.2':'20'}
@@ -1496,7 +1528,7 @@ declare namespace print {
 
   /**
    * Enumeration of  Print error Code.
-   * @enum { number } PrintErrorCode
+   * @enum { int } PrintErrorCode
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1593,7 +1625,7 @@ declare namespace print {
 
   /**
    * Enumeration of application event.
-   * @enum { number } ApplicationEvent
+   * @enum { int } ApplicationEvent
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -1665,13 +1697,13 @@ declare namespace print {
 
     /**
      * Vendor icon.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
      * @since arkts {'1.1':'10','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    vendorIcon: number;
+    vendorIcon: int;
 
     /**
      * Version of current printer extension.
@@ -1714,14 +1746,25 @@ declare namespace print {
    * Load the specific printer extension and start to discover printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *        empty list of extensionList Indicates to find printer with all installed extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Load the specific printer extension and start to discover printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { Array<string> } extensionList - Indicates the list of printer extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
@@ -1730,14 +1773,25 @@ declare namespace print {
    * Load the specific printer extension and start to discover printer.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Array<string> } extensionList - Indicates the list of printer extension.
-   *        empty list of extensionList Indicates to find printer with all installed extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Load the specific printer extension and start to discover printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { Array<string> } extensionList - Indicates the list of printer extension.
+   *     empty list of extensionList Indicates to find printer with all installed extension.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
@@ -1750,7 +1804,15 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Stop discovering the printer with specific printer extension.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
@@ -1763,7 +1825,15 @@ declare namespace print {
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Stop discovering the printer with specific printer extension.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function stopDiscoverPrinter(): Promise<void>;
@@ -1775,10 +1845,20 @@ declare namespace print {
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
@@ -1790,10 +1870,20 @@ declare namespace print {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 10
+   */
+  /**
+   * Connect the specific printer.
+   * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
+   * @param { string } printerId - Indicates id of the printer.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @since 20
    * @arkts 1.1&1.2
    */
   function connectPrinter(printerId: string): Promise<void>;
@@ -1919,25 +2009,24 @@ declare namespace print {
   function cancelPrintJob(jobId: string): Promise<void>;
 
   /**
-   * Request preview of the print job.
+   * Restart the print job has been sent.
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @param { Callback<number> } callback - The callback function for indcating the result of API execution.
+   * @param { string } jobId - Indicates the specific print job.
+   * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since 20
    * @arkts 1.1&1.2
    */
-  function requestPrintPreview(jobInfo: PrintJob, callback: Callback<number>): void;
+  function restartPrintJob(jobId: string): Promise<void>;
 
   /**
    * Request preview of the print job.
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrintJob } jobInfo - Indicates the information of print job.
-   * @returns { Promise<number> } the promise returned by the function.
+   * @param { Callback<int> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -1946,7 +2035,22 @@ declare namespace print {
    * @since arkts {'1.1':'10','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function requestPrintPreview(jobInfo: PrintJob): Promise<number>;
+  function requestPrintPreview(jobInfo: PrintJob, callback: Callback<int>): void;
+
+  /**
+   * Request preview of the print job.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @param { PrintJob } jobInfo - Indicates the information of print job.
+   * @returns { Promise<int> } the promise returned by the function.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  function requestPrintPreview(jobInfo: PrintJob): Promise<int>;
 
   /**
    * Register event callback for the state change of printer.
@@ -2233,9 +2337,9 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
+   * @arkts 1.1&1.2
    */
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
@@ -2248,11 +2352,24 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
    * @deprecated since 11
    * @useinstead print#queryPrintJobList
+   * @arkts 1.1&1.2
    */
   function queryAllPrintJobs(): Promise<void>;
+
+  /**
+   * Get all active printJobs in the queue.
+   * @permission ohos.permission.MANAGE_PRINT_JOB
+   * @returns { Promise<PrintJob[]> } Returns a list of all active print jobs.
+   * @throws { BusinessError } 201 - the application does not have permission to call this function.
+   * @throws { BusinessError } 202 - not system application
+   * @syscap SystemCapability.Print.PrintFramework
+   * @systemapi Hide this for inner system use.
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function queryAllActivePrintJobs(): Promise<PrintJob[]>;
 
   /**
    * Get all the printJobs in the queue.
@@ -2315,7 +2432,7 @@ declare namespace print {
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { PrintAttributes } printAttributes - Indicates print attributes.
-   * @param { number } fd - Indicates print file fd.
+   * @param { int } fd - Indicates print file fd.
    * @param { Callback<PrintFileCreationState> } onFileStateChanged - The callback function for update the file state.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
@@ -2325,7 +2442,7 @@ declare namespace print {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: number,
+  function startGettingPrintFile(jobId: string, printAttributes: PrintAttributes, fd: int,
     onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
@@ -2378,7 +2495,8 @@ declare namespace print {
    * @returns { Promise<PrinterInfo> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'12','1.2':'20'}
@@ -2626,7 +2744,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print Quality.
-   * @enum { number } PrintQuality
+   * @enum { int } PrintQuality
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2659,7 +2777,7 @@ declare namespace print {
 
   /**
    * Enumeration of Print OrientationMode.
-   * @enum { number } PrintOrientationMode
+   * @enum { int } PrintOrientationMode
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2708,7 +2826,7 @@ declare namespace print {
 
   /**
    * Enumeration of Printer Status.
-   * @enum { number } PrinterStatus
+   * @enum { int } PrinterStatus
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'14','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2813,7 +2931,7 @@ declare namespace print {
 
   /**
    * Enumeration of Printer Change Events.
-   * @enum { number } PrinterEvent
+   * @enum { int } PrinterEvent
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2
@@ -2870,7 +2988,7 @@ declare namespace print {
 
   /**
    * Enumeration of default printer type.
-   * @enum { number } DefaultPrinterType
+   * @enum { int } DefaultPrinterType
    * @syscap SystemCapability.Print.PrintFramework
    * @since arkts {'1.1':'18','1.2':'20'}
    * @arkts 1.1&1.2

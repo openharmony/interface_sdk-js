@@ -43,7 +43,8 @@ import type constant from './@ohos.bluetooth.constant';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace ble {
   /**
@@ -67,7 +68,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
 
@@ -93,7 +95,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createGattServer(): GattServer;
 
@@ -131,7 +134,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createGattClientDevice(deviceId: string): GattClientDevice;
 
@@ -174,6 +178,24 @@ declare namespace ble {
    * @since 13
    */
   function getConnectedBLEDevices(): Array<string>;
+
+  /**
+   * Obtains the list of devices in the connected status.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { BleProfile } profile - The profile in the BLE protocol.
+   *     It is used to obtain the connected devices corresponding to the profile.
+   * @returns { Array<string> } Returns the list of device address.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900001 - Service stopped.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getConnectedBLEDevices(profile: BleProfile): Array<string>;
 
   /**
    * Starts scanning for specified BLE devices with filters.
@@ -276,7 +298,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopBLEScan(): void;
 
@@ -394,7 +417,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function stopAdvertising(): void;
 
@@ -954,7 +978,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GattServer {
     /**
@@ -1100,7 +1125,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(): void;
 
@@ -1797,7 +1823,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GattClientDevice {
     /**
@@ -1840,7 +1867,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connect(): void;
 
@@ -1881,7 +1909,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     disconnect(): void;
 
@@ -1925,7 +1954,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(): void;
 
@@ -2878,7 +2908,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setBLEMtuSize(mtu: number): void;
 
@@ -3466,7 +3497,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GattService {
     /**
@@ -3491,7 +3523,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
     /**
@@ -3516,7 +3549,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isPrimary: boolean;
     /**
@@ -3541,7 +3575,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristics: Array<BLECharacteristic>;
     /**
@@ -3584,7 +3619,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BLECharacteristic {
     /**
@@ -3609,7 +3645,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
     /**
@@ -3634,7 +3671,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -3659,7 +3697,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicValue: ArrayBuffer;
     /**
@@ -3684,7 +3723,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptors: Array<BLEDescriptor>;
     /**
@@ -3709,7 +3749,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     properties?: GattProperties;
     /**
@@ -3757,7 +3798,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BLEDescriptor {
     /**
@@ -3782,7 +3824,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
     /**
@@ -3807,7 +3850,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -3832,7 +3876,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptorUuid: string;
     /**
@@ -3857,7 +3902,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptorValue: ArrayBuffer;
     /**
@@ -3905,7 +3951,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface NotifyCharacteristic {
     /**
@@ -3930,7 +3977,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
     /**
@@ -3955,7 +4003,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -3980,7 +4029,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicValue: ArrayBuffer;
     /**
@@ -3998,7 +4048,8 @@ declare namespace ble {
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     confirm: boolean;
   }
@@ -4025,7 +4076,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CharacteristicReadRequest {
     /**
@@ -4050,7 +4102,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4075,7 +4128,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transId: number;
     /**
@@ -4091,7 +4145,8 @@ declare namespace ble {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
     /**
@@ -4116,7 +4171,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -4141,7 +4197,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
   }
@@ -4168,7 +4225,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface CharacteristicWriteRequest {
     /**
@@ -4193,7 +4251,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4218,7 +4277,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transId: number;
     /**
@@ -4234,7 +4294,8 @@ declare namespace ble {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
     /**
@@ -4291,7 +4352,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: ArrayBuffer;
     /**
@@ -4316,7 +4378,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -4341,7 +4404,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
   }
@@ -4368,7 +4432,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DescriptorReadRequest {
     /**
@@ -4393,7 +4458,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4418,7 +4484,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transId: number;
     /**
@@ -4434,7 +4501,8 @@ declare namespace ble {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
     /**
@@ -4459,7 +4527,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptorUuid: string;
     /**
@@ -4484,7 +4553,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -4509,7 +4579,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
   }
@@ -4536,7 +4607,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface DescriptorWriteRequest {
     /**
@@ -4561,7 +4633,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4586,7 +4659,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transId: number;
     /**
@@ -4602,7 +4676,8 @@ declare namespace ble {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
     /**
@@ -4659,7 +4734,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: ArrayBuffer;
     /**
@@ -4684,7 +4760,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     descriptorUuid: string;
     /**
@@ -4709,7 +4786,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     characteristicUuid: string;
     /**
@@ -4734,7 +4812,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
   }
@@ -4761,7 +4840,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ServerResponse {
     /**
@@ -4786,7 +4866,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4811,7 +4892,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transId: number;
     /**
@@ -4836,7 +4918,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     status: number;
     /**
@@ -4852,7 +4935,8 @@ declare namespace ble {
      * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
     /**
@@ -4877,7 +4961,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     value: ArrayBuffer;
   }
@@ -4904,7 +4989,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface BLEConnectionChangeState {
     /**
@@ -4929,7 +5015,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -4954,9 +5041,20 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: ProfileConnectionState;
+    /**
+     * Reason of the disconnection of the gatt connection.
+     *
+     * @type { ?GattDisconnectReason }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    reason?: GattDisconnectReason;
   }
 
   /**
@@ -4981,7 +5079,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScanResult {
     /**
@@ -5006,7 +5105,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId: string;
     /**
@@ -5056,7 +5156,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     data: ArrayBuffer;
     /**
@@ -5106,14 +5207,15 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connectable: boolean;
   }
 
   /**
    * Describes the contents of the scan report.
-   *
+   * 
    * @typedef ScanReport
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -5138,7 +5240,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     scanResult: Array<ScanResult>;
   }
@@ -5165,7 +5268,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AdvertiseSetting {
     /**
@@ -5185,7 +5289,8 @@ declare namespace ble {
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval?: number;
     /**
@@ -5205,7 +5310,8 @@ declare namespace ble {
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     txPower?: number;
     /**
@@ -5230,7 +5336,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     connectable?: boolean;
   }
@@ -5257,7 +5364,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AdvertiseData {
     /**
@@ -5282,7 +5390,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuids: Array<string>;
     /**
@@ -5307,7 +5416,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufactureData: Array<ManufactureData>;
     /**
@@ -5332,7 +5442,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceData: Array<ServiceData>;
     /**
@@ -5385,7 +5496,8 @@ declare namespace ble {
    * @typedef AdvertisingParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AdvertisingParams {
     /**
@@ -5401,7 +5513,8 @@ declare namespace ble {
      * @type { AdvertiseSetting }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     advertisingSettings: AdvertiseSetting;
     /**
@@ -5417,7 +5530,8 @@ declare namespace ble {
      * @type { AdvertiseData }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     advertisingData: AdvertiseData;
     /**
@@ -5433,7 +5547,8 @@ declare namespace ble {
      * @type { ?AdvertiseData }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     advertisingResponse?: AdvertiseData;
     /**
@@ -5443,7 +5558,8 @@ declare namespace ble {
      *
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration?: number;
   }
@@ -5471,7 +5587,8 @@ declare namespace ble {
      *
      * @type { ?number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     duration?: number;
   }
@@ -5507,7 +5624,8 @@ declare namespace ble {
    * @typedef AdvertisingStateChangeInfo
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface AdvertisingStateChangeInfo {
     /**
@@ -5539,7 +5657,8 @@ declare namespace ble {
      * @type { AdvertisingState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     state: AdvertisingState;
   }
@@ -5566,7 +5685,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ManufactureData {
     /**
@@ -5643,7 +5763,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ServiceData {
     /**
@@ -5668,7 +5789,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid: string;
     /**
@@ -5720,7 +5842,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScanFilter {
     /**
@@ -5745,7 +5868,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     deviceId?: string;
 
@@ -5797,7 +5921,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceUuid?: string;
 
@@ -5901,7 +6026,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     serviceData?: ArrayBuffer;
 
@@ -5979,7 +6105,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     manufactureData?: ArrayBuffer;
 
@@ -6032,7 +6159,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface ScanOptions {
     /**
@@ -6057,7 +6185,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     interval?: number;
     /**
@@ -6082,7 +6211,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     dutyMode?: ScanDuty;
     /**
@@ -6098,7 +6228,8 @@ declare namespace ble {
      * @type { ?MatchMode }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     matchMode?: MatchMode;
     /**
@@ -6153,7 +6284,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface GattProperties {
     /**
@@ -6178,7 +6310,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     write?: boolean;
     /**
@@ -6203,7 +6336,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     writeNoResponse?: boolean;
     /**
@@ -6228,7 +6362,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     read?: boolean;
     /**
@@ -6253,7 +6388,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     notify?: boolean;
     /**
@@ -6269,7 +6405,8 @@ declare namespace ble {
      * @type { ?boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     indicate?: boolean;
 
@@ -6326,7 +6463,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum GattWriteType {
     /**
@@ -6348,7 +6486,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WRITE = 1,
     /**
@@ -6370,7 +6509,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WRITE_NO_RESPONSE = 2
   }
@@ -6397,7 +6537,8 @@ declare namespace ble {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ScanDuty {
     /**
@@ -6419,7 +6560,8 @@ declare namespace ble {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SCAN_MODE_LOW_POWER = 0,
     /**
@@ -6481,7 +6623,8 @@ declare namespace ble {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum MatchMode {
     /**
@@ -6495,7 +6638,8 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MATCH_MODE_AGGRESSIVE = 1,
     /**
@@ -6509,7 +6653,8 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MATCH_MODE_STICKY = 2
   }
@@ -6527,7 +6672,8 @@ declare namespace ble {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum AdvertisingState {
     /**
@@ -6541,21 +6687,24 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STARTED = 1,
     /**
      * advertising temporarily enabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ENABLED = 2,
     /**
      * advertising temporarily disabled.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     DISABLED = 3,
     /**
@@ -6569,7 +6718,8 @@ declare namespace ble {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STOPPED = 4
   }
@@ -6628,7 +6778,7 @@ declare namespace ble {
 
   /**
    * Report mode used during scan.
-   *
+   * 
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
@@ -6713,6 +6863,93 @@ declare namespace ble {
     ON_BATCH = 3,
   }
 
+  /**
+   * The Profile of the BLE protocol.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  enum BleProfile {
+    /**
+     * Indicates the profile type of the gatt, including gatt client and gatt server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT = 1,
+    /**
+     * Indicates the profile type of the gatt client.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT_CLIENT = 2,
+    /**
+     * Indicates the profile type of the gatt server.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    GATT_SERVER = 3
+  }
+
+  /**
+   * The enum of gatt disconnection reasons.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  enum GattDisconnectReason {
+
+    /**
+     * Disconnection due to timeout.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TIMEOUT = 1,
+
+    /**
+     * The connection is disconnected due to the peer.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TERMINATE_PEER_USER = 2,
+
+    /**
+     * The connection is disconnected due to the local host.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_TERMINATE_LOCAL_HOST = 3,
+
+    /**
+     * Disconnection due to unknown reason.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    CONN_UNKNOWN = 4
+  }
+  
   /**
    * Describes the permission of a att attribute item.
    *

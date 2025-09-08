@@ -159,7 +159,7 @@ declare namespace audio {
    * <p><strong>NOTE</strong>:
    * The {@link AudioManager} instance is not a singleton.
    * </p>
-   * 
+   *
    * @returns { AudioManager } this {@link AudioManager} object.
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -230,9 +230,9 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -255,7 +255,7 @@ declare namespace audio {
   /**
    * Obtains an {@link AudioRenderer} instance.
    * This method uses a promise to return the renderer instance.
-   * 
+   *
    * The AudioRenderer instance is used to play streaming audio data.
    * When using AudioRenderer apis, there are many instructions for application
    * to achieve better performance and lower power consumption:
@@ -265,9 +265,9 @@ declare namespace audio {
    *
    * Application developer should also be careful when app goes to background, please check if your audio playback
    * is still needed, see **Audio Resources** in best practices document.
-   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take 
+   * And avoiding to send silence audio data continuously to waste system resources, otherwise system will take
    * control measures when this behavior is detected, see **Audio Playback** in best practices document.
-   * 
+   *
    * If you want to use AudioRenderer api to implement a music playback application, there are also many interactive
    * scenes to consider, see **Developing an Audio Application** in best practices document.
    *
@@ -463,6 +463,66 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates audio loopback reverberation preset.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackReverbPreset {
+    /**
+     * A preset that keep the original reverberation without any enhancement.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    ORIGINAL = 1,
+    /**
+     * A preset representing a reverberation effect with karaoke-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    KTV = 2,
+    /**
+     * A preset representing a reverberation effect with theater-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    THEATER = 3,
+    /**
+     * A preset representing a reverberation effect with concert-like acoustic characteristics.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    CONCERT = 4,
+  }
+
+  /**
+   * Enumerates audio loopback equalizer preset.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @since 21
+   */
+  enum AudioLoopbackEqualizerPreset {
+    /**
+     * A preset that keep the original frequency response without any enhancement.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    FLAT = 1,
+    /**
+     * A preset representing a equalizer that can enhance the fullness of the vocie
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    FULL = 2,
+    /**
+     * A preset representing a equalizer that can enhance the brightness of the vocie
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    BRIGHT = 3,
+  }
+
+  /**
    * Enumerates audio stream types.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -506,7 +566,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Audio volume type for media purpose. 
+     * Audio volume type for media purpose.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
@@ -536,6 +596,13 @@ declare namespace audio {
      * @since 12
      */
     ACCESSIBILITY = 5,
+    /**
+     * Audio volume for system sound.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    SYSTEM = 6,
     /**
      * Audio volume type for voice assistant.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -919,6 +986,12 @@ declare namespace audio {
      * @since 18
      */
     REMOTE_DAUDIO = 29,
+    /**
+     * Hearing aid audio device.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    HEARING_AID = 30,
     /**
      * Nearlink Device.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -1656,7 +1729,7 @@ declare namespace audio {
      * @since 7
      */
     /**
-     * Used for network voice call, such as WeChat voice call, QQ voice call, etc.
+     * Voice communication usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice
@@ -1829,7 +1902,7 @@ declare namespace audio {
      */
     STREAM_USAGE_ULTRASONIC = 16,
     /**
-     * Used for network video call.
+     * Video communication or video conference usage.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12
@@ -4411,6 +4484,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -4429,6 +4504,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActive(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -4453,6 +4530,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioStreamManager#isStreamActive
      */
     isActiveSync(volumeType: AudioVolumeType): boolean;
 
@@ -4468,7 +4547,8 @@ declare namespace audio {
     /**
      * Checks whether the specified audio source type supports echo cancellation
      * @param { SourceType } sourceType Type of audio source.
-     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo cancellation, and <b>false</b> means the opposite.
+     * @returns { boolean } Check result. The value <b>true</b> means that the audio source type supports echo
+     *     cancellation, and <b>false</b> means the opposite.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
@@ -4562,6 +4642,104 @@ declare namespace audio {
   }
 
   /**
+   * Audio session scene.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum AudioSessionScene {
+    /**
+     * Scene for media.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_MEDIA = 0,
+    /**
+     * Scene for game.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_GAME = 1,
+    /**
+     * Scene for voice communication.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2,
+  }
+
+  /**
+   * Enumerates the session state change hints.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum AudioSessionStateChangeHint {
+    /**
+     * Resume the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_RESUME = 0,
+
+    /**
+     * Paused/Pause the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_PAUSE = 1,
+
+    /**
+     * Stopped/Stop the playback due to focus priority.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_STOP = 2,
+
+    /**
+     * Stopped/Stop the playback due to no audio stream for a long time.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_TIME_OUT_STOP = 3,
+
+    /**
+     * Ducked the playback. (In ducking, the audio volume is reduced, but not silenced.)
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_DUCK = 4,
+
+    /**
+     * Unducked the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK = 5,
+  }
+
+  /**
+   * Enumerates the recommend action when device change.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  enum OutputDeviceChangeRecommendedAction {
+    /**
+     * Recommend to continue the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    DEVICE_CHANGE_RECOMMEND_TO_CONTINUE = 0,
+    /**
+     * Recommend to stop the playback.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    DEVICE_CHANGE_RECOMMEND_TO_STOP = 1,
+  }
+
+  /**
    * Audio session strategy.
    * @typedef AudioSessionStrategy
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4598,6 +4776,52 @@ declare namespace audio {
   }
 
   /**
+   * Audio session state change event.
+   * @typedef AudioSessionStateChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  interface AudioSessionStateChangedEvent {
+    /**
+     * Audio session state change hints.
+     * @type { AudioSessionStateChangeHint }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    stateChangeHint: AudioSessionStateChangeHint;
+  }
+
+  /**
+   * Audio session device change info.
+   * @typedef CurrentOutputDeviceChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 20
+   */
+  interface CurrentOutputDeviceChangedEvent {
+    /**
+     * Audio device descriptors after change.
+     * @type { AudioDeviceDescriptors }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio device change reason.
+     * @type { AudioStreamDeviceChangeReason }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+    /**
+     * Recommend action when device change.
+     * @type { OutputDeviceChangeRecommendedAction }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    recommendedAction: OutputDeviceChangeRecommendedAction;
+  }
+
+  /**
    * Implements audio session management.
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4607,6 +4831,7 @@ declare namespace audio {
   interface AudioSessionManager {
     /**
      * Activate the audio session for the current pid application.
+     * If {@link setAudioSessionScene} is called, it will take focus when calling this method.
      * @param { AudioSessionStrategy } strategy - Audio session strategy.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4667,6 +4892,98 @@ declare namespace audio {
     * @since 12
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
+
+    /**
+     * Set scene for audio session.
+     * @param { AudioSessionScene } scene - Audio session scene.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    setAudioSessionScene(scene: AudioSessionScene): void;
+
+    /**
+     * Listens for audio session state change event. When the audio session state change,
+     * registered clients will receive the callback.
+     * @param { 'audioSessionStateChanged' } type - Type of the event to listen for.
+     * Only the audioSessionStateChanged event is supported.
+     * @param { Callback<AudioSessionStateChangedEvent> } callback - Callback invoked for the audio session state change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Allocate memory failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 20
+     */
+    on(type: 'audioSessionStateChanged', callback: Callback<AudioSessionStateChangedEvent>): void;
+
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { 'audioSessionStateChanged' } type - Type of the event to listen for.
+    * Only the audioSessionStateChanged event is supported.
+    * @param { Callback<AudioSessionStateChangedEvent> } [callback] - Callback invoked for the audio session state change event.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @since 20
+    */
+    off(type: 'audioSessionStateChanged', callback?: Callback<AudioSessionStateChangedEvent>): void;
+
+    /**
+     * Gets the default output device.
+     * @returns { DeviceType } - the available deviceTypes are
+     *                           EARPIECE: Built-in earpiece
+     *                           SPEAKER: Built-in speaker
+     *                           DEFAULT: System default output device
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    getDefaultOutputDevice(): DeviceType;
+
+    /**
+     * Temporarily changes the current audio device
+     * This function applys on audiorenderers whose StreamUsage are
+     * STREAM_USAGE_VOICE_COMMUNICATION/STREAM_USAGE_VIDEO_COMMUNICATION/STREAM_USAGE_VOICE_MESSAGE.
+     * Setting the device will only takes effect if no other accessory such as headphones are in use
+     * @param { DeviceType } deviceType - the available deviceTypes are
+     *                                    EARPIECE: Built-in earpiece
+     *                                    SPEAKER: Built-in speaker
+     *                                    DEFAULT: System default output device
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
+     * @throws { BusinessError } 6800102 - Allocate memory failed. Return by promise.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    setDefaultOutputDevice(deviceType: DeviceType): Promise<void>;
+
+    /**
+     * Subscribes output device change event callback.
+     * The event is triggered when device change.
+     * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Allocate memory failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    on(type: 'currentOutputDeviceChanged', callback: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * UnSubscribes output device change event callback.
+     * @param { 'currentOutputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used to listen device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    off(type: 'currentOutputDeviceChanged', callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
   }
 
   /**
@@ -4870,6 +5187,37 @@ declare namespace audio {
     setAppVolumePercentage(volume: number): Promise<void>;
 
     /**
+     * Sets the volume for a stream. This method uses a promise to return the result.
+     * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { number } volume - Volume to set. The value range can be obtained by calling getMinVolume and getMaxVolume.
+     * @param { number } callingUid - Uid of the stream owner.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    setSystemVolumeByUid(volumeType: AudioVolumeType, volume: number, callingUid: number): Promise<void>;
+
+    /**
+     * Obtains the volume of a stream.
+     * @param { AudioVolumeType } volumeType - Audio stream type.
+     * @param { number } callingUid - Uid of the stream owner.
+     * @returns { number } Current system volume level.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    getSystemVolumeByUid(volumeType: AudioVolumeType, callingUid: number): number;
+
+    /**
      * Listens for system volume change events. This method uses a callback to get volume change events.
      * @param { 'volumeChange' } type - Type of the event to listen for. Only the volumeChange event is supported.
      * @param { Callback<VolumeEvent> } callback - Callback used to get the system volume change event.
@@ -4891,6 +5239,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
 
@@ -4904,6 +5254,8 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#event:streamVolumeChange
      */
     off(type: 'volumeChange', callback?: Callback<VolumeEvent>): void;
 
@@ -5185,6 +5537,24 @@ declare namespace audio {
      * @since 20
      */
     off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
+
+    /**
+     * Interface for forcibly setting the volume type by pressing the volume key.
+     * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
+     * @param { AudioVolumeType } volumeType - Audio volume type.
+     * that the application expects to control using the volume key.
+     * @param { number } duration - Duration for continuing to control the volume type when no key is pressed.
+     * The forced volume type setting is released when the timer expires. The maximum duration is 10 seconds.
+     * If the duration is set to -1, the setting is canceled.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @since 20
+     */
+    forceVolumeKeyControlType(volumeType: AudioVolumeType, duration: number): void;
   }
 
   /**
@@ -5269,6 +5639,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5285,6 +5657,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5309,6 +5683,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeByStream
      */
     getVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5326,6 +5702,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5342,6 +5720,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5366,6 +5746,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMinVolumeByStream
      */
     getMinVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5383,6 +5765,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<number>): void;
     /**
@@ -5399,6 +5783,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolume(volumeType: AudioVolumeType): Promise<number>;
     /**
@@ -5423,6 +5809,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getMaxVolumeByStream
      */
     getMaxVolumeSync(volumeType: AudioVolumeType): number;
 
@@ -5465,6 +5853,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
@@ -5483,6 +5873,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
@@ -5509,6 +5901,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#isSystemMutedForStream
      */
     isMuteSync(volumeType: AudioVolumeType): boolean;
 
@@ -5863,6 +6257,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback<number>): void;
     /**
@@ -5895,6 +6291,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise<number>;
     /**
@@ -5923,6 +6321,8 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform
      * @since 12
+     * @deprecated since 20
+     * @useinstead ohos.multimedia.audio.AudioVolumeManager#getVolumeInUnitOfDbByStream
      */
     getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number;
 
@@ -6473,12 +6873,13 @@ declare namespace audio {
     /**
      * Enables or disables collaborative playback for the specified device.
      * Currently, only A2DP audio devices support collaborative playback.
-     * If the system is using the specified device for audio output, 
+     * If the system is using the specified device for audio output,
      * the audio will be played from both the local speaker and the specified device after this API is called.
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor.
      * @param { boolean } enabled - Whether to enable or disable collaborative playback. The value true means to enable it, and false means to disable it.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 6800101 - Parameter verification failed. Possible causes:
      *                              1. The specified device is not an A2DP device.
      *                              2. The specified device is not connected.
@@ -7454,6 +7855,18 @@ declare namespace audio {
      * @since 12
      */
     REASON_OVERRODE = 3,
+    /**
+     * Device information when the audio session is activated.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    REASON_SESSION_ACTIVATED = 4,
+    /**
+     * There is a higher-priority stream, causing the system device to change.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 20
+     */
+    REASON_STREAM_PRIORITY_CHANGED = 5,
   }
   /**
    * Audio stream device change info.
@@ -8988,7 +9401,7 @@ declare namespace audio {
      */
     SOURCE_TYPE_UNPROCESSED = 14,
     /**
-     * live broadcast source type.
+     * Live broadcast source type.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20
      */
@@ -9581,11 +9994,11 @@ declare namespace audio {
     getOverflowCountSync(): number;
 
     /**
-     * Set if capturer want to be muted instead of interrupted. should be set before start
+     * Set if capturer want to be muted instead of interrupted, should be set before start.
      * @param { boolean } muteWhenInterrupted - use {@code true} if application want its stream to be muted
      *     instead of interrupted.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 6800103 - Operation not permit at current state.
+     * @throws { BusinessError } 6800103 - Operation not permitted at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20
      */
@@ -11410,6 +11823,50 @@ declare namespace audio {
      * @since 20
      */
     enable(enable: boolean): Promise<boolean>;
+
+    /**
+     * Sets the reverberation of the audio loopback.
+     *
+     * @param { AudioLoopbackReverbPreset } preset - Reverberation preset.
+     * @returns { boolean } Returns success or failure.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setReverbPreset(preset: AudioLoopbackReverbPreset): boolean;
+
+    /**
+     * Get the current reverberation.
+     * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
+     * users do not modify the preset.
+     * 
+     * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getReverbPreset(): AudioLoopbackReverbPreset;
+
+    /**
+     * Sets the equalizer preset of the audio loopback.
+     *
+     * @param { AudioLoopbackEqualizerPreset } preset - Equalizer preset.
+     * @returns { boolean } Returns success or failure.
+     * @throws  { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean;
+
+    /**
+     * Gets the current equalizer preset.
+     * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
+     * users do not modify the preset.
+     * 
+     * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @since 21
+     */
+    getEqualizerPreset(): AudioLoopbackEqualizerPreset;
   }
 }
 

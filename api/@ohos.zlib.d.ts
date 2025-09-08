@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -254,7 +254,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ParallelStrategy {
     /**
@@ -263,7 +264,8 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
@@ -272,9 +274,41 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
+  }
+  
+  /**
+   * PathSeparatorStrategy
+   *
+   * @enum { int }
+   * @syscap SystemCapability.BundleManager.Zlib
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  export enum PathSeparatorStrategy {
+    /**
+     * Default strategy that no processing of path separators.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    PATH_SEPARATOR_STRATEGY_DEFAULT = 0,
+    /**
+     * Strategy to that replaces backslash '\' with slash '/' during file decompression.
+     * This ensures path consistency across platforms (e.g., converting Windows-style paths to Unix-style paths).
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    PATH_SEPARATOR_STRATEGY_REPLACE_BACKSLASH = 1
   }
 
   /**
@@ -570,9 +604,20 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     parallel?: ParallelStrategy;
+    /**
+     * Indicates the path separator strategy.
+     *
+     * @type { ?PathSeparatorStrategy }
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    pathSeparatorStrategy?: PathSeparatorStrategy;
   }
 
   /**
@@ -1028,7 +1073,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
@@ -1058,7 +1104,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
@@ -1074,7 +1121,8 @@ declare namespace zlib {
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
@@ -1212,7 +1260,8 @@ declare namespace zlib {
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getOriginalSize(compressedFile: string): Promise<number>;
 
@@ -1222,7 +1271,8 @@ declare namespace zlib {
    * @returns { Promise<Checksum> } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksum(): Promise<Checksum>;
 
@@ -1232,7 +1282,8 @@ declare namespace zlib {
    * @returns { Checksum } Returns verification objects.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createChecksumSync(): Checksum;
 
@@ -1282,7 +1333,8 @@ declare namespace zlib {
    * @typedef Checksum
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Checksum {
     /**
@@ -1295,7 +1347,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adler32(adler: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1310,7 +1363,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     adler32Combine(adler1: number, adler2: number, len2: number): Promise<number>;
 
@@ -1324,7 +1378,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crc32(crc: number, buf: ArrayBuffer): Promise<number>;
 
@@ -1339,7 +1394,8 @@ declare namespace zlib {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     crc32Combine(crc1: number, crc2: number, len2: number): Promise<number>;
 
@@ -1363,7 +1419,8 @@ declare namespace zlib {
      * @returns { Promise<Array<number>> } Return a array to the CRC-32 table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCrcTable(): Promise<Array<number>>;
 

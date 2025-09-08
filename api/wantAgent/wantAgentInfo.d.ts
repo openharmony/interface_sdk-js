@@ -19,8 +19,11 @@
  */
 
 import Want from '../@ohos.app.ability.Want';
+/*** if arkts 1.1 */
 import wantAgent from '../@ohos.wantAgent';
+/*** endif */
 import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
+
 
 /**
  * Provides the information required for triggering a WantAgent.
@@ -35,7 +38,8 @@ import type abilityWantAgent from '../@ohos.app.ability.wantAgent';
  * @typedef WantAgentInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface WantAgentInfo {
   /**
@@ -51,7 +55,8 @@ export interface WantAgentInfo {
    * @type { Array<Want> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wants: Array<Want>;
 
@@ -89,7 +94,8 @@ export interface WantAgentInfo {
    * @type { ?abilityWantAgent.OperationType }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   actionType?: abilityWantAgent.OperationType;
 
@@ -144,7 +150,8 @@ export interface WantAgentInfo {
    * @type { ?Array<abilityWantAgent.WantAgentFlags> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
@@ -170,6 +177,17 @@ export interface WantAgentInfo {
   /**
    * Extra information about how the Want starts an ability.
    * If there is no extra information to set, this constant can be left empty.
+   *
+   * @type { ?Record<string, Object> }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  extraInfo?: Record<string, Object>;
+
+  /**
+   * Extra information about how the Want starts an ability.
+   * If there is no extra information to set, this constant can be left empty.
    * The ability of this property is same as extraInfo. If both are set, this property will be used.
    *
    * @type { ?Record<string, Object> }
@@ -184,7 +202,8 @@ export interface WantAgentInfo {
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extraInfos?: Record<string, Object>;
 }

@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from '../../global/resource';
+import { ResourceColor } from './units';
+import { FontWeight } from './enums';
+import { CommonMethod,Optional } from "./common";
+/*** endif */
+
 /**
  * Provides an interface for SymbolGlyph.
  *
@@ -43,6 +50,7 @@
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 interface SymbolGlyphInterface {
   /**
@@ -73,6 +81,7 @@ interface SymbolGlyphInterface {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   (value?: Resource): SymbolGlyphAttribute;
 }
@@ -102,6 +111,7 @@ interface SymbolGlyphInterface {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum SymbolRenderingStrategy {
   /**
@@ -126,6 +136,7 @@ declare enum SymbolRenderingStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   SINGLE = 0,
 
@@ -151,6 +162,7 @@ declare enum SymbolRenderingStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   MULTIPLE_COLOR = 1,
 
@@ -176,6 +188,7 @@ declare enum SymbolRenderingStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   MULTIPLE_OPACITY = 2,
 }
@@ -205,6 +218,7 @@ declare enum SymbolRenderingStrategy {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum SymbolEffectStrategy {
   /**
@@ -229,6 +243,7 @@ declare enum SymbolEffectStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   NONE = 0,
 
@@ -254,6 +269,7 @@ declare enum SymbolEffectStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   SCALE = 1,
 
@@ -279,6 +295,7 @@ declare enum SymbolEffectStrategy {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   HIERARCHICAL = 2,
 }
@@ -301,6 +318,7 @@ declare enum SymbolEffectStrategy {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum EffectDirection {
   /**
@@ -319,6 +337,7 @@ declare enum EffectDirection {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   DOWN = 0,
   /**
@@ -337,6 +356,7 @@ declare enum EffectDirection {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   UP = 1,
 }
@@ -359,6 +379,7 @@ declare enum EffectDirection {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum EffectScope {
   /**
@@ -377,6 +398,7 @@ declare enum EffectScope {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   LAYER = 0,
   /**
@@ -395,6 +417,7 @@ declare enum EffectScope {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   WHOLE = 1,
 }
@@ -417,6 +440,7 @@ declare enum EffectScope {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum EffectFillStyle {
   /**
@@ -435,6 +459,7 @@ declare enum EffectFillStyle {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   CUMULATIVE = 0,
 
@@ -454,8 +479,57 @@ declare enum EffectFillStyle {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   ITERATIVE = 1,
+}
+
+/**
+ * The replace effect type of symbol.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ */
+declare enum ReplaceEffectType {
+  /**
+   * The default replace effect of symbol, the current symbol fully disappears before the new symbol fades in.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  SEQUENTIAL = 0,
+ 
+  /**
+   * The current symbol fades out while the new symbol fades in at the same time,
+   * producing a smoother and faster transition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  CROSS_FADE = 1,
+
+  /**
+   * Replaces the current symbol with a symbol that includes a diagonal slash overlay,
+   * typically used to indicate a disabled or inactive state.
+   * If a corresponding slashed symbol variant is not available, the symbol is replaced without animation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  SLASH_OVERLAY = 2,
 }
 
 /**
@@ -474,6 +548,7 @@ declare enum EffectFillStyle {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class SymbolEffect {
 }
@@ -496,6 +571,7 @@ declare class SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class ScaleSymbolEffect extends SymbolEffect {
   /**
@@ -518,6 +594,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
@@ -539,6 +616,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
   
@@ -560,6 +638,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
 }
@@ -582,6 +661,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class HierarchicalSymbolEffect extends SymbolEffect {
   /**
@@ -602,6 +682,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(fillStyle?: EffectFillStyle);
   
@@ -623,6 +704,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fillStyle?: EffectFillStyle;
 }
@@ -645,6 +727,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class AppearSymbolEffect extends SymbolEffect {
   /**
@@ -665,6 +748,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
   
@@ -686,6 +770,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
 }
@@ -708,6 +793,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
   /**
@@ -728,6 +814,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
   
@@ -749,6 +836,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
 }
@@ -771,6 +859,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class BounceSymbolEffect extends SymbolEffect {
   /**
@@ -793,6 +882,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope, direction?: EffectDirection);
   
@@ -814,6 +904,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
   
@@ -835,6 +926,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   direction?: EffectDirection;
 }
@@ -857,6 +949,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
   /**
@@ -877,8 +970,21 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   constructor(scope?: EffectScope);
+
+  /**
+   * constructor.
+   * @param { EffectScope } [scope] -  The scope type of symbol effect.
+   * @param { ReplaceEffectType } [replaceType] - The replace effect type of symbol effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
   
   /**
    * The scope type of symbol effect
@@ -898,8 +1004,21 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   scope?: EffectScope;
+
+  /**
+   * The replace effect type of symbol effect.
+   *
+   * @type { ?ReplaceEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  replaceType?: ReplaceEffectType;
 }
 
 /**
@@ -909,75 +1028,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PulseSymbolEffect extends SymbolEffect {
-}
-
-/**
- * Defines DisableSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 20
- */
-declare class DisableSymbolEffect extends SymbolEffect {
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  constructor(scope?: EffectScope);
-
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  scope?: EffectScope;
-}
-
-/**
- * Defines QuickReplaceSymbolEffect class.
- *
- * @extends SymbolEffect
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 20
- */
-declare class QuickReplaceSymbolEffect extends SymbolEffect {
-  /**
-   * constructor.
-   *
-   * @param { EffectScope } [scope] -  The scope type of symbol effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  constructor(scope?: EffectScope);
-
-  /**
-   * The scope type of symbol effect
-   *
-   * @type { ?EffectScope }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 20
-   */
-  scope?: EffectScope;
 }
 
 /**
@@ -1005,6 +1059,7 @@ declare class QuickReplaceSymbolEffect extends SymbolEffect {
  * @form
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
@@ -1035,6 +1090,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
@@ -1066,19 +1122,28 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
    * Set the shader style of the symbol, such as lineargradient or radialgradient.
    *
-   * @param { Array<ShaderStyle> } shaders - The shaders style of the symbol.
+   * If a single `ShaderStyle` is provided, all layers of the symbol will use this shader style.
+   * If an array is provided, each item corresponds to the shader style of the matching symbol layer.
+   * - If an array item is `undefined`, that layer will use its default color.
+   * - Any layers beyond the length of the array will also use their default color.
+   *
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - The shader style(s) to apply.
+   *     - `ShaderStyle`: Apply the same shader style to all symbol layers.
+   *     - `Array<ShaderStyle | undefined>`: Specify shader styles per layer; `undefined` means default
+   *     color for that layer.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
    */
-  shaderStyle(shaders: Array<ShaderStyle>): SymbolGlyphAttribute;
+  shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
    * Called when the font symbolGlyph weight is set.
@@ -1108,6 +1173,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
@@ -1139,6 +1205,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
@@ -1170,6 +1237,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
@@ -1222,6 +1290,21 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @since 20
    */
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
+  
+  /**
+   *  Define effect options for SymbolGlyph.
+   *
+   * @param { SymbolEffect } [symbolEffect] - The symbol effect type
+   * @param { boolean | number } [triggerValue] - The trigger of the effect
+   * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  symbolEffect(symbolEffect: SymbolEffect, triggerValue?: boolean | number): SymbolGlyphAttribute;
 
   /**
    * Called when the minimum font scale of the font is set.
@@ -1241,6 +1324,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   minFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 
@@ -1262,6 +1346,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   maxFontScale(scale: Optional<number | Resource>): SymbolGlyphAttribute;
 

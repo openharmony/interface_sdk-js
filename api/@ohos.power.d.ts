@@ -25,7 +25,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  *
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace power {
   /**
@@ -41,7 +42,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function shutdown(reason: string): void;
 
@@ -73,7 +75,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function reboot(reason: string): void;
 
@@ -106,7 +109,8 @@ declare namespace power {
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isActive(): boolean;
 
@@ -134,7 +138,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function wakeup(detail: string): void;
 
@@ -170,7 +175,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -179,7 +185,8 @@ declare namespace power {
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getPowerMode(): DevicePowerMode;
 
@@ -195,7 +202,8 @@ declare namespace power {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -211,7 +219,8 @@ declare namespace power {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -221,7 +230,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isStandby(): boolean;
 
@@ -247,7 +257,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -266,53 +277,129 @@ declare namespace power {
    * Sets the timeout duration(ms) for turning off the screen with permission.
    *
    * @permission ohos.permission.POWER_MANAGER
-   * @param { number } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
+   * @param { long } timeout - Indicates duration(ms) for turning off the screen. The value -1 means restore the default value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setScreenOffTime(timeout: number): void;
+  function setScreenOffTime(timeout: long): void;
+
+  /**
+   * Refresh the device activity (such as resetting the screen-off time, etc).
+   * Available only when the device is active, see {@link isActive}
+   *
+   * @permission ohos.permission.REFRESH_USER_ACTION
+   * @param { string } reason Indicates the reason of refreshing activity. The reason parameter must be of type string.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission 
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @throws { BusinessError } 4900201 - The device activity is being refreshed too frequently; the minimum time
+   *     interval is 100 ms.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 20
+   */
+  function refreshActivity(reason: string): void;
 
   /**
    * Power mode of a device.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum DevicePowerMode {
     /**
      * Normal power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
-     *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
+     *
      */
     MODE_POWER_SAVE,
     /**
      * Performance power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MODE_PERFORMANCE,
     /**
      * Extreme power save mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    MODE_EXTREME_POWER_SAVE
+    MODE_EXTREME_POWER_SAVE,
+    /**
+     * Custom power save mode.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 20
+     */
+    MODE_CUSTOM_POWER_SAVE = 650
+  }
+
+  /**
+   * Set the power key filtering strategy.
+   * The power service typically subscribes to the power key event. And this API is used to configure how the power key
+   *     event should be handled.
+   * 
+   * @permission ohos.permission.POWER_MANAGER
+   * @param { PowerKeyFilteringStrategy } strategy Indicates power key filtering
+   *     strategy {@link PowerKeyFilteringStrategy} to set.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 4900101 - Failed to connect to the service.
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @systemapi
+   * @since 21
+   */
+  function setPowerKeyFilteringStrategy(strategy: PowerKeyFilteringStrategy): void;
+
+  /**
+   * Power key filtering strategy.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.PowerManager.PowerManager.Core
+   * @since 21
+   */
+  export enum PowerKeyFilteringStrategy {
+    /**
+     * Disable the filtering of power key long-press event.
+     * The power service typically subscribes to the power key long-press event whose duration is configurable. And this
+     *     is the default strategy of handling the power key long-press event.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 21
+     */
+    DISABLE_LONG_PRESS_FILTERING = 0,
+    /**
+     * Filter the ongoing power key long-press event only once.
+     * The next power key long-press event is not filtered by default.
+     *
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 21
+     */
+    LONG_PRESS_FILTERING_ONCE = 1
   }
 }
 export default power;

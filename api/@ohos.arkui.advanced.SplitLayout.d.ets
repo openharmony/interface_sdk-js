@@ -32,6 +32,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ * @noninterop
  */
 @Component
 export declare struct SplitLayout {
@@ -48,7 +49,7 @@ export declare struct SplitLayout {
    * @atomicservice
    * @since 11
    */
-    @BuilderParam container: () => void;
+  @BuilderParam container: () => void;
 
   /**
    * Image in the layout.

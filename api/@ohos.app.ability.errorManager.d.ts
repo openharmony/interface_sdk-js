@@ -453,6 +453,21 @@ declare namespace errorManager {
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
   /**
+   * Set the default exception handler, This function will be excuted right after the callback function registered
+   * through errorManger.on is executed. You can use it to implement chain calls instead of errorManager.on.
+   * This API must be called in the main thread.
+   *
+   * @param { ErrorHandler } [defaultHandler] - the default error handler.
+   * @returns { ErrorHandler } return original default handler.
+   * @throws { BusinessError } 16000205 - The API is not called in the main thread.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1
+   */
+    function setDefaultErrorHandler(defaultHandler?: ErrorHandler): ErrorHandler;
+
+  /**
    * The observer will be called by system when an error occurs.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -525,6 +540,17 @@ declare namespace errorManager {
    * @since 18
    */
   export type FreezeObserver = () => void;
+  /**
+   * ErrorHandler will be called when ArkTS runtime throws an exception which doesn't caught by user.
+   * 
+   * @typedef { function }
+   * @param { Error} errObject - the error object about the exception.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1
+   */
+  export type ErrorHandler = (errObject: Error) => void;
 }
 
 export default errorManager;

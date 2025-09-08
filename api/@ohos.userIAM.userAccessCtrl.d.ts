@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit UserAuthenticationKit
+ * @arkts 1.1&1.2
  */
 
 import userAuth from '@ohos.userIAM.userAuth';
@@ -25,7 +26,8 @@ import userAuth from '@ohos.userIAM.userAuth';
  *
  * @namespace userAccessCtrl
  * @syscap SystemCapability.UserIAM.UserAuth.Core
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare namespace userAccessCtrl {
   /**
@@ -33,11 +35,11 @@ declare namespace userAccessCtrl {
    *
    * @permission ohos.permission.USE_USER_ACCESS_MANAGER
    * @param { Uint8Array } authToken - AuthToken to be verified.
-   * @param { number } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
+   * @param { int } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
    * @returns { Promise<AuthToken> } Returns parsed authToken.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 401 - Incorrect parameters. Possible causes:
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br>1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types.
    * <br>3. Parameter verification failed.
@@ -46,9 +48,10 @@ declare namespace userAccessCtrl {
    * @throws { BusinessError } 12500016 - AuthToken has expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'22'}
+   * @arkts 1.1&1.2
    */
-  function verifyAuthToken(authToken: Uint8Array, allowableDuration: number): Promise<AuthToken>;
+  function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
   /**
    * Authentication token.
@@ -56,7 +59,8 @@ declare namespace userAccessCtrl {
    * @typedef AuthToken
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   interface AuthToken {
     /**
@@ -65,7 +69,8 @@ declare namespace userAccessCtrl {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     challenge: Uint8Array;
 
@@ -75,7 +80,8 @@ declare namespace userAccessCtrl {
      * @type { userAuth.AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     authTrustLevel: userAuth.AuthTrustLevel;
 
@@ -85,7 +91,8 @@ declare namespace userAccessCtrl {
      * @type { userAuth.UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     authType: userAuth.UserAuthType;
 
@@ -95,19 +102,21 @@ declare namespace userAccessCtrl {
      * @type { AuthTokenType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     tokenType: AuthTokenType;
 
     /**
      * The user id of authToken.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
-    userId: number;
+    userId: int;
 
     /**
      * The time interval from the authToken is issued till now in milliseconds.
@@ -115,7 +124,8 @@ declare namespace userAccessCtrl {
      * @type { bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     timeInterval: bigint;
 
@@ -125,7 +135,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     secureUid?: bigint;
 
@@ -135,7 +146,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     enrolledId?: bigint;
 
@@ -145,7 +157,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     credentialId?: bigint;
   }
@@ -153,10 +166,11 @@ declare namespace userAccessCtrl {
   /**
    * The issued type for authToken.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   enum AuthTokenType {
     /**
@@ -164,7 +178,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     TOKEN_TYPE_LOCAL_AUTH = 0,
 
@@ -173,7 +188,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     TOKEN_TYPE_LOCAL_RESIGN = 1,
 
@@ -182,7 +198,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     TOKEN_TYPE_COAUTH = 2
   }

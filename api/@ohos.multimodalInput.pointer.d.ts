@@ -444,15 +444,14 @@ declare namespace pointer {
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Loading state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     LOADING,
@@ -461,15 +460,14 @@ declare namespace pointer {
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Running state with dynamic cursor
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts{ '1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     RUNNING,

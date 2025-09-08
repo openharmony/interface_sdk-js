@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor } from './units';
+import { CommonMethod} from './common';
+import { LineCapStyle } from './enums';
+/*** endif */
+
 /**
  * Provides a divider component to separate different content blocks/content elements.
  *
@@ -50,7 +56,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface DividerInterface {
   /**
@@ -85,7 +92,8 @@ interface DividerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): DividerAttribute;
 }
@@ -122,7 +130,8 @@ interface DividerInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
@@ -165,12 +174,13 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   vertical(value: boolean): DividerAttribute;
 
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -178,7 +188,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 7
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -187,7 +197,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 9
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -197,7 +207,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 10
    */
   /**
-   * Sets the color of the divider line.
+   * Sets the color of the dividing line.
    *
    * @param { ResourceColor } value
    * @returns { DividerAttribute }
@@ -205,7 +215,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color(value: ResourceColor): DividerAttribute;
 
@@ -245,12 +256,13 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -258,7 +270,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 7
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -267,7 +279,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 9
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -277,7 +289,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @since 10
    */
   /**
-   * Sets the end style of the split line. The default value is Butt.
+   * Sets the end style of the dividing line. The default value is Butt.
    *
    * @param { LineCapStyle } value
    * @returns { DividerAttribute }
@@ -285,7 +297,8 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }

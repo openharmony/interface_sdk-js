@@ -111,7 +111,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowType {
+  enum WindowType {
     /**
      * App.
      *
@@ -427,7 +427,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum AvoidAreaType {
+  enum AvoidAreaType {
     /**
      * Default area of the system
      *
@@ -551,7 +551,7 @@ declare namespace window {
    * @since arkts {'1.1':'7', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowMode {
+  enum WindowMode {
     /**
      * Undefined mode of the window
      *
@@ -603,7 +603,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 9
    */
-  export enum WindowLayoutMode {
+  enum WindowLayoutMode {
     /**
      * CASCADE
      *
@@ -647,7 +647,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowStatusType {
+  enum WindowStatusType {
     /**
      * Undefined status of the window
      *
@@ -805,7 +805,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarProperties {
+  interface SystemBarProperties {
     /**
      * The color of the status bar.
      *
@@ -1006,7 +1006,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarStyle {
+  interface SystemBarStyle {
     /**
      * The content color of the status bar
      *
@@ -1028,7 +1028,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarRegionTint {
+  interface SystemBarRegionTint {
     /**
      * System bar type
      *
@@ -1089,7 +1089,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemBarTintState {
+  interface SystemBarTintState {
     /**
      * Id of display
      *
@@ -1135,7 +1135,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Rect {
+  interface Rect {
 
     /**
      * The left of the Rect.
@@ -1271,7 +1271,6 @@ declare namespace window {
    *
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 20
    */
   enum WindowAnchor {
@@ -1279,7 +1278,6 @@ declare namespace window {
      * The value means window top left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_START = 0,
@@ -1287,7 +1285,6 @@ declare namespace window {
      * The value means horizontal midpoint of the border on the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP = 1,
@@ -1295,7 +1292,6 @@ declare namespace window {
      * The value means window top right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     TOP_END = 2,
@@ -1303,7 +1299,6 @@ declare namespace window {
      * The value means vertical midpoint of the left border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     START = 3,
@@ -1311,7 +1306,6 @@ declare namespace window {
      * The value means window horizontal and vertical midpoint.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     CENTER = 4,
@@ -1319,7 +1313,6 @@ declare namespace window {
      * The value means vertical midpoint of the right border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     END = 5,
@@ -1327,7 +1320,6 @@ declare namespace window {
      * The value means window bottom left corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_START = 6,
@@ -1335,7 +1327,6 @@ declare namespace window {
      * The value means horizontal midpoint of the lower border of the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM = 7,
@@ -1343,7 +1334,6 @@ declare namespace window {
      * The value means window bottom right corner.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 20
      */
     BOTTOM_END = 8,
@@ -1374,7 +1364,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface AvoidArea {
+  interface AvoidArea {
     /**
      * Whether avoidArea is visible on screen
      *
@@ -1527,7 +1517,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Size {
+  interface Size {
     /**
      * The width of the window.
      *
@@ -1597,7 +1587,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  export interface WindowInfo {
+  interface WindowInfo {
     /**
      * The position and size of the window
      *
@@ -1728,7 +1718,7 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowDensityInfo {
+  interface WindowDensityInfo {
     /**
      * System density
      *
@@ -1788,7 +1778,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowProperties {
+  interface WindowProperties {
     /**
      * The position and size of the window
      *
@@ -2178,7 +2168,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ColorSpace {
+  enum ColorSpace {
     /**
      * Default color space.
      *
@@ -2235,7 +2225,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface ScaleOptions {
+  interface ScaleOptions {
     /**
      * The scale param of x direction. Default is 1.f
      *
@@ -2290,7 +2280,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface RotateOptions {
+  interface RotateOptions {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
@@ -2356,7 +2346,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TranslateOptions {
+  interface TranslateOptions {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
@@ -2400,7 +2390,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TransitionContext {
+  interface TransitionContext {
     /**
      * The target window with animation
      *
@@ -2446,7 +2436,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TransitionController {
+  interface TransitionController {
     /**
      * Animation configuration when showing window
      *
@@ -2510,7 +2500,7 @@ declare namespace window {
    * @atomicservice
    * @since 12
    */
-  export interface Configuration {
+  interface Configuration {
     /**
      * Indicates window id.
      *
@@ -2652,7 +2642,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowLimits {
+  interface WindowLimits {
     
     /**
      * The maximum width of the window.
@@ -2743,7 +2733,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface TitleButtonRect {
+  interface TitleButtonRect {
 
     /**
      * The right of the Rect.
@@ -2824,7 +2814,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface RectChangeOptions {
+  interface RectChangeOptions {
     /**
      * Rect
      *
@@ -2865,7 +2855,7 @@ declare namespace window {
    * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface AvoidAreaOptions {
+  interface AvoidAreaOptions {
     /**
      * Avoid area type
      *
@@ -2916,7 +2906,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum RectChangeReason {
+  enum RectChangeReason {
     /**
      * Default RectChangeReason.
      *
@@ -2989,6 +2979,73 @@ declare namespace window {
   }
 
   /**
+   * Main window info
+   *
+   * @interface MainWindowInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  interface MainWindowInfo {
+    /**
+     * Display id of the window.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    displayId: number,
+    /**
+     * Window id.
+     *
+     * @type { number }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    windowId: number,
+    /**
+     * Showing state of the window.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    showing: boolean,
+    /**
+     * Label of the window.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    label: string
+  }
+
+  /**
+   * Configuration for getting windows' snapshot.
+   *
+   * @interface WindowSnapshotConfiguration
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  interface WindowSnapshotConfiguration {
+    /**
+     * Whether use cached windows' snapshot.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    useCache?: boolean
+  }
+
+  /**
    * Create a window with a specific configuration
    *
    * @param { Configuration } config - Parameters for window creation.
@@ -3043,7 +3100,7 @@ declare namespace window {
    * @atomicservice
    * @since 17
    */
-  export function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
+  function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a window with a specific configuration
@@ -3101,7 +3158,7 @@ declare namespace window {
    * @atomicservice
    * @since 17
    */
-  export function createWindow(config: Configuration): Promise<Window>;
+  function createWindow(config: Configuration): Promise<Window>;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -3115,7 +3172,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  function create(id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Create a sub window with a specific id and type, only support 7.
@@ -3129,7 +3186,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(id: string, type: WindowType): Promise<Window>;
+  function create(id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -3143,7 +3200,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
+  function create(ctx: BaseContext, id: string, type: WindowType): Promise<Window>;
 
   /**
    * Create a system or float window with a specific id and type.
@@ -3157,7 +3214,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#createWindow
    */
-  export function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
+  function create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -3169,7 +3226,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  export function find(id: string, callback: AsyncCallback<Window>): void;
+  function find(id: string, callback: AsyncCallback<Window>): void;
 
   /**
    * Find the window by id.
@@ -3181,7 +3238,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#findWindow
    */
-  export function find(id: string): Promise<Window>;
+  function find(id: string): Promise<Window>;
 
   /**
    * Find the window by name.
@@ -3220,7 +3277,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function findWindow(name: string): Window;
+  function findWindow(name: string): Window;
 
   /**
    * Get the final show window.
@@ -3232,7 +3289,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(callback: AsyncCallback<Window>): void;
+  function getTopWindow(callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3244,7 +3301,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(): Promise<Window>;
+  function getTopWindow(): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -3256,7 +3313,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext): Promise<Window>;
+  function getTopWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Get the final show window.
@@ -3268,7 +3325,7 @@ declare namespace window {
    * @deprecated since 9
    * @useinstead ohos.window#getLastWindow
    */
-  export function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  function getTopWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3311,7 +3368,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
+  function getLastWindow(ctx: BaseContext, callback: AsyncCallback<Window>): void;
 
   /**
    * Get the final show window.
@@ -3354,7 +3411,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function getLastWindow(ctx: BaseContext): Promise<Window>;
+  function getLastWindow(ctx: BaseContext): Promise<Window>;
 
   /**
    * Minimize all app windows.
@@ -3385,7 +3442,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
@@ -3416,7 +3473,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function minimizeAll(id: number): Promise<void>;
+  function minimizeAll(id: number): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -3438,7 +3495,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
+  function toggleShownStateForAllAppWindows(callback: AsyncCallback<void>): void;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
@@ -3460,7 +3517,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function toggleShownStateForAllAppWindows(): Promise<void>;
+  function toggleShownStateForAllAppWindows(): Promise<void>;
 
   /**
    * Set the layout mode of a window.
@@ -3489,7 +3546,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
+  function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
   /**
    * Set the layout mode of a window.
@@ -3518,7 +3575,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
+  function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -3534,7 +3591,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
+  function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Sets whether to enable gesture navigation.
@@ -3550,7 +3607,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setGestureNavigationEnabled(enable: boolean): Promise<void>;
+  function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -3566,7 +3623,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean): Promise<void>;
 
   /**
    * Set watermark image.
@@ -3582,7 +3639,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  export function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
+  function setWaterMarkImage(pixelMap: image.PixelMap, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Shift window focus within the same application. And the window type contains only main window and subwindow.
@@ -3617,7 +3674,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
+  function shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise<void>;
 
   /**
    * Transfers an input event from one window to another within the same application, particularly in split-window scenarios.
@@ -3677,7 +3734,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @since 18
    */
-  export function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
+  function getVisibleWindowInfo(): Promise<Array<WindowInfo>>;
 
   /**
    * gets snapshot of window
@@ -3694,7 +3751,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  export function getSnapshot(windowId: number): Promise<image.PixelMap>;
+  function getSnapshot(windowId: number): Promise<image.PixelMap>;
 
   /**
    * Get windows by coordinate.
@@ -3711,7 +3768,7 @@ declare namespace window {
    * @atomicservice
    * @since 14
    */
-  export function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
       Promise<Array<Window>>;
 
   /**
@@ -3776,6 +3833,22 @@ declare namespace window {
   function getTopNavDestinationName(windowId: number): Promise<string>;
 
   /**
+   * Set or remove the watermark image for all windows of the application.
+   *
+   * @param { image.PixelMap | undefined } pixelMap - The image that will be set as the watermark for all windows of the
+   *     application. If undefined, it removes the watermark from all windows.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Function setWatermarkImageForAppWindows can not to work correctly due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function setWatermarkImageForAppWindows(pixelMap: image.PixelMap | undefined): Promise<void>;
+
+  /**
    * Register the callback of systemBarTintChange
    *
    * @param { 'systemBarTintChange' } type - The value is fixed at 'systemBarTintChange', indicating the property change event of the system bar.
@@ -3789,7 +3862,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
+  function on(type: 'systemBarTintChange', callback: Callback<SystemBarTintState>): void;
 
   /**
    * Unregister the callback of systemBarTintChange
@@ -3804,7 +3877,7 @@ declare namespace window {
    * @since arkts {'1.1':'8', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
+  function off(type: 'systemBarTintChange', callback?: Callback<SystemBarTintState>): void;
 
   /**
    * Register the callback for gesture navigation enabled changes.
@@ -3822,7 +3895,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
+  function on(type: 'gestureNavigationEnabledChange', callback: Callback<boolean>): void;
 
   /**
    * Unregister the callback for gesture navigation enabled changes.
@@ -3839,7 +3912,7 @@ declare namespace window {
    * @since arkts {'1.1':'10', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
+  function off(type: 'gestureNavigationEnabledChange', callback?: Callback<boolean>): void;
 
   /**
    * Register the callback for watermark flag change.
@@ -3906,6 +3979,37 @@ declare namespace window {
   function notifyScreenshotEvent(eventType: ScreenshotEventType): Promise<void>;
 
   /**
+   * Get all main window info on device
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
+   * @returns { Promise<Array<MainWindowInfo>> } Promise used to return the list of main window info.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getAllMainWindowInfo(): Promise<Array<MainWindowInfo>>;
+
+  /**
+   * Get snapshot of the specified windows
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
+   * @param { Array<number> } windowId - List of main window IDs to be obtained.
+   * @param { WindowSnapshotConfiguration } config - Configuration for getting windows' snapshot.
+   * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
+   *     arranged in the order of the provided window ID array.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration): Promise<Array<image.PixelMap>>;
+
+  /**
    * Display orientation
    *
    * @enum { number }
@@ -3930,7 +4034,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum Orientation {
+  enum Orientation {
     /**
      * Default value. The direction mode is not clearly defined. It is determined by the system.
      *
@@ -4233,7 +4337,7 @@ declare namespace window {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum BlurStyle {
+  enum BlurStyle {
     /**
      * Close blur.
      *
@@ -4289,7 +4393,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowEventType {
+  enum WindowEventType {
     /**
      * The value of window event is window show
      *
@@ -4374,7 +4478,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum MaximizePresentation {
+  enum MaximizePresentation {
     /**
      * The value means follow immersive state which set by app
      *
@@ -4421,7 +4525,7 @@ declare namespace window {
    * @since arkts {'1.1':'15', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface MoveConfiguration {
+  interface MoveConfiguration {
     /**
      * The display id of the screen
      *
@@ -4523,6 +4627,15 @@ declare namespace window {
      * @since 20
      */
     INTERPOLATION_SPRING = 1,
+
+    /**
+     * Animation curve type cubic bezier
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     */
+    CUBIC_BEZIER = 2,
   }
 
   /**
@@ -4720,7 +4833,7 @@ declare namespace window {
   }
 
   /**
-   * The policy of key frame.
+   * The policy of keyframe.
    *
    * @interface KeyFramePolicy
    * @syscap SystemCapability.Window.SessionManager
@@ -4728,7 +4841,7 @@ declare namespace window {
    */
   interface KeyFramePolicy {
     /**
-     * Whether to use key frame.
+     * Whether to use keyframe.
      *
      * @type { boolean }
      * @syscap SystemCapability.Window.SessionManager
@@ -4740,6 +4853,7 @@ declare namespace window {
      * Set the drag interval to notify rect change in millisecond.
      *
      * @type { ?number }
+     * @default 1000
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -4749,6 +4863,7 @@ declare namespace window {
      * Set the drag distance to notify rect change in px.
      *
      * @type { ?number }
+     * @default 1000
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -4758,15 +4873,17 @@ declare namespace window {
      * Set the rect change animation duration in millisecond.
      *
      * @type { ?number }
+     * @default 100
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
     animationDuration?: number;
 
     /**
-     * Set then rect change animation delay in millisecond
+     * Set the rect change animation delay in millisecond
      *
      * @type { ?number }
+     * @default 100
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -4790,7 +4907,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface Window {
+  interface Window {
     /**
      * Hide window.
      *
@@ -5499,23 +5616,25 @@ declare namespace window {
     /**
      * Set whether the first level sub window supports maintaining the same relative position with the main window.
      *
-     * @param { boolean } enabled - The value true means the first level sub window supports maintaining the same relative position with the main window,
-     *                              and false means the opposite.
-     * @param { WindowAnchor } anchor - Window anchor point that setting
-     *                                  when the relative position between the primary sub window and the main window remains unchanged.
-     * @param { number } offsetX - The x-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
-     * @param { number } offsetY - The y-axis offset between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { boolean } enabled - The value true means the first level sub window supports maintaining
+     *     the same relative position with the main window, and false means the opposite.
+     * @param { WindowAnchor } [anchor] - Window anchor point that setting
+     *     when the relative position between the primary sub window and the main window remains unchanged.
+     * @param { number } [offsetX] - The x-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
+     * @param { number } [offsetY] - The y-axis offset
+     *     between the anchor point of the first level sub window and the anchor point of the main window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
-     *                                 Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
+     *     Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
-    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor, offsetX?: number, offsetY?: number): Promise<void>;
+    setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor,
+        offsetX?: number, offsetY?: number): Promise<void>;
 
     /**
      * Set the type of a window.
@@ -5684,13 +5803,29 @@ declare namespace window {
     getWindowDensityInfo(): WindowDensityInfo;
 
     /**
-     * Set window container background color in the active and inactive states.
+     * Set whether the current window follows the default density of its screen.
+     *
+     * @param { boolean } enabled - Use default density if true, or follow system density change if false.
+     * @throws { BusinessError } 202 - Permission verification
+     *     failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @since 20
+     */
+    setDefaultDensityEnabled(enabled: boolean): void;
+
+    /**
+     * Set window container color in the active and inactive states.
      *
      * @param { string } activeColor - window container color in active.
      * @param { string } inactiveColor - window container color in inactive.
      * @throws { BusinessError } 202 - Permission verification
-     * failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -6333,52 +6468,63 @@ declare namespace window {
     getPreferredOrientation(): Orientation;
 
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to this window,
+     *     and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to this window,
+     *     and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified,
+     *     to this window, and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
-     * @param { string } path - Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
+     * @param { string } path - Path of the page from which the content will be loaded.
+     *     The path is configured in the main_pages.json file of the project.
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
@@ -6387,52 +6533,63 @@ declare namespace window {
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
 
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to this window,
+     *     and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to this window,
+     *     and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path - Path of the page to which the content will be loaded
      * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to this window, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to this window,
+     *     and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
-     * @param { string } path - 	Path of the page from which the content will be loaded. The path is configured in the main_pages.json file of the project.
+     * @param { string } path - 	Path of the page from which the content will be loaded.
+     *     The path is configured in the main_pages.json file of the project.
      * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute for the page.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
@@ -8866,8 +9023,7 @@ declare namespace window {
      * @param { AsyncCallback<image.PixelMap> } callback Callback used to return the result.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Obtains snapshot of window
@@ -8876,7 +9032,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     snapshot(callback: AsyncCallback<image.PixelMap>): void;
@@ -8887,8 +9043,7 @@ declare namespace window {
      * @returns { Promise<image.PixelMap> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Obtains snapshot of window
@@ -8897,7 +9052,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     snapshot(): Promise<image.PixelMap>;
@@ -10314,7 +10469,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Invalid parameter length.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
@@ -10468,6 +10623,7 @@ declare namespace window {
      *     and Y-coordinate of the window relative to the main screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -10483,6 +10639,7 @@ declare namespace window {
      *     and Y-coordinate of the window relative to the current screen.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1.Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -10786,15 +10943,17 @@ declare namespace window {
     getSubWindowZLevel(): number;
 
     /**
-     * Set the policy of key frame when resize by dragging.
+     * Set the keyframe policy when dragging to resize.
      *
-     * @param { KeyFramePolicy } keyFramePolicy - The policy of key frame to set.
-     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of key frame.
-     * @throws { BusinessError } 801 - Capability not supported. Function setSubWindowZLevel can not work correctly due to limited device capabilities. 
+     * @param { KeyFramePolicy } keyFramePolicy - The policy of keyframe to set.
+     * @returns { Promise<KeyFramePolicy> } - Promise is used to return the effective policy of keyframe.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range. 2. Incorrect parameter format.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid parameter range; 2. The parameter format is incorrect.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -10829,7 +10988,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum WindowStageEventType {
+  enum WindowStageEventType {
     /**
      * The window stage is running in the foreground.
      *
@@ -10962,7 +11121,7 @@ declare namespace window {
    * Window stage lifecycle callback event type
    *
    * @enum { number }
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 20
    */
@@ -10970,7 +11129,7 @@ declare namespace window {
     /**
      * The window stage is running in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -10978,7 +11137,7 @@ declare namespace window {
     /**
      * The window stage is interactive in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -10986,7 +11145,7 @@ declare namespace window {
     /**
      * The window stage is not interactive in the foreground.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -10994,7 +11153,7 @@ declare namespace window {
     /**
      * The window stage is running in the background.
      *
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11010,7 +11169,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ModalityType {
+  enum ModalityType {
     /**
      * The value means window modality.
      *
@@ -11069,7 +11228,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SubWindowOptions {
+  interface SubWindowOptions {
     /**
      * Indicates subwindow title
      * 
@@ -11192,7 +11351,7 @@ declare namespace window {
    * @since arkts {'1.1':'11', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface WindowStage {
+  interface WindowStage {
     /**
      * Get main window of the stage.
      *
@@ -11466,156 +11625,189 @@ declare namespace window {
      * @since 11
      */
     getSubWindow(callback: AsyncCallback<Array<Window>>): void;
+
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result.
+     *     You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result.
+     *     You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
-     * This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
+     * This API uses an asynchronous callback to return the result.
+     *     You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path Path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void;
+
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
-     * Loads the content of a page, with its path in the current project specified, to the main window of this window stage, and transfers the state attribute to the page through a local storage.
+     * Loads the content of a page, with its path in the current project specified, to the main window
+     *     of this window stage, and transfers the state attribute to the page through a local storage.
      * This API uses a promise to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
     loadContent(path: string, storage?: LocalStorage): Promise<void>;
+
     /**
-     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to
+     *     return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 9
      */
     /**
-     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to
+     *     return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
     /**
-     * Loads content from a page to this window stage. This API uses an asynchronous callback to return the result. You are advised to call this API during UIAbility startup.
-     * If called multiple times, this API will destroy the existing page content (UIContent) before loading the new content. Exercise caution when using it.
+     * Loads content from a page to this window stage. This API uses an asynchronous callback to
+     *     return the result. You are advised to call this API during UIAbility startup.
+     * If called multiple times, this API will destroy the existing page content (UIContent)
+     *     before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
      * @param { AsyncCallback<void> } callback Callback used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types.
-     *                                                                  3. Invalid path parameter.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause: 
+     *     1. Mandatory parameters are left unspecified; 
+     *     2. Incorrect parameter types;
+     *     3. Invalid path parameter.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @StageModelOnly
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
@@ -11782,11 +11974,15 @@ declare namespace window {
     /**
      * Subscribes to the window stage lifecycle change event.
      *
-     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { 'windowStageLifecycleEvent' } eventType Event type.
+     *     The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to
+     *     return the window stage lifecycle state.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -11795,13 +11991,17 @@ declare namespace window {
     /**
      * Unsubscribes from the window stage lifecycle change event.
      *
-     * @param { 'windowStageLifecycleEvent' } eventType Event type. The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to return the window stage lifecycle state.
-     *                                                    If a value is passed in, the corresponding subscription is canceled.
-     *                                                    If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { 'windowStageLifecycleEvent' } eventType Event type.
+     *     The value is fixed at 'windowStageLifecycleEvent', indicating the window stage lifecycle change event.
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] Callback used to
+     *     return the window stage lifecycle state.
+     *     If a value is passed in, the corresponding subscription is canceled.
+     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 20
      */
@@ -12122,7 +12322,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export enum ExtensionWindowAttribute {
+  enum ExtensionWindowAttribute {
     /**
      * System window.
      *
@@ -12156,7 +12356,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface SystemWindowOptions {
+  interface SystemWindowOptions {
     /**
      * Indicates window type.
      *
@@ -12180,7 +12380,7 @@ declare namespace window {
    * @since arkts {'1.1':'14', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  export interface ExtensionWindowConfig {
+  interface ExtensionWindowConfig {
     /**
      * Window name.
      *

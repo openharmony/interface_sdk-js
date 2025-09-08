@@ -17,14 +17,19 @@
  * @file
  * @kit ArkUI
  */
-
+/*** if arkts 1.1 */
 import { UIContext } from '../@ohos.arkui.UIContext';
+/*** endif */
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { DrawContext } from './Graphics';
 import { ComponentContent } from './ComponentContent';
 import { BusinessError } from '../@ohos.base';
-
+/*** if arkts 1.2 */
+import { UIContext } from '@ohos.arkui.UIContext';
+import { UICommonEvent, UIGestureEvent, CommonAttribute } from './component/common'
+import { ListOptions, ListAttribute } from './component/list'
+/*** endif */
 /**
  * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
  *
@@ -34,7 +39,17 @@ import { BusinessError } from '../@ohos.base';
  * @atomicservice
  * @since 12
  */
-declare interface LayoutConstraint {
+/**
+ * Layout constraint, include the max size, the min size and the reference size for children to calculate percent.
+ *
+ * @interface LayoutConstraint
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare interface LayoutConstraint {
   /**
    * MaxSize
    *
@@ -42,7 +57,8 @@ declare interface LayoutConstraint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   maxSize: Size;
 
@@ -53,7 +69,8 @@ declare interface LayoutConstraint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   minSize: Size;
 
@@ -65,7 +82,8 @@ declare interface LayoutConstraint {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   percentReference: Size;
 }
@@ -80,7 +98,8 @@ declare interface LayoutConstraint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts { '1.1':'15','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 declare interface CrossLanguageOptions {
   /**
@@ -91,7 +110,8 @@ declare interface CrossLanguageOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   attributeSetting?: boolean
 }
@@ -158,7 +178,8 @@ declare interface InteractionEventBindingInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 15
+ * @since arkts { '1.1':'15','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 export enum ExpandMode {
   /**
@@ -170,7 +191,8 @@ export enum ExpandMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   NOT_EXPAND = 0,
 
@@ -183,7 +205,8 @@ export enum ExpandMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   EXPAND = 1,
 
@@ -196,7 +219,8 @@ export enum ExpandMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   LAZY_EXPAND = 2,
 }
@@ -262,23 +286,23 @@ export enum UIState {
   SELECTED = 1 << 3,
 }
 
-/**
- * UI state change handling function, it returns the current UI states, the value is the result
- * of all current state enumeration values or calculations, and you can determine the state
- * by performing the & operation as follows.
- *    if (currentStates & UIState.PRESSED == UIState.PRESSEED)
- * But, please be awared, for the normal state check, the equal should be used directly.
- *    if (currentStates== UIState.NORMAL)
- * 
- * @typedef { function } UIStatesChangeHandler
- * @param { FrameNode } node - Current node which istriggering the state change.
- * @param { number } currentUIStates - Current UI states when the handler is triggered.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- */
+  /**
+   * UI state change handling function, it returns the current UI states, the value is the result
+   * of all current state enumeration values or calculations, and you can determine the state
+   * by performing the & operation as follows。
+   *    if (currentStates & UIState.PRESSED == UIState.PRESSED)
+   * But, please be awared, for the normal state check, the equal should be used directly.
+   *    if (currentStates == UIState.NORMAL)
+   *
+   * @typedef { function } UIStatesChangeHandler
+   * @param { FrameNode } node - Current node which is triggering the state change.
+   * @param { number } currentUIStates - Current UI states when the handler is triggered.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) => void;
 
 /**
@@ -296,7 +320,16 @@ declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: number) 
  * @atomicservice
  * @since 12
  */
-export class FrameNode {
+/**
+ * Defines FrameNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class FrameNode {
   /**
    * Constructor.
    * Constructor used to create a FrameNode.
@@ -314,7 +347,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   constructor(uiContext: UIContext);
 
@@ -337,7 +371,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getRenderNode(): RenderNode | null;
 
@@ -350,7 +385,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   isModifiable(): boolean;
 
@@ -369,7 +405,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   appendChild(node: FrameNode): void;
 
@@ -387,7 +424,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   insertChildAfter(child: FrameNode, sibling: FrameNode | null): void;
 
@@ -400,7 +438,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   removeChild(node: FrameNode): void;
 
@@ -412,7 +451,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   clearChildren(): void;
 
@@ -442,6 +482,20 @@ export class FrameNode {
   getChild(index: number, expandMode?: ExpandMode): FrameNode | null;
 
   /**
+   * Get a child of the current FrameNode by index.
+   *
+   * @param { number } index - The index of the desired node in the children of FrameNode.
+   * @param { ExpandMode | undefined } expandMode - The expand mode. Default value is ExpandMode.EXPAND.
+   * @returns { FrameNode | null } - Returns a FrameNode. When the required node does not exist, returns null.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  getChild(index: number, expandMode?: ExpandMode | undefined): FrameNode | null;
+
+  /**
    * Get the index of the current FrameNode's first child node which is on the tree.
    * The child node sequence numbers are calculated based on all child nodes.
    * 
@@ -449,7 +503,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getFirstChildIndexWithoutExpand(): number;
 
@@ -461,7 +516,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getLastChildIndexWithoutExpand(): number;
 
@@ -473,7 +529,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getFirstChild(): FrameNode | null;
 
@@ -484,7 +541,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getNextSibling(): FrameNode | null;
 
@@ -495,7 +553,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPreviousSibling(): FrameNode | null;
 
@@ -506,7 +565,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getParent(): FrameNode | null;
 
@@ -517,7 +577,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getChildrenCount(): number;
 
@@ -534,7 +595,7 @@ export class FrameNode {
    * @param { FrameNode } targetParent - The target parent node.
    * The target parent node must not be a declaratively created node, that is, a FrameNode that is not modifiable.
    * If it does not meet the specifications, an exception is thrown.
-   * @param { number } index - The index which the node is moved to. If the value is a negative number or invalid,
+   * @param { number } [index] - The index which the node is moved to. If the value is a negative number or invalid,
    * the node is moved to the end of the target parent node. Moves to the end of the target parent node by default.
    * If the target FrameNode has n nodes, the value range for index is 0 to n-1.
    * Default value: -1
@@ -542,7 +603,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts { '1.1':'18','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   moveTo(targetParent: FrameNode, index?: number): void;
 
@@ -560,7 +622,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   dispose(): void;
 
@@ -571,7 +634,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToWindow(): Position;
 
@@ -582,7 +646,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToParent(): Position;
 
@@ -593,7 +658,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getMeasuredSize(): Size;
 
@@ -607,7 +673,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getLayoutPosition(): Position;
 
@@ -618,7 +685,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getUserConfigBorderWidth(): Edges<LengthMetrics>;
 
@@ -629,7 +697,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getUserConfigPadding(): Edges<LengthMetrics>;
 
@@ -640,7 +709,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getUserConfigMargin(): Edges<LengthMetrics>;
 
@@ -651,7 +721,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getUserConfigSize(): SizeT<LengthMetrics>;
 
@@ -662,7 +733,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getId(): string;
 
@@ -673,7 +745,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getUniqueId(): number;
 
@@ -685,7 +758,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getNodeType(): string;
 
@@ -697,7 +771,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getOpacity(): number;
 
@@ -708,7 +783,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   isVisible(): boolean;
 
@@ -720,7 +796,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   isClipToFrame(): boolean;
 
@@ -731,7 +808,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   isAttached(): boolean;
 
@@ -755,7 +833,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getInspectorInfo(): Object;
 
@@ -767,7 +846,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getCustomProperty(name: string): Object | undefined;
 
@@ -782,7 +862,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   get commonEvent(): UICommonEvent;
 
@@ -795,7 +876,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts { '1.1':'14','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   get gestureEvent(): UIGestureEvent;
 
@@ -812,7 +894,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   get commonAttribute(): CommonAttribute;
 
@@ -837,7 +920,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   onMeasure(constraint: LayoutConstraint): void;
 
@@ -850,7 +934,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   onLayout(position: Position): void;
 
@@ -862,7 +947,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   setMeasuredSize(size: Size): void;
 
@@ -873,7 +959,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   setLayoutPosition(position: Position): void;
 
@@ -885,7 +972,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   measure(constraint: LayoutConstraint): void;
 
@@ -898,7 +986,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   layout(position: Position): void;
 
@@ -908,7 +997,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   setNeedsLayout(): void;
 
@@ -918,7 +1008,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   invalidate(): void;
 
@@ -929,7 +1020,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToScreen(): Position;
 
@@ -954,7 +1046,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToWindowWithTransform(): Position;
 
@@ -968,7 +1061,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToParentWithTransform(): Position;
 
@@ -982,7 +1076,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getPositionToScreenWithTransform(): Position;
 
@@ -992,7 +1087,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   disposeTree(): void;
 
@@ -1011,6 +1107,19 @@ export class FrameNode {
   addComponentContent<T>(content: ComponentContent<T>): void;
 
   /**
+   * Mount ComponentContent to FrameNode.
+   * 
+   * @param { ComponentContent<T> } content - Newly added ComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  addComponentContent<T extends Object>(content: ComponentContent<T>): void;
+
+  /**
    * Set the cross-language options of the target FrameNode.
    * This API allows you to specify whether a FrameNode created in ArkTS can be accessed or modified by non-ArkTS languages.
    * If the current FrameNode is not modifiable or does not support setting cross-language access options, an exception will be thrown.
@@ -1024,7 +1133,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   setCrossLanguageOptions(options: CrossLanguageOptions): void;
 
@@ -1036,7 +1146,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts { '1.1':'15','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getCrossLanguageOptions(): CrossLanguageOptions;
 
@@ -1046,7 +1157,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts { '1.1':'18','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   recycle(): void;
 
@@ -1056,7 +1168,8 @@ export class FrameNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts { '1.1':'18','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   reuse(): void;
 
@@ -1092,7 +1205,7 @@ export class FrameNode {
    *     The combination of all target states can be calculated by the OR operation,
    *     e.g. targetUIStates = UIState.PRESSED | UIState.FOCUSED.
    * @param { UIStatesChangeHandler } statesChangeHandler - The UI state chhanging handling function.
-   * @param { boolean } excludeInner - The flag to forbid the inner default state style handling, default is false.
+   * @param { boolean } [excludeInner] - The flag to forbid the inner default state style handling, default is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -1156,6 +1269,21 @@ export class FrameNode {
    * @since 20
    */
   getNodePropertyValue(property: AnimationPropertyType): number[];
+
+   /**
+   * Triggers node updates in the current frame.
+   * 
+   * When node attributes are modified after the current frame's build phase,
+   * the node updates will be deferred to the next
+   * frame. This function forces immediate node updates within the current frame to
+   * ensure rendering effects are applied synchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  invalidateAttributes(): void;
 }
 
 /**
@@ -1200,6 +1328,30 @@ export interface TypedFrameNode<C, T> extends FrameNode {
 }
 
 /**
+ * Used to define the FrameNode type.
+ *
+ * @extends FrameNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export declare abstract class TypedFrameNode<T> extends FrameNode {
+  /**
+   * Get attribute instance of FrameNode to set attributes.
+   *
+   * @returns { T } - Returns the attribute instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  get attribute(): T;
+}
+
+/**
  * Provides methods to implement FrameNode.
  * When typeNode is used to create nodes such as Text, Image, Select, or Toggle, if the UIContext instance
  * corresponding to the passed UIContext is destroyed, calling this API will return an invalid FrameNode.
@@ -1211,7 +1363,17 @@ export interface TypedFrameNode<C, T> extends FrameNode {
  * @atomicservice
  * @since 12
  */
-export namespace typeNode {
+/**
+ * Provides methods to implement FrameNode.
+ *
+ * @namespace typeNode
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since arkts{ '1.1':'20','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
+export declare namespace typeNode {
   /**
    * Define the FrameNode type for Text.
    * 
@@ -1952,6 +2114,43 @@ export namespace typeNode {
   type List = TypedFrameNode<ListInterface, ListAttribute>;
 
   /**
+   * Define the List type of FrameNode.
+   *
+   * @extends TypedFrameNode<ListAttribute>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  abstract class ListFrameNode extends TypedFrameNode<ListAttribute> {  
+    /**
+     * Initialize FrameNode.
+     *
+     * @param { ListOptions } [options] - list options
+     * @returns { ListAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    abstract initialize(options?: ListOptions): ListAttribute;
+  }
+
+  /**
+   * Define the FrameNode type for List.
+   *
+   * @typedef { ListFrameNode } List
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type List = ListFrameNode;
+
+  /**
    * Create a FrameNode of List type.
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
@@ -1959,7 +2158,8 @@ export namespace typeNode {
    * @returns { List } - Return List type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   function createNode(context: UIContext, nodeType: 'List'): List;
 
@@ -2664,7 +2864,7 @@ export namespace typeNode {
    *
    * @param { UIContext } context - uiContext used to create the FrameNode.
    * @param { 'Toggle' } nodeType - node type.
-   * @param { ToggleOptions } options - ToggleOptions.
+   * @param { ToggleOptions } [options] - ToggleOptions.
    * @returns { Toggle } - Return Toggle type FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
@@ -3068,7 +3268,16 @@ export namespace typeNode {
  * @atomicservice
  * @since 12
  */
-declare class NodeAdapter {
+/**
+ * Used for lazy loading of typeNode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+export declare class NodeAdapter {
   /**
    * Constructor.
    * A constructor used to create a NodeAdapter object.
@@ -3076,7 +3285,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   constructor();
   /**
@@ -3086,7 +3296,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   dispose(): void;
   /**
@@ -3096,7 +3307,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   set totalNodeCount(count: number);
   /**
@@ -3106,7 +3318,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   get totalNodeCount(): number;
   /**
@@ -3115,7 +3328,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   reloadAllItems(): void;
   /**
@@ -3126,7 +3340,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   reloadItem(start: number, count: number): void;
   /**
@@ -3137,7 +3352,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   removeItem(start: number, count: number): void;
   /**
@@ -3148,7 +3364,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   insertItem(start: number, count: number): void;
   /**
@@ -3159,7 +3376,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   moveItem(from: number, to: number): void;
   /**
@@ -3169,7 +3387,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   getAllAvailableItems(): Array<FrameNode>;
   /**
@@ -3227,7 +3446,7 @@ declare class NodeAdapter {
   /**
    * Call this callback when reloading or reusing.
    *
-   * @param { number } id - The index value of the reloaded data.
+   * @param { number } id - The child node ID that is about to be reloaded.
    * @param { FrameNode } node - Reused FrameNode nodes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3244,7 +3463,8 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   static attachNodeAdapter(adapter: NodeAdapter, node: FrameNode): boolean;
   /**
@@ -3254,12 +3474,13 @@ declare class NodeAdapter {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   static detachNodeAdapter(node: FrameNode): void;
 
   /**
-   * Get if the NodeAdapter is disposed.
+   * Get if the node is disposed.
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

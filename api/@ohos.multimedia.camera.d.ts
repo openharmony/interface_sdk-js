@@ -199,6 +199,57 @@ declare namespace camera {
   }
 
   /**
+   * Enumerates the system pressure levels of the current camera session. When the system pressure increases,
+   * you are advised to reduce the load of the current camera session.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum SystemPressureLevel {
+    /**
+     * Normal level. This level indicates that the system pressure is normal.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    SYSTEM_PRESSURE_NORMAL = 0,
+
+    /**
+     * Low level. This level indicates that the system pressure is slightly increased.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    SYSTEM_PRESSURE_MILD = 1,
+
+    /**
+     * Severity level. This level indicates that the system pressure is severely increased.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    SYSTEM_PRESSURE_SEVERE = 2,
+
+    /**
+     * Critical level. This level indicates that the system pressure has reached a critical threshold.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    SYSTEM_PRESSURE_CRITICAL = 3,
+
+    /**
+     * Shutdown level. This level indicates that the system pressure is fatal, and the camera session will be
+     * shut down soon.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    SYSTEM_PRESSURE_SHUTDOWN = 4
+  }
+
+  /**
    * Profile for camera streams.
    *
    * @typedef Profile
@@ -449,6 +500,38 @@ declare namespace camera {
      */
     readonly supportedMetadataObjectTypes: Array<MetadataObjectType>;
   }
+
+  /**
+   * Control center status info.
+   *
+   * @typedef ControlCenterStatusInfo
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
+    interface ControlCenterStatusInfo {
+      /**
+       * Control center effect type.
+       *
+       * @type { ControlCenterEffectType }
+       * @readonly
+       * @syscap SystemCapability.Multimedia.Camera.Core
+       * @atomicservice
+       * @since 20
+       */
+      readonly effectType: ControlCenterEffectType;
+   
+      /**
+       * If effect type is active.
+       *
+       * @type { boolean }
+       * @readonly
+       * @syscap SystemCapability.Multimedia.Camera.Core
+       * @atomicservice
+       * @since 20
+       */
+      readonly isActive: boolean;
+    }
 
   /**
    * Enum for camera error code.
@@ -1457,6 +1540,54 @@ declare namespace camera {
     off(type: 'cameraMute', callback?: AsyncCallback<boolean>): void;
 
     /**
+     * Subscribes control center status change event callback.
+     *
+     * @param { 'controlCenterStatusChange' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to get the control center status change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    on(type: 'controlCenterStatusChange', callback: AsyncCallback<boolean>): void;
+ 
+    /**
+     * Unsubscribes control center status change event callback.
+     *
+     * @param { 'controlCenterStatusChange' } type - Event type.
+     * @param { AsyncCallback<boolean> } [callback] - Callback used to get the control center status change.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    off(type: 'controlCenterStatusChange', callback?: AsyncCallback<boolean>): void;
+ 
+    /**
+     * Check if the control center active.
+     *
+     * @returns { boolean } this value that specifies whether the control center active.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    isControlCenterActive(): boolean;
+ 
+    /**
+     * Create a ControlCenterSession instance.
+     * 
+     * @permission ohos.permission.CAMERA_CONTROL
+     * @returns { ControlCenterSession } the ControlCenterSession instance.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    createControlCenterSession(): ControlCenterSession;
+
+    /**
      * Determines whether the camera device supports prelaunch.
      * This function must be called in prior to the setPrelaunchConfig and prelaunch functions.
      *
@@ -2454,6 +2585,18 @@ declare namespace camera {
      * @since 18
      */
     readonly isRetractable?: boolean;
+
+    /**
+     * Camera lens equivalent focal length
+     *
+     * @type { ?Array<int> }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    readonly lensEquivalentFocalLength?: Array<int>;
   }
 
   /**
@@ -2824,6 +2967,41 @@ declare namespace camera {
      * @since 18
      */
     controlAuxiliary(auxiliaryType: AuxiliaryType, auxiliaryStatus: AuxiliaryStatus): Promise<void>;
+
+    /**
+     * Query whether physical camera orientation is variable under different fold status.
+     *
+     * @returns { boolean } Is physical camera orientation variable under different fold status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    isPhysicalCameraOrientationVariable(): boolean;
+
+    /**
+     * Get physical camera orientation under current fold status.
+     *
+     * @returns { int } The physical camera orientation.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getPhysicalCameraOrientation(): int;
+  
+    /**
+     * Choose whether to use the physical camera orientation.
+     *
+     * @param { boolean } isUsed - Use physical camera orientation if TRUE.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    usePhysicalCameraOrientation(isUsed: boolean): void;
   }
 
   /**
@@ -4886,6 +5064,18 @@ declare namespace camera {
      * @since 12
      */
     getZoomPointInfos(): Array<ZoomPointInfo>;
+
+    /**
+     * Checks whether zoom center point is supported.
+     *
+     * @returns { boolean } Is zoom center point supported.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    isZoomCenterPointSupported(): boolean;
   }
 
   /**
@@ -5003,6 +5193,30 @@ declare namespace camera {
      * @since 11
      */
     unprepareZoom(): void;
+
+    /**
+     * Gets current zoom center point.
+     *
+     * @returns { Point } The zoom center point
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    getZoomCenterPoint(): Point;
+
+    /**
+     * Sets the zoom center point.
+     *
+     * @param { Point } point - The point of zoom center.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    setZoomCenterPoint(point: Point): void;
   }
 
   /**
@@ -5541,6 +5755,33 @@ declare namespace camera {
   }
 
   /**
+   * Enumerates the control center effect types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
+  enum ControlCenterEffectType {
+    /**
+     * Beauty type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    BEAUTY = 0,
+    /**
+     * Portrait type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    PORTRAIT = 1
+  }
+
+  /**
    * Enum for policy type
    *
    * @enum { number }
@@ -5730,6 +5971,58 @@ declare namespace camera {
      * @since 19
      */
     setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void;
+  }
+
+  /**
+   * Control Center Query object.
+   *
+   * @interface ControlCenterQuery
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface ControlCenterQuery {
+    /**
+     * Checks whether control center is supported.
+     *
+     * @returns { boolean } Is control center supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    isControlCenterSupported(): boolean;
+ 
+    /**
+     * Gets the supported effect types.
+     *
+     * @returns { Array<ControlCenterEffectType> } The array of the supported control center type for the session.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    getSupportedEffectTypes(): Array<ControlCenterEffectType>;
+  }
+ 
+  /**
+   * Control center object.
+   *
+   * @extends ControlCenterQuery
+   * @interface ControlCenter
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 20
+   */
+  interface ControlCenter extends ControlCenterQuery {
+    /**
+     * Enable control center for session.
+     *
+     * @param { boolean } enabled enable control center for session if TRUE.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice 
+     * @since 20
+     */
+    enableControlCenter(enabled: boolean): void;
   }
 
   /**
@@ -7624,6 +7917,17 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+     /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -7636,7 +7940,40 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to system pressure level event callback.
+     *
+     * @param { 'systemPressureLevelChange' } type - Event type.
+     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Unsubscribes to system pressure level event callback.
+     *
+     * @param { 'systemPressureLevelChange' } type - Event type.
+     * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
 
     /**
      * Subscribes to feature detection results.
@@ -7882,13 +8219,13 @@ declare namespace camera {
   /**
    * Video session object.
    *
-   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter, AutoDeviceSwitch, Macro
    * @interface VideoSession
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
    * @since 20
    */
-  interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro {
+  interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter, AutoDeviceSwitch, Macro {
     /**
      * Gets whether the choosed preconfig type can be used to configure video session.
      * Must choose preconfig type from {@link PreconfigType}.
@@ -8077,6 +8414,17 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+    /**
+     * Subscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     on(type: 'macroStatusChanged', callback: AsyncCallback<boolean>): void;
 
     /**
@@ -8089,7 +8437,62 @@ declare namespace camera {
      * @systemapi
      * @since 11
      */
+    /**
+     * Unsubscribes camera macro status event callback.
+     *
+     * @param { 'macroStatusChanged' } type - Event type.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return macro detection result,
+     *     true indicating macro scene is detected and can be enabled, false indicating no macro scene is detected,
+     *     and macro should be disabled.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
     off(type: 'macroStatusChanged', callback?: AsyncCallback<boolean>): void;
+
+    /**
+     * Subscribes to system pressure level event callback.
+     *
+     * @param { 'systemPressureLevelChange' } type - Event type.
+     * @param { AsyncCallback<SystemPressureLevel> } callback - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    on(type: 'systemPressureLevelChange', callback: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Unsubscribes to system pressure level event callback.
+     *
+     * @param { 'systemPressureLevelChange' } type - Event type.
+     * @param { AsyncCallback<SystemPressureLevel> } [callback] - Callback used to return the result.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+    off(type: 'systemPressureLevelChange', callback?: AsyncCallback<SystemPressureLevel>): void
+
+    /**
+     * Subscribes to control center effect status change callback.
+     *
+     * @param { 'controlCenterEffectStatusChange' } type - Event type.
+     * @param { AsyncCallback<ControlCenterStatusInfo> } callback - Callback used to get control center effect status.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 20
+     */
+     on(type: 'controlCenterEffectStatusChange', callback: AsyncCallback<ControlCenterStatusInfo>): void;
+ 
+     /**
+      * Unsubscribes to control center effect status change callback.
+      *
+      * @param { 'controlCenterEffectStatusChange' } type - Event type.
+      * @param { AsyncCallback<ControlCenterStatusInfo> } [callback] - Callback used to get control center effect status.
+      * @syscap SystemCapability.Multimedia.Camera.Core
+      * @atomicservice
+      * @since 20
+      */
+     off(type: 'controlCenterEffectStatusChange', callback?: AsyncCallback<ControlCenterStatusInfo>): void;
 
     /**
      * Subscribes to lcd flash status.
@@ -10592,6 +10995,16 @@ declare namespace camera {
      * @since 11
      */
     sketchRatio: number;
+
+    /**
+     * The offset point of the sketch stream.
+     *
+     * @type { Point }
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    centerPointOffset: Point;
   }
 
   /**
@@ -11592,6 +12005,34 @@ declare namespace camera {
      * @since 19
      */
     HEVC = 1
+  }
+
+  /**
+   * Enum for photo quality prioritization.
+   *
+   * @enum {number}
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @atomicservice
+   * @since 21
+   */
+  enum PhotoQualityPrioritization {
+    /**
+     * High quality photos are the top preference, even at the expense of shot-to-shot time.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     */
+    HIGH_QUALITY = 0,
+
+    /**
+     * Prefering speed over quality, even at the expense of quality.
+     * 
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+     */
+    SPEED = 1,
   }
 
   /**
@@ -12618,6 +13059,32 @@ declare namespace camera {
      * @since 18
      */
     off(type: 'offlineDeliveryFinished', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Query whether photo quality prioritization is supported.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization type.
+     * @returns { boolean } - Whether the choosed quality prioritization type is supported.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+    */
+    isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean;
+
+    /**
+     * Set photo quality prioritization.
+     *
+     * @param { PhotoQualityPrioritization } qualityPrioritization - Photo quality prioritization.
+     * @throws { BusinessError } 7400201 - Camera service fatal error,
+     * reconfiguring streams is needed to recover from failure.
+     * @throws { BusinessError } 7400102 - Operation not allowed.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @atomicservice
+     * @since 21
+    */
+    setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void;
   }
 
   /**
@@ -14717,6 +15184,28 @@ declare namespace camera {
      */
     setTimeLapsePreviewType(type: TimeLapsePreviewType): void;
   }
+
+  /**
+   * Control center session object.
+   *
+   * @extends Beauty, Aperture
+   * @interface ControlCenterSession
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @since 20
+   */
+  interface ControlCenterSession extends Beauty, Aperture {
+    /**
+     * Release control center session object.
+     *
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @since 20
+     */
+    release(): Promise<void>;
+  } 
 
   /**
    * Enum for Depth Data Accuracy.

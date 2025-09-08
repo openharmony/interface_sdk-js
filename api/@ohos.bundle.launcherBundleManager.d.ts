@@ -18,9 +18,9 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { AsyncCallback } from './@ohos.base';
 import { LauncherAbilityInfo as _LauncherAbilityInfo } from './bundleManager/LauncherAbilityInfo';
+/*** if arkts 1.1 */
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 /*** endif */
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
@@ -50,7 +50,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string,
     userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
@@ -70,7 +71,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfo(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -86,7 +88,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getLauncherAbilityInfoSync(bundleName: string, userId: number): Array<LauncherAbilityInfo>;
 
@@ -103,7 +106,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
@@ -120,7 +124,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllLauncherAbilityInfo(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -137,7 +142,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
@@ -154,7 +160,8 @@ declare namespace launcherBundleManager {
    * @throws { BusinessError } 17700001 - The specified bundle name is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getShortcutInfo(bundleName: string): Promise<Array<ShortcutInfo>>;
 
@@ -212,7 +219,6 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function getShortcutInfoByAppIndex(bundleName: string, appIndex: number): Array<ShortcutInfo>;
 
@@ -258,7 +264,8 @@ declare namespace launcherBundleManager {
    *
    * @typedef { _LauncherAbilityInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type LauncherAbilityInfo = _LauncherAbilityInfo;
 

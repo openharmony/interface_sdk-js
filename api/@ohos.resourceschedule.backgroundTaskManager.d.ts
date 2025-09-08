@@ -273,6 +273,13 @@ declare namespace backgroundTaskManager {
      * @since 20
      */
     wantAgentAbilityName: string;
+    /**
+     * The suspend state of apply continuous task.
+     * @type { boolean }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 20
+     */
+    suspendState: boolean;
   }
 
   /**
@@ -735,7 +742,8 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
-   * Obtains all the continuous tasks before an application enters the suspended state.
+   * Obtains all the continuous tasks before an application enters the suspended state,
+   *     including continuous tasks in suspended state.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -749,6 +757,23 @@ declare namespace backgroundTaskManager {
    * @since 20
    */
   function getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>;
+
+  /**
+   * Obtains all the continuous tasks before an application enters the suspended state.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - App running context.
+   * @param { boolean } includeSuspended - Return the suspended continuous tasks.
+   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   * <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 20
+   */
+  function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
 
   /**
    * Apply or unapply efficiency resources.
@@ -849,7 +874,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
+   * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -875,7 +900,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskActive' } type - The type of continuous task active.
-   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
+   * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask

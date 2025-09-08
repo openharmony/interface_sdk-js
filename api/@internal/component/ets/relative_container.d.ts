@@ -18,8 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Dimension } from './units';
+import { Axis } from './enums';
+import { CommonMethod } from './common';
+/*** endif */
+
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27,7 +33,7 @@
  * @since 9
  */
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -36,18 +42,19 @@
  * @since 10
  */
 /**
- * Provides ports for relative containers.
+ * Provides ports for relativeContainer.
  *
  * @interface RelativeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface RelativeContainerInterface {
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -55,7 +62,7 @@ interface RelativeContainerInterface {
    * @since 9
    */
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -64,14 +71,15 @@ interface RelativeContainerInterface {
    * @since 10
    */
   /**
-   * Constructor.
+   * Defines the constructor of RelativeContainer.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): RelativeContainerAttribute;
 }
@@ -83,7 +91,8 @@ interface RelativeContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GuideLinePosition {
   /**
@@ -93,7 +102,8 @@ declare interface GuideLinePosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start? : Dimension;
 
@@ -104,51 +114,56 @@ declare interface GuideLinePosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   end? : Dimension;
 }
 
 /**
- * Specifies the GuideLineStyle of relative container
+ * Specifies the GuideLineStyle of relativeContainer
  *
  * @interface GuideLineStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface GuideLineStyle {
   /**
    * Specifies the id of guideLine
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   id : string;
 
   /**
    * Specifies the direction of guideLine
    *
-   * @type {Axis}
+   * @type { Axis }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction : Axis;
 
   /**
    * Specifies the position of guideLine
    *
-   * @type {GuideLinePosition}
+   * @type { GuideLinePosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position : GuideLinePosition;
 }
@@ -156,11 +171,12 @@ declare interface GuideLineStyle {
 /**
  * Specifies the direction value of Barrier.
  *
- * @enum {number}
+ * @enum { number }
  * @syscap SystemCapability.Test.UiTest
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum BarrierDirection {
   /**
@@ -169,7 +185,8 @@ declare enum BarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   LEFT,
 
@@ -179,7 +196,8 @@ declare enum BarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RIGHT,
 
@@ -189,7 +207,8 @@ declare enum BarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TOP,
 
@@ -199,7 +218,8 @@ declare enum BarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BOTTOM,
 }
@@ -211,7 +231,8 @@ declare enum BarrierDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum LocalizedBarrierDirection {
   /**
@@ -220,7 +241,8 @@ declare enum LocalizedBarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   START = 0,
 
@@ -230,7 +252,8 @@ declare enum LocalizedBarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   END = 1,
 
@@ -240,7 +263,8 @@ declare enum LocalizedBarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   TOP = 2,
 
@@ -250,63 +274,69 @@ declare enum LocalizedBarrierDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   BOTTOM = 3,
 }
 
 /**
- * Specifies the BarrierStyle of relative container
+ * Specifies the BarrierStyle of relativeContainer
  *
  * @interface BarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BarrierStyle {
   /**
    * Specifies the id of barrier
    *
-   * @type {string}
+   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   id : string;
 
   /**
    * Specifies the direction of barrier
    *
-   * @type {BarrierDirection}
+   * @type { BarrierDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction : BarrierDirection;
 
   /**
    * Specifies the referencedId of barrier
    *
-   * @type {Array<string>}
+   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   referencedId : Array<string>;
 }
 
 /**
- * Specifies the Localized BarrierStyle of relative container
+ * Specifies the Localized BarrierStyle of relativeContainer
  *
  * @interface LocalizedBarrierStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface LocalizedBarrierStyle {
   /**
@@ -316,7 +346,8 @@ declare interface LocalizedBarrierStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   id : string;
 
@@ -327,7 +358,8 @@ declare interface LocalizedBarrierStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   localizedDirection : LocalizedBarrierDirection;
 
@@ -338,7 +370,8 @@ declare interface LocalizedBarrierStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   referencedId : Array<string>;
 }
@@ -362,7 +395,8 @@ declare interface LocalizedBarrierStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
@@ -373,7 +407,8 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   guideLine(value: Array<GuideLineStyle>): RelativeContainerAttribute;
 
@@ -385,7 +420,8 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
 
@@ -397,7 +433,8 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   barrier(barrierStyle: Array<LocalizedBarrierStyle>): RelativeContainerAttribute;
 }

@@ -48,10 +48,19 @@ declare namespace pasteboard {
    */
   /**
    * Indicates the maximum number of records allowed in a PasteData object.
+   * No limit the number of records in a PasteData object since API version 10.
+   * @constant
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 10
+   */
+  /**
+   * Indicates the maximum number of records allowed in a PasteData object.
+   * No limit the number of records in a PasteData object since API version 10.
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   const MAX_RECORD_NUM = 512;
   /**
@@ -638,7 +647,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(callback: AsyncCallback<string>): void;
 
@@ -648,7 +657,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
+     * @useinstead ohos.pasteboard.pasteboard#toPlainText
      */
     convertToText(): Promise<string>;
 

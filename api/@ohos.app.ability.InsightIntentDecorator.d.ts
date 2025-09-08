@@ -151,17 +151,6 @@ declare interface IntentDecoratorInfo {
    * @since 20
    */
   result?: Record<string, Object>;
-
-  /**
-   * The example of the intent.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   */
-  example?: string;
 }
 
 /**
@@ -205,7 +194,6 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
  *
  * @enum { string }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 20
@@ -215,7 +203,6 @@ declare enum LinkParamCategory {
    * The parameter will added to the end of link uri.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 20
@@ -226,7 +213,6 @@ declare enum LinkParamCategory {
    * The parameter will transferred to the application as parameters of want.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 20
@@ -389,29 +375,6 @@ export declare const InsightIntentFunctionMethod: ((intentInfo: FunctionIntentDe
  * @since 20
  */
 export declare const InsightIntentFunction: (() => ClassDecorator);
-
-/**
-  * Declare interface of FormIntentDecoratorInfo.
-  *
-  * @extends IntentDecoratorInfo
-  * @interface FormIntentDecoratorInfo
-  * @syscap SystemCapability.Ability.AbilityRuntime.Core
-  * @stagemodelonly
-  * @atomicservice
-  * @since 20
-  */
-declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
-/**
-   * The form name bound to the intent.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 20
-   */
-  formName: string;
-}
 
 /**
  * Declare interface of EntryIntentDecoratorInfo.

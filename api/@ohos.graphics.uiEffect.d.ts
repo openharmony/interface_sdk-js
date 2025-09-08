@@ -111,16 +111,16 @@ declare namespace uiEffect {
     /**
      * Adds the content radius gradient blurring effect for the current component. The input parameter is the blurring radius.
      *
-     * @param { number } value - the blurring radius.
+     * @param { number } radius - the blurring radius.
      * The larger the blurring radius, the more blurring the content, and if the value is 0, the content blurring effect is not blurring.
-     * @param { LinearGradientBlurOptions } options - the radius gradient blur options.
+     * @param { LinearGradientBlurOptions } gradientParam - the radius gradient blur options.
      * @returns { Filter } - Returns radius gradient blur Filter.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 19
      */
-    radiusGradientBlur(value: number, options: LinearGradientBlurOptions): Filter;
+    radiusGradientBlur(radius: number, gradientParam: LinearGradientBlurOptions): Filter;
 
     /**
      * Sets the deformation effect controlled by bezier curves of the component.
@@ -221,6 +221,51 @@ declare namespace uiEffect {
     * @since 20
     */
     hdrBrightnessRatio(ratio: number): Filter;
+
+    /**
+     * Sets variable radius blur effect with radius map.
+     * 
+     * @param { number } radius - the blurring radius.
+     * The larger the blurring radius, the more blurring the content,
+     * and if the value is 0, the content blurring effect is not blurring.
+     * @param { Mask } radiusMap - the alpha of the mask determines the degree of blurring.
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    variableRadiusBlur(radius: number, radiusMap: Mask): Filter;
+
+    /**
+     * Generates lighting effects from mask and directional light.
+     * 
+     * @param { common2D.Point3d } direction - Direction of light
+     * @param { Color } color - Color of light
+     * @param { number } intensity - Intensity of light
+     * @param { Mask } [mask] - Mask, as a displacement map that affects lighting effects
+     * @param { number } [factor] - Mask scale factor, used to scale the mask channel values
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    directionLight(direction: common2D.Point3d, color: Color, intensity: number, mask?: Mask, factor?: number): Filter;
+
+    /**
+     * Applies Transition with alpha mask
+     * 
+     * @param { Mask } alphaMask - Animatable mask object
+     * @param { number } [factor] - The coefficient of the mask, defaulting to 1.0f [0~1]
+     * @param { boolean } [inverse] - Transition mode, default is fasle (true, false)
+     * @returns { Filter } - Returns the Filter that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    maskTransition(alphaMask: Mask, factor?: number, inverse?: boolean): Filter;
   }
 
   /**
@@ -377,6 +422,22 @@ declare namespace uiEffect {
      */
     borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: number,
       borderWidth: number): VisualEffect;
+
+    /**
+     * Sets the color gradient effect, may blend with alpha mask.
+     *
+     * @param { Array<Color> } colors - array of colors.
+     * @param { Array<common2D.Point> } positions - the centers of colors.
+     * @param { Array<number> } strengths - the weights of color Mixing.
+     * @param { Mask } [alphaMask] - the mask determines the alpha of the effect.
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<number>,
+      alphaMask?: Mask): VisualEffect;
   }
 
   /**
@@ -384,10 +445,17 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @since 13
+   */  
+  /**
+   * Defines the blending effect.
+   * @typedef { BrightnessBlender | HdrBrightnessBlender }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since arkts {'1.1':'20', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type Blender = BrightnessBlender;
+  type Blender = BrightnessBlender | HdrBrightnessBlender;
 
   /**
    * The Blender of backgroundColorEffect.
@@ -488,6 +556,17 @@ declare namespace uiEffect {
   }
 
   /**
+   * The HDR enabled Blender of backgroundColorEffect.
+   * @extends BrightnessBlender
+   * @typedef HdrBrightnessBlender
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  interface HdrBrightnessBlender extends BrightnessBlender {}
+
+  /**
    * The Color of Light.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
@@ -573,7 +652,7 @@ declare namespace uiEffect {
      * @param { common2D.Point } center
      * @param { number } radiusX
      * @param { number } radiusY
-     * @param { Array<[number, number]> } values
+     * @param { Array<[number, number]> } gradients
      * @returns { Mask }
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @static
@@ -582,7 +661,24 @@ declare namespace uiEffect {
      * @since 20
      */
     static createRadialGradientMask(center: common2D.Point, radiusX: number, radiusY: number,
-      values: Array<[number, number]>): Mask;
+      gradients: Array<[number, number]>): Mask;
+
+    /**
+     * Create a Mask of single wave gradient.
+     * @param { common2D.Point } center - The wave source center of the single-wave mask.
+     * @param { number } width - The circular ring width of the single-wave mask.
+     * @param { number } propagationRadius - The outer diffusion radius of the single-wave mask.
+     * @param { number } blurRadius - The blur radius of the single-wave mask.
+     * @param { number } [turbulenceStrength] - The turbulent displacement intensity of the single-wave mask.
+     * @returns { Mask } - Returns wave gradient mask.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @since 20
+     */
+    static createWaveGradientMask(center: common2D.Point, width: number, propagationRadius: number,
+      blurRadius: number, turbulenceStrength?: number): Mask;
   }
 
   /**
@@ -603,7 +699,7 @@ declare namespace uiEffect {
   function createEffect(): VisualEffect;
 
   /**
-   * Create a BrightnessBlender to add BrightnessBlender to the component.
+   * Create a BrightnessBlender, which is used to adjust the brightness of UI components.
    * @param { BrightnessBlenderParam } param - The brightness blender parameters.
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
@@ -612,6 +708,18 @@ declare namespace uiEffect {
    * @arkts 1.1&1.2
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
+
+  /**
+   * Create an HdrBrightnessBlender, which is used to adjust the HDR brightness of UI components.
+   * @param { BrightnessBlenderParam } param - The brightness blender parameters.
+   * @returns { HdrBrightnessBlender } Returns the blender.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
 }
 
 /**

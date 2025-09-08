@@ -18,6 +18,10 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod,CommonMethod } from './common';
+/*** endif */
+
 /**
  * Defines circle options for Circle component.
  *
@@ -50,7 +54,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CircleOptions {
   /**
@@ -98,6 +103,18 @@ declare interface CircleOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Defines the width property.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: string | number;
 
   /**
    * Defines the height property.
@@ -144,6 +161,18 @@ declare interface CircleOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Defines the height property.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: string | number;
 }
 
 /**
@@ -294,7 +323,8 @@ interface CircleInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
 
@@ -361,3 +391,30 @@ declare const Circle: CircleInterface;
  * @since 11
  */
 declare const CircleInstance: CircleAttribute;
+
+/**
+ * Defines circle component.
+ *
+ * @interface CircleInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface CircleInterface {
+  /**
+   * Set the options for circle component.
+   *
+   * @param { CircleOptions } [value] - options to create circle component.
+   * @returns { CircleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (value?: CircleOptions): CircleAttribute;
+}

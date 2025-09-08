@@ -49,6 +49,10 @@ function isTsFile(path) {
   return path.endsWith('d.ts');
 }
 
+function isStaticFile(path) {
+  return path.endsWith('static.d.ets');
+}
+
 function hasEtsFile(path) {
   // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
   if (path.includes('StateManagement.d.ts')) {
@@ -63,6 +67,16 @@ function hasTsFile(path) {
   return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.d.ts'));
 }
 
+function hasStaticFile(path) {
+  // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
+  if (path.includes('StateManagement.d.ts')) {
+    console.log('StateManagement.d.ts is in white list, return true. path = ', path);
+    return true;
+  } else {
+    return fs.existsSync(path.replace(/\.d\.[e]?ts$/g, '.static.d.ets'));
+  }
+}
+
 /**
  * 配置参数
  */
@@ -74,10 +88,12 @@ function start() {
   program
     .option('--path <string>', 'path name')
     .option('--type <string>', 'handle type')
-    .option('--output [string]', 'output path')
+    .option('--output <string>', 'output path')
+    .option('--isPublic <string>', 'is Public')
+    .option('--create-keep-file <string>', 'create keep file', 'false')
     .action((opts) => {
       dirType = opts.type;
-      handleApiFiles(opts.path, opts.type, opts.output);
+      handleApiFiles(opts.path, opts.type, opts.output, opts.isPublic, opts.createKeepFile);
     });
   program.parse(process.argv);
 }
@@ -87,7 +103,7 @@ function start() {
  * @param {*} rootPath 
  * @param {*} type 
  */
-function handleApiFiles(rootPath, type, output) {
+function handleApiFiles(rootPath, type, output, isPublic, createKeepFile) {
   const allApiFilePathSet = new Set();
   const fileNames = fs.readdirSync(rootPath);
   const apiRootPath = rootPath.replace(/\\/g, '/');
@@ -107,12 +123,13 @@ function handleApiFiles(rootPath, type, output) {
 
   for (const apiRelativePath of allApiFilePathSet) {
     try {
-      handleApiFileByType(apiRelativePath, rootPath, type, output);
+      handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic);
     } catch (error) {
       console.log('error===>', error);
     }
   }
-  if (type === DirType.typeTwo) {
+  const needCreateKeepFile = createKeepFile.toString() === 'true';
+  if (type === DirType.typeTwo && needCreateKeepFile) {
     NotNullFilePath.forEach((dir) => {
       const outDir = path.join(output, dir);
       if (!fs.existsSync(outDir)) {
@@ -138,22 +155,74 @@ function handleApiFiles(rootPath, type, output) {
  * @param {*} type 
  * @returns 
  */
-function handleApiFileByType(apiRelativePath, rootPath, type, output) {
+function handleApiFileByType(apiRelativePath, rootPath, type, output, isPublic) {
   const fullPath = path.join(rootPath, apiRelativePath);
   const isEndWithEts = isEtsFile(apiRelativePath);
   const isEndWithTs = isTsFile(apiRelativePath);
+  const isEndWithStatic = isStaticFile(apiRelativePath);
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   const fileContent = fs.readFileSync(fullPath, 'utf-8');
+
+  if (isEndWithStatic) {
+    if (type === 'ets2') {
+      if (isPublic === 'true') {
+        writeFile(outputPath, deleteArktsTag(fileContent));
+        return;
+      } else {
+        writeFile(outputPath.replace(/\.static\.d\.ets$/, '.d.ets'), deleteArktsTag(fileContent));
+        return;
+      }
+    } else {
+      return;
+    }
+  }
 
   if (!isEndWithEts && !isEndWithTs) {
     writeFile(outputPath, fileContent);
     return;
   }
-  if (type === 'ets2' && !(hasEtsFile(fullPath) && isEndWithTs)) {
+  const isCorrectHandleFullpath = isHandleFullPath(fullPath, apiRelativePath, type);
+  if (type === 'ets2' && isCorrectHandleFullpath) {
     handleFileInSecondType(apiRelativePath, fullPath, type, output);
-  } else if (type === 'ets' && !(hasTsFile(fullPath) && isEndWithEts)) {
+  } else if (type === 'ets' && isCorrectHandleFullpath) {
     handleFileInFirstType(apiRelativePath, fullPath, type, output);
   }
+}
+
+/**
+ * 判断当前的文件路径是否符合当前打包场景，过滤同名文件
+ * @param {*} fullPath 
+ * @param {*} apiRelativePath 
+ * @param {*} type 
+ * @returns 
+ */
+function isHandleFullPath(fullPath, apiRelativePath, type) {
+  // 当前文件为.ts结尾文件
+  if (isTsFile(apiRelativePath)) {
+    if (type === 'ets') {
+      return true;
+    }
+    if (!(hasEtsFile(fullPath)) && !(hasStaticFile(fullPath))) {
+      return true;
+    }
+  }
+  // 当前文件为.ets结尾文件
+  if (isEtsFile(apiRelativePath)) {
+    if (!(hasTsFile(fullPath)) && !(hasStaticFile(fullPath))) {
+      return true;
+    }
+    if (hasTsFile(fullPath) && !(hasStaticFile(fullPath)) && type === 'ets2') {
+      return true;
+    }
+    if (hasStaticFile(fullPath) && !(hasTsFile(fullPath)) && type === 'ets') {
+      return true;
+    }
+  }
+  // 当前文件为.static结尾文件
+  if (isStaticFile(apiRelativePath) && type === 'ets2') {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -194,23 +263,15 @@ function handleArktsDefinition(type, fileContent) {
  * @returns 
  */
 function saveLatestJsDoc(fileContent) {
-  let regx = /(\/\*[\s\S]*?\*\*\/)/g;
-
-  fileContent = fileContent.split('').reverse().join('');
-  let preset = 0;
-  fileContent = fileContent.replace(regx, (substring, p1, offset, str) => {
-    if (!/ecnis@\s*\*/g.test(substring)) {
+  // 获取包含@since的多段连续注释
+  return fileContent.replace(/(\s*\/\*\*(?:(?!\/\*\*)[\s\S])*?@since[\s\S]*?\*\/\s*?)+/g, (substring, p1) => {
+    if (substring === p1) {// 只有一段
       return substring;
     }
-    const preStr = str.substring(preset, offset);
-    preset = offset + substring.length;
-    if (/\S/g.test(preStr)) {
-      return substring;
-    }
-    return '';
+    // 多段时需要保留开头空行
+    const blankSpace = substring.match(/^\s*/)[0];
+    return blankSpace + p1;
   });
-  fileContent = fileContent.split('').reverse().join('');
-  return fileContent;
 }
 
 /**
@@ -304,6 +365,21 @@ function deleteArktsTag(fileContent) {
 }
 
 /**
+ * 删除1.2未支持标签
+ * 
+ * @param {*} fileContent 文件内容
+ * @param {*} regx 删除的正则表达式
+ * @returns 
+ */
+function deleteUnsportedTag(fileContent) {
+  const arktsTagRegx = /\*\s*@crossplatform\s*(\r|\n)\s*|\*\s*@form\s*(\r|\n)\s*|\*\s*@atomicservice\s*(\r|\n)\s*/g;
+  fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
+    return '';
+  });
+  return fileContent;
+}
+
+/**
  * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
  * 
  * @param {*} sourceFile 
@@ -342,7 +418,9 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
   if (sourceFile.statements.length === 0) {
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -366,7 +444,9 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     }
     // 有1.2标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
-      writeFile(outputPath, deleteArktsTag(fileContent));
+      let newFileContent = deleteUnsportedTag(fileContent);
+      newFileContent = getFileContent(newFileContent, fullPath);
+      writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
     // 处理标有@arkts 1.1&1.2的声明文件
@@ -411,6 +491,8 @@ function handlehasTagFile(sourceFile, outputPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, deleteArktsTag(newContent));
 }
 
@@ -440,8 +522,70 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   }
   // 保留最后一段注释
   newContent = saveLatestJsDoc(newContent);
+  newContent = getFileContent(newContent, outputPath);
   newContent = deleteArktsTag(newContent);
+  newContent = deleteUnsportedTag(newContent);
   writeFile(outputPath, newContent);
+}
+
+/**
+ * 获取删除overload节点后的文件内容
+ * @param {*} newContent 文件内容 
+ * @param {*} filePath 文件路径 
+ * @returns 
+ */
+function getFileContent(newContent, filePath) {
+  const regex = /^overload\s+.+$/;
+  if (!regex.test(newContent)) {
+    return newContent;
+  }
+  const sourceFile = ts.createSourceFile(path.basename(filePath), newContent, ts.ScriptTarget.ES2017, true);
+  const printer = ts.createPrinter();
+  const result = ts.transform(sourceFile, [deleteOverLoadJsDoc], { etsAnnotationsEnable: true });
+  const output = printer.printFile(result.transformed[0]);
+  return output;
+}
+
+/**
+ * 递归去除overload节点jsDoc
+ * @param {*} context 
+ * @returns 
+ */
+function deleteOverLoadJsDoc(context) {
+  return (sourceFile) => {
+    const visitNode = (node) => {
+      if (ts.isStructDeclaration(node)) {
+        return processStructDeclaration(node);
+      }
+      if (ts.isOverloadDeclaration(node)) {
+        return ts.factory.createOverloadDeclaration(node.modifiers, node.name, node.members);
+      }
+      return ts.visitEachChild(node, visitNode, context);
+    };
+    const newSourceFile = ts.visitNode(sourceFile, visitNode);
+    return newSourceFile;
+  };
+}
+
+/**
+ * 处理struct子节点，防止tsc自动增加constructor方法
+ */
+function processStructDeclaration(node) {
+  const newMembers = [];
+  node.members.forEach((member, index) => {
+    if (index >= 1) {
+      newMembers.push(member);
+    }
+  });
+  node = ts.factory.updateStructDeclaration(
+    node,
+    node.modifiers,
+    node.name,
+    node.typeParameters,
+    node.heritageClauses,
+    newMembers
+  );
+  return node;
 }
 
 /**
@@ -452,7 +596,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
  */
 function saveApiByArktsDefinition(sourceFile, fileContent, outputPath) {
   const regx = /\/\*\*\* if arkts (1.1&)?1.2 \*\/\s*([\s\S]*?)\s*\/\*\*\* endif \*\//g;
-  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?limitations under the License\.\r?\n\s*\*\//g;
+  const regex = /\/\*\r?\n\s*\*\s*Copyright[\s\S]*?\*\//g;
   const copyrightMessage = fileContent.match(regex)[0];
   const firstNode = sourceFile.statements.find(statement => {
     return !ts.isExpressionStatement(statement);
@@ -580,7 +724,7 @@ const transformer = (context) => {
 };
 
 function validateExportDeclaration(node) {
-  return ts.isExportDeclaration(node) && node.moduleSpecifier && node.jsDoc && node.jsDoc.length !== 0;
+  return ts.isExportDeclaration(node) && node.jsDoc && node.jsDoc.length !== 0;
 }
 
 /**
@@ -589,7 +733,7 @@ function validateExportDeclaration(node) {
  * @returns 
  */
 function deleteApi(sourceFile) {
-  let result = ts.transform(sourceFile, [transformer]);
+  let result = ts.transform(sourceFile, [transformer], { etsAnnotationsEnable: true });
   const newSourceFile = result.transformed[0];
   if (isEmptyFile(newSourceFile)) {
     return '';
@@ -598,7 +742,7 @@ function deleteApi(sourceFile) {
   // 打印结果
   const printer = ts.createPrinter();
   let fileContent = printer.printFile(newSourceFile);
-  result = ts.transform(newSourceFile, [transformExportApi]);
+  result = ts.transform(newSourceFile, [transformExportApi], { etsAnnotationsEnable: true });
   fileContent = printer.printFile(result.transformed[0]);
   deleteApiSet.clear();
   return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');
@@ -834,6 +978,7 @@ const apiNodeTypeArr = [
   ts.SyntaxKind.GetAccessor,
   ts.SyntaxKind.SetAccessor,
   ts.SyntaxKind.IndexSignature,
+  ts.SyntaxKind.OverloadDeclaration
 ];
 
 start();

@@ -49,6 +49,15 @@ declare namespace socket {
   function sppListen(name: string, options: SppOptions, callback: AsyncCallback<number>): void;
 
   /**
+   * Get l2cap socket psm.
+   * 
+   * @param { number } serverSocket - Indicates the server socket ID, returned by {@link sppListen}.
+   * @returns { number } Returns the l2cap socket psm
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 20
+   */
+  function getL2capPsm(serverSocket: number): number;
+  /**
    * Waits for a remote device to connect.
    *
    * @param { number } serverSocket - Indicates the server socket ID, returned by {@link sppListen}.
@@ -231,6 +240,14 @@ declare namespace socket {
      * @since 10
      */
     type: SppType;
+    /**
+     * l2cap protocol service multiplexer
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 20
+     */
+    psm?: number;
   }
 
   /**
@@ -247,7 +264,21 @@ declare namespace socket {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10
      */
-    SPP_RFCOMM
+    SPP_RFCOMM = 0,
+    /**
+     * L2CAP of the BR type
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 20
+     */
+    SPP_L2CAP = 1,
+     /**
+     * L2CAP of the BLE type
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 20
+     */
+    SPP_L2CAP_BLE = 2
   }
 }
 

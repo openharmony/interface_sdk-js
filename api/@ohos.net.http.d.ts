@@ -398,6 +398,39 @@ declare namespace http {
     caPath?: string;
 
     /**
+     * A PEM representation of a certificate. The system will create an X.509 certificate object in the SSL process.
+     * If the caPath option is set, the caData option will be ignored.
+     * Certificate chain is not supported.
+     * Maxium length is 8000 Bytes.
+     * @type { ?string }
+     * @syscap SystemCapability.Communication.NetStack
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    caData?: string;
+
+    /**
+     * Which secure communication protocol is used, TLS (by defaul) or TLCP.
+     * If TLCP is used, all TLS related options, such as caPath, caData and clientCert, are ignored.
+     * @type { ?SslType }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 20
+     */
+    sslType?: SslType;
+
+    /**
+     * Support the application to pass in client certificates, allowing the server to verify the
+     * client's encryption identity.
+     * @type { ?ClientCert }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 20
+     */
+    clientEncCert?: ClientCert;
+
+    /**
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
@@ -624,6 +657,15 @@ declare namespace http {
     */
    export type AuthenticationType = 'basic' | 'ntlm' | 'digest';
  
+   /**
+    * The secure communication protocol.
+    * @typedef { 'TLS' | 'TLCP'}
+    * @syscap SystemCapability.Communication.NetStack
+    * @atomicservice
+    * @since 20
+    */
+   export type SslType = 'TLS' | 'TLCP';
+  
    /**
     * HTTP credential. Some server or proxy server need this.
     * @typedef Credential

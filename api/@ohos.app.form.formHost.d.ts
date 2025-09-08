@@ -1335,6 +1335,6 @@ declare namespace formHost {
    * @systemapi
    * @since 20
    */
-  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
+  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
 export default formHost;

@@ -26,9 +26,19 @@ import ArrayList from '@ohos.util.ArrayList';
 import util from '@ohos.util';
 import Deque from '@ohos.util.Deque';
 import LightWeightMap from '@ohos.util.LightWeightMap';
+import LightWeightSet from '@ohos.util.LightWeightSet';
 import Queue from '@ohos.util.Queue';
 import JSON from '@ohos.util.json';
 import stream from '@ohos.util.stream';
+import HashMap from '@ohos.util.HashMap';
+import HashSet from '@ohos.util.HashSet';
+import LinkedList from '@ohos.util.LinkedList';
+import List from '@ohos.util.List';
+import PlainArray from '@ohos.util.PlainArray';
+import Stack from '@ohos.util.Stack';
+import TreeMap from '@ohos.util.TreeMap';
+import TreeSet from '@ohos.util.TreeSet';
+
 
 export {
     ArrayList, Deque, HashMap, HashSet, LightWeightMap, LightWeightSet, LinkedList, List,

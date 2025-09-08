@@ -1439,7 +1439,7 @@ declare namespace distributedKVStore {
      * @StageModelOnly
      * @since 10
      */
-    delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>);
+    delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): void;
 
     /**
      * Deletes the key-value pairs based on the dataSharePredicates.
@@ -3009,6 +3009,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9
@@ -3025,6 +3026,7 @@ declare namespace distributedKVStore {
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
      * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 9

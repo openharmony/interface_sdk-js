@@ -26,7 +26,8 @@ import type notificationManager from '../@ohos.notificationManager';
  * @typedef NotificationSubscribeInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since 7
+ * @since arkts {'1.1':'7', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface NotificationSubscribeInfo {
   /**
@@ -35,7 +36,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleNames?: Array<string>;
 
@@ -45,7 +47,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   userId?: number;
 
@@ -55,7 +58,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   deviceType?: string;
 
@@ -75,7 +79,8 @@ export interface NotificationSubscribeInfo {
    * @type { ?number }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   filterLimit?: number;
 }

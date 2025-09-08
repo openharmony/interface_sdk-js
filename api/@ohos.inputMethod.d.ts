@@ -65,7 +65,7 @@ declare namespace inputMethod {
    *
    * @returns { InputMethodSetting } the object of InputMethodSetting.
    * @throws { BusinessError } 12800007 - input method setter error. Possible cause:
-   *     create InputmethodSetting object failed.
+   *     create InputMethodSetting object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */
@@ -76,7 +76,7 @@ declare namespace inputMethod {
    *
    * @returns { InputMethodController } the object of InputMethodController.
    * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-   *     create InputmethodController object failed.
+   *     create InputMethodController object failed.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 9
    */

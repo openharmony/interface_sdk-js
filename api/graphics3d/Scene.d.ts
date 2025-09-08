@@ -121,7 +121,8 @@ export interface RaycastResult {
  */
 export interface RaycastParameters {
   /**
-   * If defined, search only the nodes in the hierarchy under this node.
+   * If defined, search only the nodes in the hierarchy under this node
+   * If undefined, search all the nodes in the scene
    *
    * @type { ?Node }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -132,7 +133,7 @@ export interface RaycastParameters {
 
 /** 
  * The render resource factory. RenderResourceFactory is used to create resources that can be shared
- * across Scences that share a RenderContext
+ * across Scenes that share a RenderContext
  * 
  * @interface RenderResourceFactory
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -182,8 +183,9 @@ export interface RenderResourceFactory {
 
   /**
    * Create a new scene from a Resource.
+   * If uri is not provided, will return an empty scene.
    * 
-   * @param { ResourceStr } uri - the resource of creating a scene
+   * @param { ResourceStr } [uri] - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20
@@ -319,6 +321,17 @@ export interface RenderContext {
    * @since 20
    */
   loadPlugin(name: string): Promise<boolean>;
+
+  /**
+   * Register resource path
+   *
+   * @param { string } protocol - Protocol of the uri
+   * @param { string } uri - Path to register
+   * @returns { boolean } - True if registration success, false indicates the protocol has already been registered
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   */
+  registerResourcePath(protocol: string, uri: string): boolean;
 }
 
 /**
@@ -346,7 +359,7 @@ export interface RenderParameters {
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12
  */
-export class Scene {
+export declare class Scene {
   /**
    * Get default render context
    *
@@ -359,8 +372,9 @@ export class Scene {
 
   /**
    * Create a new scene from a ResourceStr.
+   * If uri is not provided, will return an empty scene.
    *
-   * @param { ResourceStr } uri - the resource of creating a scene
+   * @param { ResourceStr } [uri] - the resource of creating a scene
    * @returns { Promise<Scene> } promise a scene
    * @static
    * @syscap SystemCapability.ArkUi.Graphics3D

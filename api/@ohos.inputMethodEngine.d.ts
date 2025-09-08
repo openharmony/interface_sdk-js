@@ -179,6 +179,7 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PATTERN_USER_NAME
    *
+   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
@@ -187,6 +188,7 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PATTERN_NEW_PASSWORD
    *
+   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
@@ -195,6 +197,7 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PATTERN_NUMBER_DECIMAL
    *
+   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
@@ -203,6 +206,7 @@ declare namespace inputMethodEngine {
   /**
    * Editor of type PATTERN_ONE_TIME_CODE
    *
+   * @constant
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 20
    */
@@ -1120,7 +1124,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1136,7 +1140,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1152,7 +1156,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1168,7 +1172,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1184,7 +1188,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 9
      */
@@ -1200,7 +1204,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1370,7 +1374,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1384,7 +1388,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1397,7 +1401,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1413,7 +1417,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -1429,7 +1433,7 @@ declare namespace inputMethodEngine {
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      * @throws { BusinessError } 12800006 - input method controller error. Possible cause:
-     *     create InputmethodController object failed.
+     *     create InputMethodController object failed.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10
      */
@@ -2321,6 +2325,63 @@ declare namespace inputMethodEngine {
      * @since 20
      */
     setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>;
+
+    /**
+     * Get the current insets of the system panel of a specified display.
+     * <p>It's only used for SOFT_KEYBOARD panel with FLG_FIXED or FLG_FLOATING.</p>
+     * <p>This interface only supports obtaining the current insets values of a display.
+     * When the display undergoes orientation changes, or is folded or unfolded, it is necessary to
+     * reinvoke this interface to get the latest values.</p>
+     * 
+     * @param { number } displayId - specify which display's system panel insets.
+     * @returns { Promise<SystemPanelInsets> } the promise returned by the function.
+     * @throws { BusinessError } 12800013 - window manager service error.
+     * @throws { BusinessError } 12800017 - invalid panel type or panel flag. Possible causes:
+     *     1. Current panel's type is not SOFT_KEYBOARD.  2. Panel's flag is not FLG_FIXED or FLG_FLOATING. 
+     * @throws { BusinessError } 12800022 - invalid displayId.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 21
+     */
+    getSystemPanelCurrentInsets(displayId: number): Promise<SystemPanelInsets>;
+  }
+
+  /** 
+   * <p>Input method system panel's insets.</p>
+   * <p>It is used to indicate the distance between the input method panel and the system panel.</p>
+   * <p>The distance unit is px.</p>
+   * 
+   * @interface SystemPanelInsets.
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @since 21
+   */
+  interface SystemPanelInsets {
+    /**
+     * Distance on the left.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 21
+     */
+    readonly left: number;
+    /**
+     * Distance on the right.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 21
+     */
+    readonly right: number;
+    /**
+     * Distance on the bottom.
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @since 21
+     */
+    readonly bottom: number;
   }
 
   /**

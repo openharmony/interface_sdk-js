@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from '../../global/resource'
+import { Length, ResourceColor, Dimension } from './units'
+import { CommonMethod, PixelMap } from './common'
+/*** endif */
+
 /**
  * Sets the sidebar style of showing
  *
@@ -40,7 +46,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SideBarContainerType {
   /**
@@ -62,7 +69,8 @@ declare enum SideBarContainerType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Embed,
 
@@ -85,7 +93,8 @@ declare enum SideBarContainerType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Overlay,
 
@@ -100,7 +109,8 @@ declare enum SideBarContainerType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   AUTO,
 }
@@ -127,7 +137,8 @@ declare enum SideBarContainerType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum SideBarPosition {
   /**
@@ -149,7 +160,8 @@ declare enum SideBarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Start,
 
@@ -172,7 +184,8 @@ declare enum SideBarPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   End,
 }
@@ -184,7 +197,8 @@ declare enum SideBarPosition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ButtonIconOptions {
   /**
@@ -219,7 +233,8 @@ declare interface ButtonIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shown: string | PixelMap | Resource;
 
@@ -255,7 +270,8 @@ declare interface ButtonIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hidden: string | PixelMap | Resource;
 
@@ -291,7 +307,8 @@ declare interface ButtonIconOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   switching?: string | PixelMap | Resource;
 }
@@ -318,7 +335,8 @@ declare interface ButtonIconOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface ButtonStyle {
   /**
@@ -346,7 +364,8 @@ declare interface ButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   left?: number;
 
@@ -375,7 +394,8 @@ declare interface ButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   top?: number;
 
@@ -404,7 +424,8 @@ declare interface ButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   width?: number;
 
@@ -433,7 +454,8 @@ declare interface ButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   height?: number;
 
@@ -469,7 +491,8 @@ declare interface ButtonStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   icons?: ButtonIconOptions;
 }
@@ -496,7 +519,8 @@ declare interface ButtonStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface SideBarContainerInterface {
   /**
@@ -524,7 +548,8 @@ interface SideBarContainerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (type?: SideBarContainerType): SideBarContainerAttribute;
 }
@@ -546,7 +571,8 @@ interface SideBarContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface DividerStyle {
   /**
@@ -566,7 +592,8 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   strokeWidth: Length;
 
@@ -585,7 +612,8 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color?: ResourceColor;
 
@@ -604,7 +632,8 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startMargin?: Length;
 
@@ -623,7 +652,8 @@ interface DividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   endMargin?: Length;
 }
@@ -650,7 +680,8 @@ interface DividerStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAttribute> {
   /**
@@ -678,7 +709,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showSideBar(value: boolean): SideBarContainerAttribute;
 
@@ -707,7 +739,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   controlButton(value: ButtonStyle): SideBarContainerAttribute;
 
@@ -736,7 +769,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   showControlButton(value: boolean): SideBarContainerAttribute;
 
@@ -765,7 +799,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: (value: boolean) => void): SideBarContainerAttribute;
 
@@ -797,7 +832,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sideBarWidth(value: number): SideBarContainerAttribute;
 
@@ -829,7 +865,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minSideBarWidth(value: number): SideBarContainerAttribute;
 
@@ -861,7 +898,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxSideBarWidth(value: number): SideBarContainerAttribute;
 
@@ -890,7 +928,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sideBarWidth(value: Length): SideBarContainerAttribute;
 
@@ -922,7 +961,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minSideBarWidth(value: Length): SideBarContainerAttribute;
 
@@ -954,7 +994,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxSideBarWidth(value: Length): SideBarContainerAttribute;
 
@@ -986,7 +1027,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   autoHide(value: boolean): SideBarContainerAttribute;
 
@@ -1018,7 +1060,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sideBarPosition(value: SideBarPosition): SideBarContainerAttribute;
 
@@ -1039,7 +1082,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   divider(value: DividerStyle | null): SideBarContainerAttribute;
   
@@ -1062,7 +1106,8 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minContentWidth(value: Dimension): SideBarContainerAttribute;
 }

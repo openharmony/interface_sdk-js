@@ -18,15 +18,20 @@
  * @kit AbilityKit
  */
 
-import { AbilityResult } from './ability/abilityResult';
 import { AsyncCallback } from './@ohos.base';
+import { ElementName } from './bundleManager/ElementName';
+/*** if arkts 1.1 */
+import { AbilityResult } from './ability/abilityResult';
 import { Configuration } from './@ohos.app.ability.Configuration';
 import Context from './application/Context';
 import { AbilityRunningInfo as _AbilityRunningInfo } from './application/AbilityRunningInfo';
 import { ExtensionRunningInfo as _ExtensionRunningInfo } from './application/ExtensionRunningInfo';
-import { ElementName } from './bundleManager/ElementName';
 import * as _AbilityForegroundStateObserver from './application/AbilityForegroundStateObserver';
 import * as _AbilityStateData from './application/AbilityStateData';
+/*** endif */
+/*** if arkts 1.2 */
+import _AbilityStateData from './application/AbilityStateData';
+/*** endif */
 
 /**
  * The class of an ability manager.
@@ -42,6 +47,7 @@ import * as _AbilityStateData from './application/AbilityStateData';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare namespace abilityManager {
   /**
@@ -313,7 +319,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTopAbility(): Promise<ElementName>;
 
@@ -327,7 +334,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getTopAbility(callback: AsyncCallback<ElementName>): void;
 
@@ -435,7 +443,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundUIAbilities(callback: AsyncCallback<Array<AbilityStateData>>): void;
 
@@ -449,7 +458,8 @@ declare namespace abilityManager {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getForegroundUIAbilities(): Promise<Array<AbilityStateData>>;
 
@@ -526,7 +536,8 @@ declare namespace abilityManager {
    * Restart the current atomic service.
    *
    * @param { Context } context - The context that initiates the restart.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   * 2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000064 - Restart too frequently. Try again at least 3s later.
    * @throws { BusinessError } 16000086 - The context is not UIAbilityContext.
@@ -555,6 +566,17 @@ declare namespace abilityManager {
    * @since 14
    */
   export type AbilityStateData = _AbilityStateData.default;
+
+  /**
+   * The ability state data.
+   *
+   * @typedef { _AbilityStateData }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @since 20
+   * @arkts 1.2
+   */
+  export type AbilityStateData = _AbilityStateData;
+
 
   /**
    * The class of an extension running information.

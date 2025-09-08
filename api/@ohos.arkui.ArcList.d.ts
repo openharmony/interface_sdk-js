@@ -89,7 +89,7 @@ export interface ArcListInterface {
   /**
    * Creates the arc list component.
    *
-   * @param { ArkListOptions } options
+   * @param { ArkListOptions } [options]
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -432,7 +432,7 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 export declare const ArcList: ArcListInterface;
 
@@ -451,6 +451,6 @@ export declare const ArcList: ArcListInterface;
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 export declare const ArcListItem: ArcListItemInterface;

@@ -34,7 +34,8 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @namespace a2dp
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace a2dp {
   /**
@@ -42,7 +43,8 @@ declare namespace a2dp {
    *
    * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -65,7 +67,8 @@ declare namespace a2dp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createA2dpSrcProfile(): A2dpSourceProfile;
 
@@ -83,7 +86,8 @@ declare namespace a2dp {
    * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface A2dpSourceProfile extends BaseProfile {
     /**
@@ -816,7 +820,21 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19
      */
-    CODEC_BIT_RATE_ABR = 8
+    CODEC_BIT_RATE_ABR = 8,
+    /**
+     * Codec bit rate 1.5M.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     */
+    CODEC_BIT_RATE_1500000 = 9,
+    /**
+     * Codec bit rate 2.3M.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @since 21
+     */
+    CODEC_BIT_RATE_2300000 = 10
     }
   /**
    * Describes the codec frame length.

@@ -31,8 +31,7 @@ import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 /**
  * This module provides the dataShare capability for consumer.
@@ -547,24 +546,23 @@ declare namespace dataShare {
   }
 
   /**
-  * Enumerates the data change types.
-  *
-  * @enum { number }
-  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-  * @systemapi
-  * @stagemodelonly
-  * @since arkts {'1.1':'12', '1.2':'20'}
-  * @arkts 1.1&1.2
-  */
- /**
-  * Enumerates the data change types.
-  *
-  * @enum { number }
-  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-  * @stagemodelonly
-  * @since 20
-  * @arkts 1.1&1.2
-  */
+   * Enumerates the data change types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @systemapi
+   * @stagemodelonly
+   * @since 12
+   */
+  /**
+   * Enumerates the data change types.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.1&1.2
+   */
   enum ChangeType {
     /**
      * Data inserted.
@@ -572,8 +570,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Data inserted.
@@ -586,40 +583,38 @@ declare namespace dataShare {
     INSERT = 0,
 
     /**
-    * Data deleted.
-    *
-    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-    * @systemapi
-    * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
-    */
-   /**
-    * Data deleted.
-    *
-    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-    * @stagemodelonly
-    * @since 20
-    * @arkts 1.1&1.2
-    */
+     * Data deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    /**
+     * Data deleted.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     DELETE,
     /**
-    * Data updated.
-    *
-    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-    * @systemapi
-    * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
-    */
-   /**
-    * Data updated.
-    *
-    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
-    * @stagemodelonly
-    * @since 20
-    * @arkts 1.1&1.2
-    */
+     * Data updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @systemapi
+     * @stagemodelonly
+     * @since 12
+     */
+    /**
+     * Data updated.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 20
+     * @arkts 1.1&1.2
+     */
     UPDATE
   }
   /**
@@ -2105,7 +2100,7 @@ declare namespace dataShare {
      * @param { 'dataChange' } event - Event type must be 'sharedDataChange'.
      * @param { string[] } uris - Indicates the uris of the data to operate.
      * @param { DataProxyConfig } config - Indicates the configuration of the data proxy operation.
-     * @param { AsyncCallback<DataProxyChangeInfo[]> } callback - The callback function when data changes.
+     * @param { AsyncCallback<DataProxyChangeInfo[]> } [callback] - The callback function when data changes.
      * @returns { DataProxyResult[] } : The operation result.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is being
      *     restarted abnormally.

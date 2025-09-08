@@ -143,7 +143,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeSync(src: Uint8Array, options: Type = Type.BASIC): Uint8Array;
+    encodeSync(src: Uint8Array, options?: Type): Uint8Array;
 
     /**
      * Encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -159,12 +159,12 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeToStringSync(src: Uint8Array, options: Type = Type.BASIC): string;
+    encodeToStringSync(src: Uint8Array, options?: Type): string;
 
     /**
      * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
      *
-     * @param { string } src - A string value
+     * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Uint8Array } Return the decoded Uint8Array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -175,23 +175,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decodeSync(src: string, options: Type = Type.BASIC): Uint8Array;
-
-    /**
-     * Decodes a Base64 encoded String or input u8 array into a newly-allocated u8 array using the Base64 encoding scheme.
-     *
-     * @param { Uint8Array } src - A Uint8Array value
-     * @param { Type } [options] - one of the Type enumeration
-     * @returns { Uint8Array } Return the decoded Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    decodeSync(src: Uint8Array, options: Type = Type.BASIC): Uint8Array;
+    decodeSync(src: Uint8Array | string, options?: Type): Uint8Array;
 
     /**
      * Asynchronously encodes all bytes in the specified u8 array into the newly allocated u8 array using the Base64 encoding scheme.
@@ -207,7 +191,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
+    encode(src: Uint8Array, options?: Type): Promise<Uint8Array>;
 
     /**
      * Asynchronously encodes the specified byte array into a String using the Base64 encoding scheme.
@@ -223,13 +207,13 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    encodeToString(src: Uint8Array, options: Type = Type.BASIC): Promise<string>;
+    encodeToString(src: Uint8Array, options?: Type): Promise<string>;
 
     /**
      * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
      * input u8 array into a newly allocated u8 array.
      *
-     * @param { Uint8Array } src - A Uint8Array value
+     * @param { Uint8Array | string } src - A Uint8Array value or a string value
      * @param { Type } [options] - one of the Type enumeration
      * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -240,24 +224,7 @@ declare namespace util {
      * @atomicservice
      * @since 20
      */
-    decode(src: Uint8Array, options: Type = Type.BASIC): Promise<Uint8Array>;
-
-    /**
-     * Use the Base64 encoding scheme to asynchronously decode a Base64-encoded string or
-     * input u8 array into a newly allocated u8 array.
-     *
-     * @param { string } src - A string value
-     * @param { Type } [options] - one of the Type enumeration
-     * @returns { Promise<Uint8Array> } Return the decoded asynchronous Uint8Array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1.Mandatory parameters are left unspecified;
-     * 2.Incorrect parameter types.
-     * @syscap SystemCapability.Utils.Lang
-     * @crossplatform
-     * @atomicservice
-     * @since 20
-     */
-    decode(src: string, options: Type = Type.BASIC): Promise<Uint8Array>;
+    decode(src: Uint8Array | string, options?: Type): Promise<Uint8Array>;
   }
 
   /**
@@ -731,6 +698,60 @@ declare namespace util {
   }
 
   /**
+   * Provide the ability to decode binary streams into strings. The supported encoding types include: utf-8, iso-8859-2,
+   * koi8-r, macintosh, windows-1250, windows-1251, gbk, gb18030, big5, utf-16be, utf-16 le, etc.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class StringDecoder {
+    /**
+     * The StringDecoder constructor.
+     *
+     * @param { string } [encoding] - Encoding type of the input data.Default: utf8.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor(encoding?: string);
+
+    /**
+     * Returns a decoded string, ensuring that any incomplete multiple byte characters at the end of the Uint8Array are
+     * omitted from the returned string and stored in an internal buffer.
+     *
+     * @param { string | Uint8Array } chunk - The bytes to decode.
+     * @returns { string } Returns a decoded string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    write(chunk: string | Uint8Array): string;
+
+    /**
+     * Returns any remaining input stored in the internal buffer as a string. After end() is called,
+     * this object can be reused for new input.
+     *
+     * @param { string | Uint8Array } [chunk] - The bytes to decode.
+     * @returns { string } Returns any remaining input stored in the internal buffer as a string.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    end(chunk?: string | Uint8Array): string;
+  }
+
+  /**
    * The TextDecoder represents a text decoder that accepts a string as input,
    * decodes it in UTF-8 format, and outputs UTF-8 byte stream.
    *
@@ -846,6 +867,177 @@ declare namespace util {
   }
 
   /**
+   * The rational number is mainly to compare rational numbers and obtain the numerator and denominator.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class RationalNumber {
+    /**
+     * A constructor used to create a RationalNumber instance with a given numerator and denominator.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    constructor();
+
+    /**
+     * Used to create a RationalNumber instance with a given numerator and denominator.
+     *
+     * @param { number } numerator - An integer number
+     * @param { number } denominator - An integer number
+     * @returns { RationalNumber }
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static parseRationalNumber(numerator: number, denominator: number): RationalNumber;
+
+    /**
+     * Creates a RationalNumber object based on a given string.
+     *
+     * @param { string } rationalString - String Expression of Rational Numbers
+     * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
+     * @throws { BusinessError } 401 - The type of rationalString must be string.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static createRationalFromString(rationalString: string): RationalNumber;
+
+    /**
+     * Compares the current RationalNumber object to the given object.
+     *
+     * @param { RationalNumber } another - An object of other rational numbers
+     * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    compare(another: RationalNumber): number;
+
+    /**
+     * Compares two objects for equality.
+     *
+     * @param { Object } obj - An object
+     * @returns { boolean } Returns true if the given object is the same as the current object;
+     * Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    equals(obj: Object): boolean;
+
+    /**
+     * Gets integer and floating-point values of a rational number object.
+     *
+     * @returns { number } Returns the integer and floating-point values of a rational number object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 12
+     */
+    valueOf(): number;
+
+    /**
+     * Get the greatest common factor of two integers.
+     *
+     * @param { number } number1 - Is an integer.
+     * @param { number } number2 - Is an integer.
+     * @returns { number } Returns the greatest common factor of two integers, integer type.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * 1.Mandatory parameters are left unspecified;
+     * 2.Incorrect parameter types.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    static getCommonFactor(number1: number, number2: number): number;
+
+    /**
+     * Gets the denominator of the current object.
+     *
+     * @returns { number } Returns the denominator of the current object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getDenominator(): number;
+
+    /**
+     * Gets the numerator of the current object.
+     *
+     * @returns { number } Returns the numerator of the current object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    getNumerator(): number;
+
+    /**
+     * Checks whether the current RationalNumber object represents an infinite value.
+     *
+     * @returns { boolean } If the denominator is not 0, true is returned. Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFinite(): boolean;
+
+    /**
+     * Checks whether the current RationalNumber object represents a Not-a-Number (NaN) value.
+     *
+     * @returns { boolean } If both the denominator and numerator are 0, true is returned. Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isNaN(): boolean;
+
+    /**
+     * Checks whether the current RationalNumber object represents the value 0.
+     *
+     * @returns { boolean } If the value represented by the current object is 0, true is returned.
+     * Otherwise, false is returned.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isZero(): boolean;
+
+    /**
+     * Obtains a string representation of the current RationalNumber object.
+     *
+     * @returns { string } Returns a string representation of the current RationalNumber object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    toString(): string;
+  }
+
+  /**
    * The TextEncoder interface represents a text encoder.
    * The encoder takes the byte stream as the input and outputs the String string.
    *
@@ -918,5 +1110,317 @@ declare namespace util {
      */
     encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo;
   }
+  /**
+   * Check the type of parameter.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  class types {
+
+    /**
+     * Check whether the entered value is of arraybuffer or sharedarraybuffer type.
+     *
+     * @param { Object } value - A ArrayBuffer or SharedArrayBuffer value
+     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer or SharedArrayBuffer instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isAnyArrayBuffer(value: Object): boolean;
+    /**
+     * Check whether the type is included in the isAnyArrayBuffer.
+     *
+     * @param { Object } value - A included in the isAnyArrayBuffer value
+     * @returns { boolean } Returns true if the value is an instance of one of the ArrayBuffer views,
+     * such as typed array objects or DataView.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isArrayBufferView(value: Object): boolean;
+    /**
+     * Check whether the entered value is of arraybuffer type.
+     *
+     * @param { Object } value - A arraybuffer value
+     * @returns { boolean } Returns true if the value is a built-in ArrayBuffer instance.
+     * This does not include SharedArrayBuffer instances.
+     * Usually, it is desirable to test for both; See isAnyArrayBuffer() for that.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isArrayBuffer(value: Object): boolean;
+    /**
+     * Check whether the entered value is of bigint64array array type.
+     *
+     * @param { Object } value - A BigInt64Array value
+     * @returns { boolean } Returns true if the value is a BigInt64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isBigInt64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of biguint64array array array type.
+     *
+     * @param { Object } value - A BigUint64Array value
+     * @returns { boolean } Returns true if the value is a BigUint64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isBigUint64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of DataView type.
+     *
+     * @param { Object } value - A DataView value
+     * @returns { boolean } Returns true if the value is a built-in DataView instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isDataView(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type date.
+     *
+     * @param { Object } value - A Date value
+     * @returns { boolean } Returns true if the value is a built-in Date instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isDate(value: Object): boolean;
+    /**
+     * Check whether the entered value is of float32array array type.
+     *
+     * @param { Object } value - A Float32Array value
+     * @returns { boolean } Returns true if the value is a built-in Float32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFloat32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of float64array array type.
+     *
+     * @param { Object } value - A Float64Array value
+     * @returns { boolean } Returns true if the value is a built-in Float64Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isFloat64Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of int8array array type.
+     *
+     * @param { Object } value - A Int8Array value
+     * @returns { boolean } Returns true if the value is a built-in Int8Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt8Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the int16array type.
+     *
+     * @param { Object } value - A Int16Array value
+     * @returns { boolean } Returns true if the value is a built-in Int16Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt16Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the int32array array type.
+     *
+     * @param { Object } value - A Int32Array value
+     * @returns { boolean } Returns true if the value is a built-in Int32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isInt32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of map type.
+     *
+     * @param { Object } value - A Map value
+     * @returns { boolean } Returns true if the value is a built-in Map instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isMap(value: Object): boolean;
+    /**
+     * Check whether the entered value is the iterator type of map.
+     *
+     * @param { Object } value - A Map iterator value
+     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Map instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isMapIterator(value: Object): boolean;
+    /**
+     * Check whether the value entered is of type error.
+     *
+     * @param { Object } value - A Error value
+     * @returns { boolean } Returns true if the value is an instance of a built-in Error type.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isNativeError(value: Object): boolean;
+    /**
+     * Check whether the entered value is of promise type.
+     *
+     * @param { Object } value - A Promise value
+     * @returns { boolean } Returns true if the value is a built-in Promise.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isPromise(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type regexp.
+     *
+     * @param { Object } value - A regular expression object value
+     * @returns { boolean } Returns true if the value is a regular expression object.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isRegExp(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type set.
+     *
+     * @param { Object } value - A Set instance value
+     * @returns { boolean } Returns true if the value is a built-in Set instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isSet(value: Object): boolean;
+    /**
+     * Check whether the entered value is the iterator type of set.
+     *
+     * @param { Object } value - A Set iterator value
+     * @returns { boolean } Returns true if the value is an iterator returned for a built-in Set instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isSetIterator(value: Object): boolean;
+    /**
+     * Check whether the entered value is a type contained in typedarray.
+     *
+     * @param { Object } value - A TypedArray instance value
+     * @returns { boolean } Returns true if the value is a built-in TypedArray instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isTypedArray(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint8array array type.
+     *
+     * @param { Object } value - A Uint8Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint8Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint8Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint8clapedarray array type.
+     *
+     * @param { Object } value - A Uint8ClampedArray value
+     * @returns { boolean } Returns true if the value is a built-in Uint8ClampedArray instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint8ClampedArray(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint16array array array type.
+     *
+     * @param { Object } value - A Uint16Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint16Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint16Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is the uint32array array type.
+     *
+     * @param { Object } value - A Uint32Array value
+     * @returns { boolean } Returns true if the value is a built-in Uint32Array instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isUint32Array(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type weakmap.
+     *
+     * @param { Object } value - A WeakMap value
+     * @returns { boolean } Returns true if the value is a built-in WeakMap instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isWeakMap(value: Object): boolean;
+    /**
+     * Check whether the entered value is of type weakset.
+     *
+     * @param { Object } value - A WeakSet value
+     * @returns { boolean } Returns true if the value is a built-in WeakSet instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @crossplatform
+     * @atomicservice
+     * @since 20
+     */
+    isWeakSet(value: Object): boolean;
+  }
+
+  /**
+   * Get the hash code of an object.
+   *
+   * @param { object } [obj] - The object that need to get hash code.
+   * @returns { number } Return a hash code of an object.
+   * @syscap SystemCapability.Utils.Lang
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  function getHash(obj: object): number;
 }
 export default util;

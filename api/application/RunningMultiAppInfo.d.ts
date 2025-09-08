@@ -28,7 +28,8 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
  * @typedef RunningMultiAppInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RunningMultiAppInfo {
 
@@ -39,7 +40,8 @@ export interface RunningMultiAppInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -59,7 +61,8 @@ export interface RunningMultiAppInfo {
    * @type { ?Array<RunningMultiInstanceInfo> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   runningMultiInstances?: Array<RunningMultiInstanceInfo>;
 

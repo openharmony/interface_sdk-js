@@ -2131,7 +2131,7 @@ declare namespace relationalStore {
      *
      * @param { string } name - Indicates the table name of the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2140,7 +2140,7 @@ declare namespace relationalStore {
      *
      * @param { string } name - Indicates the table name of the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since arkts {'1.1':'10', '1.2':'20'}
@@ -2155,7 +2155,7 @@ declare namespace relationalStore {
      * @param { Array<string> } devices - Indicates specified remote devices.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2180,7 +2180,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2193,7 +2193,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2209,7 +2209,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2222,7 +2222,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2314,7 +2314,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2327,7 +2327,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2343,7 +2343,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2356,7 +2356,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2372,7 +2372,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2385,7 +2385,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2399,7 +2399,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2410,7 +2410,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2424,7 +2424,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2435,7 +2435,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name in the database table.
      * @returns { RdbPredicates } - The {@link RdbPredicates} self.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2451,7 +2451,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2464,7 +2464,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The {@link RdbPredicates} that match the specified field.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2480,7 +2480,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2493,7 +2493,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2508,7 +2508,7 @@ declare namespace relationalStore {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2520,7 +2520,7 @@ declare namespace relationalStore {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2535,7 +2535,7 @@ declare namespace relationalStore {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2547,7 +2547,7 @@ declare namespace relationalStore {
      * @param { ValueType } high - Indicates the maximum value.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2561,7 +2561,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2572,7 +2572,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2586,7 +2586,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2597,7 +2597,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2611,7 +2611,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2622,7 +2622,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2636,7 +2636,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2647,7 +2647,7 @@ declare namespace relationalStore {
      * @param { ValueType } value - Indicates the value to match with the {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2661,7 +2661,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2672,7 +2672,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2686,7 +2686,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2697,7 +2697,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the column name for sorting the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2727,7 +2727,7 @@ declare namespace relationalStore {
      * @param { number } value - Indicates the max length of the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2737,7 +2737,7 @@ declare namespace relationalStore {
      * @param { number } value - Indicates the max length of the return list.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2752,7 +2752,7 @@ declare namespace relationalStore {
      * The value is a positive integer.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2764,7 +2764,7 @@ declare namespace relationalStore {
      * The value is a positive integer.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2777,7 +2777,7 @@ declare namespace relationalStore {
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2787,7 +2787,7 @@ declare namespace relationalStore {
      * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
      * @returns { RdbPredicates } - The SQL query statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2801,7 +2801,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the name of the index column.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2812,7 +2812,7 @@ declare namespace relationalStore {
      * @param { string } field - Indicates the name of the index column.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2827,7 +2827,7 @@ declare namespace relationalStore {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2839,7 +2839,7 @@ declare namespace relationalStore {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2854,7 +2854,7 @@ declare namespace relationalStore {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -2866,7 +2866,7 @@ declare namespace relationalStore {
      * @param { Array<ValueType> } value - Indicates the values to match with {@link RdbPredicates}.
      * @returns { RdbPredicates } - The SQL statement with the specified {@link RdbPredicates}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -2882,7 +2882,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value that is not contained.
      * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -2895,7 +2895,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value that is not contained.
      * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -2911,7 +2911,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to compare against.
      * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
      */
@@ -2924,7 +2924,7 @@ declare namespace relationalStore {
      * @param { string } value - Indicates the value to compare against.
      * @returns { RdbPredicates } - The {@Link RdbPredicates} set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -2937,8 +2937,8 @@ declare namespace relationalStore {
      * @param { string } conditions - Conditions used to filter the data obtained using GROUP BY.
      * @param { Array<ValueType> } args - Parameters to be used in the conditions.
      * @returns { RdbPredicates } - Returns the RdbPredicates object.
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range;
+     * <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
@@ -3127,7 +3127,7 @@ declare namespace relationalStore {
      * @returns { number } The index of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3139,7 +3139,7 @@ declare namespace relationalStore {
      * @returns { number } The index of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3151,10 +3151,10 @@ declare namespace relationalStore {
      * @param { string } columnName - Indicates the name of the specified column in the result set.
      * @returns { number } The index of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3187,7 +3187,7 @@ declare namespace relationalStore {
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3199,7 +3199,7 @@ declare namespace relationalStore {
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3211,10 +3211,10 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the index of the specified column in the result set.
      * @returns { string } The name of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3246,11 +3246,11 @@ declare namespace relationalStore {
      * @returns { Promise<ColumnType> } Promise used to return the data type obtained,
      * in an {@link ColumnType} instance.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3280,11 +3280,11 @@ declare namespace relationalStore {
      * @param { number | string } columnIdentifier - Index or name of the column.
      * @returns { ColumnType } Column data type obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800019 - The SQL must be a query statement.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
@@ -3317,7 +3317,7 @@ declare namespace relationalStore {
      * Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3330,7 +3330,7 @@ declare namespace relationalStore {
      * Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3343,7 +3343,7 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully and does not go beyond the range;
      * Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -3377,7 +3377,7 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3388,7 +3388,7 @@ declare namespace relationalStore {
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 14800012 - The result set is empty or the specified location is invalid.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3399,7 +3399,7 @@ declare namespace relationalStore {
      * @param { number } position - Indicates the index of the specified row, which starts from 0.
      * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
@@ -3636,7 +3636,7 @@ declare namespace relationalStore {
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3649,7 +3649,7 @@ declare namespace relationalStore {
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3662,11 +3662,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Uint8Array } The value of the specified column as a byte array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3698,7 +3698,7 @@ declare namespace relationalStore {
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3711,7 +3711,7 @@ declare namespace relationalStore {
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3724,11 +3724,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3761,7 +3761,7 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3774,7 +3774,7 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3787,11 +3787,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { number } The value of the specified column as a long.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3824,7 +3824,7 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -3837,7 +3837,7 @@ declare namespace relationalStore {
      * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3850,11 +3850,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { number } The value of the specified column as a double.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3886,7 +3886,7 @@ declare namespace relationalStore {
      * @returns { Asset } The value of the specified column as an asset.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3899,11 +3899,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Asset } The value of the specified column as an asset.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3935,7 +3935,7 @@ declare namespace relationalStore {
      * @returns { Assets } The value of the specified column as assets.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -3948,11 +3948,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Assets } The value of the specified column as assets.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -3983,11 +3983,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4017,11 +4017,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4051,11 +4051,11 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { ValueType } The value of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4079,32 +4079,6 @@ declare namespace relationalStore {
     getValue(columnIndex: number): ValueType;
 
     /**
-     * Obtains the value of the specified column in the current row.
-     * The implementation class determines whether to throw an exception if the value of the specified column
-     * in the current row is null or the specified column is not of the Assets type.
-     * If the value of the specified column in the current row exceeds the value range of number, return a string type.
-     * Only for flutter
-     *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
-     * @returns { ValueType } The value of the specified column.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 20
-     */
-    getValueForFlutter(columnIndex: number): ValueType
-
-    /**
      * Obtains the value of the specified column in the current row as a float array.
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the float array type.
@@ -4112,10 +4086,10 @@ declare namespace relationalStore {
      * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { Float32Array } The value of the specified column as a float array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4154,7 +4128,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4184,7 +4158,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4208,40 +4182,17 @@ declare namespace relationalStore {
     getRow(): ValuesBucket;
 
     /**
-     * Obtains the values of all columns in the specified row.
-     * If the value of a column in the current row exceeds the value range of number, return a string type.
-     * Only for flutter
-     *
-     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
-     * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
-     * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
-     * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
-     * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
-     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
-     * @throws { BusinessError } 14800025 - SQLite: A table in the database is locked.
-     * @throws { BusinessError } 14800028 - SQLite: Some kind of disk I/O error occurred.
-     * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file.
-     * @throws { BusinessError } 14800031 - SQLite: TEXT or BLOB exceeds size limit.
-     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform
-     * @since 20
-     */
-    getRowForFlutter(): ValuesBucket
-
-    /**
      * Obtains the values of all columns in the specified rows.
      * @param { number } maxCount - Indicates the maximum number of rows.
      * @param { number } position - Indicates the start position to obtain the values.
      * @returns { Promise<Array<ValuesBucket>> } Promise used to return the values obtained,
      * in an {@link Array<ValuesBucket>}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4269,7 +4220,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4299,7 +4250,7 @@ declare namespace relationalStore {
      * Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
@@ -4311,7 +4262,7 @@ declare namespace relationalStore {
      * Returns false otherwise.
      * @throws { BusinessError } 14800013 - The column value is null or the column type is incompatible.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -4323,11 +4274,11 @@ declare namespace relationalStore {
      * @returns { boolean } True if the value of the specified column in the current row is null;
      * Returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
-     * @throws { BusinessError } 14800013 - Resultset is empty or column index is out of bounds.
+     * @throws { BusinessError } 14800013 - ResultSet is empty or column index is out of bounds.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * Possible causes: Insert failed or the updated data does not exist.
@@ -4404,7 +4355,7 @@ declare namespace relationalStore {
      * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10
      */
@@ -4413,7 +4364,7 @@ declare namespace relationalStore {
      * Obtains the RdbStore version.
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -4424,7 +4375,7 @@ declare namespace relationalStore {
      *
      * @type { number }
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4461,7 +4412,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -4474,7 +4425,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4487,7 +4438,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4523,7 +4474,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4537,7 +4488,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<number> } callback - The row ID if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4571,7 +4522,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -4584,7 +4535,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4597,7 +4548,7 @@ declare namespace relationalStore {
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4633,7 +4584,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4647,7 +4598,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4682,7 +4633,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4718,7 +4669,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4753,7 +4704,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback -
      * The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -4768,7 +4719,7 @@ declare namespace relationalStore {
      * The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4783,7 +4734,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback -
      * The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4820,7 +4771,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -4835,7 +4786,7 @@ declare namespace relationalStore {
      * returns -1 otherwise.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -4850,7 +4801,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4886,7 +4837,7 @@ declare namespace relationalStore {
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4924,7 +4875,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4959,7 +4910,7 @@ declare namespace relationalStore {
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -4995,7 +4946,7 @@ declare namespace relationalStore {
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5010,7 +4961,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5025,7 +4976,7 @@ declare namespace relationalStore {
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5063,7 +5014,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5079,7 +5030,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5120,7 +5071,7 @@ declare namespace relationalStore {
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5135,7 +5086,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5150,7 +5101,7 @@ declare namespace relationalStore {
      * Indicates the specified update condition by the instance object of  {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5188,7 +5139,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5204,7 +5155,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5241,7 +5192,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5278,7 +5229,7 @@ declare namespace relationalStore {
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5298,7 +5249,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5319,7 +5270,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5362,7 +5313,7 @@ declare namespace relationalStore {
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5382,7 +5333,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5403,7 +5354,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5438,7 +5389,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5451,7 +5402,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5464,7 +5415,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5499,7 +5450,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5512,7 +5463,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } return the number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5525,7 +5476,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5560,7 +5511,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { number } return the number of rows deleted.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5595,7 +5546,7 @@ declare namespace relationalStore {
      * the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5613,7 +5564,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<number> } callback - The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5632,7 +5583,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5669,7 +5620,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5687,7 +5638,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5706,7 +5657,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -5742,7 +5693,7 @@ declare namespace relationalStore {
      * The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5755,7 +5706,7 @@ declare namespace relationalStore {
      * The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5774,7 +5725,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5788,7 +5739,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5803,7 +5754,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5821,7 +5772,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -5834,7 +5785,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -5848,7 +5799,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5866,7 +5817,7 @@ declare namespace relationalStore {
      * The specified query condition by the instance object of {@link dataSharePredicates.DataSharePredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5885,7 +5836,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5906,7 +5857,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5927,7 +5878,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5952,7 +5903,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
@@ -5972,7 +5923,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -5996,7 +5947,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -6012,7 +5963,7 @@ declare namespace relationalStore {
      * @param { string } sql - Indicates the SQL statement to execute.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6024,7 +5975,7 @@ declare namespace relationalStore {
      * @param { string } sql - Indicates the SQL statement to execute.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -6042,7 +5993,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -6055,7 +6006,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6069,7 +6020,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -6087,7 +6038,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -6100,7 +6051,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6114,7 +6065,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -6132,7 +6083,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
@@ -6579,7 +6530,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6591,7 +6542,7 @@ declare namespace relationalStore {
      * @param { string } sql - Indicates the SQL statement to execute.
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6628,7 +6579,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -6642,7 +6593,7 @@ declare namespace relationalStore {
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6656,7 +6607,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @param { AsyncCallback<void> } callback - The callback of executeSql.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6693,7 +6644,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -6707,7 +6658,7 @@ declare namespace relationalStore {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6721,7 +6672,7 @@ declare namespace relationalStore {
      * Indicates the {@link ValueType} values of the parameters in the SQL statement. The values are strings.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6758,7 +6709,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6794,7 +6745,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6829,7 +6780,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { ValueType } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -6859,7 +6810,7 @@ declare namespace relationalStore {
     /**
      * BeginTransaction before execute your sql.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -6868,7 +6819,7 @@ declare namespace relationalStore {
      * BeginTransaction before execute your sql.
      *
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -6877,7 +6828,7 @@ declare namespace relationalStore {
     /**
      * BeginTransaction before execute your sql.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -6909,7 +6860,7 @@ declare namespace relationalStore {
      * Begins a transaction before executing the SQL statement.
      *
      * @returns { Promise<number> } Returns the transaction ID.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -6939,14 +6890,14 @@ declare namespace relationalStore {
     /**
      * Commit the the sql you have executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
     /**
      * Commit the the sql you have executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -6954,7 +6905,7 @@ declare namespace relationalStore {
     /**
      * Commit the the sql you have executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -6987,7 +6938,7 @@ declare namespace relationalStore {
      * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7015,14 +6966,14 @@ declare namespace relationalStore {
     /**
      * Roll back the sql you have already executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
      */
     /**
      * Roll back the sql you have already executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 10
@@ -7030,7 +6981,7 @@ declare namespace relationalStore {
     /**
      * Roll back the sql you have already executed.
      *
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error.  Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7062,7 +7013,8 @@ declare namespace relationalStore {
      *
      * @param { number } txId - Indicates the transaction ID which is obtained by beginTrans.
      * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7093,7 +7045,7 @@ declare namespace relationalStore {
      * @param { string } destName - Indicates the name that saves the database backup.
      * @param { AsyncCallback<void> } callback - The callback of backup.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -7104,7 +7056,7 @@ declare namespace relationalStore {
      * @param { string } destName - Indicates the name that saves the database backup.
      * @param { AsyncCallback<void> } callback - The callback of backup.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7115,7 +7067,8 @@ declare namespace relationalStore {
      *
      * @param { string } destName - Indicates the name that saves the database backup.
      * @param { AsyncCallback<void> } callback - The callback of backup.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -7148,7 +7101,7 @@ declare namespace relationalStore {
      * @param { string } destName - Indicates the name that saves the database backup.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -7159,7 +7112,7 @@ declare namespace relationalStore {
      * @param { string } destName - Indicates the name that saves the database backup.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7171,7 +7124,7 @@ declare namespace relationalStore {
      * @param { string } destName - Indicates the name that saves the database backup.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7203,7 +7156,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @param { AsyncCallback<void> } callback - The callback of restore.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -7214,7 +7167,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @param { AsyncCallback<void> } callback - The callback of restore.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7226,7 +7179,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @param { AsyncCallback<void> } callback - The callback of restore.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7258,7 +7211,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -7269,7 +7222,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7281,7 +7234,7 @@ declare namespace relationalStore {
      * @param { string } srcName - Indicates the name that saves the database file.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7346,7 +7299,7 @@ declare namespace relationalStore {
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7359,7 +7312,7 @@ declare namespace relationalStore {
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7375,7 +7328,7 @@ declare namespace relationalStore {
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7388,7 +7341,7 @@ declare namespace relationalStore {
      * @param { Array<string> } tables - Indicates the table names you want to set.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7406,7 +7359,7 @@ declare namespace relationalStore {
      * This method only works when type equals to DistributedType.DISTRIBUTED_CLOUD
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7422,7 +7375,7 @@ declare namespace relationalStore {
      * ohos.permission.DISTRIBUTED_DATASYNC is required only when type is DISTRIBUTED_DEVICE.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7443,7 +7396,7 @@ declare namespace relationalStore {
      * Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7461,7 +7414,7 @@ declare namespace relationalStore {
      * Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @param { AsyncCallback<void> } callback - The callback of setDistributedTables.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7487,7 +7440,7 @@ declare namespace relationalStore {
      * Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7505,7 +7458,7 @@ declare namespace relationalStore {
      * Indicates the distributed config of the tables. For details, see {@link DistributedConfig}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7524,7 +7477,7 @@ declare namespace relationalStore {
      * @param { string } table - {string}: the distributed table name.
      * @param { AsyncCallback<string> } callback
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7539,7 +7492,7 @@ declare namespace relationalStore {
      * @param { string } table - {string}: the distributed table name.
      * @param { AsyncCallback<string> } callback
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7557,7 +7510,7 @@ declare namespace relationalStore {
      * @param { string } table
      * @returns { Promise<string> } {string}: the distributed table name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7572,7 +7525,7 @@ declare namespace relationalStore {
      * @param { string } table
      * @returns { Promise<string> } {string}: the distributed table name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7593,7 +7546,7 @@ declare namespace relationalStore {
      * {string}: device id,
      * {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7611,7 +7564,7 @@ declare namespace relationalStore {
      * {string}: device id,
      * {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7630,7 +7583,7 @@ declare namespace relationalStore {
      * @returns { Promise<Array<[string, number]>> }
      * {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7646,7 +7599,7 @@ declare namespace relationalStore {
      * @returns { Promise<Array<[string, number]>> }
      * {Array<[string, number]>}: devices sync status array, {string}: device id, {number}: device sync status.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7900,7 +7853,7 @@ declare namespace relationalStore {
      * If the value is empty array, the remote query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7917,7 +7870,7 @@ declare namespace relationalStore {
      * If the value is empty array, the remote query applies to all columns.
      * @param { AsyncCallback<ResultSet> } callback - The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7943,7 +7896,7 @@ declare namespace relationalStore {
      * If the value is empty array, the remote query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7960,7 +7913,7 @@ declare namespace relationalStore {
      * If the value is empty array, the remote query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -7979,7 +7932,7 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> } observer -
      * {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -7995,7 +7948,7 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> } observer -
      * {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8016,7 +7969,7 @@ declare namespace relationalStore {
      * {Array<string>}: The observer of data change events in the distributed database.
      * {Array<ChangeInfo>}: The change info of data change events in the distributed database or the local database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8036,7 +7989,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8052,7 +8005,7 @@ declare namespace relationalStore {
      * Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8067,7 +8020,7 @@ declare namespace relationalStore {
      * Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8096,9 +8049,8 @@ declare namespace relationalStore {
      * @param { 'autoSyncProgress' } event - Indicates the event must be string 'autoSyncProgress'.
      * @param { Callback<ProgressDetails> } progress -
      * Callback used to return the {@link ProgressDetails} result.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Need 2 - 3  parameter(s)! 2. The RdbStore must be valid.
-     * 3. The event must be a not empty string. 4. The progress must be function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8111,8 +8063,8 @@ declare namespace relationalStore {
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer -
      * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8124,8 +8076,8 @@ declare namespace relationalStore {
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer -
      * Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8167,7 +8119,7 @@ declare namespace relationalStore {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9
@@ -8180,7 +8132,7 @@ declare namespace relationalStore {
      * If its value is SUBSCRIBE_TYPE_REMOTE, ohos.permission.DISTRIBUTED_DATASYNC is required.
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8198,7 +8150,7 @@ declare namespace relationalStore {
      * {Array<string>}: the data change observer already registered.
      * {Array<ChangeInfo>}: the change info already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8217,7 +8169,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 202 - Permission verification failed,
      * application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -8237,7 +8189,7 @@ declare namespace relationalStore {
      * Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8252,7 +8204,7 @@ declare namespace relationalStore {
      * Indicates whether it is an interprocess subscription or an in-process subscription.
      * @param { Callback<void> } observer - The data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8295,7 +8247,8 @@ declare namespace relationalStore {
      * Unsubscribes from the SQL statistics.
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8306,7 +8259,8 @@ declare namespace relationalStore {
      * Unsubscribes from the SQL statistics.
      * @param { 'statistics' } event - Indicates the event type, which must be 'statistics'.
      * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
-     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8345,7 +8299,7 @@ declare namespace relationalStore {
      *
      * @param { string } event - Indicates the subscription event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -8357,7 +8311,7 @@ declare namespace relationalStore {
      *
      * @param { string } event - Indicates the subscription event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8371,7 +8325,7 @@ declare namespace relationalStore {
      * Close the RdbStore and all resultSets.
      *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12
@@ -8380,7 +8334,7 @@ declare namespace relationalStore {
      * Close the RdbStore and all resultSets.
      *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. The store must not be nullptr.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -8396,7 +8350,7 @@ declare namespace relationalStore {
      * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
      * @returns { Promise<number> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
@@ -8434,7 +8388,7 @@ declare namespace relationalStore {
      * @param { number } waitTime - Indicates the maximum time allowed for attaching the database file.
      * @returns { Promise<number> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
@@ -8471,7 +8425,7 @@ declare namespace relationalStore {
      * @param { number } waitTime - Indicates the maximum time allowed for detaching the database.
      * @returns { Promise<number> } Return the current number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8503,7 +8457,7 @@ declare namespace relationalStore {
      * The specified lock condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8537,7 +8491,7 @@ declare namespace relationalStore {
      * The specified Unlock condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8572,7 +8526,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8650,14 +8604,12 @@ declare namespace relationalStore {
      * If valid cryptoParam passed, the cryptoParam is used to rekey.
      * If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
-     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-     * <br>2. Missing GROUP BY clause. 
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
-     * Possible causes: Insert failed or the updated data does not exist.
      * @throws { BusinessError } 14800023 - SQLite: Access permission denied.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
@@ -8669,6 +8621,22 @@ declare namespace relationalStore {
      * @since 20
      */
     rekey(cryptoParam?: CryptoParam): Promise<void>;
+
+    /**
+     * Support for collations in different languages.
+     * @param { string } locale - Language related to the locale.
+     * for example, zh. The value complies with the ISO 639 standard.
+     * @returns { Promise<void> } The promise returned by the function.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
+     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
+     * @throws { BusinessError } 14800026 - SQLite: The database is out of memory.
+     * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @since 20
+     */
+    setLocale(locale: string) : Promise<void>
   }
 
   /**
@@ -8726,7 +8694,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8756,7 +8724,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8787,7 +8755,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8817,7 +8785,7 @@ declare namespace relationalStore {
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8849,7 +8817,7 @@ declare namespace relationalStore {
      * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8883,7 +8851,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The number of values that were inserted if the operation is successful. returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8918,7 +8886,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { Promise<number> } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8950,7 +8918,7 @@ declare namespace relationalStore {
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
      * @returns { number } The number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -8979,7 +8947,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<number> } return the number of affected rows.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9008,7 +8976,7 @@ declare namespace relationalStore {
      * The specified delete condition by the instance object of {@link RdbPredicates}.
      * @returns { number } return the number of rows deleted.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9038,7 +9006,7 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The columns to query. If the value is null, the query applies to all columns.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9064,7 +9032,7 @@ declare namespace relationalStore {
      * The columns to query. If the value is empty array, the query applies to all columns.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9090,7 +9058,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9116,7 +9084,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { ResultSet } The {@link ResultSet} object if the operation is successful.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
      * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
@@ -9142,7 +9110,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -9170,7 +9138,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -9201,7 +9169,7 @@ declare namespace relationalStore {
      * The values are strings.
      * @returns { ValueType } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - Failed to open the database because it is corrupted.
@@ -9429,7 +9397,7 @@ declare namespace relationalStore {
    * @param { string } name - Indicates the database name.
    * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9443,7 +9411,7 @@ declare namespace relationalStore {
    * @param { string } name - Indicates the database name.
    * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9461,7 +9429,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @param { AsyncCallback<void> } callback - The callback of deleteRdbStore.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
@@ -9480,7 +9448,7 @@ declare namespace relationalStore {
    * @param { string } name - Indicates the database name.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9494,7 +9462,7 @@ declare namespace relationalStore {
    * @param { string } name - Indicates the database name.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9509,7 +9477,7 @@ declare namespace relationalStore {
    * @param { string } name - Indicates the database name.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -9527,7 +9495,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
@@ -9545,7 +9513,7 @@ declare namespace relationalStore {
    * Indicates the {@link StoreConfig} configuration of the database related to this RDB store.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br>2. Incorrect parameter types.
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 14800000 - Inner error.
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
@@ -9570,7 +9538,8 @@ declare namespace relationalStore {
    * check the {@link Tokenizer} tokenizer type is supported or not on current system.
    * @param { tokenizer } type - Indicates Tokenizer which want to check.
    * @returns { boolean } Returns {@code true} if the tokenizer is supported; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 18
    */
@@ -9583,14 +9552,13 @@ declare namespace relationalStore {
    * @param { ValuesBucket } values - Row of data {@link ValuesBucket} to be inserted into the table.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
    * @returns { SqlInfo } - Returns a SQL insert statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
    */
   function getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for updating data.
    *
@@ -9598,8 +9566,7 @@ declare namespace relationalStore {
    * @param { ValuesBucket } values - Row of data to be updated in the database.
    * @param { ConflictResolution } conflict - {@link ConflictResolution} to be used if conflicts occur.
    * @returns { SqlInfo } - Returns a SQL update statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
@@ -9611,22 +9578,20 @@ declare namespace relationalStore {
    *
    * @param { RdbPredicates } predicates - Conditions for deleting data. For details, see {@link RdbPredicates}.
    * @returns { SqlInfo } - Returns a SQL delete statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20
    */
   function getDeleteSqlInfo(predicates: RdbPredicates):SqlInfo;
-  
+
   /**
    * Obtains a SQL statement used for querying data.
    *
    * @param { RdbPredicates } predicates - Conditions for querying data. For details, see {@link RdbPredicates}.
    * @param { Array<string> } columns - Columns to query. If this parameter is not specified, the query applies to all columns.
    * @returns { SqlInfo } - Returns a SQL query statement including parameters.
-   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
-   * <br>2. Missing GROUP BY clause.
+   * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 20

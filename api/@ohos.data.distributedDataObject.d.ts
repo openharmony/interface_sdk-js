@@ -581,7 +581,7 @@ declare namespace distributedDataObject {
      * Off watch of change.
      *
      * @param { 'change' } type - Event type, fixed as 'change', indicates data change.
-     * @param { DataObserver } callback - The observer of object data changed, if not null, off the callback, if undefined, off all callbacks.
+     * @param { DataObserver } [callback] - The observer of object data changed, if not null, off the callback, if undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20
      */
@@ -601,7 +601,7 @@ declare namespace distributedDataObject {
      * Off watch of status.
      *
      * @param { 'status' } type - Event type, fixed as 'status', indicates the online and offline of the object.
-     * @param { StatusObserver } callback - The observer of object status changed, if not null, off the callback, if undefined, off all callbacks.
+     * @param { StatusObserver } [callback] - The observer of object status changed, if not null, off the callback, if undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20
      */

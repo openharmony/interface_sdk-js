@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Length } from './units'
+import { LengthMetrics } from '../Graphics'
+import { CommonMethod, Callback, Optional } from './common'
+/*** endif */
+
 /**
  * The challenge result based on input pattern for control pattern lock component.
  * @enum { number }
@@ -31,7 +37,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum PatternLockChallengeResult {
   /**
@@ -45,7 +52,8 @@ declare enum PatternLockChallengeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CORRECT = 1,
   /**
@@ -59,7 +67,8 @@ declare enum PatternLockChallengeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   WRONG = 2
 }
@@ -71,7 +80,8 @@ declare enum PatternLockChallengeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CircleStyleOptions {
   /**
@@ -81,7 +91,8 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color?: ResourceColor;
 
@@ -92,7 +103,8 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   radius?: LengthMetrics;
 
@@ -103,7 +115,8 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableWaveEffect?: boolean;
 
@@ -114,9 +127,10 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-    enableForeground?: boolean;
+  enableForeground?: boolean;
 }
 
 /**
@@ -138,7 +152,8 @@ declare interface CircleStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PatternLockController {
   /**
@@ -160,7 +175,8 @@ declare class PatternLockController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -186,6 +202,16 @@ declare class PatternLockController {
    * @since 12
    */
   reset();
+  /**
+   * Reset pattern lock.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  reset(): void;
 
   /**
    * Set challenge result.
@@ -200,7 +226,8 @@ declare class PatternLockController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setChallengeResult(result: PatternLockChallengeResult): void;
 }
@@ -227,7 +254,8 @@ declare class PatternLockController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface PatternLockInterface {
   /**
@@ -255,7 +283,8 @@ interface PatternLockInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (controller?: PatternLockController): PatternLockAttribute;
 }
@@ -282,7 +311,8 @@ interface PatternLockInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
@@ -314,7 +344,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   sideLength(value: Length): PatternLockAttribute;
 
@@ -347,7 +378,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   circleRadius(value: Length): PatternLockAttribute;
 
@@ -376,7 +408,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
@@ -405,7 +438,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
@@ -434,7 +468,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
@@ -463,7 +498,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
@@ -492,7 +528,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
@@ -525,7 +562,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
@@ -554,7 +592,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
@@ -585,7 +624,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   autoReset(value: boolean): PatternLockAttribute;
 
@@ -608,7 +648,19 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @since 12
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
-  
+
+  /**
+   * Called when connecting to a grid dot.
+   * @param { Callback<number> } callback - A callback instance used when connection to a grid dot.
+   * @returns { PatternLockAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onDotConnect(callback: Callback<number>): PatternLockAttribute;
+
   /**
    * Sets the background circle style for the dots in a grid when they are in the activated state.
    *
@@ -617,7 +669,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 
@@ -630,7 +683,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   skipUnselectedPoint(skipped: boolean): PatternLockAttribute;
 }

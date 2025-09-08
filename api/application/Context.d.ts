@@ -145,7 +145,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cacheDir: string;
 
@@ -264,7 +265,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preferencesDir: string;
 
@@ -559,6 +561,7 @@ declare class Context extends BaseContext {
    * Obtains the context of this application.
    *
    * @returns { ApplicationContext } Application context obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform
@@ -639,7 +642,8 @@ declare class Context extends BaseContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 

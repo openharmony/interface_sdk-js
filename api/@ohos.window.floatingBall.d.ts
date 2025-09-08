@@ -94,6 +94,7 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
+     * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -111,6 +112,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     * @throws { BusinessError } 1300027 - When updating the floating ball, the template type cannot be changed.
+     * @throws { BusinessError } 1300028 - Updating static template-based floating balls is not supported.
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
      */
@@ -314,7 +317,7 @@ declare namespace floatingBall {
     STATIC = 1,
   
     /**
-     * Normal layout, support title and content with different color.
+     * Normal layout, support title and content.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20
@@ -322,7 +325,7 @@ declare namespace floatingBall {
     NORMAL = 2,
   
     /**
-     * Emphatic layout, support title and content with different size.
+     * Emphatic layout, support icon, title, and content.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20

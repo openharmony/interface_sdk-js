@@ -16,37 +16,48 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
- * @arkts 1.1&1.2
  */
 
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @since 7
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @since 7
+ */
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @crossplatform
-* @since 10
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @crossplatform
+ * @since 10
+ */
 /**
-* Provides interfaces to generate system logs.
-*
-* @namespace hilog
-* @syscap SystemCapability.HiviewDFX.HiLog
-* @crossplatform
-* @atomicservice
-* @since arkts {'1.1':'11','1.2':'20'}
-* @arkts 1.1&1.2
-*/
+ * Provides interfaces to generate system logs.
+ *
+ * @namespace hilog
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ * @crossplatform
+ * @atomicservice
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
+ */
 declare namespace hilog {
 
   /**
+   * Using RecordData Replace any, unknown, ESObject.
+   * 
+   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+
+  /**
    * Outputs debug-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
@@ -60,8 +71,8 @@ declare namespace hilog {
   /**
    * Outputs debug-level logs.
    *
-   * * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
-   *                            if the value exceeds the range, logs cannot be printed.
+   * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
    * @param { any[] }args Indicates the log parameters.
@@ -82,20 +93,23 @@ declare namespace hilog {
    * @atomicservice
    * @since 11
    */
+  function debug(domain: number, tag: string, format: string, ...args: any[]): void;
+
   /**
    * Outputs debug-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
-  function debug(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function debug(domain: number, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs info-level logs.
@@ -133,20 +147,23 @@ declare namespace hilog {
    * @atomicservice
    * @since 11
    */
+  function info(domain: number, tag: string, format: string, ...args: any[]): void;
+
   /**
    * Outputs info-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
-  function info(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function info(domain: number, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs warning-level logs.
@@ -184,20 +201,23 @@ declare namespace hilog {
    * @atomicservice
    * @since 11
    */
+  function warn(domain: number, tag: string, format: string, ...args: any[]): void;
+
   /**
    * Outputs warning-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
-  function warn(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function warn(domain: number, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs error-level logs.
@@ -235,20 +255,23 @@ declare namespace hilog {
    * @atomicservice
    * @since 11
    */
+  function error(domain: number, tag: string, format: string, ...args: any[]): void;
+
   /**
    * Outputs error-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
-  function error(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function error(domain: number, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Outputs fatal-level logs.
@@ -286,20 +309,23 @@ declare namespace hilog {
    * @atomicservice
    * @since 11
    */
+  function fatal(domain: number, tag: string, format: string, ...args: any[]): void;
+
   /**
    * Outputs fatal-level logs.
    *
    * @param { number } domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFF
+   *                          if the value exceeds the range, logs cannot be printed.
    * @param { string } tag Identifies the log tag, length cannot exceed 32 bytes, the excess part will be truncated.
    * @param { string } format Indicates the log format string.
-   * @param { (Object | undefined | null)[] }args Indicates the log parameters.
+   * @param { RecordData[] }args Indicates the log parameters.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
+   * @arkts 1.2
    */
-  function fatal(domain: number, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
+  function fatal(domain: number, tag: string, format: string, ...args: RecordData[]): void;
 
   /**
    * Checks whether logs of the specified tag, and level can be printed.
@@ -333,9 +359,22 @@ declare namespace hilog {
    * @param { LogLevel } level log level
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since 15
+   * @since arkts {'1.1':'15','1.2':'20'}
+   * @arkts 1.1&1.2
    */
    function setMinLogLevel(level: LogLevel): void;
+
+  /**
+   * Sets the lowest log level of the current application process. Different preference strategy can be set.
+   * 
+   * @param { LogLevel } level log level.
+   * @param { PreferStrategy } prefer preference strategy. See detail in PreferStrategy.
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function setLogLevel(level: LogLevel, prefer: PreferStrategy): void;
 
   /**
    * Log level define
@@ -477,6 +516,50 @@ declare namespace hilog {
      * @arkts 1.1&1.2
      */
     FATAL = 7
+  }
+
+  /**
+   * Enumerates preference strategy to be used in setLogLevel.
+   * 
+   * @enum { number }
+   * @syscap SystemCapability.HiviewDFX.HiLog
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  enum PreferStrategy {
+      /**
+       * UNSET_LOGLEVEL Used to unset SetLogLevel, then none is set
+       * 
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      UNSET_LOGLEVEL = 0,
+      /**
+       * PREFER_CLOSE_LOG The actual lowest log level is determined by
+       * the maximum level between the new level and the system-controlled level.
+       * This is equivalent to calling OH_LOG_SetMinLogLevel.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      PREFER_CLOSE_LOG = 1,
+      /**
+       * PREFER_OPEN_LOG The actual lowest log level is determined by
+       * the minimum level between the new level and the system-controlled level.
+       * @syscap SystemCapability.HiviewDFX.HiLog
+       * @crossplatform
+       * @atomicservice
+       * @since 21
+       * @arkts 1.1&1.2
+       */
+      PREFER_OPEN_LOG = 2,
   }
 }
 

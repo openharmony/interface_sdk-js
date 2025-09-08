@@ -18,6 +18,10 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
+import CompletionHandler from './@ohos.app.ability.CompletionHandler';
+/*** endif */
+
 /**
  * Define the available options for openLink API.
  *
@@ -25,7 +29,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default interface OpenLinkOptions {
   /**
@@ -36,7 +41,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   appLinkingOnly?: boolean;
 
@@ -47,7 +53,32 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   parameters?: Record<string, Object>;
+
+  /**
+   * The completion handler of openLink.
+   *
+   * @type { ?CompletionHandler }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21
+   */
+  completionHandler?: CompletionHandler;
+
+  /**
+   * Determines whether to hide a dialog when deep linking fails to match an application.
+   *
+   * @type { ?boolean }
+   * @default { false }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  hideFailureTipDialog?: boolean;
 }

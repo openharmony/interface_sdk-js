@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Dimension } from './units';
+import { CommonMethod } from './common';
+/*** endif */
+
 /**
  * Defines the ColumnSplit component.
  *
@@ -40,7 +45,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ColumnSplitInterface {
   /**
@@ -65,7 +71,8 @@ interface ColumnSplitInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (): ColumnSplitAttribute;
 }
@@ -85,7 +92,8 @@ interface ColumnSplitInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface ColumnSplitDividerStyle {
   /**
@@ -105,7 +113,8 @@ interface ColumnSplitDividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startMargin?: Dimension;
 
@@ -126,7 +135,8 @@ interface ColumnSplitDividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   endMargin?: Dimension;
 }
@@ -153,7 +163,8 @@ interface ColumnSplitDividerStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
@@ -181,12 +192,13 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   resizeable(value: boolean): ColumnSplitAttribute;
 
   /**
-   * Called when the ColumnSplit split line style is set.
+   * Set margin of the split line.
    * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
@@ -195,14 +207,15 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @since 10
    */
   /**
-   * Called when the ColumnSplit split line style is set.
+   * Set margin of the split line.
    * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   divider(value: ColumnSplitDividerStyle | null): ColumnSplitAttribute;
 }

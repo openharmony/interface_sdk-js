@@ -24,7 +24,21 @@ import formInfo from './@ohos.app.form.formInfo';
 /*** endif */
 import FormExtensionContext from './application/FormExtensionContext';
 import Want from './@ohos.app.ability.Want';
+/*** if arkts 1.1 */
 import { Configuration } from './@ohos.app.ability.Configuration';
+/*** endif */
+
+/**
+ * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+ *
+ * @typedef { function }
+ * @syscap SystemCapability.Ability.Form
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+type OnStopFn = () => void;
 
 /**
  * class of form extension.
@@ -328,6 +342,18 @@ declare class FormExtensionAbility {
   onStop?(): void;
 
   /**
+   * Called when this ability breaks the last link, notifying the provider that the provider process is about to stop.
+   *
+   * @type { ?OnStopFn }
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  onStop?: OnStopFn;
+
+  /**
    * Called to notify the form provider that the form location of the form has been changed.
    *
    * @param { string } formId - Indicates the ID of the form.
@@ -335,6 +361,7 @@ declare class FormExtensionAbility {
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
@@ -348,8 +375,9 @@ declare class FormExtensionAbility {
    * @param { formInfo.Rect } newRect - Indicates the new rect(vp) of the form.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20
    */
-  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
+  onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
 }
 export default FormExtensionAbility;

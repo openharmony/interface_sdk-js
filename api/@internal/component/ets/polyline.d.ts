@@ -18,6 +18,11 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonShapeMethod } from './common';
+import { ShapePoint } from './line';
+/*** endif */
+
 /**
  * Define options used to construct a polyline.
  *
@@ -26,7 +31,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface PolylineOptions {
   /**
@@ -63,7 +69,7 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polyline width.
    * Anonymous Object Rectification.
    *
@@ -85,6 +91,18 @@ declare interface PolylineOptions {
    * @since 20
    */
   width?: Length;
+  /**
+   * Polyline width.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  width?: string | number;
 
   /**
    * Polyline height.
@@ -120,7 +138,7 @@ declare interface PolylineOptions {
    * @atomicservice
    * @since 11
    */
-  /**
+/**
    * Polyline height.
    * Anonymous Object Rectification.
    *
@@ -142,6 +160,18 @@ declare interface PolylineOptions {
    * @since 20
    */
   height?: Length;
+  /**
+   * Polyline height.
+   *
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  height?: string | number
 }
 
 /**
@@ -300,7 +330,8 @@ interface PolylineInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
@@ -342,6 +373,20 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @since 11
    */
   points(value: Array<any>): PolylineAttribute;
+
+  /**
+   * Called when the polyline is set to pass through the coordinate point list.
+   *
+   * @param { Array<ShapePoint> } value
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  points(value: Array<ShapePoint>): PolylineAttribute;
 }
 
 /**
@@ -407,3 +452,30 @@ declare const Polyline: PolylineInterface;
  * @since 11
  */
 declare const PolylineInstance: PolylineAttribute;
+
+/**
+ * Provides an interface for drawing polylines.
+ *
+ * @interface PolylineInterface
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+interface PolylineInterface {
+  /**
+   * Set options for polyline component.
+   *
+   * @param { PolylineOptions } [options] - Poly line options
+   * @returns { PolylineAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (options?: PolylineOptions): PolylineAttribute;
+}

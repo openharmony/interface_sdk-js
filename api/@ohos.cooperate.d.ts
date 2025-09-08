@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -726,8 +726,6 @@ declare namespace cooperate {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @throws {BusinessError} 20900001 - Operation failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.

@@ -34,6 +34,7 @@ import deviceInfo from '@ohos.deviceInfo';
 import pasteboard from '@ohos.pasteboard';
 import power from '@ohos.power';
 import print from '@ohos.print';
+import scan from '@ohos.scan';
 import request from '@ohos.request';
 import cacheDownload from '@ohos.request.cacheDownload';
 import runningLock from '@ohos.runningLock';
@@ -82,9 +83,17 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, request, cacheDownload, runningLock,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, scan, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
   PanelInfo, PanelType, SelectionExtensionContext
 };
+
+/*** if arkts 1.2 */
+import zlib from '@ohos.zlib';
+
+export {
+  zlib
+};
+/*** endif */

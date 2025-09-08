@@ -485,6 +485,7 @@ declare namespace applicationManager {
    *              required to call the API
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified;
    *              2.Incorrect parameter types;3.Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
@@ -509,6 +510,7 @@ declare namespace applicationManager {
    * @throws { BusinessError } 9201005 - Add keep alive applications failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *              required to call the API
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -654,6 +656,7 @@ declare namespace applicationManager {
    * @param { Array<KioskFeature> } features - kiosk feature to allow custom ui.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *              required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

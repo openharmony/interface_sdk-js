@@ -27,9 +27,10 @@ import StaticSubscriberExtensionContext from './@ohos.application.StaticSubscrib
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class StaticSubscriberExtensionAbility {
+declare class StaticSubscriberExtensionAbility {
   /**
    * Indicates configuration information about an ability context.
    *
@@ -37,7 +38,8 @@ export default class StaticSubscriberExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   context: StaticSubscriberExtensionContext;
 
@@ -48,7 +50,10 @@ export default class StaticSubscriberExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onReceiveEvent(event: CommonEventData): void;
 }
+
+export default StaticSubscriberExtensionAbility;

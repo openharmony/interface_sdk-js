@@ -102,7 +102,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @StageModelOnly
-   * @crossplatform
    * @since 19
    */
   function getPhotoAccessHelper(context: Context, userId: number): PhotoAccessHelper;
@@ -298,8 +297,7 @@ declare namespace photoAccessHelper {
    * @enum { number } ThumbnailVisibility
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14
    */
   enum ThumbnailVisibility {
     /**
@@ -307,8 +305,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     INVISIBLE = 0,
     /**
@@ -316,8 +313,7 @@ declare namespace photoAccessHelper {
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     VISIBLE = 1
   }
@@ -1327,6 +1323,16 @@ declare namespace photoAccessHelper {
    * @arkts 1.1&1.2
    */
   type MemberType = number | string | boolean;
+  
+  /**
+   * Indicates the type of a batch photo asset member.
+   *
+   * @typedef { Record<string, MemberType>[] } PhotoAssetParams
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  type PhotoAssetParams = Record<string, MemberType>[];
 
   /**
    * Provides APIs for encapsulating file asset attributes.
@@ -1565,6 +1571,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -1583,6 +1590,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     open(mode: string): Promise<number>;
     /**
@@ -1598,6 +1606,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(callback: AsyncCallback<number>): void;
     /**
@@ -1613,6 +1622,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#open
      */
     getReadOnlyFd(): Promise<number>;
     /**
@@ -1627,6 +1637,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -1641,6 +1652,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      * @deprecated since 11
+     * @useinstead ohos.file.fs/fileIo#close
      */
     close(fd: number): Promise<void>;
     /**
@@ -1655,6 +1667,20 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
+     */
+    /**
+     * Obtains the thumbnail of this file. This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the PixelMap of the thumbnail.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -1671,6 +1697,21 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 10
      */
+    /**
+     * Obtains the file thumbnail of the given size. This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { image.Size } size - Size of the thumbnail.
+     * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the PixelMap of the thumbnail.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
      * Obtains the file thumbnail of the given size. This API uses a promise to return the result.
@@ -1685,6 +1726,22 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Obtains the file thumbnail of the given size. This API uses a promise to return the result.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { image.Size } [size] - Size of the thumbnail.
+     * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
      * @arkts 1.1&1.2
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
@@ -1714,7 +1771,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1733,7 +1790,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1752,7 +1809,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1771,7 +1828,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1790,7 +1847,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1809,7 +1866,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -2019,6 +2076,29 @@ declare namespace photoAccessHelper {
      */
     convertImageFormat(title: string, imageFormat: SupportedImageFormat): Promise<PhotoAsset>;
     /**
+     * Create a compatibility copy of the asset for applications that do not support the encoding format.
+     * The current HEIF image will generate a JPEG image when this interface is called.
+     * The API supports media types include normal picture,movingphoto(only picture part), and burst photo,
+     * but video is not included.
+     * The API supports image format incluse heif and heic.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Returns the void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *    1. The original file does not exist locally in PhotoAsset;
+     *    2. The original file format is not within the supported rrange
+     *    3. The original file is a temporary file or is being editted;
+     * @throws { BusinessError } 23800301 - Internal systerm error.It is recommended to retry and check the
+     *    logs.Possible causes:
+     *    1. Database corrupted.2. The file system is abnorma1.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    createTemporaryCompatibleDuplicate(): Promise<void>;
+    /**
      * Opens the source file to obtain the FD. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -2064,7 +2144,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>);
+    commitEditedAsset(editData: string, uri: string, callback: AsyncCallback<void>): void;
     /**
      * Commits the edited image or video asset. This API uses a promise to return the result.
      *
@@ -2096,7 +2176,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 11
      */
-    revertToOriginal(callback: AsyncCallback<void>);
+    revertToOriginal(callback: AsyncCallback<void>): void;
     /**
      * Reverts to the state of the file before being edited. This API uses a promise to return the result.
      *
@@ -2839,7 +2919,34 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 19
      */
-    SUM_SIZE = 'sum(size)'
+    SUM_SIZE = 'sum(size)',
+    /**
+     * orientation in exif
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    EXIF_ROTATE = 'exif_rotate',
+    /**
+     * AppLink state of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    HAS_APPLINK = 'has_applink',
+    /**
+     * AppLink info of assets, read only
+     * 
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    APPLINK = 'applink'
   }
 
   /**
@@ -3078,8 +3185,7 @@ declare namespace photoAccessHelper {
      * @type { ?number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     userId?: number;
   }
@@ -3664,6 +3770,23 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     getObjectByPosition(index: number): Promise<T>;
+    /**
+     * Obtains the objects in the fetch result in segments.
+     *
+     * @param { number } index - Index of the asset to obtain.
+     * @param { number } offset - Offset of the asset to obtain.
+     * @returns { Promise<T[]> } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: 'index or 'offset' validity check failed.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    getRangeObjects(index: number, offset: number): Promise<T[]>
     /**
      * Obtains all the file assets in the result set. This API uses an asynchronous callback to return the result.
      *
@@ -4369,7 +4492,6 @@ declare namespace photoAccessHelper {
    * @enum { number } NotifyChangeType
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum NotifyChangeType {
     /**
@@ -4377,7 +4499,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_ADD = 0,
     /**
@@ -4385,7 +4506,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_UPDATE = 1,
     /**
@@ -4393,7 +4513,6 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     NOTIFY_CHANGE_REMOVE = 2,
   }
@@ -4719,7 +4838,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumOrder {
     /**
@@ -4729,7 +4847,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumId: number;
     /**
@@ -4739,7 +4856,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumOrder: number;
     /**
@@ -4749,7 +4865,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     orderSection: number;
     /**
@@ -4759,7 +4874,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     orderType: number;
     /**
@@ -4769,7 +4883,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     orderStatus: number;
   }
@@ -5960,7 +6073,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'photoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -5977,7 +6089,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'photoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -5996,7 +6107,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'hiddenPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6015,7 +6125,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'hiddenPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6034,7 +6143,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'trashedPhotoChange', callback: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6053,7 +6161,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'trashedPhotoChange', callback?: Callback<PhotoAssetChangeInfos>): void;
 
@@ -6070,7 +6177,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'photoAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6087,7 +6193,6 @@ declare namespace photoAccessHelper {
      * <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'photoAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6106,7 +6211,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'hiddenAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6125,7 +6229,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'hiddenAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6144,7 +6247,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(type: 'trashedAlbumChange', callback: Callback<AlbumChangeInfos>): void;
 
@@ -6163,7 +6265,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(type: 'trashedAlbumChange', callback?: Callback<AlbumChangeInfos>): void;
 
@@ -6180,6 +6281,38 @@ declare namespace photoAccessHelper {
     getPhotoPickerComponentDefaultAlbumName(): Promise<string>;
 
     /**
+     * Batchly obtain the values of PhotoAsset members.
+     *
+     * @param {PhotoAsset[]} assets - The array of PhotoAsset objects.
+     * @param {string[]} members - The array of member property names to get.
+     * @returns { PhotoAssetParams } Returns the objects in segments
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: The attribute to be queried does not exist in assets.
+     * @throws { BusinessError } 23800104 - The provided member must be a property name of PhotoKey.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    batchGetPhotoAssetParams(assets: PhotoAsset[], members: string[]): PhotoAssetParams
+
+    /**
+     * checks whether the application supports compatiblle copies by bundleName
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string } bundleName - BundleName of target applicaation
+     * @returns { Promise<boolean> } - Returns the whether appplication supports compatible copies
+     * @throws {BusinessError } 201 - Permission denied
+     * @throws {BusinessError } 202 - Called by non-system aapplication
+     * @throws {BusinessError } 23800301 - Internal system eerror. It is recommended to retry and check the logs
+     *    <br>Possible causes: 1. The IPC request timed out. 2.system running error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 20
+     */
+    isCompatibleDuplicateSupported(bundleName: string): Promise<boolean>;
+
+    /**
      * Obtains photo albums based on the specified options. This API uses a promise to return the result.
      * Before the operation, ensure that the albums to obtain exist.
      *
@@ -6193,7 +6326,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getPhotoAlbums(options?: FetchOptions): Promise<FetchResult<Album>>;
 
@@ -6213,7 +6345,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     getPhotoAlbumOrder(orderStyle: number, options?: FetchOptions): Promise<FetchResult<AlbumOrder>>;
 
@@ -6233,7 +6364,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     setPhotoAlbumOrder(orderStyle: number, albumOrders: Array<AlbumOrder>): Promise<void>;
 
@@ -6247,6 +6377,25 @@ declare namespace photoAccessHelper {
      * @since 20
      */
     getRecentPhotoInfo(options?: RecentPhotoOptions): Promise<RecentPhotoInfo>;
+
+    /**
+     * Queries data in the database based on specified conditions.
+     *
+     * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
+     * @param { string } sql - The query conditions.
+     * @returns { Promise<ResultSet> } The {@link ResultSet} object if the operation is successful.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     <br>Possible causes: The SQL statement is abnormal.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     <br>Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    query(sql: string): Promise<ResultSet>;
   }
 
   /**
@@ -6361,7 +6510,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum ThumbnailChangeStatus {
     /**
@@ -6370,7 +6518,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_NOT_EXISTS = 0,
 
@@ -6380,7 +6527,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_ADD = 1,
 
@@ -6390,7 +6536,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_UPDATE = 2,
 
@@ -6400,7 +6545,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     THUMBNAIL_NOT_CHANGE = 3
   }
@@ -6412,7 +6556,6 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum StrongAssociationType {
     /**
@@ -6421,7 +6564,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     NORMAL = 0,
     /**
@@ -6430,7 +6572,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     CLOUD_ENHANCEMENT = 1
   }
@@ -6441,7 +6582,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeInfos {
     /**
@@ -6450,7 +6590,6 @@ declare namespace photoAccessHelper {
      * @type { NotifyChangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: NotifyChangeType;
 
@@ -6460,7 +6599,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeData[] | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetChangeDatas: PhotoAssetChangeData[] | null;
 
@@ -6470,7 +6608,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isForRecheck: boolean;
   }
@@ -6481,7 +6618,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeData {
     /**
@@ -6490,7 +6626,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetBeforeChange: PhotoAssetChangeInfo | null;
 
@@ -6500,7 +6635,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoAssetChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     assetAfterChange: PhotoAssetChangeInfo | null;
 
@@ -6510,7 +6644,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isContentChanged: boolean;
 
@@ -6520,7 +6653,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isDeleted: boolean;
 
@@ -6531,7 +6663,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     thumbnailChangeStatus: ThumbnailChangeStatus;
     
@@ -6542,7 +6673,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     version: number;
   }
@@ -6553,7 +6683,6 @@ declare namespace photoAccessHelper {
    * @interface PhotoAssetChangeInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface PhotoAssetChangeInfo {
     /**
@@ -6562,7 +6691,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -6572,7 +6700,6 @@ declare namespace photoAccessHelper {
      * @type { PhotoType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     mediaType: PhotoType;
 
@@ -6582,7 +6709,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumUri: string;
 
@@ -6593,7 +6719,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     fileId: number;
 
@@ -6604,7 +6729,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateDay: string;
 
@@ -6615,7 +6739,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isFavorite: boolean;
 
@@ -6626,7 +6749,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isHidden: boolean;
 
@@ -6637,7 +6759,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     strongAssociation: StrongAssociationType;
 
@@ -6648,7 +6769,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     thumbnailVisible: ThumbnailVisibility;
 
@@ -6659,7 +6779,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateTrashedMs: number;
 
@@ -6670,7 +6789,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateAddedMs: number;
 
@@ -6681,9 +6799,38 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     dateTakenMs: number;
+
+    /**
+     * asset position.
+     *
+     * @type { ?PositionType }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    position?: PositionType;
+
+    /**
+     * Display name of photo asset.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    displayName?: string;
+
+    /**
+     * Size of photo asset.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    size?: number;
   }
 
   /**
@@ -6692,7 +6839,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfos
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeInfos {
     /**
@@ -6701,7 +6847,6 @@ declare namespace photoAccessHelper {
      * @type { NotifyChangeType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: NotifyChangeType;
 
@@ -6711,7 +6856,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeData[] | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumChangeDatas: AlbumChangeData[] | null;
 
@@ -6721,7 +6865,6 @@ declare namespace photoAccessHelper {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     isForRecheck: boolean;
   }
@@ -6732,7 +6875,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeData
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeData {
     /**
@@ -6741,7 +6883,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumBeforeChange: AlbumChangeInfo | null;
 
@@ -6751,19 +6892,8 @@ declare namespace photoAccessHelper {
      * @type { AlbumChangeInfo | null }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumAfterChange: AlbumChangeInfo | null;
-
-    /**
-     * Whether the album is deleted.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 20
-     * @arkts 1.1&1.2
-     */
-    isDeleted: boolean;
 
     /**
      * The version of the album info used to determine the order of notification changes.
@@ -6772,7 +6902,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     version: number;
   }
@@ -6783,7 +6912,6 @@ declare namespace photoAccessHelper {
    * @interface AlbumChangeInfo
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface AlbumChangeInfo {
     /**
@@ -6792,7 +6920,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumType: AlbumType;
 
@@ -6802,7 +6929,6 @@ declare namespace photoAccessHelper {
      * @type { AlbumSubtype }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumSubtype: AlbumSubtype;
 
@@ -6812,7 +6938,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumName: string;
 
@@ -6822,7 +6947,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     albumUri: string;
 
@@ -6832,7 +6956,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     imageCount: number;
 
@@ -6842,7 +6965,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     videoCount: number;
 
@@ -6852,7 +6974,6 @@ declare namespace photoAccessHelper {
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     count: number;
 
@@ -6862,7 +6983,6 @@ declare namespace photoAccessHelper {
      * @type { string }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 20
-     * @arkts 1.1&1.2
      */
     coverUri: string;
 
@@ -6873,7 +6993,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCount: number;
 
@@ -6884,7 +7003,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCoverUri: string;
 
@@ -6895,7 +7013,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isCoverChanged: boolean;
 
@@ -6906,7 +7023,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     isHiddenCoverChanged: boolean;
 
@@ -6917,7 +7033,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     coverInfo?: PhotoAssetChangeInfo;
 
@@ -6928,9 +7043,26 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 20
-     * @arkts 1.1&1.2
      */
     hiddenCoverInfo?: PhotoAssetChangeInfo;
+
+    /**
+     * The order section of album asset.
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    orderSection?: number;
+
+    /**
+     * The album order of album asset.
+     * @type { ?number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    albumOrder?: number;
   }
 
   /**
@@ -7544,6 +7676,29 @@ declare namespace photoAccessHelper {
      * @since 19
      */
     videoDurationFilter?: VideoDurationFilter;
+
+    /**
+     * Configures filter conditions as a string array, supporting multiple combined 
+     * conditions to specify supported file types. When this parameter is set, the 
+     * original file type configuration parameters `MIMEType` and `mimeTypeFilter` become invalid.
+     * 
+     * @type { ?Array<string> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    combinedMediaTypeFilter?: Array<string>;
+
+    /**
+     * Media file type and size combined filtering configuration. The array supports a maximum length of 3. 
+     * Setting this parameter will cause the `fileSizeFilter` and `MIMEType` parameters to be ignored.
+     *
+     * @type { ?Array<PhotoViewMimeTypeFileSizeFilter> }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 20
+     */
+    photoViewMimeTypeFileSizeFilters?: Array<PhotoViewMimeTypeFileSizeFilter>;
   }
 
   /**
@@ -7642,6 +7797,35 @@ declare namespace photoAccessHelper {
        */
       extraVideoDuration?: number;
   }
+
+  /**
+   * Media file video duration filtering configuration.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 20
+   */
+    class PhotoViewMimeTypeFileSizeFilter {
+      /**
+       * Specifing filter Type.
+       *
+       * @type { PhotoViewMIMETypes }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 20
+       */
+      photoViewMimeType: PhotoViewMIMETypes;
+  
+      /**
+       * Specifing file size filtering configuration.
+       *
+       * @type { FileSizeFilter }
+       * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+       * @atomicservice
+       * @since 20
+       */
+      sizeFilter: FileSizeFilter;
+    }
 
   /**
    * PhotoSelectOptions Object
@@ -8782,6 +8966,32 @@ declare namespace photoAccessHelper {
      * @since 19
      */
     static deleteLocalAssetsPermanentlyWithUri(context: Context, assetUris: Array<string>): Promise<void>;
+
+    /**
+     * Set the AppLink state of this asset.
+     *
+     * @param { int } hasAppLink - AppLink state of the asset to set.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setHasAppLink(hasAppLink: int): void;
+
+    /**
+     * Set the AppLink info of this asset.
+     *
+     * @param { string } appLink - AppLink info of the asset to set.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    setAppLinkInfo(appLink: string): void;
   }
 
   /**
@@ -9781,7 +9991,16 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    PLAY_INFO
+    PLAY_INFO = 1,
+    /**
+     * Highlight Album information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    ALBUM_INFO = 2
   }
 
   /**
@@ -9887,6 +10106,47 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates the types of the highlights album attribute which can be set.
+   *
+   * @enum { number } HighlightAlbumChangeAttribute
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
+   */
+  enum HighlightAlbumChangeAttribute {
+    /**
+     * The highlight has been viewed or not.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    IS_VIEWED = 0,
+
+    /**
+     * Time of this highlight notification.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    NOTIFICATION_TIME = 1,
+
+    /**
+     * Favorite of this highlight album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    IS_FAVORITE = 2
+  }
+
+  /**
    * Enumerates thumbnail types.
    *
    * @enum { number } ThumbnailType
@@ -9955,6 +10215,54 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
+  }
+
+  /**
+   * Defines the class of media highlight album change request.
+   *
+   * @extends MediaAnalysisAlbumChangeRequest
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since arkts {'1.1':'21','1.2':'22'}
+   * @arkts 1.1&1.2
+   */
+  class MediaHighlightAlbumChangeRequest extends MediaAnalysisAlbumChangeRequest {
+    /**
+     * The constructor to create a MediaHighlightAlbumChangeRequest instance.
+     *
+     * @param { Album } album - Album
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    constructor(album: Album);
+
+    /**
+     * Set attribute values of highlight album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { HighlightAlbumChangeAttribute } attribute - Highlight attribute to be set.
+     * @param { string } value - Value of attribute.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since arkts {'1.1':'21','1.2':'22'}
+     * @arkts 1.1&1.2
+     */
+    setHighlightAttribute(attribute: HighlightAlbumChangeAttribute, value: string): void;
   }
 
   /**
@@ -10954,6 +11262,161 @@ declare namespace photoAccessHelper {
      */
     addLcdJumpCount(ids: Array<number>): Promise<Array<number>>;
   }
+
+  /**
+   * Indicates possible value types
+   *
+   * @typedef { number | string | boolean | Uint8Array | null } ValueType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type ValueType = number | string | boolean | Uint8Array | null;
+
+  /**
+   * Values in buckets are stored in key-value pairs, change {[key: string]: ValueType;} to Record<string, ValueType>
+   *
+   * @typedef { Record<string, ValueType> } ValuesBucket
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  type ValuesBucket = Record<string, ValueType>;
+
+  /**
+   * Provides methods for accessing a database result set generated by querying the database.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  class ResultSet {
+    /**
+     * Obtains the number of columns in the result set.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    columnCount: number;
+    /**
+     * Obtains the number of rows in the result set.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    rowCount: number;
+    /**
+     * Obtains the current index of the result set.
+     *
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    rowIndex: number;
+    /**
+     * Checks whether the cursor is positioned at the last row.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    isAtLastRow: boolean;
+    /**
+     * Go to the specified row of the result set.
+     *
+     * @param { number } position - Indicates the index of the specified row, which starts from 0.
+     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: position invalid.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    goToRow(position: number): boolean;
+    /**
+     * Go to the first row of the result set.
+     *
+     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    goToFirstRow(): boolean;
+    /**
+     * Go to the next row of the result set.
+     *
+     * @returns { boolean } True if the result set is moved successfully; Returns false otherwise.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    goToNextRow(): boolean;
+    /**
+     * Obtains the values of all columns in the specified row.
+     *
+     * @returns { ValuesBucket } Indicates the row of data {@link ValuesBucket} to be inserted into the table.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    getRow(): ValuesBucket;
+    /**
+     * Obtains the value of the specified column in the current row.
+     *
+     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @returns { ValueType } The value of the specified column..
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes: columnIndex invalid.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    getValue(columnIndex: number): ValueType;
+    /**
+     * Closes the result set.
+     *
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    close(): void;
+  }
+
 }
 
 export default photoAccessHelper;

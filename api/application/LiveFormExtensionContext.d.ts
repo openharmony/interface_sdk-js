@@ -19,6 +19,7 @@
  */
  
 import ExtensionContext from './ExtensionContext';
+import Want from '../@ohos.app.ability.Want';
 
 /**
  * The context of live form extension. It allows access to
@@ -30,5 +31,22 @@ import ExtensionContext from './ExtensionContext';
  * @atomicservice
  * @since 20
  */
-export default class LiveFormExtensionContext extends ExtensionContext {
+declare class LiveFormExtensionContext extends ExtensionContext {
+  /**
+   * Start ability belongs to the application
+   *
+   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported due to limited device capabilities.
+   * @throws { BusinessError } 16500050 - An IPC connection error happened.
+   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501011 - The form can not support this operation
+   * @syscap SystemCapability.Ability.Form
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20
+   */
+  startAbilityByLiveForm(want: Want): Promise<void>;
 }
+export default LiveFormExtensionContext;

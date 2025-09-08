@@ -63,9 +63,11 @@ declare namespace mechanicManager {
 
     /**
      * Sets a user operation.
+     * @permission ohos.permission.CONNECT_MECHANIC_HARDWARE
      * @param { Operation } operation Operation type.
      * @param { string } mac MAC address.
      * @param { string } params Operation parameters.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @syscap SystemCapability.Mechanic.Core
@@ -79,7 +81,7 @@ declare namespace mechanicManager {
      * @param { boolean } isEnabled Whether to enable camera tracking.
      * @throws { BusinessError } 33300001 - Service exception.
      * @throws { BusinessError } 33300002 - Device not connected.
-     * @throws { BusinessError } 33300003 - Device not supported.
+     * @throws { BusinessError } 33300003 - Feature not supported.
      * @syscap SystemCapability.Mechanic.Core
      * @since 20
      */
@@ -124,7 +126,7 @@ declare namespace mechanicManager {
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 33300001 - Service exception.
      * @throws { BusinessError } 33300002 - Device not connected.
-     * @throws { BusinessError } 33300003 - Device not supported.
+     * @throws { BusinessError } 33300003 - Feature not supported.
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 20
@@ -343,7 +345,7 @@ declare namespace mechanicManager {
      */
     export interface RotationAngles {
         /**
-         * Yaw angle, ranging from -2π to 2*π, measured in radians.
+         * Yaw angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
@@ -353,7 +355,7 @@ declare namespace mechanicManager {
         yaw?: number;
 
         /**
-         * Roll angle, ranging from -2π to 2*π, measured in radians.
+         * Roll angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
@@ -363,7 +365,7 @@ declare namespace mechanicManager {
         roll?: number;
 
         /**
-         * Pitch angle, ranging from -2π to 2*π, measured in radians.
+         * Pitch angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
@@ -383,7 +385,7 @@ declare namespace mechanicManager {
      */
     export interface EulerAngles {
         /**
-         * Yaw angle, ranging from -π to π, measured in radians.
+         * Yaw angle, ranging from -Math.PI to Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
@@ -393,7 +395,7 @@ declare namespace mechanicManager {
         yaw?: number;
 
         /**
-         * Roll angle, ranging from -π to π, measured in radians.
+         * Roll angle, ranging from -Math.PI to Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi
@@ -403,7 +405,7 @@ declare namespace mechanicManager {
         roll?: number;
 
         /**
-         * Pitch angle, ranging from -π to π, measured in radians.
+         * Pitch angle, ranging from -Math.PI to Math.PI, measured in radians.
          * @type { ?number }
          * @syscap SystemCapability.Mechanic.Core
          * @systemapi

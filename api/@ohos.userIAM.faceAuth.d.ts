@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit UserAuthenticationKit
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -23,7 +24,8 @@
  *
  * @namespace faceAuth
  * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
- * @since 9
+ * @since arkts {'1.1':'9','1.2':'22'}
+ * @arkts 1.1&1.2
  */
 declare namespace faceAuth {
   /**
@@ -31,7 +33,8 @@ declare namespace faceAuth {
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since arkts {'1.1':'9','1.2':'22'}
+   * @arkts 1.1&1.2
    */
   class FaceAuthManager {
     /**
@@ -39,7 +42,8 @@ declare namespace faceAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -48,12 +52,13 @@ declare namespace faceAuth {
      *
      * @permission ohos.permission.MANAGE_USER_IDM
      * @param { string } surfaceId Indicates surface id for face enroll preview.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
      * @throws { BusinessError } 12700001 - The service is unavailable.
      * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'22'}
+     * @arkts 1.1&1.2
      */
     setSurfaceId(surfaceId: string): void;
   }

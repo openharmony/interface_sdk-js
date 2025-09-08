@@ -70,7 +70,7 @@ export class ArcSwiperController {
   /**
    * Finish the swiper animation.
    *
-   * @param { FinishAnimationHandler } handler - The handler is used to listen for the end of the animation.
+   * @param { FinishAnimationHandler } [handler] - The handler is used to listen for the end of the animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -213,7 +213,7 @@ interface ArcSwiperInterface {
   /**
    * Create ArcSwiper component.
    *
-   * @param { ArcSwiperController } controller
+   * @param { ArcSwiperController } [controller]
    * @returns { ArcSwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -559,7 +559,7 @@ declare class ArcSwiperAttribute extends CommonMethod<ArcSwiperAttribute> {
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 19
  */
 declare let ArcSwiper: ArcSwiperInterface;
 

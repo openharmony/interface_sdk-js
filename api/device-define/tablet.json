@@ -117,9 +117,7 @@
     "SystemCapability.HiviewDFX.HiCollie",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.DistributedHardware.DeviceManager",
-    "SystemCapability.Security.DeviceAuth",
     "SystemCapability.Security.DataTransitManager",
-    "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Security.Huks.Core",
     "SystemCapability.Security.Huks.Extension",
     "SystemCapability.Security.Asset",
@@ -226,6 +224,8 @@
     "SystemCapability.Ability.AppStartup",
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
-    "SystemCapability.Test.PerfTest"
+    "SystemCapability.Test.PerfTest",
+    "SystemCapability.DistributedHardware.DistributedHardwareFWK",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

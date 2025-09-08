@@ -564,7 +564,7 @@ declare namespace cloudSyncManager {
      * @param { string } bundleName - Name of the bundle that need to synchronize and subscribe the sync progress event.
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.
@@ -607,7 +607,7 @@ declare namespace cloudSyncManager {
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 13900010 - Try again.
-     * @throws { BusinessError } 13900020 - Parameter error. Possible causes:
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.

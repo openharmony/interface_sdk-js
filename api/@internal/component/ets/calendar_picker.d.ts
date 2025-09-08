@@ -18,6 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Resource } from '../../global/resource'
+import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, 
+  BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional } from './common'
+import { Offset, VoidCallback, ResourceColor } from './units'
+/*** endif */
+
 /**
  * The type of alignment between entry and calendar.
  * @enum {number}
@@ -31,7 +38,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum CalendarAlign {
   /**
@@ -45,7 +53,8 @@ declare enum CalendarAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   START = 0,
   /**
@@ -59,7 +68,8 @@ declare enum CalendarAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   CENTER = 1,
   /**
@@ -73,7 +83,8 @@ declare enum CalendarAlign {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   END = 2
 }
@@ -91,7 +102,8 @@ declare enum CalendarAlign {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CalendarOptions {
   /**
@@ -107,7 +119,8 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hintRadius?: number | Resource;
 
@@ -124,7 +137,8 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected?: Date;
 
@@ -135,7 +149,8 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start?: Date;
 
@@ -146,7 +161,8 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   end?: Date;
 
@@ -157,7 +173,8 @@ declare interface CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disabledDateRange?: DateRange[];
 }
@@ -175,12 +192,13 @@ declare interface CalendarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface CalendarPickerInterface {
   /**
    * Defines the CalendarPicker constructor.
-   * @param { CalendarOptions } options - the option of th calendarPicker.
+   * @param { CalendarOptions } options - the option of the calendarPicker.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -188,12 +206,13 @@ interface CalendarPickerInterface {
    */
   /**
    * Defines the CalendarPicker constructor.
-   * @param { CalendarOptions } options - the option of th calendarPicker.
+   * @param { CalendarOptions } options - the option of the calendarPicker.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: CalendarOptions): CalendarPickerAttribute;
 }
@@ -211,7 +230,8 @@ interface CalendarPickerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
   /**
@@ -231,10 +251,11 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
-  
+
   /**
    * Set the alignment between entry and calendar dialog.
    * @param { Optional<CalendarAlign> } alignType - The type of alignment between entry and calendar dialog.
@@ -243,7 +264,8 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   edgeAlign(alignType: Optional<CalendarAlign>, offset?: Offset): CalendarPickerAttribute;
 
@@ -262,7 +284,8 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle(value: PickerTextStyle): CalendarPickerAttribute;
 
@@ -273,7 +296,8 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle(style: Optional<PickerTextStyle>): CalendarPickerAttribute;
 
@@ -302,18 +326,20 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 
- /**
+  /**
    * Callback for selected date changed.
    * @param { Optional<Callback<Date>> } callback - callback for selected date changed.
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: Optional<Callback<Date>>): CalendarPickerAttribute;
 
@@ -325,7 +351,8 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   markToday(enabled: boolean): CalendarPickerAttribute;
 }
@@ -345,7 +372,8 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface CalendarDialogOptions extends CalendarOptions {
   /**
@@ -370,7 +398,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAccept?: Callback<Date>;
 
@@ -396,7 +425,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancel?: VoidCallback;
 
@@ -422,7 +452,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange?: Callback<Date>;
 
@@ -443,7 +474,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor?: ResourceColor;
 
@@ -464,7 +496,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -475,7 +508,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -486,7 +520,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -497,7 +532,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
 
@@ -508,7 +544,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
 
@@ -529,7 +566,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidAppear?: VoidCallback;
 
@@ -550,7 +588,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidDisappear?: VoidCallback;
 
@@ -571,7 +610,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillAppear?: VoidCallback;
 
@@ -592,7 +632,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillDisappear?: VoidCallback;
 
@@ -603,7 +644,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -615,7 +657,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHoverMode?: boolean;
 
@@ -627,7 +670,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -639,7 +683,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   markToday?: boolean;
 }
@@ -655,23 +700,25 @@ declare interface CalendarDialogOptions extends CalendarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class CalendarPickerDialog {
   /**
    * Invoking method display.
-   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+   * @param { CalendarDialogOptions } options - the option of the calendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Invoking method display.
-   * @param { CalendarDialogOptions } options - the option of th calendarPicker.
+   * @param { CalendarDialogOptions } options - the option of the calendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static show(options?: CalendarDialogOptions): void;
 }

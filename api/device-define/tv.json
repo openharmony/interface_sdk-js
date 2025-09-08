@@ -181,8 +181,6 @@
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CertificateManagerDialog",
     "SystemCapability.Security.DataTransitManager",
-    "SystemCapability.Security.DeviceAuth",
-    "SystemCapability.Security.DeviceSecurityLevel",
     "SystemCapability.Update.UpdateService",
     "SystemCapability.Window.SessionManager",
     "SystemCapability.Test.UiTest",
@@ -192,8 +190,8 @@
     "SystemCapability.Multimedia.Camera.Core",
     "SystemCapability.Multimedia.ImageEffect.Core",
     "SystemCapability.Startup.SystemInfo",
-    "SystemCapability.UserIAM.UserAuth.Core",
     "SystemCapability.USB.USBManager",
-    "SystemCapability.Advertising.OAID"
+    "SystemCapability.Advertising.OAID",
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

@@ -5408,6 +5408,29 @@ declare namespace cert {
   function parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data;
 
   /**
+   * Parse PKCS12.
+   *
+   * The private key in the returned Pkcs12Data is encoded in PEM format.
+   *
+   * @param { Uint8Array } data - the PKCS12 data.
+   * @param { string } password - the password of the PKCS12.
+   * @returns { Promise<Pkcs12Data> } the promise returned by the function.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   *     <br>1. The length of the data is zero or too large;
+   *     <br>2. The length of the password is zero or too large.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @throws { BusinessError } 19030008 - maybe wrong password.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>;
+
+  /**
    * Get trust anchor array from specified P12.
    *
    * @param { Uint8Array } keystore - the file path of the P12.
@@ -6470,7 +6493,7 @@ declare namespace cert {
      * Used to obtain the CMS final data, such as CMS signed data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
-     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @param { CmsGeneratorOptions } [options] - the configuration options for CMS operation.
      * @returns { Promise<Uint8Array | string> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6489,7 +6512,7 @@ declare namespace cert {
      * Used to obtain the CMS final data, such as CMS signed data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
-     * @param { CmsGeneratorOptions } options - the configuration options for CMS operation.
+     * @param { CmsGeneratorOptions } [options] - the configuration options for CMS operation.
      * @returns { Uint8Array | string } the CMS final data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6631,6 +6654,269 @@ declare namespace cert {
    * @since 18
    */
   function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string | Uint8Array;
+
+  /**
+   * The encryption algorithm of PBES.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  enum PbesEncryptionAlgorithm {
+    /**
+     * AES-128-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    AES_128_CBC = 0,
+
+    /**
+     * AES-192-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    AES_192_CBC = 1,
+
+    /**
+     * AES-256-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    AES_256_CBC = 2,
+  }
+
+  /**
+   * PBES parameters. Currently only supports PBES2.
+   *
+   * @typedef PbesParams
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  interface PbesParams {
+    /**
+     * The salt length for kdf. The minimum value is 8.
+     *
+     * @type { ?int }
+     * @default 16
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    saltLen?: int;
+
+    /**
+     * The iteration count for kdf.
+     *
+     * @type { ?int }
+     * @default 2048
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    iterations?: int;
+
+    /**
+     * The symmetric encryption algorithm.
+     *
+     * @type { ?PbesEncryptionAlgorithm }
+     * @default PbesEncryptionAlgorithm.AES_256_CBC
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    encryptionAlgorithm?: PbesEncryptionAlgorithm;
+  }
+
+  /**
+   * The digest algorithm of PKCS12 mac.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  enum Pkcs12MacDigestAlgorithm {
+    /**
+     * SHA256.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    SHA256 = 0,
+
+    /**
+     * SHA384.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    SHA384 = 1,
+
+    /**
+     * SHA512.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    SHA512 = 2,
+  }
+
+  /**
+   * Configuration for creating PKCS12.
+   *
+   * @typedef Pkcs12CreationConfig
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  interface Pkcs12CreationConfig {
+    /**
+     * The password for the PKCS12. The minimum length is 4.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    password: string;
+
+    /**
+     * The algorithm parameters for encrypting the private key.
+     *
+     * @type { ?PbesParams }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    keyEncParams?: PbesParams;
+
+    /**
+     * Whether to encrypt the certificate.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    encryptCert?: boolean;
+
+    /**
+     * The algorithm parameters for encrypting the certificate.
+     *
+     * @type { ?PbesParams }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    certEncParams?: PbesParams;
+
+    /**
+     * The salt length for PKCS12 mac. The minimum value is 8.
+     *
+     * @type { ?int }
+     * @default 16
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    macSaltLen?: int;
+
+    /**
+     * The iteration count for PKCS12 mac.
+     *
+     * @type { ?int }
+     * @default 2048
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    macIterations?: int;
+
+    /**
+     * The digest algorithm for PKCS12 mac.
+     *
+     * @type { ?Pkcs12MacDigestAlgorithm }
+     * @default Pkcs12MacDigestAlgorithm.SHA256
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 21
+     */
+    macDigestAlgorithm?: Pkcs12MacDigestAlgorithm;
+  }
+
+  /**
+   * Used to create a PKCS12.
+   *
+   * @param { Pkcs12Data } data - the PKCS12 data object.
+   * @param { Pkcs12CreationConfig } config - the configuration for creating PKCS12.
+   * @returns { Uint8Array } the PKCS12.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   *     <br>1. The password is too short or too long;
+   *     <br>2. The private key does not match the certificate;
+   *     <br>3. Invalid encryption algorithm parameters.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array;
+
+  /**
+   * Used to create a PKCS12.
+   *
+   * @param { Pkcs12Data } data - the PKCS12 data object.
+   * @param { Pkcs12CreationConfig } config - the configuration for creating PKCS12.
+   * @returns { Promise<Uint8Array> } the promise returned by the function.
+   * @throws { BusinessError } 19020001 - memory malloc failed.
+   * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+   *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+   * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+   *     <br>1. The password is too short or too long;
+   *     <br>2. The private key does not match the certificate;
+   *     <br>3. Invalid encryption algorithm parameters.
+   * @throws { BusinessError } 19030001 - crypto operation error.
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise<Uint8Array>;
 }
 
 export default cert;

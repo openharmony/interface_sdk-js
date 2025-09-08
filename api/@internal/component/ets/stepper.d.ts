@@ -18,6 +18,45 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { Bindable, CommonMethod } from './common'
+/*** endif */
+
+/**
+ * Declare the StepperOptions.
+ *
+ * @interface StepperOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+interface StepperOptions {
+  /**
+   * Set the stepper index.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   */
+  index?: number;
+
+  /**
+   * Set the stepper index.
+   *
+   * @type { ?(number | Bindable<number>) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  index?: number | Bindable<number>;
+}
+
 /**
  * Declare the stepper.
  *
@@ -40,7 +79,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface StepperInterface {
   /**
@@ -71,6 +111,19 @@ interface StepperInterface {
    * @since 11
    */
   (value?: { index?: number }): StepperAttribute;
+  /**
+   * Called when the stepper component is used.
+   *
+   * Anonymous Object Rectification.
+   * @param { StepperOptions } value
+   * @returns { StepperAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.1&1.2
+   */
+  (value?: StepperOptions): StepperAttribute;
 }
 
 /**
@@ -95,7 +148,8 @@ interface StepperInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   /**
@@ -123,7 +177,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onFinish(callback: () => void): StepperAttribute;
 
@@ -152,7 +207,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onSkip(callback: () => void): StepperAttribute;
 
@@ -181,7 +237,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
@@ -210,7 +267,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
@@ -239,7 +297,8 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onPrevious(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 }

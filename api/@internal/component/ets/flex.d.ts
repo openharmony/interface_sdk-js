@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { LengthMetrics } from '../Graphics';
+import { PointLightStyle, CommonMethod } from './common';
+import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
+/*** endif */
+
 /**
  * Defines the options of Flex.
  * 
@@ -50,7 +56,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface FlexOptions {
   /**
@@ -86,7 +93,8 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   direction?: FlexDirection;
 
@@ -123,7 +131,8 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   wrap?: FlexWrap;
 
@@ -160,7 +169,8 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   justifyContent?: FlexAlign;
 
@@ -197,7 +207,8 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignItems?: ItemAlign;
 
@@ -235,7 +246,8 @@ declare interface FlexOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignContent?: FlexAlign;
 
@@ -247,7 +259,8 @@ declare interface FlexOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   space?: FlexSpaceOptions;
 }
@@ -259,7 +272,8 @@ declare interface FlexOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 
 declare interface FlexSpaceOptions {
@@ -270,18 +284,20 @@ declare interface FlexSpaceOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   main?: LengthMetrics;
 
   /**
-   * Space on the main axis of the Flex component.
+   * Space on the cross axis of the Flex component.
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cross?: LengthMetrics;
 }
@@ -318,7 +334,8 @@ declare interface FlexSpaceOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface FlexInterface {
   /**
@@ -357,7 +374,8 @@ interface FlexInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value?: FlexOptions): FlexAttribute;
 }
@@ -394,7 +412,8 @@ interface FlexInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class FlexAttribute extends CommonMethod<FlexAttribute> {
   /**
@@ -404,7 +423,8 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
    * @returns { FlexAttribute } The attribute of the flex.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   pointLight(value: PointLightStyle): FlexAttribute;
 }

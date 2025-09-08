@@ -54,6 +54,7 @@ import ExtensionAbility from '@ohos.app.ability.ExtensionAbility';
 import insightIntent from '@ohos.app.ability.insightIntent';
 import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
 import insightIntentDriver from '@ohos.app.ability.insightIntentDriver';
+import verticalPanelManager from '@ohos.app.ability.verticalPanelManager';
 import InsightIntentExecutor from '@ohos.app.ability.InsightIntentExecutor';
 import { InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction,
   InsightIntentEntry, LinkParamCategory, InsightIntentForm, InsightIntentEntity } from '@ohos.app.ability.InsightIntentDecorator';
@@ -112,6 +113,8 @@ import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 import kioskManager from '@ohos.app.ability.kioskManager';
+import CompletionHandlerForAtomicService from '@ohos.app.ability.CompletionHandlerForAtomicService';
+import { CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode } from '@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -125,22 +128,28 @@ export {
   bundleMonitor, bundleResourceManager, businessAbilityRouter, childProcessManager, common, contextConstant,
   continuationManager, continueManager, dataUriUtils, defaultAppManager, dialogRequest, dialogSession, distributedBundle,
   distributedBundleManager, distributedMissionManager, errorManager, featureAbility, freeInstall,
-  innerBundleManager, insightIntent, insightIntentDriver, installer, launcherBundleManager, missionManager,
+  innerBundleManager, insightIntent, insightIntentDriver, verticalPanelManager, installer, launcherBundleManager, missionManager,
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
   sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
-  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager
+  InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
+  CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode
 };
 
 /*** if arkts 1.2 */
 import bundleManager from '@ohos.bundle.bundleManager';
+import bundleMonitor from '@ohos.bundle.bundleMonitor';
 import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import freeInstall from '@ohos.bundle.freeInstall';
+import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
+import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 
 export {
-  bundleManager, bundleResourceManager, launcherBundleManager, shortcutManager
+  bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
+  shortcutManager
 };
 /*** endif */

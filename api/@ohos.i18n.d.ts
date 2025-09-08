@@ -18,8 +18,10 @@
  * @kit LocalizationKit
  */
 
+/*** if arkts 1.1&1.2 */
 import { BusinessError } from './@ohos.base';
 import intl from './@ohos.intl';
+/*** endif */
 
 /**
  * Provides international settings related APIs.
@@ -36,7 +38,7 @@ import intl from './@ohos.intl';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
+ * @since arkts {'1.1':'11','1.2':'20'}
  * @arkts 1.1&1.2
  */
 declare namespace i18n {
@@ -125,7 +127,7 @@ declare namespace i18n {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export class System {
@@ -170,7 +172,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getDisplayCountry(country: string, locale: string, sentenceCase?: boolean): string;
 
@@ -215,7 +218,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getDisplayLanguage(language: string, locale: string, sentenceCase?: boolean): string;
 
@@ -232,7 +236,8 @@ declare namespace i18n {
      * @returns { Array<string> } List of system languages.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSystemLanguages(): Array<string>;
 
@@ -256,7 +261,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSystemCountries(language: string): Array<string>;
 
@@ -285,7 +291,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static isSuggested(language: string, region?: string): boolean;
 
@@ -312,7 +319,7 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
     static getSystemLanguage(): string;
@@ -329,7 +336,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setSystemLanguage(language: string): void;
 
@@ -355,7 +363,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     static getSystemRegion(): string;
@@ -372,7 +380,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setSystemRegion(region: string): void;
 
@@ -398,8 +407,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      * @deprecated since 20
      * @useinstead ohos.System.getSystemLocaleInstance
      */
@@ -414,6 +422,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getSystemLocaleInstance(): Intl.Locale;
 
@@ -431,22 +440,8 @@ declare namespace i18n {
      * @systemapi Hide this for inner system use.
      * @since 9
      * @deprecated since 20
-     * @useinstead ohos.System.setSystemLocaleInstance
      */
     static setSystemLocale(locale: string): void;
-
-    /**
-     * Set the locale object currently used by the system.
-     *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { Intl.Locale } locale - The locale to be used. It must be a valid locale.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     * permission required tocall the API.
-     * @static
-     * @syscap SystemCapability.Global.I18n
-     * @since 20
-     */
-    static setSystemLocaleInstance(locale: Intl.Locale): void;
 
     /**
      * Check out whether system is 24-hour system.
@@ -481,7 +476,7 @@ declare namespace i18n {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     static is24HourClock(): boolean;
@@ -499,7 +494,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static set24HourClock(option: boolean): void;
 
@@ -515,9 +511,11 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static addPreferredLanguage(language: string, index?: number): void;
 
@@ -531,9 +529,11 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static removePreferredLanguage(index: number): void;
 
@@ -550,7 +550,8 @@ declare namespace i18n {
      * @returns { Array<string> } List of preferred languages.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getPreferredLanguageList(): Array<string>;
 
@@ -567,7 +568,8 @@ declare namespace i18n {
      * @returns { string } First language in the preferred language list.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getFirstPreferredLanguage(): string;
 
@@ -606,6 +608,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setAppPreferredLanguage(language: string): void;
 
@@ -632,6 +635,7 @@ declare namespace i18n {
      * @crossplatform
      * @atomicservice
      * @since 20
+     * @arkts 1.1&1.2
      */
     static getAppPreferredLanguage(): string;
 
@@ -648,7 +652,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since arkts {'1.1':'9','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setUsingLocalDigit(flag: boolean): void;
 
@@ -666,7 +671,8 @@ declare namespace i18n {
      *                      is enabled, and the value "false" indicates the opposite.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getUsingLocalDigit(): boolean;
 
@@ -685,7 +691,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getSimplifiedLanguage(language?: string): string;
 
@@ -700,7 +707,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setTemperatureType(type: TemperatureType): void;
 
@@ -710,7 +718,8 @@ declare namespace i18n {
      * @returns { TemperatureType } Temperature unit.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTemperatureType(): TemperatureType;
 
@@ -722,7 +731,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTemperatureName(type: TemperatureType): string;
 
@@ -737,7 +747,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static setFirstDayOfWeek(type: WeekDay): void;
 
@@ -747,7 +758,8 @@ declare namespace i18n {
      * @returns { WeekDay } Start day of a week.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getFirstDayOfWeek(): WeekDay;
 
@@ -820,7 +832,8 @@ declare namespace i18n {
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } identifier - Identifier of the measurement system.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     * required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
@@ -828,7 +841,7 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static setSystemMeasurement(identifier: string):void;
+    static setSystemMeasurement(identifier: string): void;
 
     /**
      * Gets numbering system currently used by system locale.
@@ -840,14 +853,15 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static getUsingNumberingSystems(): string;
+    static getUsingNumberingSystem(): string;
 
     /**
      * Sets the numbering system used by the system locale.
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } identifier - Identifier of the numbering system.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     * required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
@@ -855,7 +869,7 @@ declare namespace i18n {
      * @systemapi
      * @since 20
      */
-    static setSystemNumberingSystem(identifier: string):void;
+    static setSystemNumberingSystem(identifier: string): void;
 
     /**
      * Gets numbering systems supported by system locale.
@@ -887,7 +901,8 @@ declare namespace i18n {
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } pattern - Identifier of the number pattern.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     * required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
@@ -927,7 +942,8 @@ declare namespace i18n {
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { string } identifier - Identifier of the numerical date pattern.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     * required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
@@ -956,7 +972,8 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum WeekDay {
     /**
@@ -964,7 +981,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MON = 1,
 
@@ -973,7 +991,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     TUE = 2,
 
@@ -982,7 +1001,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WED = 3,
 
@@ -991,7 +1011,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     THU = 4,
 
@@ -1000,7 +1021,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FRI = 5,
 
@@ -1009,7 +1031,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SAT = 6,
 
@@ -1018,7 +1041,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUN = 7
   }
@@ -1029,7 +1053,8 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum TemperatureType {
     /**
@@ -1037,7 +1062,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     CELSIUS = 1,
 
@@ -1046,7 +1072,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FAHRENHEIT = 2,
 
@@ -1055,7 +1082,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     KELVIN = 3
   }
@@ -1107,7 +1135,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class I18NUtil {
     /**
@@ -1134,9 +1163,11 @@ declare namespace i18n {
      *                             value is short. For details about the meaning or display effect of different values,
      *                             see Number and Unit of Measurement Formatting.
      * @returns { string } String converted to the measurement unit after formatting.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: number, locale: string, style?: string): string;
 
@@ -1169,7 +1200,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getDateOrder(locale: string): string;
 
@@ -1194,9 +1226,11 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTimePeriodName(hour:number, locale?: string): string;
 
@@ -1214,7 +1248,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getBestMatchLocale(locale: string, localeList: string[]): string;
 
@@ -1231,7 +1266,8 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getThreeLetterLanguage(locale: string): string;
 
@@ -1248,7 +1284,8 @@ declare namespace i18n {
      * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getThreeLetterRegion(locale: string): string;
 
@@ -1257,8 +1294,8 @@ declare namespace i18n {
      * localization.
      *
      * @param { string } path - Path to mirror, for example, "/data/out/tmp".
-     * @param [ string ] delimiter - Path delimiter. The default value is "/"".
-     * @param [ intl.Locale ] locale - Locale object. The default value is the current system locale.
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { intl.Locale } [locale] - Locale object. The default value is the current system locale.
      * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
      *                     the processed file path contains a direction control character to ensure that the file path
      *                     is displayed in mirror mode.
@@ -1268,18 +1305,20 @@ declare namespace i18n {
      * @atomicservice
      * @since 18
      * @deprecated since 20
+     * @useinstead getUnicodeWrappedFilePath
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
 
     /**
-     * Get the localized file path.
-     * Return the mirrored file path if the locale is RTL. Otherwise return the input file path.
-     * The default value of locale is current system locale.
+     * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
+     * localization.
      *
-     * @param { string } path - the file path that needs to be localized.
-     * @param [ string ] delimiter - the file path's delimiter.
-     * @param [ Intl.Locale ] locale - the locale object used to localized file path.
-     * @returns { string } the localized file path.
+     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
+     *                     the processed file path contains a direction control character to ensure that the file path
+     *                     is displayed in mirror mode.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @static
      * @syscap SystemCapability.Global.I18n
@@ -1302,7 +1341,8 @@ declare namespace i18n {
    * @interface UnitInfo
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface UnitInfo {
     /**
@@ -1317,7 +1357,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     unit: string;
 
@@ -1333,7 +1374,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     measureSystem: string;
   }
@@ -1360,7 +1402,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface PhoneNumberFormatOptions {
     /**
@@ -1395,7 +1438,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type?: string;
   }
@@ -1419,7 +1463,8 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class PhoneNumberFormat {
     /**
@@ -1448,7 +1493,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(country: string, options?: PhoneNumberFormatOptions);
 
@@ -1472,15 +1518,16 @@ declare namespace i18n {
     /**
      * Checks whether the phone number is valid for the country/region in the PhoneNumberFormat object.
      *
-     * @param { string } number - Phone number to be checked.
+     * @param { string } phoneNumber - Phone number to be checked.
      * @returns { boolean } Whether the phone number is valid. The value "true" indicates that the phone number is
      *                      valid, and the value "false" indicates the opposite.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    isValidNumber(number: string): boolean;
+    isValidNumber(phoneNumber: string): boolean;
 
     /**
      * Obtains the formatted phone number strings of number.
@@ -1502,14 +1549,15 @@ declare namespace i18n {
     /**
      * Formats a phone number.
      *
-     * @param { string } number - Phone number to be formatted.
+     * @param { string } phoneNumber - Phone number to be formatted.
      * @returns { string } Formatted phone number.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    format(number: string): string;
+    format(phoneNumber: string): string;
 
     /**
      * Determine the location by phone number, and return it according to the specified regional language.
@@ -1523,15 +1571,16 @@ declare namespace i18n {
     /**
      * Obtains the home location of a phone number.
      *
-     * @param { string } number - Phone number. To obtain the home location of a number in other countries/regions,
+     * @param { string } phoneNumber - Phone number. To obtain the home location of a number in other countries/regions,
      *                            you need to prefix the number with 00 and the country code.
      * @param { string } locale - System locale, which consists of the language, script, and country/region.
      * @returns { string } Home location of the phone number. If the number is invalid, an empty string is returned.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    getLocationName(number: string, locale: string): string;
+    getLocationName(phoneNumber: string, locale: string): string;
   }
 
   /**
@@ -1571,7 +1620,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export function getCalendar(locale: string, type?: string): Calendar;
@@ -1595,7 +1644,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export class Calendar {
@@ -1621,7 +1670,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTime(date: Date): void;
 
@@ -1648,7 +1698,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTime(time: number): void;
 
@@ -1689,9 +1740,10 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    set(year: number, month: number, date: number, hour?: number, minute?: number, second?: number): void;
+    set(year: number, month: number, date:number, hour?: number, minute?: number, second?: number): void;
 
     /**
      * Set the timezone of this calendar.
@@ -1715,7 +1767,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setTimeZone(timezone: string): void;
 
@@ -1741,7 +1794,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     getTimeZone(): string;
@@ -1768,7 +1821,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getFirstDayOfWeek(): number;
 
@@ -1794,7 +1848,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setFirstDayOfWeek(value: number): void;
 
@@ -1820,7 +1875,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getMinimalDaysInFirstWeek(): number;
 
@@ -1846,7 +1902,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setMinimalDaysInFirstWeek(value: number): void;
 
@@ -1880,7 +1937,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     get(field: string): number;
@@ -1901,7 +1958,8 @@ declare namespace i18n {
      *                     Buddhist Calendar if the locale is en-US.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDisplayName(locale: string): string;
 
@@ -1934,7 +1992,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isWeekend(date?: Date): boolean;
 
@@ -1963,7 +2022,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     add(field: string, amount: number): void;
 
@@ -1983,7 +2043,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getTimeInMillis(): number;
 
@@ -2011,7 +2072,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     compareDays(date: Date): number;
   }
@@ -2041,7 +2103,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export function isRTL(locale: string): boolean;
@@ -2064,7 +2126,8 @@ declare namespace i18n {
    * @returns { BreakIterator } BreakIterator object.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export function getLineInstance(locale: string): BreakIterator;
 
@@ -2079,7 +2142,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class BreakIterator {
     /**
@@ -2095,7 +2159,8 @@ declare namespace i18n {
      * @returns { number } Position of the break iterator in the text.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     current(): number;
 
@@ -2113,7 +2178,8 @@ declare namespace i18n {
      * @returns { number } Offset of the first line break point in the processed text.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     first(): number;
 
@@ -2132,7 +2198,8 @@ declare namespace i18n {
      * @returns { number } Offset of the last line break point in the processed text.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     last(): number;
 
@@ -2154,7 +2221,8 @@ declare namespace i18n {
      *                     position of the break iterator is outside of the processed text after movement.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     next(index?: number): number;
 
@@ -2172,7 +2240,8 @@ declare namespace i18n {
      *                     position of the break iterator is outside of the processed text after movement.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     previous(): number;
 
@@ -2189,7 +2258,8 @@ declare namespace i18n {
      * @param { string } text - Input text.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setLineBreakText(text: string): void;
 
@@ -2209,7 +2279,8 @@ declare namespace i18n {
      *                     position of the break iterator is outside of the processed text after movement.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     following(offset: number): number;
 
@@ -2226,7 +2297,8 @@ declare namespace i18n {
      * @returns { string } Text being processed by the BreakIterator object.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLineBreakText(): string;
 
@@ -2251,7 +2323,8 @@ declare namespace i18n {
      *                      specified by offset, which is equivalent to calling following.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isBoundary(offset: number): boolean;
   }
@@ -2273,9 +2346,10 @@ declare namespace i18n {
    * @returns { IndexUtil } IndexUtil object created based on the specified locale ID.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  export function getInstance(locale?: string): IndexUtil;
+  export function getInstance(locale?:string): IndexUtil;
 
   /**
    * Sequence text can be grouped under the specified area,
@@ -2290,7 +2364,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class IndexUtil {
     /**
@@ -2306,7 +2381,8 @@ declare namespace i18n {
      * @returns { Array<string> } Index list of the current locale. The first and last elements are "...".
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getIndexList(): Array<string>;
 
@@ -2323,7 +2399,8 @@ declare namespace i18n {
      * @param { string } locale - System locale, which consists of the language, script, and country/region.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     addLocale(locale: string): void;
 
@@ -2342,7 +2419,8 @@ declare namespace i18n {
      * @returns { string } Index of the text object. If no proper index is found, an empty string is returned.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getIndex(text: string): string;
   }
@@ -2359,119 +2437,119 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a digit.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character is a digit, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isDigit
      */
-    isDigit(char: string): boolean;
+    isDigit(ch: string): boolean;
 
     /**
      * Checks whether the input character is a space.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character is a space, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isSpaceChar
      */
-    isSpaceChar(char: string): boolean;
+    isSpaceChar(ch: string): boolean;
 
     /**
      * Checks whether the input character is a whitespace.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character is a white space, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isWhitespace
      */
-    isWhitespace(char: string): boolean;
+    isWhitespace(ch: string): boolean;
 
     /**
      * Checks whether the input character is of the right to left (RTL) language.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character is of the RTL language, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isRTL
      */
-    isRTL(char: string): boolean;
+    isRTL(ch: string): boolean;
 
     /**
      * Checks whether the input character is an ideographic character.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character an ideographic character, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isIdeograph
      */
-    isIdeograph(char: string): boolean;
+    isIdeograph(ch: string): boolean;
 
     /**
      * Checks whether the input character is a letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character a letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLetter
      */
-    isLetter(char: string): boolean;
+    isLetter(ch: string): boolean;
 
     /**
      * Checks whether the input character is a lowercase letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character a lowercase letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isLowerCase
      */
-    isLowerCase(char: string): boolean;
+    isLowerCase(ch: string): boolean;
 
     /**
      * Checks whether the input character is an uppercase letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { boolean } true if the input character an uppercase letter, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.isUpperCase
      */
-    isUpperCase(char: string): boolean;
+    isUpperCase(ch: string): boolean;
 
     /**
      * Obtains the type of the input character.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
-     *                          checked.
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
+     *     checked.
      * @returns { string } Type of the input character.
      * @syscap SystemCapability.Global.I18n
      * @since 8
      * @deprecated since 9
      * @useinstead Unicode.getType
      */
-    getType(char: string): string;
+    getType(ch: string): string;
   }
 
   /**
@@ -2493,7 +2571,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export class Unicode {
@@ -2517,15 +2595,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a digit.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character is a digit, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isDigit(char: string): boolean;
+    static isDigit(ch: string): boolean;
 
     /**
      * Determines if the specified character is a space character or not.
@@ -2547,15 +2627,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a space.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character is a space, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isSpaceChar(char: string): boolean;
+    static isSpaceChar(ch: string): boolean;
 
     /**
      * Determines if the specified character is a whitespace character
@@ -2577,15 +2659,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a whitespace.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character is a white space, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isWhitespace(char: string): boolean;
+    static isWhitespace(ch: string): boolean;
 
     /**
      * Determines if the specified character is a RTL character or not.
@@ -2614,7 +2698,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
     static isRTL(ch: string): boolean;
@@ -2639,15 +2723,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is an ideographic character.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character an ideographic character, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isIdeograph(char: string): boolean;
+    static isIdeograph(ch: string): boolean;
 
     /**
      * Determines if the specified character is a Letter or not.
@@ -2669,15 +2755,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character a letter, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isLetter(char: string): boolean;
+    static isLetter(ch: string): boolean;
 
     /**
      * Determines if the specified character is a LowerCase character or not.
@@ -2699,15 +2787,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is a lowercase letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character a lowercase letter, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isLowerCase(char: string): boolean;
+    static isLowerCase(ch: string): boolean;
 
     /**
      * Determines if the specified character is a UpperCase character or not.
@@ -2729,15 +2819,17 @@ declare namespace i18n {
     /**
      * Checks whether the input character is an uppercase letter.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { boolean } true if the input character an uppercase letter, and false otherwise.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static isUpperCase(char: string): boolean;
+    static isUpperCase(ch: string): boolean;
 
     /**
      * Get the general category value of the specified character.
@@ -2759,15 +2851,17 @@ declare namespace i18n {
     /**
      * Obtains the type of the input character.
      *
-     * @param { string } char - Input character. If the input is a string, only the type of the first character is
+     * @param { string } ch - Input character. If the input is a string, only the type of the first character is
      *                          checked.
      * @returns { string } Type of the input character.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    static getType(char: string): string;
+    static getType(ch: string): string;
   }
 
   /**
@@ -2871,7 +2965,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export function getTimeZone(zoneID?: string): TimeZone;
@@ -2895,7 +2989,7 @@ declare namespace i18n {
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'20'}
    * @arkts 1.1&1.2
    */
   export class TimeZone {
@@ -2921,7 +3015,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getID(): string;
 
@@ -2945,7 +3040,8 @@ declare namespace i18n {
      * @returns { string } Time zone display name in the specified language.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
 
@@ -2971,7 +3067,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRawOffset(): number;
 
@@ -3001,7 +3098,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getOffset(date?: number): number;
 
@@ -3027,7 +3125,8 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getAvailableIDs(): Array<string>;
 
@@ -3044,7 +3143,8 @@ declare namespace i18n {
      * @returns { Array<string> } List of time zone city IDs supported by the system.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getAvailableZoneCityIDs(): Array<string>;
 
@@ -3065,7 +3165,8 @@ declare namespace i18n {
      * @returns { string } Time zone city display name in the specified language.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getCityDisplayName(cityID: string, locale: string): string;
 
@@ -3084,7 +3185,8 @@ declare namespace i18n {
      * @returns { TimeZone } TimeZone object corresponding to the specified time zone city ID.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTimezoneFromCity(cityID: string): TimeZone;
 
@@ -3099,7 +3201,6 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @since 10
      */
-
     /**
      * Creates an array of TimeZone objects corresponding to the specified location.
      *
@@ -3111,9 +3212,11 @@ declare namespace i18n {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @static
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>;
 
@@ -3198,7 +3301,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class Transliterator {
     /**
@@ -3214,7 +3318,8 @@ declare namespace i18n {
      * @returns { string[] } List of IDs supported by the Transliterator object.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getAvailableIDs(): string[];
 
@@ -3235,7 +3340,8 @@ declare namespace i18n {
      * @returns { Transliterator } Transliterator object.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getInstance(id: string): Transliterator;
 
@@ -3254,7 +3360,8 @@ declare namespace i18n {
      * @returns { string } Text after conversion.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     transform(text: string): string;
   }
@@ -3272,7 +3379,8 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum NormalizerMode {
     /**
@@ -3286,7 +3394,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFC = 1,
     /**
@@ -3300,7 +3409,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFD = 2,
     /**
@@ -3314,7 +3424,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFKC = 3,
     /**
@@ -3328,7 +3439,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     NFKD = 4
   }
@@ -3344,7 +3456,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class Normalizer {
     /**
@@ -3365,7 +3478,8 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getInstance(mode: NormalizerMode): Normalizer;
 
@@ -3387,7 +3501,8 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     normalize(text: string): string;
   }
@@ -3398,7 +3513,8 @@ declare namespace i18n {
    * @enum { number }
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum SuggestionType {
     /**
@@ -3406,7 +3522,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUGGESTION_TYPE_NONE = 0,
     /**
@@ -3414,7 +3531,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUGGESTION_TYPE_RELATED = 1,
     /**
@@ -3422,7 +3540,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     SUGGESTION_TYPE_SIM = 2,
   }
@@ -3433,7 +3552,8 @@ declare namespace i18n {
    * @interface SortOptions
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface SortOptions {
     /**
@@ -3443,7 +3563,8 @@ declare namespace i18n {
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     locale?: string;
 
@@ -3455,7 +3576,8 @@ declare namespace i18n {
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isUseLocalName?: boolean;
 
@@ -3467,7 +3589,8 @@ declare namespace i18n {
      * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isSuggestedFirst?: boolean;
   }
@@ -3478,7 +3601,8 @@ declare namespace i18n {
    * @interface LocaleItem
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface LocaleItem {
     /**
@@ -3487,7 +3611,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     id: string;
 
@@ -3497,7 +3622,8 @@ declare namespace i18n {
      * @type { SuggestionType }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     suggestionType: SuggestionType;
 
@@ -3507,16 +3633,19 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayName: string;
 
     /**
      * Local name of the ID.
+     *
      * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     localName?: string;
   }
@@ -3527,7 +3656,8 @@ declare namespace i18n {
    * @interface TimeZoneCityItem
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface TimeZoneCityItem {
     /**
@@ -3536,7 +3666,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     zoneId: string;
 
@@ -3546,7 +3677,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cityId: string;
 
@@ -3556,17 +3688,19 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     cityDisplayName: string;
 
     /**
      * Offset of the time zone ID.
-     * 
+     *
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     offset: number;
 
@@ -3576,17 +3710,19 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     zoneDisplayName: string;
 
     /**
      * Fixed offset of the time zone ID.
-     * 
+     *
      * @type { ?number }
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rawOffset?: number;
   }
@@ -3596,7 +3732,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class SystemLocaleManager {
     /**
@@ -3604,7 +3741,8 @@ declare namespace i18n {
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor();
 
@@ -3632,7 +3770,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
@@ -3661,7 +3800,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
 
@@ -3680,7 +3820,8 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
   }
@@ -3698,7 +3839,8 @@ declare namespace i18n {
    * @interface HolidayInfoItem
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HolidayInfoItem {
     /**
@@ -3714,7 +3856,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     baseName: string;
 
@@ -3731,7 +3874,8 @@ declare namespace i18n {
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     year: number;
 
@@ -3748,7 +3892,8 @@ declare namespace i18n {
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     month: number;
 
@@ -3765,7 +3910,8 @@ declare namespace i18n {
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     day: number;
 
@@ -3782,7 +3928,8 @@ declare namespace i18n {
      * @type { ?Array<HolidayLocalName> }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     localNames?: Array<HolidayLocalName>;
   }
@@ -3800,7 +3947,8 @@ declare namespace i18n {
    * @interface HolidayLocalName
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface HolidayLocalName {
     /**
@@ -3816,7 +3964,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     language: string;
 
@@ -3833,7 +3982,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
   }
@@ -3849,7 +3999,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class HolidayManager {
     /**
@@ -3870,7 +4021,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(icsPath: String);
 
@@ -3894,7 +4046,8 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isHoliday(date?: Date): boolean;
 
@@ -3919,7 +4072,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>;
   }
@@ -3937,7 +4091,8 @@ declare namespace i18n {
    * @interface EntityInfoItem
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export interface EntityInfoItem {
     /**
@@ -3953,7 +4108,8 @@ declare namespace i18n {
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     begin: number;
 
@@ -3970,7 +4126,8 @@ declare namespace i18n {
      * @type { number }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     end: number;
 
@@ -3988,7 +4145,8 @@ declare namespace i18n {
      * @type { string }
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: string;
   }
@@ -4004,7 +4162,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class EntityRecognizer {
     /**
@@ -4027,7 +4186,8 @@ declare namespace i18n {
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     constructor(locale?: string);
 
@@ -4049,7 +4209,8 @@ declare namespace i18n {
      *                                 2.Incorrect parameter types.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     findEntityInfo(text: string): Array<EntityInfoItem>;
   }
@@ -4069,16 +4230,20 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleDateTimeFormatByPattern
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
   /**
-   * Create a SimpleDateTimeFormat object by pattern and locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleDateTimeFormat object based on the specified pattern string. For details about the display
+   * differences between the objects obtained by this API and getSimpleDateTimeFormatBySkeleton,
+   * see SimpleDateTimeFormat.
    *
-   * @param { string } pattern - the pattern used to create SimpleDateTimeFormat object.
-   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create Intl.SimpleDateTimeFormat object.
-   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from pattern.
+   * @param { string } pattern - Valid pattern. For details about the supported characters and their meanings, see
+   *                             [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *                             This parameter also supports custom text enclosed in single quotation marks ('').
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleDateTimeFormat } SimpleDateTimeFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -4100,17 +4265,19 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleDateTimeFormatBySkeleton
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
   /**
-   * Create a SimpleDateTimeFormat object by skeleton and locale. This method create a pattern by locale and skeleton, the pattern
-   * includes locale specific separators, and the fields'order will be adjust for that locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleDateTimeFormat object based on the specified skeleton. For details about the display differences
+   * between the objects obtained by this API and getSimpleDateTimeFormatByPattern, see SimpleDateTimeFormat.
    *
-   * @param { string } skeleton - the skeleton used to create SimpleDateTimeFormat object.
-   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create SimpleDateTimeFormat object.
-   * @returns { SimpleDateTimeFormat } a SimpleDateTimeFormat object created from skeleton.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *                              [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+   *                              This parameter does not support custom text.
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleDateTimeFormat } SimpleDateTimeFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
@@ -4123,7 +4290,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class SimpleDateTimeFormat {
     /**
@@ -4133,7 +4301,8 @@ declare namespace i18n {
      * @returns { string } A string containing the formatted date and time.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     format(date: Date): string;
   }
@@ -4151,16 +4320,17 @@ declare namespace i18n {
    * @atomicservice
    * @since 18
    * @deprecated since 20
+   * @useinstead getSimpleNumberFormatBySkeleton
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
 
   /**
-   * Create a SimpleNumberFormat object by pattern and locale.
-   * The default value of locale is the current system locale.
+   * Obtains a SimpleNumberFormat object based on the specified skeleton.
    *
-   * @param { string } skeleton - the skeleton used to create SimpleNumberFormat object.
-   * @param [ Intl.Locale ] locale - the Intl.Locale object used to create SimpleNumberFormat object.
-   * @returns { SimpleNumberFormat } a SimpleNumberFormat object created from pattern.
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *                              [Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons).
+   * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
+   * @returns { SimpleNumberFormat } SimpleNumberFormat object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
@@ -4174,7 +4344,8 @@ declare namespace i18n {
    *
    * @syscap SystemCapability.Global.I18n
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export class SimpleNumberFormat {
     /**
@@ -4184,7 +4355,8 @@ declare namespace i18n {
      * @returns { string } Formatted number.
      * @syscap SystemCapability.Global.I18n
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     format(value: number): string;
   }
@@ -4207,6 +4379,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 18
      * @deprecated since 20
+     * @useinstead constructor
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 

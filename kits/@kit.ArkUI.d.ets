@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,14 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  * @arkts 1.2
- */
+*/
 
-import { memo_intrinsic } from '@koalaui.runtime.annotations'
-import { __memo_context_type, __memo_id_type } from '../stateManagement/runtime'
-
-export declare function OnChange<Value>(value: Value, listener: (value: Value) => void): void
-@memo_intrinsic export declare function RunEffect<Value>(value: Value, effect: (value: Value) => void): void
+import promptAction from '@ohos.promptAction';
+import { ComponentContent } from '@ohos.arkui.node';
+export { promptAction, ComponentContent };
+export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.stateManagement';
+export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';

@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Length, Position, Resource } from './units';
+import { FontWeight } from './enums';
+import { CommonMethod } from './common';
+/*** endif */
+
 /**
  * Defines the badge position property.
  *
@@ -50,7 +56,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum BadgePosition {
   /**
@@ -81,7 +88,8 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   RightTop,
 
@@ -113,7 +121,8 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Right,
 
@@ -145,7 +154,8 @@ declare enum BadgePosition {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   Left,
 }
@@ -182,7 +192,8 @@ declare enum BadgePosition {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BadgeStyle {
   /**
@@ -218,7 +229,8 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color?: ResourceColor;
 
@@ -275,6 +287,18 @@ declare interface BadgeStyle {
    * @since 20
    */
   fontSize?: number | ResourceStr;
+  /**
+   * Text size.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontSize?: number | string;
 
   /**
    * Size of a badge.
@@ -330,6 +354,18 @@ declare interface BadgeStyle {
    * @since 20
    */
   badgeSize?: number | ResourceStr;
+  /**
+   * Size of a badge.
+   *
+   * @type { ?(number | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  badgeSize?: number | string;
 
   /**
    * Color of the badge.
@@ -364,7 +400,8 @@ declare interface BadgeStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   badgeColor?: ResourceColor;
 
@@ -384,7 +421,8 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderColor?: ResourceColor;
 
@@ -406,7 +444,8 @@ declare interface BadgeStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   borderWidth?: Length;
 
@@ -444,6 +483,17 @@ declare interface BadgeStyle {
    * @since 20
    */
   fontWeight?: number | FontWeight | ResourceStr;
+  /**
+   * Define the font weight of the badge.
+   *
+   * @type { ?(number | FontWeight | string) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  fontWeight?: number | FontWeight | string;
 }
 
 /**
@@ -478,7 +528,8 @@ declare interface BadgeStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BadgeParam {
   /**
@@ -521,7 +572,8 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   position?: BadgePosition | Position;
 
@@ -557,7 +609,8 @@ declare interface BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   style: BadgeStyle;
 }
@@ -598,7 +651,8 @@ declare interface BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
   /**
@@ -641,7 +695,8 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   count: number;
 
@@ -685,7 +740,8 @@ declare interface BadgeParamWithNumber extends BadgeParam {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maxCount?: number;
 }
@@ -726,7 +782,8 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface BadgeParamWithString extends BadgeParam {
   /**
@@ -774,6 +831,18 @@ declare interface BadgeParamWithString extends BadgeParam {
    * @since 20
    */
   value: ResourceStr;
+  /**
+   * Text string of the prompt content.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  value: string;
 }
 
 /**
@@ -808,7 +877,8 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface BadgeInterface {
   /**
@@ -859,7 +929,8 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
@@ -911,7 +982,8 @@ interface BadgeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (value: BadgeParamWithString): BadgeAttribute;
 }
@@ -948,7 +1020,8 @@ interface BadgeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 

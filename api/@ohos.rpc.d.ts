@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -512,9 +512,11 @@ declare namespace rpc {
     writeLong(val: number): boolean;
 
     /**
-     * Writes a floating point value into the {@link MessageParcel} object.
+     * Writes a double-precision floating point value into the {@link MessageParcel} object.
+     * Note: This API writes a double-precision floating value since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @param { number } val - Indicates the floating point value to write.
+     * @param { number } val - Indicates the double-precision floating point value to write.
      * @returns { boolean } Return {@code true} if the value has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -638,11 +640,13 @@ declare namespace rpc {
     writeLongArray(longArray: number[]): boolean;
 
     /**
-     * Writes a floating point array into the {@link MessageParcel} object.
+     * Writes a double-precision floating point array into the {@link MessageParcel} object.
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
+     * Note: This API writes a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @param { number[] } floatArray - Indicates the floating point array to write.
+     * @param { number[] } floatArray - Indicates the double-precision floating point array to write.
      * @returns { boolean } Return {@code true} if the array has been written into the {@link MessageParcel};
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -774,9 +778,11 @@ declare namespace rpc {
     readLong(): number;
 
     /**
-     * Reads a floating point value from the {@link MessageParcel} object.
+     * Reads a double-precision floating point value from the {@link MessageParcel} object.
+     * Note: This API reads a double-precision floating value since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @returns { number } Return a floating point value.
+     * @returns { number } Return a double-precision floating point value.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -916,9 +922,11 @@ declare namespace rpc {
     readLongArray(): number[];
 
     /**
-     * Reads a floating point array from the {@link MessageParcel} object.
-     *
-     * @param { number[] } dataIn - Indicates the floating point array to read.
+     * Reads a double-precision floating point array from the {@link MessageParcel} object.
+     * Note: This API reads a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
+     * 
+     * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -926,9 +934,11 @@ declare namespace rpc {
     readFloatArray(dataIn: number[]): void;
 
     /**
-     * Reads a floating point array from the {@link MessageParcel} object.
+     * Reads a double-precision floating point array from the {@link MessageParcel} object.
+     * Note: This API reads a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @returns { number[] } Return a floating point array.
+     * @returns { number[] } Return a double-precision floating point array.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
      * @deprecated since 9
@@ -1438,9 +1448,11 @@ declare namespace rpc {
     writeLong(val: number): void;
 
     /**
-     * Writes a floating point value into the {@link MessageSequence} object.
+     * Writes a double-precision floating point value into the {@link MessageSequence} object.
+     * Note: This API writes a double-precision floating value since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @param { number } val - Indicates the floating point value to write.
+     * @param { number } val - Indicates the double-precision floating point value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1589,11 +1601,13 @@ declare namespace rpc {
     writeLongArray(longArray: number[]): void;
 
     /**
-     * Writes a floating point array into the {@link MessageSequence} object.
+     * Writes a double-precision floating point array into the {@link MessageSequence} object.
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
+     * Note: This API writes a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @param { number[] } floatArray - Indicates the floating point array to write.
+     * @param { number[] } floatArray - Indicates the double-precision floating point array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1748,9 +1762,11 @@ declare namespace rpc {
     readLong(): number;
 
     /**
-     * Reads a floating point value from the {@link MessageSequence} object.
+     * Reads a double-precision floating point value from the {@link MessageSequence} object.
+     * Note: This API reads a double-precision floating value since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @returns { number } Return a floating point value.
+     * @returns { number } Return a double-precision floating point value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9
@@ -1909,9 +1925,11 @@ declare namespace rpc {
     readLongArray(): number[];
 
     /**
-     * Reads a floating point array from the {@link MessageSequence} object.
+     * Reads a double-precision floating point array from the {@link MessageSequence} object.
+     * Note: This API reads a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @param { number[] } dataIn - Indicates the floating point array to read.
+     * @param { number[] } dataIn - Indicates the double-precision floating point array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1923,9 +1941,11 @@ declare namespace rpc {
     readFloatArray(dataIn: number[]): void;
 
     /**
-     * Reads a floating point array from the {@link MessageSequence} object.
+     * Reads a double-precision floating point array from the {@link MessageSequence} object.
+     * Note: This API reads a double-precision floating point array since ArkTS only supports double-precision
+     * floating point numbers.
      *
-     * @returns { number[] } Return a floating point array.
+     * @returns { number[] } Return a double-precision floating point array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9

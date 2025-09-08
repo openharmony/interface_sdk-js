@@ -53,19 +53,22 @@ import {
 import { ComposeTitleBar, ComposeTitleBarMenuItem } from '@ohos.arkui.advanced.ComposeTitleBar';
 import { CounterComponent, CounterOptions, CounterType, DateData } from '@ohos.arkui.advanced.Counter';
 import {
-  AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions,
+  AlertDialog, ButtonOptions, ConfirmDialog, LoadingDialog, SelectDialog, TipsDialog, CustomContentDialog, PopoverDialog, PopoverOptions
 } from '@ohos.arkui.advanced.Dialog';
 import {
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
-  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
+  ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2,
+  PopoverDialogV2OnVisibleChange, PopoverDialogV2Options
 } from '@ohos.arkui.advanced.DialogV2';
 import {
-  EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions,
+  EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions
 } from '@ohos.arkui.advanced.EditableTitleBar';
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
 import { Filter, FilterParams, FilterResult, FilterType } from '@ohos.arkui.advanced.Filter';
 import { AddFormMenuItem, FormMenuItemStyle, AddFormOptions } from '@ohos.arkui.advanced.FormMenu';
-import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSortComponentOptions, GridObjectSortComponent } from '@ohos.arkui.advanced.GridObjectSortComponent';
+import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSortComponentOptions,
+  GridObjectSortComponent
+} from '@ohos.arkui.advanced.GridObjectSortComponent';
 import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
@@ -97,7 +100,9 @@ import { InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset } from
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
 import dragController from '@ohos.arkui.dragController';
-import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor } from '@ohos.arkui.drawableDescriptor';
+import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescriptor, AnimationOptions,
+  AnimatedDrawableDescriptor, AnimationController, DrawableDescriptorLoadedResult
+} from '@ohos.arkui.drawableDescriptor';
 import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
@@ -112,7 +117,8 @@ import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.sha
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
-  OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController
+  OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController,
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -150,7 +156,7 @@ import SystemRouter, {
 import { ArcList, ArcListItem, ArcListAttribute, ArcListItemAttribute } from '@ohos.arkui.ArcList';
 import { ArcAlphabetIndexer, ArcAlphabetIndexerAttribute } from '@ohos.arkui.ArcAlphabetIndexer';
 import { ArcScrollBar, ArcScrollBarAttribute } from '@ohos.arkui.ArcScrollBar';
-import { Colors, CustomColors, Theme, ThemeControl, CustomTheme } from '@ohos.arkui.theme';
+import { Colors, CustomColors, Theme, ThemeControl, CustomTheme, CustomDarkColors } from '@ohos.arkui.theme';
 import {
   ExtraRegionPosition,
   ExpandedRegionLayoutOptions,
@@ -270,7 +276,7 @@ export {
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
   AtomicServiceTabs, TabBarOptions, TabBarPosition, TabContentBuilder, OnContentWillChangeCallback,
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
-  Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
+  Colors, CustomColors, Theme, ThemeControl, CustomTheme, CustomDarkColors, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
   HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
   typeNode,
@@ -284,7 +290,7 @@ export {
   RefreshModifier, SearchModifier, TextAreaModifier, TextModifier, TextInputModifier, ImageSpanModifier,
   ImageAnimatorModifier, ImageModifier, VideoModifier, DataPanelModifier, GaugeModifier, LoadingProgressModifier,
   MarqueeModifier, ProgressModifier, QRCodeModifier, TextClockModifier, TextTimerModifier, LineModifier, PathModifier,
-  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
+  PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
   ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor,
   IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
@@ -306,5 +312,5 @@ export {
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
   ExpandMode,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
-  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback
+  StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback
 };

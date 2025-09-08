@@ -18,6 +18,14 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { ResourceColor, Offset } from './units';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType,
+   BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
+import { DialogAlignment } from './alertDialog';
+import { CrownSensitivity } from './enums';
+/*** endif */
+
 /**
  * Defines the struct of TimePickerResult.
  *
@@ -40,7 +48,8 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TimePickerResult {
   /**
@@ -65,7 +74,8 @@ declare interface TimePickerResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hour: number;
 
@@ -91,7 +101,8 @@ declare interface TimePickerResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   minute: number;
 
@@ -102,7 +113,8 @@ declare interface TimePickerResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   second: number;
 }
@@ -120,7 +132,8 @@ declare interface TimePickerResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum TimePickerFormat {
   /**
@@ -134,7 +147,8 @@ declare enum TimePickerFormat {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   HOUR_MINUTE,
 
@@ -149,7 +163,8 @@ declare enum TimePickerFormat {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   HOUR_MINUTE_SECOND,
 }
@@ -176,7 +191,8 @@ declare enum TimePickerFormat {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TimePickerOptions {
   /**
@@ -201,7 +217,8 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selected?: Date;
 
@@ -222,7 +239,8 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   format?: TimePickerFormat;
   
@@ -233,7 +251,8 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start?: Date;
 
@@ -244,7 +263,8 @@ declare interface TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   end?: Date;
 }
@@ -271,7 +291,8 @@ declare interface TimePickerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface TimePickerInterface {
   /**
@@ -299,7 +320,8 @@ interface TimePickerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   (options?: TimePickerOptions): TimePickerAttribute;
 }
@@ -321,7 +343,8 @@ declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptio
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since arkts {'1.1':'18','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
 
@@ -347,7 +370,8 @@ declare type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
@@ -375,7 +399,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   useMilitaryTime(value: boolean): TimePickerAttribute;
 
@@ -387,7 +412,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   useMilitaryTime(isMilitaryTime: Optional<boolean>): TimePickerAttribute;
 
@@ -406,7 +432,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loop(value: boolean): TimePickerAttribute;
 
@@ -417,7 +444,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   loop(isLoop: Optional<boolean>): TimePickerAttribute;
 
@@ -438,7 +466,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disappearTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
@@ -450,7 +479,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   disappearTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -471,7 +501,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle(value: PickerTextStyle): TimePickerAttribute;
 
@@ -483,7 +514,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   textStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -504,7 +536,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedTextStyle(value: PickerTextStyle): TimePickerAttribute;
 
@@ -516,7 +549,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   selectedTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
@@ -528,8 +562,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
-  */
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
 
   /**
@@ -540,8 +575,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
-  */ 
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
+   */ 
   dateTimeOptions(timeFormat: Optional<DateTimeOptions>): TimePickerAttribute;
 
   /**
@@ -581,7 +617,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
 
@@ -593,7 +630,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onEnterSelectedArea(callback: Callback<TimePickerResult>): TimePickerAttribute;
 
@@ -604,7 +642,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback(enable: boolean): TimePickerAttribute;
 
@@ -615,7 +654,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */  
   enableHapticFeedback(enable: Optional<boolean>): TimePickerAttribute;
 
@@ -627,7 +667,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): TimePickerAttribute;
 
@@ -639,7 +680,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableCascade(enabled: boolean): TimePickerAttribute;
 }
@@ -669,7 +711,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
@@ -694,7 +737,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   useMilitaryTime?: boolean;
 
@@ -713,7 +757,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disappearTextStyle?: PickerTextStyle;
 
@@ -732,7 +777,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   textStyle?: PickerTextStyle;
 
@@ -743,7 +789,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   acceptButtonStyle?: PickerDialogButtonStyle;
 
@@ -754,7 +801,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancelButtonStyle?: PickerDialogButtonStyle;
 
@@ -773,7 +821,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   selectedTextStyle?: PickerTextStyle;
 
@@ -792,7 +841,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   maskRect?: Rectangle;
 
@@ -811,7 +861,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   alignment?: DialogAlignment;
 
@@ -830,7 +881,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   offset?: Offset;
 
@@ -856,7 +908,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAccept?: (value: TimePickerResult) => void;
 
@@ -882,7 +935,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onCancel?: () => void;
 
@@ -908,7 +962,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onChange?: (value: TimePickerResult) => void;
 
@@ -919,7 +974,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onEnterSelectedArea?: Callback<TimePickerResult>;
 
@@ -940,7 +996,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor?: ResourceColor;
 
@@ -961,7 +1018,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -972,7 +1030,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -983,7 +1042,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -995,7 +1055,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableCascade?: boolean;
 
@@ -1006,7 +1067,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidAppear?: () => void;
 
@@ -1017,7 +1079,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onDidDisappear?: () => void;
 
@@ -1028,7 +1091,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillAppear?: () => void;
 
@@ -1039,7 +1103,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWillDisappear?: () => void;
  
@@ -1050,7 +1115,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -1061,7 +1127,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dateTimeOptions?: DateTimeOptions;
 
@@ -1073,7 +1140,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHoverMode?: boolean;
 
@@ -1085,7 +1153,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -1096,7 +1165,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enableHapticFeedback?: boolean;
 }
@@ -1120,7 +1190,8 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class TimePickerDialog {
   /**

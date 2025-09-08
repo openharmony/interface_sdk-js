@@ -40,7 +40,8 @@
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @crossplatform
  * @atomicservice
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace constant {
   /**
@@ -364,7 +365,8 @@ declare namespace constant {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ProfileConnectionState {
     /**
@@ -386,7 +388,8 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_DISCONNECTED = 0,
     /**
@@ -430,7 +433,8 @@ declare namespace constant {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
      * @atomicservice
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     STATE_CONNECTED = 2,
     /**
@@ -470,7 +474,8 @@ declare namespace constant {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum MajorClass {
     /**
@@ -491,7 +496,8 @@ declare namespace constant {
      * Mobile phone.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAJOR_PHONE = 0x0200,
     /**
@@ -512,7 +518,8 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAJOR_AUDIO_VIDEO = 0x0400,
     /**
@@ -561,7 +568,8 @@ declare namespace constant {
      * Unclassified device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since arkts {'1.1':'10','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     MAJOR_UNCATEGORIZED = 0x1F00
   }
@@ -579,7 +587,8 @@ declare namespace constant {
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum MajorMinorClass {
     /**
@@ -850,7 +859,8 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_VIDEO_WEARABLE_HEADSET = 0x0404,
     /**
@@ -892,7 +902,8 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_VIDEO_LOUDSPEAKER = 0x0414,
     /**
@@ -906,7 +917,8 @@ declare namespace constant {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO_VIDEO_HEADPHONES = 0x0418,
     /**

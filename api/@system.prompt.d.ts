@@ -74,7 +74,8 @@ export interface ShowToastOptions {
  * @interface Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Button {
   /**
@@ -90,7 +91,8 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   text: string;
 
@@ -107,10 +109,83 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color: string;
 }
+
+/**
+ * Defines the one-button array.
+ *
+ * @typedef { [Button] } PromptSingleButton
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptSingleButton = [Button];
+
+/**
+ * Defines the two-buttons array.
+ *
+ * @typedef { [Button, Button | undefined] } PromptDoubleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptDoubleButtons = [Button, Button | undefined];
+
+/**
+ * Defines the three-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined] } PromptTripleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptTripleButtons = [Button, Button | undefined, Button | undefined];
+
+/**
+ * Defines the four-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined] } PromptQuadrupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptQuadrupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined];
+
+/**
+ * Defines the five-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptQuintupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptQuintupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
+
+/**
+ * Defines the six-buttons array.
+ *
+ * @typedef { [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined] } PromptSextupleButtons
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+export type PromptSextupleButtons = [Button, Button | undefined, Button | undefined, Button | undefined, Button | undefined, Button | undefined];
 
 /**
  * Defines the response of ShowDialog.
@@ -125,7 +200,8 @@ export interface Button {
  * @interface ShowDialogSuccessResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowDialogSuccessResponse {
   /**
@@ -141,7 +217,8 @@ export interface ShowDialogSuccessResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   index: number;
 }
@@ -159,7 +236,8 @@ export interface ShowDialogSuccessResponse {
  * @interface ShowDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowDialogOptions {
   /**
@@ -175,7 +253,8 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -192,7 +271,8 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   message?: string;
 
@@ -218,6 +298,19 @@ export interface ShowDialogOptions {
   buttons?: [Button, Button?, Button?];
 
   /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+   *
+   * @type { ?(PromptSingleButton | PromptDoubleButtons | PromptTripleButtons) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons?: PromptSingleButton | PromptDoubleButtons | PromptTripleButtons;
+
+  /**
    * Called when the dialog box is displayed.
    *
    * @type { ?function }
@@ -230,7 +323,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
@@ -247,7 +341,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   cancel?: (data: string, code: string) => void;
 
@@ -264,7 +359,8 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   complete?: (data: string) => void;
 }
@@ -282,7 +378,8 @@ export interface ShowDialogOptions {
  * @interface ShowActionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ShowActionMenuOptions {
   /**
@@ -298,7 +395,8 @@ export interface ShowActionMenuOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   title?: string;
 
@@ -324,6 +422,19 @@ export interface ShowActionMenuOptions {
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
 
   /**
+   * Array of buttons in the dialog box.
+   * The array structure is {text:'button', color: '#666666'}.
+   * One to six buttons are supported.
+   *
+   * @type { PromptSingleButton | PromptDoubleButtons | PromptTripleButtons | PromptQuadrupleButtons | PromptQuintupleButtons | PromptSextupleButtons }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  buttons: PromptSingleButton | PromptDoubleButtons | PromptTripleButtons | PromptQuadrupleButtons | PromptQuintupleButtons | PromptSextupleButtons;
+
+  /**
    * Called when the dialog box is displayed.
    *
    * @type { ?function }
@@ -336,7 +447,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
@@ -353,7 +465,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   fail?: (errMsg: string) => void;
 
@@ -370,7 +483,8 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   complete?: () => void;
 }
@@ -386,7 +500,8 @@ export interface ShowActionMenuOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default class Prompt {
   /**
@@ -419,7 +534,8 @@ export default class Prompt {
    * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static showDialog(options: ShowDialogOptions): void;
 
@@ -436,7 +552,8 @@ export default class Prompt {
    * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }

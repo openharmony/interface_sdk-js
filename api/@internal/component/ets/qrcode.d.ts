@@ -18,6 +18,12 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.2 */
+import { CommonMethod } from './common'
+import { ResourceColor, ResourceStr } from './units'
+import { Resource } from '../../global/resource'
+/*** endif */
+
 /**
  * Provides an interface for generating QR codes.
  *
@@ -50,7 +56,8 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 interface QRCodeInterface {
   /**
@@ -101,8 +108,23 @@ interface QRCodeInterface {
    * @form
    * @atomicservice
    * @since 20
+   * @arkts 1.1&1.2
    */
   (value: ResourceStr): QRCodeAttribute;
+
+  /**
+   * Called when a QR code is set.
+   *
+   * @param { string } value
+   * @returns { QRCodeAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   * @arkts 1.2
+   */
+  (value: string): QRCodeAttribute;
 }
 
 /**
@@ -137,7 +159,8 @@ interface QRCodeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
@@ -176,7 +199,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   color(value: ResourceColor): QRCodeAttribute;
 
@@ -216,7 +240,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   backgroundColor(value: ResourceColor): QRCodeAttribute;
 
@@ -235,7 +260,8 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   contentOpacity(value: number | Resource): QRCodeAttribute;
 }

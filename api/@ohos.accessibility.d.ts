@@ -212,22 +212,13 @@ export enum AccessibilityAction {
   CONTROL_CENTER = 19,
 
   /**
-   * Common
-   *
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @systemapi
-   * @since 20
-   */
-  COMMON = 20,
-
-  /**
    * SpanClick
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 20
    */
-  SPAN_CLICK = 21
+  SPAN_CLICK = 20
 }
 
 
@@ -1116,7 +1107,6 @@ declare namespace accessibility {
    * Checks screen reader ability (which is used by talkback) is enabled.
    * @returns { boolean } Returns true if the screen reader is enabled; return false otherwise.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @atomicservice
    * @since 18
    */
   function isScreenReaderOpenSync(): boolean;
@@ -1157,7 +1147,7 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @returns { Promise<Array<AccessibilityAbilityInfo>> } Returns the list of abilityInfos.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1175,7 +1165,7 @@ declare namespace accessibility {
    * @param { AbilityType } abilityType The type of the accessibility ability. {@code AbilityType} eg.spoken
    * @param { AbilityState } stateType The state of the accessibility ability.  {@code AbilityState} eg.installed
    * @param { AsyncCallback<Array<AccessibilityAbilityInfo>> } callback
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1231,7 +1221,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1246,7 +1236,7 @@ declare namespace accessibility {
    *
    * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
    * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1269,7 +1259,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1281,7 +1271,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1297,7 +1287,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1311,12 +1301,13 @@ declare namespace accessibility {
    * Register the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type.
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
@@ -1330,6 +1321,7 @@ declare namespace accessibility {
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   function on(type: 'touchModeChange', callback: Callback<string>): void;
 
@@ -1338,7 +1330,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1350,7 +1342,7 @@ declare namespace accessibility {
    *
    * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1366,7 +1358,7 @@ declare namespace accessibility {
    *
    * @param { 'touchGuideStateChange' } type state event type
    * @param { Callback<boolean> } callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1380,12 +1372,13 @@ declare namespace accessibility {
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
@@ -1399,6 +1392,7 @@ declare namespace accessibility {
    * 3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
@@ -1442,7 +1436,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1457,7 +1451,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1472,7 +1466,7 @@ declare namespace accessibility {
      *
      * @param { 'enableChange' } type
      * @param { Callback<boolean> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1487,7 +1481,7 @@ declare namespace accessibility {
      *
      * @param { 'styleChange' } type
      * @param { Callback<CaptionsStyle> } callback
-     * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
@@ -1513,7 +1507,7 @@ declare namespace accessibility {
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
    * @since 8
    */
-  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |      
+  type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' |
   'monospacedSansSerif' | 'sansSerif' | 'casual' | 'cursive' | 'smallCapitals';
   /**
    * Indicates the style of captions.
@@ -1677,11 +1671,11 @@ declare namespace accessibility {
     /**
      * A constructor used to create a EventInfo object.
      *
-     * @param jsonObject - Character string in JSON format required for creating an object.
+     * @param { Object } jsonObject - Character string in JSON format required for creating an object.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7
      */
-    constructor(jsonObject);
+    constructor(jsonObject: Object);
     /**
      * A constructor used to create a EventInfo object.
      *
@@ -1733,8 +1727,7 @@ declare namespace accessibility {
      * The page id of the event source.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     pageId?: number;
 
@@ -1787,8 +1780,7 @@ declare namespace accessibility {
      * The start index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     beginIndex?: number;
 
@@ -1796,8 +1788,7 @@ declare namespace accessibility {
      * The index of the current item on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     currentIndex?: number;
 
@@ -1805,8 +1796,7 @@ declare namespace accessibility {
      * The end index of listed items on the screen.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     endIndex?: number;
 
@@ -1814,8 +1804,7 @@ declare namespace accessibility {
      * The total of the items, talkback used it when scroll.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7
      */
     itemCount?: number;
 
@@ -1823,8 +1812,7 @@ declare namespace accessibility {
      * The id of element.
      * @type { ?number }
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     elementId?: number;
 

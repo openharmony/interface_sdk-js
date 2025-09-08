@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -73,8 +73,8 @@ export declare class BusinessError<T = void> extends Error {
   constructor();
   /**
   * A constructor used to create a BusinessError object
-  * @params { number } code
-  * @params { Error } error
+  * @param { number } code
+  * @param { Error } error
   * @syscap SystemCapability.Base
   * @crossplatform
   * @form
@@ -84,9 +84,9 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: number, error: Error);
   /**
   * A constructor used to create a BusinessError object
-  * @params { number } code
-  * @params { T } data
-  * @params { Error } error
+  * @param { number } code
+  * @param { T } data
+  * @param { Error } error
   * @syscap SystemCapability.Base
   * @crossplatform
   * @form
@@ -175,3 +175,26 @@ export declare class BusinessError<T = void> extends Error {
    */
   data?: T;
 }
+ 
+ /**
+  * In ArkTS static typing, for literals where the hierarchy and the number
+  * of attributes per level are uncertain, you can use RecordData for initialization.
+  * @typedef RecordData
+  * @syscap SystemCapability.Base
+  * @since 20
+  * @example
+  * import { RecordData } from '@kit.BasicServiceKit';
+  * const param: RecordData = {
+  *   "key": {
+  *   "a": 1
+  *   }
+  * }
+  * let want: Want = {
+  *   bundleName: 'com.example.myapplication',
+  *   abilityName: 'EntryAbility',
+  *   parameters: param
+  * };
+  * this.context.startAbility(want);
+  */
+ export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+ 

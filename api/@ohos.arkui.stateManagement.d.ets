@@ -21,12 +21,16 @@
  
 export * from './arkui/stateManagement/common';
 export * from './arkui/stateManagement/runtime';
-export * from './arkui/stateManagement/storage';
+export * from './arkui/stateManagement/base/backingValue';
 export * from './arkui/stateManagement/base/decoratorBase';
 export * from './arkui/stateManagement/base/iObservedObject';
+export * from './arkui/stateManagement/base/mutableStateMeta';
 export * from './arkui/stateManagement/decorators/decoratorState';
 export * from './arkui/stateManagement/decorators/decoratorLink';
+export * from './arkui/stateManagement/decorators/decoratorObjectLink';
 export * from './arkui/stateManagement/decorators/decoratorProp';
+export * from './arkui/stateManagement/decorators/decoratorProvide';
+export * from './arkui/stateManagement/decorators/decoratorConsume';
 export * from './arkui/stateManagement/decorators/decoratorStorageLink';
 export * from './arkui/stateManagement/decorators/decoratorStorageProp';
 export * from './arkui/stateManagement/decorators/decoratorWatch';

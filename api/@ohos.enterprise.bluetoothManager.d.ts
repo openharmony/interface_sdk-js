@@ -97,6 +97,15 @@ declare namespace bluetoothManager {
      * @since 20
      */
     SPP = 1,
+
+    /**
+     * Opp protocol.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    OPP = 2,
   }
 
   /**

@@ -70,7 +70,7 @@ declare namespace json {
    * @param { string } text - A valid JSON string.
    * @param { Type } type - A constructor or class representing the expected type of the parsed result.
    * @param { Transformer } [reviver] - A function that transforms the results.
-   * @param {ParseOptions} options - The config of parse.
+   * @param {ParseOptions} [options] - The config of parse.
    * @returns { T | null | undefined } Return an Object, array, string, number, boolean, undefined, or null value corresponding to JSON text.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

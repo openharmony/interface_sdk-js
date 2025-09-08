@@ -40,9 +40,10 @@
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export default class PermissionRequestResult {
+declare class PermissionRequestResult {
   /**
    * The permissions passed in by the user.
    *
@@ -68,7 +69,8 @@ export default class PermissionRequestResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   permissions: Array<string>;
 
@@ -76,7 +78,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @since 9
@@ -85,7 +87,7 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
@@ -95,14 +97,15 @@ export default class PermissionRequestResult {
    * The results for the corresponding request permissions. The value 0 indicates that a
    * permission is granted, the value -1 indicates not, and the value 2 indicates the request is invalid.
    *
-   * @type { Array<number> }
+   * @type { Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  authResults: Array<number>;
+  authResults: Array<int>;
 
   /**
    * Specifies whether a dialog box is shown for each requested permission.
@@ -112,7 +115,8 @@ export default class PermissionRequestResult {
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   dialogShownResults?: Array<boolean>;
 
@@ -126,12 +130,34 @@ export default class PermissionRequestResult {
    *   5  The permission cannot be requested in a pop-up window.
    *   12 The service is abnormal.
    *
-   * @type { ?Array<number> }
+   * @type { ?Array<int> }
    * @syscap SystemCapability.Security.AccessToken
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  errorReasons?: Array<number>;
+  /**
+   * Enumerates the return values of the permission request operation.
+   *   0  The operation is successful.
+   *   1  The permission name is invalid.
+   *   2  The requested permission has not been declared.
+   *   3  The conditions for requesting the permission are not met.
+   *   4  The user does not agree to the Privacy Statement.
+   *   5  The permission cannot be requested via a pop-up window.
+   *   6  The permission is a manual_settings permission and cannot be requested via a pop-up window.
+   *   12 The service is abnormal.
+   *
+   * @type { ?Array<int> }
+   * @syscap SystemCapability.Security.AccessToken
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  errorReasons?: Array<int>;
 }
+
+export default PermissionRequestResult;

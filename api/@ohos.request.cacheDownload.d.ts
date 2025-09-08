@@ -29,6 +29,30 @@ import { BusinessError } from './@ohos.base';
  */
 declare namespace cacheDownload {
     /**
+     * The secure communication protocol.
+     *
+     * @enum { string }
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @since 21
+     */
+    enum SslType {
+        /**
+         * Transport Layer Security.
+         * 
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        TLS = 'TLS',
+        /**
+         * Transport layer cryptography protocol.
+         *
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        TLCP = 'TLCP'
+    }
+
+    /**
      * Options of the cache download task.
      *
      * @typedef CacheDownloadOptions
@@ -44,6 +68,24 @@ declare namespace cacheDownload {
          * @since 18
          */
         headers?: Record<string, string>;
+        /**
+         * Which secure communication protocol is used.
+         * If this value is not specified, use { @link SslType#TLS } by default.
+         *
+         * @type { ?SslType }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        sslType?: SslType;
+        /**
+         * The path to the CA certificate within the application.
+         * The default value is an empty string.
+         * 
+         * @type { ?string }
+         * @syscap SystemCapability.Request.FileTransferAgent
+         * @since 21
+         */
+        caPath?: string;
     }
 
     /**
@@ -76,17 +118,6 @@ declare namespace cacheDownload {
      * @arkts 1.1&1.2
      */
     interface NetworkInfo {
-        /**
-         * The IP address of a specific URL is used when downloading resources.
-         * If the value is empty, it means that the DNS resolution fails and the IP address cannot be obtained.
-         *
-         * @type { string }
-         * @readonly
-         * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
-         */
-        readonly ip: string;
         /**
          * The DNS server list is used when downloading resources.
          *
@@ -236,7 +267,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function download(url: string, options: CacheDownloadOptions);
+    function download(url: string, options: CacheDownloadOptions): void;
 
     /**
      * Cancels an ongoing cache download task based on the target URL.
@@ -248,7 +279,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function cancel(url: string);
+    function cancel(url: string): void;
 
     /**
      * Sets the size of the memory cache used to store downloaded content.
@@ -261,7 +292,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setMemoryCacheSize(bytes: number);
+    function setMemoryCacheSize(bytes: number): void;
 
     /**
      * Sets the size of the file cache used to store downloaded content.
@@ -274,7 +305,7 @@ declare namespace cacheDownload {
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18
      */
-    function setFileCacheSize(bytes: number);
+    function setFileCacheSize(bytes: number): void;
 
     /**
      * Gets download information of cache downloads based on URL.

@@ -74,7 +74,7 @@ declare namespace calendarManager {
   export interface CalendarManager {
     /**
      * Create calendar instance.
-     * @permission ohos.permission.WRITE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @returns { Promise<Calendar> } the promise with calendar corresponding to account
      * @throws { BusinessError } 201 - Permission denied.
@@ -88,7 +88,7 @@ declare namespace calendarManager {
     /**
      * Create calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - calendar account to create calendar
      * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -102,7 +102,7 @@ declare namespace calendarManager {
     /**
      * Delete calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @param { Calendar } calendar - calendar to be deleted
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
@@ -116,7 +116,7 @@ declare namespace calendarManager {
     /**
      * Delete calendar instance.
      *
-     * @permission ohos.permission.WRITE_CALENDAR
+     * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
      * @param { Calendar } calendar - calendar to be deleted
      * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -130,8 +130,8 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -142,8 +142,8 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
+     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -157,7 +157,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database by specified account.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -169,7 +169,7 @@ declare namespace calendarManager {
     /**
      * Get calendar instance from database by specified account.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
      * @throws { BusinessError } 201 - Permission denied.
@@ -184,7 +184,7 @@ declare namespace calendarManager {
     /**
      * Get default calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -195,7 +195,7 @@ declare namespace calendarManager {
     /**
      * Get default calendar instance from database.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -209,7 +209,7 @@ declare namespace calendarManager {
     /**
      * Get all calendar instance.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @returns { Promise<Calendar[]> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -222,7 +222,7 @@ declare namespace calendarManager {
     /**
      * Get all calendar instance.
      *
-     * @permission ohos.permission.READ_CALENDAR
+     * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
      * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -343,6 +343,14 @@ declare namespace calendarManager {
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
+    /**
+     * Delete a single event.
+     * @param { number } id - Indicates the ID of an event.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvent.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 19
+     */
     deleteEvent(id: number, callback: AsyncCallback<void>): void;
 
     /**
@@ -360,6 +368,14 @@ declare namespace calendarManager {
      * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
+     */
+    /**
+     * Delete multiple events.
+     * @param { number[] } ids - Indicates the IDs of multiple events.
+     * @param {AsyncCallback<void>} callback - The callback of deleteEvents.
+     * @syscap SystemCapability.Applications.CalendarData
+     * @atomicservice
+     * @since 19
      */
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
@@ -383,8 +399,8 @@ declare namespace calendarManager {
 
     /**
      * Query events based on filter conditions.
-     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
-     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
+     * @param { EventFilter } [eventFilter] - Indicates the filtering conditions of events.
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned.
      * @returns { Promise<Event[]> } Information about events that match the filter conditions.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -447,8 +463,8 @@ declare namespace calendarManager {
      * Query event instances based on the conditions.
      * @param { number } start - start time of query range
      * @param { number } end - end time of query range
-     * @param { number[] } ids - Indicates the IDs of multiple events
-     * @param { (keyof Event)[] } eventKey - Expected column to be returned
+     * @param { number[] } [ids] - Indicates the IDs of multiple events
+     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned
      * @returns { Promise<Event[]> } Information about events that match the condition
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice

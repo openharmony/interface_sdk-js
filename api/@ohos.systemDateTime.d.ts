@@ -75,6 +75,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -86,6 +87,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
@@ -98,6 +100,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getTime
    */
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
@@ -130,6 +133,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -141,6 +145,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
@@ -153,6 +158,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
@@ -165,6 +171,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
@@ -176,6 +183,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(callback: AsyncCallback<number>): void;
 
@@ -188,6 +196,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @since 9
    * @deprecated since 12
+   * @useinstead systemDateTime.getUptime
    */
   function getRealTime(isNano?: boolean): Promise<number>;
 
@@ -292,7 +301,7 @@ declare namespace systemDateTime {
 
   /**
    * Sets the system time.
-   * 
+   *
    * @permission ohos.permission.SET_TIME
    * @param { Date } date - The target date, it must > 0
    * @returns { Promise<void> } The promise returned by the function
@@ -455,6 +464,35 @@ declare namespace systemDateTime {
    * @since 14
    */
   function getNtpTime(): number;
+
+  /**
+   * Obtains the status of automatic system time update switch.
+   *
+   * @returns { boolean } True indicates the automatic system time update is enabled and false indicates the automatic
+   *     time update is disabled.
+   * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 1.System memory is
+   *     insufficient; 2.Calls the underlying system interface failed.
+   * @syscap SystemCapability.MiscServices.Time
+   * @since 21
+   */
+  function getAutoTimeStatus(): boolean;
+
+  /**
+   * Sets the status of automatic system time update switch.
+   *
+   * @permission ohos.permission.SET_TIME
+   * @param {  boolean  } status - True indicates the automatic system time update is enabled and false indicates the
+   *     automatic time update is disabled.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 1.System memory is
+   *     insufficient; 2.Calls the underlying system interface failed.
+   * @syscap SystemCapability.MiscServices.Time
+   * @systemapi
+   * @since 21
+   */
+  function setAutoTimeStatus(status: boolean): Promise<void>;
 }
 
 export default systemDateTime;

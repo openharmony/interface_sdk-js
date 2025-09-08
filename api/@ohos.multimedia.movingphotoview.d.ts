@@ -364,7 +364,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
@@ -376,7 +375,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
@@ -388,7 +386,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
@@ -401,7 +398,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
@@ -415,7 +411,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2
@@ -429,7 +424,6 @@ export class MovingPhotoViewController {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @crossplatform
      * @atomicservice
      * @since 20
      * @arkts 1.1&1.2

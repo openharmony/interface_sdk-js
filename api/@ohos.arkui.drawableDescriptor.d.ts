@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,60 +21,35 @@
 import image from './@ohos.multimedia.image';
 
 /**
- * Indicates the return result of the data to be fetched.
+ * The result of loading image.
  *
- * @typedef DrawableDescriptorResult
+ * @typedef DrawableDescriptorLoadedResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 21
  */
-declare interface DrawableDescriptorResult {
+export interface DrawableDescriptorLoadedResult {
   /**
-   * DrawableDescriptor width.The default value is -1.
+   * The width of the image, in px.
    *
-   * @type { ?number }
-   * @readonly
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  readonly width?: number;
-
+  imageWidth: number
   /**
-   * DrawableDescriptor height.The default value is -1.
+   * The height of the image, in px.
    *
-   * @type { ?number }
-   * @readonly
+   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  readonly height?: number;
-}
-
-/**
- * DrawableDescriptor's option which is used in constructor.
- *
- * @typedef DrawableDescriptorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 18
- */
-declare interface DrawableDescriptorOptions {
-  /**
-   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetchWhenConstructingWithUri?: boolean;
+  imageHeight: number
 }
 
 /**
@@ -96,15 +71,17 @@ declare interface DrawableDescriptorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export class DrawableDescriptor {
+export declare class DrawableDescriptor {
   /**
    * Creates a new DrawableDescriptor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor();
 
@@ -130,57 +107,34 @@ export class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getPixelMap(): image.PixelMap;
 
   /**
-   * Get original width of drawable object.
+   * Synchronously loads the image and returns the loading result.
    *
-   * @returns { number } Return the width of the DrawableDescriptor object.
+   * @returns { DrawableDescriptorLoadResult } loading outcome.
+   * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  getOriginalWidth(): number;
+  loadSync(): DrawableDescriptorLoadResult;
 
   /**
-   * Get original height of drawable object.
+   * Asynchronously loads image and returns loading result.
    *
-   * @returns { number } Return the height of the DrawableDescriptor object.
+   * @returns { Promise<DrawableDescriptorLoadResult> } The image loading result.
+   * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  getOriginalHeight(): number;
-
-  /**
-   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
-   *
-   * @returns { Promise<DrawableDescriptorResult> } Return the promise returned by the funciton.
-   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
-   * @throws { BusinessError } 100002 - Data decoding failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetch(): Promise<DrawableDescriptorResult>;
-
-  /**
-   * Fetch the drawable's data whose corresponding uri is passed in constructor.This fetched data can be draw in Image view.
-   *
-   * @returns { DrawableDescriptorResult } Return the result of the DrawableDescriptor object.
-   * @throws { BusinessError } 100001 - Data loading failed. Maybe the uri is invalid.
-   * @throws { BusinessError } 100002 - Data decoding failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  fetchSync(): DrawableDescriptorResult;
+  load(): Promise<DrawableDescriptorLoadResult>;
 }
 
 /**
@@ -205,9 +159,10 @@ export class DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export class LayeredDrawableDescriptor extends DrawableDescriptor {
+export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new LayeredDrawableDescriptor.
    *
@@ -216,7 +171,8 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(
     foreground?: DrawableDescriptor,
@@ -246,7 +202,8 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getForeground(): DrawableDescriptor;
 
@@ -274,6 +231,16 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @atomicservice
    * @since 12
    */
+  /**
+   * Get DrawableDescriptor for the background.
+   *
+   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
+   */
   getBackground(): DrawableDescriptor;
 
   /**
@@ -298,10 +265,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getMask(): DrawableDescriptor;
-
 
   /**
    * Get the clip path info of the adaptive icon mask.
@@ -325,7 +292,8 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   static getMaskClipPath(): string;
 }
@@ -336,28 +304,19 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export class PixelMapDrawableDescriptor extends DrawableDescriptor {
+export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(src?: image.PixelMap);
-
-  /**
-   * Creates a new PixelMapDrawableDescriptor.
-   * @param { image.PixelMap | ResourceStr } src - Indicates the resource to create PixelMapDrawableDescriptor.
-   * @param { DrawableDescriptorOptions } options - Indicates the option to create PixelMapDrawableDescriptor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  constructor(src?: image.PixelMap | ResourceStr, options?: DrawableDescriptorOptions);
 }
 
 /**
@@ -367,9 +326,10 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-declare interface AnimationOptions {
+export declare interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *
@@ -377,7 +337,8 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   duration?: number;
   /**
@@ -387,20 +348,92 @@ declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   iterations?: number;
-
   /**
-   * If true, it will fetch the data using the uri when object is constructing.The default value is false.
+   * Animation frames duration of playback once.
+   *
+   * @type { ?Array<number> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  frameDurations?: Array<number>;
+  /**
+   * Auto play animated images, default value is true.
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  fetchWhenConstructingWithUri?: boolean;
+  autoPlay?: boolean;
+}
+
+/**
+ * Define the data structure for PixelMap animations.
+ *
+ * @interface AnimationController
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 21
+ */
+export interface AnimationController {
+  /**
+   * Start animtion playback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  start(): void;
+
+  /**
+   * Stop animation playback, and reset to first frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  stop(): void;
+
+  /**
+   * Pause animation playback, and keep it to the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  pause(): void;
+
+  /**
+   * Resume animation playback from the current frame.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  resume(): void;
+
+  /**
+   * Get animtion status of the current component.
+   *
+   * @returns { AnimationStatus } Return the status of animation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  getStatus(): AnimationStatus;
 }
 
 /**
@@ -410,9 +443,10 @@ declare interface AnimationOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export class AnimatedDrawableDescriptor extends DrawableDescriptor {
+export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new AnimatedDrawableDescriptor.
    *
@@ -421,52 +455,32 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
 
   /**
    * Creates a new AnimatedDrawableDescriptor.
-   * @param { Array<image.PixelMap> | ResourceStr } pixelMaps - Indicates the resource to create AnimatedDrawableDescriptor.
-   * @param { ?AnimationOptions } [options] - Animation control options.
+   *
+   * @param { ResourceStr | Array<image.PixelMap> } src - animated images or local resource.
+   * @param { AnimationOptions } [options] - Animation control options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  constructor(pixelMaps: Array<image.PixelMap> | ResourceStr, options?: AnimationOptions);
+  constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions);
 
   /**
-   * Get the running status of animation.
+   * Get the animation controller of the component based on the component id.
    *
-   * @returns { boolean } Return the running status of animation.
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
+   * @param { string } [id] - component id.
+   * @returns { AnimationController | undefined } Return the component of animation controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 21
    */
-  isRunning(): boolean;
-
-  /**
-   * Start the animation.
-   *
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  start(): void;
-
-  /**
-   * Stop the animation.
-   *
-   * @throws { BusinessError } 100001 - Image data is not ready.Maybe you should fetch the data first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18
-   */
-  stop(): void;
+  getAnimationController(id?: string): AnimationController | undefined;
 }

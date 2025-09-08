@@ -1847,7 +1847,7 @@ declare namespace taskpool {
    */
   function terminateTask(longTask: LongTask): void;
 
-    /**
+  /**
    * Checks whether a function is a concurrent function.
    *
    * @param { Function } func - Function to check.
@@ -1881,7 +1881,8 @@ declare namespace taskpool {
      * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down. 
      *     The default value is 0, indicating that there is no limit to the number of tasks that can wait.
-     *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size exceeds this limit, implementing a discard policy.
+     *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size
+     *     exceeds this limit, implementing a discard policy.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
@@ -1903,7 +1904,8 @@ declare namespace taskpool {
      * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than or equal to 0.
      *     If a negative number is passed, an error is reported. If a non-integer is passed, the value is rounded down.
      *     The default value is 0, indicating that there is no limit to the number of tasks that can wait.
-     *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size exceeds this limit, implementing a discard policy.
+     *     If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue size
+     *     exceeds this limit, implementing a discard policy.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
@@ -1924,7 +1926,7 @@ declare namespace taskpool {
      * Tasks that have been executed cannot be added to the asynchronous queue.
      *
      * @param { Task } task - Task to be added to the asynchronous queue.
-     * @param { ?Priority } priority - Priority of the task. The default value is taskpool.Priority.MEDIUM.
+     * @param { ?Priority } [priority] - Priority of the task. The default value is taskpool.Priority.MEDIUM.
      * @returns { Promise<Object> }
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.

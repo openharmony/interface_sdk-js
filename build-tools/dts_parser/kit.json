@@ -59,7 +59,6 @@
     { "filePath": "@internal/component/ets/list_item.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/list_item_group.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/loading_progress.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
-    { "filePath": "@internal/component/ets/location_button.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/marquee.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/matrix2d.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@internal/component/ets/media_cached_image.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -209,6 +208,7 @@
     { "filePath": "@ohos.app.ability.InsightIntentContext.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.insightIntentDriver.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.app.ability.InsightIntentExecutor.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    { "filePath": "@ohos.app.ability.verticalPanelManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力"},
     {
       "filePath": "@ohos.app.ability.MediaControlExtensionAbility.d.ts",
       "kitName": "AVSessionKit",
@@ -252,6 +252,11 @@
     { "filePath": "@ohos.application.appManager.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.BackupExtensionAbility.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.application.CompletionHandler.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
+    {
+      "filePath": "@ohos.app.ability.CompletionHandlerForAtomicService.d.ts",
+      "kitName": "AbilityKit",
+      "subSystem": "元能力"
+    },
     { "filePath": "@ohos.application.Configuration.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.ConfigurationConstant.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     {
@@ -528,6 +533,7 @@
     { "filePath": "@ohos.pluginComponent.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.power.d.ts", "kitName": "BasicServicesKit", "subSystem": "电源服务" },
     { "filePath": "@ohos.print.d.ts", "kitName": "BasicServicesKit", "subSystem": "打印" },
+    { "filePath": "@ohos.scan.d.ets", "kitName": "BasicServicesKit", "subSystem": "打印" },
     { "filePath": "@ohos.privacyManager.d.ts", "kitName": "AbilityKit", "subSystem": "安全基础能力" },
     { "filePath": "@ohos.process.d.ts", "kitName": "ArkTS", "subSystem": "公共基础类库" },
     { "filePath": "@ohos.prompt.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },

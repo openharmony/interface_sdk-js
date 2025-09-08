@@ -420,6 +420,44 @@ declare namespace deviceSettings {
    * @since 12
    */
   function getValue(admin: Want, item: string): string;
+
+  /**
+   * Sets home wallpaper.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WALLPAPER
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } fd - the descriptor of home wallpaper file.
+   * @returns { Promise<void> } the promise returned by the setHomeWallpaper.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function setHomeWallpaper(admin: Want, fd: number): Promise<void>;
+
+  /**
+   * Sets unlock wallpaper.
+   * This function can be called by a super administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WALLPAPER
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } fd - the descriptor of unlock wallpaper file.
+   * @returns { Promise<void> } the promise returned by the setUnlockWallpaper.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function setUnlockWallpaper(admin: Want, fd: number): Promise<void>;
 }
 
 export default deviceSettings;

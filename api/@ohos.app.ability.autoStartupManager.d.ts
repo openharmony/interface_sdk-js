@@ -30,6 +30,14 @@ import type { AsyncCallback } from './@ohos.base';
  * @systemapi
  * @since 11
  */
+/**
+ * The class of auto startup manager.
+ *
+ * @namespace autoStartupManager
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 21
+ * @arkts 1.1&1.2
+ */
 declare namespace autoStartupManager {
   /**
    * Register the listener that watches for all applications auto startup state.
@@ -42,7 +50,7 @@ declare namespace autoStartupManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameters types.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -61,7 +69,7 @@ declare namespace autoStartupManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameters types.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -82,7 +90,7 @@ declare namespace autoStartupManager {
    * <br>2. Incorrect parameters types.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -103,7 +111,7 @@ declare namespace autoStartupManager {
    * <br>2. Incorrect parameters types.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -124,7 +132,7 @@ declare namespace autoStartupManager {
    * <br>2. Incorrect parameters types.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -145,7 +153,7 @@ declare namespace autoStartupManager {
    * <br>2. Incorrect parameters types.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -164,7 +172,7 @@ declare namespace autoStartupManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameters types.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
@@ -182,13 +190,28 @@ declare namespace autoStartupManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameters types.
-   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
    * @since 11
    */
   function queryAllAutoStartupApplications(): Promise<Array<AutoStartupInfo>>;
+
+  /**
+   * Retrieves the auto-start status of the current application.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if the current application has been enabled for
+   *     auto-start on boot by the user; returns {@code false} otherwise.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function getAutoStartupStatusForSelf(): Promise<boolean>;
 }
 
 export default autoStartupManager;

@@ -18,7 +18,13 @@
  * @kit ArkUI
  */
 
+/*** if arkts 1.1 */
 import { Callback } from './@ohos.base';
+/*** endif */
+
+/*** if arkts 1.2 */
+import { Callback } from './@ohos.base';
+/*** endif */
 
 /**
  * Used to do mediaquery operations.
@@ -52,7 +58,8 @@ import { Callback } from './@ohos.base';
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since arkts { '1.1':'12','1.2':'20' }
+ * @arkts 1.1&1.2
  */
 declare namespace mediaquery {
   
@@ -88,7 +95,8 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface MediaQueryResult {
     /**
@@ -131,7 +139,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts { '1.1':'12','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     readonly matches: boolean;
 
@@ -175,7 +184,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts { '1.1':'12','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     readonly media: string;
   }
@@ -216,7 +226,8 @@ declare namespace mediaquery {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since arkts { '1.1':'12','1.2':'20' }
+   * @arkts 1.1&1.2
    */
   interface MediaQueryListener extends MediaQueryResult {
     /**
@@ -259,13 +270,14 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts { '1.1':'12','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -274,7 +286,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -284,7 +296,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -295,7 +307,7 @@ declare namespace mediaquery {
      */
     /**
      * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the media attributes chang.
+     * This callback is not triggered when the media attributes change.
      *
      * @param { 'change' } type
      * @param { Callback<MediaQueryResult> } callback
@@ -303,7 +315,8 @@ declare namespace mediaquery {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12
+     * @since arkts { '1.1':'12','1.2':'20' }
+     * @arkts 1.1&1.2
      */
     off(type: 'change', callback?: Callback<MediaQueryResult>): void;
   }

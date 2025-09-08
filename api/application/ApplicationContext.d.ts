@@ -19,15 +19,14 @@
  */
 
 import Context from './Context';
-
-/*** if arkts 1.1 */
 import { AsyncCallback } from '../@ohos.base';
-import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
-import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
-import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 import { ProcessInformation } from './ProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
+/*** if arkts 1.1 */
+import AbilityLifecycleCallback from '../@ohos.app.ability.AbilityLifecycleCallback';
+import EnvironmentCallback from '../@ohos.app.ability.EnvironmentCallback';
+import type ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 
 /**
@@ -413,7 +412,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getRunningProcessInformation(): Promise<Array<ProcessInformation>>;
 
@@ -454,7 +454,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
@@ -486,7 +487,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   killAllProcesses(): Promise<void>;
 
@@ -509,7 +511,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   killAllProcesses(clearPageStack: boolean): Promise<void>;
 
@@ -573,7 +576,8 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   setColorMode(colorMode: ConfigurationConstant.ColorMode): void;
 
@@ -592,7 +596,25 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Sets the language for the application.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   * 
+   * @param { string } language - Target language. The list of supported languages can be obtained by
+   * calling getSystemLanguages().
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
    */
   setLanguage(language: string): void;
 
@@ -611,7 +633,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clearUpApplicationData(): Promise<void>;
 
@@ -633,7 +656,8 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   clearUpApplicationData(callback: AsyncCallback<void>): void;
 
@@ -656,7 +680,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   restartApp(want: Want): void;
 
@@ -682,7 +707,8 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   preloadUIExtensionAbility(want: Want): Promise<void>;
 
@@ -728,7 +754,24 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Sets the font for this application.
+   * 
+   * <p>**NOTE**:
+   * <br>This API can be called only by the main thread.
+   * </P>
+   *
+   * @param { string } font - Font, which can be registered by calling UIContext.registerFont.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @since 21
+   * @arkts 1.1&1.2
    */
   setFont(font: string): void;
 
@@ -759,7 +802,25 @@ declare class ApplicationContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13', '1.2':'20'}
+   * @arkts 1.1&1.2
+   */
+  /**
+   * Sets the scale ratio for the font size of this application.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   * 
+   * @param {number} fontSizeScale - Font scale ratio. The value is a non-negative number. When the application's
+   * {@link fontSizeScale} is set to <code>followSystem</code> and the value set here exceeds the value of
+   * fontSizeMaxScale, the value of fontSizeMaxScale takes effect.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   * @arkts 1.1&1.2
    */
   setFontSizeScale(fontSizeScale: number): void;
 

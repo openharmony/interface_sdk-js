@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit BasicServicesKit
@@ -20,7 +21,7 @@
 /**
  * A static class pertaining to the product information.
  *
- * @namespace deviceInfo
+ * @class deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform
  * @since 20
@@ -42,6 +43,17 @@ declare class deviceInfo {
     static get deviceType(): string;
     
     /**
+     * Obtains the device manufacturer represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get manufacture(): string;
+    
+    /**
      * Obtains the external product series represented by a string.
      *
      *
@@ -51,6 +63,17 @@ declare class deviceInfo {
      * @arkts 1.2
      */  
     static get brand(): string;
+
+    /**
+     * Obtains the external product series represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get marketName(): string;
     
     /**
      * Obtains the product series represented by a string.
@@ -76,6 +99,190 @@ declare class deviceInfo {
     static get productModel(): string;
 
     /**
+     * Obtains the product model alias represented by a string.
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get productModelAlias(): string;
+    
+    /**
+     * Obtains the software model represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get softwareModel(): string;
+    
+    /**
+     * Obtains the hardware model represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get hardwareModel(): string;
+
+    /**
+     * Obtains the hardware model represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get hardwareProfile(): string;
+
+    /**
+     * Obtains the device serial number represented by a string.
+     *
+     * @permission ohos.permission.sec.ACCESS_UDID
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get serial(): string;
+    
+    /**
+     * Obtains the bootloader version number represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get bootloaderVersion(): string;
+    
+    /**
+     * Obtains the application binary interface (Abi) list represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get abiList(): string;
+    
+    /**
+     * Obtains the security patch level represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get securityPatchTag(): string;
+    
+    /**
+     * Obtains the product version represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get displayVersion(): string;
+    
+    /**
+     * Obtains the incremental version represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get incrementalVersion(): string;
+    
+    /**
+     * Obtains the OS release type represented by a string.
+     * <p>The OS release category can be {@code Release}, {@code Beta}, or {@code Canary}.
+     * The specific release type may be {@code Release}, {@code Beta1}, or others alike.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get osReleaseType(): string;
+    
+    
+    /**
+     * Obtains the OS version represented by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get osFullName(): string;
+    
+    /**
+     * Obtains the major (M) version number, which increases with any updates to the overall architecture.
+     * <p>The M version number monotonically increases from 1 to 99.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get majorVersion(): int;
+    
+    /**
+     * Obtains the senior (S) version number, which increases with any updates to the partial
+     * architecture or major features.
+     * <p>The S version number monotonically increases from 0 to 99.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get seniorVersion(): int;
+    
+    /**
+     * Obtains the feature (F) version number, which increases with any planned new features.
+     * <p>The F version number monotonically increases from 0 or 1 to 99.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get featureVersion(): int;
+    
+    /**
+     * Obtains the build (B) version number, which increases with each new development build.
+     * <p>The B version number monotonically increases from 0 or 1 to 999.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildVersion(): int;
+    
+    
+    /**
      * Obtains the SDK API version number.
      *
      *
@@ -85,6 +292,157 @@ declare class deviceInfo {
      * @arkts 1.2
      */
     static get sdkApiVersion(): int;
+    
+    /**
+     * Obtains the first API version number.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get firstApiVersion(): int;
+    
+    /**
+     * Obtains the version ID by a string.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get versionId(): string;
+    
+    /**
+     * Obtains the build types of the same baseline code.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildType(): string;
+    
+    /**
+     * Obtains the different build user of the same baseline code.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildUser(): string;
+    
+    /**
+     * Obtains the different build host of the same baseline code.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildHost(): string;
+    
+    /**
+     * Obtains the build time.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildTime(): string;
+    
+    /**
+     * Obtains the version hash.
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @crossplatform
+     * @since 20
+     * @arkts 1.2
+     */
+    static get buildRootHash(): string;
+
+    /**
+     * Obtains the device udid.
+     *
+     * @permission ohos.permission.sec.ACCESS_UDID
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get udid(): string;
+
+    /**
+     * Obtains the Distribution OS name.
+     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS name.
+     * distributionOsName will return the ISV OS name
+     * If ISV not specified, it will return an empty string
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get distributionOSName(): string;
+
+    /**
+     * Obtains the Distribution OS version.
+     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS version.
+     * distributionOSVersion will return the ISV OS version
+     * If ISV not specified, it will return the same value as osFullName
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get distributionOSVersion(): string;
+
+    /**
+     * Obtains the Distribution OS version.
+     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api version.
+     * distributionOSVersion will return the ISV OS api version
+     * If ISV not specified, it will return the same value as sdkApiVersion
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get distributionOSApiVersion(): int;
+
+    /**
+     * Obtains the Distribution OS api name.
+     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS api name.
+     * distributionOSApiName will return the ISV OS api name
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get distributionOSApiName(): string;
+
+    /**
+     * Obtains the Distribution OS release type.
+     * <p>Independent Software Vendor (ISV) may distribute OHOS with their own OS release type.
+     * distributionOSVersion will return the ISV OS release type
+     * If ISV not specified, it will return the same value as osReleaseType
+     *
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get distributionOSReleaseType(): string;
 
     /**
      * Open Device Identifier (ODID): a developer-level non-permanent device identifier.
@@ -107,5 +465,34 @@ declare class deviceInfo {
      * @arkts 1.2
      */
     static get ODID(): string;
+    
+    /**
+     * Obtaining the hard drive serial number.
+     *
+     * @permission ohos.permission.ACCESS_DISK_PHY_INFO
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 20
+     * @arkts 1.2
+     */
+    static get diskSN(): string;
+
+    /**
+     * Obtaining the hard drive chip type.
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 22
+     * @arkts 1.2
+     */
+    static get chipType(): string;
+
+    /**
+     * Obtaining the drive boot count.
+     * if get failed, it will be -1
+     *
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @since 22
+     * @arkts 1.2
+     */
+    static get bootCount(): int;
 }
 export default deviceInfo;
