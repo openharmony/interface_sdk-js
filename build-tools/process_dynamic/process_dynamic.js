@@ -23,6 +23,7 @@ const DirType = {
   1.2: 'static',
   static: 'static',
   '1.1&1.2': 'dynamic&static',
+  dynamiconly: 'dynamiconly',
 };
 // P0级别KIT，需要将动态接口转换为dynamic
 const HIGH_LEVEL_KIT_SET = new Set([
@@ -205,9 +206,6 @@ function getNewCommont(substring, kitName, filePath) {
     !currentArkts) { // 若非P0接口，直接返回当前JSDoc信息
     return substring;
   }
-  if (isStaticFile(filePath)) {
-    return substring;
-  }
   const sinceTagContent = parseSinceTagContent(sinceInfo);
   substring = substring.replace(/(.*@since\s+).*/g, sinceTagContent);
   if (sinceInfo.apiArkts) {
@@ -227,7 +225,9 @@ function parseSinceTagContent(sinceInfo) {
   const arktsVersionObj = sinceInfo.arktsSince;
   let replaceVal = ``;
   if (sinceInfo.toDynamic) { // 转换为@since xx dynamic
-    replaceVal += `$1${sinceInfo.since || arktsVersionObj['1.1']} ${DirType['1.1']}`;
+    const sinceValue = sinceInfo.since || arktsVersionObj['1.1'];
+    const dynamicTag = sinceInfo.toDynamicOnly ? DirType.dynamiconly : DirType['1.1'];
+    replaceVal += `$1${sinceValue} ${dynamicTag}`;
   }
   if (sinceInfo.toDynamic && sinceInfo.toStatic) {
     replaceVal += '\n';
@@ -260,6 +260,8 @@ function parseSinceTagContent(sinceInfo) {
  * @property {object} arktsSince - arkts since object.
  * @property {boolean} toDynamic - to dynamic.
  * @property {boolean} toStatic - to static.
+ * @property {boolean} toDynamicOnly - to dynamic.
+ * @property {boolean} toStaticOnly - to static.
  * @property {number} dynamicSince - dynamic since ID.
  * @property {number} staticSince -  static since ID.
  */
@@ -271,10 +273,14 @@ function parseSinceTagContent(sinceInfo) {
  * @return { sinceInfoObj }
  */
 function getSinceInfo(jsDocStr, currentArkts) {
+  const hasDeprecatedTag = /\*\s+\@deprecated\s+/g.test(jsDocStr);
+  const hasUseinsteadTag = /\*\s+\@useinstead\s+/g.test(jsDocStr);
   /** @type {sinceInfoObj} */
   let sinceInfo = {
     toDynamic: false,
     toStatic: false,
+    toDynamicOnly: hasDeprecatedTag && hasUseinsteadTag,
+    toStaticOnly: false,
     currentArkts: currentArkts,
   };
   const sinceStr = jsDocStr.match(/\*\s+\@since\s+(.*)/)?.[1];
