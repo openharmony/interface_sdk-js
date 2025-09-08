@@ -19,12 +19,11 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Component } from '@ohos.arkui.component';
+import { Component } from './arkui/component/customComponent';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { ResourceColor, ResourceStr } from '@ohos.arkui.component';
-import { Builder } from '@ohos.arkui.component';
-import { LengthMetrics } from 'arkui.Graphics';
-import { Length } from '@ohos.arkui.component';
+import { ResourceColor, ResourceStr, Length } from './arkui/component/units';
+import { Builder } from './arkui/component/builder';
+import { LengthMetrics } from './arkui/Graphics';
 /**
  * Declare Component ProgressButton
  * @struct { ProgressButton }
@@ -37,23 +36,25 @@ export declare struct ProgressButton {
   /**
    * Sets the content when progress.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef progress: number;
+  @PropRef
+  progress: int;
   /**
    * Sets the ProgressButton content.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef content: ResourceStr;
+  @PropRef
+  content: ResourceStr;
   /**
    * Sets the ProgressButton progressButtonWidth.
    *
-   * @type { ?Length }.
+   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -61,7 +62,7 @@ export declare struct ProgressButton {
   /**
    * Sets the ProgressButton clickCallback.
    *
-   * @type { function }.
+   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -73,30 +74,34 @@ export declare struct ProgressButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef enable: boolean;
+  @PropRef
+  enable: boolean;
   /**
    * Set Color options of the ProgressButton.
    *
-   * @type { ?ProgressButtonColorOptions }.
+   * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef colorOptions?: ProgressButtonColorOptions;
+  @PropRef
+  colorOptions?: ProgressButtonColorOptions;
   /**
    * Set border rounded corner radius of progress.
    *
-   * @type { ?LengthMetrics }.
+   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef progressButtonRadius?: LengthMetrics;
+  @PropRef
+  progressButtonRadius?: LengthMetrics;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }
 /**
  * Declare Color options of the ProgressButton.
@@ -109,7 +114,7 @@ export declare interface ProgressButtonColorOptions {
   /**
    * Set progress color of the ProgressButton.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -117,7 +122,7 @@ export declare interface ProgressButtonColorOptions {
   /**
    * Set border color of the ProgressButton.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -125,7 +130,7 @@ export declare interface ProgressButtonColorOptions {
   /**
    * Set text color of the ProgressButton.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -133,7 +138,7 @@ export declare interface ProgressButtonColorOptions {
   /**
    * Set background color of the ProgressButton.
    *
-   * @type { ?ResourceColor }.
+   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */

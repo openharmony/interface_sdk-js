@@ -39,14 +39,14 @@ export declare enum GridObjectSortComponentType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  IMAGE_TEXT = "image_text",
+  IMAGE_TEXT = 'image_text',
   /**
    * The GridObjectSortComponent text type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  TEXT = "text"
+  TEXT = 'text'
 }
 /**
  * Declaration of the GridObjectSortComponent item.

@@ -20,13 +20,13 @@
  * @arkts 1.2
  */
 import { TextModifier } from './arkui/TextModifier';
-import { ResourceStr, Resource, ResourceColor, LocalizedMargin, LocalizedPadding } from '@ohos.arkui.component';
-import { SelectOption } from '@ohos.arkui.component';
+import { ResourceStr, Resource, ResourceColor, LocalizedMargin, LocalizedPadding } from './arkui/component/units';
+import { SelectOption } from './arkui/component/select';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { Component } from '@ohos.arkui.component';
-import { FontWeight } from '@ohos.arkui.component';
-import { SymbolEffectStrategy, SymbolRenderingStrategy } from '@ohos.arkui.component';
-import { BuilderParam, Builder } from '@ohos.arkui.component';
+import { Component } from './arkui/component/customComponent';
+import { FontWeight } from './arkui/component/enums';
+import { SymbolEffectStrategy, SymbolRenderingStrategy } from './arkui/component/symbolglyph';
+import { BuilderParam, Builder } from './arkui/component/builder';
 /**
  * Control style of operation element
  *
@@ -76,53 +76,53 @@ export declare class OperationOption {
     /**
      * The content of text or the address of icon.
      *
-     * @type { ResourceStr }.
+     * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    value: ResourceStr;
+    public value: ResourceStr;
     /**
      * callback function when operate the text or icon.
      *
-     * @type { ?function }.
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    action?: () => void;
+    public action?: () => void;
     /**
      * The accessibilityText of this text or icon.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    accessibilityText?: ResourceStr;
+    public accessibilityText?: ResourceStr;
     /**
      * The accessibilityDescription of this text or icon.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    accessibilityDescription?: ResourceStr;
+    public accessibilityDescription?: ResourceStr;
     /**
      * The accessibilityLevel of this text or icon.
      *
-     * @type { ?string }.
+     * @type { ?string }
      * @default "auto"
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    accessibilityLevel?: string;
+    public accessibilityLevel?: string;
     /**
      * Sets the default focus state of the text or icon.
      *
-     * @type { ?boolean }.
+     * @type { ?boolean }
      * @default { false }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    defaultFocus?: boolean;
+    public defaultFocus?: boolean;
 }
 /**
  * Declare type SelectOption
@@ -135,44 +135,44 @@ export declare class SelectOptions {
     /**
      * SubOption array of the select.
      *
-     * @type { Array<SelectOption> }.
+     * @type { Array<SelectOption> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    options: Array<SelectOption>;
+    public options: Array<SelectOption>;
     /**
      * The default selected index.
      *
-     * @type { ?number }.
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    selected?: number;
+    public selected?: int;
     /**
      * The default text value.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    value?: ResourceStr;
+    public value?: ResourceStr;
     /**
      * Callback when the select is selected.
      *
-     * @type { ?function }.
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onSelect?: (index: number, value?: string) => void;
+    public onSelect?: (index: int, value?: string) => void;
     /**
      * Sets the default focus state of select.
      *
-     * @type { ?boolean }.
+     * @type { ?boolean }
      * @default { false }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    defaultFocus?: boolean;
+    public defaultFocus?: boolean;
 }
 /**
 * Declare type SymbolOptions
@@ -185,43 +185,43 @@ export declare class SymbolOptions {
     /**
      * The size of symbol icon.
      *
-     * @type { ?(number | string | Resource) }.
+     * @type { ?(int | string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontSize?: number | string | Resource;
+    public fontSize?: int | string | Resource;
     /**
      * The color of symbol icon.
      *
-     * @type { ?Array<ResourceColor> }.
+     * @type { ?Array<ResourceColor> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontColor?: Array<ResourceColor>;
+    public fontColor?: Array<ResourceColor>;
     /**
      * The fontWeight of symbol icon.
      *
-     * @type { ?(number | FontWeight | string) }.
+     * @type { ?(int | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    fontWeight?: number | FontWeight | string;
+    public fontWeight?: int | FontWeight | string;
     /**
      * The effect strategy of symbol icon.
      *
-     * @type { ?SymbolEffectStrategy }.
+     * @type { ?SymbolEffectStrategy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    effectStrategy?: SymbolEffectStrategy;
+    public effectStrategy?: SymbolEffectStrategy;
     /**
      * The rendering strategy of symbol icon.
      *
-     * @type { ?SymbolRenderingStrategy }.
+     * @type { ?SymbolRenderingStrategy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    renderingStrategy?: SymbolRenderingStrategy;
+    public renderingStrategy?: SymbolRenderingStrategy;
 }
 /**
  * Declare struct SubHeader
@@ -235,7 +235,7 @@ export declare struct SubHeader {
     /**
      * Icon resource of content area.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -244,7 +244,7 @@ export declare struct SubHeader {
     /**
      * Attributes of Symbol icon.
      *
-     * @type { ?SymbolOptions }.
+     * @type { ?SymbolOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -252,7 +252,7 @@ export declare struct SubHeader {
     /**
      * The first line text of content area.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -261,7 +261,7 @@ export declare struct SubHeader {
     /**
      * The secondary line text of content area.
      *
-     * @type { ?ResourceStr }.
+     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -270,7 +270,7 @@ export declare struct SubHeader {
     /**
      * Select option of content area.
      *
-     * @type { ?SelectOptions }.
+     * @type { ?SelectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -278,7 +278,7 @@ export declare struct SubHeader {
     /**
      * Operation style of SubHeader.
      *
-     * @type { ?OperationType }.
+     * @type { ?OperationType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -287,7 +287,7 @@ export declare struct SubHeader {
     /**
      * operation item.
      *
-     * @type { ?Array<OperationOption> }.
+     * @type { ?Array<OperationOption> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -295,7 +295,7 @@ export declare struct SubHeader {
     /**
      * Attributes of Symbol icons in operation area.
      *
-     * @type { ?Array<SymbolOptions> }.
+     * @type { ?Array<SymbolOptions> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -303,7 +303,7 @@ export declare struct SubHeader {
     /**
      * Text modifier for primary title.
      *
-     * @type { ?TextModifier }.
+     * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -311,7 +311,7 @@ export declare struct SubHeader {
     /**
      * Text modifier for secondary title.
      *
-     * @type { ?TextModifier }.
+     * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -319,7 +319,7 @@ export declare struct SubHeader {
     /**
      * Set the title content.
      *
-     * @type { ?function }.
+     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
@@ -339,7 +339,7 @@ export declare struct SubHeader {
     /**
      * Set the content padding.
      *
-     * @type { ?LocalizedPadding }.
+     * @type { ?LocalizedPadding }
      * @default set different default values according to the width of the subHeader:
      *     <br> When the left area is secondaryTitle or the group of secondaryTitle and icon,
      *     <br> the default value is {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)};
