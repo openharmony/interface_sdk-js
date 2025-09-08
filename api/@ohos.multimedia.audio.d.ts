@@ -1068,6 +1068,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the device select strategy.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 21
+   */
+  enum AudioDevcieSelectStrategy {
+    /**
+     * The default follow device select strategy.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    SELECT_STRATEGY_DEFAULT = 0,
+    /**
+     * The independent device select strategy.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    SELECT_STRATEGY_INDEPENDENT = 1,
+  }
+
+  /**
    * Enumerates ringer modes.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Communication
@@ -3782,6 +3806,21 @@ declare namespace audio {
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
     /**
+     * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
+     * @param { AudioRendererFilter } filter - Filter for affected AudioRenderer.
+     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device to select. 
+     * @param { AudioDevcieSelectStrategy } strategy - Target audio device select strategy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy: AudioDevcieSelectStrategy): Promise<void>;
+
+    /**
      * Select the input device. This method uses an asynchronous callback to return the result.
      * @param { AudioDeviceDescriptors } inputAudioDevices - Audio device description
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -3959,6 +3998,36 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes to prefer output device change events. When preferred device for target audio renderer
+     * filter changes, registered clients will receive the callback.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices
+     *     information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    on(type: 'preferredOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
