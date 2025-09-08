@@ -29,8 +29,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
 
@@ -39,8 +38,7 @@ export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { BuildOptions } from './arkui/BuilderNode';
 
@@ -68,8 +66,7 @@ export { InputEventType } from './arkui/BuilderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { NodeController } from './arkui/NodeController';
 
@@ -96,19 +93,7 @@ export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameN
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-export { FrameNode, LayoutConstraint, ExpandMode } from './arkui/FrameNode';
-
-/**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { typeNode, NodeAdapter } from './arkui/FrameNode';
 
@@ -125,19 +110,9 @@ export { typeNode, NodeAdapter } from './arkui/FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts 12
+ * @since 12
  */
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
-/**
- * Export Graphics. Defines the basic types related to the Graphics.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since arkts 20
- * @arkts 1.2
- */
-export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, NodeBorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
 /**
  * Export Graphics. Defines the basic types related to the Graphics.
@@ -145,8 +120,7 @@ export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics';
 
@@ -163,8 +137,7 @@ export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { RenderNode } from './arkui/RenderNode';
 
@@ -191,8 +164,7 @@ export { XComponentNode } from './arkui/XComponentNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { Content } from './arkui/Content';
 
@@ -202,8 +174,7 @@ export { Content } from './arkui/Content';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { ComponentContent , ComponentContentBase } from './arkui/ComponentContent';
 
@@ -213,7 +184,6 @@ export { ComponentContent , ComponentContentBase } from './arkui/ComponentConten
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export { NodeContent } from './arkui/NodeContent';
