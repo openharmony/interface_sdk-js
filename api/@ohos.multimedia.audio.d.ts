@@ -4763,17 +4763,15 @@ declare namespace audio {
   /**
    * Enumerates the categories application prefer to use
    * when recording with bluetooth and nearlink.
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
-   * @arkts 1.1&1.2
    */
   enum BluetoothAndNearlinkPreferredRecordCategory {
     /**
      * Not prefer to use bluetooth and nearlink to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     PREFERRED_NONE = 0,
     /**
@@ -4781,21 +4779,18 @@ declare namespace audio {
      * However, whether to use low latency or high quality recording depends on system.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     PREFERRED_DEFAULT = 1,
     /**
      * Prefer to use bluetooth and nearlink low latency mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     PREFERRED_LOW_LATENCY = 2,
     /**
      * Prefer to use bluetooth and nearlink high quality mode to record.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     PREFERRED_HIGH_QUALITY = 3,
   }
@@ -4805,7 +4800,6 @@ declare namespace audio {
    * @typedef CurrentInputDeviceChangedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
-   * @arkts 1.1&1.2
    */
   interface CurrentInputDeviceChangedEvent {
     /**
@@ -4813,7 +4807,6 @@ declare namespace audio {
      * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     devices: AudioDeviceDescriptors;
     /**
@@ -4821,7 +4814,6 @@ declare namespace audio {
      * @type { AudioStreamDeviceChangeReason }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
-     * @arkts 1.1&1.2
      */
     changeReason: AudioStreamDeviceChangeReason;
   }
@@ -4998,7 +4990,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
 
@@ -5013,7 +5004,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
@@ -5025,7 +5015,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
@@ -5044,7 +5033,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
 
@@ -5055,7 +5043,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     getSelectedMediaInputDevice(): AudioDeviceDescriptor;
 
@@ -5065,7 +5052,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     clearSelectedMediaInputDevice(): Promise<void>;
 
@@ -5084,7 +5070,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise<void>;
 
@@ -5095,7 +5080,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory;
 
@@ -5107,7 +5091,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     on(type: 'currentInputDeviceChanged', callback: Callback<CurrentInputDeviceChangedEvent>): void;
 
@@ -5118,7 +5101,6 @@ declare namespace audio {
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21
-     * @arkts 1.1&1.2
      */
     off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
