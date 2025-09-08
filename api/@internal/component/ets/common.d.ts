@@ -30597,7 +30597,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 21
    */
-  setForceDarkAllowed(value: boolean): T;
+  allowForceDark(value: boolean): T;
 }
 
 /**
