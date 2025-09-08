@@ -49,6 +49,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.id
      */
     id: number;
     /**
@@ -57,6 +58,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.abilityInFgTotalTime
      */
     abilityInFgTotalTime?: number;
     /**
@@ -65,6 +67,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.abilityPrevAccessTime
      */
     abilityPrevAccessTime?: number;
     /**
@@ -73,6 +76,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.abilityPrevSeenTime
      */
     abilityPrevSeenTime?: number;
     /**
@@ -81,6 +85,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.abilitySeenTotalTime
      */
     abilitySeenTotalTime?: number;
     /**
@@ -89,6 +94,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.bundleName
      */
     bundleName?: string;
     /**
@@ -97,6 +103,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.fgAbilityAccessTotalTime
      */
     fgAbilityAccessTotalTime?: number;
     /**
@@ -105,6 +112,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.fgAbilityPrevAccessTime
      */
     fgAbilityPrevAccessTime?: number;
     /**
@@ -114,6 +122,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.infosBeginTime
      */
     infosBeginTime?: number;
     /**
@@ -123,6 +132,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo.infosEndTime
      */
     infosEndTime?: number;
 
@@ -135,6 +145,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsInfo
      */
     merge(toMerge: BundleStateInfo): void;
   }
@@ -153,6 +164,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents
      */
     appUsagePriorityGroup?: number;
     /**
@@ -161,6 +173,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents.bundleName
      */
     bundleName?: string;
     /**
@@ -169,6 +182,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents.indexOfLink
      */
     indexOfLink?: string;
     /**
@@ -177,6 +191,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents.nameOfClass
      */
     nameOfClass?: string;
     /**
@@ -185,6 +200,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents
      */
     stateOccurredTime?: number;
     /**
@@ -193,6 +209,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleEvents
      */
     stateType?: number;
   }
@@ -261,6 +278,14 @@ declare namespace bundleState {
    * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsMap
    */
   interface BundleActiveInfoResponse {
+    /**
+     * the struct of BundleActiveInfoResponse.
+     *
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @since 7
+     * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.BundleStatsMap
+     */
     [key: string]: BundleStateInfo;
   }
 
@@ -314,6 +339,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType.BY_OPTIMIZED
      */
     BY_OPTIMIZED = 0,
 
@@ -323,6 +349,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType.BY_DAILY
      */
     BY_DAILY = 1,
 
@@ -332,6 +359,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType.BY_WEEKLY
      */
     BY_WEEKLY = 2,
 
@@ -341,6 +369,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType.BY_MONTHLY
      */
     BY_MONTHLY = 3,
 
@@ -350,6 +379,7 @@ declare namespace bundleState {
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7
      * @deprecated since 9
+     * @useinstead ohos.resourceschedule.usageStatistics.IntervalType.BY_ANNUALLY
      */
     BY_ANNUALLY = 4
   }
