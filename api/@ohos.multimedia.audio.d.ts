@@ -3942,8 +3942,8 @@ declare namespace audio {
     /**
      * Subscribes to prefer output device change events. When preferred device for target audio renderer
      * filter changes, registered clients will receive the callback.
-     * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
-     *     preferOutputDeviceChangeByFilter event is supported.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
      * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
      * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices
      *     information.
@@ -3958,8 +3958,8 @@ declare namespace audio {
 
     /**
      * UnSubscribes to prefer output device change events.
-     * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
-     *     preferOutputDeviceChangeByFilter event is supported.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
      * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
