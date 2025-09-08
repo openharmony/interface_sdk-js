@@ -22,7 +22,7 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { RenderNode } from './RenderNode';
 import { Size, Position, Edges, LengthMetrics, SizeT } from './Graphics';
 import { DrawContext } from './Graphics';
-import { ComponentContent } from './ComponentContent';
+import { ComponentContent, ReactiveComponentContent } from './ComponentContent';
 import { BusinessError } from '../@ohos.base';
 
 /**
@@ -1007,7 +1007,20 @@ export class FrameNode {
    * @atomicservice
    * @since 12
    */
-  addComponentContent<T>(content: ComponentContent<T>): void;
+  /**
+   * Mount ComponentContent and ReactiveComponentContent to FrameNode.
+   * The current node must be modifiable, which means the return value of isModifiable must be true.
+   * If the node is not modifiable, an exception is thrown.
+   * 
+   * @param { ComponentContent<T> | ReactiveComponentContent<T> } content - Newly added ComponentContent
+   *     or ReactiveComponentContent.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  addComponentContent<T>(content: ComponentContent<T> | ReactiveComponentContent<T>): void;
 
   /**
    * Set the cross-language options of the target FrameNode.
