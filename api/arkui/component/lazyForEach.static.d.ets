@@ -471,6 +471,7 @@ export interface IDataSource<T> {
  * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export interface LazyForEachAttribute extends DynamicNode {}
 
@@ -507,6 +508,7 @@ declare type KeyGeneratorFunc<T> = (item: T, index: number) => string;
  * @returns { LazyForEachAttribute } LazyForEach attribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @ComponentBuilder
 export declare function LazyForEach<T>(dataSource: IDataSource<T>,
