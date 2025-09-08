@@ -19,11 +19,11 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { Component } from '@ohos.arkui.component';
-import { ResourceStr } from '@ohos.arkui.component';
+import { Component } from './arkui/component/customComponent';
+import { ResourceStr } from './arkui/component/units';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
-import { Builder } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
+import { Builder } from './arkui/component/builder';
 /**
  * Declare enum IconType
  *
@@ -105,15 +105,15 @@ export declare class OperateIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * The content of text or the address of symbol.
    *
-   * @type { ?SymbolGlyphModifier }.
+   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
 
   /**
    * Callback function when operate the icon.
@@ -122,7 +122,7 @@ export declare class OperateIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of the icon.
    *
@@ -130,7 +130,7 @@ export declare class OperateIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of the icon.
    *
@@ -138,7 +138,7 @@ export declare class OperateIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of the icon.
    *
@@ -147,7 +147,7 @@ export declare class OperateIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declare type OperateCheck
@@ -160,11 +160,11 @@ export declare class OperateCheck {
   /**
    * Whether is checked on default.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  isCheck?: boolean;
+  public isCheck?: boolean;
   /**
    * Callback function when operate the checkbox/switch/radio.
    *
@@ -172,7 +172,7 @@ export declare class OperateCheck {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onChange?: (value: boolean) => void;
+  public onChange?: (value: boolean) => void;
   /**
    * The accessibilityText of the checkbox/switch/radio.
    *
@@ -180,7 +180,7 @@ export declare class OperateCheck {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of the checkbox/switch/radio.
    *
@@ -188,7 +188,7 @@ export declare class OperateCheck {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of the checkbox/switch/radio.
    *
@@ -197,7 +197,7 @@ export declare class OperateCheck {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declare type OperateButton
@@ -210,11 +210,11 @@ export declare class OperateButton {
   /**
    * The text on the button.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  text?: ResourceStr;
+  public text?: ResourceStr;
   /**
    * The accessibilityText of the button.
    *
@@ -222,7 +222,7 @@ export declare class OperateButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of the button.
    *
@@ -230,7 +230,7 @@ export declare class OperateButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of the button.
    *
@@ -239,7 +239,7 @@ export declare class OperateButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declare ContentItem
@@ -256,7 +256,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  iconStyle?: IconType;
+  public iconStyle?: IconType;
   /**
    * Sets the icon.
    *
@@ -264,7 +264,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  icon?: ResourceStr;
+  public icon?: ResourceStr;
   /**
    * Sets the symbol.
    *
@@ -272,7 +272,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Sets the primaryText.
    *
@@ -280,7 +280,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  primaryText?: ResourceStr;
+  public primaryText?: ResourceStr;
   /**
    * Sets the secondaryText.
    *
@@ -288,7 +288,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  secondaryText?: ResourceStr;
+  public secondaryText?: ResourceStr;
   /**
    * Sets the description.
    *
@@ -296,7 +296,7 @@ export declare class ContentItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  description?: ResourceStr;
+  public description?: ResourceStr;
 }
 /**
  * Declare OperateItem
@@ -313,7 +313,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  icon?: OperateIcon;
+  public icon?: OperateIcon;
   /**
    * Sets the subIcon.
    *
@@ -321,7 +321,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  subIcon?: OperateIcon;
+  public subIcon?: OperateIcon;
   /**
    * Sets the button.
    *
@@ -329,7 +329,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  button?: OperateButton;
+  public button?: OperateButton;
   /**
    * Sets the toggle.
    *
@@ -337,7 +337,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  toggle?: OperateCheck;
+  public toggle?: OperateCheck;
   /**
    * Sets the checkBox.
    *
@@ -345,7 +345,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  checkbox?: OperateCheck;
+  public checkbox?: OperateCheck;
   /**
    * Sets the radio.
    *
@@ -353,7 +353,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  radio?: OperateCheck;
+  public radio?: OperateCheck;
   /**
    * Sets the image.
    *
@@ -361,7 +361,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  image?: ResourceStr;
+  public image?: ResourceStr;
   /**
    * Sets the symbolStyle.
    *
@@ -369,7 +369,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Sets the text.
    *
@@ -377,7 +377,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  text?: ResourceStr;
+  public text?: ResourceStr;
   /**
    * Sets the arrow.
    *
@@ -385,7 +385,7 @@ export declare class OperateItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  arrow?: OperateIcon;
+  public arrow?: OperateIcon;
 }
 /**
  * Declare ComposeListItem
@@ -404,7 +404,8 @@ export declare struct ComposeListItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef contentItem?: ContentItem;
+  @PropRef
+  contentItem?: ContentItem;
   /**
    * The OperateItem.
    *
@@ -412,12 +413,14 @@ export declare struct ComposeListItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef operateItem?: OperateItem;
+  @PropRef
+  operateItem?: OperateItem;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }
