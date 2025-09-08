@@ -1013,6 +1013,7 @@ declare namespace audio {
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @systemapi
    * @since 21
+   * @arkts 1.1&1.2
    */
   enum AudioDevcieSelectStrategy {
     /**
@@ -1020,13 +1021,15 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     SELECT_STRATEGY_DEFAULT = 0,
     /**
-     * The independent device select strategy..
+     * The independent device select strategy.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     SELECT_STRATEGY_INDEPENDENT = 1,
   }
@@ -3747,9 +3750,9 @@ declare namespace audio {
 
     /**
      * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
-     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
-     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device description. 
-     * @param { AudioDevcieSelectStrategy } strategy - Audio device select strategy.
+     * @param { AudioRendererFilter } filter - Filter for affected AudioRenderer.
+     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device to select. 
+     * @param { AudioDevcieSelectStrategy } strategy - Target audio device select strategy.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -3757,6 +3760,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy: AudioDevcieSelectStrategy): Promise<void>;
 
@@ -3940,12 +3944,13 @@ declare namespace audio {
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * Subscribes to prefer output device change events. When prefer device for target audio renderer info changes,
-     * registered clients will receive the callback.
+     * Subscribes to prefer output device change events. When preferred device for target audio renderer
+     * filter changes, registered clients will receive the callback.
      * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
-     * preferOutputDeviceChangeByFilter event is supported.
+     *     preferOutputDeviceChangeByFilter event is supported.
      * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
-     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices information.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices
+     *     information.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -3958,8 +3963,8 @@ declare namespace audio {
     /**
      * UnSubscribes to prefer output device change events.
      * @param { 'preferOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
-     * preferOutputDeviceChangeByFilter event is supported.
-     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used to obtain the changed prefer devices in subscribe.
+     *     preferOutputDeviceChangeByFilter event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
