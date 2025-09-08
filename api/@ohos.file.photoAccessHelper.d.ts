@@ -10215,6 +10215,24 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     setOrderPosition(assets: Array<PhotoAsset>, position: Array<number>): void;
+
+    /**
+     * Set the relationship in the album with the phone owner
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } relationship - The relationship with the phone owner
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     * <br>Possible causes: 1. The input parameter is not within the valid range. 
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+     setRelationship(relationship: string): Promise<void>;
   }
 
   /**
@@ -10302,6 +10320,21 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     getOrderPosition(assets: Array<PhotoAsset>): Promise<Array<number>>;
+
+    /**
+     * Get the relationship in the album with the phone owner
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<string> } Returns the relationship of the album with the phone owner
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     * <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi 
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+     getRelationship(): Promise<string>;
   }
 
   /**
