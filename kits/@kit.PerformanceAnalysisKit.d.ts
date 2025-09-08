@@ -35,7 +35,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.1*/
+/*** if arkts 1.1 */
 import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
