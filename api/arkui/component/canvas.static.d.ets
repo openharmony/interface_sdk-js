@@ -20,7 +20,6 @@
 import { CommonMethod, Callback, PixelMap } from './common';
 import { FrameNode } from '../FrameNode';
 import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
-import { Matrix2D } from './matrix2d';
 import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics } from './units';
 import { Size } from '../Graphics';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -267,15 +266,6 @@ export declare class CanvasPath {
  */
 export declare class Path2D extends CanvasPath {
   /**
-   * Adds a path according to the specified path variable.
-   *
-   * @param { Path2D } path - Indicates the path object to be added.
-   * @param { Matrix2D } [transform] - Transformation matrix of the new trail. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  addPath(path: Path2D, transform?: Matrix2D): void;
-  /**
    * Create an empty path object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -335,14 +325,6 @@ export declare class Path2D extends CanvasPath {
  * @since 20
  */
 export declare interface CanvasPattern {
-  /**
-   * Adds the matrix transformation effect to the current template.
-   *
-   * @param { Matrix2D } [transform] - transformation matrix. The default value is null.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  setTransform(transform?: Matrix2D): void;
 }
 
 /**
@@ -1371,14 +1353,6 @@ export declare class CanvasRenderer extends CanvasPath {
    */
   set textBaseline(textBaseline: CanvasTextBaseline);
   /**
-   * Obtains the currently applied transformation matrix.
-   *
-   * @returns { Matrix2D }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  getTransform(): Matrix2D;
-  /**
    * Resets the current transformation matrix using the identity matrix
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1417,15 +1391,6 @@ export declare class CanvasRenderer extends CanvasPath {
    * @since 20
    */
   setTransform(a: double, b: double, c: double, d: double, e: double, f: double): void;
-  /**
-   * The 2D transformation effect is added. The current transformation matrix is not overwritten and
-   *    the transformations are superimposed for multiple times.
-   *
-   * @param { Matrix2D } [transform] - 2D transformation matrix. For details, see {@link Matrix2D}.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
-   */
-  setTransform(transform?: Matrix2D): void;
   /**
    * Adds the 2D transformation effect, including rotation, translation, and scaling,
    *    and overwrites the current transformation matrix.

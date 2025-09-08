@@ -84,7 +84,6 @@ export * from './arkui/component/listItem';
 export * from './arkui/component/listItemGroup';
 export * from './arkui/component/loadingProgress';
 export * from './arkui/component/marquee';
-export * from './arkui/component/matrix2d';
 export * from './arkui/component/mediaCachedImage';
 export * from './arkui/component/menu';
 export * from './arkui/component/menuItem';
