@@ -138,8 +138,8 @@ export type PluginErrorCallback = (info: PluginErrorData) => void;
  * @typedef PluginComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @noninterop
  * @since 20
+ * @noninterop
  */
 export declare interface PluginComponentAttribute extends CommonMethod {
     /**
@@ -183,8 +183,8 @@ export declare interface PluginComponentAttribute extends CommonMethod {
  * @returns { PluginComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @noninterop
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder
