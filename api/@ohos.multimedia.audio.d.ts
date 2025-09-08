@@ -4805,6 +4805,7 @@ declare namespace audio {
    * @typedef CurrentInputDeviceChangedEvent
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 21
+   * @arkts 1.1&1.2
    */
   interface CurrentInputDeviceChangedEvent {
     /**
@@ -4812,6 +4813,7 @@ declare namespace audio {
      * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     devices: AudioDeviceDescriptors;
     /**
@@ -4819,6 +4821,7 @@ declare namespace audio {
      * @type { AudioStreamDeviceChangeReason }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 21
+     * @arkts 1.1&1.2
      */
     changeReason: AudioStreamDeviceChangeReason;
   }
