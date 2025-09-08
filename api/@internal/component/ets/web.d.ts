@@ -10124,6 +10124,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onSafeBrowsingCheckResult(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
+   * Triggered when the website security risk check is completed.
+   * <p><strong>API Note</strong>:<br>
+   * Unlike onSafeBrowsingCheckResult, which is only triggered when a URL has security risks, onSafeBrowsingCheckFinish
+   * is also triggered when the website security risk check is not performed or no risks are found.
+   *
+   * @param { OnSafeBrowsingCheckResultCallback } callback - Triggered when received website security risk check result.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  onSafeBrowsingCheckFinish(callback: OnSafeBrowsingCheckResultCallback): WebAttribute
+
+  /**
    * Called when the load committed.
    *
    * @param { OnNavigationEntryCommittedCallback } callback Function Triggered when a load committed.
