@@ -4693,12 +4693,10 @@ export declare interface AxisEvent extends BaseEvent {
     /**
      * Active event bubbling.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
-    propagation: Callback<void>;
+    propagation(): void;
     /**
      * Obtains the value of the horizontal scroll axis for this axis event.
      *
@@ -5484,12 +5482,10 @@ export declare interface FocusAxisEvent extends BaseEvent {
     /**
      * The blocking event pops up.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
-    stopPropagation: Callback<void>;
+    stopPropagation(): void;
 }
 /**
  * CrownEvent object description
@@ -5537,12 +5533,10 @@ export declare interface CrownEvent {
     /**
      * The blocking event pops up.
      *
-     * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
      * @since 20
      */
-    stopPropagation: Callback<void>;
+    stopPropagation(): void;
 }
 /**
  * Overlay module options
