@@ -9165,6 +9165,26 @@ declare enum SourceType {
    * @arkts 1.1&1.2
    */
   TouchScreen,
+
+    /**
+   * The key type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  KEY = 4,
+
+  /**
+   * The joystick type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  JOYSTICK = 5,
 }
 
 /**
