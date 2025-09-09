@@ -16,6 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const ignoreApiFileConfig = require('./ignoreApiFile.json');
+const apiFileConfig = require('./apiFile.json');
 // 转换配置
 const DirType = {
   undefined: 'dynamic',
@@ -24,6 +25,7 @@ const DirType = {
   static: 'static',
   '1.1&1.2': 'dynamic&static',
   dynamiconly: 'dynamiconly',
+  staticonly: 'staticonly',
 };
 // P0级别KIT，需要将动态接口转换为dynamic
 const HIGH_LEVEL_KIT_SET = new Set([
@@ -92,8 +94,7 @@ function main() {
       return;
     }
     const relativeFilePath = path.relative(inputDir, filePath).replace(/\\/g, '/');
-    if (ignoreApiFileConfig.files.includes(relativeFilePath)) {
-      console.log('当前文件工具不支持直接输出', relativeFilePath);
+    if (ignoreApiFileConfig.files.includes(relativeFilePath) || !apiFileConfig.files.includes(relativeFilePath)) {
       writeFile(getOutFilePath(filePath), content);
       return;
     }
@@ -193,6 +194,11 @@ function isStaticFile(filePath) {
  */
 function getNewCommont(substring, kitName, filePath) {
   const relativePath = path.relative(inputDir, filePath);
+  // 重复转换跳过
+  const hasSinceTagDynamic = /\*\s+\@since\s.*(dynamic|static)/g.test(substring);
+  if (hasSinceTagDynamic) {
+    return substring;
+  }
   // 获取版本信息
   const sinceInfo = getSinceInfo(substring, currentArkts);
   // 收集不同场景调试信息
@@ -206,7 +212,7 @@ function getNewCommont(substring, kitName, filePath) {
     !currentArkts) { // 若非P0接口，直接返回当前JSDoc信息
     return substring;
   }
-  const sinceTagContent = parseSinceTagContent(sinceInfo);
+  const sinceTagContent = parseSinceTagContent(sinceInfo, filePath);
   substring = substring.replace(/(.*@since\s+).*/g, sinceTagContent);
   if (sinceInfo.apiArkts) {
     substring = substring.replace(/.*\*\s+@arkts\s+\S*\s*(\r|\n)/g, '');
@@ -221,12 +227,17 @@ function needParse2Static(arktsVersionObj, version) {
 }
 
 // 转换@since标签文本
-function parseSinceTagContent(sinceInfo) {
+function parseSinceTagContent(sinceInfo, filePath) {
+  const relativePath = path.relative(inputDir, filePath).replace(/\\/g, '/');
+  const isDynamiconlyFile = ignoreApiFileConfig.dynamiconlyFiles.includes(relativePath);
+  const isStaticonlyFile = ignoreApiFileConfig.staticonlyFiles.includes(relativePath);
   const arktsVersionObj = sinceInfo.arktsSince;
   let replaceVal = ``;
   if (sinceInfo.toDynamic) { // 转换为@since xx dynamic
     const sinceValue = sinceInfo.since || arktsVersionObj['1.1'];
-    const dynamicTag = sinceInfo.toDynamicOnly ? DirType.dynamiconly : DirType['1.1'];
+    const dynamicTag = (sinceInfo.toDynamicOnly || isDynamiconlyFile) && !sinceInfo.toStatic ?
+      DirType.dynamiconly :
+      DirType['1.1'];
     replaceVal += `$1${sinceValue} ${dynamicTag}`;
   }
   if (sinceInfo.toDynamic && sinceInfo.toStatic) {
@@ -241,7 +252,10 @@ function parseSinceTagContent(sinceInfo) {
     } else {
       replaceVal += `22`;
     }
-    replaceVal += ` ${DirType['1.2']}`;
+    const staticTag = (sinceInfo.toStaticOnly || isStaticonlyFile) && !sinceInfo.toDynamic ?
+      DirType.staticonly :
+      DirType['1.2'];
+    replaceVal += ` ${staticTag}`;
   }
   // 转换为@since xx dynamic&static
   if (sinceInfo.toDynamic && sinceInfo.toStatic && needParse2Static(arktsVersionObj, sinceInfo.since)) {
@@ -273,15 +287,16 @@ function parseSinceTagContent(sinceInfo) {
  * @return { sinceInfoObj }
  */
 function getSinceInfo(jsDocStr, currentArkts) {
-  const hasDeprecatedTag = /\*\s+\@deprecated\s+/g.test(jsDocStr);
-  const hasUseinsteadTag = /\*\s+\@useinstead\s+/g.test(jsDocStr);
+  const hasDeprecatedTag = /\*\s+\@deprecated\s+/gi.test(jsDocStr);
+  const hasUseinsteadTag = /\*\s+\@useinstead\s+/gi.test(jsDocStr);
+  const hasFamodelonlyTag = /\*\s+\@famodelonly\s+/gi.test(jsDocStr);
   /** @type {sinceInfoObj} */
   let sinceInfo = {
     toDynamic: false,
     toStatic: false,
-    toDynamicOnly: hasDeprecatedTag && hasUseinsteadTag,
+    toDynamicOnly: (hasDeprecatedTag && hasUseinsteadTag) || hasFamodelonlyTag,
     toStaticOnly: false,
-    currentArkts: currentArkts,
+    currentArkts: currentArkts
   };
   const sinceStr = jsDocStr.match(/\*\s+\@since\s+(.*)/)?.[1];
   if (!isNaN(sinceStr)) {
