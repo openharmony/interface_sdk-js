@@ -38,7 +38,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -53,7 +53,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { Array<string> } targetNames The bundle names that are interested in sending the event.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -68,7 +68,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -84,7 +84,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { boolean } isAccessibilityFocus Indicates whether the acquired element has an accessibility focus.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -98,7 +98,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get focus element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -114,7 +114,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } windowId Indicates the window ID.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -130,7 +130,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } [windowId] Indicates the window ID.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -144,7 +144,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window root element.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -160,7 +160,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -176,7 +176,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { number } displayId Indicates the display ID.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -190,7 +190,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Get window list.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -206,7 +206,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -223,7 +223,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -239,7 +239,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * Inject gesture path events.
    *
    * @param { GesturePath } gesturePath Indicates the gesture path.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -256,7 +256,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { Want } want - Indicates the start options.
    * @returns { Promise<void> }
    * @throws { BusinessError } 201 - The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -272,7 +272,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { number } elementId Indicates the elementId.
    * @returns { Promise<Array<AccessibilityElement>> }
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *    1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameter types;
    *    3. Parameter verification failed.
@@ -288,7 +288,7 @@ export default class AccessibilityExtensionContext extends ExtensionContext {
    * @param { number } windowId Indicates whether the windowid can be used as the default focus.
    * @returns { Promise<Array<number>> }
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *    1. Mandatory parameters are left unspecified;
    *    2. Incorrect parameter types;
    *    3. Parameter verification failed.
@@ -443,7 +443,7 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @param { AsyncCallback<ElementAttributeValues[T]> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -462,7 +462,7 @@ declare interface AccessibilityElement {
    *
    * @param { T } attributeName Indicates the attribute name.
    * @returns { Promise<ElementAttributeValues[T]> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -499,7 +499,7 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -516,7 +516,7 @@ declare interface AccessibilityElement {
    * @param { string } actionName Indicates the action name.
    * @param { object } parameters Indicates the parameters needed to execute the action.
    * @returns { Promise<void> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -532,7 +532,7 @@ declare interface AccessibilityElement {
    *
    * @param { string } actionName Indicates the action name.
    * @param { AsyncCallback<void> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -568,7 +568,7 @@ declare interface AccessibilityElement {
    *
    * @param { boolean } isEnable Indicates whether the screen curtain is enabled.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -585,7 +585,7 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @param { AsyncCallback<Array<AccessibilityElement>> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -601,7 +601,7 @@ declare interface AccessibilityElement {
    * @param { 'content' } type The type of query condition is content.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -617,7 +617,7 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -633,7 +633,7 @@ declare interface AccessibilityElement {
    * @param { 'focusType' } type The type of query condition is focus type.
    * @param { FocusType } condition Indicates the type of focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -649,7 +649,7 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @param { AsyncCallback<AccessibilityElement> } callback Indicates the listener.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -665,7 +665,7 @@ declare interface AccessibilityElement {
    * @param { 'focusDirection' } type The type of query condition is focus direction.
    * @param { FocusDirection } condition Indicates the direction of search focus to query.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -681,7 +681,7 @@ declare interface AccessibilityElement {
    * @param { 'textType' } type The type of query condition is text type.
    * @param { string } condition Indicates the specific content to be queried.
    * @returns { Promise<Array<AccessibilityElement>> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -697,7 +697,7 @@ declare interface AccessibilityElement {
    * @param { 'elementId' } type The type of query condition is element id.
    * @param { number } condition Indicates the specific content to be queried.
    * @returns { Promise<AccessibilityElement> }
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes:
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
