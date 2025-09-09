@@ -3085,11 +3085,11 @@ export declare class UIContext {
   /**
    * Get the max font scale.
    *
-   * @returns { number } The max font scale.
+   * @returns { double } The max font scale.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getMaxFontScale(): number;
+  getMaxFontScale(): double;
 
   /**
    * Bind tabs to scrollable container component to automatically hide tab bar.
