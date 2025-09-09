@@ -749,8 +749,8 @@ interface CancelButtonOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @noninterop
  * @since 20
+ * @noninterop
  */
 interface CancelButtonSymbolOptions {
   /**
