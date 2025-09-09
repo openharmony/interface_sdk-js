@@ -242,8 +242,7 @@ export declare class PickerController {
    * @param { Object } data - data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   addData(dataType: DataType, data: Object): void;
 
@@ -254,8 +253,7 @@ export declare class PickerController {
    * @param { Object } data - data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   deleteData(dataType: DataType, data: Object): void;
 
@@ -835,8 +833,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   SET_SELECTED_INFO = 3,
   
@@ -845,8 +842,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   SET_BADGE_CONFIGS = 4
 }
