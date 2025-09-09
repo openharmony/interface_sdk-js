@@ -149,11 +149,11 @@ export declare class LocalStorage {
    * Returns number of properties in LocalStorage
    * same as Map.prototype.size()
    *
-   * @returns { number } return number of properties
+   * @returns { int } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  public size(): number;
+  public size(): int;
   /**
    * Delete property from StorageBase
    * Use with caution:
