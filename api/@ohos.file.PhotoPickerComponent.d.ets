@@ -519,10 +519,9 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   * The picker component supports only one type of badge
   *
   * @type { ?BadgeConfig }
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.CoreW
   * @atomicservice
-  * @since arkts{ '1.1':'21','1.2':'22'}
-  * @arkts 1.1&1.2
+  * @since 21
   */
   badgeConfig?: BadgeConfig;
 }
@@ -728,8 +727,7 @@ export declare class SingleLineConfig {
 *
 * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
 * @atomicservice
-* @since arkts{ '1.1':'21','1.2':'22'}
-* @arkts 1.1&1.2
+* @since 21
 */
 export declare class BadgeConfig {
   /**
@@ -738,8 +736,7 @@ export declare class BadgeConfig {
   * @type { ?BadgeConfig }
   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
   * @atomicservice
-  * @since arkts{ '1.1':'21','1.2':'22'}
-  * @arkts 1.1&1.2
+  * @since 21
   */
   badgeType?: BadgeType;
 
@@ -749,8 +746,7 @@ export declare class BadgeConfig {
   * @type { ?Array<string> }
   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
   * @atomicservice
-  * @since arkts{ '1.1':'21','1.2':'22'}
-  * @arkts 1.1&1.2
+  * @since 21
   */
   uris?: Array<string>;
 }
@@ -787,8 +783,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   SET_BADGE_CONFIGS = 4
 }
@@ -1106,8 +1101,7 @@ export declare enum SaveMode {
  * @enum { int } BadgeType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since arkts{ '1.1':'21','1.2':'22'}
- * @arkts 1.1&1.2
+ * @since 21
  */
 export declare enum BadgeType {
   /**
@@ -1115,8 +1109,7 @@ export declare enum BadgeType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since arkts{ '1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   BADGE_UPLOADED = 0
 }
