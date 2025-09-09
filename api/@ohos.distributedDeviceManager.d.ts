@@ -151,11 +151,11 @@ declare namespace distributedDeviceManager {
   interface DiscoveryFailureResult {
     /**
      * Discovery failure cause code.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    reason: number;
+    reason: int;
   }
 
   /**
@@ -850,7 +850,7 @@ declare namespace distributedDeviceManager {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } networkId - Device network id.
-     * @returns { number } - Returns device type.
+     * @returns { int } - Returns device type.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                                  1. Mandatory parameters are left unspecified;
@@ -861,7 +861,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10
      */
-    getDeviceType(networkId: string): number;
+    getDeviceType(networkId: string): int;
 
     /**
      * Start to discover nearby devices.
