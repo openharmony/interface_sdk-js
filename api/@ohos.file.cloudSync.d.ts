@@ -1028,6 +1028,7 @@ declare namespace cloudSync {
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.
      * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
      *     <br>1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+     * @throws { BusinessError } 14000002 - Invalid uri.
      * @throws { BusinessError } 22400004 - Exceed the maximum limit.
      * @throws { BusinessError } 22400005 - Inner error. Possible causes:
      *     <br>1.Failed to access the database or execute the SQL statement.
