@@ -782,7 +782,7 @@ export declare enum DataType {
    * @atomicservice
    * @since 12
    */
-  SET_ALBUM_URI = 2
+  SET_ALBUM_URI = 2,
 
   /**
    * SET_BADGE_CONFIGS. Set badge configs to picker component.
@@ -1118,7 +1118,7 @@ export declare enum BadgeType {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since arkts{ '1.1':'21','1.2':'22'}
-   * @atkts 1.1&1.2
+   * @arkts 1.1&1.2
    */
   BADGE_UPLOADED = 0
 }
