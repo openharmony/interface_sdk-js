@@ -244,7 +244,7 @@ export declare class PickerController {
    * @atomicservice
    * @since arkts{ '1.1':'21','1.2':'22'}
    * @atkts 1.1&1.2
-  */
+   */
   addData(dataType: DataType, data: Object): void;
 
   /**
@@ -256,7 +256,7 @@ export declare class PickerController {
    * @atomicservice
    * @since arkts{ '1.1':'21','1.2':'22'}
    * @atkts 1.1&1.2
-  */
+   */
   deleteData(dataType: DataType, data: Object): void;
 
   /**
@@ -792,7 +792,7 @@ export declare enum DataType {
    * @since arkts{ '1.1':'21','1.2':'22'}
    * @arkts 1.1&1.2
    */
-  SET_BADGE_CONFIGS = 4,
+  SET_BADGE_CONFIGS = 4
 }
 
 /**
@@ -1118,7 +1118,7 @@ export declare enum BadgeType {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
    * @since arkts{ '1.1':'21','1.2':'22'}
-   * @since 15
+   * @since 1.1&1.2
    */
   BADGE_UPLOADED = 0
 }
