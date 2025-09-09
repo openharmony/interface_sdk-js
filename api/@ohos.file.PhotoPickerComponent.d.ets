@@ -514,12 +514,33 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   uiComponentColorMode?: PickerColorMode;
 
   /**
+   * Support to set a serial number to distinguish different picker components. Default value is -1.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21
+   */
+  pickerIndex?: number;
+
+  /**
+   * Support automatically selecting the user-selected image/video on the PhotoPickerComponent
+   * at the specified picker index.
+   *
+   * @type { ?Array<PreselectedInfo> }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21
+   */
+  preselectedInfos?: Array<PreselectedInfo>;
+
+  /**
   *
   * Support to config special badge display.
   * The picker component supports only one type of badge
   *
   * @type { ?BadgeConfig }
-  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.CoreW
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
   * @atomicservice
   * @since 21
   */
@@ -723,12 +744,41 @@ export declare class SingleLineConfig {
 }
 
 /**
-* BadgeConfig
-*
-* @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-* @atomicservice
-* @since 21
-*/
+ * PreselectedInfo
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 21
+ */
+export declare class PreselectedInfo {
+  /**
+   * Uri. Uri of the media file to be automatically selected.
+   *
+   * @type { string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21
+   */
+  uri: string;
+
+  /**
+   * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
+   *
+   * @type { ?number }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21
+   */
+  preselectablePickerIndex?: number;
+}
+
+/**
+ * BadgeConfig
+ *
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @atomicservice
+ * @since 21
+ */
 export declare class BadgeConfig {
   /**
   * The type of the special badge.
@@ -778,6 +828,15 @@ export declare enum DataType {
    */
   SET_ALBUM_URI = 2,
 
+  /**
+   * SET_SELECTED_INFO. Set selected information to picker component.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @atomicservice
+   * @since 21
+   */
+  SET_SELECTED_INFO = 3,
+  
   /**
    * SET_BADGE_CONFIGS. Set badge configs to picker component.
    *
