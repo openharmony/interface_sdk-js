@@ -100,7 +100,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  content: ResourceStr;
+  public content: ResourceStr;
   /**
    * Define the action event.
    *
@@ -108,7 +108,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * Define icon resource.
    *
@@ -116,7 +116,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  icon?: Resource;
+  public icon?: Resource;
   /**
    * Define item type.
    *
@@ -124,7 +124,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  state?: ItemState;
+  public state?: ItemState;
   /**
    * Define text fontColor.
    *
@@ -132,7 +132,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  textColor?: ResourceColor;
+  public textColor?: ResourceColor;
   /**
    * Text fontColor when the item is activated.
    *
@@ -140,7 +140,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  activatedTextColor?: ResourceColor;
+  public activatedTextColor?: ResourceColor;
   /**
    * Define icon fillColor.
    *
@@ -148,7 +148,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  iconColor?: ResourceColor;
+  public iconColor?: ResourceColor;
   /**
    * Icon fillColor when the item is activated.
    *
@@ -156,7 +156,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  activatedIconColor?: ResourceColor;
+  public activatedIconColor?: ResourceColor;
   /**
    * Item symbol icon.
    *
@@ -164,7 +164,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
+  public toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
    * The accessibilityText of item.
    *
@@ -172,7 +172,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of item.
    *
@@ -180,7 +180,7 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of item.
    *
@@ -189,18 +189,16 @@ export declare class ToolBarOption {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Declare ToolBarOptions use in ToolBar.
- * @extends Array<ToolBarOption>
+ * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  * @noninterop
  */
-@Observed
-export declare class ToolBarOptions extends Array<ToolBarOption> {
-}
+export type ToolBarOptions = Array<ToolBarOption>
 /**
  * Declare ToolBarModifier use in ToolBar.
  *
@@ -217,7 +215,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  height(height: LengthMetrics): ToolBarModifier;
+  public height(height: LengthMetrics): ToolBarModifier;
   /**
    * Sets the backgroundColor of the toolBar.
    *
@@ -226,7 +224,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
+  public backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
    * Sets the left and right padding of the toolbar.
    *
@@ -235,7 +233,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  padding(padding: LengthMetrics): ToolBarModifier;
+  public padding(padding: LengthMetrics): ToolBarModifier;
   /**
    * Sets whether or not to display the press status effect.
    *
@@ -244,7 +242,7 @@ export declare class ToolBarModifier {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  stateEffect(stateEffect: boolean): ToolBarModifier;
+  public stateEffect(stateEffect: boolean): ToolBarModifier;
 }
 /**
  * Declare Component ToolBar.
@@ -262,15 +260,17 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @ObjectLink toolBarList: ToolBarOptions;
+  @ObjectLink
+  toolBarList: ToolBarOptions;
   /**
    * Define toolbar activate item index, default is -1.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef activateIndex?: number;
+  @PropRef
+  activateIndex?: int;
   /**
    * Define toolbar controller.
    *
@@ -286,7 +286,8 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef dividerModifier?: DividerModifier;
+  @PropRef
+  dividerModifier?: DividerModifier;
   /**
    * Define toolbar modifier.
    *
@@ -294,12 +295,14 @@ export declare struct ToolBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef toolBarModifier?: ToolBarModifier;
+  @PropRef
+  toolBarModifier?: ToolBarModifier;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @Builder build(): void;
+  @Builder
+  build(): void;
 }

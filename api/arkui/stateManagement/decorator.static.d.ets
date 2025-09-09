@@ -31,15 +31,6 @@ import { ExtendableComponent } from '../component/extendableComponent';
 export declare @interface State {};
 
 /**
- * Defining Prop annotation
- * Prop is an annotation which is mutable, and its changes will not be synchronized to the parent component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-@Retention({policy: "SOURCE"})
-export declare @interface Prop {};
-
-/**
  * Defining PropRef annotation
  * PropRef is an annotation which is mutable.
  * Any object property modifications made through PropRef are visible in the 
@@ -89,19 +80,6 @@ export declare @interface Track {};
 export declare @interface ObjectLink {};
 
 /**
- * Defining StorageProp annotation
- * StorageProp a one-way data synchronization is established from the attribute with the given key in AppStorage to the variable. 
- * A local change can be made, but it will not be synchronized to AppStorage. 
- * An update to the attribute with the given key in AppStorage will overwrite local changes.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-@Retention({policy: "SOURCE"})
-export declare @interface StorageProp {
-    property: string;
-};
-
-/**
  * Defining StoragePropRef annotation
  * StoragePropRef is an annotation which is mutable.
  * Any object property modifications made through StoragePropRef are visible in the 
@@ -133,26 +111,6 @@ export declare @interface StoragePropRef {
 export declare @interface StorageLink {
     /**
      * The give property in AppStorage.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    property: string;
-};
-
-/**
- * Defining LocalStorageProp annotation
- * LocalStorageProp is a one-way data synchronization is established from the attribute with the given key in 
- * LocalStorage to the variable. This means that, local changes 
- * (if any) will not be synchronized to LocalStorage, and an update to the attribute with the given key in LocalStorage.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-@Retention({policy: "SOURCE"})
-export declare @interface LocalStorageProp {
-    /**
-     * The give property in LocalStorage.
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -568,10 +526,6 @@ export declare interface IDecoratedUpdatableVariable<T> {
  */
 export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
-export declare interface IPropDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
-}
-
 /**
  * Define PropRef decoration variable interface.
  *
@@ -643,17 +597,6 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
  * @since 20
  */
 export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
-
-/**
- * Define StorageProp decoration variable interface.
- *
- * @extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T>
- * @interface IStoragePropDecoratedVariable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export declare interface IStoragePropDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
-}
 
 /**
  * Define StoragePropRef decoration variable interface.
@@ -928,9 +871,6 @@ export declare interface IStateMgmtFactory {
   makeLink<T>(owningView: ExtendableComponent, varName: string, source: LinkSourceType<T>,
     watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
 
-  makeProp<T>(owningView: ExtendableComponent, varName: string, initValue: T,
-        watchFunc?: WatchFuncType): IPropDecoratedVariable<T>;
-  
   /**
    * Create a Provide variable instance.
    *

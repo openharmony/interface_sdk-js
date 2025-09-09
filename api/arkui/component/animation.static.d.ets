@@ -15,9 +15,9 @@
 
 /**
  * @file
- * @kit MechanicKit
+ * @kit ArkUI
+ * @arkts 1.2
  */
 
-import mechanicManager from '@ohos.distributedHardware.mechanicManager';
-
-export { mechanicManager };
+@Retention({policy: "SOURCE"})
+export declare @interface AnimatableExtend {}

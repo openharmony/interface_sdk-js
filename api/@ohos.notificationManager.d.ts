@@ -52,6 +52,7 @@ import type UIAbilityContext from './application/UIAbilityContext';
 /*** if arkts 1.2 */
 import { AsyncCallback } from '@ohos.base';
 import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
+import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
 import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
 import { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
 import { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
@@ -5246,6 +5247,16 @@ declare namespace notificationManager {
    * @arkts 1.1&1.2
    */
   export type NotificationProgress = _NotificationProgress;
+
+  /**
+   * Describes a system live view button with icon.
+   *
+   * @typedef { _NotificationIconButton } NotificationIconButton
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   * @arkts 1.2
+   */
+  export type NotificationIconButton = _NotificationIconButton;
 }
 
 export default notificationManager;

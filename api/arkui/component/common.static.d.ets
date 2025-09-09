@@ -29,6 +29,7 @@ import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
+import { ImageModifier } from '../../arkui/ImageModifier';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import uiObserver from '@ohos.arkui.observer';
 import { UIContext as _UIContext } from '../../@ohos.arkui.UIContext';
@@ -1860,36 +1861,29 @@ export declare interface ScaleOptions {
 /**
  * Defines the align rule options of relative container.
  *
- * @interface AlignRuleParam
+ * @interface VerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20
  */
-export declare interface AlignRuleParam<T> {
+export declare interface VerticalAlignParam {
     /**
-     * The param of anchor.
+     * Specifies the anchor component
      *
-     * @type { ?string }
+     * Anonymous Object Rectification
+     * @type { string } anchor
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
     anchor: string;
     /**
-     * The param of align.
+     * Sets the vertical alignment relative to the anchor component.
      *
-     * @type { T }
+     * Anonymous Object Rectification
+     * @type { VerticalAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @atomicservice
      * @since 20
      */
-    align: T;
+    align: VerticalAlign;
 }
 /**
  * Defines the horizontal align rule options of relative container.
@@ -1918,33 +1912,6 @@ export declare interface HorizontalAlignParam {
      * @since 20
      */
     align: HorizontalAlign;
-}
-/**
- * Defines the align rule options of relative container.
- *
- * @interface VerticalAlignParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
- */
-export declare interface VerticalAlignParam {
-    /**
-     * Specifies the anchor component
-     *
-     * Anonymous Object Rectification
-     * @type { string } anchor
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    anchor: string;
-    /**
-     * Sets the vertical alignment relative to the anchor component.
-     *
-     * Anonymous Object Rectification
-     * @type { VerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     */
-    align: VerticalAlign;
 }
 /**
  * Defines the align rule options of relative container.
@@ -8535,6 +8502,14 @@ export declare interface DragPreviewOptions {
      */
     mode?: DragPreviewMode | Array<DragPreviewMode>;
     /**
+     * Drag preview modifier.
+     *
+     * @type { ?ImageModifier }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    modifier?: ImageModifier;
+    /**
      * The flag for number showing.
      *
      * @type { ?(boolean | number) }
@@ -9425,14 +9400,18 @@ export declare interface CommonMethod {
      */
     default onTouch(event: ((event: TouchEvent) => void) | undefined): this;
     /**
+     * @since 20
+     */
+    overload onKeyEvent { onKeyEventWithVoid, onKeyEventWithBoolean };
+    /**
      * Keyboard input
      *
-     * @param { ((event: KeyEvent) => void) | undefined } event
+     * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onKeyEvent(event: ((event: KeyEvent) => void) | undefined): this;
+    default onKeyEventWithVoid(event: ((event: KeyEvent) => void) | undefined): this;
     /**
      * Keyboard input
      *
@@ -9441,7 +9420,7 @@ export declare interface CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default onKeyEvent(event: Callback<KeyEvent, boolean> | undefined): this;
+    default onKeyEventWithBoolean(event: Callback<KeyEvent, boolean> | undefined): this;
     /**
      * Digital crown input.
      *
@@ -10887,12 +10866,12 @@ export declare interface CommonMethod {
      * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
      * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
      * </p>
-     * @param { Resource | undefined } text - set accessibility text
+     * @param { Resource } text - set accessibility text
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default accessibilityTextOfResourceType(text: Resource | undefined): this;
+    default accessibilityTextOfResourceType(text: Resource): this;
     /**
      * @since 20
      */
@@ -10943,12 +10922,12 @@ export declare interface CommonMethod {
      * <br>cannot be learned from component attributes and accessibility text. If a component contains
      * <br>both text information and the accessibility description, the text is read first and then the
      * <br>accessibility description, when the component is selected.</p>
-     * @param { Resource | undefined } description - set description of accessibility
+     * @param { Resource } description - set description of accessibility
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default accessibilityDescriptionOfResourceType(description: Resource | undefined): this;
+    default accessibilityDescriptionOfResourceType(description: Resource): this;
     /**
      * @since 20
      */
@@ -11265,14 +11244,14 @@ export declare interface CommonShapeMethod extends CommonMethod {
      * Sets the offset of the start point for drawing the stroke.
      * An invalid value is handled as the default value.
      *
-     * @param { number | string | undefined } value - Offset of the start point for drawing the stroke.
+     * @param { double | string | undefined } value - Offset of the start point for drawing the stroke.
      *     Default value: 0
      *     Default unit: vp
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeDashOffset(value: number | string | undefined): this;
+    default strokeDashOffset(value: double | string | undefined): this;
     /**
      * Sets the cap style of the stroke.
      *
@@ -11295,36 +11274,36 @@ export declare interface CommonShapeMethod extends CommonMethod {
     /**
      * Limits for drawing acute angles as bevels
      *
-     * @param { number | string | undefined } value
+     * @param { double | string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeMiterLimit(value: number | string | undefined): this;
+    default strokeMiterLimit(value: double | string | undefined): this;
     /**
      * Sets the stroke opacity.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource | undefined } value - Stroke opacity. Default value: 1
+     * @param { double | string | Resource | undefined } value - Stroke opacity. Default value: 1
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default strokeOpacity(value: number | string | Resource | undefined): this;
+    default strokeOpacity(value: double | string | Resource | undefined): this;
     /**
      * Sets the opacity of the fill area.
      * The value range is [0.0, 1.0].
      * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
      * Any other value evaluates to the value 1.0.
      *
-     * @param { number | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
+     * @param { double | string | Resource | undefined } value - Opacity of the fill area. Default value: 1
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    default fillOpacity(value: number | string | Resource | undefined): this;
+    default fillOpacity(value: double | string | Resource | undefined): this;
     /**
      * Sets the stroke width.
      * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.

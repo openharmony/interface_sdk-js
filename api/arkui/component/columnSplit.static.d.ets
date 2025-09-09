@@ -47,6 +47,16 @@ export interface ColumnSplitDividerStyle {
      */
     endMargin?: Dimension;
 }
+
+/**
+ * The ColumnSplitAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface ColumnSplitAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface ColumnSplitAttribute extends CommonMethod {
     /**
      * Indicates whether the split line can be dragged. The default value is false.
@@ -78,6 +88,15 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
         | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines ColumnSplit Component.
+ *
+ * @param { function } [content_] - container
+ * @returns { ColumnSplitAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function ColumnSplit(

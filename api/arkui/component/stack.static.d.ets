@@ -39,6 +39,16 @@ export declare interface StackOptions {
      */
     alignContent?: Alignment;
 }
+
+/**
+ * The StackAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface StackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface StackAttribute extends CommonMethod {
     /**
      * Called when the alignment of items in the container is set.
@@ -71,6 +81,16 @@ export declare interface StackAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines Stack Component.
+ *
+ * @param { StackOptions } [options] - Stack options.
+ * @param { function } [content_] - container
+ * @returns { StackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Stack(

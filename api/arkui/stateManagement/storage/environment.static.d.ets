@@ -21,7 +21,7 @@
  */
 
 /**
- * EnvProps object
+ * Defining the EnvPropsOptions interface
  *
  * @interface EnvPropsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -81,7 +81,7 @@ export declare class Environment {
   static envProps(props: EnvPropsOptions[]): void;
 
   /**
-   * returns an Array<string> of all environment property keys
+   * returns an array of all environment property keys
    *
    * @returns { Array<string> } all environment property keys
    * @static

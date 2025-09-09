@@ -322,6 +322,14 @@ declare namespace uiObserver {
          * @since 20
          */
         pathStack: NavPathStack;
+        /**
+        * The uniqueId of the navigation.
+        *
+        * @type { ?int }
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @since 20
+        */
+        uniqueId?: int;
     }
     /**
      * ScrollEvent info.

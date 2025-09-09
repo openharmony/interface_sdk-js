@@ -272,6 +272,16 @@ export declare interface GridRowOptions {
      */
     direction?: GridRowDirection;
 }
+
+/**
+ * The GridRowAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface GridRowAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface GridRowAttribute extends CommonMethod {
     /**
      * Callback triggered when the breakpoint changes, breakpoints value can be xs, sm, md, lg, xl, xxl
@@ -303,6 +313,16 @@ export declare interface GridRowAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines GridRow Component.
+ *
+ * @param { GridRowOptions } [option] - GridRow options.
+ * @param { function } [content_] - container
+ * @returns { GridRowAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function GridRow(

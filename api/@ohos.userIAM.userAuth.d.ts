@@ -57,8 +57,7 @@ declare namespace userAuth {
    *
    * @constant
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @atomicservice
-   * @since 20
+   * @since 22
    * @arkts 1.2
    */
   const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
@@ -1562,9 +1561,8 @@ declare namespace userAuth {
    * @typedef { function } AuthCallbackOnResultFunc
    * @param { UserAuthResult } result - Authentication result information.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
-   * @atomicservice
    * @since 22
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   type AuthCallbackOnResultFunc = (result: UserAuthResult) => void;
 
@@ -1581,7 +1579,7 @@ declare namespace userAuth {
    * @interface IAuthCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since arkts {'1.1':'12','1.2':'22'}
    * @arkts 1.1&1.2
    */
   interface IAuthCallback {
@@ -1602,15 +1600,16 @@ declare namespace userAuth {
      * @atomicservice
      * @since 12
      */
+    onResult(result: UserAuthResult): void;
+
     /**
      * Called to return the authentication result. If the authentication is successful,
      * UserAuthResult contains the token information.
      *
      * @type { AuthCallbackOnResultFunc }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
-     * @atomicservice
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.2
      */
     onResult: AuthCallbackOnResultFunc;
   }
@@ -2190,7 +2189,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 22
-   * @arkts 1.1&1.2
+   * @arkts 1.2
    */
   type AuthWidgetCallbackSendCommandFunc = (cmdData: string) => void;
 
@@ -2201,7 +2200,7 @@ declare namespace userAuth {
    * @interface IAuthWidgetCallback
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
+   * @since arkts {'1.1':'10','1.2':'22'}
    * @arkts 1.1&1.2
    */
   interface IAuthWidgetCallback {
@@ -2213,6 +2212,8 @@ declare namespace userAuth {
      * @systemapi Hide this for inner system use.
      * @since 10
      */
+    sendCommand(cmdData: string): void;
+
     /**
      * Called to return the command sent from the user authentication framework to the user authentication widget.
      *
@@ -2220,7 +2221,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.2
      */
     sendCommand: AuthWidgetCallbackSendCommandFunc;
   }

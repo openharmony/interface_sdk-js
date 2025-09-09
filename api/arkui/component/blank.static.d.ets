@@ -20,6 +20,16 @@
 import { ResourceColor } from './units';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
+
+/**
+ * The BlankAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface BlankAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface BlankAttribute extends CommonMethod {
     /**
      * Sets the color to fill the blank.<br>
@@ -42,6 +52,16 @@ export declare interface BlankAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines Blank Component.
+ *
+ * @param { number | string } [min] - Blank options.
+ * @param { function } [content_] - container
+ * @returns { BlankAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Blank(

@@ -24,7 +24,7 @@ import { Resource } from './global/resource';
 /*** endif */
 
 /**
- * The Text module provides a set of APIs for text layout and font management. 
+ * The Text module provides a set of APIs for text layout and font management.
  * It aims to deliver high-quality typesetting through features like character-to-glyph
  * conversion, kerning, line breaking, alignment, and text measurement. Additionally,
  * it provides font management capabilities, including font registration, font descriptors,
@@ -1940,7 +1940,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
-  interface TextBox{
+  interface TextBox {
     /**
      * Information about the rectangle.
      * @type { common2D.Rect }

@@ -31,6 +31,7 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 export declare interface NodeContainerAttribute extends CommonMethod {
     /**
@@ -54,6 +55,7 @@ export declare interface NodeContainerAttribute extends CommonMethod {
  * @return { NodeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
 @memo
 @ComponentBuilder

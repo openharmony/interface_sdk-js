@@ -19,6 +19,9 @@
  * @arkts 1.2
  */
 
+
+
+
 import { FontStyle, FontWeight, TextAlign, TextOverflow, TextCase, WordBreak } from './arkui/component/enums'
 import { SizeOptions } from './arkui/component/units';
 import { Resource } from './global/resource'
@@ -31,7 +34,6 @@ import { Resource } from './global/resource'
  * @since 20
  */
 export interface MeasureOptions {
-
   /**
    * Text to display.
    *
@@ -174,8 +176,7 @@ export interface MeasureOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export declare class MeasureText {
-
+export default declare class MeasureText {
   /**
    * Displays the textWidth.
    *

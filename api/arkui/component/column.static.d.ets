@@ -63,6 +63,16 @@ export interface ColumnOptionsV2 {
      */
     space?: SpaceType;
 }
+
+/**
+ * The ColumnAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface ColumnAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface ColumnAttribute extends CommonMethod {
     /**
      * Sets the alignment format of the subassembly in the horizontal direction.
@@ -112,6 +122,16 @@ export declare interface ColumnAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
+/**
+ * Defines Column Component.
+ *
+ * @param { ColumnOptions | ColumnOptions | ColumnOptionsV2 } [options] - Column options.
+ * @param { function } [content_] - container
+ * @returns { ColumnAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function Column(

@@ -54,7 +54,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  content: ResourceStr;
+  public content: ResourceStr;
   /**
    * Sets the Button Callback.
    *
@@ -63,7 +63,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  action?: AdvancedDialogV2ButtonAction;
+  public action?: AdvancedDialogV2ButtonAction;
   /**
    * Sets the background color of a button.
    *
@@ -72,7 +72,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  background?: ColorMetrics;
+  public background?: ColorMetrics;
   /**
    * Sets the Button Text Color.
    *
@@ -81,7 +81,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  fontColor?: ColorMetrics;
+  public fontColor?: ColorMetrics;
   /**
    * Describes the Button style.
    *
@@ -91,7 +91,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  buttonStyle?: ButtonStyleMode;
+  public buttonStyle?: ButtonStyleMode;
   /**
    * Describes the Button role.
    *
@@ -101,7 +101,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  role?: ButtonRole;
+  public role?: ButtonRole;
   /**
    * Set the default focus of a button.
    *
@@ -111,7 +111,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  defaultFocus?: boolean;
+  public defaultFocus?: boolean;
   /**
    * Set the availability of the button.
    *
@@ -121,7 +121,7 @@ export declare class AdvancedDialogV2Button {
    * @since 20
    */
   @Trace
-  enabled?: boolean;
+  public enabled?: boolean;
   /**
    * The constructor used to create a AdvancedDialogV2Button object.
    *
@@ -368,12 +368,12 @@ export declare struct SelectDialogV2 {
   /**
    * Sets the SelectDialogV2 selected index.
    *
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   @Param
-  selectedIndex?: number;
+  selectedIndex?: int;
   /**
    * Sets the SelectDialogV2 confirm button.
    *

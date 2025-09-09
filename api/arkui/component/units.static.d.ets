@@ -25,6 +25,7 @@ import { Color, BorderStyle, FontWeight, FontStyle, DividerMode } from './enums'
 import { OutlineStyle, AttributeModifier, CommonMethod } from './common';
 import { LengthMetricsUnit as _LengthMetricsUnit, LengthMetrics as _LengthMetrics, ColorMetrics as _ColorMetrics } from '../Graphics';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import _drawing from '../../../api/@ohos.graphics.drawing'
 /**
  * Defines the data type of the interface restriction.
  *
@@ -114,6 +115,15 @@ export type Dimension = PX | VP | FP | LPX | Percentage | Resource;
  * @since 20
  */
 export type ResourceStr = string | Resource;
+
+/**
+ * Defines drawing canvas.
+ *
+ * @typedef { _drawing.Canvas } DrawingCanvas
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export type DrawingCanvas = _drawing.Canvas;
 
 /**
  * Defines the padding property.

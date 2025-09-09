@@ -219,6 +219,16 @@ export declare interface LocalizedBarrierStyle {
      */
     referencedId: Array<string>;
 }
+
+/**
+ * The RelativeContainerAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface RelativeContainerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface RelativeContainerAttribute extends CommonMethod {
     /**
      * Specifies guideLines of relativeContainer
@@ -259,6 +269,15 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines RelativeContainer Component.
+ *
+ * @param { function } [content_] - container
+ * @returns { RelativeContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function RelativeContainer(

@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -71,7 +72,7 @@ declare namespace pluginComponentManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>  
+  export type KVObject = Record<string, int | long | double | string | boolean | Array<KVObject> | KVObject>;
   /**
    * Plugin component push parameters.
    *

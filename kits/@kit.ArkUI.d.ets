@@ -17,17 +17,76 @@
  * @file
  * @kit ArkUI
  * @arkts 1.2
-*/
+ */
 
-import promptAction from '@ohos.promptAction';
+import promptAction, {
+  LevelMode,
+  ImmersiveMode,
+  LevelOrder,
+} from '@ohos.promptAction';
 import window from '@ohos.window';
 import display from '@ohos.display';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
 import uiExtensionHost from '@ohos.uiExtensionHost';
-export * from '@ohos.arkui.node';
-export { promptAction };
+import componentSnapshot from '@ohos.arkui.componentSnapshot';
+import componentUtils from '@ohos.arkui.componentUtils';
+import dragController from '@ohos.arkui.dragController';
+import uiObserver from '@ohos.arkui.observer';
+import performanceMonitor from '@ohos.arkui.performanceMonitor';
+import curves from '@ohos.curves';
+import matrix4 from '@ohos.matrix4';
+import mediaquery from '@ohos.mediaquery';
+import pluginComponentManager, {
+  PluginComponentTemplate,
+} from '@ohos.pluginComponent';
+import router from '@ohos.router';
+import SystemMediaQuery, {
+  MediaQueryEvent,
+  MediaQueryList,
+} from '@system.mediaquery';
+import {
+  GETINSPECTORBYKEY as getInspectorByKey,
+  GETINSPECTORTREE as getInspectorTree,
+  SENDEVENTBYKEY as sendEventByKey,
+} from '@ohos.arkui.inspector';
+
+export * from '@ohos.animator';
 export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.drawableDescriptor';
+export * from '@ohos.arkui.modifier';
+export * from '@ohos.arkui.node';
+export * from '@ohos.arkui.shape';
 export * from '@ohos.arkui.stateManagement';
-export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
-export { window, display, screen, screenshot, uiExtensionHost };
+export * from '@ohos.arkui.theme';
+export * from '@ohos.arkui.UIContext';
+export * from '@ohos.measure';
+
+export {
+  promptAction,
+  window,
+  display,
+  screen,
+  screenshot,
+  uiExtensionHost,
+  componentSnapshot,
+  componentUtils,
+  dragController,
+  uiObserver,
+  performanceMonitor,
+  curves,
+  matrix4,
+  mediaquery,
+  pluginComponentManager,
+  PluginComponentTemplate,
+  LevelMode,
+  ImmersiveMode,
+  LevelOrder,
+  router,
+  SystemMediaQuery,
+  MediaQueryEvent,
+  MediaQueryList,
+  getInspectorByKey,
+  getInspectorTree,
+  sendEventByKey,
+};

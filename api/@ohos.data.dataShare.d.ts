@@ -457,8 +457,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     /**
      * Specifies the predicates of the template.
@@ -576,8 +575,7 @@ declare namespace dataShare {
   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
   * @systemapi
   * @stagemodelonly
-  * @since arkts {'1.1':'12', '1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
  /**
   * Enumerates the data change types.
@@ -595,8 +593,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Data inserted.
@@ -604,7 +601,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     INSERT = 0,
 
@@ -614,8 +610,7 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @systemapi
     * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * Data deleted.
@@ -623,7 +618,6 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
     * @since 20
-    * @arkts 1.1&1.2
     */
     DELETE,
     /**
@@ -632,8 +626,7 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @systemapi
     * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * Data updated.
@@ -641,7 +634,6 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @stagemodelonly
     * @since 20
-    * @arkts 1.1&1.2
     */
     UPDATE
   }
@@ -1823,7 +1815,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   function createDataProxyHandle(): Promise<DataProxyHandle>;
 
@@ -1834,7 +1825,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface ProxyData {
     /**
@@ -1844,7 +1834,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -1857,7 +1846,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     value?: ValueType;
 
@@ -1872,7 +1860,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     allowList?: string[];
   }
@@ -1884,7 +1871,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataProxyChangeInfo {
     /**
@@ -1894,7 +1880,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: ChangeType;
 
@@ -1905,7 +1890,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -1916,7 +1900,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     value: ValueType;
   }
@@ -1928,7 +1911,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum DataProxyErrorCode {
     /**
@@ -1937,7 +1919,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     SUCCESS = 0,
     
@@ -1947,7 +1928,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     URI_NOT_EXIST = 1,
 
@@ -1957,7 +1937,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     NO_PERMISSION = 2,
 
@@ -1967,7 +1946,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     OVER_LIMIT = 3
   }
@@ -1979,7 +1957,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataProxyResult {
     /**
@@ -1989,7 +1966,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -1999,7 +1975,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     result: DataProxyErrorCode;
   }
@@ -2011,7 +1986,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataProxyGetResult {
     /**
@@ -2021,7 +1995,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     uri: string;
 
@@ -2032,7 +2005,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     result: DataProxyErrorCode;
 
@@ -2044,7 +2016,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     value: ValueType | undefined;
 
@@ -2057,7 +2028,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     allowList: string[] | undefined;
   }
@@ -2069,7 +2039,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   enum DataProxyType {
     /**
@@ -2078,7 +2047,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     SHARED_CONFIG = 0
   }
@@ -2090,7 +2058,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataProxyConfig {
     /**
@@ -2100,7 +2067,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     type: DataProxyType;
   }
@@ -2112,7 +2078,6 @@ declare namespace dataShare {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20
-   * @arkts 1.1&1.2
    */
   interface DataProxyHandle {
     /**
@@ -2128,7 +2093,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     on(
       event: 'dataChange',
@@ -2150,7 +2114,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     off(
       event: 'dataChange',
@@ -2173,7 +2136,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2189,7 +2151,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>;
 
@@ -2205,7 +2166,6 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @stagemodelonly
      * @since 20
-     * @arkts 1.1&1.2
      */
     get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>;
   }

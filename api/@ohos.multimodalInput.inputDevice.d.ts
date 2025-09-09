@@ -213,7 +213,8 @@ declare namespace inputDevice {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(type: 'change', listener?: Callback<DeviceListener>): void;
 
@@ -464,31 +465,31 @@ declare namespace inputDevice {
    * Obtains the IDs of all input devices.
    * This API uses an asynchronous callback to return the result.
    * 
-   * @param { AsyncCallback<Array<number>> } callback - Callback used to return the IDs of all input devices. id is the unique ID of an input device.
+   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the IDs of all input devices. id is the unique ID of an input device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDeviceList(callback: AsyncCallback<Array<number>>): void;
+  function getDeviceList(callback: AsyncCallback<Array<int>>): void;
 
   /**
    * Obtains the IDs of all input devices.
    * This API uses a promise to return the result.
    * 
-   * @returns { Promise<Array<number>> } - Promise used to return the IDs of all input devices.
+   * @returns { Promise<Array<int>> } - Promise used to return the IDs of all input devices.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDeviceList(): Promise<Array<number>>;
+  function getDeviceList(): Promise<Array<int>>;
 
   /**
    * Obtains information about the specified input device.
    * This API uses an asynchronous callback to return the result.
    * 
-   * @param { number } deviceId - ID of the input device.
+   * @param { int } deviceId - ID of the input device.
    * @param { AsyncCallback<InputDeviceData> } callback - Callback used to return information about the input device, 
    * including device ID, name, supported source, physical address, version information, and product information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -497,13 +498,13 @@ declare namespace inputDevice {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
+  function getDeviceInfo(deviceId: int, callback: AsyncCallback<InputDeviceData>): void;
 
   /**
    * Obtains the information about the input device with the specified ID.
    * This API uses a promise to return the result.
    * 
-   * @param { number } deviceId - ID of the input device.
+   * @param { int } deviceId - ID of the input device.
    * @returns { Promise<InputDeviceData> } Promise used to return the information about the input device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -511,7 +512,7 @@ declare namespace inputDevice {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getDeviceInfo(deviceId: number): Promise<InputDeviceData>;
+  function getDeviceInfo(deviceId: int): Promise<InputDeviceData>;
 
   /**
    * Obtains information about the specified input device.

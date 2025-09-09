@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
 import { BorderStyle } from './component/enums';
 
 /**
@@ -480,21 +480,21 @@ export declare class RenderNode {
   /**
    * Set border radius of the RenderNode.
    *
-   * @param { BorderRadiuses } radius - the border radius of the RenderNode.
+   * @param { NodeBorderRadiuses } radius - the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set borderRadius(radius: BorderRadiuses);
+  set borderRadius(radius: NodeBorderRadiuses);
 
   /**
    * Get border radius of the RenderNode.
    *
-   * @returns { BorderRadiuses } - Returns the border radius of the RenderNode.
+   * @returns { NodeBorderRadiuses } - Returns the border radius of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get borderRadius(): BorderRadiuses;
+  get borderRadius(): NodeBorderRadiuses | undefined;
 
   /**
    * Set shape mask of the RenderNode.

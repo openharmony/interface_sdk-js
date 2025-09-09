@@ -36,43 +36,43 @@ export declare class SelectTitleBarMenuItem {
   /**
    * Icon resource for this menu item.
    *
-   * @type { ResourceStr }.
+   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  value: ResourceStr;
+  public value: ResourceStr;
   /**
    * Symbol resource for this menu item.
    *
-   * @type { ?SymbolGlyphModifier }.
+   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  symbolStyle?: SymbolGlyphModifier;
+  public symbolStyle?: SymbolGlyphModifier;
   /**
    * Icon label for this menu item.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  label?: ResourceStr;
+  public label?: ResourceStr;
   /**
    * Whether to enable this menu item.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  isEnabled?: boolean;
+  public isEnabled?: boolean;
   /**
    * Callback function when click on this menu item.
    *
-   * @type { ?function }.
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  action?: () => void;
+  public action?: () => void;
   /**
    * The accessibilityText of this menu item.
    *
@@ -80,7 +80,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityText?: ResourceStr;
+  public accessibilityText?: ResourceStr;
   /**
    * The accessibilityDescription of this menu item.
    *
@@ -88,7 +88,7 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityDescription?: ResourceStr;
+  public accessibilityDescription?: ResourceStr;
   /**
    * The accessibilityLevel of this menu item.
    *
@@ -97,16 +97,17 @@ export declare class SelectTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  accessibilityLevel?: string;
+  public accessibilityLevel?: string;
 }
 /**
  * Callback method when an option is selected.
  * @typedef { function } OnSelectedCallback
- * @param { number } index -the result of option.
+ * @param { int } index -the result of option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
+ * @noninterop
  */
-declare type OnSelectedCallback = (index: number) => void;
+declare type OnSelectedCallback = (index: int) => void;
 /**
  * Declaration of the selectable title bar.
  * @struct { SelectTitleBar }
@@ -120,16 +121,16 @@ export declare struct SelectTitleBar {
    * Selected index of the initial options in the drop-down menu. The index of the first item is 0.
    * If this attribute is not set, the default value is -1. Which means, no menu item is selected.
    *
-   * @type { number }.
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  @PropRef 
-  selected: number;
+  @PropRef
+  selected: int;
   /**
    * Options inside the drop-down list.
    *
-   * @type { Array<SelectOption> }.
+   * @type { Array<SelectOption> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -137,7 +138,7 @@ export declare struct SelectTitleBar {
   /**
    * Menu items on the right side.
    *
-   * @type { ?Array<SelectTitleBarMenuItem> }.
+   * @type { ?Array<SelectTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -145,23 +146,23 @@ export declare struct SelectTitleBar {
   /**
    * Sub-title of this title bar.
    *
-   * @type { ?ResourceStr }.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
   subtitle?: ResourceStr;
   /**
-   * The number displayed in a badge.
+   * The interger displayed in a badge.
    *
-   * @type { ?number }.
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  badgeValue?: number;
+  badgeValue?: int;
   /**
    * Whether to hide the back arrow at the left side.
    *
-   * @type { ?boolean }.
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -169,7 +170,7 @@ export declare struct SelectTitleBar {
   /**
    * Callback function when an option is selected
    *
-   * @type { ?OnSelectedCallback }.
+   * @type { ?OnSelectedCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */

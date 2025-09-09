@@ -26,6 +26,12 @@ export { MemoState } from './memorize/state'
 @Retention({policy: "SOURCE"})
 export declare @interface memo {};
 
+/**
+ * Defined ComponentBuilder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}
 

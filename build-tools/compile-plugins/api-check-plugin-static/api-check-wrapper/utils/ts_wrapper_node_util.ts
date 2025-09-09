@@ -214,7 +214,7 @@ function handleFunction(node: arkts.AstNode, func: (node: any, ...args: any[]) =
   if (node instanceof arkts.Expression) {
     exporssionCount++;
   }
-  if (node == null || node == undefined) {
+  if (node === null || node === undefined) {
     return;
   }
 

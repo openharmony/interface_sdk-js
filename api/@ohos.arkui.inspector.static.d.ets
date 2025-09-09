@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -107,17 +108,6 @@ declare namespace inspector {
         overload off { offLayout, offDraw, offDrawChildren }
     }
     
-    /**
-     * Sets the component after layout or draw criteria and returns the corresponding listening handle
-     * @param { string } id - component id.
-     * @returns { ComponentObserver | undefined } create listener for observer component event.
-     *     if unable to obtain current ui context, the function will return undefined.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
-     * @deprecated since 18
-     * @useinstead ohos.arkui.UIContext.UIInspector#createComponentObserver
-     */
-    function createComponentObserver(id: string): ComponentObserver;
     /**
      * Obtains all attributes of the component with the specified ID.
      *

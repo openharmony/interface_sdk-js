@@ -362,11 +362,10 @@ export declare interface PasteEvent {
     /**
      * Override system paste event.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    preventDefault?: VoidCallback;
+    preventDefault(): void;
 }
 /**
  * Defines the text span.
@@ -2124,11 +2123,10 @@ export declare interface CutEvent {
     /**
      * Prevent system cut event.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    preventDefault?: VoidCallback;
+    preventDefault(): void;
 }
 /**
  * the callback of copy event.
@@ -2140,11 +2138,10 @@ export declare interface CopyEvent {
     /**
      * Prevent system cut event.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    preventDefault?: VoidCallback;
+    preventDefault(): void;
 }
 /**
  * RichEditor url style.

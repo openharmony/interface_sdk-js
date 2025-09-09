@@ -109,6 +109,16 @@ export declare interface GridColOptions {
      */
     order?: number | GridColColumnOption;
 }
+
+/**
+ * The GridColAttribute.
+ * 
+ * @extends CommonMethod
+ * @interface GridColAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 export declare interface GridColAttribute extends CommonMethod {
     /**
      * Sets the span of current gird-container item.
@@ -149,6 +159,16 @@ export declare interface GridColAttribute extends CommonMethod {
         | undefined): this;
 }
 
+/**
+ * Defines GridCol Component.
+ *
+ * @param { GridColOptions } [option] - GridCol options.
+ * @param { function } [content_] - container
+ * @returns { GridColAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ * @noninterop
+ */
 @memo
 @ComponentBuilder
 export declare function GridCol(
