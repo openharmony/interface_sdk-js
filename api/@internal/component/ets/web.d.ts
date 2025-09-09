@@ -10135,7 +10135,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 21
    * @arkts 1.1&1.2
    */
-  onSafeBrowsingCheckFinish(callback: OnSafeBrowsingCheckResultCallback): WebAttribute
+  onSafeBrowsingCheckFinish(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
    * Called when the load committed.
