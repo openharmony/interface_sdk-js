@@ -34,8 +34,8 @@ import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * @namespace pasteboard
  * @syscap SystemCapability.MiscServices.Pasteboard
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace pasteboard {
   /**
@@ -49,8 +49,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   const MAX_RECORD_NUM = 512;
   /**
@@ -64,8 +64,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const MIMETYPE_TEXT_HTML = 'text/html';
   /**
@@ -79,8 +79,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
   /**
@@ -94,8 +94,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
@@ -109,8 +109,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const MIMETYPE_TEXT_URI = 'text/uri';
   /**
@@ -124,8 +124,8 @@ declare namespace pasteboard {
    * @constant
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
 
@@ -140,8 +140,8 @@ declare namespace pasteboard {
    * @typedef { string | image.PixelMap | Want | ArrayBuffer }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
 
@@ -150,7 +150,7 @@ declare namespace pasteboard {
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
    */
@@ -161,7 +161,7 @@ declare namespace pasteboard {
    * @param { Want } want - To save the want of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
    */
@@ -172,7 +172,7 @@ declare namespace pasteboard {
    * @param { string } text - To save the text of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
    */
@@ -183,7 +183,7 @@ declare namespace pasteboard {
    * @param { string } uri - To save the uri of content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createData
    */
@@ -210,8 +210,8 @@ declare namespace pasteboard {
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function createData(mimeType: string, value: ValueType): PasteData;
 
@@ -223,8 +223,8 @@ declare namespace pasteboard {
    *    2. Incorrect parameters types;
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since arkts {'1.1':'14','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createData(data: Record<string, ValueType>): PasteData;
 
@@ -233,7 +233,7 @@ declare namespace pasteboard {
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
@@ -244,7 +244,7 @@ declare namespace pasteboard {
    * @param { Want } want - To save the want of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
@@ -255,7 +255,7 @@ declare namespace pasteboard {
    * @param { string } text - To save the text of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
@@ -266,7 +266,7 @@ declare namespace pasteboard {
    * @param { string } uri - To save the uri of content.
    * @returns { PasteDataRecord } The content of a new record
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.pasteboard.pasteboard#createRecord
    */
@@ -293,8 +293,8 @@ declare namespace pasteboard {
    *    3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 22 static
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
 
@@ -309,8 +309,8 @@ declare namespace pasteboard {
    * @returns { SystemPasteboard } The system clipboard object
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getSystemPasteboard(): SystemPasteboard;
 
@@ -325,8 +325,8 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum ShareOption {
     /**
@@ -338,8 +338,8 @@ declare namespace pasteboard {
      * INAPP indicates that only intra-application pasting is allowed. 
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     INAPP,
     /**
@@ -351,8 +351,8 @@ declare namespace pasteboard {
      * LOCALDEVICE indicates that paste is allowed in any application.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     LOCALDEVICE,
     /**
@@ -364,7 +364,7 @@ declare namespace pasteboard {
      * CROSSDEVICE indicates that paste is allowed in any application across devices.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      * @deprecated since 12
      */
     CROSSDEVICE
@@ -374,28 +374,28 @@ declare namespace pasteboard {
    * Enumerates the patterns allowed in the system pasteboard.
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   enum Pattern {
     /**
      * URL pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     URL = 0,
     /**
      * Number pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     NUMBER = 1,
     /**
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 13
+     * @since 13 dynamic
      */
     EMAIL_ADDRESS = 2,
   }
@@ -413,8 +413,8 @@ declare namespace pasteboard {
    * @interface PasteDataProperty
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface PasteDataProperty {
     /**
@@ -428,7 +428,7 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     additions: {
       [key: string]: object
@@ -437,8 +437,7 @@ declare namespace pasteboard {
      * additional property data. key-value pairs.
      * @type { Record<string, RecordData> }
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 22
-     * @arkts 1.2
+     * @since 22 static
      */
     additions: Record<string, RecordData>;
     /**
@@ -454,8 +453,8 @@ declare namespace pasteboard {
      * @readonly
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     readonly mimeTypes: Array<string>;
     /**
@@ -469,8 +468,8 @@ declare namespace pasteboard {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     tag: string;
     /**
@@ -486,8 +485,8 @@ declare namespace pasteboard {
      * @readonly
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     readonly timestamp: long;
     /**
@@ -501,8 +500,8 @@ declare namespace pasteboard {
      * @type { boolean }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     localOnly: boolean;
     /**
@@ -518,8 +517,8 @@ declare namespace pasteboard {
      * @type { ShareOption }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     shareOption: ShareOption;
   }
@@ -535,8 +534,8 @@ declare namespace pasteboard {
    * @interface PasteDataRecord
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface PasteDataRecord {
     /**
@@ -550,8 +549,8 @@ declare namespace pasteboard {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     htmlText: string;
     /**
@@ -566,8 +565,8 @@ declare namespace pasteboard {
      * @type { Want }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     want: Want;
     /**
@@ -581,8 +580,8 @@ declare namespace pasteboard {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     mimeType: string;
     /**
@@ -596,8 +595,8 @@ declare namespace pasteboard {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     plainText: string;
     /**
@@ -611,8 +610,8 @@ declare namespace pasteboard {
      * @type { string }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     uri: string;
     /**
@@ -626,8 +625,8 @@ declare namespace pasteboard {
      * @type { image.PixelMap }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     pixelMap: image.PixelMap;
     /**
@@ -641,7 +640,7 @@ declare namespace pasteboard {
      * @type { object }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     data: {
       [mimeType: string]: ArrayBuffer
@@ -664,8 +663,7 @@ declare namespace pasteboard {
      * @type { Record<string, ArrayBuffer> }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     data: Record<string, ArrayBuffer>;
 
@@ -674,7 +672,7 @@ declare namespace pasteboard {
      * @param { AsyncCallback<string> } callback - the callback of convertToText.
      * @throws { BusinessError } 401 - Possible causes: Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
      */
@@ -684,7 +682,7 @@ declare namespace pasteboard {
      * Converts data in PasteData to text format.
      * @returns { Promise<string> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#convertToTextV9
      */
@@ -701,8 +699,8 @@ declare namespace pasteboard {
      * @returns { string } the string returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     toPlainText(): string;
 
@@ -714,8 +712,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     addEntry(type: string, value: ValueType): void;
 
@@ -727,8 +725,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     getValidTypes(types: Array<string>): Array<string>;
 
@@ -740,8 +738,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types;
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getData(type: string): Promise<ValueType>;
   }
@@ -757,15 +755,15 @@ declare namespace pasteboard {
    * @interface PasteData
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface PasteData {
     /**
      * Adds a Record for HTML text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_HTML in DataProperty.
      * @param { string } htmlText - To save the Html text content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
@@ -775,7 +773,7 @@ declare namespace pasteboard {
      * Adds an want Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_WANT in DataProperty.
      * @param { Want } want - To save the want content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
@@ -792,8 +790,8 @@ declare namespace pasteboard {
      * @param { PasteDataRecord } record - The content of a new record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     addRecord(record: PasteDataRecord): void;
 
@@ -801,7 +799,7 @@ declare namespace pasteboard {
      * Adds a Record for plain text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_PLAIN in DataProperty.
      * @param { string } text - To save the text of content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
@@ -811,7 +809,7 @@ declare namespace pasteboard {
      * Adds a URI Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_URI in DataProperty.
      * @param { string } uri - To save the uri of content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#addRecord
      */
@@ -847,8 +845,8 @@ declare namespace pasteboard {
      *    3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     addRecord(mimeType: string, value: ValueType): void;
 
@@ -863,8 +861,8 @@ declare namespace pasteboard {
      * @returns { Array<string> } type of array
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMimeTypes(): Array<string>;
 
@@ -879,8 +877,8 @@ declare namespace pasteboard {
      * @returns { string } type of htmltext
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getPrimaryHtml(): string;
 
@@ -895,8 +893,8 @@ declare namespace pasteboard {
      * @returns { Want } type of want
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getPrimaryWant(): Want;
 
@@ -911,8 +909,8 @@ declare namespace pasteboard {
      * @returns { string } type of mimetype
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getPrimaryMimeType(): string;
 
@@ -927,8 +925,8 @@ declare namespace pasteboard {
      * @returns { string } type of text
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getPrimaryText(): string;
 
@@ -943,8 +941,8 @@ declare namespace pasteboard {
      * @returns { string } type of uri
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getPrimaryUri(): string;
 
@@ -959,8 +957,8 @@ declare namespace pasteboard {
      * @returns { image.PixelMap } pixelMap
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     getPrimaryPixelMap(): image.PixelMap;
 
@@ -975,8 +973,8 @@ declare namespace pasteboard {
      * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getProperty(): PasteDataProperty;
 
@@ -995,8 +993,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setProperty(property: PasteDataProperty): void;
 
@@ -1007,7 +1005,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getRecord
      */
@@ -1032,8 +1030,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRecord(index: int): PasteDataRecord;
 
@@ -1048,8 +1046,8 @@ declare namespace pasteboard {
      * @returns { int } The number of the clipboard contents
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRecordCount(): int;
 
@@ -1064,8 +1062,8 @@ declare namespace pasteboard {
      * @returns { string } type of tag
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getTag(): string;
 
@@ -1076,7 +1074,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasType
      */
@@ -1099,8 +1097,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     hasType(mimeType: string): boolean;
 
@@ -1111,7 +1109,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#removeRecord
      */
@@ -1134,8 +1132,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     removeRecord(index: int): void;
 
@@ -1145,7 +1143,7 @@ declare namespace pasteboard {
      * @param { PasteDataRecord } record - the content of the replaced record.
      * @returns { boolean } The query returns True on success, or False on failure.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#replaceRecord
      */
@@ -1170,24 +1168,24 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     replaceRecord(index: int, record: PasteDataRecord): void;
 
     /**
      * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     pasteStart(): void;
 
     /**
      * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     pasteComplete(): void;
   }
@@ -1197,16 +1195,16 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   enum FileConflictOptions {
     /**
      * OVERWRITE overwrite when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     OVERWRITE,
 
@@ -1214,8 +1212,8 @@ declare namespace pasteboard {
      * SKIP skip when destUri has file with same name.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     SKIP
   }
@@ -1225,16 +1223,16 @@ declare namespace pasteboard {
    * @enum { number }
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   enum ProgressIndicator {
     /**
      * NONE getting data without system default progress indicator.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     NONE,
 
@@ -1242,8 +1240,8 @@ declare namespace pasteboard {
      * DEFALUT getting data with system default progress indicator.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     DEFAULT
   }
@@ -1253,8 +1251,8 @@ declare namespace pasteboard {
    * @interface ProgressInfo
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   interface ProgressInfo {
     /**
@@ -1262,8 +1260,8 @@ declare namespace pasteboard {
      * @type { int }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     progress: int;
   }
@@ -1273,8 +1271,8 @@ declare namespace pasteboard {
    * @typedef { function } ProgressListener
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   type ProgressListener = (progress: ProgressInfo) => void;
 
@@ -1283,16 +1281,16 @@ declare namespace pasteboard {
    * @class ProgressSignal
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   export class ProgressSignal {
     /**
      * Cancel the paste in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     cancel(): void;
   }
@@ -1302,8 +1300,8 @@ declare namespace pasteboard {
    * @interface GetDataParams
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 22 static
    */
   interface GetDataParams {
     /**
@@ -1312,8 +1310,8 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     destUri?: string;
 
@@ -1323,8 +1321,8 @@ declare namespace pasteboard {
      * @default FileConflictOptions.OVERWRITE
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     fileConflictOptions?: FileConflictOptions;
 
@@ -1333,8 +1331,8 @@ declare namespace pasteboard {
      * @type { ProgressIndicator }
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     progressIndicator: ProgressIndicator;
 
@@ -1344,8 +1342,8 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     progressListener?: ProgressListener;
 
@@ -1355,8 +1353,8 @@ declare namespace pasteboard {
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     progressSignal?: ProgressSignal;
   }
@@ -1372,8 +1370,8 @@ declare namespace pasteboard {
    * @interface SystemPasteboard
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface SystemPasteboard {
     /**
@@ -1383,8 +1381,8 @@ declare namespace pasteboard {
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     on(type: 'update', callback: () => void): void;
 
@@ -1396,8 +1394,8 @@ declare namespace pasteboard {
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     off(type: 'update', callback?: () => void): void;
 
@@ -1407,8 +1405,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     isRemoteData(): boolean;
 
@@ -1418,8 +1416,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getDataSource(): string;
 
@@ -1432,8 +1430,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasDataType(mimeType: string): boolean;
 
@@ -1443,7 +1441,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#clearData
      */
@@ -1453,7 +1451,7 @@ declare namespace pasteboard {
      * Clears the pasteboard.
      * @returns { Promise<void> } the promise returned by the clearData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#clearData
      */
@@ -1474,8 +1472,8 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clearData(callback: AsyncCallback<void>): void;
 
@@ -1490,8 +1488,8 @@ declare namespace pasteboard {
      * @returns { Promise<void> } the promise returned by the clearData.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clearData(): Promise<void>;
 
@@ -1500,8 +1498,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     clearDataSync(): void;
 
@@ -1511,7 +1509,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
      */
@@ -1521,7 +1519,7 @@ declare namespace pasteboard {
      * Gets pastedata from the system pasteboard.
      * @returns { Promise<PasteData> } the promise returned by the getData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#getData
      */
@@ -1557,8 +1555,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getData(callback: AsyncCallback<PasteData>): void;
 
@@ -1586,8 +1584,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getData(): Promise<PasteData>;
 
@@ -1608,8 +1606,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDataSync(): PasteData;
 
@@ -1619,7 +1617,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasData
      */
@@ -1629,7 +1627,7 @@ declare namespace pasteboard {
      * Checks whether there is content in the pasteboard.
      * @returns { Promise<boolean> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#hasData
      */
@@ -1650,8 +1648,8 @@ declare namespace pasteboard {
      *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasData(callback: AsyncCallback<boolean>): void;
 
@@ -1666,8 +1664,8 @@ declare namespace pasteboard {
      * @returns { Promise<boolean> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasData(): Promise<boolean>;
 
@@ -1677,8 +1675,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     hasDataSync(): boolean;
 
@@ -1689,7 +1687,7 @@ declare namespace pasteboard {
      * @throws { BusinessError } 401 - Possible causes: 1.  Mandatory parameters are left unspecified;
      *    2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#setData
      */
@@ -1700,7 +1698,7 @@ declare namespace pasteboard {
      * @param { PasteData } data - Containing the contents of the clipboard content object.
      * @returns { Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.pasteboard.pasteboard#setData
      */
@@ -1727,8 +1725,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
 
@@ -1753,8 +1751,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setData(data: PasteData): Promise<void>;
 
@@ -1766,8 +1764,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 22 static
      */
     setDataSync(data: PasteData): void;
 
@@ -1780,8 +1778,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
 
@@ -1794,8 +1792,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
 
@@ -1809,8 +1807,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
 
@@ -1822,8 +1820,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 22 static
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
 
@@ -1852,8 +1850,8 @@ declare namespace pasteboard {
      *                                                                   3. Parameter verification failed.
      * @throws { BusinessError } 12900006 - Settings already exist.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     setAppShareOptions(shareOptions: ShareOption): void;
 
@@ -1872,8 +1870,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *    permission required to call the API.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'14','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 22 static
      */
     removeAppShareOptions(): void;
 
@@ -1886,8 +1884,8 @@ declare namespace pasteboard {
      *                                                                   2. Incorrect parameter types;
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since arkts {'1.1':'13','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 22 static
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
 
@@ -1897,8 +1895,8 @@ declare namespace pasteboard {
      * @returns { Promise<Array<string>> } Promise used to return the MIME types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     getMimeTypes(): Promise<Array<string>>;
 
@@ -1908,8 +1906,8 @@ declare namespace pasteboard {
      * @returns { long } The number of Pasteboard data changes.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 22 static
      */
     getChangeCount(): long;
     
@@ -1929,8 +1927,8 @@ declare namespace pasteboard {
      * @throws { BusinessError } 12900010 - System error occurred during paste execution.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
-     * @since arkts {'1.1':'15','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 22 static
      */
     getDataWithProgress(params: GetDataParams): Promise<PasteData>;
   }

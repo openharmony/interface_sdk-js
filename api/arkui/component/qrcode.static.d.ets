@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
@@ -31,7 +30,7 @@ import { AttributeModifier } from "./common";
  * @extends CommonMethod
  * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface QRCodeAttribute extends CommonMethod {
@@ -41,7 +40,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -50,7 +49,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -58,7 +57,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { number | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default contentOpacity(value: number | Resource | undefined): this;
     /**
@@ -67,7 +66,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -78,7 +77,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

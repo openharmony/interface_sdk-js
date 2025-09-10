@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import Want from '../../@ohos.app.ability.Want'
@@ -32,7 +31,7 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
@@ -42,7 +41,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { Callback<TerminationInfo> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onTerminated(callback: Callback<TerminationInfo> | undefined): this;
   
@@ -52,7 +51,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { ErrorCallback<BusinessError> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onError(callback: ErrorCallback<BusinessError> | undefined): this;
 
@@ -62,7 +61,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -76,7 +75,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

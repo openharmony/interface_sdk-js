@@ -34,8 +34,8 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  * @interface CommonEventSubscriber
  * @syscap SystemCapability.Notification.CommonEvent
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface CommonEventSubscriber {
   /**
@@ -55,8 +55,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getCode(callback: AsyncCallback<int>): void;
 
@@ -73,8 +73,8 @@ export interface CommonEventSubscriber {
    * @returns { Promise<int> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getCode(): Promise<int>;
 
@@ -91,8 +91,8 @@ export interface CommonEventSubscriber {
    * @returns { int } Common event code.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getCodeSync(): int;
 
@@ -115,8 +115,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCode(code: int, callback: AsyncCallback<void>): void;
 
@@ -139,8 +139,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCode(code: int): Promise<void>;
 
@@ -161,8 +161,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCodeSync(code: int): void;
 
@@ -183,8 +183,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getData(callback: AsyncCallback<string>): void;
 
@@ -201,8 +201,8 @@ export interface CommonEventSubscriber {
    * @returns { Promise<string> } Promise used to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getData(): Promise<string>;
 
@@ -219,8 +219,8 @@ export interface CommonEventSubscriber {
    * @returns { string } Common event data.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getDataSync(): string;
 
@@ -243,8 +243,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setData(data: string, callback: AsyncCallback<void>): void;
 
@@ -267,8 +267,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setData(data: string): Promise<void>;
 
@@ -289,8 +289,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setDataSync(data: string): void;
 
@@ -315,8 +315,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCodeAndData(code: int, data: string, callback: AsyncCallback<void>): void;
 
@@ -341,8 +341,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCodeAndData(code: int, data: string): Promise<void>;
 
@@ -365,8 +365,8 @@ export interface CommonEventSubscriber {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   setCodeAndDataSync(code: int, data: string): void;
 
@@ -378,8 +378,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isOrderedCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -388,8 +388,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<boolean> } Promise used to return the result. Returns true if the common event is an ordered one; returns false otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isOrderedCommonEvent(): Promise<boolean>;
 
@@ -398,8 +398,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { boolean } Returns true if the common event is an ordered one; returns false otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   isOrderedCommonEventSync(): boolean;
 
@@ -410,8 +410,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isStickyCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -420,8 +420,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<boolean> } Promise used to return the result. Returns true if the common event is a sticky one; returns false otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isStickyCommonEvent(): Promise<boolean>;
 
@@ -430,8 +430,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { boolean } Returns true if the common event is a sticky one; returns false otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   isStickyCommonEventSync(): boolean;
 
@@ -443,8 +443,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   abortCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -454,8 +454,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   abortCommonEvent(): Promise<void>;
 
@@ -463,8 +463,8 @@ export interface CommonEventSubscriber {
    * Aborts an ordered common event when used with finishCommonEvent. After the abort, the common event is not sent to the next subscriber.
    *
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   abortCommonEventSync(): void;
 
@@ -476,8 +476,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   clearAbortCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -487,8 +487,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   clearAbortCommonEvent(): Promise<void>;
 
@@ -496,8 +496,8 @@ export interface CommonEventSubscriber {
    * Clears the aborted state of an ordered common event when used with finishCommonEvent. After the clearance, the common event is sent to the next subscriber.
    *
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   clearAbortCommonEventSync(): void;
 
@@ -509,8 +509,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   getAbortCommonEvent(callback: AsyncCallback<boolean>): void;
 
@@ -519,8 +519,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<boolean> } Checks whether this ordered common event should be aborted. This API uses a promise to return the result.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   getAbortCommonEvent(): Promise<boolean>;
 
@@ -529,8 +529,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { boolean } Returns true if the ordered common event is in the aborted state; returns false otherwise.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   getAbortCommonEventSync(): boolean;
 
@@ -552,8 +552,8 @@ export interface CommonEventSubscriber {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getSubscribeInfo(callback: AsyncCallback<CommonEventSubscribeInfo>): void;
 
@@ -571,8 +571,8 @@ export interface CommonEventSubscriber {
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo>;
 
@@ -589,8 +589,8 @@ export interface CommonEventSubscriber {
    * @returns { CommonEventSubscribeInfo } Subscriber information.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
 
@@ -601,8 +601,8 @@ export interface CommonEventSubscriber {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   finishCommonEvent(callback: AsyncCallback<void>): void;
 
@@ -611,8 +611,8 @@ export interface CommonEventSubscriber {
    *
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Notification.CommonEvent
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   finishCommonEvent(): Promise<void>;
 }

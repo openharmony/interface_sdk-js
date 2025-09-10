@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 
@@ -36,7 +36,7 @@ declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface WithThemeOptions {
     /**
@@ -46,7 +46,7 @@ declare interface WithThemeOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
     theme?: CustomTheme;
 
@@ -57,7 +57,7 @@ declare interface WithThemeOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since 12
+    * @since 12 dynamic
     */
     colorMode?: ThemeColorMode;
 }
@@ -71,7 +71,7 @@ declare interface WithThemeOptions {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 12
+* @since 12 dynamic
 * @noninterop
 */
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;
@@ -82,7 +82,7 @@ declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttrib
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 12
+* @since 12 dynamic
 * @noninterop
 */
 declare class WithThemeAttribute {
@@ -94,7 +94,7 @@ declare class WithThemeAttribute {
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 12
+* @since 12 dynamic
 * @noninterop
 */
 declare const WithTheme: WithThemeInterface;
@@ -105,7 +105,7 @@ declare const WithTheme: WithThemeInterface;
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since 12
+* @since 12 dynamic
 * @noninterop
 */
 declare const WithThemeInstance: WithThemeAttribute;

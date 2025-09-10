@@ -26,7 +26,7 @@ import { Callback } from './@ohos.base';
  * @enum { number }
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @test
  */
 declare enum PerfMetric {
@@ -35,7 +35,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   DURATION = 0,
@@ -45,7 +45,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   CPU_LOAD = 1,
@@ -55,7 +55,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   CPU_USAGE = 2,
@@ -65,7 +65,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   MEMORY_RSS = 3,
@@ -75,7 +75,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   MEMORY_PSS = 4,
@@ -94,7 +94,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   APP_START_RESPONSE_TIME = 5,
@@ -113,7 +113,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   APP_START_COMPLETE_TIME = 6,
@@ -129,7 +129,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   PAGE_SWITCH_COMPLETE_TIME = 7,
@@ -143,7 +143,7 @@ declare enum PerfMetric {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   LIST_SWIPE_FPS = 8,
@@ -155,7 +155,7 @@ declare enum PerfMetric {
  * @typedef PerfTestStrategy
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @test
  */
 declare interface PerfTestStrategy {
@@ -165,7 +165,7 @@ declare interface PerfTestStrategy {
    * @type { Array<PerfMetric> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   metrics: Array<PerfMetric>;
@@ -182,7 +182,7 @@ declare interface PerfTestStrategy {
    * @type { Callback<Callback<boolean>> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   actionCode: Callback<Callback<boolean>>;
@@ -199,7 +199,7 @@ declare interface PerfTestStrategy {
    * @type { ?Callback<Callback<boolean>> }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   resetCode?: Callback<Callback<boolean>>;
@@ -210,7 +210,7 @@ declare interface PerfTestStrategy {
    * @type { ?string }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   bundleName?: string;
@@ -221,7 +221,7 @@ declare interface PerfTestStrategy {
    * @type { ?number }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   iterations?: number;
@@ -232,7 +232,7 @@ declare interface PerfTestStrategy {
    * @type { ?number }
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   timeout?: number;
@@ -244,7 +244,7 @@ declare interface PerfTestStrategy {
  * @typedef PerfMeasureResult 
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @test
  */
 declare interface PerfMeasureResult {
@@ -255,7 +255,7 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */ 
   readonly metric: PerfMetric;
@@ -267,7 +267,7 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */ 
   readonly roundValues: Array<number>;
@@ -279,7 +279,7 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */ 
   readonly maximum: number;
@@ -291,7 +291,7 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */ 
   readonly minimum: number;
@@ -303,7 +303,7 @@ declare interface PerfMeasureResult {
    * @readonly
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */ 
   readonly average: number;
@@ -314,7 +314,7 @@ declare interface PerfMeasureResult {
  *
  * @syscap SystemCapability.Test.PerfTest
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @test
  */
 declare class PerfTest {
@@ -330,7 +330,7 @@ declare class PerfTest {
    * @static
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   static create(strategy: PerfTestStrategy): PerfTest;
@@ -346,7 +346,7 @@ declare class PerfTest {
    *
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   run(): Promise<void>;
@@ -362,7 +362,7 @@ declare class PerfTest {
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   getMeasureResult(metric: PerfMetric): PerfMeasureResult;
@@ -373,7 +373,7 @@ declare class PerfTest {
    * @throws { BusinessError } 32400007 - The API does not support concurrent calls.
    * @syscap SystemCapability.Test.PerfTest
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    * @test
    */
   destroy(): void;

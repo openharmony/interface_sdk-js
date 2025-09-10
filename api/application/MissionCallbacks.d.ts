@@ -24,7 +24,7 @@
  * @interface MissionCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 export interface MissionCallback {
   /**
@@ -34,7 +34,7 @@ export interface MissionCallback {
    * @param { string } deviceId - Indicates the deviceId mission changed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   notifyMissionsChanged(deviceId: string): void;
 
@@ -46,7 +46,7 @@ export interface MissionCallback {
    * @param { number } mission - Indicates the id of destroyed mission.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   notifySnapshot(deviceId: string, mission: number): void;
 
@@ -58,7 +58,7 @@ export interface MissionCallback {
    * @param { number } state - Indicates the state of network
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   notifyNetDisconnect(deviceId: string, state: number): void;
 }

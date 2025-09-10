@@ -39,8 +39,8 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class ExtensionContext extends Context {
   /**
@@ -58,8 +58,8 @@ declare class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   currentHapModuleInfo: HapModuleInfo;
 
@@ -78,8 +78,8 @@ declare class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   config: Configuration;
 
@@ -98,8 +98,8 @@ declare class ExtensionContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   extensionAbilityInfo: ExtensionAbilityInfo;
 }

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -27,7 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace configPolicy
  * @syscap SystemCapability.Customization.ConfigPolicy
  * @systemapi
- * @since arkts {'1.1':'8','1.2':'20'}
+ * @since 8 dynamic
+ * @since 20 static
  */
 declare namespace configPolicy {
   /**
@@ -36,7 +36,8 @@ declare namespace configPolicy {
    * @enum { number }
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum FollowXMode {
     /**
@@ -44,7 +45,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEFAULT = 0,
 
@@ -53,7 +55,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     NO_RULE_FOLLOWED = 1,
 
@@ -62,7 +65,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     SIM_DEFAULT = 10,
 
@@ -71,7 +75,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     SIM_1 = 11,
 
@@ -80,7 +85,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     SIM_2 = 12,
 
@@ -90,7 +96,8 @@ declare namespace configPolicy {
      *
      * @syscap SystemCapability.Customization.ConfigPolicy
      * @systemapi
-     * @since arkts {'1.1':'11','1.2':'20'}
+     * @since 11 dynamic
+     * @since 20 static
      */
     USER_DEFINED = 100
   }
@@ -104,7 +111,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getOneCfgFile(relPath: string, callback: AsyncCallback<string>): void;
 
@@ -118,7 +126,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, callback: AsyncCallback<string>): void;
 
@@ -133,7 +142,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<string>): void;
 
@@ -146,7 +156,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getOneCfgFile(relPath: string): Promise<string>;
 
@@ -161,7 +172,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getOneCfgFile(relPath: string, followMode: FollowXMode, extra?: string): Promise<string>;
 
@@ -176,7 +188,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getOneCfgFileSync(relPath: string, followMode?: FollowXMode, extra?: string): string;
 
@@ -189,7 +202,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getCfgFiles(relPath: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -203,7 +217,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, callback: AsyncCallback<Array<string>>): void;
 
@@ -218,7 +233,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, extra: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -231,7 +247,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getCfgFiles(relPath: string): Promise<Array<string>>;
 
@@ -246,7 +263,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getCfgFiles(relPath: string, followMode: FollowXMode, extra?: string): Promise<Array<string>>;
 
@@ -261,7 +279,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getCfgFilesSync(relPath: string, followMode?: FollowXMode, extra?: string): Array<string>;
 
@@ -273,7 +292,8 @@ declare namespace configPolicy {
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getCfgDirList(callback: AsyncCallback<Array<string>>): void;
 
@@ -292,7 +312,8 @@ declare namespace configPolicy {
    * @returns { Promise<Array<string>> } the promise returns the list of configuration level directories.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getCfgDirList(): Promise<Array<string>>;
 
@@ -311,7 +332,8 @@ declare namespace configPolicy {
    * @returns { Array<string> } the list of configuration level directories.
    * @syscap SystemCapability.Customization.ConfigPolicy
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12','1.2':'20'}
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getCfgDirListSync(): Array<string>;
 }

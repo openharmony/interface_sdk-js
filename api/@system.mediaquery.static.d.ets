@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -25,7 +24,7 @@
  *
  * @interface MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface MediaQueryEvent {
   
@@ -34,7 +33,7 @@ export interface MediaQueryEvent {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   matches: boolean;
 }
@@ -45,7 +44,7 @@ export interface MediaQueryEvent {
  *
  * @interface MediaQueryList
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface MediaQueryList {
   
@@ -55,7 +54,7 @@ export interface MediaQueryList {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   media?: string;
 
@@ -66,7 +65,7 @@ export interface MediaQueryList {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   matches?: boolean;
 
@@ -76,7 +75,7 @@ export interface MediaQueryList {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onchange?: (matches: boolean) => void;
 
@@ -87,7 +86,7 @@ export interface MediaQueryList {
    *
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   addListener(callback: (event: MediaQueryEvent) => void): void;
 
@@ -97,7 +96,7 @@ export interface MediaQueryList {
    *
    * @param { function } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
@@ -107,7 +106,7 @@ export interface MediaQueryList {
  * Defines the mediaquery interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 declare class MediaQuery {
   
@@ -117,7 +116,7 @@ declare class MediaQuery {
    * @param { string } condition
    * @returns { MediaQueryList }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static matchMedia(condition: string): MediaQueryList;
 }

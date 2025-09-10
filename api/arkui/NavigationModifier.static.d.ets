@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { AttributeModifier } from '@ohos.arkui.component';
 import { NavigationAttribute } from '@ohos.arkui.component';
@@ -27,7 +26,7 @@ import { NavigationAttribute } from '@ohos.arkui.component';
  *
  * @implements { NavigationAttribute, AttributeModifier<NavigationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class NavigationModifier implements NavigationAttribute, AttributeModifier<NavigationAttribute> {
@@ -36,7 +35,7 @@ export declare class NavigationModifier implements NavigationAttribute, Attribut
    * 
    * @param { NavigationAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   applyNormalAttribute(instance: NavigationAttribute): void;  
 }

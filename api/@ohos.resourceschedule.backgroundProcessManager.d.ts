@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BackgroundTasksKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -24,8 +23,8 @@
  *
  * @namespace backgroundProcessManager
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
- * @since arkts{ '1.1':'17','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 17 dynamic
+ * @since 20 static
  */
 declare namespace backgroundProcessManager {
     /**
@@ -33,16 +32,16 @@ declare namespace backgroundProcessManager {
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     export enum ProcessPriority {
         /**
          * Means the process has stopped working and in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since arkts{ '1.1':'17','1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 17 dynamic
+         * @since 20 static
          */
         PROCESS_BACKGROUND = 1,
 
@@ -50,8 +49,8 @@ declare namespace backgroundProcessManager {
          * Means the process is working in the background
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since arkts{ '1.1':'17','1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 17 dynamic
+         * @since 20 static
          */
         PROCESS_INACTIVE = 2,
     }
@@ -61,8 +60,7 @@ declare namespace backgroundProcessManager {
      *
      * @enum { int }
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     export enum PowerSaveMode {
         /**
@@ -70,8 +68,7 @@ declare namespace backgroundProcessManager {
          * This setting may be overridden by settings in Task Manager
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         EFFICIENCY_MODE = 1,
 
@@ -79,8 +76,7 @@ declare namespace backgroundProcessManager {
          * Means the process operating mode follows the system and may entry power saving mode
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         DEFAULT_MODE = 2,
     }
@@ -93,8 +89,8 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
@@ -104,8 +100,8 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - Indicates the pid of the process to be reset.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     function resetProcessPriority(pid: int): Promise<void>;
 
@@ -126,8 +122,7 @@ declare namespace backgroundProcessManager {
      * @throws { BusinessError } 31800004 - The setting failed due to system scheduling reasons.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     function setPowerSaveMode(pid: int, powerSaveMode: PowerSaveMode): Promise<void>;
 
@@ -142,8 +137,7 @@ declare namespace backgroundProcessManager {
      * <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     function isPowerSaveMode(pid: int): Promise<boolean>;
 }

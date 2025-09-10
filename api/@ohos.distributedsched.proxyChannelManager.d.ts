@@ -24,7 +24,7 @@
  *
  * @namespace proxyChannelManager
  * @syscap SystemCapability.DistributedSched.AppCollaboration
- * @since 20
+ * @since 20 dynamic
  */
 declare namespace proxyChannelManager {
     /**
@@ -41,7 +41,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @throws { BusinessError } 32390102 - Operation failed or Connection timed out.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function openProxyChannel(channelInfo: ChannelInfo): Promise<number>;
   
@@ -56,7 +56,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390100 - Internal error.
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function closeProxyChannel(channelId: number): void;
   
@@ -75,7 +75,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390103 - Data too long.
      * @throws { BusinessError } 32390104 - Send failed.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function sendData(channelId: number, data: ArrayBuffer): Promise<void>;
   
@@ -92,7 +92,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390100 - Internal error.
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function on(type: 'receiveData', channelId: number, callback: Callback<DataInfo>): void;
   
@@ -109,7 +109,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390100 - Internal error.
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function off(type: 'receiveData', channelId: number, callback?: Callback<DataInfo>): void;
   
@@ -126,7 +126,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390100 - Internal error.
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function on(type: 'channelStateChange', channelId: number, callback: Callback<ChannelStateInfo>): void;
     /**
@@ -142,7 +142,7 @@ declare namespace proxyChannelManager {
      * @throws { BusinessError } 32390100 - Internal error.
      * @throws { BusinessError } 32390101 - Call is restricted.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     function off(type: 'channelStateChange', channelId: number, callback?: Callback<ChannelStateInfo>): void;
   
@@ -151,14 +151,14 @@ declare namespace proxyChannelManager {
      *
      * @interface DataInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     interface DataInfo {
        /**
         * Data channel ID.
         * @type { number }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */        
        channelId: number;
   
@@ -166,7 +166,7 @@ declare namespace proxyChannelManager {
         * Received Data.
         * @type { ArrayBuffer }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */        
        data: ArrayBuffer;
     }
@@ -175,14 +175,14 @@ declare namespace proxyChannelManager {
      *
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     enum LinkType {
        /**
         * Link type is BR.
         *
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
         LINK_BR = 0,
     }
@@ -191,7 +191,7 @@ declare namespace proxyChannelManager {
      *
      * @interface ChannelInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     interface ChannelInfo {
        /**
@@ -199,7 +199,7 @@ declare namespace proxyChannelManager {
         *
         * @type { LinkType }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        linkType: LinkType;
        /**
@@ -207,7 +207,7 @@ declare namespace proxyChannelManager {
         *
         * @type { string }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        peerDevAddr: string;
        
@@ -216,7 +216,7 @@ declare namespace proxyChannelManager {
         *
         * @type { string }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        peerUuid: string;
     }
@@ -225,35 +225,35 @@ declare namespace proxyChannelManager {
      *
      * @enum { number }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     enum ChannelState {
        /**
         * Proxy channel disconnected, if the channel is not closed by business, it can recovery.
         *
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        CHANNEL_WAIT_RESUME = 0,
        /**
         * Proxy channel recovery.
         *
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        CHANNEL_RESUME = 1,
        /**
         * Software failure causes channel exception.
         *
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        CHANNEL_EXCEPTION_SOFTWARE_FAILED = 2,
        /**
         * BR unpairing causes proxy channel abnormal.
         *
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        CHANNEL_BR_NO_PAIRED = 3,
     }
@@ -262,14 +262,14 @@ declare namespace proxyChannelManager {
      *
      * @interface ChannelStateInfo
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @since 20
+     * @since 20 dynamic
      */
     interface ChannelStateInfo {
        /**
         * channel ID.
         * @type { number }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */        
        channelId: number;
        /**
@@ -277,7 +277,7 @@ declare namespace proxyChannelManager {
         *
         * @type { ChannelState }
         * @syscap SystemCapability.DistributedSched.AppCollaboration
-        * @since 20
+        * @since 20 dynamic
         */
        state: ChannelState;
     }

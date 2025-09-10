@@ -31,7 +31,7 @@
  * Declaration of the menu item on the right side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class TabTitleBarMenuItem {
@@ -46,7 +46,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value: ResourceStr;
 
@@ -55,7 +55,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -64,7 +64,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   label?: ResourceStr;
 
@@ -79,7 +79,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   isEnabled?: boolean;
 
@@ -94,7 +94,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?() => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   action?: () => void;
 
@@ -103,7 +103,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -112,7 +112,7 @@ export declare class TabTitleBarMenuItem {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -122,7 +122,7 @@ export declare class TabTitleBarMenuItem {
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -136,7 +136,7 @@ export declare class TabTitleBarMenuItem {
  * Declaration of the tab item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class TabTitleBarTabItem {
@@ -151,7 +151,7 @@ export declare class TabTitleBarTabItem {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   title: ResourceStr;
 
@@ -166,7 +166,7 @@ export declare class TabTitleBarTabItem {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   icon?: ResourceStr;
 
@@ -175,7 +175,7 @@ export declare class TabTitleBarTabItem {
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 }
@@ -189,7 +189,7 @@ export declare class TabTitleBarTabItem {
  * Declaration of the tabbed title bar.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 @Component
@@ -205,7 +205,7 @@ export declare struct TabTitleBar {
    * @type { ?Array<TabTitleBarItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   tabItems: Array<TabTitleBarTabItem>;
 
@@ -220,7 +220,7 @@ export declare struct TabTitleBar {
    * @type { Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   menuItems?: Array<TabTitleBarMenuItem>;
 
@@ -237,7 +237,7 @@ export declare struct TabTitleBar {
    * @type { () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @BuilderParam
   swiperContent: () => void;

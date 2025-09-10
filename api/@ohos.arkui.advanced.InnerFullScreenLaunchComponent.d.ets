@@ -25,7 +25,7 @@ import Callback from '@ohos.base';
  * Declare component InnerFullScreenLaunchComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 @Component
@@ -35,7 +35,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   @BuilderParam content: Callback<void>;
 
@@ -44,7 +44,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { LaunchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi  
-   * @since 12
+   * @since 12 dynamic
    */
   controller: LaunchController;
 
@@ -53,7 +53,7 @@ export declare struct InnerFullScreenLaunchComponent {
    * @type { ?Callback<Record<string, Object>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   onReceive?: Callback<Record<string, Object>>;
 }
@@ -62,7 +62,7 @@ export declare struct InnerFullScreenLaunchComponent {
  * Declare type LaunchController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare class LaunchController {
@@ -73,7 +73,7 @@ export declare class LaunchController {
    * @type { LaunchAtomicServiceCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    **/
   public launchAtomicService: LaunchAtomicServiceCallback;
 }
@@ -87,7 +87,7 @@ export declare class LaunchController {
  * @param { AtomicServiceOptions } [options] - options that could be empty.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  **/
 export declare type LaunchAtomicServiceCallback = (appId: string, options?: AtomicServiceOptions) => void;

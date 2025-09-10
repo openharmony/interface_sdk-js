@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor, Length, Position, Resource, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
@@ -30,28 +29,28 @@ import { AttributeModifier } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum BadgePosition {
     /**
      * The badge is displayed in the upper right corner of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     RightTop,
     /**
      * The badge is vertically centered on the right of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Right,
     /**
      * The badge is vertically centered on the left of the parent component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Left
 }
@@ -60,7 +59,7 @@ export declare enum BadgePosition {
  *
  * @interface BadgeStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BadgeStyle {
     /**
@@ -69,7 +68,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.White
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     color?: ResourceColor;
     /**
@@ -77,7 +76,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontSize?: number | string;
     /**
@@ -85,7 +84,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(number | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     badgeSize?: number | string;
     /**
@@ -94,7 +93,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     badgeColor?: ResourceColor;
     /**
@@ -103,7 +102,7 @@ export declare interface BadgeStyle {
      * @type { ?ResourceColor }
      * @default Color.Red
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderColor?: ResourceColor;
     /**
@@ -114,7 +113,7 @@ export declare interface BadgeStyle {
      * @type { ?Length }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderWidth?: Length;
     /**
@@ -122,7 +121,7 @@ export declare interface BadgeStyle {
      *
      * @type { ?(number | FontWeight | string) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontWeight?: number | FontWeight | string;
 }
@@ -131,7 +130,7 @@ export declare interface BadgeStyle {
  *
  * @interface BadgeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BadgeParam {
     /**
@@ -147,7 +146,7 @@ export declare interface BadgeParam {
      * @type { ?(BadgePosition | Position) }
      * @default BadgePosition.RightTop
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     position?: BadgePosition | Position;
     /**
@@ -155,7 +154,7 @@ export declare interface BadgeParam {
      *
      * @type { BadgeStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     style: BadgeStyle;
 }
@@ -165,7 +164,7 @@ export declare interface BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BadgeParamWithNumber extends BadgeParam {
     /**
@@ -181,7 +180,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     count: number;
     /**
@@ -197,7 +196,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
      * @type { ?number }
      * @default 99
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     maxCount?: number;
 }
@@ -207,7 +206,7 @@ export declare interface BadgeParamWithNumber extends BadgeParam {
  * @extends BadgeParam
  * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface BadgeParamWithString extends BadgeParam {
     /**
@@ -215,7 +214,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: string;
 }
@@ -225,7 +224,7 @@ export declare interface BadgeParamWithString extends BadgeParam {
  * @extends CommonMethod
  * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface BadgeAttribute extends CommonMethod {
@@ -235,7 +234,7 @@ export declare interface BadgeAttribute extends CommonMethod {
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -246,7 +245,7 @@ export declare interface BadgeAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { BadgeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

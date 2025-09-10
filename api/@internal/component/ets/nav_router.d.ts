@@ -33,7 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare interface RouteInfo {
@@ -52,7 +52,7 @@ declare interface RouteInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   name: string;
@@ -72,7 +72,7 @@ declare interface RouteInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   param?: unknown;
@@ -100,7 +100,7 @@ declare interface RouteInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  * @noninterop
  */
@@ -127,7 +127,7 @@ declare interface NavRouterInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   (): NavRouterAttribute;
@@ -149,7 +149,7 @@ declare interface NavRouterInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   (value: RouteInfo): NavRouterAttribute;
@@ -170,7 +170,7 @@ declare interface NavRouterInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  */
 declare enum NavRouteMode {
@@ -187,7 +187,7 @@ declare enum NavRouteMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   PUSH_WITH_RECREATE,
@@ -205,7 +205,7 @@ declare enum NavRouteMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   PUSH,
@@ -223,7 +223,7 @@ declare enum NavRouteMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   REPLACE
@@ -251,7 +251,7 @@ declare enum NavRouteMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  * @noninterop
  */
@@ -281,7 +281,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
@@ -303,7 +303,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    * @deprecated since 13
    */
   mode(mode: NavRouteMode): NavRouterAttribute;
@@ -328,7 +328,7 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  * @noninterop
  */
@@ -353,7 +353,7 @@ declare const NavRouter: NavRouterInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @deprecated since 13
  * @noninterop
  */

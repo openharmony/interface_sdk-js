@@ -26,7 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace shortKey
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
- * @since 10
+ * @since 10 dynamic
  */
 
 declare namespace shortKey {
@@ -44,7 +44,7 @@ declare namespace shortKey {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
 
@@ -61,7 +61,7 @@ declare namespace shortKey {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function setKeyDownDuration(businessKey: string, delay: number): Promise<void>;
 
@@ -74,8 +74,8 @@ export default shortKey;
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare enum FingerprintAction {
   /**
@@ -83,8 +83,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   DOWN = 0,
 
@@ -93,8 +93,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   UP = 1,
 
@@ -103,8 +103,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   SLIDE = 2,
 
@@ -113,8 +113,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   RETOUCH = 3,
 
@@ -123,8 +123,8 @@ export declare enum FingerprintAction {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   CLICK = 4,
 }
@@ -135,8 +135,8 @@ export declare enum FingerprintAction {
  * @interface FingerprintEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare interface FingerprintEvent {
   /**
@@ -145,8 +145,8 @@ export declare interface FingerprintEvent {
    * @type { FingerprintAction }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   action: FingerprintAction;
 
@@ -163,8 +163,8 @@ export declare interface FingerprintEvent {
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   distanceX: double;
 
@@ -181,8 +181,8 @@ export declare interface FingerprintEvent {
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   distanceY: double;
 }

@@ -27,7 +27,7 @@
  * Declare SplitLayout.The SplitLayout is used for upper and lower graphic layouts.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 @Component
@@ -43,7 +43,7 @@ export declare struct SplitLayout {
    * @type { container: () => void }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @BuilderParam container: () => void;
 
@@ -58,7 +58,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @State mainImage: ResourceStr;
 
@@ -73,7 +73,7 @@ export declare struct SplitLayout {
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @Prop primaryText: ResourceStr;
 
@@ -88,7 +88,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @Prop secondaryText?: ResourceStr;
 
@@ -103,7 +103,7 @@ export declare struct SplitLayout {
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   @Prop tertiaryText?: ResourceStr;
 }

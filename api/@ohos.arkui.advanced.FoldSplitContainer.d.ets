@@ -29,7 +29,7 @@ import { Callback } from '@ohos.base';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare enum ExtraRegionPosition {
@@ -38,7 +38,7 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     TOP = 1,
     /**
@@ -46,7 +46,7 @@ export declare enum ExtraRegionPosition {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     BOTTOM = 2
 }
@@ -56,7 +56,7 @@ export declare enum ExtraRegionPosition {
  * @interface ExpandedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface ExpandedRegionLayoutOptions {
@@ -66,7 +66,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     horizontalSplitRatio?: number;
     /**
@@ -75,7 +75,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     verticalSplitRatio?: number;
     /**
@@ -84,7 +84,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isExtraRegionPerpendicular?: boolean;
     /**
@@ -93,7 +93,7 @@ export interface ExpandedRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
@@ -103,7 +103,7 @@ export interface ExpandedRegionLayoutOptions {
  * @typedef HoverModeRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface HoverModeRegionLayoutOptions {
@@ -113,7 +113,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     horizontalSplitRatio?: number;
     /**
@@ -122,7 +122,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     showExtraRegion?: boolean;
     /**
@@ -131,7 +131,7 @@ export interface HoverModeRegionLayoutOptions {
      * @type { ?ExtraRegionPosition }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     extraRegionPosition?: ExtraRegionPosition;
 }
@@ -141,7 +141,7 @@ export interface HoverModeRegionLayoutOptions {
  * @interface FoldedRegionLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface FoldedRegionLayoutOptions {
@@ -151,7 +151,7 @@ export interface FoldedRegionLayoutOptions {
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     verticalSplitRatio?: number;
 }
@@ -161,7 +161,7 @@ export interface FoldedRegionLayoutOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare enum PresetSplitRatio {
@@ -170,7 +170,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LAYOUT_1V1 = 1,
     /**
@@ -178,7 +178,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LAYOUT_2V3 = 0.6666666666666666,
     /**
@@ -186,7 +186,7 @@ export declare enum PresetSplitRatio {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     LAYOUT_3V2 = 1.5
 }
@@ -196,7 +196,7 @@ export declare enum PresetSplitRatio {
  * @interface HoverStatus
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface HoverModeStatus {
@@ -206,7 +206,7 @@ export interface HoverModeStatus {
      * @type { display.FoldStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     foldStatus: display.FoldStatus;
     /**
@@ -216,7 +216,7 @@ export interface HoverModeStatus {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     isHoverMode: boolean;
     /**
@@ -225,7 +225,7 @@ export interface HoverModeStatus {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     appRotation: number;
     /**
@@ -234,7 +234,7 @@ export interface HoverModeStatus {
      * @type { window.WindowStatusType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     windowStatusType: window.WindowStatusType;
 }
@@ -245,7 +245,7 @@ export interface HoverModeStatus {
  * @param { HoverModeStatus } status - The status of hover mode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
@@ -255,7 +255,7 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  * @interface FoldSplitContainer
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 @Component
@@ -266,7 +266,7 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @BuilderParam
     primary: Callback<void>;
@@ -276,7 +276,7 @@ export declare struct FoldSplitContainer {
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @BuilderParam
     secondary: Callback<void>;
@@ -286,7 +286,7 @@ export declare struct FoldSplitContainer {
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @BuilderParam
     extra?: Callback<void>;
@@ -296,7 +296,7 @@ export declare struct FoldSplitContainer {
      * @type { ExpandedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     expandedLayoutOptions: ExpandedRegionLayoutOptions;
@@ -306,7 +306,7 @@ export declare struct FoldSplitContainer {
      * @type { HoverModeRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     hoverModeLayoutOptions: HoverModeRegionLayoutOptions;
@@ -316,7 +316,7 @@ export declare struct FoldSplitContainer {
      * @type { FoldedRegionLayoutOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     foldedLayoutOptions: FoldedRegionLayoutOptions;
@@ -326,7 +326,7 @@ export declare struct FoldSplitContainer {
      * @type { ?(AnimateParam | null) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     @Prop
     animationOptions?: AnimateParam | null;
@@ -337,7 +337,7 @@ export declare struct FoldSplitContainer {
      * @type { ?OnHoverStatusChangeHandler }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     onHoverStatusChange?: OnHoverStatusChangeHandler;
 }

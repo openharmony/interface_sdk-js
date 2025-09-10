@@ -22,7 +22,7 @@
  * Indicates the point of the gesture.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 9
+ * @since 9 dynamiconly
  */
 export declare class GesturePoint {
   /**
@@ -31,7 +31,7 @@ export declare class GesturePoint {
    * @param { number } positionX - Indicates the X coordinate of point.
    * @param { number } positionY - Indicates the Y coordinate of point.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(positionX: number, positionY: number);
@@ -40,7 +40,7 @@ export declare class GesturePoint {
    *
    * @type { number }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
   positionX: number;
   /**
@@ -48,7 +48,7 @@ export declare class GesturePoint {
    *
    * @type { number }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    */
   positionY: number;
 }

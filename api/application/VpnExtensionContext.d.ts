@@ -26,7 +26,7 @@ import ExtensionContext from './ExtensionContext';
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 11
+ * @since 11 dynamic
  */
 
 export default class VpnExtensionContext extends ExtensionContext {

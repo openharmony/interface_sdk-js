@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceStr } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
@@ -27,7 +26,7 @@ import { Builder } from '@ohos.arkui.component';
  * Declare component SwipeRefresher
  * @struct { SwipeRefresher }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -37,7 +36,7 @@ export declare struct SwipeRefresher {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @PropRef
     content?: ResourceStr;
@@ -46,7 +45,7 @@ export declare struct SwipeRefresher {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @PropRef
     isLoading: boolean;
@@ -54,7 +53,7 @@ export declare struct SwipeRefresher {
      * The method to build component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder
     build(): void;

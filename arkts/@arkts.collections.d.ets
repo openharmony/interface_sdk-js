@@ -18,7 +18,7 @@
  * @kit ArkTS
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import lang from './@arkts.lang'
 /*** endif */
 
@@ -37,7 +37,7 @@ import lang from './@arkts.lang'
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamiconly
  */
 declare namespace collections {
   /**
@@ -61,7 +61,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
   /**
@@ -88,7 +88,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
@@ -113,7 +113,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayForEachCallback<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => void;
@@ -141,7 +141,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayMapCallback<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => ElementType;
@@ -170,7 +170,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayReduceCallback<AccType, ElementType, ArrayType> =
     (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType;
@@ -195,7 +195,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number;
   /**
@@ -207,7 +207,7 @@ declare namespace collections {
    * @returns { ToElementType } The transformed value.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type ArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType;
 
@@ -222,7 +222,7 @@ declare namespace collections {
    * @returns { boolean } True if the value meets the predicate, otherwise false.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type ArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
@@ -238,7 +238,7 @@ declare namespace collections {
    * @returns { AccType } The result of the reduction.
    * @syscap SystemCapability.Utils.Lang
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type ArrayReduceCallback<AccType, ElementType, ArrayType> =
     (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType;
@@ -258,7 +258,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   type ISendable = lang.ISendable;
   /**
@@ -278,7 +278,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   interface ConcatArray<T> extends ISendable {
     /**
@@ -298,7 +298,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -324,7 +324,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200001 - The value of index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly [index: number]: T;
     /**
@@ -350,7 +350,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -379,7 +379,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): ConcatArray<T>;
   }
@@ -404,7 +404,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Array<T> implements ConcatArray<T> {
@@ -425,7 +425,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -451,7 +451,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static create<T>(arrayLength: number, initialValue: T): Array<T>;
     /**
@@ -477,7 +477,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>): Array<T>;
     /**
@@ -504,7 +504,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(iterable: Iterable<T>): Array<T>;
     /**
@@ -519,7 +519,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T> | Iterable<T>, mapFn: ArrayFromMapFn<T, T>): Array<T>;
     /**
@@ -535,7 +535,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<U, T>(arrayLike: ArrayLike<U> | Iterable<U>, mapFn: ArrayFromMapFn<U, T>): Array<T>;
     /**
@@ -553,7 +553,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -577,7 +577,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(first: T, ...left: T[]);
     /**
@@ -599,7 +599,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(...items: T[]);
     /**
@@ -623,7 +623,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     pop(): T | undefined;
     /**
@@ -649,7 +649,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     push(...items: T[]): number;
     /**
@@ -677,7 +677,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -701,7 +701,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     shift(): T | undefined;
     /**
@@ -727,7 +727,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     unshift(...items: T[]): number;
     /**
@@ -764,7 +764,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Array<T>;
     /**
@@ -794,7 +794,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: (a: T, b: T) => number): Array<T>;
     /**
@@ -824,7 +824,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: T, fromIndex?: number): number;
     /**
@@ -849,7 +849,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: (value: T, index: number, array: Array<T>) => void): void;
     /**
@@ -878,7 +878,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map<U>(callbackFn: (value: T, index: number, array: Array<T>) => U): Array<U>;
     /**
@@ -909,7 +909,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>;
     /**
@@ -943,7 +943,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T;
     /**
@@ -981,7 +981,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
     */
     reduce<U>(
       callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,
@@ -1016,7 +1016,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): T | undefined;
     /**
@@ -1036,7 +1036,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<T>;
     /**
@@ -1058,7 +1058,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, T]>;
     /**
@@ -1080,7 +1080,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -1102,7 +1102,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<T>;
     /**
@@ -1138,7 +1138,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: (value: T, index: number, obj: Array<T>) => boolean): T | undefined;
     /**
@@ -1168,7 +1168,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: T, fromIndex?: number): boolean;
     /**
@@ -1202,7 +1202,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: (value: T, index: number, obj: Array<T>) => boolean): number;
     /**
@@ -1235,7 +1235,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: T, start?: number, end?: number): Array<T>;
     /**
@@ -1262,7 +1262,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     shrinkTo(arrayLength: number): void;
     /**
@@ -1292,7 +1292,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     extendTo(arrayLength: number, initialValue: T): void;
     /**
@@ -1318,7 +1318,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: T;
     /**
@@ -1344,7 +1344,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     concat(...items: ConcatArray<T>[]): Array<T>;
     /**
@@ -1376,7 +1376,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     splice(start: number): Array<T>;
     /**
@@ -1414,7 +1414,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     splice(start: number, deleteCount: number, ...items: T[]): Array<T>;
     /**
@@ -1429,7 +1429,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static isArray(value: Object | undefined | null): boolean;
     /**
@@ -1445,7 +1445,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of<T>(...items: T[]): Array<T>;
     /**
@@ -1465,7 +1465,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Array<T>;
     /**
@@ -1477,7 +1477,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Array<T>;
     /**
@@ -1493,7 +1493,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: T, fromIndex?: number): number;
     /**
@@ -1506,7 +1506,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
     /**
@@ -1519,7 +1519,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: ArrayPredicateFn<T, Array<T>>): boolean;
     /**
@@ -1530,7 +1530,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -1543,7 +1543,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -1562,7 +1562,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = T>(callbackFn: ArrayReduceCallback<U, T, Array<T>>, initialValue: U): U;
     /**
@@ -1578,7 +1578,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>): T;
  }
@@ -1602,7 +1602,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Map<K, V> {
@@ -1623,7 +1623,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly size: number;
     /**
@@ -1647,7 +1647,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(entries?: readonly (readonly [K, V])[] | null)
     /**
@@ -1671,7 +1671,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(iterable: Iterable<readonly [K, V]>);
     /**
@@ -1691,7 +1691,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<[K, V]>
     /**
@@ -1713,7 +1713,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[K, V]>;
     /**
@@ -1735,7 +1735,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<K>;
     /**
@@ -1757,7 +1757,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<V>;
     /**
@@ -1777,7 +1777,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     clear(): void;
     /**
@@ -1805,7 +1805,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     delete(key: K): boolean;
     /**
@@ -1831,7 +1831,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void;
     /**
@@ -1865,7 +1865,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     get(key: K): V | undefined;
     /**
@@ -1891,7 +1891,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     has(key: K): boolean;
     /**
@@ -1921,7 +1921,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(key: K, value: V): Map<K, V>;
   }
@@ -1945,7 +1945,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Set<T> {
@@ -1966,7 +1966,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly size: number;
     /**
@@ -1992,7 +1992,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(values?: readonly T[] | null);
     /**
@@ -2018,7 +2018,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(iterable: Iterable<T>);
     /**
@@ -2038,7 +2038,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<T>;
     /**
@@ -2060,7 +2060,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[T, T]>;
     /**
@@ -2082,7 +2082,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<T>;
     /**
@@ -2104,7 +2104,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<T>;
     /**
@@ -2128,7 +2128,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     add(value: T): Set<T>;
     /**
@@ -2148,7 +2148,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     clear(): void;
     /**
@@ -2172,7 +2172,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     delete(value: T): boolean;
     /**
@@ -2198,7 +2198,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: (value: T, value2: T, set: Set<T>) => void): void;
     /**
@@ -2226,7 +2226,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     has(value: T): boolean;
   }
@@ -2255,7 +2255,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class ArrayBuffer {
@@ -2276,7 +2276,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -2298,7 +2298,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(byteLength: number);
     /**
@@ -2328,7 +2328,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(begin: number, end?: number): ArrayBuffer;
   }
@@ -2352,7 +2352,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Int8Array {
@@ -2375,7 +2375,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -2395,7 +2395,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -2415,7 +2415,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -2435,7 +2435,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -2455,7 +2455,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -2473,7 +2473,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -2495,7 +2495,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -2517,7 +2517,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -2539,7 +2539,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -2569,7 +2569,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -2593,7 +2593,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Int8Array;
     
@@ -2620,7 +2620,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int8Array;
     /**
@@ -2648,7 +2648,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array;
     /**
@@ -2684,7 +2684,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Int8Array;
     /**
@@ -2716,7 +2716,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean;
     /**
@@ -2750,7 +2750,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Int8Array;
     /**
@@ -2778,7 +2778,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array;
     /**
@@ -2812,7 +2812,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined;
     /**
@@ -2844,7 +2844,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number;
     /**
@@ -2872,7 +2872,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Int8Array>): void;
     /**
@@ -2902,7 +2902,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -2930,7 +2930,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -2962,7 +2962,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array;
     /**
@@ -2998,7 +2998,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number;
     /**
@@ -3040,7 +3040,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number;
     /**
@@ -3082,7 +3082,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
     /**
@@ -3106,7 +3106,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Int8Array;
     /**
@@ -3132,7 +3132,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -3162,7 +3162,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Int8Array;
     /**
@@ -3194,7 +3194,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean;
     /**
@@ -3228,7 +3228,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Int8Array;
     /**
@@ -3258,7 +3258,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Int8Array;
     /**
@@ -3290,7 +3290,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -3310,7 +3310,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -3332,7 +3332,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -3354,7 +3354,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -3376,7 +3376,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -3406,7 +3406,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -3422,7 +3422,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -3436,7 +3436,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -3455,7 +3455,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U;
     /**
@@ -3471,7 +3471,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number;
     /**
@@ -3482,7 +3482,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -3493,7 +3493,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -3506,7 +3506,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Int8Array;
  }
@@ -3532,7 +3532,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Uint8ClampedArray {
@@ -3555,7 +3555,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -3575,7 +3575,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -3595,7 +3595,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -3615,7 +3615,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -3635,7 +3635,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -3653,7 +3653,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -3675,7 +3675,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -3697,7 +3697,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -3719,7 +3719,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -3749,7 +3749,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -3773,7 +3773,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Uint8ClampedArray;
     
@@ -3800,7 +3800,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray;
     /**
@@ -3828,7 +3828,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray;
     /**
@@ -3864,7 +3864,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Uint8ClampedArray;
     /**
@@ -3898,7 +3898,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean;
     /**
@@ -3932,7 +3932,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Uint8ClampedArray;
     /**
@@ -3962,7 +3962,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): Uint8ClampedArray;
     /**
@@ -3996,7 +3996,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number | undefined;
     /**
@@ -4030,7 +4030,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number;
     /**
@@ -4058,7 +4058,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint8ClampedArray>): void;
     /**
@@ -4088,7 +4088,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -4116,7 +4116,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -4148,7 +4148,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Uint8ClampedArray>): Uint8ClampedArray;
     /**
@@ -4184,7 +4184,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number;
     /**
@@ -4226,7 +4226,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
     /**
@@ -4250,7 +4250,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Uint8ClampedArray;
     /**
@@ -4276,7 +4276,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -4306,7 +4306,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Uint8ClampedArray;
     /**
@@ -4340,7 +4340,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean;
     /**
@@ -4374,7 +4374,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Uint8ClampedArray;
     /**
@@ -4404,7 +4404,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Uint8ClampedArray;
     /**
@@ -4436,7 +4436,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -4456,7 +4456,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -4478,7 +4478,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -4500,7 +4500,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -4522,7 +4522,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -4552,7 +4552,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -4568,7 +4568,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -4582,7 +4582,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -4601,7 +4601,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U;
     /**
@@ -4617,7 +4617,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number;
     /**
@@ -4629,7 +4629,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -4641,7 +4641,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -4655,7 +4655,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Uint8ClampedArray;
  }
@@ -4679,7 +4679,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Uint8Array {
@@ -4702,7 +4702,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -4722,7 +4722,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -4742,7 +4742,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -4762,7 +4762,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -4782,7 +4782,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -4800,7 +4800,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -4822,7 +4822,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -4844,7 +4844,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -4866,7 +4866,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -4896,7 +4896,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -4920,7 +4920,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Uint8Array;
     /**
@@ -4946,7 +4946,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array;
     /**
@@ -4974,7 +4974,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array;
     /**
@@ -5010,7 +5010,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Uint8Array;
     /**
@@ -5042,7 +5042,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean;
     /**
@@ -5076,7 +5076,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Uint8Array;
     /**
@@ -5104,7 +5104,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Uint8Array>): Uint8Array;
     /**
@@ -5138,7 +5138,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Uint8Array>): number | undefined;
     /**
@@ -5170,7 +5170,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Uint8Array>): number;
     /**
@@ -5198,7 +5198,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): void;
     /**
@@ -5228,7 +5228,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -5256,7 +5256,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -5288,7 +5288,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Uint8Array>): Uint8Array;
     /**
@@ -5324,7 +5324,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number;
     /**
@@ -5366,7 +5366,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>, initialValue: number): number;
     /**
@@ -5408,7 +5408,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U;
     /**
@@ -5432,7 +5432,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Uint8Array;
     /**
@@ -5458,7 +5458,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -5488,7 +5488,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Uint8Array;
     /**
@@ -5520,7 +5520,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean;
     /**
@@ -5554,7 +5554,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Uint8Array;
     /**
@@ -5584,7 +5584,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Uint8Array;
     /**
@@ -5616,7 +5616,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -5636,7 +5636,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -5658,7 +5658,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -5680,7 +5680,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -5702,7 +5702,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -5732,7 +5732,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -5748,7 +5748,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -5762,7 +5762,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -5781,7 +5781,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U;
     /**
@@ -5797,7 +5797,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number;
     /**
@@ -5809,7 +5809,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -5820,7 +5820,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -5833,7 +5833,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Uint8Array;
  }
@@ -5857,7 +5857,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Int16Array {
@@ -5880,7 +5880,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -5900,7 +5900,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -5920,7 +5920,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -5940,7 +5940,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -5960,7 +5960,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -5978,7 +5978,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -6000,7 +6000,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -6022,7 +6022,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -6044,7 +6044,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -6074,7 +6074,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -6098,7 +6098,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Int16Array;
     /**
@@ -6124,7 +6124,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int16Array;
     /**
@@ -6152,7 +6152,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array;
     /**
@@ -6188,7 +6188,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Int16Array;
     /**
@@ -6220,7 +6220,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean;
     /**
@@ -6254,7 +6254,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Int16Array;
     /**
@@ -6282,7 +6282,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Int16Array>): Int16Array;
     /**
@@ -6316,7 +6316,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Int16Array>): number | undefined;
     /**
@@ -6348,7 +6348,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number;
     /**
@@ -6376,7 +6376,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Int16Array>): void;
     /**
@@ -6406,7 +6406,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -6434,7 +6434,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -6466,7 +6466,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Int16Array>): Int16Array;
     /**
@@ -6502,7 +6502,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number;
     /**
@@ -6544,7 +6544,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initialValue: number): number;
     /**
@@ -6586,7 +6586,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U;
     /**
@@ -6610,7 +6610,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Int16Array;
     /**
@@ -6636,7 +6636,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -6666,7 +6666,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Int16Array;
     /**
@@ -6698,7 +6698,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean;
     /**
@@ -6732,7 +6732,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Int16Array;
     /**
@@ -6762,7 +6762,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Int16Array;
     /**
@@ -6794,7 +6794,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -6814,7 +6814,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -6836,7 +6836,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -6858,7 +6858,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -6880,7 +6880,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -6910,7 +6910,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -6926,7 +6926,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -6940,7 +6940,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -6959,7 +6959,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U;
     /**
@@ -6975,7 +6975,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number;
     /**
@@ -6987,7 +6987,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -6998,7 +6998,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -7011,7 +7011,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Int16Array;
  }
@@ -7035,7 +7035,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Uint16Array {
@@ -7058,7 +7058,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -7078,7 +7078,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -7098,7 +7098,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -7118,7 +7118,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -7138,7 +7138,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -7156,7 +7156,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -7178,7 +7178,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -7200,7 +7200,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -7222,7 +7222,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -7252,7 +7252,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -7276,7 +7276,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Uint16Array;
     /**
@@ -7302,7 +7302,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array;
     /**
@@ -7330,7 +7330,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array;
     /**
@@ -7366,7 +7366,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Uint16Array;
     /**
@@ -7398,7 +7398,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean;
     /**
@@ -7432,7 +7432,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Uint16Array;
     /**
@@ -7460,7 +7460,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Uint16Array>): Uint16Array;
     /**
@@ -7494,7 +7494,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Uint16Array>): number | undefined;
     /**
@@ -7526,7 +7526,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Uint16Array>): number;
     /**
@@ -7554,7 +7554,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): void;
     /**
@@ -7584,7 +7584,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -7612,7 +7612,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -7642,7 +7642,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Uint16Array>): Uint16Array;
     /**
@@ -7678,7 +7678,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number;
     /**
@@ -7720,7 +7720,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>, initialValue: number): number;
     /**
@@ -7762,7 +7762,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U;
     /**
@@ -7786,7 +7786,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Uint16Array;
     /**
@@ -7812,7 +7812,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -7842,7 +7842,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Uint16Array;
     /**
@@ -7874,7 +7874,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean;
     /**
@@ -7908,7 +7908,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Uint16Array;
     /**
@@ -7938,7 +7938,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Uint16Array;
     /**
@@ -7970,7 +7970,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -7990,7 +7990,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -8012,7 +8012,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -8034,7 +8034,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -8056,7 +8056,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -8086,7 +8086,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -8102,7 +8102,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -8116,7 +8116,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -8135,7 +8135,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U;
     /**
@@ -8151,7 +8151,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number;
     /**
@@ -8163,7 +8163,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -8174,7 +8174,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -8187,7 +8187,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Uint16Array;
  }
@@ -8211,7 +8211,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Int32Array {
@@ -8234,7 +8234,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -8254,7 +8254,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -8274,7 +8274,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -8294,7 +8294,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -8314,7 +8314,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -8332,7 +8332,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -8354,7 +8354,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -8376,7 +8376,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -8398,7 +8398,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -8428,7 +8428,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -8452,7 +8452,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Int32Array;
     /**
@@ -8478,7 +8478,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int32Array;
     /**
@@ -8506,7 +8506,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array;
     /**
@@ -8542,7 +8542,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Int32Array;
     /**
@@ -8574,7 +8574,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean;
     /**
@@ -8608,7 +8608,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Int32Array;
     /**
@@ -8636,7 +8636,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Int32Array>): Int32Array;
     /**
@@ -8670,7 +8670,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Int32Array>): number | undefined;
     /**
@@ -8702,7 +8702,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Int32Array>): number;
     /**
@@ -8730,7 +8730,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Int32Array>): void;
     /**
@@ -8760,7 +8760,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -8788,7 +8788,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -8820,7 +8820,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Int32Array>): Int32Array;
     /**
@@ -8856,7 +8856,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number;
     /**
@@ -8898,7 +8898,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>, initialValue: number): number;
     /**
@@ -8940,7 +8940,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U;
     /**
@@ -8964,7 +8964,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Int32Array;
     /**
@@ -8990,7 +8990,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -9020,7 +9020,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Int32Array;
     /**
@@ -9052,7 +9052,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean;
     /**
@@ -9086,7 +9086,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Int32Array;
     /**
@@ -9116,7 +9116,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Int32Array;
     /**
@@ -9148,7 +9148,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -9168,7 +9168,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -9190,7 +9190,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -9212,7 +9212,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -9234,7 +9234,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -9264,7 +9264,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -9280,7 +9280,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -9294,7 +9294,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -9313,7 +9313,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U;
     /**
@@ -9329,7 +9329,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number;
     /**
@@ -9341,7 +9341,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -9352,7 +9352,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -9365,7 +9365,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Int32Array;
  }
@@ -9389,7 +9389,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Uint32Array {
@@ -9412,7 +9412,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -9432,7 +9432,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -9452,7 +9452,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -9472,7 +9472,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -9492,7 +9492,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -9510,7 +9510,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -9532,7 +9532,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -9554,7 +9554,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -9576,7 +9576,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -9606,7 +9606,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -9630,7 +9630,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Uint32Array;
     /**
@@ -9656,7 +9656,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array;
     /**
@@ -9684,7 +9684,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array;
     /**
@@ -9720,7 +9720,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Uint32Array;
     /**
@@ -9752,7 +9752,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean;
     /**
@@ -9786,7 +9786,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Uint32Array;
     /**
@@ -9814,7 +9814,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Uint32Array>): Uint32Array;
     /**
@@ -9848,7 +9848,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Uint32Array>): number | undefined;
     /**
@@ -9880,7 +9880,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Uint32Array>): number;
     /**
@@ -9908,7 +9908,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): void;
     /**
@@ -9938,7 +9938,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -9966,7 +9966,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -9996,7 +9996,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Uint32Array>): Uint32Array;
     /**
@@ -10032,7 +10032,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number;
     /**
@@ -10074,7 +10074,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>, initialValue: number): number;
     /**
@@ -10116,7 +10116,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U;
     /**
@@ -10140,7 +10140,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Uint32Array;
     /**
@@ -10166,7 +10166,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -10196,7 +10196,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Uint32Array;
     /**
@@ -10228,7 +10228,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean;
     /**
@@ -10262,7 +10262,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Uint32Array;
     /**
@@ -10292,7 +10292,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Uint32Array;
     /**
@@ -10324,7 +10324,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -10344,7 +10344,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -10366,7 +10366,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -10388,7 +10388,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -10410,7 +10410,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -10440,7 +10440,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -10456,7 +10456,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -10470,7 +10470,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -10489,7 +10489,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U;
     /**
@@ -10505,7 +10505,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number;
     /**
@@ -10517,7 +10517,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -10528,7 +10528,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -10541,7 +10541,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Uint32Array;
  }
@@ -10567,7 +10567,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class Float32Array {
@@ -10590,7 +10590,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static readonly BYTES_PER_ELEMENT: number;
     /**
@@ -10610,7 +10610,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly buffer: ArrayBuffer;
     /**
@@ -10630,7 +10630,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteLength: number;
     /**
@@ -10650,7 +10650,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly byteOffset: number;
     /**
@@ -10670,7 +10670,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -10688,7 +10688,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor();
     /**
@@ -10710,7 +10710,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -10732,7 +10732,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(elements: Iterable<number>);
     /**
@@ -10754,7 +10754,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(array: ArrayLike<number> | ArrayBuffer);
     /**
@@ -10784,7 +10784,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number);
     /**
@@ -10808,7 +10808,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: ArrayLike<number>): Float32Array;
     /**
@@ -10834,7 +10834,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Float32Array;
     /**
@@ -10862,7 +10862,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Float32Array;
     /**
@@ -10898,7 +10898,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     copyWithin(target: number, start: number, end?: number): Float32Array;
     /**
@@ -10932,7 +10932,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     every(predicate: TypedArrayPredicateFn<number, Float32Array>): boolean;
     /**
@@ -10966,7 +10966,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     fill(value: number, start?: number, end?: number): Float32Array;
     /**
@@ -10996,7 +10996,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     filter(predicate: TypedArrayPredicateFn<number, Float32Array>): Float32Array;
     /**
@@ -11030,7 +11030,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     find(predicate: TypedArrayPredicateFn<number, Float32Array>): number | undefined;
     /**
@@ -11064,7 +11064,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     findIndex(predicate: TypedArrayPredicateFn<number, Float32Array>): number;
     /**
@@ -11092,7 +11092,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     forEach(callbackFn: TypedArrayForEachCallback<number, Float32Array>): void;
     /**
@@ -11122,7 +11122,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     indexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -11150,7 +11150,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     join(separator?: string): string;
     /**
@@ -11182,7 +11182,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     map(callbackFn: TypedArrayMapCallback<number, Float32Array>): Float32Array;
     /**
@@ -11218,7 +11218,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce(callbackFn: TypedArrayReduceCallback<number, number, Float32Array>): number;
     /**
@@ -11260,7 +11260,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Float32Array>, initialValue: U): U;
     /**
@@ -11284,7 +11284,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reverse(): Float32Array;
     /**
@@ -11310,7 +11310,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     set(array: ArrayLike<number>, offset?: number): void;
     /**
@@ -11340,7 +11340,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     slice(start?: number, end?: number): Float32Array;
     /**
@@ -11374,7 +11374,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     some(predicate: TypedArrayPredicateFn<number, Float32Array>): boolean;
     /**
@@ -11408,7 +11408,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     sort(compareFn?: TypedArrayCompareFn<number>): Float32Array;
     /**
@@ -11438,7 +11438,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     subarray(begin?: number, end?: number): Float32Array;
     /**
@@ -11470,7 +11470,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     at(index: number): number | undefined;
     /**
@@ -11490,7 +11490,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;
     /**
@@ -11512,7 +11512,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     entries(): IterableIterator<[number, number]>;
     /**
@@ -11534,7 +11534,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     keys(): IterableIterator<number>;
     /**
@@ -11556,7 +11556,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -11586,7 +11586,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     includes(searchElement: number, fromIndex?: number): boolean;
     /**
@@ -11602,7 +11602,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
     /**
@@ -11616,7 +11616,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     lastIndexOf(searchElement: number, fromIndex?: number): number;
     /**
@@ -11635,7 +11635,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Float32Array>, initialValue: U): U;
     /**
@@ -11651,7 +11651,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Float32Array>): number;
     /**
@@ -11663,7 +11663,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toString(): string;
     /**
@@ -11674,7 +11674,7 @@ declare namespace collections {
      * @throws { BusinessError } 10200201 - Concurrent modification error.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     toLocaleString(): string;
     /**
@@ -11688,7 +11688,7 @@ declare namespace collections {
      * @static
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     static of(...items: number[]): Float32Array;
  }
@@ -11712,7 +11712,7 @@ declare namespace collections {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamiconly
    */
   @Sendable
   class BitVector {
@@ -11731,7 +11731,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     constructor(length: number);
     /**
@@ -11751,7 +11751,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     readonly length: number;
     /**
@@ -11781,7 +11781,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     push(element: number): boolean;
     /**
@@ -11803,7 +11803,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     pop(): number;
     /**
@@ -11838,7 +11838,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     has(element: number, fromIndex: number, toIndex: number): boolean;
     /**
@@ -11872,7 +11872,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     setBitsByRange(element: number, fromIndex: number, toIndex: number): void;
     /**
@@ -11900,7 +11900,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     setAllBits(element: number): void;
     /**
@@ -11934,7 +11934,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     getBitsByRange(fromIndex: number, toIndex: number): BitVector;
     /**
@@ -11964,7 +11964,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     resize(size: number): void;
     /**
@@ -12000,7 +12000,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     getBitCountByRange(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -12038,7 +12038,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     getIndexOf(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -12076,7 +12076,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     getLastIndexOf(element: number, fromIndex: number, toIndex: number): number;
     /**
@@ -12106,7 +12106,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     flipBitByIndex(index: number): void;
     /**
@@ -12138,7 +12138,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     flipBitsByRange(fromIndex: number, toIndex: number): void;
     /**
@@ -12158,7 +12158,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [Symbol.iterator](): IterableIterator<number>;    
     /**
@@ -12180,7 +12180,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     values(): IterableIterator<number>;
     /**
@@ -12196,7 +12196,7 @@ declare namespace collections {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      */
     [index: number]: number;
   }

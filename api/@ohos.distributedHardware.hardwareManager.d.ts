@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace hardwareManager
  * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace hardwareManager {
   /**
@@ -33,56 +33,56 @@ declare namespace hardwareManager {
    * @enum {number}
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   enum DistributedHardwareType {
     /**
      * Indicates all hardware
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     ALL = 0,
     /**
      * Distributed camera
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     CAMERA = 1,
     /**
      * Distributed screen
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     SCREEN = 8,
     /**
      * Mic of distributed modem
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     MODEM_MIC = 256,
     /**
      * Speaker of distributed modem
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     MODEM_SPEAKER = 512,
     /**
      * Distributed mic
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     MIC = 1024,
     /**
      * Distributed speaker
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     SPEAKER = 2048
   }
@@ -92,14 +92,14 @@ declare namespace hardwareManager {
    * @enum {number}
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   enum DistributedHardwareErrorCode {
     /**
      * The distributed hardware is not started.
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     ERR_CODE_DISTRIBUTED_HARDWARE_NOT_STARTED = 24200101,
 
@@ -107,7 +107,7 @@ declare namespace hardwareManager {
      * The source device is not connected.
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     ERR_CODE_DEVICE_NOT_CONNECTED = 24200102
   }
@@ -117,7 +117,7 @@ declare namespace hardwareManager {
    * @typedef HardwareDescriptor
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   interface HardwareDescriptor {
     /**
@@ -126,7 +126,7 @@ declare namespace hardwareManager {
      * @type {DistributedHardwareType}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     type: DistributedHardwareType;
 
@@ -136,7 +136,7 @@ declare namespace hardwareManager {
      * @type {?string}
      * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     srcNetworkId?: string;
   }
@@ -153,7 +153,7 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function pauseDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -169,7 +169,7 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function resumeDistributedHardware(description: HardwareDescriptor): Promise<void>;
 
@@ -185,7 +185,7 @@ declare namespace hardwareManager {
    * @throws {BusinessError} 24200102 - The specified source device is not connected.
    * @syscap SystemCapability.DistributedHardware.DistributedHardwareFWK
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function stopDistributedHardware(description: HardwareDescriptor): Promise<void>;
 }

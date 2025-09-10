@@ -33,7 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
@@ -52,7 +52,7 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     constructor(src?: Resource);
     /**
@@ -70,7 +70,7 @@ export declare class SymbolSpanModifier extends SymbolSpanAttribute implements A
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 dynamic
      */
     applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
 }

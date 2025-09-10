@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
@@ -30,7 +29,7 @@ import { memo, ComponentBuilder } from "./../stateManagement/runtime";
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface SymbolSpanAttribute extends CommonMethod {
@@ -40,7 +39,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { number | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontSize(value: number | string | Resource | undefined): this;
     /**
@@ -49,7 +48,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
     /**
@@ -58,7 +57,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { number | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontWeight(value: number | FontWeight | string | undefined): this;
     /**
@@ -67,7 +66,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
     /**
@@ -76,7 +75,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
     /**
@@ -85,7 +84,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { AttributeModifier<SymbolSpanAttribute> | undefined } modifier - The instance of symbol span modifier.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;
     /**
@@ -94,7 +93,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
      * @param { AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -106,7 +105,7 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

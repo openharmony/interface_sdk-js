@@ -31,7 +31,7 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum ColorMode {
   /**
@@ -45,7 +45,7 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LIGHT = 0,
 
@@ -60,7 +60,7 @@ declare enum ColorMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   DARK,
 }
@@ -78,7 +78,7 @@ declare enum ColorMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LayoutDirection {
   /**
@@ -92,7 +92,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   LTR,
 
@@ -107,7 +107,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   RTL,
 
@@ -122,7 +122,7 @@ declare enum LayoutDirection {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Auto,
 }
@@ -132,7 +132,7 @@ declare enum LayoutDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
+ * @since 7 dynamic
  */
 declare class Storage {
   /**
@@ -142,7 +142,7 @@ declare class Storage {
    * @param { string } file
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
    */
   constructor(needCrossThread?: boolean, file?: string);
 
@@ -153,7 +153,7 @@ declare class Storage {
    * @returns { string | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
    */
   get(key: string): string | undefined;
 
@@ -164,7 +164,7 @@ declare class Storage {
    * @param { any } val
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
    */
   set(key: string, val: any): void;
   
@@ -175,7 +175,7 @@ declare class Storage {
    * @param { Object | undefined | null } val
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   set(key: string, val: Object | undefined | null): void;
 
@@ -184,7 +184,7 @@ declare class Storage {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
    */
   clear(): void;
 
@@ -194,7 +194,7 @@ declare class Storage {
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
+   * @since 7 dynamic
    */
   delete(key: string): void;
 }

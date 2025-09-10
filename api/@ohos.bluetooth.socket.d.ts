@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace socket
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
+ * @since 10 dynamic
  */
 declare namespace socket {
   /**
@@ -44,7 +44,7 @@ declare namespace socket {
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppListen(name: string, options: SppOptions, callback: AsyncCallback<number>): void;
 
@@ -61,7 +61,7 @@ declare namespace socket {
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppAccept(serverSocket: number, callback: AsyncCallback<number>): void;
 
@@ -81,7 +81,7 @@ declare namespace socket {
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback<number>): void;
 
@@ -95,7 +95,7 @@ declare namespace socket {
    * 2. Incorrect parameter types;
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 17
+   * @since 17 dynamic
    */
   function getDeviceId(clientSocket: number): string;
 
@@ -109,7 +109,7 @@ declare namespace socket {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppCloseServerSocket(socket: number): void;
 
@@ -123,7 +123,7 @@ declare namespace socket {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppCloseClientSocket(socket: number): void;
 
@@ -138,7 +138,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function sppWrite(clientSocket: number, data: ArrayBuffer): void;
 
@@ -154,7 +154,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function on(type: 'sppRead', clientSocket: number, callback: Callback<ArrayBuffer>): void;
 
@@ -168,7 +168,7 @@ declare namespace socket {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
@@ -182,7 +182,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18
+   * @since 18 dynamic
    */
   function sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise<void>;
 
@@ -195,7 +195,7 @@ declare namespace socket {
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18
+   * @since 18 dynamic
    */
   function sppReadAsync(clientSocket: number): Promise<ArrayBuffer>;
 
@@ -204,7 +204,7 @@ declare namespace socket {
    *
    * @typedef SppOptions
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   interface SppOptions {
     /**
@@ -212,7 +212,7 @@ declare namespace socket {
      *
      * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     uuid: string;
     /**
@@ -220,7 +220,7 @@ declare namespace socket {
      *
      * @type { boolean }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     secure: boolean;
     /**
@@ -228,7 +228,7 @@ declare namespace socket {
      *
      * @type { SppType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     type: SppType;
   }
@@ -238,14 +238,14 @@ declare namespace socket {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
+   * @since 10 dynamic
    */
   enum SppType {
     /**
      * RFCOMM
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
+     * @since 10 dynamic
      */
     SPP_RFCOMM
   }

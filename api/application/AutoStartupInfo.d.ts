@@ -25,8 +25,8 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AutoStartupInfo {
   /**
@@ -36,8 +36,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundleName: string;
 
@@ -48,8 +48,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   moduleName?: string;
 
@@ -60,8 +60,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   abilityName: string;
 
@@ -72,8 +72,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   abilityTypeName?: string;
 
@@ -83,8 +83,8 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   appCloneIndex?: int;
 
@@ -96,8 +96,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly userId?: int;
 
@@ -109,8 +108,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly setterUserId?: int;
 
@@ -122,8 +120,7 @@ export interface AutoStartupInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   readonly canUserModify?: boolean;
 }

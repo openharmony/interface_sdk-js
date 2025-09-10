@@ -27,7 +27,7 @@ import window from './@ohos.window';
  * @namespace uiExtensionHost
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace uiExtensionHost {
   /**
@@ -36,7 +36,7 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxy
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   interface UIExtensionHostWindowProxy {
     /**
@@ -47,7 +47,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
@@ -62,7 +62,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
@@ -77,7 +77,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
@@ -92,7 +92,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
@@ -107,7 +107,7 @@ declare namespace uiExtensionHost {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
@@ -117,7 +117,7 @@ declare namespace uiExtensionHost {
      * @type { UIExtensionHostWindowProxyProperties } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -152,7 +152,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
@@ -171,7 +171,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
      */
      createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
@@ -185,7 +185,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 12
+     * @since 12 dynamic
      */
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
@@ -205,7 +205,7 @@ declare namespace uiExtensionHost {
      * <br> 2. Not the UIExtensionAbility process calling.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 13
+     * @since 13 dynamic
      */
     hidePrivacyContentForHost(shouldHide: boolean): Promise<void>;
   }
@@ -216,7 +216,7 @@ declare namespace uiExtensionHost {
    * @interface UIExtensionHostWindowProxyProperties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -225,7 +225,7 @@ declare namespace uiExtensionHost {
      * @type { window.Rect } 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 11
+     * @since 11 dynamic
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }

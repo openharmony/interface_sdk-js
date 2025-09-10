@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { BarState, Edge, Color, EdgeEffect, ScrollSource, Curve } from './enums';
 import { ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions, CommonMethod } from './common';
@@ -29,28 +28,28 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum ScrollDirection {
     /**
      * Only vertical scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Vertical,
     /**
      * Only horizontal scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Horizontal,
     /**
      * Scrolling is disabled.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     None
 }
@@ -59,35 +58,35 @@ export declare enum ScrollDirection {
  *
  * @enum { number } ScrollAlign
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum ScrollAlign {
     /**
      * The start edge of the list item is flush with the start edge of the list.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     START,
     /**
      * The list item is centered along the main axis of the list.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CENTER,
     /**
      * The end edge of the list item is flush with the end edge of the list.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     END,
     /**
      * The list item is automatically aligned.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     AUTO
 }
@@ -96,7 +95,7 @@ export declare enum ScrollAlign {
  *
  * @interface OffsetResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface OffsetResult {
     /**
@@ -104,7 +103,7 @@ export declare interface OffsetResult {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xOffset: number;
     /**
@@ -112,7 +111,7 @@ export declare interface OffsetResult {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     yOffset: number;
 }
@@ -121,7 +120,7 @@ export declare interface OffsetResult {
  *
  * @interface ScrollEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollEdgeOptions {
     /**
@@ -131,7 +130,7 @@ export declare interface ScrollEdgeOptions {
      * @type { ?number }
      * @default 0vp/s
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     velocity?: number;
 }
@@ -140,7 +139,7 @@ export declare interface ScrollEdgeOptions {
  *
  * @interface ScrollToIndexOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollToIndexOptions {
     /**
@@ -148,7 +147,7 @@ export declare interface ScrollToIndexOptions {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     extraOffset?: LengthMetrics;
 }
@@ -157,7 +156,7 @@ export declare interface ScrollToIndexOptions {
  *
  * @interface ScrollAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollAnimationOptions {
     /**
@@ -170,7 +169,7 @@ export declare interface ScrollAnimationOptions {
      * @type { ?number }
      * @default 1000
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     duration?: number;
     /**
@@ -179,7 +178,7 @@ export declare interface ScrollAnimationOptions {
      * @type { ?(Curve | ICurve) }
      * @default Curve.Ease
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     curve?: Curve | ICurve;
     /**
@@ -193,7 +192,7 @@ export declare interface ScrollAnimationOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     canOverScroll?: boolean;
 }
@@ -202,7 +201,7 @@ export declare interface ScrollAnimationOptions {
  *
  * @interface OffsetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface OffsetOptions {
     /**
@@ -211,7 +210,7 @@ export declare interface OffsetOptions {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xOffset?: Dimension;
     /**
@@ -220,7 +219,7 @@ export declare interface OffsetOptions {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     yOffset?: Dimension;
 }
@@ -239,14 +238,14 @@ export declare interface OffsetOptions {
  * </p>
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class Scroller {
     /**
      * A constructor used to create a <em>Scroller</em> object.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor();
     /**
@@ -254,7 +253,7 @@ export declare class Scroller {
      *
      * @param { ScrollOptions } options - scroll options
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scrollTo(options: ScrollOptions): void;
     /**
@@ -263,7 +262,7 @@ export declare class Scroller {
      * @param { Edge } value - Edge type of the container.
      * @param { ScrollEdgeOptions } [options] - Options of scrolling to edge.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scrollEdge(value: Edge, options?: ScrollEdgeOptions): void;
     /**
@@ -279,7 +278,7 @@ export declare class Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - Controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fling(velocity: number): void;
     /**
@@ -287,7 +286,7 @@ export declare class Scroller {
      *
      * @param { ScrollPageOptions } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scrollPage(value: ScrollPageOptions): void;
     /**
@@ -295,7 +294,7 @@ export declare class Scroller {
      *
      * @returns { OffsetResult } Returns the current scrolling offset. If the scroller not bound to a component, the return value is void.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     currentOffset(): OffsetResult;
     /**
@@ -306,7 +305,7 @@ export declare class Scroller {
      * @param { ScrollAlign } [align] - Sets the alignment mode of a specified index.
      * @param { ScrollToIndexOptions } [options] - Sets the options of a specified index, such as extra offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scrollToIndex(value: number, smooth?: boolean, align?: ScrollAlign, options?: ScrollToIndexOptions): void;
     /**
@@ -315,7 +314,7 @@ export declare class Scroller {
      * @param { Length } dx
      * @param { Length } dy
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scrollBy(dx: Length, dy: Length): void;
     /**
@@ -327,7 +326,7 @@ export declare class Scroller {
      *
      * @returns { boolean } Returns whether the component scrolls to the end position.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     isAtEnd(): boolean;
     /**
@@ -348,7 +347,7 @@ export declare class Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - Controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     getItemRect(index: number): RectResult;
     /**
@@ -367,7 +366,7 @@ export declare class Scroller {
      * <br> 3. Parameter verification failed.
      * @throws { BusinessError } 100004 - The controller not bound to component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     getItemIndex(x: number, y: number): number;
 }
@@ -376,7 +375,7 @@ export declare class Scroller {
  *
  * @interface ScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollOptions {
     /**
@@ -393,7 +392,7 @@ export declare interface ScrollOptions {
      *
      * @type { number | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xOffset: number | string;
     /**
@@ -410,7 +409,7 @@ export declare interface ScrollOptions {
      *
      * @type { number | string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     yOffset: number | string;
     /**
@@ -425,7 +424,7 @@ export declare interface ScrollOptions {
      * and the boolean type enables default spring animation.
      * @default ScrollAnimationOptions: { duration: 1000, curve: Curve.Ease, canOverScroll: false }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     animation?: ScrollAnimationOptions | boolean;
 }
@@ -434,7 +433,7 @@ export declare interface ScrollOptions {
  *
  * @interface ScrollPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollPageOptions {
     /**
@@ -443,7 +442,7 @@ export declare interface ScrollPageOptions {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     next: boolean;
     /**
@@ -453,7 +452,7 @@ export declare interface ScrollPageOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     animation?: boolean;
 }
@@ -462,7 +461,7 @@ export declare interface ScrollPageOptions {
  *
  * @interface ScrollSnapOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollSnapOptions {
     /**
@@ -471,7 +470,7 @@ export declare interface ScrollSnapOptions {
      * @type { ScrollSnapAlign }
      * @default ScrollSnapAlign.NONE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     snapAlign: ScrollSnapAlign;
     /**
@@ -489,7 +488,7 @@ export declare interface ScrollSnapOptions {
      * @type { ?(Dimension | Array<Dimension>) }
      * @default 100%
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     snapPagination?: Dimension | Array<Dimension>;
     /**
@@ -504,7 +503,7 @@ export declare interface ScrollSnapOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enableSnapToStart?: boolean;
     /**
@@ -519,7 +518,7 @@ export declare interface ScrollSnapOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enableSnapToEnd?: boolean;
 }
@@ -529,7 +528,7 @@ export declare interface ScrollSnapOptions {
  * @typedef { function } OnScrollEdgeCallback
  * @param { Edge } side - Edge position to scroll to.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnScrollEdgeCallback = (side: Edge) => void;
 /**
@@ -537,7 +536,7 @@ export type OnScrollEdgeCallback = (side: Edge) => void;
  *
  * @interface OnScrollFrameBeginHandlerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface OnScrollFrameBeginHandlerResult {
     /**
@@ -546,7 +545,7 @@ export interface OnScrollFrameBeginHandlerResult {
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     offsetRemain: number;
 }
@@ -558,7 +557,7 @@ export interface OnScrollFrameBeginHandlerResult {
  * @param { ScrollState } state - Current scroll state.
  * @returns { OnScrollFrameBeginHandlerResult } data - the scroll data return by handler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
@@ -568,7 +567,7 @@ export type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =>
  * @extends ScrollableCommonMethod
  * @interface ScrollAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface ScrollAttribute extends ScrollableCommonMethod {
@@ -578,7 +577,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { ScrollDirection | undefined } value - Scrolling direction.<br>Default value: <em>ScrollDirection.Vertical</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default scrollable(value: ScrollDirection | undefined): this;
     /**
@@ -594,7 +593,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { ScrollOnWillScrollCallback | undefined } handler - Callback triggered before scrolling.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onWillScroll(handler: ScrollOnWillScrollCallback | undefined): this;
     /**
@@ -610,7 +609,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { ScrollOnScrollCallback | undefined } handler - Callback triggered when the <em>Scroll</em> component scrolls.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onDidScroll(handler: ScrollOnScrollCallback | undefined): this;
     /**
@@ -627,7 +626,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { OnScrollEdgeCallback | undefined } event - Edge position to scroll to.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onScrollEdge(event: OnScrollEdgeCallback | undefined): this;
     /**
@@ -642,7 +641,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { VoidCallback | undefined } event - Callback triggered when scrolling starts.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onScrollStart(event: VoidCallback | undefined): this;
     /**
@@ -657,7 +656,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { VoidCallback | undefined } event - Callback triggered when scrolling stops.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onScrollStop(event: VoidCallback | undefined): this;
     /**
@@ -666,7 +665,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { BarState | undefined } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default scrollBar(barState: BarState | undefined): this;
     /**
@@ -675,7 +674,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { Color | number | string | undefined } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default scrollBarColor(color: Color | number | string | undefined): this;
     /**
@@ -684,7 +683,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { number | string | undefined } value - Scrollbar width.<br>Default value: <em>4</em> <br>Unit: vp
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default scrollBarWidth(value: number | string | undefined): this;
     /**
@@ -697,7 +696,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * <br>Default value: <em>{ alwaysEnabled: true }</em>
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default edgeEffect(edgeEffect: EdgeEffect | undefined, options?: EdgeEffectOptions | undefined): this;
     /**
@@ -707,7 +706,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { OnScrollFrameBeginCallback | undefined } event - Callback triggered when each frame scrolling starts.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onScrollFrameBegin(event: OnScrollFrameBeginCallback | undefined): this;
     /**
@@ -718,7 +717,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * <br>Default value: <em>{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</em>
      * @returns { this } the attribute of the scroll.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default nestedScroll(value: NestedScrollOptions | undefined): this;
     /**
@@ -728,7 +727,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { boolean | undefined } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
      * @returns { this } The attribute of the scroll
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableScrollInteraction(value: boolean | undefined): this;
     /**
@@ -742,7 +741,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
      * @returns { this } the attribute of the scroll.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default friction(value: number | Resource | undefined): this;
     /**
@@ -751,7 +750,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { ScrollSnapOptions | undefined } value - Scroll snapping mode.
      * @returns { this } the attribute of the scroll.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default scrollSnap(value: ScrollSnapOptions | undefined): this;
     /**
@@ -761,7 +760,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * The value <em>true</em> means to enable the swipe-to-turn-pages feature, and <em>false</em> means the opposite.
      * @returns { this } the attribute of the scroll.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enablePaging(value: boolean | undefined): this;
     /**
@@ -772,7 +771,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * in the main axis direction and the percentage value.
      * @returns { this } the attribute of the scroll.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default initialOffset(value: OffsetOptions | undefined): this;
     /**
@@ -781,7 +780,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      * @param { AttributeModifier<ScrollAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<ScrollAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -803,7 +802,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
  * <br>Unit: vp
  * @param { ScrollState } scrollState - Current scrolling state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState) => void;
 /**
@@ -817,7 +816,7 @@ export type ScrollOnScrollCallback = (xOffset: number, yOffset: number, scrollSt
  * @returns { undefined | OffsetResult } the remain offset for the Scroll,
  *     same as (xOffset, yOffset) when no OffsetResult is returned.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | OffsetResult;
 
@@ -828,7 +827,7 @@ export type ScrollOnWillScrollCallback = (xOffset: number, yOffset: number, scro
  * @param { function } [content_] - container
  * @returns { ScrollAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

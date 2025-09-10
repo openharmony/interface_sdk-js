@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface RectOptions {
   /**
@@ -82,7 +82,7 @@ declare interface RectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -139,7 +139,7 @@ declare interface RectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 
@@ -196,7 +196,7 @@ declare interface RectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radius?: Length | Array<any>;
 }
@@ -209,7 +209,7 @@ declare interface RectOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface RoundedRectOptions {
   /**
@@ -265,7 +265,7 @@ declare interface RoundedRectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -322,7 +322,7 @@ declare interface RoundedRectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 
@@ -379,7 +379,7 @@ declare interface RoundedRectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusWidth?: Length;
 
@@ -436,7 +436,7 @@ declare interface RoundedRectOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusHeight?: Length;
 }
@@ -473,7 +473,7 @@ declare interface RoundedRectOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface RectInterface {
@@ -525,7 +525,7 @@ interface RectInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (
     options?: RectOptions | RoundedRectOptions,
@@ -583,7 +583,7 @@ interface RectInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (
     options?: RectOptions | RoundedRectOptions,
@@ -622,7 +622,7 @@ interface RectInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
@@ -673,7 +673,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusWidth(value: Length): RectAttribute;
 
@@ -724,7 +724,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radiusHeight(value: Length): RectAttribute;
 
@@ -775,7 +775,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   radius(value: Length | Array<any>): RectAttribute;
 }
@@ -802,7 +802,7 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Rect: RectInterface;
@@ -811,7 +811,7 @@ declare const Rect: RectInterface;
  * Rect attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
+ * @since 7 dynamic
  * @deprecated since 9
  * @noninterop
  */
@@ -835,7 +835,7 @@ declare const RectInStance: RectAttribute;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const RectInstance: RectAttribute;

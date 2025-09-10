@@ -35,7 +35,7 @@
  * @enum { TreeListenType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare enum TreeListenType {
@@ -48,7 +48,7 @@ export declare enum TreeListenType {
      * register listener after a node is clicked.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NODE_CLICK = "NodeClick",
     /**
@@ -60,7 +60,7 @@ export declare enum TreeListenType {
      * register listener after a node is add.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NODE_ADD = "NodeAdd",
     /**
@@ -72,7 +72,7 @@ export declare enum TreeListenType {
      * register listener after a node is delected.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NODE_DELETE = "NodeDelete",
     /**
@@ -84,7 +84,7 @@ export declare enum TreeListenType {
      * register listener after a node is modified.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NODE_MODIFY = "NodeModify",
     /**
@@ -96,7 +96,7 @@ export declare enum TreeListenType {
      * register listener after a node is moved.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     NODE_MOVE = "NodeMove",
 }
@@ -110,7 +110,7 @@ export declare enum TreeListenType {
  * Declare class TreeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class TreeListener {
@@ -131,7 +131,7 @@ export declare class TreeListener {
      * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
@@ -152,7 +152,7 @@ export declare class TreeListener {
      * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
@@ -171,7 +171,7 @@ export declare class TreeListener {
      * @param { callback }.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): void;
 }
@@ -185,7 +185,7 @@ export declare class TreeListener {
  * Declare class TreeListenerManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class TreeListenerManager {
@@ -202,7 +202,7 @@ export declare class TreeListenerManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     static getInstance(): TreeListenerManager;
 
@@ -217,7 +217,7 @@ export declare class TreeListenerManager {
      * @return treeListener object
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getTreeListener(): TreeListener;
 }
@@ -231,7 +231,7 @@ export declare class TreeListenerManager {
  * Declare TreeView Component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 @Component
@@ -247,7 +247,7 @@ export declare struct TreeView {
      * @type TreeController
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     treeController: TreeController;
 }
@@ -263,7 +263,7 @@ export declare struct TreeView {
  * @typedef CallbackParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export interface CallbackParam {
@@ -278,7 +278,7 @@ export interface CallbackParam {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     currentNodeId: number,
 
@@ -293,7 +293,7 @@ export interface CallbackParam {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     parentNodeId?: number,
 
@@ -308,7 +308,7 @@ export interface CallbackParam {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     childIndex?: number
 }
@@ -324,7 +324,7 @@ export interface CallbackParam {
  * @typedef NodeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export interface NodeParam {
@@ -339,7 +339,7 @@ export interface NodeParam {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     parentNodeId?: number,
 
@@ -354,7 +354,7 @@ export interface NodeParam {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     currentNodeId?: number,
 
@@ -369,7 +369,7 @@ export interface NodeParam {
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     isFolder?: boolean;
 
@@ -384,7 +384,7 @@ export interface NodeParam {
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     icon?: ResourceStr;
 
@@ -393,7 +393,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     symbolIconStyle?: SymbolGlyphModifier;
 
@@ -408,7 +408,7 @@ export interface NodeParam {
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     selectedIcon?: ResourceStr;
 
@@ -417,7 +417,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     symbolSelectedIconStyle?: SymbolGlyphModifier;
 
@@ -432,7 +432,7 @@ export interface NodeParam {
      * @type { Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     editIcon?: ResourceStr;
 
@@ -441,7 +441,7 @@ export interface NodeParam {
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     symbolEditIconStyle?: SymbolGlyphModifier;
 
@@ -456,7 +456,7 @@ export interface NodeParam {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     primaryTitle?: ResourceStr;
 
@@ -471,7 +471,7 @@ export interface NodeParam {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     secondaryTitle?: ResourceStr;
 
@@ -486,7 +486,7 @@ export interface NodeParam {
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     container?: () => void;
 }
@@ -500,7 +500,7 @@ export interface NodeParam {
  * Declare TreeController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class TreeController {
@@ -515,7 +515,7 @@ export declare class TreeController {
      * Register an ON_ITEM_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted nodes.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     removeNode(): void;
 
@@ -530,7 +530,7 @@ export declare class TreeController {
      * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     modifyNode(): void;
 
@@ -559,7 +559,7 @@ export declare class TreeController {
      * @return ListTreeNode Tree view component proxy class.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     addNode(nodeParam?: NodeParam): TreeController;
 
@@ -582,7 +582,7 @@ export declare class TreeController {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
 
@@ -601,7 +601,7 @@ export declare class TreeController {
      * This interface must be called when you finish initializing the ListTreeView by addNode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     buildDone(): void;
 }

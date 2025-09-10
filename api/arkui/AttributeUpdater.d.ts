@@ -26,7 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare type Initializer<T> = () => T;
 
@@ -37,7 +37,7 @@ declare type Initializer<T> = () => T;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
@@ -49,7 +49,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: T): void;
 
@@ -60,7 +60,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   initializeModifier(instance: T): void;
 
@@ -71,7 +71,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   get attribute(): T | undefined;
 
@@ -82,7 +82,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   updateConstructorParams: C;
 
@@ -93,7 +93,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onComponentChanged(component: T): void;
 }

@@ -31,7 +31,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum PatternLockChallengeResult {
   /**
@@ -45,7 +45,7 @@ declare enum PatternLockChallengeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CORRECT = 1,
   /**
@@ -59,7 +59,7 @@ declare enum PatternLockChallengeResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   WRONG = 2
 }
@@ -71,7 +71,7 @@ declare enum PatternLockChallengeResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface CircleStyleOptions {
   /**
@@ -81,7 +81,7 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   color?: ResourceColor;
 
@@ -92,7 +92,7 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   radius?: LengthMetrics;
 
@@ -103,7 +103,7 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableWaveEffect?: boolean;
 
@@ -114,7 +114,7 @@ declare interface CircleStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
     enableForeground?: boolean;
 }
@@ -138,7 +138,7 @@ declare interface CircleStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare class PatternLockController {
   /**
@@ -160,7 +160,7 @@ declare class PatternLockController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor();
 
@@ -183,7 +183,7 @@ declare class PatternLockController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reset();
 
@@ -200,7 +200,7 @@ declare class PatternLockController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setChallengeResult(result: PatternLockChallengeResult): void;
 }
@@ -227,7 +227,7 @@ declare class PatternLockController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 interface PatternLockInterface {
@@ -256,7 +256,7 @@ interface PatternLockInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (controller?: PatternLockController): PatternLockAttribute;
 }
@@ -283,7 +283,7 @@ interface PatternLockInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
@@ -316,7 +316,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   sideLength(value: Length): PatternLockAttribute;
 
@@ -349,7 +349,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   circleRadius(value: Length): PatternLockAttribute;
 
@@ -378,7 +378,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
@@ -407,7 +407,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
@@ -436,7 +436,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
@@ -465,7 +465,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
@@ -494,7 +494,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
@@ -527,7 +527,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
@@ -556,7 +556,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
@@ -587,7 +587,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   autoReset(value: boolean): PatternLockAttribute;
 
@@ -607,7 +607,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
 
@@ -619,7 +619,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 
@@ -632,7 +632,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   skipUnselectedPoint(skipped: boolean): PatternLockAttribute;
 }
@@ -656,7 +656,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const PatternLock: PatternLockInterface;
@@ -680,7 +680,7 @@ declare const PatternLock: PatternLockInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const PatternLockInstance: PatternLockAttribute;

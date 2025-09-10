@@ -44,7 +44,7 @@ import { LoopObserver as _LoopObserver } from './application/LoopObserver';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 declare namespace errorManager {
   /**
@@ -84,7 +84,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function on(type: 'error', observer: ErrorObserver): int;
 
@@ -125,7 +125,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'error', observerId: int, callback: AsyncCallback<void>): void;
 
@@ -166,7 +166,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'error', observerId: int): Promise<void>;
 
@@ -179,7 +179,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'globalErrorOccurred', observer: GlobalObserver): void;
 
@@ -192,7 +192,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function on(type: 'globalUnhandledRejectionDetected', observer: GlobalObserver): void;
 
@@ -206,7 +206,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'globalErrorOccurred', observer?: GlobalObserver): void;
 
@@ -220,7 +220,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'globalUnhandledRejectionDetected', observer?: GlobalObserver): void;
 
@@ -231,7 +231,7 @@ declare namespace errorManager {
    * { GlobalError } reason - the reason of the error or rejection.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export type GlobalObserver = (reason: GlobalError) => void;
 
@@ -242,7 +242,7 @@ declare namespace errorManager {
    * @typedef GlobalError
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export interface GlobalError extends Error {
     /**
@@ -250,7 +250,7 @@ declare namespace errorManager {
      * @type { string } instanceName
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     instanceName: string;
 
@@ -259,7 +259,7 @@ declare namespace errorManager {
      * @type { InstanceType } instanceType
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     instanceType: InstanceType;
   }
@@ -269,7 +269,7 @@ declare namespace errorManager {
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export enum InstanceType {
     /**
@@ -277,7 +277,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     MAIN = 0,
 
@@ -286,7 +286,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
      WORKER = 1,
 
@@ -295,7 +295,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     TASKPOOL = 2,
 
@@ -304,7 +304,7 @@ declare namespace errorManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     CUSTOM = 3,
   }
@@ -336,7 +336,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function on(type: 'loopObserver', timeout: int, observer: LoopObserver): void;
 
@@ -361,7 +361,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'loopObserver', observer?: LoopObserver): void;
 
@@ -388,7 +388,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function on(type: 'unhandledRejection', observer: UnhandledRejectionObserver): void;
 
@@ -417,7 +417,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'unhandledRejection', observer?: UnhandledRejectionObserver): void;
 
@@ -433,7 +433,7 @@ declare namespace errorManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
     function on(type: 'freeze', observer: FreezeObserver): void;
 
@@ -448,7 +448,7 @@ declare namespace errorManager {
    * @throws { BusinessError } 16300004 - The observer does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   function off(type: 'freeze', observer?: FreezeObserver): void;
 
@@ -473,7 +473,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type ErrorObserver = _ErrorObserver.default;
   /**
@@ -491,7 +491,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type LoopObserver = _LoopObserver;
   /**
@@ -513,7 +513,7 @@ declare namespace errorManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   export type UnhandledRejectionObserver = (reason: Error | any, promise: Promise<any>) => void;
   /**
@@ -522,7 +522,7 @@ declare namespace errorManager {
    * @typedef { function }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   export type FreezeObserver = () => void;
 }

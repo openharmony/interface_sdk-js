@@ -29,7 +29,7 @@ import lang from '../arkts/@arkts.lang';
  * @namespace sendablePreferences
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  * @name sendablePreferences
  */
 declare namespace sendablePreferences {
@@ -38,7 +38,7 @@ declare namespace sendablePreferences {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   const MAX_KEY_LENGTH: number;
 
@@ -47,7 +47,7 @@ declare namespace sendablePreferences {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   const MAX_VALUE_LENGTH: number;
 
@@ -57,7 +57,7 @@ declare namespace sendablePreferences {
    * @interface Options
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface Options {
     /**
@@ -66,7 +66,7 @@ declare namespace sendablePreferences {
      * @type { string }
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     name: string;
 
@@ -77,7 +77,7 @@ declare namespace sendablePreferences {
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @StageModelOnly
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     dataGroupId?: string | null;
   }
@@ -99,7 +99,7 @@ declare namespace sendablePreferences {
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function getPreferences(context: Context, options: Options): Promise<Preferences>;
 
@@ -121,7 +121,7 @@ declare namespace sendablePreferences {
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function getPreferencesSync(context: Context, options: Options): Preferences;
 
@@ -146,7 +146,7 @@ declare namespace sendablePreferences {
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function deletePreferences(context: Context, options: Options): Promise<void>;
 
@@ -169,7 +169,7 @@ declare namespace sendablePreferences {
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function removePreferencesFromCache(context: Context, options: Options): Promise<void>;
 
@@ -191,7 +191,7 @@ declare namespace sendablePreferences {
    * @throws { BusinessError } 15501002 - Invalid dataGroupId.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function removePreferencesFromCacheSync(context: Context, options: Options): void;
 
@@ -205,7 +205,7 @@ declare namespace sendablePreferences {
    * @interface Preferences
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   interface Preferences extends lang.ISendable {
     /**
@@ -223,7 +223,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     get(key: string, defValue: lang.ISendable): Promise<lang.ISendable>;
 
@@ -242,7 +242,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getSync(key: string, defValue: lang.ISendable): lang.ISendable;
 
@@ -253,7 +253,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getAll(): Promise<lang.ISendable>;
 
@@ -264,7 +264,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     getAllSync(): lang.ISendable;
 
@@ -281,7 +281,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     has(key: string): Promise<boolean>;
 
@@ -299,7 +299,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     hasSync(key: string): boolean;
 
@@ -318,7 +318,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     put(key: string, value: lang.ISendable): Promise<void>;
 
@@ -337,7 +337,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     putSync(key: string, value: lang.ISendable): void;
 
@@ -354,7 +354,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     delete(key: string): Promise<void>;
 
@@ -371,7 +371,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     deleteSync(key: string): void;
 
@@ -383,7 +383,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     clear(): Promise<void>;
 
@@ -394,7 +394,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     clearSync(): void;
 
@@ -405,7 +405,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     flush(): Promise<void>;
 
@@ -415,7 +415,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 14
+     * @since 14 dynamiconly
      */
     flushSync(): void;
 
@@ -430,7 +430,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     on(type: 'change', callback: Callback<string>): void;
 
@@ -447,7 +447,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500019 - Failed to obtain the subscription service.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     on(type: 'multiProcessChange', callback: Callback<string>): void;
 
@@ -463,7 +463,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     on(type: 'dataChange', keys: Array<string>, callback: Callback<lang.ISendable>): void;
 
@@ -478,7 +478,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     off(type: 'change', callback?: Callback<string>): void;
 
@@ -493,7 +493,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     off(type: 'multiProcessChange', callback?: Callback<string>): void;
 
@@ -509,7 +509,7 @@ declare namespace sendablePreferences {
      * @throws { BusinessError } 15500000 - Inner error.
      * @syscap SystemCapability.DistributedDataManager.Preferences.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      */
     off(type: 'dataChange', keys: Array<string>, callback?: Callback<lang.ISendable>): void;
   }

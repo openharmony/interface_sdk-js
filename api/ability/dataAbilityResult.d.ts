@@ -23,7 +23,7 @@
  *
  * @typedef DataAbilityResult
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @since 7
+ * @since 7 dynamic
  */
 export interface DataAbilityResult {
   /**
@@ -32,7 +32,7 @@ export interface DataAbilityResult {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   uri?: string;
 
@@ -42,7 +42,7 @@ export interface DataAbilityResult {
    * @type { ?number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   count?: number;
 }

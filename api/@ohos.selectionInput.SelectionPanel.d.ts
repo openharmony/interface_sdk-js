@@ -22,7 +22,7 @@
  * Defines information about the word selection panel.
  * @typedef PanelInfo
  * @syscap SystemCapability.SelectionInput.Selection
- * @since 20
+ * @since 20 dynamic
  */
 
 export interface PanelInfo {
@@ -31,7 +31,7 @@ export interface PanelInfo {
    * @type { PanelType }
    * @default MENU
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   panelType: PanelType;
 
@@ -39,7 +39,7 @@ export interface PanelInfo {
    * X-coordinate of the upper left corner of the word selection panel on the screen.
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   x: number;
 
@@ -47,7 +47,7 @@ export interface PanelInfo {
    * Y-coordinate of the upper left corner of the word selection panel on the screen.
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   y: number;
 
@@ -55,7 +55,7 @@ export interface PanelInfo {
    * Width of the word selection panel.
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   width: number;
 
@@ -63,7 +63,7 @@ export interface PanelInfo {
    * Height of the word selection panel.
    * @type { number }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   height: number;
 }
@@ -72,21 +72,21 @@ export interface PanelInfo {
  * Enumerates the types of the word selection panel.
  * @enum { number }
  * @syscap SystemCapability.SelectionInput.Selection
- * @since 20
+ * @since 20 dynamic
  */
 
 export enum PanelType {
   /**
    * Menu panel.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   MENU_PANEL = 1,
 
   /**
    * Main panel.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   MAIN_PANEL = 2
 }

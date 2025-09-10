@@ -25,7 +25,7 @@ import { BusinessError } from './@ohos.base';
  *
  * @namespace cacheDownload
  * @syscap SystemCapability.Request.FileTransferAgent
- * @since 18
+ * @since 18 dynamic
  */
 declare namespace cacheDownload {
     /**
@@ -33,7 +33,7 @@ declare namespace cacheDownload {
      *
      * @typedef CacheDownloadOptions
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 18
+     * @since 18 dynamic
      */
     interface CacheDownloadOptions {
         /**
@@ -41,7 +41,7 @@ declare namespace cacheDownload {
          *
          * @type { ?Record<string, string> }
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 18
+         * @since 18 dynamic
          */
         headers?: Record<string, string>;
     }
@@ -51,8 +51,7 @@ declare namespace cacheDownload {
      *
      * @typedef ResourceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     interface ResourceInfo {
         /**
@@ -61,8 +60,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly size: long;
     }
@@ -72,8 +70,7 @@ declare namespace cacheDownload {
      *
      * @typedef NetworkInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     interface NetworkInfo {
         /**
@@ -83,8 +80,7 @@ declare namespace cacheDownload {
          * @type { string }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly ip: string;
         /**
@@ -93,8 +89,7 @@ declare namespace cacheDownload {
          * @type { string[] }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly dnsServers: string[];
     }
@@ -104,8 +99,7 @@ declare namespace cacheDownload {
      *
      * @typedef PerformanceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     interface PerformanceInfo {
         /**
@@ -114,8 +108,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly dnsTime: long;
         /**
@@ -124,8 +117,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly connectTime: long;
         /**
@@ -134,8 +126,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly tlsTime: long;
         /**
@@ -144,8 +135,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly firstSendTime: long;
         /**
@@ -154,8 +144,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly firstReceiveTime: long;
         /**
@@ -164,8 +153,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly totalTime: long;
         /**
@@ -174,8 +162,7 @@ declare namespace cacheDownload {
          * @type { long }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly redirectTime: long;
     }
@@ -185,8 +172,7 @@ declare namespace cacheDownload {
      *
      * @typedef DownloadInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     interface DownloadInfo {
         /**
@@ -195,8 +181,7 @@ declare namespace cacheDownload {
          * @type { ResourceInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly resource: ResourceInfo;
         /**
@@ -205,8 +190,7 @@ declare namespace cacheDownload {
          * @type { NetworkInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly network: NetworkInfo;
         /**
@@ -215,8 +199,7 @@ declare namespace cacheDownload {
          * @type { PerformanceInfo }
          * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
-         * @since 20
-         * @arkts 1.1&1.2
+         * @since 20 dynamic&static
          */
         readonly performance: PerformanceInfo;
     }
@@ -234,7 +217,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 18
+     * @since 18 dynamic
      */
     function download(url: string, options: CacheDownloadOptions);
 
@@ -246,7 +229,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 18
+     * @since 18 dynamic
      */
     function cancel(url: string);
 
@@ -259,7 +242,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 18
+     * @since 18 dynamic
      */
     function setMemoryCacheSize(bytes: long);
 
@@ -272,7 +255,7 @@ declare namespace cacheDownload {
      * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
      * <br>2. Incorrect parameter type. 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 18
+     * @since 18 dynamic
      */
     function setFileCacheSize(bytes: long);
 
@@ -289,8 +272,7 @@ declare namespace cacheDownload {
      * @returns { DownloadInfo | undefined } the information of the specified cache download or none.
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     function getDownloadInfo(url: string): DownloadInfo | undefined;
 
@@ -305,8 +287,7 @@ declare namespace cacheDownload {
      *
      * @param { long } size - the size of the download information list.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     function setDownloadInfoListSize(size: long): void;
 }

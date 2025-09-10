@@ -29,7 +29,7 @@ import window from './@ohos.window';
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi hide for inner use.
  * @StageModelOnly
- * @since 9
+ * @since 9 dynamiconly
  */
 export default class WindowExtensionAbility {
   /**
@@ -39,7 +39,7 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   context: WindowExtensionContext;
 
@@ -50,7 +50,7 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   onConnect(want: Want): void;
 
@@ -61,7 +61,7 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   onDisconnect(want: Want): void;
 
@@ -72,7 +72,7 @@ export default class WindowExtensionAbility {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi hide for inner use.
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   onWindowReady(window: window.Window): void;
 }
@@ -85,6 +85,6 @@ export default class WindowExtensionAbility {
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
  * @stagemodelonly
- * @since 9
+ * @since 9 dynamiconly
  */
 export type WindowExtensionContext = _WindowExtensionContext;

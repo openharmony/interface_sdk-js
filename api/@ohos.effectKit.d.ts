@@ -38,8 +38,8 @@ import image from './@ohos.multimedia.image';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 20 static
  */
 
 declare namespace effectKit {
@@ -65,8 +65,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface Filter {
 
@@ -94,8 +94,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     blur(radius: double): Filter;
 
@@ -105,8 +105,8 @@ declare namespace effectKit {
     * @param { TileMode } tileMode - The tile mode of blur.
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     blur(radius: double, tileMode: TileMode): Filter;
 
@@ -134,8 +134,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     brightness(bright: double): Filter;
 
@@ -160,8 +160,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     grayscale(): Filter;
 
@@ -176,8 +176,8 @@ declare namespace effectKit {
     * @returns { Filter } Filters for the current effect have been added.
     * @syscap SystemCapability.Multimedia.Image.Core
     * @crossplatform
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     invert(): Filter;
 
@@ -198,8 +198,8 @@ declare namespace effectKit {
      * @throws { BusinessError } 401 - Input parameter error.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     setColorMatrix(colorMatrix: Array<double>): Filter;
 
@@ -207,7 +207,7 @@ declare namespace effectKit {
     * Gets the PixelMap where all filter effects have been added to the image.
     * @returns { image.PixelMap } image.PixelMap.
     * @syscap SystemCapability.Multimedia.Image.Core
-    * @since 9
+    * @since 9 dynamiconly
     * @deprecated since 11
     * @useinstead effectKit.Filter#getEffectPixelMap
     */
@@ -234,8 +234,8 @@ declare namespace effectKit {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'14', '1.2':'20'}
-    * @arkts 1.1&1.2 
+    * @since 14 dynamic
+    * @since 20 static
     */
     getEffectPixelMap(): Promise<image.PixelMap>;
   }
@@ -261,8 +261,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ColorPicker {
 
@@ -287,8 +287,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getMainColor(): Promise<Color>;
 
@@ -313,8 +313,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getMainColorSync(): Color;
 
@@ -339,8 +339,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getLargestProportionColor(): Color;
 
@@ -363,8 +363,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getTopProportionColors(colorCount: int): Array<Color | null>;
 
@@ -389,8 +389,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getHighestSaturationColor(): Color;
 
@@ -415,8 +415,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     getAverageColor(): Color;
 
@@ -444,8 +444,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2 
+     * @since 14 dynamic
+     * @since 20 static
      */
     isBlackOrWhiteOrGrayColor(color: int): boolean;
   }
@@ -471,8 +471,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface Color {
 
@@ -497,8 +497,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     red: int;
 
@@ -523,8 +523,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     green: int;
 
@@ -549,8 +549,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     blue: int;
 
@@ -575,8 +575,8 @@ declare namespace effectKit {
      * @crossplatform
      * @form
      * @atomicservice
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     alpha: int;
   }
@@ -605,8 +605,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createEffect(source: image.PixelMap): Filter;
 
@@ -637,8 +637,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createColorPicker(source: image.PixelMap): Promise<ColorPicker>;
 
@@ -675,8 +675,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>): Promise<ColorPicker>;
 
@@ -707,8 +707,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void;
   
@@ -745,8 +745,8 @@ declare namespace effectKit {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   function createColorPicker(source: image.PixelMap, region: Array<double>, callback: AsyncCallback<ColorPicker>): void;
 
@@ -755,16 +755,16 @@ declare namespace effectKit {
    *
    * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   enum TileMode {
     /**
      * Clamp mode.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     CLAMP = 0,
 
@@ -772,8 +772,8 @@ declare namespace effectKit {
      * Repeat mode.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     REPEAT = 1,
 
@@ -781,8 +781,8 @@ declare namespace effectKit {
      * Mirror mode.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     MIRROR = 2,
 
@@ -790,8 +790,8 @@ declare namespace effectKit {
      * Decal mode.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     DECAL = 3,
   }

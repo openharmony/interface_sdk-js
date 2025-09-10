@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Callback, RecordData } from './@ohos.base';
 
@@ -25,7 +24,7 @@ import { Callback, RecordData } from './@ohos.base';
  *
  * @namespace inspector
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 declare namespace inspector {
     
@@ -34,7 +33,7 @@ declare namespace inspector {
      *
      * @interface ComponentObserver
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     interface ComponentObserver {
         
@@ -44,7 +43,7 @@ declare namespace inspector {
          * @param { 'layout' } type - type of the listened event.
          * @param { Callback<void> } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         onLayout(type: 'layout', callback: Callback<void>): void;
         
@@ -54,7 +53,7 @@ declare namespace inspector {
          * @param { 'layout' } type - type of the listened event.
          * @param { Callback<void> } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         offLayout(type: 'layout', callback?: Callback<void>): void;
         
@@ -64,7 +63,7 @@ declare namespace inspector {
          * @param { 'draw' } type - type of the listened event.
          * @param { Callback<void> } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         onDraw(type: 'draw', callback: Callback<void>): void;
         
@@ -74,7 +73,7 @@ declare namespace inspector {
          * @param { 'draw' } type - type of the listened event.
          * @param { Callback<void> } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         offDraw(type: 'draw', callback?: Callback<void>): void;
 
@@ -84,7 +83,7 @@ declare namespace inspector {
          * @param { 'drawChildren' } type - type of the listened event.
          * @param { Callback<void> } callback - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         onDrawChildren(type: 'drawChildren', callback: Callback<void>): void;
 
@@ -94,16 +93,16 @@ declare namespace inspector {
          * @param { 'drawChildren' } type - type of the listened event.
          * @param { Callback<void> } [callback] - callback of the listened event.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
-         * @since 20
+         * @since 20 static
          */
         offDrawChildren(type: 'drawChildren', callback?: Callback<void>): void;
 
         /**
-         * @since 20
+         * @since 20 static
          */
         overload on { onLayout, onDraw, onDrawChildren }
         /**
-         * @since 20
+         * @since 20 static
          */
         overload off { offLayout, offDraw, offDrawChildren }
     }
@@ -114,7 +113,7 @@ declare namespace inspector {
      * @param { string } id - ID of the component whose attributes are to be obtained.
      * @returns { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      * @test
      */
     function getInspectorByKey(id: string): string;
@@ -123,7 +122,7 @@ declare namespace inspector {
      *
      * @returns { RecordData }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      * @test
      */
     function getInspectorTree(): RecordData;
@@ -135,7 +134,7 @@ declare namespace inspector {
      * @param { string } params - Event parameters. If there is no parameter, pass an empty string "".
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      * @test
      */
     function sendEventByKey(id: string, action: int, params: string): boolean;
@@ -145,20 +144,20 @@ export default inspector;
  * export function getInspectorByKey from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
 /**
  * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export const GETINSPECTORTREE = inspector.getInspectorTree;
 /**
  * export function sendEventByKey from inspector namespace and provide it for kit ArkUI.
  * @constant
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export const SENDEVENTBYKEY = inspector.sendEventByKey;

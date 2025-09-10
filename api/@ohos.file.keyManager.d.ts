@@ -23,8 +23,8 @@
  *
  * @namespace keyManager
  * @syscap SystemCapability.FileManagement.StorageService.Encryption
- * @since arkts {'1.1':'15', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15 dynamic
+ * @since 20 static
  */
 declare namespace keyManager {
    /**
@@ -41,8 +41,8 @@ declare namespace keyManager {
     * @throws { BusinessError } 13600009 - User ID out of range. Possible causes: input parameter userId < 100 or userId > 10736.
     * @syscap SystemCapability.FileManagement.StorageService.Encryption
     * @systemapi
-    * @since arkts {'1.1':'15', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 15 dynamic
+    * @since 20 static
     */
    function deactivateUserKey(userId: long):void;
  }

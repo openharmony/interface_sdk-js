@@ -26,8 +26,8 @@ import type Context from './application/BaseContext';
  *
  * @namespace sms
  * @syscap SystemCapability.Telephony.SmsMms
- * @since arkts {'1.1':'6','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 6 dynamic
+ * @since 20 static
  */
 declare namespace sms {
   /**
@@ -51,8 +51,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function splitMessage(content: string, callback: AsyncCallback<Array<string>>): void;
 
@@ -76,8 +76,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function splitMessage(content: string): Promise<Array<string>>;
 
@@ -99,8 +99,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   function createMessage(pdu: Array<number>, specification: string, callback: AsyncCallback<ShortMessage>): void;
 
@@ -122,8 +122,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   function createMessage(pdu: Array<number>, specification: string): Promise<ShortMessage>;
 
@@ -143,7 +143,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 10
    * @useinstead telephony.sms#sendShortMessage
    */
@@ -166,8 +166,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function sendShortMessage(options: SendMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -188,8 +188,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function sendShortMessage(options: SendMessageOptions): Promise<void>;
 
@@ -212,8 +212,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setDefaultSmsSlotId(slotId: number, callback: AsyncCallback<void>): void;
 
@@ -236,8 +236,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setDefaultSmsSlotId(slotId: number): Promise<void>;
 
@@ -249,8 +249,8 @@ declare namespace sms {
    * Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
    * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getDefaultSmsSlotId(callback: AsyncCallback<number>): void;
 
@@ -260,8 +260,8 @@ declare namespace sms {
    * @returns { Promise<number> } Returns {@code 0} if the default SIM card for sending SMS messages is in card slot 1;
    * Returns {@code 1} if the default SIM card for sending SMS messages is in card slot 2.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getDefaultSmsSlotId(): Promise<number>;
 
@@ -282,8 +282,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setSmscAddr(slotId: number, smscAddr: string, callback: AsyncCallback<void>): void;
 
@@ -304,8 +304,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setSmscAddr(slotId: number, smscAddr: string): Promise<void>;
 
@@ -325,8 +325,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getSmscAddr(slotId: number, callback: AsyncCallback<string>): void;
 
@@ -346,8 +346,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getSmscAddr(slotId: number): Promise<string>;
 
@@ -357,8 +357,8 @@ declare namespace sms {
    * @returns { boolean } Returns {@code true} if the device is capable of sending and receiving SMS messages;
    * Returns {@code false} otherwise.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function hasSmsCapability(): boolean;
 
@@ -378,8 +378,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function addSimMessage(options: SimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -399,8 +399,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function addSimMessage(options: SimMessageOptions): Promise<void>;
 
@@ -422,8 +422,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function delSimMessage(slotId: number, msgIndex: number, callback: AsyncCallback<void>): void;
 
@@ -445,8 +445,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function delSimMessage(slotId: number, msgIndex: number): Promise<void>;
 
@@ -466,7 +466,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function updateSimMessage(options: UpdateSimMessageOptions, callback: AsyncCallback<void>): void;
 
@@ -486,7 +486,7 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since 7 dynamic
    */
   function updateSimMessage(options: UpdateSimMessageOptions): Promise<void>;
 
@@ -508,8 +508,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getAllSimMessages(slotId: number, callback: AsyncCallback<Array<SimShortMessage>>): void;
 
@@ -530,8 +530,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getAllSimMessages(slotId: number): Promise<Array<SimShortMessage>>;
 
@@ -551,8 +551,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setCBConfig(options: CBConfigOptions, callback: AsyncCallback<void>): void;
 
@@ -572,8 +572,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setCBConfig(options: CBConfigOptions): Promise<void>;
 
@@ -595,8 +595,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getSmsSegmentsInfo(slotId
       : number, message
@@ -622,8 +622,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getSmsSegmentsInfo(slotId: number, message: string, force7bit: boolean): Promise<SmsSegmentsInfo>;
 
@@ -643,8 +643,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function isImsSmsSupported(slotId: number, callback: AsyncCallback<boolean>): void;
 
@@ -663,8 +663,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function isImsSmsSupported(slotId: number): Promise<boolean>;
 
@@ -681,8 +681,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getImsShortMessageFormat(callback: AsyncCallback<string>): void;
 
@@ -696,8 +696,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function getImsShortMessageFormat(): Promise<string>;
 
@@ -716,8 +716,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function decodeMms(mmsFilePathName: string | Array<number>, callback: AsyncCallback<MmsInformation>): void;
 
@@ -735,8 +735,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function decodeMms(mmsFilePathName: string | Array<number>): Promise<MmsInformation>;
 
@@ -754,8 +754,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function encodeMms(mms: MmsInformation, callback: AsyncCallback<Array<number>>): void;
 
@@ -773,8 +773,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   function encodeMms(mms: MmsInformation): Promise<Array<number>>;
 
@@ -792,8 +792,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getDefaultSmsSimId(callback: AsyncCallback<number>): void;
 
@@ -809,8 +809,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getDefaultSmsSimId(): Promise<number>;
 
@@ -820,8 +820,8 @@ declare namespace sms {
    * @interface MmsInformation
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsInformation {
     /**
@@ -830,8 +830,8 @@ declare namespace sms {
      * @type { MessageType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageType: MessageType;
 
@@ -842,8 +842,8 @@ declare namespace sms {
      * MmsDeliveryInd | MmsReadOrigInd | MmsReadRecInd }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     mmsType: MmsSendReq | MmsSendConf | MmsNotificationInd | MmsRespInd | MmsRetrieveConf | MmsAcknowledgeInd | 
 	    MmsDeliveryInd | 
@@ -856,8 +856,8 @@ declare namespace sms {
      * @type { ?Array<MmsAttachment> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     attachment?: Array<MmsAttachment>;
   }
@@ -879,8 +879,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function sendMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
@@ -901,8 +901,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function sendMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
@@ -923,8 +923,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function downloadMms(context: Context, mmsParams: MmsParams, callback: AsyncCallback<void>): void;
 
@@ -945,8 +945,8 @@ declare namespace sms {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function downloadMms(context: Context, mmsParams: MmsParams): Promise<void>;
 
@@ -956,8 +956,8 @@ declare namespace sms {
    * @interface MmsParams
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface MmsParams {
     /**
@@ -966,8 +966,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     slotId: number;
 
@@ -977,8 +977,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     mmsc: string;
 
@@ -988,8 +988,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     data: string;
 
@@ -999,8 +999,8 @@ declare namespace sms {
      * @type { ?MmsConfig }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     mmsConfig?: MmsConfig;
   }
@@ -1011,8 +1011,8 @@ declare namespace sms {
    * @interface MmsConfig
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface MmsConfig {
     /**
@@ -1021,8 +1021,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     userAgent: string;
 
@@ -1032,8 +1032,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     userAgentProfile: string;
   }
@@ -1044,8 +1044,8 @@ declare namespace sms {
    * @interface MmsSendReq
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsSendReq {
     /**
@@ -1054,8 +1054,8 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     from: MmsAddress;
 
@@ -1065,8 +1065,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1076,8 +1076,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentType: string;
 
@@ -1087,8 +1087,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1098,8 +1098,8 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     to?: Array<MmsAddress>;
 
@@ -1109,8 +1109,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     date?: number;
 
@@ -1120,8 +1120,8 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     cc?: Array<MmsAddress>;
 
@@ -1131,8 +1131,8 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     bcc?: Array<MmsAddress>;
 
@@ -1142,8 +1142,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     subject?: string;
 
@@ -1153,8 +1153,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageClass?: number;
 
@@ -1164,8 +1164,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     expiry?: number;
 
@@ -1175,8 +1175,8 @@ declare namespace sms {
      * @type { ?MmsPriorityType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     priority?: MmsPriorityType;
 
@@ -1186,8 +1186,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     senderVisibility?: number;
 
@@ -1197,8 +1197,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     deliveryReport?: number;
 
@@ -1208,8 +1208,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     readReport?: number;
   }
@@ -1220,8 +1220,8 @@ declare namespace sms {
    * @interface MmsSendConf
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsSendConf {
     /**
@@ -1230,8 +1230,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     responseState: number;
 
@@ -1241,8 +1241,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1252,8 +1252,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1263,8 +1263,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageId?: string;
   }
@@ -1275,8 +1275,8 @@ declare namespace sms {
    * @interface MmsNotificationInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsNotificationInd {
     /**
@@ -1285,8 +1285,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1296,8 +1296,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageClass: number;
 
@@ -1307,8 +1307,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageSize: number;
 
@@ -1318,8 +1318,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     expiry: number;
 
@@ -1329,8 +1329,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentLocation: string;
 
@@ -1340,8 +1340,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1351,8 +1351,8 @@ declare namespace sms {
      * @type { ?MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     from?: MmsAddress;
 
@@ -1362,8 +1362,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     subject?: string;
 
@@ -1373,8 +1373,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     deliveryReport?: number;
 
@@ -1384,8 +1384,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentClass?: number;
   }
@@ -1396,8 +1396,8 @@ declare namespace sms {
    * @interface MmsRespInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsRespInd {
     /**
@@ -1406,8 +1406,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1417,8 +1417,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     status: number;
 
@@ -1428,8 +1428,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1439,8 +1439,8 @@ declare namespace sms {
      * @type { ?ReportType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     reportAllowed?: ReportType;
   }
@@ -1451,8 +1451,8 @@ declare namespace sms {
    * @interface MmsRetrieveConf
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsRetrieveConf {
     /**
@@ -1461,8 +1461,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1472,8 +1472,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageId: string;
 
@@ -1483,8 +1483,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     date: number;
 
@@ -1494,8 +1494,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentType: string;
 
@@ -1505,8 +1505,8 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     to: Array<MmsAddress>;
 
@@ -1516,8 +1516,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1527,8 +1527,8 @@ declare namespace sms {
      * @type { ?MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     from?: MmsAddress;
 
@@ -1538,8 +1538,8 @@ declare namespace sms {
      * @type { ?Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     cc?: Array<MmsAddress>;
 
@@ -1549,8 +1549,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     subject?: string;
 
@@ -1560,8 +1560,8 @@ declare namespace sms {
      * @type { ?MmsPriorityType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     priority?: MmsPriorityType;
 
@@ -1571,8 +1571,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     deliveryReport?: number;
 
@@ -1582,8 +1582,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     readReport?: number;
 
@@ -1593,8 +1593,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     retrieveStatus?: number;
 
@@ -1604,8 +1604,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     retrieveText?: string;
   }
@@ -1616,8 +1616,8 @@ declare namespace sms {
    * @interface MmsAcknowledgeInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsAcknowledgeInd {
     /**
@@ -1626,8 +1626,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     transactionId: string;
 
@@ -1637,8 +1637,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1648,8 +1648,8 @@ declare namespace sms {
      * @type { ?ReportType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     reportAllowed?: ReportType;
   }
@@ -1660,8 +1660,8 @@ declare namespace sms {
    * @interface MmsDeliveryInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsDeliveryInd {
     /**
@@ -1670,8 +1670,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageId: string;
 
@@ -1681,8 +1681,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     date: number;
 
@@ -1692,8 +1692,8 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     to: Array<MmsAddress>;
 
@@ -1703,8 +1703,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     status: number;
 
@@ -1714,8 +1714,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
   }
@@ -1726,8 +1726,8 @@ declare namespace sms {
    * @interface MmsReadOrigInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsReadOrigInd {
     /**
@@ -1736,8 +1736,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1747,8 +1747,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageId: string;
 
@@ -1758,8 +1758,8 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     to: Array<MmsAddress>;
 
@@ -1769,8 +1769,8 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     from: MmsAddress;
 
@@ -1780,8 +1780,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     date: number;
 
@@ -1791,8 +1791,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     readStatus: number;
   }
@@ -1803,8 +1803,8 @@ declare namespace sms {
    * @interface MmsReadRecInd
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsReadRecInd {
     /**
@@ -1813,8 +1813,8 @@ declare namespace sms {
      * @type { MmsVersionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     version: MmsVersionType;
 
@@ -1824,8 +1824,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     messageId: string;
 
@@ -1835,8 +1835,8 @@ declare namespace sms {
      * @type { Array<MmsAddress> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     to: Array<MmsAddress>;
 
@@ -1846,8 +1846,8 @@ declare namespace sms {
      * @type { MmsAddress }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     from: MmsAddress;
 
@@ -1857,8 +1857,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     readStatus: number;
 
@@ -1868,8 +1868,8 @@ declare namespace sms {
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     date?: number;
   }
@@ -1880,8 +1880,8 @@ declare namespace sms {
    * @interface MmsAttachment
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsAttachment {
     /**
@@ -1890,8 +1890,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentId: string;
 
@@ -1901,8 +1901,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentLocation: string;
 
@@ -1912,8 +1912,8 @@ declare namespace sms {
      * @type { DispositionType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentDisposition: DispositionType;
 
@@ -1923,8 +1923,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentTransferEncoding: string;
 
@@ -1934,8 +1934,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     contentType: string;
 
@@ -1945,8 +1945,8 @@ declare namespace sms {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     isSmil: boolean;
 
@@ -1956,8 +1956,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     path?: string;
 
@@ -1967,8 +1967,8 @@ declare namespace sms {
      * @type { ?Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     inBuff?: Array<number>;
 
@@ -1978,8 +1978,8 @@ declare namespace sms {
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     fileName?: string;
 
@@ -1989,8 +1989,8 @@ declare namespace sms {
      * @type { ?MmsCharSets }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     charset?: MmsCharSets;
   }
@@ -2001,8 +2001,8 @@ declare namespace sms {
    * @interface MmsAddress
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface MmsAddress {
     /**
@@ -2011,8 +2011,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     address: string;
 
@@ -2022,8 +2022,8 @@ declare namespace sms {
      * @type { MmsCharSets }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     charset: MmsCharSets;
   }
@@ -2034,8 +2034,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum MessageType {
     /**
@@ -2043,8 +2043,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_SEND_REQ = 128,
 
@@ -2053,8 +2053,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_SEND_CONF,
 
@@ -2063,8 +2063,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_NOTIFICATION_IND,
 
@@ -2073,8 +2073,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_RESP_IND,
 
@@ -2083,8 +2083,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_RETRIEVE_CONF,
 
@@ -2093,8 +2093,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_ACKNOWLEDGE_IND,
 
@@ -2103,8 +2103,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_DELIVERY_IND,
 
@@ -2113,8 +2113,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_READ_REC_IND,
 
@@ -2123,8 +2123,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     TYPE_MMS_READ_ORIG_IND,
   }
@@ -2135,8 +2135,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum MmsPriorityType {
     /**
@@ -2144,8 +2144,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_LOW = 128,
 
@@ -2154,8 +2154,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_NORMAL,
 
@@ -2164,8 +2164,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_HIGH,
   }
@@ -2176,8 +2176,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum MmsVersionType {
     /**
@@ -2185,8 +2185,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_VERSION_1_0 = 0x10,
 
@@ -2195,8 +2195,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_VERSION_1_1,
 
@@ -2205,8 +2205,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_VERSION_1_2,
 
@@ -2215,8 +2215,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_VERSION_1_3,
   }
@@ -2227,8 +2227,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
    */
   export enum MmsCharSets {
     /**
@@ -2236,8 +2236,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     BIG5 = 0X07EA,
 
@@ -2246,8 +2246,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_10646_UCS_2 = 0X03E8,
 
@@ -2256,8 +2256,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_1 = 0X04,
 
@@ -2266,8 +2266,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_2,
 
@@ -2276,8 +2276,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_3,
 
@@ -2286,8 +2286,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_4,
 
@@ -2296,8 +2296,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_5,
 
@@ -2306,8 +2306,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_6,
 
@@ -2316,8 +2316,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_7,
 
@@ -2326,8 +2326,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_8,
 
@@ -2336,8 +2336,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ISO_8859_9,
 
@@ -2346,8 +2346,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     SHIFT_JIS = 0X11,
 
@@ -2356,8 +2356,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     US_ASCII = 0X03,
 
@@ -2366,8 +2366,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     UTF_8 = 0X6A,
   }
@@ -2378,8 +2378,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum DispositionType {
     /**
@@ -2387,8 +2387,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     FROM_DATA = 0,
 
@@ -2397,8 +2397,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     ATTACHMENT,
 
@@ -2407,8 +2407,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     INLINE,
   }
@@ -2419,8 +2419,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum ReportType {
     /**
@@ -2428,8 +2428,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_YES = 128,
 
@@ -2438,8 +2438,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     MMS_NO,
   }
@@ -2450,8 +2450,8 @@ declare namespace sms {
    * @interface CBConfigOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export interface CBConfigOptions {
     /**
@@ -2460,8 +2460,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     slotId: number;
 
@@ -2471,8 +2471,8 @@ declare namespace sms {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     enable: boolean;
 
@@ -2482,8 +2482,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     startMessageId: number;
 
@@ -2493,8 +2493,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     endMessageId: number;
 
@@ -2504,8 +2504,8 @@ declare namespace sms {
      * @type { RanType }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     ranType: RanType;
   }
@@ -2516,8 +2516,8 @@ declare namespace sms {
    * @interface SimMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export interface SimMessageOptions {
     /**
@@ -2526,8 +2526,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     slotId: number;
 
@@ -2537,8 +2537,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     smsc: string;
 
@@ -2548,8 +2548,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     pdu: string;
 
@@ -2559,8 +2559,8 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     status: SimMessageStatus;
   }
@@ -2571,8 +2571,8 @@ declare namespace sms {
    * @interface UpdateSimMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export interface UpdateSimMessageOptions {
     /**
@@ -2581,8 +2581,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     slotId: number;
 
@@ -2592,8 +2592,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     msgIndex: number;
 
@@ -2603,8 +2603,8 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     newStatus: SimMessageStatus;
 
@@ -2614,8 +2614,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     pdu: string;
 
@@ -2625,8 +2625,8 @@ declare namespace sms {
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     smsc: string;
   }
@@ -2636,8 +2636,8 @@ declare namespace sms {
    *
    * @interface ShortMessage
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface ShortMessage {
     /**
@@ -2645,8 +2645,8 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     visibleMessageBody: string;
 
@@ -2655,8 +2655,8 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     visibleRawAddress: string;
 
@@ -2665,8 +2665,8 @@ declare namespace sms {
      *
      * @type { ShortMessageClass }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     messageClass: ShortMessageClass;
 
@@ -2675,8 +2675,8 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     protocolId: number;
 
@@ -2685,8 +2685,8 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     scAddress: string;
 
@@ -2695,8 +2695,8 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     scTimestamp: number;
 
@@ -2705,8 +2705,8 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     isReplaceMessage: boolean;
 
@@ -2715,8 +2715,8 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     hasReplyPath: boolean;
 
@@ -2725,8 +2725,8 @@ declare namespace sms {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     pdu: Array<number>;
 
@@ -2736,8 +2736,8 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     status: number;
 
@@ -2746,8 +2746,8 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     isSmsStatusReportMessage: boolean;
   }
@@ -2758,8 +2758,8 @@ declare namespace sms {
    * @interface SimShortMessage
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export interface SimShortMessage {
     /**
@@ -2768,8 +2768,8 @@ declare namespace sms {
      * @type { ShortMessage }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     shortMessage: ShortMessage;
 
@@ -2779,8 +2779,8 @@ declare namespace sms {
      * @type { SimMessageStatus }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     simMessageStatus: SimMessageStatus;
 
@@ -2790,8 +2790,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     indexOnSim: number;
   }
@@ -2802,8 +2802,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export enum SimMessageStatus {
     /**
@@ -2811,8 +2811,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE_STATUS_FREE = 0,
 
@@ -2821,8 +2821,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE_STATUS_READ = 1,
 
@@ -2831,8 +2831,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE_STATUS_UNREAD = 3,
 
@@ -2841,8 +2841,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE_STATUS_SENT = 5,
 
@@ -2851,8 +2851,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE_STATUS_UNSENT = 7,
   }
@@ -2862,16 +2862,16 @@ declare namespace sms {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum ShortMessageClass {
     /**
      * Indicates an unknown type.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     UNKNOWN,
 
@@ -2879,8 +2879,8 @@ declare namespace sms {
      * Indicates an instant message, which is displayed immediately after being received.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     INSTANT_MESSAGE,
 
@@ -2888,8 +2888,8 @@ declare namespace sms {
      * Indicates an SMS message that can be stored on the device or SIM card based on the storage status.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     OPTIONAL_MESSAGE,
 
@@ -2897,8 +2897,8 @@ declare namespace sms {
      * Indicates an SMS message containing SIM card information, which is to be stored in a SIM card.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     SIM_MESSAGE,
 
@@ -2906,8 +2906,8 @@ declare namespace sms {
      * Indicates an SMS message to be forwarded to another device.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     FORWARD_MESSAGE
   }
@@ -2917,8 +2917,8 @@ declare namespace sms {
    *
    * @interface SendMessageOptions
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface SendMessageOptions {
     /**
@@ -2926,8 +2926,8 @@ declare namespace sms {
      *
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     slotId: number;
 
@@ -2936,8 +2936,8 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     destinationHost: string;
 
@@ -2946,8 +2946,8 @@ declare namespace sms {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     serviceCenter?: string;
 
@@ -2956,8 +2956,8 @@ declare namespace sms {
      *
      * @type { string | Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     content: string | Array<number>;
 
@@ -2966,8 +2966,8 @@ declare namespace sms {
      *
      * @type { ?number }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     destinationPort?: number;
 
@@ -2976,8 +2976,8 @@ declare namespace sms {
      *
      * @type { ?AsyncCallback<ISendShortMessageCallback> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     sendCallback?: AsyncCallback<ISendShortMessageCallback>;
 
@@ -2986,8 +2986,8 @@ declare namespace sms {
      *
      * @type { ?AsyncCallback<IDeliveryShortMessageCallback> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     deliveryCallback?: AsyncCallback<IDeliveryShortMessageCallback>;
   }
@@ -2997,8 +2997,8 @@ declare namespace sms {
    *
    * @interface ISendShortMessageCallback
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface ISendShortMessageCallback {
     /**
@@ -3006,8 +3006,8 @@ declare namespace sms {
      *
      * @type { SendSmsResult }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     result: SendSmsResult;
 
@@ -3016,8 +3016,8 @@ declare namespace sms {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     url: string;
 
@@ -3026,8 +3026,8 @@ declare namespace sms {
      *
      * @type { boolean }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     isLastPart: boolean;
   }
@@ -3037,8 +3037,8 @@ declare namespace sms {
    *
    * @interface IDeliveryShortMessageCallback
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export interface IDeliveryShortMessageCallback {
     /**
@@ -3046,8 +3046,8 @@ declare namespace sms {
      *
      * @type { Array<number> }
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     pdu: Array<number>;
   }
@@ -3057,16 +3057,16 @@ declare namespace sms {
    *
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
-   * @since arkts {'1.1':'6','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 6 dynamic
+   * @since 20 static
    */
   export enum SendSmsResult {
     /**
      * Indicates that the SMS message is successfully sent.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     SEND_SMS_SUCCESS = 0,
 
@@ -3074,8 +3074,8 @@ declare namespace sms {
      * Indicates that sending the SMS message fails due to an unknown reason.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     SEND_SMS_FAILURE_UNKNOWN = 1,
 
@@ -3083,8 +3083,8 @@ declare namespace sms {
      * Indicates that sending the SMS fails because the modem is powered off.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     SEND_SMS_FAILURE_RADIO_OFF = 2,
 
@@ -3093,8 +3093,8 @@ declare namespace sms {
      * or does not support sending or reception of SMS messages.
      *
      * @syscap SystemCapability.Telephony.SmsMms
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6 dynamic
+     * @since 20 static
      */
     SEND_SMS_FAILURE_SERVICE_UNAVAILABLE = 3
   }
@@ -3105,8 +3105,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export enum RanType {
     /**
@@ -3114,8 +3114,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     TYPE_GSM = 1,
 
@@ -3124,8 +3124,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     TYPE_CDMA = 2,
   }
@@ -3136,8 +3136,8 @@ declare namespace sms {
    * @interface SmsSegmentsInfo
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export interface SmsSegmentsInfo {
     /**
@@ -3146,8 +3146,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     splitCount: number;
 
@@ -3157,8 +3157,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     encodeCount: number;
 
@@ -3168,8 +3168,8 @@ declare namespace sms {
      * @type { number }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     encodeCountRemaining: number;
 
@@ -3179,8 +3179,8 @@ declare namespace sms {
      * @type { SmsEncodingScheme }
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     scheme: SmsEncodingScheme;
   }
@@ -3191,8 +3191,8 @@ declare namespace sms {
    * @enum { number }
    * @syscap SystemCapability.Telephony.SmsMms
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'8','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   export enum SmsEncodingScheme {
     /**
@@ -3200,8 +3200,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     SMS_ENCODING_UNKNOWN = 0,
 
@@ -3210,8 +3210,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     SMS_ENCODING_7BIT,
 
@@ -3220,8 +3220,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     SMS_ENCODING_8BIT,
 
@@ -3230,8 +3230,8 @@ declare namespace sms {
      *
      * @syscap SystemCapability.Telephony.SmsMms
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'8','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8 dynamic
+     * @since 20 static
      */
     SMS_ENCODING_16BIT,
   }

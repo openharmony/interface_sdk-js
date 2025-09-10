@@ -18,7 +18,7 @@
  * @kit DeviceCertificateKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
 import certificateManagerDialog from '@ohos.security.certManagerDialog';

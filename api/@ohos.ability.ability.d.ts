@@ -39,7 +39,7 @@ import { StartAbilityParameter as _StartAbilityParameter } from './ability/start
  *
  * @namespace ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @since 11
+ * @since 11 dynamic
  */
 declare namespace ability {
   /**
@@ -48,7 +48,7 @@ declare namespace ability {
    * @typedef { _DataAbilityHelper }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityHelper = _DataAbilityHelper;
 
@@ -65,7 +65,7 @@ declare namespace ability {
    *
    * @typedef { _PacMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @since 11
+   * @since 11 dynamic
    */
   export type PacMap = _PacMap;
 
@@ -76,7 +76,7 @@ declare namespace ability {
    * @typedef { _DataAbilityOperation }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityOperation = _DataAbilityOperation;
 
@@ -88,7 +88,7 @@ declare namespace ability {
    * @typedef { _DataAbilityResult }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type DataAbilityResult = _DataAbilityResult;
 
@@ -101,7 +101,7 @@ declare namespace ability {
    * @typedef { _AbilityResult }
    * @syscap SystemCapability.Ability.AbilityBase
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type AbilityResult = _AbilityResult;
 
@@ -112,7 +112,7 @@ declare namespace ability {
    * @typedef { _ConnectOptions }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type ConnectOptions = _ConnectOptions;
 
@@ -123,7 +123,7 @@ declare namespace ability {
    * @typedef { _StartAbilityParameter }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 9
+   * @since 9 dynamiconly
    */
   export type StartAbilityParameter = _StartAbilityParameter;
 }

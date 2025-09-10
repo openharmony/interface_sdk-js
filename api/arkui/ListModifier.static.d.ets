@@ -17,7 +17,6 @@
 /**
  * @file List modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,7 +29,7 @@ import { ListAttribute } from '@ohos.arkui.component';
  *
  * @implements { ListAttribute, AttributeModifier<ListAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class ListModifier implements ListAttribute, AttributeModifier<ListAttribute> {}

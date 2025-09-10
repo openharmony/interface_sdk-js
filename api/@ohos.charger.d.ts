@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -25,8 +24,8 @@
  * @namespace charger
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace charger {
   /**
@@ -35,8 +34,8 @@ declare namespace charger {
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   export enum ChargeType {
     /**
@@ -44,8 +43,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     NONE,
     /**
@@ -53,8 +52,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRED_NORMAL,
     /**
@@ -62,8 +61,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRED_QUICK,
     /**
@@ -71,8 +70,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRED_SUPER_QUICK,
     /**
@@ -80,8 +79,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRELESS_NORMAL,
     /**
@@ -89,8 +88,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRELESS_QUICK,
     /**
@@ -98,8 +97,8 @@ declare namespace charger {
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     WIRELESS_SUPER_QUICK
   }

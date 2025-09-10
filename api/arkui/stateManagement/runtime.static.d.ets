@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { LocalStorage } from '@ohos.arkui.stateManagement'
@@ -85,7 +84,7 @@ export declare class SyncedProperty<T> implements MutableState<T> {
  * Defining MemoSkip annotation.
  * MemoSkip parameter will not be a state varaiable in Builder functions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export declare @interface MemoSkip {};

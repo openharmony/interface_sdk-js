@@ -18,7 +18,7 @@
  * @kit LocalizationKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import { RawFileDescriptor as _RawFileDescriptor } from './global/rawFileDescriptor';
 import { Resource as _Resource } from './global/resource';
 import { AsyncCallback as _AsyncCallback } from './@ohos.base';
@@ -47,8 +47,8 @@ import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace resourceManager {
   /**
@@ -73,8 +73,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum Direction {
     /**
@@ -96,8 +96,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DIRECTION_VERTICAL = 0,
 
@@ -120,8 +120,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DIRECTION_HORIZONTAL = 1
   }
@@ -148,8 +148,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum DeviceType {
     /**
@@ -171,8 +171,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_PHONE = 0x00,
 
@@ -194,8 +194,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_TABLET = 0x01,
 
@@ -217,8 +217,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_CAR = 0x02,
 
@@ -240,8 +240,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_PC = 0x03,
 
@@ -263,8 +263,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_TV = 0x04,
 
@@ -286,8 +286,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_WEARABLE = 0x06,
 
@@ -297,8 +297,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEVICE_TYPE_2IN1 = 0x07
   }
@@ -325,8 +325,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum ScreenDensity {
     /**
@@ -348,8 +348,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_SDPI = 120,
 
@@ -372,8 +372,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_MDPI = 160,
 
@@ -396,8 +396,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_LDPI = 240,
 
@@ -420,8 +420,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_XLDPI = 320,
 
@@ -444,8 +444,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_XXLDPI = 480,
 
@@ -468,8 +468,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN_XXXLDPI = 640
   }
@@ -481,8 +481,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export enum ColorMode {
 
@@ -492,8 +492,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     DARK = 0,
 
@@ -503,8 +503,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     LIGHT = 1
   }
@@ -528,8 +528,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export class Configuration {
     /**
@@ -560,8 +560,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     direction: Direction;
 
@@ -593,8 +593,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     locale: string;
 
@@ -605,8 +605,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     deviceType: DeviceType;
 
@@ -617,8 +617,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     screenDensity: ScreenDensity;
 
@@ -629,8 +629,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     colorMode: ColorMode;
 
@@ -641,8 +641,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     mcc: int;
 
@@ -653,8 +653,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     mnc: int;
   }
@@ -678,8 +678,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export class DeviceCapability {
     /**
@@ -710,8 +710,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     screenDensity: ScreenDensity;
 
@@ -743,8 +743,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     deviceType: DeviceType;
   }
@@ -754,7 +754,7 @@ declare namespace resourceManager {
    *
    * @interface AsyncCallback
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 6
+   * @since 6 dynamic
    * @deprecated since 9
    */
   export interface AsyncCallback<T> {
@@ -764,7 +764,7 @@ declare namespace resourceManager {
      * @param { Error } err - Indicates the error info.
      * @param { T } data - Indicates the return data.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
     */
     (err: Error, data: T): void;
@@ -784,7 +784,7 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   export function getResourceManager(callback: AsyncCallback<ResourceManager>): void;
 
@@ -804,7 +804,7 @@ declare namespace resourceManager {
    * @param { AsyncCallback<ResourceManager> } callback - Indicates the callback containing the ResourceManager object.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   export function getResourceManager(bundleName: string, callback: AsyncCallback<ResourceManager>): void;
 
@@ -822,7 +822,7 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   export function getResourceManager(): Promise<ResourceManager>;
 
@@ -842,7 +842,7 @@ declare namespace resourceManager {
    * @returns { Promise<ResourceManager> } The ResourceManager object is returned in Promise mode.
    * @syscap SystemCapability.Global.ResourceManager
    * @FAModelOnly
-   * @since 11
+   * @since 11 dynamiconly
    */
   export function getResourceManager(bundleName: string): Promise<ResourceManager>;
 
@@ -866,7 +866,7 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamiconly
    * @deprecated since 20
    * @useinstead ohos.resourceManager.getSysResourceManager
    */
@@ -882,8 +882,7 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   export function getSysResourceManager(): ResourceManager;
 
@@ -909,8 +908,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface ResourceManager {
     /**
@@ -919,7 +918,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained character string.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
      */
@@ -931,7 +930,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } The character string corresponding to the resource ID.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringValue
      */
@@ -977,7 +976,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringValue
      */
@@ -1023,7 +1022,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringValue
      */
@@ -1035,7 +1034,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { AsyncCallback<Array<string>> } callback - Indicates the asynchronous callback used to return the obtained array of character strings.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
      */
@@ -1047,7 +1046,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Array<string>> } The array of character strings corresponding to the specified resource ID.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getStringArrayValue
      */
@@ -1093,7 +1092,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringArrayValue
      */
@@ -1139,7 +1138,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringArrayValue
      */
@@ -1151,7 +1150,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the obtained media file content.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1163,7 +1162,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<Uint8Array> } The content of the media file corresponding to the specified resource ID.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1206,7 +1205,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1242,7 +1241,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1285,7 +1284,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1321,7 +1320,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContent
      */
@@ -1334,7 +1333,7 @@ declare namespace resourceManager {
      * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the obtained Base64 code of the image
      *                 resource.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1346,7 +1345,7 @@ declare namespace resourceManager {
      * @param { number } resId - Indicates the resource ID.
      * @returns { Promise<string> } The Base64 code of the image resource corresponding to the specified resource ID.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1392,7 +1391,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1428,7 +1427,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1471,7 +1470,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1505,7 +1504,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentBase64
      */
@@ -1533,8 +1532,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getDeviceCapability(callback: _AsyncCallback<DeviceCapability>): void;
 
@@ -1560,8 +1559,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getDeviceCapability(): Promise<DeviceCapability>;
 
@@ -1590,8 +1589,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getConfiguration(callback: _AsyncCallback<Configuration>): void;
 
@@ -1617,8 +1616,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getConfiguration(): Promise<Configuration>;
 
@@ -1631,7 +1630,7 @@ declare namespace resourceManager {
      * @param { AsyncCallback<string> } callback - Indicates the asynchronous callback used to return the singular-plural character
      *                 string represented by the ID string corresponding to the specified number.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
      */
@@ -1646,7 +1645,7 @@ declare namespace resourceManager {
      * @returns { Promise<string> } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 6
+     * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getPluralStringValue
      */
@@ -1701,7 +1700,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -1756,7 +1755,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -1768,7 +1767,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { AsyncCallback<Uint8Array> } callback - Indicates the asynchronous callback used to return the raw file resource.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
      */
@@ -1780,7 +1779,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<Uint8Array> } The raw file resource corresponding to the specified resource path.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFileContent
      */
@@ -1792,7 +1791,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { AsyncCallback<RawFileDescriptor> } callback - Indicates the asynchronous callback used to return the raw file resource descriptor.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFd
      */
@@ -1804,7 +1803,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<RawFileDescriptor> } The raw file resource descriptor corresponding to the specified resource path.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.getRawFd
      */
@@ -1816,7 +1815,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @param { AsyncCallback<void> } callback - Indicates the asynchronous callback used to return result close raw file resource descriptor.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
      */
@@ -1828,7 +1827,7 @@ declare namespace resourceManager {
      * @param { string } path - Indicates the resource relative path.
      * @returns { Promise<void> } The result close raw file resource descriptor corresponding to the specified resource path.
      * @syscap SystemCapability.Global.ResourceManager
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.resourceManager.closeRawFd
      */
@@ -1871,8 +1870,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringByName(resName: string, callback: _AsyncCallback<string>): void;
 
@@ -1913,8 +1912,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringByName(resName: string): Promise<string>;
 
@@ -1955,8 +1954,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayByName(resName: string, callback: _AsyncCallback<Array<string>>): void;
 
@@ -1997,8 +1996,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayByName(resName: string): Promise<Array<string>>;
 
@@ -2036,8 +2035,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaByName(resName: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -2069,8 +2068,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaByName(resName: string, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -2108,8 +2107,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaByName(resName: string): Promise<Uint8Array>;
 
@@ -2141,8 +2140,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaByName(resName: string, density: int): Promise<Uint8Array>;
 
@@ -2183,8 +2182,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaBase64ByName(resName: string, callback: _AsyncCallback<string>): void;
 
@@ -2216,8 +2215,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaBase64ByName(resName: string, density: int, callback: _AsyncCallback<string>): void;
 
@@ -2255,8 +2254,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaBase64ByName(resName: string): Promise<string>;
 
@@ -2286,8 +2285,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaBase64ByName(resName: string, density: int): Promise<string>;
 
@@ -2337,7 +2336,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
@@ -2389,7 +2388,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
@@ -2432,8 +2431,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringSync(resId: long): string;
 
@@ -2466,7 +2465,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getStringSync(resId: number, ...args: Array<string | number>): string;
     
@@ -2483,9 +2482,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
-
+     * @since 20 static
      */
     getStringSync(resId: long, ...args: (string | double)[]): string;
 
@@ -2529,7 +2526,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringSync
      */
@@ -2566,7 +2563,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringSync
      */
@@ -2609,8 +2606,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringByNameSync(resName: string): string;
 
@@ -2643,7 +2640,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getStringByNameSync(resName: string, ...args: Array<string | number>): string;
 
@@ -2660,8 +2657,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getStringByNameSync(resName: string, ...args: (string | double)[]): string;
 
@@ -2702,8 +2698,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getBoolean(resId: long): boolean;
 
@@ -2747,7 +2743,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getBoolean
      */
@@ -2790,8 +2786,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getBooleanByName(resName: string): boolean;
 
@@ -2832,7 +2828,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getNumber(resId: number): number;
 
@@ -2847,8 +2843,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getInt(resId: long): int;
 
@@ -2863,8 +2858,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getDouble(resId: long): double;
 
@@ -2908,7 +2902,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getNumber
      */
@@ -2951,7 +2945,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     getNumberByName(resName: string): number;
 
@@ -2966,8 +2960,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getIntByName(resName: string): int;
 
@@ -2983,8 +2976,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getDoubleByName(resName: string): double;
 
@@ -3007,7 +2999,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      * @deprecated since 12
      */
     release();
@@ -3049,8 +3041,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringValue(resId: long, callback: _AsyncCallback<string>): void;
 
@@ -3091,8 +3083,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringValue(resId: long): Promise<string>;
 
@@ -3133,8 +3125,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayValue(resId: long, callback: _AsyncCallback<Array<string>>): void;
 
@@ -3175,8 +3167,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayValue(resId: long): Promise<Array<string>>;
 
@@ -3226,7 +3218,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -3278,7 +3270,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -3300,7 +3292,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getIntPluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
@@ -3320,8 +3312,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getIntPluralStringValueSync(resId: long, num: int, ...args: (string | double)[]): string;
 
@@ -3342,7 +3333,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -3364,7 +3355,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getIntPluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
@@ -3384,8 +3375,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getIntPluralStringByNameSync(resName: string, num: int, ...args: (string | double)[]): string;
 
@@ -3405,7 +3395,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getDoublePluralStringValueSync(resId: number, num: number, ...args: Array<string | number>): string;
 
@@ -3425,8 +3415,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getDoublePluralStringValueSync(resId: long, num: double, ...args: (string | double)[]): string;
 
@@ -3447,7 +3436,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getDoublePluralStringValueSync
      */
@@ -3469,7 +3458,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 18
+     * @since 18 dynamic
      */
     getDoublePluralStringByNameSync(resName: string, num: number, ...args: Array<string | number>): string;
 
@@ -3489,8 +3478,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     getDoublePluralStringByNameSync(resName: string, num: double, ...args: (string | double)[]): string;
 
@@ -3528,8 +3516,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3561,8 +3549,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContent(resId: long, density: int, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3600,8 +3588,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContent(resId: long): Promise<Uint8Array>;
 
@@ -3631,8 +3619,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContent(resId: long, density: int): Promise<Uint8Array>;
 
@@ -3673,8 +3661,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentBase64(resId: long, callback: _AsyncCallback<string>): void;
 
@@ -3706,8 +3694,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentBase64(resId: long, density: int, callback: _AsyncCallback<string>): void;
 
@@ -3745,8 +3733,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentBase64(resId: long): Promise<string>;
 
@@ -3776,8 +3764,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentBase64(resId: long, density: int): Promise<string>;
 
@@ -3812,8 +3800,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileContent(path: string, callback: _AsyncCallback<Uint8Array>): void;
 
@@ -3848,8 +3836,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileContent(path: string): Promise<Uint8Array>;
 
@@ -3884,8 +3872,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>): void;
 
@@ -3920,8 +3908,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFd(path: string): Promise<RawFileDescriptor>;
 
@@ -3956,8 +3944,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     closeRawFd(path: string, callback: _AsyncCallback<void>): void;
 
@@ -3992,8 +3980,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     closeRawFd(path: string): Promise<void>;
 
@@ -4041,8 +4029,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDrawableDescriptor(resId: long, density?: int, type?: int): DrawableDescriptor;
 
@@ -4090,8 +4078,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getDrawableDescriptorByName(resName: string, density?: int, type?: int): DrawableDescriptor;
 
@@ -4142,7 +4130,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getDrawableDescriptor
      */
@@ -4168,8 +4156,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void;
 
@@ -4193,8 +4181,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileList(path: string): Promise<Array<string>>;
 
@@ -4224,8 +4212,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColor(resId: long, callback: _AsyncCallback<long>): void;
 
@@ -4253,8 +4241,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColor(resId: long): Promise<long>;
 
@@ -4286,7 +4274,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getColor
      */
@@ -4318,7 +4306,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getColor
      */
@@ -4350,8 +4338,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColorByName(resName: string, callback: _AsyncCallback<long>): void;
 
@@ -4379,8 +4367,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColorByName(resName: string): Promise<long>;
 
@@ -4408,8 +4396,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColorSync(resId: long) : long;
 
@@ -4439,7 +4427,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getColorSync
      */
@@ -4469,8 +4457,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getColorByNameSync(resName: string) : long;
 
@@ -4492,8 +4480,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     addResource(path: string) : void;
 
@@ -4515,8 +4503,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     removeResource(path: string) : void;
 
@@ -4540,8 +4528,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFdSync(path: string): RawFileDescriptor;
 
@@ -4563,8 +4551,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     closeRawFdSync(path: string): void;
 
@@ -4588,8 +4576,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileListSync(path: string): Array<string>;
 
@@ -4613,8 +4601,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getRawFileContentSync(path: string): Uint8Array;
 
@@ -4644,8 +4632,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentSync(resId: long, density?: int): Uint8Array;
 
@@ -4677,7 +4665,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentSync
      */
@@ -4709,8 +4697,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaContentBase64Sync(resId: long, density?: int): string;
 
@@ -4742,7 +4730,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getMediaContentBase64Sync
      */
@@ -4778,7 +4766,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -4816,7 +4804,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringValueSync
      */
@@ -4846,8 +4834,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayValueSync(resId: long): Array<string>;
 
@@ -4877,7 +4865,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getStringArrayValueSync
      */
@@ -4913,7 +4901,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 18
      * @useinstead ohos.resourceManager.getIntPluralStringByNameSync
      */
@@ -4945,8 +4933,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaByNameSync(resName: string, density?: int): Uint8Array;
 
@@ -4976,8 +4964,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMediaBase64ByNameSync(resName: string, density?: int): string;
 
@@ -5005,8 +4993,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getStringArrayByNameSync(resName: string): Array<string>;
 
@@ -5024,8 +5012,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getConfigurationSync(): Configuration;
 
@@ -5043,8 +5031,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getDeviceCapabilitySync(): DeviceCapability;
 
@@ -5058,8 +5046,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getLocales(includeSystem?: boolean): Array<string>;
 
@@ -5075,8 +5063,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getSymbol(resId: long) : long;
 
@@ -5093,7 +5081,7 @@ declare namespace resourceManager {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamiconly
      * @deprecated since 20
      * @useinstead ohos.resourceManager.getSymbol
      */
@@ -5111,8 +5099,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getSymbolByName(resName: string) : long;
 
@@ -5126,8 +5114,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     isRawDir(path: string): boolean;
 
@@ -5140,8 +5128,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getOverrideResourceManager(configuration?: Configuration): ResourceManager;
 
@@ -5152,8 +5140,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
      getOverrideConfiguration(): Configuration;
 
@@ -5165,8 +5153,8 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
      updateOverrideConfiguration(configuration: Configuration): void;
   }
@@ -5191,8 +5179,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type RawFileDescriptor = _RawFileDescriptor;
 
@@ -5216,8 +5204,8 @@ declare namespace resourceManager {
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export type Resource = _Resource;
 }

@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit UserAuthenticationKit
- * @arkts 1.1&1.2
  */
 
 import userAuth from '@ohos.userIAM.userAuth';
@@ -26,8 +25,8 @@ import userAuth from '@ohos.userIAM.userAuth';
  *
  * @namespace userAccessCtrl
  * @syscap SystemCapability.UserIAM.UserAuth.Core
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 20 static
  */
 declare namespace userAccessCtrl {
   /**
@@ -48,8 +47,8 @@ declare namespace userAccessCtrl {
    * @throws { BusinessError } 12500016 - AuthToken has expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
@@ -59,8 +58,8 @@ declare namespace userAccessCtrl {
    * @typedef AuthToken
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface AuthToken {
     /**
@@ -69,8 +68,8 @@ declare namespace userAccessCtrl {
      * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     challenge: Uint8Array;
 
@@ -80,8 +79,8 @@ declare namespace userAccessCtrl {
      * @type { userAuth.AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     authTrustLevel: userAuth.AuthTrustLevel;
 
@@ -91,8 +90,8 @@ declare namespace userAccessCtrl {
      * @type { userAuth.UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     authType: userAuth.UserAuthType;
 
@@ -102,8 +101,8 @@ declare namespace userAccessCtrl {
      * @type { AuthTokenType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     tokenType: AuthTokenType;
 
@@ -113,8 +112,8 @@ declare namespace userAccessCtrl {
      * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     userId: int;
 
@@ -124,8 +123,8 @@ declare namespace userAccessCtrl {
      * @type { bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     timeInterval: bigint;
 
@@ -135,8 +134,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     secureUid?: bigint;
 
@@ -146,8 +145,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     enrolledId?: bigint;
 
@@ -157,8 +156,8 @@ declare namespace userAccessCtrl {
      * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     credentialId?: bigint;
   }
@@ -169,8 +168,8 @@ declare namespace userAccessCtrl {
    * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   enum AuthTokenType {
     /**
@@ -178,8 +177,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     TOKEN_TYPE_LOCAL_AUTH = 0,
 
@@ -188,8 +187,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     TOKEN_TYPE_LOCAL_RESIGN = 1,
 
@@ -198,8 +197,8 @@ declare namespace userAccessCtrl {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     TOKEN_TYPE_COAUTH = 2
   }

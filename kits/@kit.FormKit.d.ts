@@ -18,7 +18,7 @@
  * @kit FormKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import formAgent from '@ohos.app.form.formAgent';
 import formBindingData from '@ohos.app.form.formBindingData';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
@@ -36,7 +36,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import formBindingData from '@ohos.app.form.formBindingData';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formInfo from '@ohos.app.form.formInfo';

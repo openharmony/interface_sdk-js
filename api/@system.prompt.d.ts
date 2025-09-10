@@ -23,7 +23,7 @@
  *
  * @interface ShowToastOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 8
  * @useinstead ohos.prompt
  */
@@ -33,7 +33,7 @@ export interface ShowToastOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   message: string;
@@ -45,7 +45,7 @@ export interface ShowToastOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 8
    */
   duration?: number;
@@ -55,7 +55,7 @@ export interface ShowToastOptions {
    *
    * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 5
+   * @since 5 dynamic
    * @deprecated since 8
    */
   bottom?: string | number;
@@ -74,7 +74,7 @@ export interface ShowToastOptions {
  * @interface Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface Button {
   /**
@@ -90,7 +90,7 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   text: string;
 
@@ -107,7 +107,7 @@ export interface Button {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color: string;
 }
@@ -125,7 +125,7 @@ export interface Button {
  * @interface ShowDialogSuccessResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ShowDialogSuccessResponse {
   /**
@@ -141,7 +141,7 @@ export interface ShowDialogSuccessResponse {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   index: number;
 }
@@ -159,7 +159,7 @@ export interface ShowDialogSuccessResponse {
  * @interface ShowDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ShowDialogOptions {
   /**
@@ -175,7 +175,7 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   title?: string;
 
@@ -192,7 +192,7 @@ export interface ShowDialogOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   message?: string;
 
@@ -213,7 +213,7 @@ export interface ShowDialogOptions {
    * @type { ?[Button, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   buttons?: [Button, Button?, Button?];
 
@@ -230,7 +230,7 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
@@ -247,7 +247,7 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   cancel?: (data: string, code: string) => void;
 
@@ -264,7 +264,7 @@ export interface ShowDialogOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   complete?: (data: string) => void;
 }
@@ -282,7 +282,7 @@ export interface ShowDialogOptions {
  * @interface ShowActionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ShowActionMenuOptions {
   /**
@@ -298,7 +298,7 @@ export interface ShowActionMenuOptions {
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   title?: string;
 
@@ -319,7 +319,7 @@ export interface ShowActionMenuOptions {
    * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
 
@@ -336,7 +336,7 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
@@ -353,7 +353,7 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fail?: (errMsg: string) => void;
 
@@ -370,7 +370,7 @@ export interface ShowActionMenuOptions {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   complete?: () => void;
 }
@@ -386,7 +386,7 @@ export interface ShowActionMenuOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export default class Prompt {
   /**
@@ -402,7 +402,7 @@ export default class Prompt {
    * @param { ShowToastOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static showToast(options: ShowToastOptions): void;
 
@@ -419,7 +419,7 @@ export default class Prompt {
    * @param { ShowDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static showDialog(options: ShowDialogOptions): void;
 
@@ -436,7 +436,7 @@ export default class Prompt {
    * @param { ShowActionMenuOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static showActionMenu(options: ShowActionMenuOptions): void;
 }

@@ -19,12 +19,12 @@
  */
 
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import type AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import type { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import UIExtensionContentSession from './@ohos.app.ability.UIExtensionContentSession';
 import AutoFillExtensionContext from './application/AutoFillExtensionContext';
 import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveRequestCallback } from './application/AutoFillRequest';
@@ -37,8 +37,8 @@ import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveReque
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class AutoFillExtensionAbility extends ExtensionAbility {
   /**
@@ -48,8 +48,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   context: AutoFillExtensionContext;
 
@@ -59,8 +59,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onCreate(): void;
 
@@ -73,8 +73,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
@@ -87,8 +87,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
@@ -99,8 +99,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onUpdateRequest(request: UpdateRequest): void;
 
@@ -111,8 +111,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onSessionDestroy(session: UIExtensionContentSession): void;
 
@@ -122,8 +122,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onForeground(): void;
 
@@ -133,8 +133,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onBackground(): void;
 
@@ -145,7 +145,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   onDestroy(): void | Promise<void>;
 
@@ -156,8 +156,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onDestroy(): Promise<void> | undefined;
 }

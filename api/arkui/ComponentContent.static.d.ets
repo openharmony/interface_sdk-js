@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { BuildOptions } from 'arkui.BuilderNode';
@@ -30,7 +29,7 @@ import { RecordData } from '../@ohos.base';
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export abstract class ComponentContentBase extends Content {
 }
@@ -40,7 +39,7 @@ export abstract class ComponentContentBase extends Content {
  *
  * @extends ComponentContentBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ComponentContent<T = undefined> extends ComponentContentBase {
   /**
@@ -49,7 +48,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
    * @param { WrappedBuilder<CustomBuilder> } builder - Defined the builder will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilder>);
 
@@ -61,7 +60,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T);
 
@@ -74,7 +73,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { T } args - Parameters used to update the ComponentContent.
    * @param { BuildOptions } options - Defined the options will be used when build.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(uiContext: UIContext, builder: WrappedBuilder<CustomBuilderT<T>>, args: T, options: BuildOptions);
 
@@ -85,7 +84,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @param { T } args - Parameters used to update the ComponentContent, which must match the types required by the
    * builder bound to the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   update(args: T): void;
 
@@ -94,7 +93,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    *
    * @param { RecordData } [param] - Parameters for reusing ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   reuse(param?: RecordData): void;
 
@@ -102,7 +101,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Recycle the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   recycle(): void;
 
@@ -110,7 +109,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Dispose the ComponentContent immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dispose(): void;
 
@@ -118,7 +117,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   updateConfiguration(): void;
 }

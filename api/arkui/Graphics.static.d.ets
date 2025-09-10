@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import drawing from '@ohos.graphics.drawing';
 import type common2D from '@ohos.graphics.common2D';
@@ -30,7 +29,7 @@ import { BorderStyle } from '@ohos.arkui.component';
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface Size {
   /**
@@ -38,7 +37,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width: number;
 
@@ -47,7 +46,7 @@ export interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   height: number;
 }
@@ -56,7 +55,7 @@ export interface Size {
  * Defines DrawContext.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class DrawContext {
   /**
@@ -64,7 +63,7 @@ export declare class DrawContext {
    *
    * @returns { Size } The size of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get size() :Size;
 
@@ -73,7 +72,7 @@ export declare class DrawContext {
    *
    * @returns { Size } The size of the DrawContext with pixel unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get sizeInPixel(): Size;
 
@@ -82,7 +81,7 @@ export declare class DrawContext {
    *
    * @returns { drawing.Canvas } The canvas of the DrawContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get canvas(): drawing.Canvas;
 }
@@ -92,7 +91,7 @@ export declare class DrawContext {
  *
  * @interface Vector2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 interface Vector2 {
   /**
@@ -100,7 +99,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x: number;
 
@@ -109,7 +108,7 @@ interface Vector2 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y: number;
 }
@@ -119,7 +118,7 @@ interface Vector2 {
  *
  * @interface Vector2T
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 interface Vector2T<T> {
 
@@ -128,7 +127,7 @@ interface Vector2T<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x: T;
 
@@ -137,7 +136,7 @@ interface Vector2T<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y: T;
 }
@@ -147,7 +146,7 @@ interface Vector2T<T> {
  *
  * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 interface Vector3 {
   /**
@@ -155,7 +154,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x: number;
 
@@ -164,7 +163,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y: number;
 
@@ -173,7 +172,7 @@ interface Vector3 {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   z: number;
 }
@@ -184,7 +183,7 @@ interface Vector3 {
  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number,
  *     number, number, number] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Matrix4 = [
   number,
@@ -210,7 +209,7 @@ export type Matrix4 = [
  *
  * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Offset = Vector2;
 
@@ -219,7 +218,7 @@ export type Offset = Vector2;
  *
  * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Position = Vector2;
 
@@ -227,7 +226,7 @@ export type Position = Vector2;
  * PositionT info.
  * @typedef {Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type PositionT<T> = Vector2T<T>;
 
@@ -236,7 +235,7 @@ export type PositionT<T> = Vector2T<T>;
  *
  * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Pivot = Vector2;
 
@@ -245,7 +244,7 @@ export type Pivot = Vector2;
  *
  * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Scale = Vector2;
 
@@ -254,7 +253,7 @@ export type Scale = Vector2;
  *
  * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Translation = Vector2;
 
@@ -263,7 +262,7 @@ export type Translation = Vector2;
  *
  * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Rotation = Vector3;
 
@@ -272,7 +271,7 @@ export type Rotation = Vector3;
  *
  * @interface Frame
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface Frame {
   /**
@@ -280,7 +279,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   x: number;
 
@@ -289,7 +288,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   y: number;
 
@@ -298,7 +297,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width: number;
 
@@ -307,7 +306,7 @@ export declare interface Frame {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   height: number;
 }
@@ -317,7 +316,7 @@ export declare interface Frame {
  *
  * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface Edges<T> {
   /**
@@ -325,7 +324,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   left: T;
 
@@ -334,7 +333,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   right: T;
 
@@ -343,7 +342,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   top: T;
 
@@ -352,7 +351,7 @@ export interface Edges<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottom: T;
 }
@@ -362,7 +361,7 @@ export interface Edges<T> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum LengthUnit {
   /**
@@ -371,7 +370,7 @@ export declare enum LengthUnit {
    * device with 1080 pixels width, 1px represents 1.44 pixels.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   PX = 0,
 
@@ -379,7 +378,7 @@ export declare enum LengthUnit {
    * Density independent pixels, one vp is one pixel on a 160 dpi screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   VP = 1,
 
@@ -388,7 +387,7 @@ export declare enum LengthUnit {
    * user's font size preference.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   FP = 2,
 
@@ -397,7 +396,7 @@ export declare enum LengthUnit {
    * another property of the element itself.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   PERCENT = 3,
 
@@ -405,7 +404,7 @@ export declare enum LengthUnit {
    * Logic pixels used in ACE2.0 instead of PX, and PX is the physical pixels in ACE2.0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   LPX = 4
 }
@@ -415,7 +414,7 @@ export declare enum LengthUnit {
  *
  * @interface SizeT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface SizeT<T> {
   /**
@@ -423,7 +422,7 @@ export interface SizeT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   width: T;
 
@@ -432,7 +431,7 @@ export interface SizeT<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   height: T;
 }
@@ -442,7 +441,7 @@ export interface SizeT<T> {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export enum LengthMetricsUnit {
 
@@ -450,7 +449,7 @@ export enum LengthMetricsUnit {
    * The default length metrics unit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   DEFAULT = 0,
 
@@ -458,7 +457,7 @@ export enum LengthMetricsUnit {
    * The pixel length metrics unit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   PX = 1
 }
@@ -467,7 +466,7 @@ export enum LengthMetricsUnit {
  * Defines the Length Metrics.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LengthMetrics {
   /**
@@ -476,7 +475,7 @@ export declare class LengthMetrics {
    * @param { number } value - The value of length.
    * @param { LengthUnit } [unit] - The length unit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor(value: number, unit?:LengthUnit);
 
@@ -487,7 +486,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static px(value: number): LengthMetrics;
 
@@ -498,7 +497,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static vp(value: number): LengthMetrics;
 
@@ -509,7 +508,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static fp(value: number): LengthMetrics;
 
@@ -520,7 +519,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static percent(value: number): LengthMetrics;
 
@@ -531,7 +530,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static lpx(value: number): LengthMetrics;
 
@@ -542,7 +541,7 @@ export declare class LengthMetrics {
    * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static resource(value: Resource): LengthMetrics;
 
@@ -552,7 +551,7 @@ export declare class LengthMetrics {
    * @type { LengthUnit }
    * @default VP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public unit: LengthUnit;
 
@@ -561,7 +560,7 @@ export declare class LengthMetrics {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public value: number;
 }
@@ -570,7 +569,7 @@ export declare class LengthMetrics {
  * Defines the ColorMetrics class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ColorMetrics {
   /**
@@ -580,7 +579,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly WHITE: int;
   /**
@@ -590,7 +589,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly BLACK: int;
   /**
@@ -600,7 +599,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly BLUE: int;
   /**
@@ -610,7 +609,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly BROWN: int;
   /**
@@ -620,7 +619,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly GRAY: int;
   /**
@@ -630,7 +629,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly GREEN: int;
   /**
@@ -640,7 +639,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly GREY: int;
   /**
@@ -650,7 +649,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly ORANGE: int;
   /**
@@ -660,7 +659,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly PINK: int;
   /**
@@ -670,7 +669,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly RED: int;
   /**
@@ -680,7 +679,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly YELLOW: int;
   /**
@@ -690,7 +689,7 @@ export declare class ColorMetrics {
    * @readonly
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public static readonly TRANSPARENT: string;
   /**
@@ -700,7 +699,7 @@ export declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static numeric(value: number): ColorMetrics;
 
@@ -714,7 +713,7 @@ export declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
@@ -729,7 +728,7 @@ export declare class ColorMetrics {
    *     2. The format of the input color string is not RGB or RGBA.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static resourceColor(color: ResourceColor): ColorMetrics;
 
@@ -740,7 +739,7 @@ export declare class ColorMetrics {
    * @returns { ColorMetrics } ColorMetrics class
    * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
 
@@ -749,7 +748,7 @@ export declare class ColorMetrics {
    *
    * @returns { string } The color of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get color(): string;
 
@@ -758,7 +757,7 @@ export declare class ColorMetrics {
    *
    * @returns { number } The red value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get red(): number;
 
@@ -767,7 +766,7 @@ export declare class ColorMetrics {
    *
    * @returns { number } The green value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get green(): number;
 
@@ -776,7 +775,7 @@ export declare class ColorMetrics {
    *
    * @returns { number } The blue value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get blue(): number;
 
@@ -785,7 +784,7 @@ export declare class ColorMetrics {
    *
    * @returns { number } The opacity value of the ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   get alpha(): number;
 }
@@ -795,7 +794,7 @@ export declare class ColorMetrics {
  *
  * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 interface Corners<T> {
   /**
@@ -803,7 +802,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topLeft: T;
 
@@ -812,7 +811,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   topRight: T;
 
@@ -821,7 +820,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomLeft: T;
 
@@ -830,7 +829,7 @@ interface Corners<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   bottomRight: T;
 }
@@ -840,7 +839,7 @@ interface Corners<T> {
  *
  * @typedef { Corners<Vector2> } CornerRadius
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type CornerRadius = Corners<Vector2>;
 
@@ -849,7 +848,7 @@ export type CornerRadius = Corners<Vector2>;
  *
  * @typedef { Corners<number> } NodeBorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type NodeBorderRadiuses = Corners<number>;
 
@@ -858,7 +857,7 @@ export type NodeBorderRadiuses = Corners<number>;
  *
  * @typedef { common2D.Rect } Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Rect = common2D.Rect;
 
@@ -867,7 +866,7 @@ export type Rect = common2D.Rect;
  *
  * @interface RoundRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface RoundRect {
   /**
@@ -875,7 +874,7 @@ export interface RoundRect {
    *
    * @type { Rect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   rect: Rect;
 
@@ -884,7 +883,7 @@ export interface RoundRect {
    *
    * @type { CornerRadius }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   corners: CornerRadius;
 }
@@ -894,7 +893,7 @@ export interface RoundRect {
  *
  * @interface Circle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface Circle {
   /**
@@ -902,7 +901,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   centerX: number,
 
@@ -911,7 +910,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   centerY: number,
 
@@ -920,7 +919,7 @@ export interface Circle {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   radius: number;
 }
@@ -930,7 +929,7 @@ export interface Circle {
  *
  * @interface CommandPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface CommandPath {
   /**
@@ -938,7 +937,7 @@ export interface CommandPath {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   commands: string;
 }
@@ -947,14 +946,14 @@ export interface CommandPath {
  * Defines ShapeMask.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ShapeMask {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -963,7 +962,7 @@ export declare class ShapeMask {
    *
    * @param { Rect } rect - The rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setRectShape(rect: Rect): void;
 
@@ -972,7 +971,7 @@ export declare class ShapeMask {
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setRoundRectShape(roundRect: RoundRect): void;
 
@@ -981,7 +980,7 @@ export declare class ShapeMask {
    *
    * @param { Circle } circle - The circle shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setCircleShape(circle: Circle): void;
 
@@ -990,7 +989,7 @@ export declare class ShapeMask {
    *
    * @param { Rect } oval - The oval shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setOvalShape(oval: Rect): void;
 
@@ -999,7 +998,7 @@ export declare class ShapeMask {
    *
    * @param { CommandPath } path - The command path will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setCommandPath(path: CommandPath): void;
 
@@ -1009,7 +1008,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   fillColor: number;
 
@@ -1019,7 +1018,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   strokeColor: number;
 
@@ -1029,7 +1028,7 @@ export declare class ShapeMask {
    * @type { number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   strokeWidth: number;
 }
@@ -1039,14 +1038,14 @@ export declare class ShapeMask {
  * Define ShapeClip. Record the type and parameters of the shape used for clipping.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class ShapeClip {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   constructor();
 
@@ -1055,7 +1054,7 @@ export declare class ShapeClip {
    *
    * @param { Rect } rect - The rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setRectShape(rect: Rect): void;
 
@@ -1064,7 +1063,7 @@ export declare class ShapeClip {
    *
    * @param { RoundRect } roundRect - The round rect shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setRoundRectShape(roundRect: RoundRect): void;
 
@@ -1073,7 +1072,7 @@ export declare class ShapeClip {
    *
    * @param { Circle } circle - The circle shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setCircleShape(circle: Circle): void;
 
@@ -1082,7 +1081,7 @@ export declare class ShapeClip {
    *
    * @param { Rect } oval - The oval shape will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setOvalShape(oval: Rect): void;
 
@@ -1091,7 +1090,7 @@ export declare class ShapeClip {
    *
    * @param { CommandPath } path - The command path will be set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   setCommandPath(path: CommandPath): void;
 }
@@ -1102,7 +1101,7 @@ export declare class ShapeClip {
  * @param { number } all - The edge color will be set.
  * @returns { Edges<number> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function edgeColors(all: number): Edges<number>;
 
@@ -1112,7 +1111,7 @@ export declare function edgeColors(all: number): Edges<number>;
  * @param { number } all - The edge width will be set.
  * @returns { Edges<number> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function edgeWidths(all: number): Edges<number>;
 
@@ -1122,7 +1121,7 @@ export declare function edgeWidths(all: number): Edges<number>;
  * @param { BorderStyle } all - The edge style will be set.
  * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
 
@@ -1132,6 +1131,6 @@ export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
  * @param { number } all - The edge radius will be set.
  * @returns { NodeBorderRadiuses } - The BorderRadiuses object.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function borderRadiuses(all: number): NodeBorderRadiuses;

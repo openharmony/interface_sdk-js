@@ -27,7 +27,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface MarqueeOptions {
   /**
@@ -80,7 +80,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   start: boolean;
 
@@ -133,7 +133,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   step?: number;
 
@@ -187,7 +187,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   loop?: number;
 
@@ -235,7 +235,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fromStart?: boolean;
 
@@ -282,7 +282,7 @@ interface MarqueeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   src: string;
 }
@@ -319,7 +319,7 @@ interface MarqueeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface MarqueeInterface {
@@ -371,7 +371,7 @@ interface MarqueeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options: MarqueeOptions): MarqueeAttribute;
 }
@@ -408,7 +408,7 @@ interface MarqueeInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
@@ -448,7 +448,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
 
@@ -493,7 +493,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontSize(value: Length): MarqueeAttribute;
 
@@ -537,7 +537,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   allowScale(value: boolean): MarqueeAttribute;
 
@@ -586,7 +586,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
@@ -632,7 +632,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
 
@@ -649,7 +649,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   marqueeUpdateStrategy(value: MarqueeUpdateStrategy): MarqueeAttribute;
 
@@ -689,7 +689,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onStart(event: () => void): MarqueeAttribute;
 
@@ -733,7 +733,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onBounce(event: () => void): MarqueeAttribute;
 
@@ -773,7 +773,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onFinish(event: () => void): MarqueeAttribute;
 }
@@ -813,7 +813,7 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Marquee: MarqueeInterface;
@@ -846,7 +846,7 @@ declare const Marquee: MarqueeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const MarqueeInstance: MarqueeAttribute;

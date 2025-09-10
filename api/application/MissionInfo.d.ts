@@ -26,8 +26,8 @@ import Want from '../@ohos.app.ability.Want';
  * @typedef MissionInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 20 static
  */
 export interface MissionInfo {
   /**
@@ -36,8 +36,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   missionId: int;
 
@@ -47,8 +47,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   runningState: int;
 
@@ -58,8 +58,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   lockedState: boolean;
 
@@ -69,8 +69,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   timestamp: string;
 
@@ -80,8 +80,8 @@ export interface MissionInfo {
    * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   want: Want;
 
@@ -91,8 +91,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 20 static
    */
   label: string;
 
@@ -102,8 +102,8 @@ export interface MissionInfo {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   iconPath: string;
 
@@ -113,8 +113,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   continuable: boolean;
 
@@ -124,8 +124,8 @@ export interface MissionInfo {
    * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   abilityState: int;
 
@@ -135,8 +135,8 @@ export interface MissionInfo {
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   unclearable: boolean;
 }

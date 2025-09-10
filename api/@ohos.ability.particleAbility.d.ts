@@ -31,7 +31,7 @@ import Want from './@ohos.app.ability.Want';
  * @namespace particleAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
  * @FAModelOnly
- * @since 7
+ * @since 7 dynamiconly
  */
 declare namespace particleAbility {
   /**
@@ -41,7 +41,7 @@ declare namespace particleAbility {
    * @param { AsyncCallback<void> } callback - Returns the result of starting Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void;
 
@@ -52,7 +52,7 @@ declare namespace particleAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter): Promise<void>;
 
@@ -62,7 +62,7 @@ declare namespace particleAbility {
    * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
 
@@ -72,7 +72,7 @@ declare namespace particleAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function terminateSelf(): Promise<void>;
 
@@ -83,7 +83,7 @@ declare namespace particleAbility {
    * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
@@ -97,7 +97,7 @@ declare namespace particleAbility {
    * @param { AsyncCallback<void> } callback - returns the result of starting a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
    */
@@ -113,7 +113,7 @@ declare namespace particleAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#startBackgroundRunning
    */
@@ -125,7 +125,7 @@ declare namespace particleAbility {
    * @param { AsyncCallback<void> } callback - Returns the result of canceling a long-term task in the form of callback.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
    */
@@ -137,7 +137,7 @@ declare namespace particleAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.resourceschedule.backgroundTaskManager/backgroundTaskManager#stopBackgroundRunning
    */
@@ -152,7 +152,7 @@ declare namespace particleAbility {
    * @returns { number } unique identifier of the connection between the client and the service side.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function connectAbility(request: Want, options: ConnectOptions): number;
 
@@ -163,7 +163,7 @@ declare namespace particleAbility {
    * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
@@ -174,7 +174,7 @@ declare namespace particleAbility {
    * @returns { Promise<void> } the promise returned by the function.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number): Promise<void>;
 
@@ -184,7 +184,7 @@ declare namespace particleAbility {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @FAModelOnly
-   * @since 7
+   * @since 7 dynamiconly
    */
   export enum ErrorCode {
     /**
@@ -192,7 +192,7 @@ declare namespace particleAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
      * @FAModelOnly
-     * @since 7
+     * @since 7 dynamiconly
      */
     INVALID_PARAMETER = -1
   }

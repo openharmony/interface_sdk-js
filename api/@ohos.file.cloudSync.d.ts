@@ -25,8 +25,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace cloudSync
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
- * @since arkts{ '1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace cloudSync {
   /**
@@ -34,56 +34,56 @@ declare namespace cloudSync {
    *
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum SyncState {
     /**
      * Indicates that the sync state is uploading.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     UPLOADING = 0,
     /**
      * Indicates that the sync failed in upload processing.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     UPLOAD_FAILED = 1,
     /**
      * Indicates that the sync state is downloading.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     DOWNLOADING = 2,
     /**
      * Indicates that the sync failed in download processing.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     DOWNLOAD_FAILED = 3,
     /**
      * Indicates that the sync finish.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     COMPLETED = 4,
     /**
      * Indicates that the sync has been stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     STOPPED = 5,
   }
@@ -93,72 +93,72 @@ declare namespace cloudSync {
    *
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum ErrorType {
     /**
      * No error occurred.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NO_ERROR = 0,
     /**
      * Synchronization aborted due to network unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NETWORK_UNAVAILABLE = 1,
     /**
      * Synchronization aborted due to wifi unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     WIFI_UNAVAILABLE = 2,
     /**
      * Synchronization aborted due to low capacity level.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     BATTERY_LEVEL_LOW = 3,
     /**
      * Synchronization aborted due to warning low capacity level.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     BATTERY_LEVEL_WARNING = 4,
     /**
      * Synchronization aborted due to cloud storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     CLOUD_STORAGE_FULL = 5,
     /**
      * Synchronization aborted due to local storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     LOCAL_STORAGE_FULL = 6,
     /**
      * Synchronization aborted due to device temperature is too high.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     DEVICE_TEMPERATURE_TOO_HIGH = 7,
     
@@ -169,8 +169,8 @@ declare namespace cloudSync {
    *
    * @interface SyncProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface SyncProgress {
     /**
@@ -178,8 +178,8 @@ declare namespace cloudSync {
      *
      * @type { SyncState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     state: SyncState;
     /**
@@ -187,8 +187,8 @@ declare namespace cloudSync {
      *
      * @type { ErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     error: ErrorType;
   }
@@ -198,8 +198,8 @@ declare namespace cloudSync {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   class GallerySync {
     /**
@@ -207,8 +207,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     constructor();
     /**
@@ -224,8 +224,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     on(evt: 'progress', callback: (pg: SyncProgress) => void): void;
     /**
@@ -241,8 +241,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     off(evt: 'progress', callback: (pg: SyncProgress) => void): void;
     /**
@@ -257,8 +257,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     off(evt: 'progress'): void;
     /**
@@ -274,8 +274,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     start(): Promise<void>;
     /**
@@ -292,8 +292,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -306,8 +306,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     stop(): Promise<void>;
     /**
@@ -321,8 +321,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     stop(callback: AsyncCallback<void>): void;
   }
@@ -332,40 +332,40 @@ declare namespace cloudSync {
    *
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum State {
     /**
      * Indicates that the download task in process now.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     RUNNING = 0,
     /**
      * Indicates that the download task finished.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     COMPLETED = 1,
     /**
      * Indicates that the download task failed.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     FAILED = 2,
     /**
      * Indicates that the download task stopped.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STOPPED = 3,
   }
@@ -375,56 +375,56 @@ declare namespace cloudSync {
    *
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum DownloadErrorType {
     /**
      * No error occurred.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     NO_ERROR = 0,
     /**
      * download aborted due to unknown error.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     UNKNOWN_ERROR = 1,
     /**
      * download aborted due to network unavailable.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     NETWORK_UNAVAILABLE = 2,
     /**
      * download aborted due to local storage is full.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     LOCAL_STORAGE_FULL = 3,
     /**
      * download aborted due to content is not found in the cloud.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     CONTENT_NOT_FOUND = 4,
     /**
      * download aborted due to frequent user requests.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     FREQUENT_USER_REQUESTS = 5,
   }
@@ -434,8 +434,8 @@ declare namespace cloudSync {
    *
    * @interface DownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface DownloadProgress {
     /**
@@ -443,8 +443,8 @@ declare namespace cloudSync {
      *
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     state: State;
     /**
@@ -452,8 +452,8 @@ declare namespace cloudSync {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     processed: long;
     /**
@@ -461,8 +461,8 @@ declare namespace cloudSync {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     size: long;
     /**
@@ -470,8 +470,8 @@ declare namespace cloudSync {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     uri: string;
     /**
@@ -479,8 +479,8 @@ declare namespace cloudSync {
      *
      * @type { DownloadErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     error: DownloadErrorType;
   }
@@ -490,8 +490,8 @@ declare namespace cloudSync {
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   class Download {
     /**
@@ -499,8 +499,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     constructor();
     /**
@@ -516,8 +516,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     on(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
     /**
@@ -533,8 +533,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     off(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
     /**
@@ -549,8 +549,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     off(evt: 'progress'): void;
     /**
@@ -567,8 +567,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900025 - No space left on device.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     start(uri: string): Promise<void>;
     /**
@@ -585,8 +585,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900025 - No space left on device.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     start(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -601,8 +601,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     stop(uri: string): Promise<void>;
     /**
@@ -617,8 +617,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
   }
@@ -627,8 +627,8 @@ declare namespace cloudSync {
    * FileSync object.
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class FileSync {
     /**
@@ -636,8 +636,8 @@ declare namespace cloudSync {
      *
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor();
     /**
@@ -649,8 +649,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor(bundleName: string);
     /**
@@ -662,8 +662,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     on(event: 'progress', callback: Callback<SyncProgress>): void;
     /**
@@ -674,8 +674,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     off(event: 'progress', callback?: Callback<SyncProgress>): void;
     /**
@@ -688,8 +688,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400002 - Network unavailable.
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     start(): Promise<void>;
     /**
@@ -702,8 +702,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 22400002 - Network unavailable.
      * @throws { BusinessError } 22400003 - Low battery level.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     start(callback: AsyncCallback<void>): void;
     /**
@@ -713,8 +713,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     stop(): Promise<void>;
     /**
@@ -725,8 +725,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     stop(callback: AsyncCallback<void>): void;
     /**
@@ -736,8 +736,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getLastSyncTime(): Promise<long>;
     /**
@@ -748,8 +748,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     getLastSyncTime(callback: AsyncCallback<long>): void;
   }
@@ -757,8 +757,8 @@ declare namespace cloudSync {
    * CloudFileCache object.
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class CloudFileCache {
     /**
@@ -766,8 +766,8 @@ declare namespace cloudSync {
      *
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Incorrect parameter types.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     constructor();
     /**
@@ -779,8 +779,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     on(event: 'progress', callback: Callback<DownloadProgress>): void;
     /**
@@ -792,8 +792,8 @@ declare namespace cloudSync {
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     off(event: 'progress', callback?: Callback<DownloadProgress>): void;
 
@@ -809,8 +809,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900025 - No space left on device.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     start(uri: string): Promise<void>;
     /**
@@ -825,8 +825,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900025 - No space left on device.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     start(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -854,8 +854,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     stop(uri: string, needClean?: boolean): Promise<void>;
     /**
@@ -869,8 +869,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13900002 - No such file or directory.
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     stop(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -887,8 +887,8 @@ declare namespace cloudSync {
      * @throws { BusinessError } 14000002 - Invalid URI.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     cleanCache(uri: string): void;
   }
@@ -899,8 +899,8 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum FileSyncState {
     /**
@@ -908,8 +908,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     UPLOADING = 0,
     /**
@@ -917,8 +917,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DOWNLOADING = 1,
     /**
@@ -926,8 +926,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     COMPLETED = 2,
     /**
@@ -935,8 +935,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     STOPPED = 3,
     /**
@@ -944,8 +944,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     TO_BE_UPLOADED = 4,
     /**
@@ -953,8 +953,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     UPLOAD_SUCCESS = 5,
     /**
@@ -962,8 +962,8 @@ declare namespace cloudSync {
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     UPLOAD_FAILURE = 6,
   }
@@ -983,8 +983,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getFileSyncState(uri: Array<string>): Promise<Array<FileSyncState>>;
   /**
@@ -1002,8 +1002,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getFileSyncState(uri: Array<string>, callback: AsyncCallback<Array<FileSyncState>>): void;
   /**
@@ -1023,8 +1023,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function getFileSyncState(uri: string): FileSyncState;
   /**
@@ -1040,8 +1040,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function registerChange(uri: string, recursion: boolean, callback: Callback<ChangeData>): void;
   /**
@@ -1055,8 +1055,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900012 - Permission denied
    * @throws { BusinessError } 14000002 - Invalid URI.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function unregisterChange(uri: string): void;
 
@@ -1065,40 +1065,40 @@ declare namespace cloudSync {
    *
    * @enum { int } NotifyType
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum NotifyType {
     /**
      * File has been newly created
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOTIFY_ADDED = 0,
     /**
      * File has been modified.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOTIFY_MODIFIED = 1,
     /**
      * File has been deleted.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOTIFY_DELETED = 2,
     /**
      * File has been renamed or moved.
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     NOTIFY_RENAMED = 3,
   }
@@ -1108,8 +1108,8 @@ declare namespace cloudSync {
    * 
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface ChangeData {
     /**
@@ -1117,8 +1117,8 @@ declare namespace cloudSync {
      * 
      * @type {NotifyType}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     type: NotifyType;
     /**
@@ -1126,8 +1126,8 @@ declare namespace cloudSync {
      * 
      * @type {Array<boolean>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     isDirectory: Array<boolean>;
     /**
@@ -1135,8 +1135,8 @@ declare namespace cloudSync {
      * 
      * @type {Array<string>}
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     uris: Array<string>;
   }
@@ -1153,8 +1153,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   function optimizeStorage(): Promise<void>;
 
@@ -1173,8 +1173,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 22400006 - The same task is already in progress.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   function startOptimizeSpace(optimizePara: OptimizeSpaceParam, callback?: Callback<OptimizeSpaceProgress>): Promise<void>;
 
@@ -1188,8 +1188,8 @@ declare namespace cloudSync {
    * @throws { BusinessError } 22400005 - Inner error.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   function stopOptimizeSpace(): void;
 
@@ -1198,8 +1198,8 @@ declare namespace cloudSync {
    * @enum { int } OptimizeState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   enum OptimizeState {
 
@@ -1207,8 +1207,8 @@ declare namespace cloudSync {
      * Indicates that the optimize space task in process now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     RUNNING = 0,
 
@@ -1216,8 +1216,8 @@ declare namespace cloudSync {
      * Indicates that the optimize space task finished successfully.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     COMPLETED = 1,
 
@@ -1225,8 +1225,8 @@ declare namespace cloudSync {
      * Indicates that the optimize space task failed.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     FAILED = 2,
 
@@ -1234,8 +1234,8 @@ declare namespace cloudSync {
      * Indicates that the optimize space task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     STOPPED = 3
   }
@@ -1245,8 +1245,8 @@ declare namespace cloudSync {
    * @typedef OptimizeSpaceProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   interface OptimizeSpaceProgress {
 
@@ -1256,8 +1256,8 @@ declare namespace cloudSync {
      * @type { OptimizeState }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     state: OptimizeState;
 
@@ -1267,8 +1267,8 @@ declare namespace cloudSync {
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     progress: int;
   }
@@ -1278,8 +1278,8 @@ declare namespace cloudSync {
    * @typedef OptimizeSpaceParam
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @systemapi
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   interface OptimizeSpaceParam {
 
@@ -1289,8 +1289,8 @@ declare namespace cloudSync {
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     totalSize: long;
 
@@ -1300,8 +1300,8 @@ declare namespace cloudSync {
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
-     * @since arkts{ '1.1':'17','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     agingDays: int;
   }
@@ -1310,56 +1310,49 @@ declare namespace cloudSync {
    * Defines the HistoryVersion data structure.
    * @typedef HistoryVersion
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   interface HistoryVersion {
     /**
      * The time when the content of this version file is edited.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     editedTime: number;
     /**
      * The size of this history version file.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     fileSize: number;
     /**
      * The version ID of this version.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     versionId: string;
     /**
      * The original file name used to create this version.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     originalFileName: string;
     /**
      * The Sha256 check value of this version file.
      * @type { string }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     sha256: string;
     /**
      * Indicates whether this version automatically resolves the conflict.
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     autoResolved: boolean;
   }
@@ -1368,32 +1361,28 @@ declare namespace cloudSync {
    * Defines the VersionDownloadProgress data structure.
    * @typedef VersionDownloadProgress
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   interface VersionDownloadProgress {
     /**
      * The current download task state.
      * @type { State }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     state: State;
     /**
      * The percentage of downloaded files.
      * @type { number }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     progress: number;
     /**
      * The error type of download.
      * @type { DownloadErrorType }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     errType: DownloadErrorType;
   }
@@ -1401,8 +1390,7 @@ declare namespace cloudSync {
   /**
    * FileVersion object.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   class FileVersion {
     /**
@@ -1412,8 +1400,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     constructor();
     /**
@@ -1435,8 +1422,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     getHistoryVersionList(uri: string, versionNumLimit: number): Promise<Array<HistoryVersion>>;
     /**
@@ -1459,8 +1445,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     downloadHistoryVersion(uri: string, versionId: string, callback: Callback<VersionDownloadProgress>): Promise<string>;
     /**
@@ -1484,8 +1469,7 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @throws { BusinessError } 22400007 - The version file specified to replace the original file does not exist.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     replaceFileWithHistoryVersion(originalUri: string, versionUri: string): Promise<void>;
     /**
@@ -1505,8 +1489,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     isFileConflict(uri: string): Promise<boolean>;
     /**
@@ -1526,8 +1509,7 @@ declare namespace cloudSync {
      *     <br>1.Failed to access the database or execute the SQL statement.
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     clearFileConflict(uri: string): Promise<void>;
   }

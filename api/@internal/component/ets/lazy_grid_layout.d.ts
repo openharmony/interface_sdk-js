@@ -27,7 +27,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  * @noninterop
  */
 interface LazyVGridLayoutInterface {
@@ -38,7 +38,7 @@ interface LazyVGridLayoutInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   (): LazyVGridLayoutAttribute;
 }
@@ -50,7 +50,7 @@ interface LazyVGridLayoutInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  * @noninterop
  */
 declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
@@ -62,7 +62,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   rowsGap(value: LengthMetrics): T;
 
@@ -74,7 +74,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   columnsGap(value: LengthMetrics): T;
 }
@@ -86,7 +86,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  * @noninterop
  */
 declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute> {
@@ -98,7 +98,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   columnsTemplate(value: string): LazyVGridLayoutAttribute;
 }
@@ -109,7 +109,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  * @noninterop
  */
 declare const LazyVGridLayout: LazyVGridLayoutInterface;
@@ -120,7 +120,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  * @noninterop
  */
 declare const LazyVGridLayoutInstance: LazyVGridLayoutAttribute;

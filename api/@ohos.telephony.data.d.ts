@@ -25,8 +25,8 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @namespace data
  * @syscap SystemCapability.Telephony.CellularData
- * @since arkts {'1.1':'7','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace data {
   /**
@@ -34,8 +34,8 @@ declare namespace data {
    *
    * @param { AsyncCallback<int> } callback - Indicates the default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getDefaultCellularDataSlotId(callback: AsyncCallback<int>): void;
 
@@ -44,8 +44,8 @@ declare namespace data {
    *
    * @returns { Promise<int> } Returns the default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getDefaultCellularDataSlotId(): Promise<int>;
 
@@ -54,8 +54,8 @@ declare namespace data {
    *
    * @returns { int } Returns default cellular data slot id.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getDefaultCellularDataSlotIdSync(): int;
 
@@ -78,8 +78,8 @@ declare namespace data {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setDefaultCellularDataSlotId(slotId: int, callback: AsyncCallback<void>): void;
 
@@ -102,8 +102,8 @@ declare namespace data {
    * @throws { BusinessError } 8301001 - SIM card is not activated.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function setDefaultCellularDataSlotId(slotId: int): Promise<void>;
 
@@ -113,8 +113,8 @@ declare namespace data {
    * <p>It is a return value of service state query of cellular data services.
    * @param { AsyncCallback<DataFlowType> } callback - Indicates the data flow type.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void;
 
@@ -124,8 +124,8 @@ declare namespace data {
    * <p>It is a return value of service state query of cellular data services.
    * @returns { Promise<DataFlowType> } Returns the data flow type.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getCellularDataFlowType(): Promise<DataFlowType>;
 
@@ -142,8 +142,8 @@ declare namespace data {
    * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
    * </ul>
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getCellularDataState(callback: AsyncCallback<DataConnectState>): void;
 
@@ -159,8 +159,8 @@ declare namespace data {
    * <li>{@code DataConnectState#DATA_STATE_SUSPENDED}
    * </ul>
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getCellularDataState(): Promise<DataConnectState>;
 
@@ -178,8 +178,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function isCellularDataEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -194,8 +194,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function isCellularDataEnabled(): Promise<boolean>;
 
@@ -210,8 +210,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isCellularDataEnabledSync(): boolean;
 
@@ -230,8 +230,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function enableCellularData(callback: AsyncCallback<void>): void;
 
@@ -247,8 +247,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function enableCellularData(): Promise<void>;
 
@@ -267,8 +267,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function disableCellularData(callback: AsyncCallback<void>): void;
 
@@ -284,8 +284,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function disableCellularData(): Promise<void>;
 
@@ -306,8 +306,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function isCellularDataRoamingEnabled(slotId: int, callback: AsyncCallback<boolean>): void;
 
@@ -327,8 +327,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function isCellularDataRoamingEnabled(slotId: int): Promise<boolean>;
 
@@ -348,8 +348,8 @@ declare namespace data {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isCellularDataRoamingEnabledSync(slotId: int): boolean;
 
@@ -370,8 +370,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function enableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
@@ -392,8 +392,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function enableCellularDataRoaming(slotId: int): Promise<void>;
 
@@ -414,8 +414,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function disableCellularDataRoaming(slotId: int, callback: AsyncCallback<void>): void;
 
@@ -436,8 +436,8 @@ declare namespace data {
    * @throws { BusinessError } 8300999 - Internal error.
    * @syscap SystemCapability.Telephony.CellularData
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function disableCellularDataRoaming(slotId: int): Promise<void>;
 
@@ -446,8 +446,8 @@ declare namespace data {
    *
    * @returns { int } Returns the SIM ID of the default cellular data sim and SIM ID will increase from 1.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function getDefaultCellularDataSimId(): int;
 
@@ -458,8 +458,8 @@ declare namespace data {
    * @returns { Promise<Array<ApnInfo>> } Returns all APN info of default cellular data card.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 20 static
    */
   function queryAllApns(): Promise<Array<ApnInfo>>;
 
@@ -470,8 +470,7 @@ declare namespace data {
    * @returns { Promise<string> } Returns the name of the active APN or null if cellular network is not active.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getActiveApnName(): Promise<string>;
 
@@ -483,8 +482,8 @@ declare namespace data {
    * @returns { Promise<Array<int>> } Returns IDs of all APNs that meet the query conditions.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 20 static
    */
   function queryApnIds(apnInfo: ApnInfo): Promise<Array<int>>;
 
@@ -496,8 +495,8 @@ declare namespace data {
    * @returns { Promise<boolean> } Returns {@code true} if preferred APN set success; returns {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 20 static
    */
   function setPreferredApn(apnId: int): Promise<boolean>;
 
@@ -506,8 +505,8 @@ declare namespace data {
    *
    * @interface ApnInfo
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16 dynamic
+   * @since 20 static
    */
   interface ApnInfo {
     /**
@@ -515,8 +514,8 @@ declare namespace data {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     apnName: string;
     /**
@@ -524,8 +523,8 @@ declare namespace data {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     apn: string;
     /**
@@ -533,8 +532,8 @@ declare namespace data {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     mcc: string;
     /**
@@ -542,8 +541,8 @@ declare namespace data {
      *
      * @type { string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     mnc: string;
     /**
@@ -551,8 +550,8 @@ declare namespace data {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     user?: string;
     /**
@@ -560,8 +559,8 @@ declare namespace data {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     type?: string;
     /**
@@ -569,8 +568,8 @@ declare namespace data {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     proxy?: string;
     /**
@@ -578,8 +577,8 @@ declare namespace data {
      *
      * @type { ?string }
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'16','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 16 dynamic
+     * @since 20 static
      */
     mmsproxy?: string;
   }
@@ -589,16 +588,16 @@ declare namespace data {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export enum DataFlowType {
     /**
      * Indicates that there is no uplink or downlink data.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_FLOW_TYPE_NONE = 0,
 
@@ -606,8 +605,8 @@ declare namespace data {
      * Indicates that there is only downlink data.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_FLOW_TYPE_DOWN = 1,
 
@@ -615,8 +614,8 @@ declare namespace data {
      * Indicates that there is only uplink data.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_FLOW_TYPE_UP = 2,
 
@@ -624,8 +623,8 @@ declare namespace data {
      * Indicates that there is uplink and downlink data.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_FLOW_TYPE_UP_DOWN = 3,
 
@@ -633,8 +632,8 @@ declare namespace data {
      * Indicates that there is no uplink or downlink data, and the bottom-layer link is in the dormant state.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_FLOW_TYPE_DORMANT = 4
   }
@@ -644,16 +643,16 @@ declare namespace data {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CellularData
-   * @since arkts {'1.1':'7','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   export enum DataConnectState {
     /**
      * Indicates that a cellular data link is unknown.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_STATE_UNKNOWN = -1,
 
@@ -661,8 +660,8 @@ declare namespace data {
      * Indicates that a cellular data link is disconnected.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_STATE_DISCONNECTED = 0,
 
@@ -670,8 +669,8 @@ declare namespace data {
      * Indicates that a cellular data link is being connected.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_STATE_CONNECTING = 1,
 
@@ -679,8 +678,8 @@ declare namespace data {
      * Indicates that a cellular data link is connected.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_STATE_CONNECTED = 2,
 
@@ -688,8 +687,8 @@ declare namespace data {
      * Indicates that a cellular data link is suspended.
      *
      * @syscap SystemCapability.Telephony.CellularData
-     * @since arkts {'1.1':'7','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     DATA_STATE_SUSPENDED = 3
   }

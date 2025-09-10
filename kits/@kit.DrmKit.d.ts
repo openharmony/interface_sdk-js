@@ -23,7 +23,7 @@
  * @kit DrmKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import drm from '@ohos.multimedia.drm';
 
 export { drm };

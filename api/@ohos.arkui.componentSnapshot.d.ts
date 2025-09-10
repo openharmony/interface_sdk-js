@@ -36,7 +36,7 @@ import image from './@ohos.multimedia.image'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace componentSnapshot {
   /**
@@ -46,7 +46,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   interface SnapshotRegion {
     /**
@@ -56,7 +56,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     left: number;
 
@@ -67,7 +67,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     right: number;
 
@@ -78,7 +78,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     top: number;
 
@@ -89,7 +89,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -102,7 +102,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   interface LocalizedSnapshotRegion {
     /**
@@ -112,7 +112,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     start: number;
 
@@ -123,7 +123,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     end: number;
 
@@ -134,7 +134,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     top: number;
 
@@ -145,7 +145,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     bottom: number;
   }
@@ -157,7 +157,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion;
 
@@ -168,7 +168,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   interface SnapshotOptions {
     /**
@@ -178,7 +178,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     scale?: number
 
@@ -189,7 +189,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
     waitUntilRenderFinished?: boolean
 
@@ -200,7 +200,7 @@ declare namespace componentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
     region?: SnapshotRegionType
   }
@@ -233,7 +233,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
@@ -267,7 +267,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#get
    */
@@ -305,7 +305,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */
@@ -344,7 +344,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.ComponentSnapshot#createFromBuilder
    */
@@ -368,7 +368,7 @@ declare namespace componentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   function getSync(id: string, options?: SnapshotOptions): image.PixelMap;
 }

@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface ArcScrollBarOptions {
   /**
@@ -35,7 +35,7 @@ declare interface ArcScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   scroller: Scroller;
 
@@ -46,7 +46,7 @@ declare interface ArcScrollBarOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   state?: BarState;
 }
@@ -58,7 +58,7 @@ declare interface ArcScrollBarOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 export interface ArcScrollBarInterface {
@@ -70,7 +70,7 @@ export interface ArcScrollBarInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options: ArcScrollBarOptions): ArcScrollBarAttribute;
 }
@@ -82,7 +82,7 @@ export interface ArcScrollBarInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttribute> {
@@ -94,7 +94,7 @@ export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttr
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
@@ -106,7 +106,7 @@ export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 export declare const ArcScrollBar: ArcScrollBarInterface;

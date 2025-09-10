@@ -18,11 +18,11 @@
  * @kit InputKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AsyncCallback } from './@ohos.base';
 import type image from './@ohos.multimedia.image';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 /*** endif */
@@ -40,8 +40,8 @@ import image from './@ohos.multimedia.image';
  * @namespace pointer
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace pointer {
   /**
@@ -57,17 +57,16 @@ declare namespace pointer {
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
-
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum PointerStyle {
     /**
      * Default
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     DEFAULT,
 
@@ -75,8 +74,8 @@ declare namespace pointer {
      * East arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     EAST,
 
@@ -84,8 +83,8 @@ declare namespace pointer {
      * West arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     WEST,
 
@@ -93,8 +92,8 @@ declare namespace pointer {
      * South arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     SOUTH,
 
@@ -102,8 +101,8 @@ declare namespace pointer {
      * North arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH,
 
@@ -111,8 +110,8 @@ declare namespace pointer {
      * East-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     WEST_EAST,
 
@@ -120,8 +119,8 @@ declare namespace pointer {
      * North-south arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH_SOUTH,
 
@@ -129,8 +128,8 @@ declare namespace pointer {
      * North-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH_EAST,
 
@@ -138,8 +137,8 @@ declare namespace pointer {
      * North-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH_WEST,
 
@@ -147,8 +146,8 @@ declare namespace pointer {
      * South-east arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     SOUTH_EAST,
 
@@ -156,8 +155,8 @@ declare namespace pointer {
      * South-west arrow
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     SOUTH_WEST,
 
@@ -165,8 +164,8 @@ declare namespace pointer {
      * Northeast and southwest adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH_EAST_SOUTH_WEST,
 
@@ -174,8 +173,8 @@ declare namespace pointer {
      * Northwest and southeast adjustment
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NORTH_WEST_SOUTH_EAST,
 
@@ -183,8 +182,8 @@ declare namespace pointer {
      * Cross (accurate selection)
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CROSS,
 
@@ -192,8 +191,8 @@ declare namespace pointer {
      * Copy
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CURSOR_COPY,
 
@@ -201,8 +200,8 @@ declare namespace pointer {
      * Forbid
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CURSOR_FORBID,
 
@@ -210,8 +209,8 @@ declare namespace pointer {
      * Sucker
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     COLOR_SUCKER,
 
@@ -219,8 +218,8 @@ declare namespace pointer {
      * Grabbing hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     HAND_GRABBING,
 
@@ -228,8 +227,8 @@ declare namespace pointer {
      * Opening hand
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     HAND_OPEN,
 
@@ -237,8 +236,8 @@ declare namespace pointer {
      * Hand-shaped pointer
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     HAND_POINTING,
 
@@ -246,8 +245,8 @@ declare namespace pointer {
      * Help
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     HELP,
 
@@ -255,8 +254,8 @@ declare namespace pointer {
      * Move
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MOVE,
 
@@ -264,8 +263,8 @@ declare namespace pointer {
      * Left and right resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     RESIZE_LEFT_RIGHT,
 
@@ -273,8 +272,8 @@ declare namespace pointer {
      * Up and down resizing
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     RESIZE_UP_DOWN,
 
@@ -282,8 +281,8 @@ declare namespace pointer {
      * Screenshot crosshair
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     SCREENSHOT_CHOOSE,
 
@@ -291,8 +290,8 @@ declare namespace pointer {
      * Screenshot
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     SCREENSHOT_CURSOR,
 
@@ -300,8 +299,8 @@ declare namespace pointer {
      * Text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     TEXT_CURSOR,
 
@@ -309,8 +308,8 @@ declare namespace pointer {
      * Zoom in
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     ZOOM_IN,
 
@@ -318,8 +317,8 @@ declare namespace pointer {
      * Zoom out
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     ZOOM_OUT,
 
@@ -327,8 +326,8 @@ declare namespace pointer {
      * Scrolling east
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_EAST,
 
@@ -336,8 +335,8 @@ declare namespace pointer {
      * Scrolling west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_WEST,
 
@@ -345,8 +344,8 @@ declare namespace pointer {
      * Scrolling south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_SOUTH,
 
@@ -354,8 +353,8 @@ declare namespace pointer {
      * Scrolling north
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_NORTH,
 
@@ -363,8 +362,8 @@ declare namespace pointer {
      * Scrolling north and south
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_NORTH_SOUTH,
 
@@ -372,8 +371,8 @@ declare namespace pointer {
      * Scrolling northeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_NORTH_EAST,
 
@@ -381,8 +380,8 @@ declare namespace pointer {
      * Scrolling northwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_NORTH_WEST,
 
@@ -390,8 +389,8 @@ declare namespace pointer {
      * Scrolling southeast
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_SOUTH_EAST,
 
@@ -399,8 +398,8 @@ declare namespace pointer {
      * Scrolling southwest
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_SOUTH_WEST,
 
@@ -408,8 +407,8 @@ declare namespace pointer {
      * Moving as a cone in four directions
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_NORTH_SOUTH_WEST_EAST,
 
@@ -417,8 +416,8 @@ declare namespace pointer {
      * Horizontal text selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     HORIZONTAL_TEXT_CURSOR,
 
@@ -426,8 +425,8 @@ declare namespace pointer {
      * Precise selection
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     CURSOR_CROSS,
 
@@ -435,8 +434,8 @@ declare namespace pointer {
      * Cursor with circle style
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     CURSOR_CIRCLE,
 
@@ -451,8 +450,8 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     LOADING,
 
@@ -467,8 +466,8 @@ declare namespace pointer {
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @atomicservice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     RUNNING,
 
@@ -476,8 +475,8 @@ declare namespace pointer {
      * Scrolling east and west
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     MIDDLE_BTN_EAST_WEST
   }
@@ -487,24 +486,24 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   enum PrimaryButton {
     /**
      * Left mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     LEFT = 0,
     /**
      * Right mouse button
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     RIGHT = 1
   }
@@ -514,39 +513,39 @@ declare namespace pointer {
    *
    * @enum { number }
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   enum RightClickType {
     /**
      * Tapping the right-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     TOUCHPAD_RIGHT_BUTTON = 1,
     /**
      * Tapping the left-button area of the touchpad.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     TOUCHPAD_LEFT_BUTTON = 2,
     /**
      * Tapping or pressing the touchpad with two fingers.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     TOUCHPAD_TWO_FINGER_TAP = 3,
     /**
      * Touchpad two fingers tap or right button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 20
+     * @since 20 dynamic
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_RIGHT_BUTTON = 4,
 
@@ -554,7 +553,7 @@ declare namespace pointer {
      * Touchpad two fingers tap or left button.
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 20
+     * @since 20 dynamic
      */
     TOUCHPAD_TWO_FINGER_TAP_OR_LEFT_BUTTON = 5,
   }
@@ -564,7 +563,7 @@ declare namespace pointer {
    *
    * @interface CustomCursor
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 15
+   * @since 15 dynamic
    */
   interface CustomCursor {
     /**
@@ -572,7 +571,7 @@ declare namespace pointer {
      * 
      * @type { image.PixelMap }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 15
+     * @since 15 dynamic
      */
     pixelMap: image.PixelMap;
     /**
@@ -581,7 +580,7 @@ declare namespace pointer {
      * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 15
+     * @since 15 dynamic
      */
     focusX?: number;
     /**
@@ -590,7 +589,7 @@ declare namespace pointer {
      * 
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since 15
+     * @since 15 dynamic
      */
     focusY?: number;
   }
@@ -600,8 +599,8 @@ declare namespace pointer {
    *
    * @interface CursorConfig
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   interface CursorConfig {
     /**
@@ -611,8 +610,8 @@ declare namespace pointer {
      * 
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     followSystem : boolean;
   }
@@ -638,7 +637,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function setPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
@@ -663,7 +662,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function setPointerSpeed(speed: number): Promise<void>;
 
@@ -676,7 +675,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerSpeedSync(speed: number): void;
 
@@ -699,7 +698,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function getPointerSpeed(callback: AsyncCallback<number>): void;
 
@@ -718,7 +717,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 12
+   * @since 12 dynamic
    */
   function getPointerSpeed(): Promise<number>;
 
@@ -731,7 +730,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerSpeedSync(): number;
 
@@ -744,8 +743,8 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle, callback: AsyncCallback<void>): void;
 
@@ -758,8 +757,8 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function setPointerStyle(windowId: int, pointerStyle: PointerStyle): Promise<void>;
 
@@ -771,8 +770,8 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function setPointerStyleSync(windowId: int, pointerStyle: PointerStyle): void;
 
@@ -784,7 +783,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since 9 dynamic
    */
   function getPointerStyle(windowId: number, callback: AsyncCallback<PointerStyle>): void;
 
@@ -797,7 +796,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since 9 dynamic
    */
   function getPointerStyle(windowId: number): Promise<PointerStyle>;
 
@@ -810,7 +809,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerStyleSync(windowId: number): PointerStyle;
 
@@ -835,7 +834,7 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 18
+   * @since 18 dynamic
    */
   function setPointerVisible(visible: boolean, callback: AsyncCallback<void>): void;
 
@@ -860,7 +859,7 @@ declare namespace pointer {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported;
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 18
+   * @since 18 dynamic
    */
   function setPointerVisible(visible: boolean): Promise<void>;
 
@@ -872,7 +871,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerVisibleSync(visible: boolean): void;
 
@@ -884,7 +883,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since 9 dynamic
    */
   function isPointerVisible(callback: AsyncCallback<boolean>): void;
 
@@ -894,7 +893,7 @@ declare namespace pointer {
    * @returns { Promise<boolean> } Promise used to return the visible status of the mouse pointer. 
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 9
+   * @since 9 dynamic
    */
   function isPointerVisible(): Promise<boolean>;
 
@@ -904,7 +903,7 @@ declare namespace pointer {
    * @returns { boolean } Visible status of the mouse pointer. 
    * The value true indicates that the mouse pointer is visible, and the value false indicates the opposite.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 10
+   * @since 10 dynamic
    */
   function isPointerVisibleSync(): boolean;
 
@@ -919,7 +918,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerColor(color: number, callback: AsyncCallback<void>): void;
 
@@ -933,7 +932,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerColor(color: number): Promise<void>;
 
@@ -946,7 +945,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerColorSync(color: number): void;
 
@@ -959,7 +958,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerColor(callback: AsyncCallback<number>): void;
 
@@ -970,7 +969,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerColor(): Promise<number>;
 
@@ -981,7 +980,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerColorSync(): number;
 
@@ -996,7 +995,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerSize(size: number, callback: AsyncCallback<void>): void;
 
@@ -1010,7 +1009,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerSize(size: number): Promise<void>;
 
@@ -1023,7 +1022,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setPointerSizeSync(size: number): void;
 
@@ -1036,7 +1035,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerSize(callback: AsyncCallback<number>): void;
 
@@ -1047,7 +1046,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerSize(): Promise<number>;
 
@@ -1058,7 +1057,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getPointerSizeSync(): number;
 
@@ -1072,7 +1071,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setMousePrimaryButton(primary: PrimaryButton, callback: AsyncCallback<void>): void;
 
@@ -1086,7 +1085,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setMousePrimaryButton(primary: PrimaryButton): Promise<void>;
 
@@ -1099,7 +1098,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getMousePrimaryButton(callback: AsyncCallback<PrimaryButton>): void;
 
@@ -1112,7 +1111,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getMousePrimaryButton(): Promise<PrimaryButton>;
 
@@ -1127,7 +1126,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setHoverScrollState(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1142,7 +1141,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setHoverScrollState(state: boolean): Promise<void>;
 
@@ -1156,7 +1155,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getHoverScrollState(callback: AsyncCallback<boolean>): void;
 
@@ -1170,7 +1169,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getHoverScrollState(): Promise<boolean>;
 
@@ -1184,7 +1183,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setMouseScrollRows(rows: number, callback: AsyncCallback<void>): void;
 
@@ -1198,7 +1197,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setMouseScrollRows(rows: number): Promise<void>;
 
@@ -1211,7 +1210,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getMouseScrollRows(callback: AsyncCallback<number>): void;
 
@@ -1224,7 +1223,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getMouseScrollRows(): Promise<number>;
 
@@ -1239,7 +1238,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadScrollSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1254,7 +1253,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadScrollSwitch(state: boolean): Promise<void>;
 
@@ -1268,7 +1267,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadScrollSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1282,7 +1281,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadScrollSwitch(): Promise<boolean>;
 
@@ -1298,7 +1297,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadScrollDirection(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1314,7 +1313,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadScrollDirection(state: boolean): Promise<void>;
 
@@ -1329,7 +1328,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadScrollDirection(callback: AsyncCallback<boolean>): void;
 
@@ -1344,7 +1343,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadScrollDirection(): Promise<boolean>;
 
@@ -1359,7 +1358,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadTapSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1374,7 +1373,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadTapSwitch(state: boolean): Promise<void>;
 
@@ -1388,7 +1387,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadTapSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1402,7 +1401,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadTapSwitch(): Promise<boolean>;
 
@@ -1416,7 +1415,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadPointerSpeed(speed: number, callback: AsyncCallback<void>): void;
 
@@ -1430,7 +1429,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadPointerSpeed(speed: number): Promise<void>;
 
@@ -1443,7 +1442,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadPointerSpeed(callback: AsyncCallback<number>): void;
 
@@ -1456,7 +1455,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadPointerSpeed(): Promise<number>;
 
@@ -1471,7 +1470,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadPinchSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1486,7 +1485,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadPinchSwitch(state: boolean): Promise<void>;
 
@@ -1500,7 +1499,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
   */
   function getTouchpadPinchSwitch(callback: AsyncCallback<boolean>): void;
 
@@ -1514,7 +1513,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadPinchSwitch(): Promise<boolean>;
 
@@ -1529,7 +1528,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadSwipeSwitch(state: boolean, callback: AsyncCallback<void>): void;
 
@@ -1544,7 +1543,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadSwipeSwitch(state: boolean): Promise<void>;
  
@@ -1558,7 +1557,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadSwipeSwitch(callback: AsyncCallback<boolean>): void;
  
@@ -1572,7 +1571,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadSwipeSwitch(): Promise<boolean>;
 
@@ -1592,7 +1591,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadRightClickType(type: RightClickType, callback: AsyncCallback<void>): void;
 
@@ -1612,7 +1611,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function setTouchpadRightClickType(type: RightClickType): Promise<void>;
 
@@ -1625,7 +1624,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadRightClickType(callback: AsyncCallback<RightClickType>): void;
 
@@ -1638,7 +1637,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 10
+   * @since 10 dynamic
    */
   function getTouchpadRightClickType(): Promise<RightClickType>;
 
@@ -1653,7 +1652,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 11
+   * @since 11 dynamic
    */
   function setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise<void>;
 
@@ -1667,7 +1666,7 @@ declare namespace pointer {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 11
+   * @since 11 dynamic
    */
   function setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void;
 
@@ -1687,7 +1686,7 @@ declare namespace pointer {
    * <br>4. Abnormal focusY parameter passed in.
    * @throws { BusinessError } 26500001 - Invalid windowId. Possible causes: The window id does not belong to the current process.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @since 15
+   * @since 15 dynamic
    */
   function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>;
 
@@ -1702,7 +1701,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 14
+   * @since 14 dynamic
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean, callback: AsyncCallback<void>): void;
 
@@ -1717,7 +1716,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 14
+   * @since 14 dynamic
    */
   function setTouchpadDoubleTapAndDragState(isOpen: boolean): Promise<void>;
 
@@ -1731,7 +1730,7 @@ declare namespace pointer {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 14
+   * @since 14 dynamic
    */
   function getTouchpadDoubleTapAndDragState(callback: AsyncCallback<boolean>): void;
 
@@ -1743,7 +1742,7 @@ declare namespace pointer {
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use.
-   * @since 14
+   * @since 14 dynamic
    */
   function getTouchpadDoubleTapAndDragState(): Promise<boolean>;
 }

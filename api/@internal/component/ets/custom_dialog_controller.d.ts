@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CustomDialogControllerOptions {
   /**
@@ -65,7 +65,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   builder: any;
 
@@ -91,7 +91,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   cancel?: () => void;
 
@@ -117,7 +117,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   autoCancel?: boolean;
 
@@ -143,7 +143,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   alignment?: DialogAlignment;
 
@@ -169,7 +169,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   offset?: Offset;
 
@@ -195,7 +195,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   customStyle?: boolean;
 
@@ -221,7 +221,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   gridCount?: number;
 
@@ -240,7 +240,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maskColor?: ResourceColor;
 
@@ -259,7 +259,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   maskRect?: Rectangle;
 
@@ -278,7 +278,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   openAnimation?: AnimateParam;
 
@@ -297,7 +297,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   closeAnimation?: AnimateParam;
 
@@ -317,7 +317,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   showInSubWindow?: boolean;
 
@@ -336,7 +336,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
@@ -355,7 +355,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   cornerRadius?: Dimension | BorderRadiuses;
 
@@ -374,7 +374,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   isModal?: boolean;
 
@@ -385,7 +385,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWillDismiss?: Callback<DismissDialogAction>;
 
@@ -396,7 +396,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width?: Dimension;
 
@@ -407,7 +407,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height?: Dimension;
 
@@ -418,7 +418,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderWidth?: Dimension | EdgeWidths;
 
@@ -429,7 +429,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderColor?: ResourceColor | EdgeColors;
 
@@ -440,7 +440,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   borderStyle?: BorderStyle | EdgeStyles;
 
@@ -451,7 +451,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
@@ -463,7 +463,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
@@ -474,7 +474,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -485,7 +485,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
 
@@ -497,7 +497,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   keyboardAvoidMode?: KeyboardAvoidMode;
 
@@ -509,7 +509,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   enableHoverMode?: boolean;
 
@@ -521,7 +521,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   hoverModeArea?: HoverModeAreaType;
 
@@ -532,7 +532,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onDidAppear?: Callback<void>;
 
@@ -543,7 +543,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onDidDisappear?: Callback<void>;
 
@@ -554,7 +554,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onWillAppear?: Callback<void>;
 
@@ -565,7 +565,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onWillDisappear?: Callback<void>;
 
@@ -576,7 +576,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   keyboardAvoidDistance?: LengthMetrics;
 
@@ -588,7 +588,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   levelMode?: LevelMode;
 
@@ -599,7 +599,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   levelUniqueId?: number;
 
@@ -611,7 +611,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   immersiveMode?: ImmersiveMode;
 
@@ -623,7 +623,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   levelOrder?: LevelOrder;
 
@@ -635,7 +635,7 @@ declare interface CustomDialogControllerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   focusable?: boolean;
 }
@@ -647,7 +647,7 @@ declare interface CustomDialogControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare interface DismissDialogAction {
@@ -658,7 +658,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   dismiss: Callback<void>;
 
@@ -669,7 +669,7 @@ declare interface DismissDialogAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reason: DismissReason;
 }
@@ -680,7 +680,7 @@ declare interface DismissDialogAction {
  * @typedef { import('../api/@ohos.promptAction').promptAction.CommonState } PromptActionCommonState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare type PromptActionCommonState = import('../api/@ohos.promptAction').promptAction.CommonState;
 
@@ -703,7 +703,7 @@ declare type PromptActionCommonState = import('../api/@ohos.promptAction').promp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class CustomDialogController {
   /**
@@ -728,7 +728,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(value: CustomDialogControllerOptions);
 
@@ -751,7 +751,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   open();
 
@@ -774,7 +774,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   close();
 
@@ -785,7 +785,7 @@ declare class CustomDialogController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   getState(): PromptActionCommonState;
 }

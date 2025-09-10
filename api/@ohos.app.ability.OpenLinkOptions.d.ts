@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { RecordData } from './@ohos.base';
 /*** endif */
 
@@ -29,8 +29,8 @@ import { RecordData } from './@ohos.base';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export default interface OpenLinkOptions {
   /**
@@ -41,8 +41,8 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   appLinkingOnly?: boolean;
 
@@ -53,7 +53,7 @@ export default interface OpenLinkOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   parameters?: Record<string, Object>;
 
@@ -63,8 +63,7 @@ export default interface OpenLinkOptions {
    * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   parameters?: Record<string, RecordData>;
 }

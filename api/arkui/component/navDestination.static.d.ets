@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
  
 import window from '../../@ohos.window';
@@ -37,7 +36,7 @@ import { memo, ComponentBuilder } from './../stateManagement/runtime';
  *
  * @typedef { window.Orientation } Orientation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type Orientation = window.Orientation;
 
@@ -46,7 +45,7 @@ export type Orientation = window.Orientation;
  *
  * @interface NavDestinationCommonTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface NavDestinationCommonTitle {
     /**
@@ -54,7 +53,7 @@ export declare interface NavDestinationCommonTitle {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     main: string | Resource;
 
@@ -63,7 +62,7 @@ export declare interface NavDestinationCommonTitle {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     sub: string | Resource;
 }
@@ -73,7 +72,7 @@ export declare interface NavDestinationCommonTitle {
  *
  * @interface NavDestinationCustomTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface NavDestinationCustomTitle {
     /**
@@ -81,7 +80,7 @@ export declare interface NavDestinationCustomTitle {
      *
      * @type { CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     builder: CustomBuilder;
     /**
@@ -89,7 +88,7 @@ export declare interface NavDestinationCustomTitle {
      *
      * @type { TitleHeight | Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     height: TitleHeight | Length;
 }
@@ -99,63 +98,63 @@ export declare interface NavDestinationCustomTitle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum NavigationSystemTransitionType {
     /**
      * Default system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     DEFAULT = 0,
     /**
      * None system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NONE = 1,
     /**
      * Configure only titlebar transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TITLE = 2,
     /**
      * Configure only content transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CONTENT = 3,
     /**
      * Configure fade style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     FADE = 4,
     /**
      * Configure explode style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     EXPLODE = 5,
     /**
      * Configure right-side slide style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     SLIDE_RIGHT = 6,
     /**
      * Configure bottom-side slide style system transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     SLIDE_BOTTOM = 7
 }
@@ -165,21 +164,21 @@ export declare enum NavigationSystemTransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum NavDestinationMode {
     /**
      * Standard mode is default mode of NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     STANDARD = 0,
     /**
      * Dialog mode is transparent by default and does not affect the life cycle of other NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     DIALOG = 1
 }
@@ -189,14 +188,14 @@ export declare enum NavDestinationMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum NavDestinationActiveReason {
     /**
      * NavDestination become active or inactive because of page transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TRANSITION = 0,
 
@@ -204,7 +203,7 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because content cover changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CONTENT_COVER = 1,
 
@@ -212,7 +211,7 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because sheet changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     SHEET = 2,
 
@@ -220,7 +219,7 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because dialog changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     DIALOG = 3,
 
@@ -228,7 +227,7 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because overlay changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     OVERLAY = 4,
 
@@ -236,7 +235,7 @@ export declare enum NavDestinationActiveReason {
      * NavDestination become active or inactive because app state changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     APP_STATE = 5
 }
@@ -246,7 +245,7 @@ export declare enum NavDestinationActiveReason {
  *
  * @interface RouteMapConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface RouteMapConfig {
     /**
@@ -254,7 +253,7 @@ export declare interface RouteMapConfig {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     name: string;
 
@@ -263,7 +262,7 @@ export declare interface RouteMapConfig {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pageSourceFile: string;
 
@@ -272,7 +271,7 @@ export declare interface RouteMapConfig {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     data: Object;
 }
@@ -282,7 +281,7 @@ export declare interface RouteMapConfig {
  *
  * @interface NavDestinationContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface NavDestinationContext {
     /**
@@ -290,7 +289,7 @@ export declare interface NavDestinationContext {
      *
      * @type { NavPathInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pathInfo: NavPathInfo;
 
@@ -299,7 +298,7 @@ export declare interface NavDestinationContext {
      *
      * @type { NavPathStack }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     pathStack: NavPathStack;
 
@@ -308,7 +307,7 @@ export declare interface NavDestinationContext {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     navDestinationId?: string;
 
@@ -317,7 +316,7 @@ export declare interface NavDestinationContext {
      *
      * @returns { RouteMapConfig | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     getConfigInRouteMap(): RouteMapConfig | undefined;
 }
@@ -327,7 +326,7 @@ export declare interface NavDestinationContext {
  *
  * @interface NestedScrollInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface NestedScrollInfo {
     /**
@@ -335,7 +334,7 @@ export declare interface NestedScrollInfo {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     parent: Scroller;
 
@@ -344,7 +343,7 @@ export declare interface NestedScrollInfo {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     child: Scroller;
 }
@@ -354,7 +353,7 @@ export declare interface NestedScrollInfo {
 *
 * @interface NavDestinationTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20
+* @since 20 static
 */
 export declare interface NavDestinationTransition {
     /**
@@ -362,7 +361,7 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onTransitionEnd?: Callback<void>;
 
@@ -371,7 +370,7 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     duration?: number;
 
@@ -380,7 +379,7 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?Curve }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     curve?: Curve;
 
@@ -389,7 +388,7 @@ export declare interface NavDestinationTransition {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     delay?: number;
 
@@ -398,7 +397,7 @@ export declare interface NavDestinationTransition {
      *
      * @type { Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     event: Callback<void>;
 }
@@ -408,7 +407,7 @@ export declare interface NavDestinationTransition {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface NavDestinationAttribute extends CommonMethod {
@@ -419,7 +418,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationTitleOptions | undefined } [options] - Indicates the options of titlebar.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource | undefined, options?: NavigationTitleOptions | undefined): this;
 
@@ -429,7 +428,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default hideTitleBar(value: boolean | undefined): this;
 
@@ -440,7 +439,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } animated
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
 
@@ -450,7 +449,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } hide
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default hideBackButton(hide: boolean | undefined): this;
 
@@ -460,7 +459,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the navDestination page is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onShown(callback: (() => void) | undefined): this;
 
@@ -470,7 +469,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onHidden(callback: (() => void) | undefined): this;
 
@@ -480,7 +479,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { function | undefined } callback - Indicates callback when the backButton is pressed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onBackPressed(callback: (() => boolean) | undefined): this;
 
@@ -490,7 +489,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<Object | null | undefined> | undefined } callback - Indicates callback when pop to the navDestination with result.
      * @returns {NavDestinationAttribute}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onResult(callback: Callback<Object | null | undefined> | undefined): this;
 
@@ -500,7 +499,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavDestinationMode | undefined } value - NavDestinationMode
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default mode(value: NavDestinationMode | undefined): this;
 
@@ -510,7 +509,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { ResourceStr | PixelMap | SymbolGlyphModifier | undefined } value - Indicates icon of back button.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier | undefined): this;
 
@@ -521,7 +520,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } [accessibilityText] - Indicates content needs to broadcast.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
 
@@ -531,7 +530,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<NavigationMenuItem> | CustomBuilder | undefined } value
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
 
@@ -542,7 +541,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationMenuOptions | undefined } [options] - Indicates the options of menu.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
 
@@ -553,7 +552,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
       * @param { NavigationToolbarOptions | undefined } [options] - Indicates the options of toolbar.
       * @returns { NavDestinationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 20
+      * @since 20 static
       */
     default toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
 
@@ -564,7 +563,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } [animated]
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default hideToolBar(hide: boolean | undefined, animated?: boolean | undefined): this;
 
@@ -574,7 +573,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<NavDestinationContext> | undefined } callback - Indicates callback that invoked before sub-components of NavDestination are created.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onReady(callback: Callback<NavDestinationContext> | undefined): this;
 
@@ -584,7 +583,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is appeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onWillAppear(callback: Callback<void> | undefined): this;
 
@@ -594,7 +593,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is disappeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onWillDisappear(callback: Callback<void> | undefined): this;
 
@@ -604,7 +603,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onWillShow(callback: Callback<void> | undefined): this;
 
@@ -614,7 +613,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onWillHide(callback: Callback<void> | undefined): this;
 
@@ -625,7 +624,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - Indicates the edges of the safe area.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
 
@@ -635,7 +634,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { SystemBarStyle | undefined } style - The properties of system bar
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default systemBarStyle(style: SystemBarStyle | undefined): this;
 
@@ -646,7 +645,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } recoverable - set navdestination can be recovered.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default recoverable(recoverable: boolean | undefined): this;
 
@@ -656,7 +655,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavigationSystemTransitionType | undefined } type - Types of system Transition
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default systemTransition(type: NavigationSystemTransitionType | undefined): this;
 
@@ -666,7 +665,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<Scroller> | undefined } scrollers - The controllers of the scrollable container components.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default bindToScrollable(scrollers: Array<Scroller> | undefined): this;
 
@@ -676,7 +675,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Array<NestedScrollInfo> | undefined } scrollInfos - The controllers of the nested scrollable container components.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo> | undefined): this;
 
@@ -686,7 +685,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<NavDestinationActiveReason> | undefined } callback - Indicates callback when destination is active.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onActive(callback: Callback<NavDestinationActiveReason> | undefined): this;
 
@@ -696,7 +695,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<NavDestinationActiveReason> | undefined } callback - Indicates callback when destination is inactive.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onInactive(callback: Callback<NavDestinationActiveReason> | undefined): this;
 
@@ -706,7 +705,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { NavDestinationTransitionDelegate | undefined } delegate - The delegate of NavDestination custom animation.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default customTransition(delegate: NavDestinationTransitionDelegate | undefined): this;
 
@@ -716,7 +715,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Callback<Object | null | undefined> | undefined } callback - Indicates callback when destination be pushed with singleton mode.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onNewParam(callback: Callback<Object | null | undefined> | undefined): this;
 
@@ -726,7 +725,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { Orientation | undefined } orientation - The preferred Orientation of NavDestination.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default preferredOrientation(orientation: Orientation | undefined): this;
 
@@ -738,7 +737,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      *                                 using animation if true or not using animation if false.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableStatusBar(enabled: boolean | undefined, animated?: boolean | undefined): this;
 
@@ -748,7 +747,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled - Show navigationIndicator if true, or hide navigationIndicator if false.
      * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableNavigationIndicator(enabled: boolean | undefined): this;
 
@@ -759,7 +758,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      *     The attribute modifier of navDestination.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -772,7 +771,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
  * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
  * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
 
@@ -782,7 +781,7 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
  * @param { function } [content_] - container
  * @returns { NavDestinationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

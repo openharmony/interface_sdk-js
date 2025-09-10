@@ -33,8 +33,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * @namespace vibrator
  * @syscap SystemCapability.Sensors.MiscDevice
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace vibrator {
   /**
@@ -44,7 +44,7 @@ declare namespace vibrator {
    * @param { number } duration Indicate the duration of the motor vibration.
    * @param { AsyncCallback<void> } callback The callback of vibrate.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#startVibration
    */
@@ -57,7 +57,7 @@ declare namespace vibrator {
    * @param { number } duration Indicate the duration of the motor vibration.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#startVibration
    */
@@ -70,7 +70,7 @@ declare namespace vibrator {
    * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#startVibration
    */
@@ -83,7 +83,7 @@ declare namespace vibrator {
    * @param { EffectId } effectId Indicate the specified effect of the preset, {@code EffectId}.
    * @param { AsyncCallback<void> } callback The callback of vibrate.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#startVibration
    */
@@ -118,8 +118,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>): void;
 
@@ -152,8 +152,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise<void>;
 
@@ -167,8 +167,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopVibration(stopMode: VibratorStopMode): Promise<void>;
 
@@ -182,8 +182,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback<void>): void;
 
@@ -204,8 +204,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function stopVibration(callback: AsyncCallback<void>): void;
 
@@ -226,8 +226,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function stopVibration(): Promise<void>;
 
@@ -239,8 +239,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function stopVibrationSync(): void;
 
@@ -254,7 +254,7 @@ declare namespace vibrator {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   function stopVibration(param?: VibratorInfoParam): Promise<void>;
 
@@ -267,8 +267,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function isSupportEffect(effectId: string, callback: AsyncCallback<boolean>): void;
 
@@ -281,8 +281,8 @@ declare namespace vibrator {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function isSupportEffect(effectId: string): Promise<boolean>;
 
@@ -295,7 +295,7 @@ declare namespace vibrator {
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 12
+   * @since 12 dynamic
    */
   function isSupportEffectSync(effectId: string): boolean;
 
@@ -308,7 +308,7 @@ declare namespace vibrator {
    * @returns { EffectInfo } Returns information about the specified effect.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   function getEffectInfoSync(effectId: string, param?: VibratorInfoParam): EffectInfo;
 
@@ -317,7 +317,7 @@ declare namespace vibrator {
   *
   * @interface EffectInfo
   * @syscap SystemCapability.Sensors.MiscDevice
-  * @since 19
+  * @since 19 dynamic
   */
   interface EffectInfo {
     /**
@@ -325,7 +325,7 @@ declare namespace vibrator {
      *
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     isEffectSupported: boolean;
   }
@@ -337,7 +337,7 @@ declare namespace vibrator {
    * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#stopVibration
    */
@@ -350,7 +350,7 @@ declare namespace vibrator {
    * @param { VibratorStopMode } stopMode Indicate the stop mode in which the motor vibrates, {@code VibratorStopMode}.
    * @param { AsyncCallback<void> } callback The callback of stop.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead vibrator#stopVibration
    */
@@ -362,8 +362,8 @@ declare namespace vibrator {
    * @returns { boolean } Returns whether the high-definition haptic is supported.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isHdHapticSupported(): boolean;
 
@@ -372,16 +372,16 @@ declare namespace vibrator {
    * 
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   enum EffectId {
   /**
    * Describes the vibration effect of the vibrator when a user adjusts the timer.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
     EFFECT_CLOCK_TIMER = 'haptic.clock.timer'
   }
@@ -391,14 +391,14 @@ declare namespace vibrator {
    * 
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 12
+   * @since 12 dynamic
    */
   enum HapticFeedback {
     /**
      * Describes the soft vibration effect of the vibrator.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 12
+     * @since 12 dynamic
      */
     EFFECT_SOFT = 'haptic.effect.soft',
 
@@ -406,7 +406,7 @@ declare namespace vibrator {
      * Describes the hard vibration effect of the vibrator.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 12
+     * @since 12 dynamic
      */
     EFFECT_HARD = 'haptic.effect.hard',
 
@@ -414,7 +414,7 @@ declare namespace vibrator {
      * Describes the sharp vibration effect of the vibrator.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 12
+     * @since 12 dynamic
      */
     EFFECT_SHARP = 'haptic.effect.sharp',
 
@@ -422,7 +422,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the successful notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     EFFECT_NOTICE_SUCCESS = 'haptic.notice.success',
 
@@ -430,7 +430,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the failed notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     EFFECT_NOTICE_FAILURE = 'haptic.notice.fail',
 
@@ -438,7 +438,7 @@ declare namespace vibrator {
      * Describes the vibration effect of the warning notice.
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     EFFECT_NOTICE_WARNING = 'haptic.notice.warning'
   }
@@ -448,16 +448,16 @@ declare namespace vibrator {
    *
    * @enum { string }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   enum VibratorStopMode {
   /**
    * Indicates the mode of stopping a one-shot vibration effect.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
     VIBRATOR_STOP_MODE_TIME = 'time',
 
@@ -465,8 +465,8 @@ declare namespace vibrator {
    * Indicates the mode of stopping a preset vibration effect.
    *
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
     VIBRATOR_STOP_MODE_PRESET = 'preset'
   }
@@ -486,8 +486,8 @@ declare namespace vibrator {
    * 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'}
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' |
   'touch' | 'media' | 'physicalFeedback' | 'simulateReality';
@@ -505,8 +505,8 @@ declare namespace vibrator {
    * @interface VibrateAttribute
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface VibrateAttribute {
   /**
@@ -521,8 +521,8 @@ declare namespace vibrator {
    * @type { ?int }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
     id?: int;
 
@@ -533,7 +533,7 @@ declare namespace vibrator {
    * @type { ?number }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
     deviceId?: number;
 
@@ -549,8 +549,8 @@ declare namespace vibrator {
    * @type { Usage }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
     usage: Usage;
 
@@ -560,8 +560,8 @@ declare namespace vibrator {
    * @type { ?boolean }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
     systemUsage?: boolean;
   }
@@ -594,8 +594,8 @@ declare namespace vibrator {
    * @typedef { VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern }
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern;
 
@@ -612,8 +612,8 @@ declare namespace vibrator {
    * @interface VibrateTime
    * @syscap SystemCapability.Sensors.MiscDevice
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface VibrateTime {
     /**
@@ -628,8 +628,8 @@ declare namespace vibrator {
      * @type { 'time' }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     type: 'time';
 
@@ -645,8 +645,8 @@ declare namespace vibrator {
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     duration: int; /** The duration of the vibration, in ms */
   }
@@ -656,8 +656,8 @@ declare namespace vibrator {
    *
    * @interface VibratePreset
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   interface VibratePreset {
     /**
@@ -665,8 +665,8 @@ declare namespace vibrator {
      *
      * @type { 'preset' }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     type: 'preset';
 
@@ -675,8 +675,8 @@ declare namespace vibrator {
      *
      * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     effectId: string;
 
@@ -691,8 +691,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     count?: int;
 
@@ -701,8 +701,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     intensity?: int;
   }
@@ -712,8 +712,8 @@ declare namespace vibrator {
    *
    * @interface VibrateFromFile
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   interface VibrateFromFile {
   /**
@@ -721,8 +721,8 @@ declare namespace vibrator {
    *
    * @type { 'file' }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
     type: 'file';
 
@@ -731,8 +731,8 @@ declare namespace vibrator {
    *
    * @type { HapticFileDescriptor }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
     hapticFd: HapticFileDescriptor;
   }
@@ -743,8 +743,8 @@ declare namespace vibrator {
    *
    * @interface HapticFileDescriptor
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   interface HapticFileDescriptor {
     /**
@@ -753,8 +753,8 @@ declare namespace vibrator {
      *
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     fd: int;
 
@@ -764,8 +764,8 @@ declare namespace vibrator {
      *
      * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     offset?: long;
 
@@ -775,8 +775,8 @@ declare namespace vibrator {
      *
      * @type { ?long }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     length?: long;
   }
@@ -786,16 +786,16 @@ declare namespace vibrator {
    *
    * @enum { int }
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   enum VibratorEventType {
     /**
      * Steady state long vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     CONTINUOUS = 0,
 
@@ -803,8 +803,8 @@ declare namespace vibrator {
      * Transient short vibration
      *
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     TRANSIENT = 1,
   }
@@ -814,8 +814,8 @@ declare namespace vibrator {
    *
    * @interface VibratorCurvePoint
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface VibratorCurvePoint {
     /**
@@ -823,8 +823,8 @@ declare namespace vibrator {
       *
       * @type { int }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since arkts {'1.1':'18', '1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 20 static
       */
     time: int;
 
@@ -833,8 +833,8 @@ declare namespace vibrator {
       *
       * @type { ?double }
       * @syscap SystemCapability.Sensors.MiscDevice
-      * @since arkts {'1.1':'18', '1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 18 dynamic
+      * @since 20 static
       */
     intensity?: double;
     /**
@@ -842,8 +842,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     frequency?: int;
   }
@@ -853,8 +853,8 @@ declare namespace vibrator {
    *
    * @interface VibratorEvent
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface VibratorEvent {
     /**
@@ -862,8 +862,8 @@ declare namespace vibrator {
      *
      * @type { VibratorEventType }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     eventType: VibratorEventType;
 
@@ -872,8 +872,8 @@ declare namespace vibrator {
      *
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     time: int;
 
@@ -882,8 +882,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     duration?: int;
 
@@ -892,8 +892,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     intensity?: int;
 
@@ -902,8 +902,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     frequency?: int;
 
@@ -912,8 +912,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     index?: int;
 
@@ -922,8 +922,8 @@ declare namespace vibrator {
      *
      * @type { ?Array<VibratorCurvePoint> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     points?: Array<VibratorCurvePoint>;
   }
@@ -933,8 +933,8 @@ declare namespace vibrator {
    *
    * @interface VibratorPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface VibratorPattern {
     /**
@@ -942,8 +942,8 @@ declare namespace vibrator {
      *
      * @type { int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     time: int;
 
@@ -952,8 +952,8 @@ declare namespace vibrator {
      *
      * @type { Array<VibratorEvent> }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     events: Array<VibratorEvent>;
   }
@@ -963,8 +963,8 @@ declare namespace vibrator {
    *
    * @interface ContinuousParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface ContinuousParam {
     /**
@@ -972,8 +972,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     intensity?: int;
 
@@ -982,8 +982,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     frequency?: int;
 
@@ -992,8 +992,8 @@ declare namespace vibrator {
      *
      * @type { ?VibratorCurvePoint[] }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     points?: VibratorCurvePoint[];
 
@@ -1002,8 +1002,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     index?: int;
   }
@@ -1013,8 +1013,8 @@ declare namespace vibrator {
    *
    * @interface TransientParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface TransientParam {
     /**
@@ -1022,8 +1022,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     intensity?: int;
 
@@ -1032,8 +1032,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     frequency?: int;
 
@@ -1042,8 +1042,8 @@ declare namespace vibrator {
      *
      * @type { ?int }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     index?: int;
   }
@@ -1053,7 +1053,7 @@ declare namespace vibrator {
    *
    * @name VibratorPatternBuilder
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 18
+   * @since 18 dynamic
    */
   class VibratorPatternBuilder {
     /**
@@ -1066,7 +1066,7 @@ declare namespace vibrator {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     addContinuousEvent(time: number, duration: number, options?: ContinuousParam): VibratorPatternBuilder;
 
@@ -1079,7 +1079,7 @@ declare namespace vibrator {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     addTransientEvent(time: number, options?: TransientParam): VibratorPatternBuilder;
 
@@ -1088,7 +1088,7 @@ declare namespace vibrator {
      *
      * @returns { VibratorPattern } Return VibratorPattern object.
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 18
+     * @since 18 dynamic
      */
     build(): VibratorPattern;
   }
@@ -1098,8 +1098,8 @@ declare namespace vibrator {
    *
    * @interface VibrateFromPattern
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   interface VibrateFromPattern {
     /**
@@ -1107,8 +1107,8 @@ declare namespace vibrator {
      *
      * @type { 'pattern' }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     type: 'pattern';
 
@@ -1117,8 +1117,8 @@ declare namespace vibrator {
      *
      * @type { VibratorPattern }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     pattern: VibratorPattern;
   }
@@ -1128,7 +1128,7 @@ declare namespace vibrator {
   * the local default vibrator.
   * @interface VibratorInfoParam
   * @syscap SystemCapability.Sensors.MiscDevice
-  * @since 19
+  * @since 19 dynamic
   */
   interface VibratorInfoParam {
     /**
@@ -1137,7 +1137,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     deviceId?: number;
     /**
@@ -1146,7 +1146,7 @@ declare namespace vibrator {
      *
      * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     vibratorId?: number;
   }
@@ -1155,7 +1155,7 @@ declare namespace vibrator {
    * Represents the information about a vibrator device in the system.
    * @interface VibratorInfo
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   interface VibratorInfo {
     /**
@@ -1163,7 +1163,7 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     deviceId: number;
 
@@ -1172,7 +1172,7 @@ declare namespace vibrator {
      *
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     vibratorId: number;
 
@@ -1181,7 +1181,7 @@ declare namespace vibrator {
      *
      * @type { string }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     deviceName: string;
 
@@ -1190,7 +1190,7 @@ declare namespace vibrator {
      *
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     isHdHapticSupported: boolean;
 
@@ -1200,7 +1200,7 @@ declare namespace vibrator {
      *
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     isLocalVibrator: boolean;
   }
@@ -1213,7 +1213,7 @@ declare namespace vibrator {
    * @returns { Array<VibratorInfo> } Promise used to return a list of vibrator IDs containing information
    * <br> about the vibrator device.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   function getVibratorInfoSync(param?: VibratorInfoParam): Array<VibratorInfo>;
 
@@ -1225,7 +1225,7 @@ declare namespace vibrator {
    * <br> the event is triggered.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   function on(type: 'vibratorStateChange', callback: Callback<VibratorStatusEvent>): void;
 
@@ -1236,7 +1236,7 @@ declare namespace vibrator {
    * @param { Callback<VibratorStatusEvent> } [callback] - The callback function to be removed from the event listener.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   function off(type: 'vibratorStateChange', callback?: Callback<VibratorStatusEvent>): void;
 
@@ -1245,14 +1245,14 @@ declare namespace vibrator {
    *
    * @interface
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since 19
+   * @since 19 dynamic
    */
   interface VibratorStatusEvent {
     /**
      * The timestamp of the reported event.
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     timestamp: number;
 
@@ -1261,7 +1261,7 @@ declare namespace vibrator {
      * 
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     deviceId: number;
 
@@ -1270,7 +1270,7 @@ declare namespace vibrator {
      * 
      * @type { number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     vibratorCount: number;
 
@@ -1279,7 +1279,7 @@ declare namespace vibrator {
      *
      * @type { boolean }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since 19
+     * @since 19 dynamic
      */
     isVibratorOnline: boolean;
   }

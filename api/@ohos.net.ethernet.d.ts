@@ -25,13 +25,13 @@ import type connection from './@ohos.net.connection';
  * Provides interfaces to manage ethernet.
  * @namespace ethernet
  * @syscap SystemCapability.Communication.NetManager.Ethernet
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace ethernet {
   /**
    * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @since 10
+   * @since 10 dynamic
    */
   type HttpProxy = connection.HttpProxy;
 
@@ -49,7 +49,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
 
@@ -67,7 +67,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
 
@@ -89,7 +89,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201007 - Ethernet failed to write user configuration information.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
 
@@ -111,7 +111,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201007 - Ethernet failed to write user configuration information.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
 
@@ -129,7 +129,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function isIfaceActive(iface: string, callback: AsyncCallback<number>): void;
 
@@ -147,7 +147,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function isIfaceActive(iface: string): Promise<number>;
 
@@ -161,7 +161,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
 
@@ -175,7 +175,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllActiveIfaces(): Promise<Array<string>>;
 
@@ -203,7 +203,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'interfaceStateChange', callback: Callback<InterfaceStateInfo>): void;
 
@@ -231,7 +231,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'interfaceStateChange', callback?: Callback<InterfaceStateInfo>): void;
 
@@ -243,7 +243,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @since 14
+   * @since 14 dynamic
    */
   function getMacAddress(): Promise<Array<MacAddressInfo>>;
 
@@ -256,7 +256,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 2201005 - Device information does not exist.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
    */
   function getEthernetDeviceInfos(): Promise<Array<EthernetDeviceInfos>>;
 
@@ -265,7 +265,7 @@ declare namespace ethernet {
    * @interface InterfaceConfiguration
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   export interface InterfaceConfiguration {
     /**
@@ -273,7 +273,7 @@ declare namespace ethernet {
      * See {@link IPSetMode}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     mode: IPSetMode;
     /**
@@ -283,7 +283,7 @@ declare namespace ethernet {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     ipAddr: string;
 
@@ -294,7 +294,7 @@ declare namespace ethernet {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     route: string;
 
@@ -305,7 +305,7 @@ declare namespace ethernet {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     gateway: string;
 
@@ -316,7 +316,7 @@ declare namespace ethernet {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     netMask: string;
 
@@ -327,7 +327,7 @@ declare namespace ethernet {
      * @type {string}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     dnsServers: string;
 
@@ -336,7 +336,7 @@ declare namespace ethernet {
      * @type {?HttpProxy}
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     httpProxy?: HttpProxy;
   }
@@ -346,7 +346,7 @@ declare namespace ethernet {
    * @interface InterfaceStateInfo
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   export interface InterfaceStateInfo {
     /**
@@ -354,7 +354,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     iface: string;
     /**
@@ -362,7 +362,7 @@ declare namespace ethernet {
      * @type { boolean }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     active: boolean;
   }
@@ -372,14 +372,14 @@ declare namespace ethernet {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   export enum IPSetMode {
     /**
      * WAN Static configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     STATIC = 0,
 
@@ -387,7 +387,7 @@ declare namespace ethernet {
      * WAN Dynamic configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
      */
     DHCP = 1,
 
@@ -395,7 +395,7 @@ declare namespace ethernet {
      * LAN Static configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     LAN_STATIC = 2,
 
@@ -403,7 +403,7 @@ declare namespace ethernet {
      * LAN Dynamic configuration.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     LAN_DHCP = 3
   }
@@ -412,14 +412,14 @@ declare namespace ethernet {
    * Defines the mac address info of the Ethernet.
    * @interface MacAddressInfo
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @since 14
+   * @since 14 dynamic
    */
   export interface MacAddressInfo {
     /**
      * Ethernet interface name.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
-     * @since 14
+     * @since 14 dynamic
      */
     iface: string;
 
@@ -427,7 +427,7 @@ declare namespace ethernet {
      * Ethernet specific mac address.
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
-     * @since 14
+     * @since 14 dynamic
      */
     macAddress: string;
   }
@@ -437,7 +437,7 @@ declare namespace ethernet {
    * @interface EthernetDeviceInfos
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
    */
   export interface EthernetDeviceInfos {
     /**
@@ -445,7 +445,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     ifaceName: string;
 
@@ -454,7 +454,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     deviceName: string;
 
@@ -463,7 +463,7 @@ declare namespace ethernet {
      * @type { DeviceConnectionType }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     connectionMode: DeviceConnectionType;
 
@@ -472,7 +472,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     supplierName: string;
 
@@ -481,7 +481,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     supplierId: string;
 
@@ -490,7 +490,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     productName: string;
 
@@ -499,7 +499,7 @@ declare namespace ethernet {
      * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     maximumRate: string;
   }
@@ -509,14 +509,14 @@ declare namespace ethernet {
    * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 20 dynamic
    */
   export enum DeviceConnectionType {
     /**
      * Ethernet in built-in mode.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     BUILT_IN = 0,
 
@@ -524,7 +524,7 @@ declare namespace ethernet {
      * Ethernet in external mode. For example, an ethernet connection via USB.
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since 20 dynamic
      */
     EXTERNAL = 1
   }

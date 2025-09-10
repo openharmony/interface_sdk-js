@@ -20,10 +20,10 @@
 
 import { NotificationUserInput } from './notificationUserInput';
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
 /*** endif */
 
@@ -32,8 +32,8 @@ import { WantAgent } from '../@ohos.app.ability.wantAgent';
  *
  * @typedef NotificationActionButton
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 export interface NotificationActionButton {
   /**
@@ -41,8 +41,8 @@ export interface NotificationActionButton {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   title: string;
 
@@ -51,8 +51,8 @@ export interface NotificationActionButton {
    *
    * @type { WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   wantAgent: WantAgent;
 
@@ -61,7 +61,7 @@ export interface NotificationActionButton {
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamic
    */
   extras?: { [key: string]: any };
 
@@ -70,8 +70,7 @@ export interface NotificationActionButton {
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
     extras?: Record<string, Object>;
 
@@ -80,8 +79,8 @@ export interface NotificationActionButton {
    *
    * @type { ?NotificationUserInput }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   userInput?: NotificationUserInput;
 }

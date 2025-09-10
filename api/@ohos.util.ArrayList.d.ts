@@ -40,8 +40,8 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class ArrayList<T> {
   /**
@@ -66,8 +66,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   constructor();
   /**
@@ -92,7 +92,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   length: number;
   /**
@@ -102,8 +102,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   get length(): int;
   /**
@@ -134,8 +133,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   add(element: T): boolean;
   /**
@@ -185,8 +184,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   insert(element: T, index: int): void;
   /**
@@ -217,8 +216,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   has(element: T): boolean;
   /**
@@ -251,8 +250,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getIndexOf(element: T): int;
   /**
@@ -300,8 +299,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   removeByIndex(index: int): T;
   /**
@@ -336,8 +335,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   remove(element: T): boolean;
   /**
@@ -370,8 +369,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getLastIndexOf(element: T): int;
   /**
@@ -418,8 +417,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   removeByRange(fromIndex: int, toIndex: int): void;
   /**
@@ -467,7 +466,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T, thisArg?: Object): void;
 
@@ -478,8 +477,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   replaceAllElements(callbackFn: ArrayListReplaceCb<T>): void;
 
@@ -532,7 +530,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, thisArg?: Object): void;
 
@@ -543,8 +541,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   forEach(callbackFn: ArrayListForEachCb<T>): void;
 
@@ -612,8 +609,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   sort(comparator?: ArrayListComparatorFn<T>): void;
   /**
@@ -663,8 +659,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   subArrayList(fromIndex: int, toIndex: int): ArrayList<T>;
   /**
@@ -691,8 +687,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clear(): void;
   /**
@@ -720,8 +716,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   clone(): ArrayList<T>;
   /**
@@ -749,8 +745,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getCapacity(): int;
   /**
@@ -778,8 +774,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   convertToArray(): Array<T>;
   /**
@@ -807,8 +803,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isEmpty(): boolean;
   /**
@@ -821,8 +817,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   [index: int]: T;
 
@@ -862,8 +858,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   increaseCapacityTo(newCapacity: int): void;
   /**
@@ -889,8 +885,8 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   trimToCurrentLength(): void;
   /**
@@ -918,7 +914,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   [Symbol.iterator](): IterableIterator<T>;
 
@@ -929,8 +925,7 @@ declare class ArrayList<T> {
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   $_iterator(): IterableIterator<T>;
 }
@@ -945,8 +940,7 @@ declare class ArrayList<T> {
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double;
 
@@ -960,8 +954,7 @@ export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => double
  * @returns { void } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => void;
 
@@ -975,8 +968,7 @@ export type ArrayListForEachCb<T> =  (value: T, index: int, arrlist: ArrayList<T
  * @returns { T } This callback does not return a value
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 export type ArrayListReplaceCb<T> =  (value: T, index: int, arrlist: ArrayList<T>) => T;
 
