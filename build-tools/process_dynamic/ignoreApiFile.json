@@ -38,5 +38,9 @@
     "api/@system.prompt.d.ets",
     "api/@system.router.d.ets",
     "api/common/full/canvaspattern.d.ets"
+  ],
+  "dynamiconlyFiles": [
+  ],
+  "staticonlyFiles": [
   ]
 }
