@@ -256,8 +256,8 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * Sets automatic play period, If not set, the moving photo plays in the full video duration.
      * If set, the moving photo plays in the automatic play period.
      *
-     * @param { number } startTime video plays start time
-     * @param { number } endTime   video plays end time
+     * @param { double } startTime video plays start time
+     * @param { double } endTime   video plays end time
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
@@ -265,7 +265,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @since arkts{ '1.1':'13','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
+    autoPlayPeriod(startTime: double, endTime: double): MovingPhotoViewAttribute;
     /**
      * Sets whether to allow automatic play. If the value is true, the moving photo starts 
      * automatic after the resource is loaded.
@@ -455,7 +455,7 @@ declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
 /**
  * Dynamic range mode of moving photo.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since arkts{ '1.1':'14','1.2':'20'}
@@ -494,7 +494,7 @@ export declare enum DynamicRangeMode {
 /**
  * Enumerates pixel map formats.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @since arkts{ '1.1':'14','1.2':'20'}
