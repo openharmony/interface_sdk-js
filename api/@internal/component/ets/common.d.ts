@@ -27080,7 +27080,7 @@ declare class CommonMethod<T> {
    */
   /**
    * Sets the percentage of the parent container's shrink size that is allocated to the component.
-   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex..
+   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex.
    *
    * @param { number } value
    * @returns { T }
