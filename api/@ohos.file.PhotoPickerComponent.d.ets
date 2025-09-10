@@ -566,7 +566,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.PhotoSubtype }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20
+   * @since 21
    */
   photoSubType?: photoAccessHelper.PhotoSubtype;
 
@@ -577,7 +577,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.DynamicRangeType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20
+   * @since 21
    */
   dynamicRangeType?: photoAccessHelper.DynamicRangeType;
 
@@ -587,7 +587,7 @@ export declare class BaseItemInfo {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 20
+   * @since 21
    */
   orientation?: number;
 }
