@@ -4141,8 +4141,7 @@ declare namespace call {
      * Indicates an invalid state, which is used when the call state fails to be obtained.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6
      */
     CALL_STATE_UNKNOWN = -1,
 
@@ -4159,8 +4158,7 @@ declare namespace call {
      * Indicates that an incoming call is ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6
      */
     CALL_STATE_RINGING = 1,
 
@@ -4169,8 +4167,7 @@ declare namespace call {
      * incoming call ringing or waiting.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since arkts {'1.1':'6','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 6
      */
     CALL_STATE_OFFHOOK = 2,
 
@@ -4178,8 +4175,7 @@ declare namespace call {
      * Indicates that call is answered
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     CALL_STATE_ANSWERED = 3
   }
