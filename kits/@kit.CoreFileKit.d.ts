@@ -61,7 +61,7 @@ import Environment from '@ohos.file.environment';
 import fileUri from '@ohos.file.fileuri';
 import fileIo from '@ohos.file.fs'
 import {
-  ConflictFiles, Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
+  Filter, Options, ReaderIteratorResult, WatchEvent, WatchEventListener,
   Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions, DfsListeners, TaskSignal
 } from '@ohos.file.fs';
 import hash from '@ohos.file.hash';
@@ -73,7 +73,7 @@ import keyManager from '@ohos.file.keyManager';
 import fileShare from '@ohos.fileshare';
 
 export {
-  BackupExtensionAbility, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
+  BackupExtensionAbility, BundleVersion, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
   cloudSync, cloudSyncManager, fileIo, fileShare, fileUri, hash, securityLabel, statfs,
   storageStatistics, volumeManager, keyManager, DfsListeners, TaskSignal
