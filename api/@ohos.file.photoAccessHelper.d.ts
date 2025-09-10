@@ -128,6 +128,81 @@ declare namespace photoAccessHelper {
   }
 
   /**
+  * Context information of the exit status of PhotoPicker,
+  * which can be used for on-site recovery of PhotoPicker next time.
+  * 
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @atomicservice
+  * @since 21
+  */
+  class ContextRecoveryInfo {
+    /**
+     * The album URI from which the user exited during the last selection.
+     * The default value is empty string.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    albumUri: string;
+
+    /**
+     * Timestamp of the first fully visible photo in the last selection interface.
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    time: number;
+
+    /**
+     * Filename of the first fully visible photo in the last selection interface.
+     * The default value is empty string.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    displayName: string;
+
+    /**
+     * Enum value of the recommendation content set by the user during the last selection (see `RecommendationType`).
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    recommendationType: number;
+
+    /**
+     * Enum value of the recommendation content selected by  the user during the last selection (see `RecommendationType`).
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    selectedRecommendationType: number;
+
+    /**
+     * Context data version number for validating compatibility of context recovery.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    version: number;
+  }
+
+  /**
    * Enumerates media file types.
    *
    * @enum { number } PhotoType
@@ -7910,6 +7985,16 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     userId?: number;
+
+     /**
+     * Context recovery information for restoring the last selection session.
+     * 
+     * @type { ?ContextRecoveryInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    contextRecoveryInfo?: ContextRecoveryInfo;
   }
 
   /**
@@ -8050,6 +8135,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isOriginalPhoto: boolean;
+
+    /**
+     * Contextual information about the PhotoPicker's exit state.
+     * 
+     * @type { ContextRecoveryInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    contextRecoveryInfo: ContextRecoveryInfo;
   }
 
   /**
