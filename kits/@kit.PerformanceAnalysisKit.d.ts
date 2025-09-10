@@ -35,7 +35,7 @@ export {
 /*** endif */
 
 /*** if arkts 1.1 */
-import FaultLogger from '@ohos.hiviewdfx.faultLogger';
+import FaultLogger from '@ohos.faultLogger';
 import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
