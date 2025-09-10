@@ -115,26 +115,26 @@ export declare class DrawableDescriptor {
   /**
    * Synchronously loads the image and returns the loading result.
    *
-   * @returns { DrawableDescriptorLoadResult } loading outcome.
+   * @returns { DrawableDescriptorLoadedResult } loading outcome.
    * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 21
    */
-  loadSync(): DrawableDescriptorLoadResult;
+  loadSync(): DrawableDescriptorLoadedResult;
 
   /**
    * Asynchronously loads image and returns loading result.
    *
-   * @returns { Promise<DrawableDescriptorLoadResult> } The image loading result.
+   * @returns { Promise<DrawableDescriptorLoadedResult> } The image loading result.
    * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
    * @since 21
    */
-  load(): Promise<DrawableDescriptorLoadResult>;
+  load(): Promise<DrawableDescriptorLoadedResult>;
 }
 
 /**
