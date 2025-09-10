@@ -30591,7 +30591,7 @@ declare class CommonMethod<T> {
   /**
    * Set whether the component enables the ability to invert colors.
    * This interface needs to be set as the first attribute of the component.
-   * @param value - value indicates whether the component enables the ability to invert colors.
+   * @param { boolean } value - value indicates whether the component enables the ability to invert colors.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
