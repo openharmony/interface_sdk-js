@@ -1177,6 +1177,17 @@ declare namespace media {
      * @arkts 1.1&1.2
      */
     tracks?: Array<MediaDescription>;
+
+    /**
+     * The offset value of GLTF 3Dmodel in media file.
+     * If the media file has no GLTF 3D model, gltf_offset is undefined.
+     * @type { ?string }
+     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    gltf_offset?: string;
   }
 
   /**
