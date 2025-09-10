@@ -21,18 +21,19 @@
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
+import { RecordData } from '../@ohos.base';
 
 
 /**
  * function that returns by the function updateConstructorParams.
  *
  * @typedef { function } Initializer<T>
- * @param { FixedArray<Object> } params
+ * @param { FixedArray<RecordData> } params
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type Initializer<T> = (...params:FixedArray<Object>) => T;
+export type Initializer<T> = (...params:FixedArray<RecordData>) => T;
 
 /**
  * Defines a modifier which can update attributes to native side.

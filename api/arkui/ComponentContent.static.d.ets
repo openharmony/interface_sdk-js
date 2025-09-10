@@ -24,6 +24,7 @@ import { BuildOptions } from 'arkui.BuilderNode';
 import { Content } from 'arkui.Content';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
+import { RecordData } from '../@ohos.base';
 /**
  * Defines the base class for ComponentContent.
  *
@@ -91,11 +92,11 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   /**
    * Reuse the ComponentContent based on the provided parameters.
    *
-   * @param { Object } [param] - Parameters for reusing ComponentContent.
+   * @param { RecordData } [param] - Parameters for reusing ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  reuse(param?: Object): void;
+  reuse(param?: RecordData): void;
 
   /**
    * Recycle the ComponentContent.
