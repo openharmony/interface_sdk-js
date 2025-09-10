@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AutoStartupInfo } from './AutoStartupInfo';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import type AutoStartupInfo from './AutoStartupInfo';
 /*** endif */
 
@@ -32,8 +32,8 @@ import type AutoStartupInfo from './AutoStartupInfo';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface AutoStartupCallback {
   /**
@@ -43,8 +43,8 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAutoStartupOn(info: AutoStartupInfo): void;
 
@@ -55,8 +55,8 @@ export interface AutoStartupCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAutoStartupOff(info: AutoStartupInfo): void;
 }

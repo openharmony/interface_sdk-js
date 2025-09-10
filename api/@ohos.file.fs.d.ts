@@ -54,7 +54,7 @@ export default fileIo;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace fileIo {
 
@@ -246,7 +246,7 @@ declare namespace fileIo {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   namespace OpenMode {
     /**
@@ -271,7 +271,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const READ_ONLY = 0o0;
     /**
@@ -296,7 +296,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const WRITE_ONLY = 0o1;
     /**
@@ -321,7 +321,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const READ_WRITE = 0o2;
     /**
@@ -346,7 +346,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const CREATE = 0o100;
     /**
@@ -371,7 +371,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const TRUNC = 0o1000;
     /**
@@ -396,7 +396,7 @@ declare namespace fileIo {
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     const APPEND = 0o2000;
     /**
@@ -412,7 +412,7 @@ declare namespace fileIo {
      * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     const NONBLOCK = 0o4000;
     /**
@@ -428,7 +428,7 @@ declare namespace fileIo {
      * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     const DIR = 0o200000;
     /**
@@ -444,7 +444,7 @@ declare namespace fileIo {
      * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     const NOFOLLOW = 0o400000;
     /**
@@ -460,7 +460,7 @@ declare namespace fileIo {
      * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @crossplatform
-     * @since 10
+     * @since 10 dynamic
      */
     const SYNC = 0o4010000;
   }
@@ -555,7 +555,7 @@ declare namespace fileIo {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
@@ -621,7 +621,7 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
@@ -648,7 +648,7 @@ declare function access(path: string, callback: AsyncCallback<boolean>): void;
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare function access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise<boolean>;
 
@@ -740,7 +740,7 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function accessSync(path: string, mode?: AccessModeType): boolean;
 
@@ -766,7 +766,7 @@ declare function accessSync(path: string, mode?: AccessModeType): boolean;
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900033 - Too many symbolic links encountered
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
@@ -814,7 +814,7 @@ declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlag
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function close(file: number | File): Promise<void>;
 
@@ -862,7 +862,7 @@ declare function close(file: number | File): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function close(file: number | File, callback: AsyncCallback<void>): void;
 
@@ -907,7 +907,7 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function closeSync(file: number | File): void;
 
@@ -986,7 +986,7 @@ declare function closeSync(file: number | File): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
@@ -1026,7 +1026,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
@@ -1067,7 +1067,7 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
@@ -1171,7 +1171,7 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
 
@@ -1228,7 +1228,7 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -1253,7 +1253,7 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -1331,7 +1331,7 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
@@ -1376,7 +1376,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -1480,7 +1480,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function copyDirSync(src: string, dest: string, mode?: number): void;
 
@@ -1598,7 +1598,7 @@ declare function copyDirSync(src: string, dest: string, mode?: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
 
@@ -1682,7 +1682,7 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
 
@@ -1771,7 +1771,7 @@ declare function copyFile(src: string | number, dest: string | number, callback:
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function copyFile(
   src: string | number,
@@ -1890,7 +1890,7 @@ declare function copyFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
@@ -2019,7 +2019,7 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function createStream(path: string, mode: string): Promise<Stream>;
 
@@ -2111,7 +2111,7 @@ declare function createStream(path: string, mode: string): Promise<Stream>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function createStream(path: string, mode: string, callback: AsyncCallback<Stream>): void;
 
@@ -2240,7 +2240,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function createStreamSync(path: string, mode: string): Stream;
 
@@ -2389,7 +2389,7 @@ declare function createStreamSync(path: string, mode: string): Stream;
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createRandomAccessFile(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
@@ -2463,7 +2463,7 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -2572,7 +2572,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createRandomAccessFile(file: string | File, mode: number, callback: AsyncCallback<RandomAccessFile>): void;
 
@@ -2718,7 +2718,7 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createRandomAccessFileSync(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): RandomAccessFile;
@@ -2776,7 +2776,7 @@ declare function createRandomAccessFileSync(file: string | File, mode?: number,
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createReadStream(path: string, options?: ReadStreamOptions): ReadStream;
 
@@ -2837,7 +2837,7 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
@@ -2888,7 +2888,7 @@ declare function createWriteStream(path: string, options?: WriteStreamOptions): 
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function createWatcher(path: string, events: number, listener: WatchEventListener): Watcher;
 
@@ -2905,7 +2905,7 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
  * @throws { BusinessError } 13900022 - Too many open files
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 10
+ * @since 10 dynamic
  */
 declare function dup(fd: number): File;
 
@@ -2938,7 +2938,7 @@ declare function dup(fd: number): File;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fdatasync(fd: number): Promise<void>;
 
@@ -2972,7 +2972,7 @@ declare function fdatasync(fd: number): Promise<void>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 
@@ -3003,7 +3003,7 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fdatasyncSync(fd: number): void;
 
@@ -3095,7 +3095,7 @@ declare function fdatasyncSync(fd: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 
@@ -3187,7 +3187,7 @@ declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<Stream>): void;
 
@@ -3277,7 +3277,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function fdopenStreamSync(fd: number, mode: string): Stream;
 
@@ -3310,7 +3310,7 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fsync(fd: number): Promise<void>;
 
@@ -3343,7 +3343,7 @@ declare function fsync(fd: number): Promise<void>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fsync(fd: number, callback: AsyncCallback<void>): void;
 
@@ -3374,7 +3374,7 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function fsyncSync(fd: number): void;
 
@@ -3424,7 +3424,7 @@ declare function fsyncSync(fd: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function listFile(
   path: string,
@@ -3473,7 +3473,7 @@ declare function listFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
@@ -3523,7 +3523,7 @@ declare function listFile(path: string, callback: AsyncCallback<string[]>): void
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function listFile(
   path: string,
@@ -3575,7 +3575,7 @@ declare function listFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function listFileSync(
   path: string,
@@ -3612,7 +3612,7 @@ declare function listFileSync(
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  */
 declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
@@ -3653,7 +3653,7 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function lstat(path: string): Promise<Stat>;
 
@@ -3694,7 +3694,7 @@ declare function lstat(path: string): Promise<Stat>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
@@ -3735,7 +3735,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function lstatSync(path: string): Stat;
 
@@ -3809,7 +3809,7 @@ declare function lstatSync(path: string): Stat;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function mkdir(path: string): Promise<void>;
 
@@ -3864,7 +3864,7 @@ declare function mkdir(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function mkdir(path: string, recursion: boolean): Promise<void>;
 
@@ -3938,7 +3938,7 @@ declare function mkdir(path: string, recursion: boolean): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 
@@ -3995,7 +3995,7 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
@@ -4066,7 +4066,7 @@ declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function mkdirSync(path: string): void;
 
@@ -4119,7 +4119,7 @@ declare function mkdirSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare function mkdirSync(path: string, recursion: boolean): void;
 
@@ -4168,7 +4168,7 @@ declare function mkdirSync(path: string, recursion: boolean): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function mkdtemp(prefix: string): Promise<string>;
 
@@ -4218,7 +4218,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 
@@ -4268,7 +4268,7 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function mkdtempSync(prefix: string): string;
 
@@ -4359,7 +4359,7 @@ declare function mkdtempSync(prefix: string): string;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
 
@@ -4416,7 +4416,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -4439,7 +4439,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -4530,7 +4530,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
@@ -4587,7 +4587,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
@@ -4676,7 +4676,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function moveDirSync(src: string, dest: string, mode?: number): void;
 
@@ -4739,7 +4739,7 @@ declare function moveDirSync(src: string, dest: string, mode?: number): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function moveFile(src: string, dest: string, mode?: number): Promise<void>;
 
@@ -4799,7 +4799,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
@@ -4862,7 +4862,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
@@ -4923,7 +4923,7 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 10
+ * @since 10 dynamic
  */
 declare function moveFileSync(src: string, dest: string, mode?: number): void;
 
@@ -5084,7 +5084,7 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function open(path: string, mode?: number): Promise<File>;
 
@@ -5191,7 +5191,7 @@ declare function open(path: string, mode?: number): Promise<File>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function open(path: string, callback: AsyncCallback<File>): void;
 
@@ -5315,7 +5315,7 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function open(path: string, mode: number, callback: AsyncCallback<File>): void;
 
@@ -5476,7 +5476,7 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function openSync(path: string, mode?: number): File;
 
@@ -5563,7 +5563,7 @@ declare function openSync(path: string, mode?: number): File;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function read(
   fd: number,
@@ -5626,7 +5626,7 @@ declare function read(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
@@ -5691,7 +5691,7 @@ declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<n
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function read(
   fd: number,
@@ -5783,7 +5783,7 @@ declare function read(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function readSync(
   fd: number,
@@ -5861,7 +5861,7 @@ declare function readSync(
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
@@ -5906,7 +5906,7 @@ declare function readLines(filePath: string, options?: Options): Promise<ReaderI
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -5957,7 +5957,7 @@ declare function readLines(filePath: string, callback: AsyncCallback<ReaderItera
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
@@ -6029,7 +6029,7 @@ declare function readLines(filePath: string, options: Options, callback: AsyncCa
  * @throws { BusinessError } 13900044 - Network is unreachable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
@@ -6129,7 +6129,7 @@ declare function readLinesSync(filePath: string, options?: Options): ReaderItera
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function readText(
   filePath: string,
@@ -6200,7 +6200,7 @@ declare function readText(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function readText(filePath: string, callback: AsyncCallback<string>): void;
 
@@ -6275,7 +6275,7 @@ declare function readText(filePath: string, callback: AsyncCallback<string>): vo
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function readText(
   filePath: string,
@@ -6379,7 +6379,7 @@ declare function readText(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare function readTextSync(
   filePath: string,
@@ -6471,7 +6471,7 @@ declare function readTextSync(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function rename(oldPath: string, newPath: string): Promise<void>;
 
@@ -6560,7 +6560,7 @@ declare function rename(oldPath: string, newPath: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function rename(oldPath: string, newPath: string, callback: AsyncCallback<void>): void;
 
@@ -6646,7 +6646,7 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function renameSync(oldPath: string, newPath: string): void;
 
@@ -6711,7 +6711,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function rmdir(path: string): Promise<void>;
 
@@ -6776,7 +6776,7 @@ declare function rmdir(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function rmdir(path: string, callback: AsyncCallback<void>): void;
 
@@ -6838,7 +6838,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function rmdirSync(path: string): void;
 
@@ -6906,7 +6906,7 @@ declare function rmdirSync(path: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function stat(file: string | number): Promise<Stat>;
 
@@ -6975,7 +6975,7 @@ declare function stat(file: string | number): Promise<Stat>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
 
@@ -7043,7 +7043,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function statSync(file: string | number): Stat;
 
@@ -7068,7 +7068,7 @@ declare function statSync(file: string | number): Stat;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @since 9 dynamic
  */
 declare function symlink(target: string, srcPath: string): Promise<void>;
 
@@ -7093,7 +7093,7 @@ declare function symlink(target: string, srcPath: string): Promise<void>;
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @since 9 dynamic
  */
 declare function symlink(target: string, srcPath: string, callback: AsyncCallback<void>): void;
 
@@ -7117,7 +7117,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
  * @throws { BusinessError } 13900041 - Quota exceeded
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 9
+ * @since 9 dynamic
  */
 declare function symlinkSync(target: string, srcPath: string): void;
 
@@ -7197,7 +7197,7 @@ declare function symlinkSync(target: string, srcPath: string): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function truncate(file: string | number, len?: number): Promise<void>;
 
@@ -7274,7 +7274,7 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
 
@@ -7354,7 +7354,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
 
@@ -7431,7 +7431,7 @@ declare function truncate(file: string | number, len: number, callback: AsyncCal
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function truncateSync(file: string | number, len?: number): void;
 
@@ -7505,7 +7505,7 @@ declare function truncateSync(file: string | number, len?: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function unlink(path: string): Promise<void>;
 
@@ -7579,7 +7579,7 @@ declare function unlink(path: string): Promise<void>;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function unlink(path: string, callback: AsyncCallback<void>): void;
 
@@ -7650,7 +7650,7 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function unlinkSync(path: string): void;
 
@@ -7682,7 +7682,7 @@ declare function unlinkSync(path: string): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  */
 declare function utimes(path: string, mtime: number): void;
 
@@ -7753,7 +7753,7 @@ declare function utimes(path: string, mtime: number): void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function write(
   fd: number,
@@ -7825,7 +7825,7 @@ declare function write(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
@@ -7901,7 +7901,7 @@ declare function write(fd: number, buffer: ArrayBuffer | string, callback: Async
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function write(
   fd: number,
@@ -7982,7 +7982,7 @@ declare function write(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare function writeSync(
   fd: number,
@@ -8003,7 +8003,7 @@ declare function writeSync(
  * @throws { BusinessError } 13900045 - Connection failed.
  * @throws { BusinessError } 13900046 - Software caused connection abort.
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare function connectDfs(networkId: string, listeners: DfsListeners): Promise<void>;
 
@@ -8018,7 +8018,7 @@ declare function connectDfs(networkId: string, listeners: DfsListeners): Promise
  * <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13600004 - Unmount failed.
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare function disconnectDfs(networkId: string): Promise<void>;
 
@@ -8065,7 +8065,7 @@ declare function disconnectDfs(networkId: string): Promise<void>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function setxattr(path: string, key: string, value: string): Promise<void>;
 
@@ -8110,7 +8110,7 @@ declare function setxattr(path: string, key: string, value: string): Promise<voi
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function setxattrSync(path: string, key: string, value: string): void;
 
@@ -8149,7 +8149,7 @@ declare function setxattrSync(path: string, key: string, value: string): void;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function getxattr(path: string, key: string): Promise<string>;
 
@@ -8188,7 +8188,7 @@ declare function getxattr(path: string, key: string): Promise<string>;
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare function getxattrSync(path: string, key: string): string;
 
@@ -8197,7 +8197,7 @@ declare function getxattrSync(path: string, key: string): string;
  *
  * @typedef Progress
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 interface Progress {
   /**
@@ -8206,7 +8206,7 @@ interface Progress {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   readonly processedSize: number;
 
@@ -8216,7 +8216,7 @@ interface Progress {
    * @type { number }
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   readonly totalSize: number;
 }
@@ -8225,7 +8225,7 @@ interface Progress {
  * Provides APIs for interrupting a copy task.
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 export class TaskSignal {
   /**
@@ -8235,7 +8235,7 @@ export class TaskSignal {
    * @throws { BusinessError } 13900012 - Permission denied by the file system
    * @throws { BusinessError } 13900043 - No task can be canceled.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   cancel(): void;
 
@@ -8247,7 +8247,7 @@ export class TaskSignal {
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   onCancel(): Promise<string>;
 }
@@ -8257,7 +8257,7 @@ export class TaskSignal {
  *
  * @typedef CopyOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 interface CopyOptions {
   /**
@@ -8265,7 +8265,7 @@ interface CopyOptions {
    *
    * @type { ?ProgressListener }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   progressListener?: ProgressListener;
   /**
@@ -8273,7 +8273,7 @@ interface CopyOptions {
    *
    * @type { ?TaskSignal }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   copySignal?: TaskSignal;
 }
@@ -8284,7 +8284,7 @@ interface CopyOptions {
  * @typedef { function } ProgressListener
  * @param { Progress } progress - indicates the progress data of copyFile
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 type ProgressListener = (progress: Progress) => void;
 
@@ -8310,7 +8310,7 @@ type ProgressListener = (progress: Progress) => void;
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface File {
   /**
@@ -8334,7 +8334,7 @@ declare interface File {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly fd: number;
 
@@ -8347,7 +8347,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
+   * @since 10 dynamic
    */
   readonly path: string;
 
@@ -8359,7 +8359,7 @@ declare interface File {
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 10
+   * @since 10 dynamic
    */
   readonly name: string;
 
@@ -8382,7 +8382,7 @@ declare interface File {
    * @throws { BusinessError } 14300002 - Invalid URI
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   getParent(): string;
 
@@ -8400,7 +8400,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   lock(exclusive?: boolean): Promise<void>;
 
@@ -8416,7 +8416,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   lock(callback: AsyncCallback<void>): void;
 
@@ -8434,7 +8434,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   lock(exclusive: boolean, callback: AsyncCallback<void>): void;
 
@@ -8450,7 +8450,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   tryLock(exclusive?: boolean): void;
 
@@ -8464,7 +8464,7 @@ declare interface File {
    * @throws { BusinessError } 13900042 - Unknown error
    * @throws { BusinessError } 13900043 - No record locks available
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   unlock(): void;
 }
@@ -8484,7 +8484,7 @@ declare interface File {
  * @interface RandomAccessFile
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare interface RandomAccessFile {
 
@@ -8503,7 +8503,7 @@ declare interface RandomAccessFile {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly fd: number;
 
@@ -8522,7 +8522,7 @@ declare interface RandomAccessFile {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly filePointer: number;
 
@@ -8549,7 +8549,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   setFilePointer(filePointer: number): void;
 
@@ -8576,7 +8576,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   close(): void;
 
@@ -8652,7 +8652,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   write(
     buffer: ArrayBuffer | string,
@@ -8698,7 +8698,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
@@ -8774,7 +8774,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   write(
     buffer: ArrayBuffer | string,
@@ -8854,7 +8854,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   writeSync(
     buffer: ArrayBuffer | string,
@@ -8940,7 +8940,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   read(
     buffer: ArrayBuffer,
@@ -8980,7 +8980,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
@@ -9043,7 +9043,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   read(
     buffer: ArrayBuffer,
@@ -9130,7 +9130,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900044 - Network is unreachable
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readSync(
     buffer: ArrayBuffer,
@@ -9148,7 +9148,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   getReadStream(): ReadStream;
 
@@ -9163,7 +9163,7 @@ declare interface RandomAccessFile {
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   getWriteStream(): WriteStream;
 }
@@ -9185,7 +9185,7 @@ declare interface RandomAccessFile {
  * @extends stream.Readable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare class ReadStream extends stream.Readable {
   /**
@@ -9199,7 +9199,7 @@ declare class ReadStream extends stream.Readable {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   constructor();
 
@@ -9220,7 +9220,7 @@ declare class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly bytesRead: number;
 
@@ -9241,7 +9241,7 @@ declare class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly path: string;
 
@@ -9272,7 +9272,7 @@ declare class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   seek(offset: number, whence?: WhenceType): number;
 
@@ -9299,7 +9299,7 @@ declare class ReadStream extends stream.Readable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   close(): void;
 }
@@ -9319,7 +9319,7 @@ declare class ReadStream extends stream.Readable {
  * @extends stream.Writable
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare class WriteStream extends stream.Writable {
   /**
@@ -9333,7 +9333,7 @@ declare class WriteStream extends stream.Writable {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   constructor();
 
@@ -9354,7 +9354,7 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly bytesWritten: number;
 
@@ -9375,7 +9375,7 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly path: string;
 
@@ -9404,7 +9404,7 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   seek(offset: number, whence?: WhenceType): number;
 
@@ -9431,7 +9431,7 @@ declare class WriteStream extends stream.Writable {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   close(): void;
 }
@@ -9453,7 +9453,7 @@ declare class WriteStream extends stream.Writable {
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export class AtomicFile {
   /**
@@ -9471,7 +9471,7 @@ export class AtomicFile {
    * @throws { BusinessError } 401 Parameter error.Possible causes:1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   constructor(path: string);
 
@@ -9496,7 +9496,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   getBaseFile(): File;
 
@@ -9521,7 +9521,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   openRead(): ReadStream;
 
@@ -9542,7 +9542,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readFully(): ArrayBuffer;
 
@@ -9571,7 +9571,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   startWrite(): WriteStream;
 
@@ -9588,7 +9588,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   finishWrite(): void;
 
@@ -9605,7 +9605,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   failWrite(): void;
 
@@ -9630,7 +9630,7 @@ export class AtomicFile {
    * @throws { BusinessError } 13900042 Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   delete(): void;
 }
@@ -9658,7 +9658,7 @@ export class AtomicFile {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface Stat {
   /**
@@ -9678,7 +9678,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   readonly ino: bigint;
   /**
@@ -9718,7 +9718,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly mode: number;
   /**
@@ -9742,7 +9742,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   readonly uid: number;
   /**
@@ -9762,7 +9762,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   readonly gid: number;
   /**
@@ -9792,7 +9792,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly size: number;
   /**
@@ -9823,7 +9823,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly atime: number;
   /**
@@ -9854,7 +9854,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly mtime: number;
   /**
@@ -9875,7 +9875,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   readonly ctime: number;
 
@@ -9888,7 +9888,7 @@ declare interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 15
+   * @since 15 dynamic
    */
   readonly atimeNs?:bigint;
 
@@ -9900,7 +9900,7 @@ declare interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 15
+   * @since 15 dynamic
    */
   readonly mtimeNs?:bigint;
 
@@ -9912,7 +9912,7 @@ declare interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Internal error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 15
+   * @since 15 dynamic
    */
   readonly ctimeNs?:bigint;
 
@@ -9923,7 +9923,7 @@ declare interface Stat {
    * @readonly
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   readonly location: LocationType;
 
@@ -9944,7 +9944,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   isBlockDevice(): boolean;
   /**
@@ -9964,7 +9964,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   isCharacterDevice(): boolean;
   /**
@@ -9995,7 +9995,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   isDirectory(): boolean;
   /**
@@ -10015,7 +10015,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   isFIFO(): boolean;
   /**
@@ -10046,7 +10046,7 @@ declare interface Stat {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   isFile(): boolean;
   /**
@@ -10066,7 +10066,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   isSocket(): boolean;
   /**
@@ -10086,7 +10086,7 @@ declare interface Stat {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 10
+   * @since 10 dynamic
    */
   isSymbolicLink(): boolean;
 }
@@ -10107,7 +10107,7 @@ declare interface Stat {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare interface Stream {
   /**
@@ -10136,7 +10136,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   close(): Promise<void>;
 
@@ -10166,7 +10166,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   close(callback: AsyncCallback<void>): void;
 
@@ -10194,7 +10194,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   closeSync(): void;
 
@@ -10236,7 +10236,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   flush(): Promise<void>;
 
@@ -10278,7 +10278,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   flush(callback: AsyncCallback<void>): void;
 
@@ -10318,7 +10318,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   flushSync(): void;
 
@@ -10395,7 +10395,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   write(
       buffer: ArrayBuffer | string,
@@ -10420,7 +10420,7 @@ declare interface Stream {
    * @throws { BusinessError } 13900041 - Quota exceeded
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 9
+   * @since 9 dynamic
    */
   /**
   /**
@@ -10443,7 +10443,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
@@ -10520,7 +10520,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   write(
       buffer: ArrayBuffer | string,
@@ -10601,7 +10601,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   writeSync(
       buffer: ArrayBuffer | string,
@@ -10688,7 +10688,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   read(
       buffer: ArrayBuffer,
@@ -10729,7 +10729,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
@@ -10793,7 +10793,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   read(
       buffer: ArrayBuffer,
@@ -10881,7 +10881,7 @@ declare interface Stream {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   readSync(
       buffer: ArrayBuffer,
@@ -10902,7 +10902,7 @@ declare interface Stream {
  * @interface WatchEventListener
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface WatchEventListener {
   /**
@@ -10918,7 +10918,7 @@ export interface WatchEventListener {
    * @param { WatchEvent } event - Event for the callback to invoke.
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   (event: WatchEvent): void;
 }
@@ -10936,7 +10936,7 @@ export interface WatchEventListener {
  * @interface WatchEvent
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface WatchEvent {
   /**
@@ -10954,7 +10954,7 @@ export interface WatchEvent {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly fileName: string;
 
@@ -10999,7 +10999,7 @@ export interface WatchEvent {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly event: number;
 
@@ -11020,7 +11020,7 @@ export interface WatchEvent {
    * @readonly
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   readonly cookie: number;
 }
@@ -11040,7 +11040,7 @@ export interface WatchEvent {
  * @interface Watcher
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface Watcher {
   /**
@@ -11080,7 +11080,7 @@ export interface Watcher {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   start(): void;
 
@@ -11121,7 +11121,7 @@ export interface Watcher {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   stop(): void;
 }
@@ -11139,7 +11139,7 @@ export interface Watcher {
  * @interface ReaderIteratorResult
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface ReaderIteratorResult {
   /**
@@ -11157,7 +11157,7 @@ export interface ReaderIteratorResult {
    * @type { boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   done: boolean;
 
@@ -11174,7 +11174,7 @@ export interface ReaderIteratorResult {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   value: string;
 }
@@ -11194,7 +11194,7 @@ export interface ReaderIteratorResult {
  * @interface ReaderIterator
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare interface ReaderIterator {
   /**
@@ -11216,7 +11216,7 @@ declare interface ReaderIterator {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   next(): ReaderIteratorResult;
 }
@@ -11235,7 +11235,7 @@ declare interface ReaderIterator {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface Filter {
   /**
@@ -11252,7 +11252,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   suffix?: Array<string>;
   /**
@@ -11270,7 +11270,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   displayName?: Array<string>;
   /**
@@ -11287,7 +11287,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   mimeType?: Array<string>;
   /**
@@ -11304,7 +11304,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   fileSizeOver?: number;
   /**
@@ -11321,7 +11321,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lastModifiedAfter?: number;
   /**
@@ -11339,7 +11339,7 @@ export interface Filter {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   excludeMedia?: boolean;
 }
@@ -11363,7 +11363,7 @@ export interface Filter {
  * @interface ConflictFiles
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface ConflictFiles {
   /**
@@ -11386,7 +11386,7 @@ export interface ConflictFiles {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   srcFile: string;
 
@@ -11410,7 +11410,7 @@ export interface ConflictFiles {
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   destFile: string;
 }
@@ -11428,7 +11428,7 @@ export interface ConflictFiles {
  * @interface Options
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface Options {
   /**
@@ -11444,7 +11444,7 @@ export interface Options {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   encoding?: string;
 }
@@ -11464,7 +11464,7 @@ export interface Options {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export interface ReadOptions {
   /**
@@ -11482,7 +11482,7 @@ export interface ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   offset?: number;
   /**
@@ -11502,7 +11502,7 @@ export interface ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   length?: number;
 }
@@ -11524,7 +11524,7 @@ export interface ReadOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export interface ReadTextOptions extends ReadOptions {
   /**
@@ -11544,7 +11544,7 @@ export interface ReadTextOptions extends ReadOptions {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   encoding?: string;
 }
@@ -11566,7 +11566,7 @@ export interface ReadTextOptions extends ReadOptions {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export interface WriteOptions extends Options {
   /**
@@ -11610,7 +11610,7 @@ export interface WriteOptions extends Options {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   offset?: number;
   /**
@@ -11628,7 +11628,7 @@ export interface WriteOptions extends Options {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   length?: number;
 }
@@ -11639,7 +11639,7 @@ export interface WriteOptions extends Options {
  * @interface ListFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export interface ListFileOptions {
   /**
@@ -11651,7 +11651,7 @@ export interface ListFileOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   recursion?: boolean;
 
@@ -11661,7 +11661,7 @@ export interface ListFileOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   listNum?: number;
 
@@ -11671,7 +11671,7 @@ export interface ListFileOptions {
    * @type { ?Filter }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   filter?: Filter;
 }
@@ -11689,7 +11689,7 @@ export interface ListFileOptions {
  * @interface RandomAccessFileOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface RandomAccessFileOptions {
   /**
@@ -11705,7 +11705,7 @@ export interface RandomAccessFileOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   start?: number;
 
@@ -11722,7 +11722,7 @@ export interface RandomAccessFileOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   end?: number;
 }
@@ -11740,7 +11740,7 @@ export interface RandomAccessFileOptions {
  * @interface ReadStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface ReadStreamOptions {
   /**
@@ -11758,7 +11758,7 @@ export interface ReadStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   start?: number;
 
@@ -11777,7 +11777,7 @@ export interface ReadStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   end?: number;
 }
@@ -11795,7 +11795,7 @@ export interface ReadStreamOptions {
  * @interface WriteStreamOptions
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 export interface WriteStreamOptions {
   /**
@@ -11811,7 +11811,7 @@ export interface WriteStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   mode?: number;
   /**
@@ -11829,7 +11829,7 @@ export interface WriteStreamOptions {
    * @type { ?number }
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   start?: number;
 }
@@ -11839,7 +11839,7 @@ export interface WriteStreamOptions {
  *
  * @typedef DfsListeners
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 export interface DfsListeners {
   /**
@@ -11848,7 +11848,7 @@ export interface DfsListeners {
    * @param { string } networkId - The networkId of device.
    * @param { number } status - The status code of Distributed File System.
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   onStatus(networkId: string, status: number): void;
 }
@@ -11866,7 +11866,7 @@ export interface DfsListeners {
  * @enum { number } whence type
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  */
 declare enum WhenceType {
   /**
@@ -11880,7 +11880,7 @@ declare enum WhenceType {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   SEEK_SET = 0,
 
@@ -11895,7 +11895,7 @@ declare enum WhenceType {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   SEEK_CUR = 1,
 
@@ -11910,7 +11910,7 @@ declare enum WhenceType {
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   SEEK_END = 2
 }
@@ -11920,14 +11920,14 @@ declare enum WhenceType {
  *
  * @enum { number } location type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LocationType {
   /**
    * The file is stored in a local device.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   LOCAL = 1 << 0,
 
@@ -11935,7 +11935,7 @@ declare enum LocationType {
    * The file is stored in the cloud.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 11
+   * @since 11 dynamic
    */
   CLOUD = 1 << 1
 }
@@ -11955,7 +11955,7 @@ declare enum LocationType {
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare enum AccessModeType {
   /**
@@ -11971,7 +11971,7 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   EXIST = 0,
 
@@ -11988,7 +11988,7 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   WRITE = 2,
 
@@ -12005,7 +12005,7 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   READ = 4,
 
@@ -12022,7 +12022,7 @@ declare enum AccessModeType {
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   READ_WRITE = 6
 }
@@ -12032,14 +12032,14 @@ declare enum AccessModeType {
  *
  * @enum { number } access flag type
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 12
+ * @since 12 dynamic
  */
 declare enum AccessFlagType {
   /**
    * The file is stored locally.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 12
+   * @since 12 dynamic
    */
   LOCAL = 0
 }

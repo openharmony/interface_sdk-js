@@ -31,7 +31,7 @@
  * @typedef { string }
  * @syscap SystemCapability.Security.AccessToken
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export type Permissions = string;

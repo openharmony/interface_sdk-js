@@ -24,7 +24,7 @@
  * @interface ChildProcessArgs
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChildProcessArgs {
   /**
@@ -34,7 +34,7 @@ export interface ChildProcessArgs {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   entryParams?: string;
 
@@ -44,7 +44,7 @@ export interface ChildProcessArgs {
    * @type { ?Record<string, int> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   fds?: Record<string, int>;
 }

@@ -26,7 +26,7 @@ import { CustomizeData } from './customizeData';
  *
  * @typedef ApplicationInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.bundleManager.ApplicationInfo
  */
@@ -34,7 +34,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the application name, which is the same as {@code bundleName}
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly name: string;
@@ -42,7 +42,7 @@ export interface ApplicationInfo {
   /**
    * @default Description of application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly description: string;
@@ -50,7 +50,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the description id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly descriptionId: number;
@@ -58,7 +58,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates whether the application is a system application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly systemApp: boolean;
@@ -66,7 +66,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates whether or not this application may be instantiated
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly enabled: boolean;
@@ -74,7 +74,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the label of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly label: string;
@@ -82,7 +82,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the label id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.ApplicationInfo.labelIndex
    */
@@ -91,7 +91,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the icon of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly icon: string;
@@ -99,7 +99,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the icon id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.bundleManager.ApplicationInfo.iconIndex
    */
@@ -108,7 +108,7 @@ export interface ApplicationInfo {
   /**
    * @default Process of application, if user do not set it ,the value equal bundleName
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly process: string;
@@ -116,7 +116,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the running mode supported by the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly supportedModes: number;
@@ -124,7 +124,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the path storing the module resources of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly moduleSourceDirs: Array<string>;
@@ -132,7 +132,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the permissions required for accessing the application.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly permissions: Array<string>;
@@ -140,7 +140,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates module information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly moduleInfos: Array<ModuleInfo>;
@@ -148,7 +148,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the path where the {@code Entry.hap} file of the application is saved
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly entryDir: string;
@@ -156,7 +156,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the application source code path
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly codePath: string;
@@ -164,7 +164,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the metadata of module
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly metaData: Map<string, Array<CustomizeData>>;
@@ -172,7 +172,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates whether or not this application may be removable
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly removable: boolean;
@@ -180,7 +180,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the access token of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly accessTokenId: number;
@@ -188,7 +188,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates the uid of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly uid: number;
@@ -196,7 +196,7 @@ export interface ApplicationInfo {
   /**
    * @default Indicates entity type of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly entityType: string;

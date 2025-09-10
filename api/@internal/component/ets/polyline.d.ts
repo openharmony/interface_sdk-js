@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PolylineOptions {
   /**
@@ -82,7 +82,7 @@ declare interface PolylineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -139,7 +139,7 @@ declare interface PolylineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -176,7 +176,7 @@ declare interface PolylineOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface PolylineInterface {
@@ -220,7 +220,7 @@ interface PolylineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: PolylineOptions): PolylineAttribute;
 
@@ -272,7 +272,7 @@ interface PolylineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: PolylineOptions): PolylineAttribute;
 }
@@ -301,7 +301,7 @@ interface PolylineInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
@@ -341,7 +341,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   points(value: Array<any>): PolylineAttribute;
 }
@@ -374,7 +374,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Polyline: PolylineInterface;
@@ -407,7 +407,7 @@ declare const Polyline: PolylineInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const PolylineInstance: PolylineAttribute;

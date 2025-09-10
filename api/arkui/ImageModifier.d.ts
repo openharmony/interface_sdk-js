@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export declare class ImageModifier extends ImageAttribute implements AttributeModifier<ImageAttribute> {
@@ -49,7 +49,7 @@ export declare class ImageModifier extends ImageAttribute implements AttributeMo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: ImageAttribute): void;
 }

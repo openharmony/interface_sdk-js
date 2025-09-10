@@ -39,7 +39,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export declare class ComposeTitleBarMenuItem {
   /**
@@ -61,7 +61,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   value: ResourceStr;
 
@@ -78,7 +78,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
@@ -95,7 +95,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   label?: ResourceStr;
 
@@ -118,7 +118,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   isEnabled?: boolean;
 
@@ -141,7 +141,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   action?: () => void;
 
@@ -158,7 +158,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: ResourceStr;
 
@@ -175,7 +175,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription?: ResourceStr;
 
@@ -204,7 +204,7 @@ export declare class ComposeTitleBarMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
 }
@@ -226,7 +226,7 @@ export declare class ComposeTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 @Component
 export declare struct ComposeTitleBar {
@@ -249,7 +249,7 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   item?: ComposeTitleBarMenuItem;
 
@@ -272,7 +272,7 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   title: ResourceStr;
 
@@ -295,7 +295,7 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   subtitle?: ResourceStr;
 
@@ -318,7 +318,7 @@ export declare struct ComposeTitleBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
 }

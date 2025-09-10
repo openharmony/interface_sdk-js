@@ -29,8 +29,8 @@ import type Want from './@ohos.app.ability.Want';
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
  * @StageModelOnly
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      /**
@@ -39,8 +39,8 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
       * @type { PhotoEditorExtensionContext }
       * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
       * @StageModelOnly
-      * @since arkts {'1.1':'12', '1.2':'20'}
-      * @arkts 1.1&1.2
+      * @since 12 dynamic
+      * @since 20 static
       */
     context: PhotoEditorExtensionContext;
 
@@ -49,8 +49,8 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     onCreate(): void;
 
@@ -59,8 +59,8 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     onForeground(): void;
 
@@ -69,8 +69,8 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     onBackground(): void;
 
@@ -80,7 +80,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @returns { void | Promise<void> } the promise returned by the function.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 12
+     * @since 12 dynamic
      */
     onDestroy(): void | Promise<void>;
 
@@ -90,8 +90,7 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @returns { Promise<void> | undefined } the promise returned by the function.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     onDestroy(): Promise<void> | undefined;
 
@@ -103,8 +102,8 @@ declare class PhotoEditorExtensionAbility extends ExtensionAbility {
      * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
      * @syscap SystemCapability.Ability.AppExtension.PhotoEditorExtension
      * @StageModelOnly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void;
 }

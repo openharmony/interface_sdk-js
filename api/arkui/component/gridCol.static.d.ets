@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
@@ -24,7 +23,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface GridColColumnOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GridColColumnOption {
     /**
@@ -32,7 +31,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xs?: number;
     /**
@@ -40,7 +39,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     sm?: number;
     /**
@@ -48,7 +47,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     md?: number;
     /**
@@ -56,7 +55,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     lg?: number;
     /**
@@ -64,7 +63,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xl?: number;
     /**
@@ -72,7 +71,7 @@ export declare interface GridColColumnOption {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     xxl?: number;
 }
@@ -81,7 +80,7 @@ export declare interface GridColColumnOption {
  *
  * @interface GridColOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface GridColOptions {
     /**
@@ -89,7 +88,7 @@ export declare interface GridColOptions {
      *
      * @type { ?(number | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     span?: number | GridColColumnOption;
     /**
@@ -97,7 +96,7 @@ export declare interface GridColOptions {
      *
      * @type { ?(number | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     offset?: number | GridColColumnOption;
     /**
@@ -105,7 +104,7 @@ export declare interface GridColOptions {
      *
      * @type { ?(number | GridColColumnOption) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     order?: number | GridColColumnOption;
 }
@@ -116,7 +115,7 @@ export declare interface GridColOptions {
  * @extends CommonMethod
  * @interface GridColAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface GridColAttribute extends CommonMethod {
@@ -126,7 +125,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @param { number | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default span(value: number | GridColColumnOption | undefined): this;
     /**
@@ -135,7 +134,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @param { number | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default gridColOffset(value: number | GridColColumnOption | undefined): this;
     /**
@@ -144,7 +143,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @param { number | GridColColumnOption } value
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default order(value: number | GridColColumnOption | undefined): this;
     /**
@@ -153,7 +152,7 @@ export declare interface GridColAttribute extends CommonMethod {
      * @param { AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { GridColAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -166,7 +165,7 @@ export declare interface GridColAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { GridColAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

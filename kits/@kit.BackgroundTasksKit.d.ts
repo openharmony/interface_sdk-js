@@ -18,7 +18,7 @@
  * @kit BackgroundTasksKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import backgroundProcessManager from '@ohos.resourceschedule.backgroundProcessManager';
 import bundleState from '@ohos.bundleState';
@@ -37,7 +37,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import backgroundTaskManager from '@ohos.resourceschedule.backgroundTaskManager';
 import backgroundProcessManager from '@ohos.resourceschedule.backgroundProcessManager';
 import reminderAgentManager from '@ohos.reminderAgentManager';

@@ -38,7 +38,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export declare class TextModifier extends TextAttribute implements AttributeModifier<TextAttribute> {
@@ -50,7 +50,7 @@ export declare class TextModifier extends TextAttribute implements AttributeModi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: TextAttribute): void;
 }

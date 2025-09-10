@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SelectStatus {
   /**
@@ -81,7 +81,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   All,
   /**
@@ -112,7 +112,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Part,
   /**
@@ -143,7 +143,7 @@ declare enum SelectStatus {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   None,
 }
@@ -180,7 +180,7 @@ declare enum SelectStatus {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CheckboxGroupOptions {
   /**
@@ -215,7 +215,7 @@ declare interface CheckboxGroupOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   group?: string;
 }
@@ -252,7 +252,7 @@ declare interface CheckboxGroupOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface CheckboxGroupResult {
   /**
@@ -287,7 +287,7 @@ declare interface CheckboxGroupResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   name: Array<string>;
   /**
@@ -322,7 +322,7 @@ declare interface CheckboxGroupResult {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   status: SelectStatus;
 }
@@ -359,7 +359,7 @@ declare interface CheckboxGroupResult {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface CheckboxGroupInterface {
@@ -399,7 +399,7 @@ interface CheckboxGroupInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (options?: CheckboxGroupOptions): CheckboxGroupAttribute;
 }
@@ -414,7 +414,7 @@ interface CheckboxGroupInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => void;
 
@@ -450,7 +450,7 @@ declare type OnCheckboxGroupChangeCallback = (value: CheckboxGroupResult) => voi
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute> {
@@ -490,7 +490,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectAll(value: boolean): CheckboxGroupAttribute;
 
@@ -503,7 +503,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   selectAll(isAllSelected: Optional<boolean>): CheckboxGroupAttribute;
 
@@ -543,7 +543,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   selectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
@@ -556,7 +556,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -577,7 +577,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   unselectedColor(value: ResourceColor): CheckboxGroupAttribute;
 
@@ -589,7 +589,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxGroupAttribute;
 
@@ -610,7 +610,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   mark(value: MarkStyle): CheckboxGroupAttribute;
 
@@ -622,7 +622,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   mark(style: Optional<MarkStyle>): CheckboxGroupAttribute;
 
@@ -674,7 +674,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onChange(callback: OnCheckboxGroupChangeCallback): CheckboxGroupAttribute;
 
@@ -687,7 +687,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onChange(callback: Optional<OnCheckboxGroupChangeCallback>): CheckboxGroupAttribute;
 
@@ -700,7 +700,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   checkboxShape(value: CheckBoxShape): CheckboxGroupAttribute;
 
@@ -713,7 +713,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   checkboxShape(shape: Optional<CheckBoxShape>): CheckboxGroupAttribute;
 }
@@ -746,7 +746,7 @@ declare class CheckboxGroupAttribute extends CommonMethod<CheckboxGroupAttribute
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const CheckboxGroup: CheckboxGroupInterface;
@@ -779,7 +779,7 @@ declare const CheckboxGroup: CheckboxGroupInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const CheckboxGroupInstance: CheckboxGroupAttribute;

@@ -22,7 +22,7 @@
  * @typedef GetStorageOptions
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
  */
 export interface GetStorageOptions {
@@ -32,7 +32,7 @@ export interface GetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   key: string;
@@ -43,7 +43,7 @@ export interface GetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   default?: string;
@@ -53,7 +53,7 @@ export interface GetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   success?: (data: any) => void;
@@ -63,7 +63,7 @@ export interface GetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   fail?: (data: string, code: number) => void;
@@ -73,7 +73,7 @@ export interface GetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   complete?: () => void;
@@ -83,7 +83,7 @@ export interface GetStorageOptions {
  * @typedef SetStorageOptions
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
  */
 export interface SetStorageOptions {
@@ -93,7 +93,7 @@ export interface SetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   key: string;
@@ -103,7 +103,7 @@ export interface SetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   value: string;
@@ -113,7 +113,7 @@ export interface SetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   success?: () => void;
@@ -123,7 +123,7 @@ export interface SetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   fail?: (data: string, code: number) => void;
@@ -133,7 +133,7 @@ export interface SetStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   complete?: () => void;
@@ -143,7 +143,7 @@ export interface SetStorageOptions {
  * @typedef ClearStorageOptions
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
  */
 export interface ClearStorageOptions {
@@ -152,7 +152,7 @@ export interface ClearStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   success?: () => void;
@@ -162,7 +162,7 @@ export interface ClearStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   fail?: (data: string, code: number) => void;
@@ -172,7 +172,7 @@ export interface ClearStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   complete?: () => void;
@@ -182,7 +182,7 @@ export interface ClearStorageOptions {
  * @typedef DeleteStorageOptions
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
  */
 export interface DeleteStorageOptions {
@@ -192,7 +192,7 @@ export interface DeleteStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   key: string;
@@ -202,7 +202,7 @@ export interface DeleteStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   success?: () => void;
@@ -212,7 +212,7 @@ export interface DeleteStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   fail?: (data: string, code: number) => void;
@@ -222,7 +222,7 @@ export interface DeleteStorageOptions {
    *
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   complete?: () => void;
@@ -231,7 +231,7 @@ export interface DeleteStorageOptions {
 /**
  * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
  * @FAModelOnly
- * @since 3
+ * @since 3 dynamiconly
  * @deprecated since 6
  */
 export default class Storage {
@@ -241,7 +241,7 @@ export default class Storage {
    * @param { GetStorageOptions } options - Indicates the target options.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    * @useinstead ohos.preferences.preferences.get
    */
@@ -253,7 +253,7 @@ export default class Storage {
    * @param { SetStorageOptions } options - Indicates the target options.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    */
   static set(options: SetStorageOptions): void;
@@ -264,7 +264,7 @@ export default class Storage {
    * @param { ClearStorageOptions } options - Indicates the target options.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    * @useinstead ohos.preferences.preferences.clear
    */
@@ -276,7 +276,7 @@ export default class Storage {
    * @param { DeleteStorageOptions } options - Indicates the target options.
    * @syscap SystemCapability.DistributedDataManager.Preferences.Core.Lite
    * @FAModelOnly
-   * @since 3
+   * @since 3 dynamiconly
    * @deprecated since 6
    * @useinstead ohos.preferences.preferences.delete
    */

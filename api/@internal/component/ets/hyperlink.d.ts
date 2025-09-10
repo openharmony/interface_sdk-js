@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 interface HyperlinkInterface {
@@ -78,7 +78,7 @@ interface HyperlinkInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   (address: string | Resource, content?: string | Resource): HyperlinkAttribute;
 }
@@ -105,7 +105,7 @@ interface HyperlinkInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
@@ -134,7 +134,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   color(value: Color | number | string | Resource): HyperlinkAttribute;
 }
@@ -158,7 +158,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 declare const Hyperlink: HyperlinkInterface;
@@ -182,7 +182,7 @@ declare const Hyperlink: HyperlinkInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 declare const HyperlinkInterface: HyperlinkAttribute;

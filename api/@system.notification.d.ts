@@ -21,7 +21,7 @@
 /**
  * @typedef ActionResult
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamic
  */
 export interface ActionResult {
   /**
@@ -29,7 +29,7 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   bundleName: string;
 
@@ -38,7 +38,7 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   abilityName: string;
 
@@ -51,7 +51,7 @@ export interface ActionResult {
    *
    * @type { string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   uri: string;
 }
@@ -59,7 +59,7 @@ export interface ActionResult {
 /**
  * @typedef ShowNotificationOptions
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamic
  */
 export interface ShowNotificationOptions {
   /**
@@ -67,7 +67,7 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   contentTitle?: string;
 
@@ -76,7 +76,7 @@ export interface ShowNotificationOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   contentText?: string;
 
@@ -85,14 +85,14 @@ export interface ShowNotificationOptions {
    *
    * @type { ?ActionResult }
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   clickAction?: ActionResult;
 }
 
 /**
  * @syscap SystemCapability.Notification.Notification
- * @since 3
+ * @since 3 dynamic
  */
 export default class Notification {
   /**
@@ -100,7 +100,7 @@ export default class Notification {
    *
    * @param { ShowNotificationOptions } [options] - Options.
    * @syscap SystemCapability.Notification.Notification
-   * @since 3
+   * @since 3 dynamic
    */
   static show(options?: ShowNotificationOptions): void;
 }

@@ -26,7 +26,7 @@ import photoAccessHelper from '@ohos.file.photoAccessHelper';
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 @Component
 export declare struct AlbumPickerComponent {
@@ -36,7 +36,7 @@ export declare struct AlbumPickerComponent {
    * @type { ?AlbumPickerOptions }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   albumPickerOptions?: AlbumPickerOptions;
 
@@ -46,7 +46,7 @@ export declare struct AlbumPickerComponent {
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAlbumClick?: (albumInfo: AlbumInfo) => boolean;
 
@@ -56,7 +56,7 @@ export declare struct AlbumPickerComponent {
    * @type { ?function }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   onEmptyAreaClick?: EmptyAreaClickCallback;
 }
@@ -67,7 +67,7 @@ export declare struct AlbumPickerComponent {
  * @typedef { function } EmptyAreaClickCallback
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 13
+ * @since 13 dynamic
  */
 export type EmptyAreaClickCallback = () => void
 
@@ -76,7 +76,7 @@ export type EmptyAreaClickCallback = () => void
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class AlbumPickerOptions {
   /**
@@ -85,7 +85,7 @@ export declare class AlbumPickerOptions {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   themeColorMode?: PickerColorMode;
 
@@ -95,7 +95,7 @@ export declare class AlbumPickerOptions {
    * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 13
+   * @since 13 dynamic
    */
   filterType?: photoAccessHelper.PhotoViewMIMETypes;
 }
@@ -106,7 +106,7 @@ export declare class AlbumPickerOptions {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export declare class AlbumInfo {
   /**
@@ -115,7 +115,7 @@ export declare class AlbumInfo {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   uri?: string;
 
@@ -125,7 +125,7 @@ export declare class AlbumInfo {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   albumName?: string;
 }

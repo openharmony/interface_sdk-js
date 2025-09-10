@@ -24,16 +24,16 @@ import { AsyncCallback } from './@ohos.base';
 /**
  * @namespace uiEffect
  * @syscap SystemCapability.Graphics.Drawing
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace uiEffect {
   /**
    * The Filter for Component.
    * @typedef Filter
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface Filter {
     /**
@@ -44,8 +44,8 @@ declare namespace uiEffect {
      * @returns { Filter }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     pixelStretch(stretchSizes: Array<double>, tileMode: TileMode): Filter;
 
@@ -55,8 +55,8 @@ declare namespace uiEffect {
      * @param { double } blurRadius
      * @returns { Filter }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     blur(blurRadius: double): Filter;
 
@@ -73,8 +73,8 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     waterRipple(progress: double, waveCount: int, x: double, y: double, rippleMode: WaterRippleMode): Filter;
 
@@ -88,8 +88,8 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     flyInFlyOutEffect(degree: double, flyMode: FlyMode): Filter;
 
@@ -104,8 +104,8 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'13', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13 dynamic
+     * @since 20 static
      */
     distort(distortionK: double): Filter;
 
@@ -119,7 +119,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 19
+     * @since 19 dynamic
      */
     radiusGradientBlur(radius: double, gradientParam: LinearGradientBlurOptions): Filter;
 
@@ -131,7 +131,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     bezierWarp(controlPoints: Array<common2D.Point>): Filter;
 
@@ -146,7 +146,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     contentLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: double,
       displacementMap?: Mask): Filter;
@@ -162,7 +162,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     colorGradient(colors: Array<Color>, positions: Array<common2D.Point>, strengths: Array<double>,
         alphaMask?: Mask): Filter;
@@ -178,7 +178,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     edgeLight(alpha: double, color?: Color, mask?: Mask, bloom?: boolean): Filter;
 
@@ -191,7 +191,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     displacementDistort(displacementMap: Mask, factor?: [double, double]): Filter;
 
@@ -207,7 +207,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     maskDispersion(dispersionMap: Mask, alpha: double, rFactor?: [double, double], gFactor?: [double, double],
       bFactor?: [double, double]): Filter;
@@ -219,7 +219,7 @@ declare namespace uiEffect {
     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
-    * @since 20
+    * @since 20 dynamic
     */
     hdrBrightnessRatio(ratio: double): Filter;
 
@@ -234,7 +234,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     variableRadiusBlur(radius: double, radiusMap: Mask): Filter;
 
@@ -250,7 +250,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     directionLight(direction: common2D.Point3d, color: Color, intensity: double, mask?: Mask, factor?: double): Filter;
 
@@ -264,7 +264,7 @@ declare namespace uiEffect {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
   }
@@ -275,8 +275,8 @@ declare namespace uiEffect {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum TileMode {
     /**
@@ -284,8 +284,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     CLAMP = 0,
 
@@ -294,8 +294,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     REPEAT = 1,
 
@@ -304,8 +304,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     MIRROR = 2,
 
@@ -314,8 +314,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     DECAL = 3,
   }
@@ -326,8 +326,8 @@ declare namespace uiEffect {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum WaterRippleMode {
     /**
@@ -335,8 +335,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     SMALL2MEDIUM_RECV = 0,
 
@@ -345,8 +345,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     SMALL2MEDIUM_SEND = 1,
 
@@ -355,8 +355,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     SMALL2SMALL = 2,
 
@@ -365,8 +365,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'17', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 17 dynamic
+     * @since 20 static
      */
     MINI_RECV = 3,
   }
@@ -377,8 +377,8 @@ declare namespace uiEffect {
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum FlyMode {
     /**
@@ -386,8 +386,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     BOTTOM = 0,
 
@@ -396,8 +396,8 @@ declare namespace uiEffect {
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     TOP = 1,
   }
@@ -406,8 +406,8 @@ declare namespace uiEffect {
    * The VisualEffect of Component.
    * @typedef VisualEffect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface VisualEffect {
     /**
@@ -416,8 +416,8 @@ declare namespace uiEffect {
     * @returns { VisualEffect } VisualEffects for the current effect have been added.
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12 dynamic
+    * @since 20 static
     */
     backgroundColorBlender(blender: BrightnessBlender): VisualEffect;
 
@@ -432,7 +432,7 @@ declare namespace uiEffect {
     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @syscap SystemCapability.Graphics.Drawing
     * @systemapi
-    * @since 20
+    * @since 20 dynamic
     */
     borderLight(lightPosition: common2D.Point3d, lightColor: common2D.Color, lightIntensity: double,
       borderWidth: double): VisualEffect;
@@ -443,8 +443,8 @@ declare namespace uiEffect {
    * @typedef { BrightnessBlender }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'13', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   type Blender = BrightnessBlender;
 
@@ -453,8 +453,8 @@ declare namespace uiEffect {
    * @typedef BrightnessBlender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface BrightnessBlender {
     /**
@@ -463,8 +463,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     cubicRate: double;
 
@@ -474,8 +474,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     quadraticRate: double;
 
@@ -485,8 +485,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     linearRate: double;
 
@@ -496,8 +496,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     degree: double;
 
@@ -507,8 +507,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     saturation: double;
 
@@ -518,8 +518,8 @@ declare namespace uiEffect {
      * @type { [double, double, double] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     positiveCoefficient: [double, double, double];
 
@@ -529,8 +529,8 @@ declare namespace uiEffect {
      * @type { [double, double, double] }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     negativeCoefficient: [double, double, double];
 
@@ -540,8 +540,8 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     fraction: double;
   }
@@ -551,7 +551,7 @@ declare namespace uiEffect {
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   interface Color {
     /**
@@ -559,7 +559,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     red: double;
     /**
@@ -567,7 +567,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     green: double;
     /**
@@ -575,7 +575,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     blue: double;
     /**
@@ -583,7 +583,7 @@ declare namespace uiEffect {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     alpha: double;
   }
@@ -593,7 +593,7 @@ declare namespace uiEffect {
    * @typedef { Mask }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   class Mask {
     /**
@@ -607,7 +607,7 @@ declare namespace uiEffect {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     static createRippleMask(center: common2D.Point, radius: double, width: double, offset?: double): Mask;
 
@@ -622,7 +622,7 @@ declare namespace uiEffect {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     static createPixelMapMask(pixelMap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       fillColor?: Color): Mask;
@@ -638,7 +638,7 @@ declare namespace uiEffect {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     static createRadialGradientMask(center: common2D.Point, radiusX: double, radiusY: double,
       gradients: Array<[double, double]>): Mask;
@@ -655,7 +655,7 @@ declare namespace uiEffect {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
-     * @since 20
+     * @since 20 dynamic
      */
     static createWaveGradientMask(center: common2D.Point, width: double, propagationRadius: double,
       blurRadius: double, turbulenceStrength?: double): Mask;
@@ -665,8 +665,8 @@ declare namespace uiEffect {
    * Create a Filter to add multiple effects to the component.
    * @returns { Filter } Returns the head node of Filter.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function createFilter(): Filter;
 
@@ -674,8 +674,8 @@ declare namespace uiEffect {
    * Create a VisualEffect to add multiple effects to the component.
    * @returns { VisualEffect } Returns the head node of visualEffect.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function createEffect(): VisualEffect;
 
@@ -685,8 +685,8 @@ declare namespace uiEffect {
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 }
@@ -696,8 +696,8 @@ declare namespace uiEffect {
  * @typedef BrightnessBlenderParam
  * @syscap SystemCapability.Graphics.Drawing
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare interface BrightnessBlenderParam {
   /**
@@ -706,8 +706,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   cubicRate: double;
 
@@ -717,8 +717,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   quadraticRate: double;
 
@@ -728,8 +728,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   linearRate: double;
 
@@ -739,8 +739,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   degree: double;
 
@@ -750,8 +750,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   saturation: double;
 
@@ -761,8 +761,8 @@ declare interface BrightnessBlenderParam {
    * @type { [double, double, double] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   positiveCoefficient: [double, double, double];
 
@@ -772,8 +772,8 @@ declare interface BrightnessBlenderParam {
    * @type { [double, double, double] }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   negativeCoefficient: [double, double, double];
 
@@ -783,8 +783,8 @@ declare interface BrightnessBlenderParam {
    * @type { double }
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   fraction: double;
 }

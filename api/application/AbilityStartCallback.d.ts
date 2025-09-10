@@ -18,10 +18,10 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AbilityResult } from '../ability/abilityResult';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AbilityResult } from '../ability/abilityResult';
 /*** endif */
 
@@ -31,23 +31,22 @@ import { AbilityResult } from '../ability/abilityResult';
  * @typedef { function } OnResultFn
  * @param { AbilityResult } parameter - The Parameter returned if the UIExtensionAbility call terminateSelfWithResult.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnResultFn = (parameter: AbilityResult) => void;
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 /**
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export default class AbilityStartCallback {
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 /**
  * The callback of UIAbility or UIExtensionAbility.
  *
@@ -55,8 +54,7 @@ export default class AbilityStartCallback {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 declare interface AbilityStartCallback {
 /*** endif */
@@ -69,8 +67,8 @@ declare interface AbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onError(code: number, name: string, message: string): void;
   
@@ -81,7 +79,7 @@ declare interface AbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onResult?(parameter: AbilityResult): void;
   
@@ -91,12 +89,11 @@ declare interface AbilityStartCallback {
    * @type { ?OnResultFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onResult?: OnResultFn;
 }
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export default AbilityStartCallback;
 /*** endif */

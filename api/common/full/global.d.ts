@@ -30,7 +30,7 @@ import { OffscreenCanvasRenderingContext2D } from './viewmodel'
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export declare function setInterval(handler: Function | string, delay: number, ...arguments: any[]): number;
 
@@ -45,7 +45,7 @@ export declare function setInterval(handler: Function | string, delay: number, .
  * @param { any[] } arguments - Indicates additional arguments to pass to "handler" when the timer goes off.
  * @returns { number } Returns the timer ID.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export declare function setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number;
 
@@ -64,7 +64,7 @@ export declare function setTimeout(handler: Function | string, delay?: number, .
  * @returns { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function requestAnimationFrame(handler: Function): number;
 
@@ -81,7 +81,7 @@ export declare function requestAnimationFrame(handler: Function): number;
  * @param { number } requestId - Indicates the vsync callback ID returned by "requestAnimationFrame()".
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare function cancelAnimationFrame(requestId: number): void;
 
@@ -90,7 +90,7 @@ export declare function cancelAnimationFrame(requestId: number): void;
  *
  * @param { number } [intervalID] - Indicates the timer ID returned by "setInterval()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export declare function clearInterval(intervalID?: number): void;
 
@@ -99,7 +99,7 @@ export declare function clearInterval(intervalID?: number): void;
  *
  * @param { number } [timeoutID] - Indicates the timer ID returned by "setTimeout()".
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 3
+ * @since 3 dynamic
  */
 export declare function clearTimeout(timeoutID?: number): void;
 
@@ -111,7 +111,7 @@ export declare function clearTimeout(timeoutID?: number): void;
  * @returns { any } A promise object is returned. The resolve callback is the object of PA.
  * The reject callback returns the object containing code and error data.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 5
+ * @since 5 dynamic
  * @deprecated since 8
  */
 export declare function createLocalParticleAbility(name?: string): any;
@@ -122,7 +122,7 @@ export declare function createLocalParticleAbility(name?: string): any;
  * @param { string } syscap
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 8
+ * @since 8 dynamic
  */
 export declare function canIUse(syscap: string): boolean;
 
@@ -135,7 +135,7 @@ export declare function canIUse(syscap: string): boolean;
  * @returns { boolean } true - operating system version is greater than or equal to the given value
  *                      false - operating system version is less than the given value or invalid api version
  * @syscap SystemCapability.Startup.SystemInfo.Lite
- * @since 20
+ * @since 20 dynamic
  * @example
  * if (isApiVersionGreaterOrEqual("20.1")) {
  *    // Use 20.1 APIs.
@@ -151,7 +151,7 @@ export declare function isApiVersionGreaterOrEqual(apiVersion: string): boolean;
  *
  * @returns { object }
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
- * @since 6
+ * @since 6 dynamic
  */
 export declare function getApp(): object;
 
@@ -166,7 +166,7 @@ export declare function getApp(): object;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class Image {
   /**
@@ -182,7 +182,7 @@ export declare class Image {
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   src: string;
   /**
@@ -198,7 +198,7 @@ export declare class Image {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   width?: number;
   /**
@@ -214,7 +214,7 @@ export declare class Image {
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   height?: number;
   /**
@@ -230,7 +230,7 @@ export declare class Image {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onload?: () => void;
   /**
@@ -246,7 +246,7 @@ export declare class Image {
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onerror?: () => void;
 }
@@ -262,7 +262,7 @@ export declare class Image {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class ImageData {
   /**
@@ -278,7 +278,7 @@ export declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   width: number;
   /**
@@ -294,7 +294,7 @@ export declare class ImageData {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   height: number;
   /**
@@ -310,7 +310,7 @@ export declare class ImageData {
    * @type { Uint8ClampedArray }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   data: Uint8ClampedArray;
 }
@@ -328,7 +328,7 @@ export declare class ImageData {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class OffscreenCanvas {
   /**
@@ -348,7 +348,7 @@ export declare class OffscreenCanvas {
    * @param { number } height
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor(width: number, height: number);
 
@@ -365,7 +365,7 @@ export declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   width: number;
 
@@ -382,7 +382,7 @@ export declare class OffscreenCanvas {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   height: number;
 
@@ -403,7 +403,7 @@ export declare class OffscreenCanvas {
    * @returns { OffscreenCanvasRenderingContext2D } a render canvas for the offScreen Canvas object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   getContext(contextId: "2d", options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D;
 
@@ -424,7 +424,7 @@ export declare class OffscreenCanvas {
    * @returns { string } A Promise returning a Blob object representing the image contained in the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   toDataURL(type?: string, quality?: number): string;
 
@@ -441,7 +441,7 @@ export declare class OffscreenCanvas {
    * @returns { ImageBitmap } Returns An ImageBitmap object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   transferToImageBitmap(): ImageBitmap;
 }
@@ -457,7 +457,7 @@ export declare class OffscreenCanvas {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class ImageBitmap {
   /**
@@ -475,7 +475,7 @@ export declare class ImageBitmap {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly height: number;
 
@@ -494,7 +494,7 @@ export declare class ImageBitmap {
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   readonly width: number;
 }
@@ -504,7 +504,7 @@ export declare class ImageBitmap {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
- * @since 4
+ * @since 4 dynamic
  */
 export declare const STANDARD: string;
 
@@ -513,6 +513,6 @@ export declare const STANDARD: string;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @systemapi
- * @since 4
+ * @since 4 dynamic
  */
 export declare const LITE: string;

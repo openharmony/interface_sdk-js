@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
@@ -28,7 +27,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface DividerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface DividerAttribute extends CommonMethod {
@@ -39,7 +38,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { boolean } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default vertical(value: boolean | undefined): this;
     /**
@@ -48,7 +47,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { ResourceColor } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -57,7 +56,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { number | string } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default strokeWidth(value: number | string | undefined): this;
     /**
@@ -66,7 +65,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { LineCapStyle } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default lineCap(value: LineCapStyle | undefined): this;
     /**
@@ -75,7 +74,7 @@ export declare interface DividerAttribute extends CommonMethod {
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<DividerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -87,7 +86,7 @@ export declare interface DividerAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

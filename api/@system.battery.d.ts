@@ -21,7 +21,7 @@
 /**
  * @interface BatteryResponse
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 6
  */
 export interface BatteryResponse {
@@ -30,7 +30,7 @@ export interface BatteryResponse {
    *
    * @type { boolean }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   charging: boolean;
@@ -40,7 +40,7 @@ export interface BatteryResponse {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   level: number;
@@ -49,7 +49,7 @@ export interface BatteryResponse {
 /**
  * @interface GetStatusOptions
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 6
  */
 export interface GetStatusOptions {
@@ -58,7 +58,7 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   success?: (data: BatteryResponse) => void;
@@ -68,7 +68,7 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   fail?: (data: string, code: number) => void;
@@ -78,7 +78,7 @@ export interface GetStatusOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   complete?: () => void;
@@ -86,7 +86,7 @@ export interface GetStatusOptions {
 
 /**
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 6
  */
 export default class Battery {
@@ -95,7 +95,7 @@ export default class Battery {
    *
    * @param { GetStatusOptions } options Options.
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 6
    */
   static getStatus(options?: GetStatusOptions): void;

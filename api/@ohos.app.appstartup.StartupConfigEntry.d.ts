@@ -26,7 +26,7 @@ import Want from './@ohos.app.ability.Want';
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 export default class StartupConfigEntry {
   /**
@@ -35,7 +35,7 @@ export default class StartupConfigEntry {
    * @returns { StartupConfig } The developer returns a startup configuration.
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   onConfig?(): StartupConfig;
 
@@ -49,7 +49,7 @@ export default class StartupConfigEntry {
    * @returns { string } Custom match rule
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestCustomMatchRule(want: Want): string;
 }

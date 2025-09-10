@@ -24,7 +24,7 @@
  * @interface ChildProcessOptions
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 export interface ChildProcessOptions {
   /**
@@ -33,7 +33,7 @@ export interface ChildProcessOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   isolationMode?: boolean;
 }

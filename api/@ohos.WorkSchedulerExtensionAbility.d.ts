@@ -28,8 +28,8 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
  * @typedef { _WorkSchedulerExtensionContext }
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
@@ -37,8 +37,8 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  * Class of the work scheduler extension ability.
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class WorkSchedulerExtensionAbility {
   /**
@@ -47,8 +47,8 @@ declare class WorkSchedulerExtensionAbility {
    * @type { WorkSchedulerExtensionContext }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   context: WorkSchedulerExtensionContext;
 
@@ -58,8 +58,8 @@ declare class WorkSchedulerExtensionAbility {
    * @param {workScheduler.WorkInfo} work - The info of work.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   onWorkStart(work: workScheduler.WorkInfo): void;
 
@@ -69,8 +69,8 @@ declare class WorkSchedulerExtensionAbility {
    * @param {workScheduler.WorkInfo} work - The info of work.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   onWorkStop(work: workScheduler.WorkInfo): void;
 }
@@ -80,7 +80,7 @@ declare class WorkSchedulerExtensionAbility {
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export default WorkSchedulerExtensionAbility;

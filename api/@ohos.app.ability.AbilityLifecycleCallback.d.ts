@@ -21,7 +21,7 @@
 import UIAbility from './@ohos.app.ability.UIAbility';
 import window from './@ohos.window';
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 /**
  * The ability lifecycle callback.
  *
@@ -44,12 +44,12 @@ import window from './@ohos.window';
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export default class AbilityLifecycleCallback {
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 /**
  * The ability lifecycle callback.
  *
@@ -58,8 +58,7 @@ export default class AbilityLifecycleCallback {
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 declare interface AbilityLifecycleCallback {
 /*** endif */
@@ -88,8 +87,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -100,7 +99,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillCreate?(ability: UIAbility): void;
 
@@ -132,8 +131,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -145,7 +144,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -156,7 +155,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWillNewWant?(ability: UIAbility): void;
 
@@ -167,7 +166,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onNewWant?(ability: UIAbility): void;
 
@@ -188,7 +187,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -209,7 +208,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -241,8 +240,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -254,7 +253,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -283,8 +282,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -295,7 +294,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillDestroy?(ability: UIAbility): void;
 
@@ -324,8 +323,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -336,7 +335,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillForeground?(ability: UIAbility): void;
 
@@ -365,8 +364,8 @@ declare interface AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAbilityBackground(ability: UIAbility): void;
 
@@ -377,7 +376,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillBackground?(ability: UIAbility): void;
 
@@ -396,7 +395,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @StageModelOnly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onAbilityContinue(ability: UIAbility): void;
 
@@ -407,7 +406,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillContinue?(ability: UIAbility): void;
 
@@ -419,7 +418,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -431,7 +430,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -442,7 +441,7 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilityWillSaveState?(ability: UIAbility): void;
 
@@ -453,11 +452,11 @@ declare interface AbilityLifecycleCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onAbilitySaveState?(ability: UIAbility): void;
 }
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 export default AbilityLifecycleCallback;
 /*** endif */

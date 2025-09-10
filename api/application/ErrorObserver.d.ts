@@ -37,7 +37,7 @@
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform
  * @atomicservice
- * @since 19
+ * @since 19 dynamic
  */
 export default class ErrorObserver {
   /**
@@ -62,7 +62,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onUnhandledException(errMsg: string): void;
 
@@ -88,7 +88,7 @@ export default class ErrorObserver {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform
    * @atomicservice
-   * @since 19
+   * @since 19 dynamic
    */
   onException?(errObject: Error): void;
 }

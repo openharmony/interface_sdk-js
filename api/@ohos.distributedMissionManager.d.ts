@@ -34,7 +34,7 @@ import type { MissionParameter as _MissionParameter } from './application/Missio
  * @namespace distributedMissionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi Hide this for inner system use.
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace distributedMissionManager {
   /**
@@ -43,7 +43,7 @@ declare namespace distributedMissionManager {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   enum ContinueState {
     /**
@@ -51,7 +51,7 @@ declare namespace distributedMissionManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     ACTIVE = 0,
 
@@ -60,7 +60,7 @@ declare namespace distributedMissionManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @systemapi Hide this for inner system use.
-     * @since 10
+     * @since 10 dynamic
      */
     INACTIVE = 1
   }
@@ -71,7 +71,7 @@ declare namespace distributedMissionManager {
    * @interface ContinueCallbackInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   interface ContinueCallbackInfo {
     /**
@@ -80,7 +80,7 @@ declare namespace distributedMissionManager {
      * @type { ContinueState }
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     state: ContinueState;
 
@@ -90,7 +90,7 @@ declare namespace distributedMissionManager {
      * @type { ContinuableInfo }
      * @syscap SystemCapability.Ability.AbilityRuntime.Mission
      * @systemapi Hide this for inner system use.
-     * @since 11
+     * @since 11 dynamic
      */
     info: ContinuableInfo;
   }
@@ -106,7 +106,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function startSyncRemoteMissions(parameter: MissionParameter, callback: AsyncCallback<void>): void;
 
@@ -121,7 +121,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function startSyncRemoteMissions(parameter: MissionParameter): Promise<void>;
 
@@ -136,7 +136,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function stopSyncRemoteMissions(parameter: MissionDeviceInfo, callback: AsyncCallback<void>): void;
 
@@ -151,7 +151,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function stopSyncRemoteMissions(parameter: MissionDeviceInfo): Promise<void>;
 
@@ -167,7 +167,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function registerMissionListener(
     parameter: MissionDeviceInfo,
@@ -187,7 +187,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback): Promise<void>;
 
@@ -202,7 +202,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function unRegisterMissionListener(parameter: MissionDeviceInfo, callback: AsyncCallback<void>): void;
 
@@ -217,7 +217,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function unRegisterMissionListener(parameter: MissionDeviceInfo): Promise<void>;
 
@@ -245,7 +245,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function on(type: 'continueStateChange', callback: Callback<ContinueCallbackInfo>): void;
 
@@ -273,7 +273,7 @@ declare namespace distributedMissionManager {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 11
+   * @since 11 dynamic
    */
   function off(type: 'continueStateChange', callback?: Callback<ContinueCallbackInfo>): void;
 
@@ -299,7 +299,7 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function continueMission(
     parameter: ContinueDeviceInfo,
@@ -329,7 +329,7 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 16300506 - The local continuation task is already in progress.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
    */
   function continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback): Promise<void>;
 
@@ -354,7 +354,7 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 16300507 - Failed to get the missionInfo of the specified bundle name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function continueMission(parameter: ContinueMissionInfo, callback: AsyncCallback<void>): void;
 
@@ -379,7 +379,7 @@ declare namespace distributedMissionManager {
    * @throws { BusinessError } 16300507 - Failed to get the missionInfo of the specified bundle name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   function continueMission(parameter: ContinueMissionInfo): Promise<void>;
 
@@ -388,7 +388,7 @@ declare namespace distributedMissionManager {
    * @typedef { _ContinuableInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   export type ContinuableInfo = _ContinuableInfo;
 
@@ -397,7 +397,7 @@ declare namespace distributedMissionManager {
    * @typedef { _ContinueMissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   export type ContinueMissionInfo = _ContinueMissionInfo;
 
@@ -406,7 +406,7 @@ declare namespace distributedMissionManager {
    * @typedef { _ContinueCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type ContinueCallback = _ContinueCallback;
 
@@ -415,7 +415,7 @@ declare namespace distributedMissionManager {
    * @typedef { _ContinueDeviceInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type ContinueDeviceInfo = _ContinueDeviceInfo;
 
@@ -424,7 +424,7 @@ declare namespace distributedMissionManager {
    * @typedef { _MissionCallback }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type MissionCallback = _MissionCallback;
 
@@ -433,7 +433,7 @@ declare namespace distributedMissionManager {
    * @typedef { _MissionDeviceInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type MissionDeviceInfo = _MissionDeviceInfo;
 
@@ -442,7 +442,7 @@ declare namespace distributedMissionManager {
    * @typedef { _MissionParameter }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type MissionParameter = _MissionParameter;
 }

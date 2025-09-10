@@ -38,7 +38,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export declare class NavigationModifier extends NavigationAttribute implements AttributeModifier<NavigationAttribute> {
@@ -50,7 +50,7 @@ export declare class NavigationModifier extends NavigationAttribute implements A
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: NavigationAttribute): void;
 }

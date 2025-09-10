@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
@@ -31,7 +30,7 @@ import { AttributeModifier, CommonMethod } from './common';
  * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
@@ -41,7 +40,7 @@ export type RecordData = undefined | null | Object | Record<string, RecordData> 
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export declare enum DpiFollowStrategy {
     /**
@@ -49,7 +48,7 @@ export declare enum DpiFollowStrategy {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     FOLLOW_HOST_DPI = 0,
     /**
@@ -57,7 +56,7 @@ export declare enum DpiFollowStrategy {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
@@ -66,21 +65,21 @@ export declare enum DpiFollowStrategy {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export declare enum WindowModeFollowStrategy {
     /**
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
     /**
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
 }
@@ -90,7 +89,7 @@ export declare enum WindowModeFollowStrategy {
  * @interface UIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export declare interface UIExtensionOptions {
     /**
@@ -101,7 +100,7 @@ export declare interface UIExtensionOptions {
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     isTransferringCaller?: boolean;
     /**
@@ -111,7 +110,7 @@ export declare interface UIExtensionOptions {
      * @type { ?ComponentContent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     placeholder?: ComponentContent;
     /**
@@ -122,7 +121,7 @@ export declare interface UIExtensionOptions {
      * @type { ?Record<string, ComponentContent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     areaChangePlaceholder?: Record<string, ComponentContent>;
     /**
@@ -132,7 +131,7 @@ export declare interface UIExtensionOptions {
      * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     dpiFollowStrategy?: DpiFollowStrategy;
     /**
@@ -141,7 +140,7 @@ export declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
 }
@@ -151,7 +150,7 @@ export declare interface UIExtensionOptions {
  * @typedef { Callback<Record<string, RecordData>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export type ReceiveCallback = Callback<Record<string, RecordData>>;
 /**
@@ -162,7 +161,7 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
  * @interface UIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  */
 export declare interface UIExtensionProxy {
     /**
@@ -173,7 +172,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     send(data: Record<string, RecordData>): void;
     /**
@@ -187,7 +186,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
     /**
@@ -199,7 +198,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onAsyncReceiverRegister(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
     /**
@@ -211,7 +210,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onSyncReceiverRegister(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
     /**
@@ -223,7 +222,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     offAsyncReceiverRegister(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
     /**
@@ -235,15 +234,15 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     offSyncReceiverRegister(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
     /**
-     * @since 20
+     * @since 20 static
      */
     overload on { onAsyncReceiverRegister, onSyncReceiverRegister }
     /**
-     * @since 20
+     * @since 20 static
      */
     overload off { offAsyncReceiverRegister, offSyncReceiverRegister }
 }
@@ -255,7 +254,7 @@ export declare interface UIExtensionProxy {
  * @typedef UIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
@@ -267,7 +266,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onRemoteReady(callback: Callback<UIExtensionProxy> | undefined): this;
     /**
@@ -277,7 +276,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onReceive(callback: ReceiveCallback | undefined): this;
     /**
@@ -288,7 +287,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onError(callback: ErrorCallback<BusinessError> | undefined): this;
     /**
@@ -298,7 +297,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
     /**
@@ -307,7 +306,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     onDrawReady(callback: Callback<void> | undefined): this;
 
@@ -318,7 +317,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20
+     * @since 20 static
      */
     attributeModifier(modifier: AttributeModifier<UIExtensionComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -331,7 +330,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

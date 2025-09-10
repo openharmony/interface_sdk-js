@@ -18,14 +18,14 @@
  * @kit MediaLibraryKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 export {
     photoAccessHelper
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import sendablePhotoAccessHelper from '@ohos.file.sendablePhotoAccessHelper';
 import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@ohos.multimedia.movingphotoview';
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, EmptyAreaClickCallback } from '@ohos.file.AlbumPickerComponent';

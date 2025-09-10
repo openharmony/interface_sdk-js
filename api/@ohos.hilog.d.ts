@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit PerformanceAnalysisKit
- * @arkts 1.1&1.2
  */
 
 /**
@@ -41,8 +40,8 @@
  * @syscap SystemCapability.HiviewDFX.HiLog
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace hilog {
 
@@ -93,8 +92,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function debug(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
 
@@ -145,8 +143,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function info(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
 
@@ -197,8 +194,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function warn(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
 
@@ -249,8 +245,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function error(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
 
@@ -301,8 +296,7 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function fatal(domain: int, tag: string, format: string, ...args: (Object | undefined | null)[]): void;
 
@@ -327,8 +321,8 @@ declare namespace hilog {
    * @returns { boolean }
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function isLoggable(domain: int, tag: string, level: LogLevel): boolean;
 
@@ -338,8 +332,8 @@ declare namespace hilog {
    * @param { LogLevel } level log level
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
    function setMinLogLevel(level: LogLevel): void;
 
@@ -364,8 +358,8 @@ declare namespace hilog {
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum LogLevel {
     /**
@@ -387,8 +381,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DEBUG = 3,
     /**
@@ -410,8 +404,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     INFO = 4,
     /**
@@ -433,8 +427,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     WARN = 5,
     /**
@@ -456,8 +450,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     ERROR = 6,
     /**
@@ -479,8 +473,8 @@ declare namespace hilog {
      * @syscap SystemCapability.HiviewDFX.HiLog
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     FATAL = 7
   }

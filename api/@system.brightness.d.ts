@@ -21,7 +21,7 @@
 /**
  * @interface BrightnessResponse
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface BrightnessResponse {
@@ -30,7 +30,7 @@ export interface BrightnessResponse {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   value: number;
@@ -39,7 +39,7 @@ export interface BrightnessResponse {
 /**
  * @interface GetBrightnessOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface GetBrightnessOptions {
@@ -48,7 +48,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   success?: (data: BrightnessResponse) => void;
@@ -58,7 +58,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   fail?: (data: string, code: number) => void;
@@ -68,7 +68,7 @@ export interface GetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   complete?: () => void;
@@ -77,7 +77,7 @@ export interface GetBrightnessOptions {
 /**
  * @interface SetBrightnessOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface SetBrightnessOptions {
@@ -90,7 +90,7 @@ export interface SetBrightnessOptions {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   value: number;
@@ -100,7 +100,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   success?: () => void;
@@ -110,7 +110,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   fail?: (data: string, code: number) => void;
@@ -120,7 +120,7 @@ export interface SetBrightnessOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   complete?: () => void;
@@ -129,7 +129,7 @@ export interface SetBrightnessOptions {
 /**
  * @interface BrightnessModeResponse
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface BrightnessModeResponse {
@@ -140,7 +140,7 @@ export interface BrightnessModeResponse {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   mode: number;
@@ -149,7 +149,7 @@ export interface BrightnessModeResponse {
 /**
  * @interface GetBrightnessModeOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface GetBrightnessModeOptions {
@@ -158,7 +158,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   success?: (data: BrightnessModeResponse) => void;
@@ -168,7 +168,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   fail?: (data: string, code: number) => void;
@@ -178,7 +178,7 @@ export interface GetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   complete?: () => void;
@@ -187,7 +187,7 @@ export interface GetBrightnessModeOptions {
 /**
  * @interface SetBrightnessModeOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface SetBrightnessModeOptions {
@@ -198,7 +198,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   mode: number;
@@ -208,7 +208,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   success?: () => void;
@@ -218,7 +218,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   fail?: (data: string, code: number) => void;
@@ -228,7 +228,7 @@ export interface SetBrightnessModeOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   complete?: () => void;
@@ -237,7 +237,7 @@ export interface SetBrightnessModeOptions {
 /**
  * @interface SetKeepScreenOnOptions
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export interface SetKeepScreenOnOptions {
@@ -246,7 +246,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { boolean }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   keepScreenOn: boolean;
@@ -256,7 +256,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   success?: () => void;
@@ -266,7 +266,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   fail?: (data: string, code: number) => void;
@@ -276,7 +276,7 @@ export interface SetKeepScreenOnOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   complete?: () => void;
@@ -284,7 +284,7 @@ export interface SetKeepScreenOnOptions {
 
 /**
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
- * @since 3
+ * @since 3 dynamic
  * @deprecated since 7
  */
 export default class Brightness {
@@ -293,7 +293,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static getValue(options?: GetBrightnessOptions): void;
@@ -303,7 +303,7 @@ export default class Brightness {
    *
    * @param { SetBrightnessOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static setValue(options?: SetBrightnessOptions): void;
@@ -313,7 +313,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessModeOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static getMode(options?: GetBrightnessModeOptions): void;
@@ -323,7 +323,7 @@ export default class Brightness {
    *
    * @param { SetBrightnessModeOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static setMode(options?: SetBrightnessModeOptions): void;
@@ -333,7 +333,7 @@ export default class Brightness {
    *
    * @param { SetKeepScreenOnOptions } options Options.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
-   * @since 3
+   * @since 3 dynamic
    * @deprecated since 7
    */
   static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;

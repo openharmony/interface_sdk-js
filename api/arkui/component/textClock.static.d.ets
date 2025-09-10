@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, Optional, DateTimeOptions } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
@@ -29,28 +28,28 @@ import { AttributeModifier } from "./common";
  * Provides a way to control the textclock status.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class TextClockController {
     /**
      * constructor.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     constructor();
     /**
      * Provides a start event for textclock.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     start(): void;
     /**
      * Provides a stop event for textclock.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     stop(): void;
 }
@@ -60,7 +59,7 @@ export declare class TextClockController {
  * @extends CommonConfiguration<TextClockConfiguration>
  * @interface TextClockConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
     /**
@@ -70,7 +69,7 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     timeZoneOffset: number;
     /**
@@ -78,7 +77,7 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     started: boolean;
     /**
@@ -86,7 +85,7 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     timeValue: number;
 }
@@ -95,7 +94,7 @@ export declare interface TextClockConfiguration extends CommonConfiguration<Text
  *
  * @interface TextClockOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface TextClockOptions {
     /**
@@ -104,7 +103,7 @@ export declare interface TextClockOptions {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     timeZoneOffset?: number;
     /**
@@ -113,7 +112,7 @@ export declare interface TextClockOptions {
      *
      * @type { ?TextClockController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     controller?: TextClockController;
 }
@@ -123,7 +122,7 @@ export declare interface TextClockOptions {
  * @extends CommonMethod
  * @interface TextClockAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface TextClockAttribute extends CommonMethod {
@@ -139,7 +138,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default format(value: ResourceStr | undefined): this;
     /**
@@ -154,7 +153,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { string | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default format(value: string | undefined): this;
     /**
@@ -170,7 +169,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { function | undefined } event - Listening date event callback.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onDateChange(event: ((value: number) => void) | undefined): this;
     /**
@@ -179,7 +178,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -188,7 +187,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { Length | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontSize(value: Length | undefined): this;
     /**
@@ -197,7 +196,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { FontStyle | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
@@ -206,7 +205,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { number | FontWeight | string | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontWeight(value: number | FontWeight | string | undefined): this;
     /**
@@ -215,7 +214,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } value
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontFamily(value: ResourceStr | undefined): this;
     /**
@@ -224,7 +223,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - The shadow options.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default textShadow(value: ShadowOptions | Array<ShadowOptions> | undefined): this;
     /**
@@ -236,7 +235,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontFeature(value: string | undefined): this;
     /**
@@ -245,7 +244,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { ContentModifier<TextClockConfiguration> | undefined } modifier - The content modifier of textclock.
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default contentModifier(modifier: ContentModifier<TextClockConfiguration> | undefined): this;
     /**
@@ -254,7 +253,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { DateTimeOptions | undefined } dateTimeOptions - Indicates whether a leading 0 is required for the hour.
      * @returns { TextClockAttribute } the attribute of the text clock
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default dateTimeOptions(dateTimeOptions: DateTimeOptions | undefined): this;
     /**
@@ -263,7 +262,7 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @param { AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { TextClockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -274,7 +273,7 @@ export declare interface TextClockAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { TextClockAttribute } The attribute of the TextClock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

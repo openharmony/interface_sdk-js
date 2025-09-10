@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum LoadingProgressStyle {
   /**
@@ -81,7 +81,7 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Default,
 
@@ -113,7 +113,7 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Circular,
 
@@ -145,7 +145,7 @@ declare enum LoadingProgressStyle {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Orbital,
 }
@@ -182,7 +182,7 @@ declare enum LoadingProgressStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface LoadingProgressInterface {
@@ -218,7 +218,7 @@ interface LoadingProgressInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): LoadingProgressAttribute;
 }
@@ -255,7 +255,7 @@ interface LoadingProgressInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
@@ -295,7 +295,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor): LoadingProgressAttribute;
 
@@ -316,7 +316,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   enableLoading(value: boolean): LoadingProgressAttribute;
 
@@ -328,7 +328,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<LoadingProgressConfiguration>): LoadingProgressAttribute;
 }
@@ -341,7 +341,7 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
   /**
@@ -351,7 +351,7 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableLoading: boolean;  
 }
@@ -384,7 +384,7 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const LoadingProgress: LoadingProgressInterface;
@@ -417,7 +417,7 @@ declare const LoadingProgress: LoadingProgressInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const LoadingProgressInstance: LoadingProgressAttribute;

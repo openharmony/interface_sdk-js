@@ -46,7 +46,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class Matrix2D {
   /**
@@ -81,7 +81,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleX?: number;
 
@@ -117,7 +117,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   rotateY?: number;
 
@@ -153,7 +153,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   rotateX?: number;
 
@@ -189,7 +189,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scaleY?: number;
 
@@ -225,7 +225,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   translateX?: number;
 
@@ -261,7 +261,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   translateY?: number;
 
@@ -301,7 +301,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   identity(): Matrix2D;
 
@@ -341,7 +341,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   invert(): Matrix2D;
 
@@ -362,7 +362,7 @@ declare class Matrix2D {
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   multiply(other?: Matrix2D): Matrix2D;
@@ -384,7 +384,7 @@ declare class Matrix2D {
    * @returns { Matrix2D }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead rotate
    */
@@ -413,7 +413,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
@@ -457,7 +457,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   translate(tx?: number, ty?: number): Matrix2D;
 
@@ -501,7 +501,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   scale(sx?: number, sy?: number): Matrix2D;
 
@@ -520,7 +520,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
 
@@ -532,7 +532,7 @@ declare class Matrix2D {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(unit: LengthMetricsUnit);
 }

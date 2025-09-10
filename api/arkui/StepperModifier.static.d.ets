@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -28,7 +27,7 @@ import { StepperAttribute } from '@ohos.arkui.component';
  *
  * @implements { StepperAttribute, AttributeModifier<StepperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class StepperModifier implements StepperAttribute, AttributeModifier<StepperAttribute> {
@@ -37,7 +36,7 @@ export declare class StepperModifier implements StepperAttribute, AttributeModif
    * 
    * @param { StepperAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   applyNormalAttribute(instance: StepperAttribute): void; 
 }

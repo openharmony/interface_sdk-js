@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Component } from './arkui/component/customComponent';
 import { PropRef } from './arkui/stateManagement/decorator';
@@ -28,7 +27,7 @@ import { LengthMetrics } from './arkui/Graphics';
  * Declare Component ProgressButton
  * @struct { ProgressButton }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -38,7 +37,7 @@ export declare struct ProgressButton {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   progress: int;
@@ -47,7 +46,7 @@ export declare struct ProgressButton {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   content: ResourceStr;
@@ -56,7 +55,7 @@ export declare struct ProgressButton {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   progressButtonWidth?: Length;
   /**
@@ -64,7 +63,7 @@ export declare struct ProgressButton {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   clickCallback: () => void;
   /**
@@ -72,7 +71,7 @@ export declare struct ProgressButton {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   enable: boolean;
@@ -81,7 +80,7 @@ export declare struct ProgressButton {
    *
    * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   colorOptions?: ProgressButtonColorOptions;
@@ -90,7 +89,7 @@ export declare struct ProgressButton {
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   progressButtonRadius?: LengthMetrics;
@@ -98,7 +97,7 @@ export declare struct ProgressButton {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;
@@ -107,7 +106,7 @@ export declare struct ProgressButton {
  * Declare Color options of the ProgressButton.
  * @typedef ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface ProgressButtonColorOptions {
@@ -116,7 +115,7 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   progressColor?: ResourceColor;
   /**
@@ -124,7 +123,7 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   borderColor?: ResourceColor;
   /**
@@ -132,7 +131,7 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   textColor?: ResourceColor;
   /**
@@ -140,7 +139,7 @@ export declare interface ProgressButtonColorOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   backgroundColor?: ResourceColor;
 }

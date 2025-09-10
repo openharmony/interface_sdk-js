@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface ColumnSplitInterface {
@@ -66,7 +66,7 @@ interface ColumnSplitInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): ColumnSplitAttribute;
 }
@@ -86,7 +86,7 @@ interface ColumnSplitInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 interface ColumnSplitDividerStyle {
   /**
@@ -106,7 +106,7 @@ interface ColumnSplitDividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   startMargin?: Dimension;
 
@@ -127,7 +127,7 @@ interface ColumnSplitDividerStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   endMargin?: Dimension;
 }
@@ -154,7 +154,7 @@ interface ColumnSplitDividerStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
@@ -183,7 +183,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   resizeable(value: boolean): ColumnSplitAttribute;
 
@@ -204,7 +204,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   divider(value: ColumnSplitDividerStyle | null): ColumnSplitAttribute;
 }
@@ -228,7 +228,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const ColumnSplitInstance: ColumnSplitAttribute;
@@ -252,7 +252,7 @@ declare const ColumnSplitInstance: ColumnSplitAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const ColumnSplit: ColumnSplitInterface;

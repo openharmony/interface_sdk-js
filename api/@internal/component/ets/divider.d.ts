@@ -50,7 +50,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface DividerInterface {
@@ -86,7 +86,7 @@ interface DividerInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): DividerAttribute;
 }
@@ -123,7 +123,7 @@ interface DividerInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
@@ -167,7 +167,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   vertical(value: boolean): DividerAttribute;
 
@@ -207,7 +207,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   color(value: ResourceColor): DividerAttribute;
 
@@ -247,7 +247,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth(value: number | string): DividerAttribute;
 
@@ -287,7 +287,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }
@@ -320,7 +320,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Divider: DividerInterface;
@@ -353,7 +353,7 @@ declare const Divider: DividerInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const DividerInstance: DividerAttribute;

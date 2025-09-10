@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { memo, ComponentBuilder, __memo_context_type, __memo_id_type } from "../stateManagement/runtime";
@@ -34,7 +33,7 @@ import { CustomDialogController } from './customDialogController';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Entry {
@@ -44,7 +43,7 @@ export @interface Entry {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     routeName: string = "";
 
@@ -54,7 +53,7 @@ export @interface Entry {
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     storage: string = "";
 
@@ -65,7 +64,7 @@ export @interface Entry {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     useSharedStorage: boolean = false;
 }
@@ -77,7 +76,7 @@ export @interface Entry {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Component {}
@@ -89,7 +88,7 @@ export @interface Component {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentV2 {}
@@ -100,7 +99,7 @@ export @interface ComponentV2 {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface Reusable {}
@@ -111,7 +110,7 @@ export @interface Reusable {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface ReusableV2 {}
@@ -122,7 +121,7 @@ export @interface ReusableV2 {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomLayout {}
@@ -134,7 +133,7 @@ export @interface CustomLayout {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 @Retention({policy: "SOURCE"})
 export @interface CustomDialog {}
@@ -146,7 +145,7 @@ export @interface CustomDialog {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
    /**
@@ -154,7 +153,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
 
@@ -167,7 +166,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     @ComponentBuilder
     static $_instantiate(
@@ -185,7 +184,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class BaseCustomComponent extends ExtendableComponent {
     /**
@@ -194,7 +193,7 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToRecycle(): void;
 }
@@ -206,7 +205,7 @@ export declare abstract class BaseCustomComponent extends ExtendableComponent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent {
    /**
@@ -214,7 +213,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
     
@@ -228,7 +227,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     @ComponentBuilder
     static $_instantiate(
@@ -245,7 +244,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToReuse(params: Record<string, Object>): void;
 }
@@ -257,7 +256,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent {
     /**
@@ -270,7 +269,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     @ComponentBuilder
     static $_instantiate(
@@ -286,7 +285,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToReuse(): void;
 }
@@ -297,7 +296,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export interface PageLifeCycle {
     /**
@@ -308,7 +307,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPageShow(): void {}
 
@@ -320,7 +319,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPageHide(): void {}
 
@@ -334,7 +333,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onBackPress(): boolean { return false }
 
@@ -345,7 +344,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     pageTransition(): void {}
 
@@ -356,7 +355,7 @@ export interface PageLifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onNewParam(param: object | undefined | null): void {}
 }
@@ -367,7 +366,7 @@ export interface PageLifeCycle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export interface LayoutCallback {
     /**
@@ -379,7 +378,7 @@ export interface LayoutCallback {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void {}
 
@@ -392,7 +391,7 @@ export interface LayoutCallback {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult {
         return {width: 0, height: 0} as SizeResult

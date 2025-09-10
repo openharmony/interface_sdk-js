@@ -23,7 +23,7 @@
  *
  * @namespace jsLeakWatcher
  * @syscap SystemCapability.HiviewDFX.HiChecker
- * @since 12
+ * @since 12 dynamic
  */
 declare namespace jsLeakWatcher {
   /**
@@ -31,7 +31,7 @@ declare namespace jsLeakWatcher {
    *
    * @param { boolean } isEnable - True is enable jsLeakWatcher, false is disable jsLeakWatcher.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 12
+   * @since 12 dynamic
    */
   function enable(isEnable: boolean): void;
 
@@ -41,7 +41,7 @@ declare namespace jsLeakWatcher {
    * @param { object } obj - Object being monitored.
    * @param { string } msg - Customized object information.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 12
+   * @since 12 dynamic
    */
   function watch(obj: object, msg: string): void;
 
@@ -50,7 +50,7 @@ declare namespace jsLeakWatcher {
    *
    * @returns { string } List of suspected leaked objects in JSON format.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 12
+   * @since 12 dynamic
    */
    function check(): string;
 
@@ -61,7 +61,7 @@ declare namespace jsLeakWatcher {
    * @returns { Array<string> } The array of exported results, index 0 is leakListFileName, index 1 is heapSnapShotFileName.
    * @throws { BusinessError } 401 - Parameter error. The filepath is invalid.
    * @syscap SystemCapability.HiviewDFX.HiChecker
-   * @since 12
+   * @since 12 dynamic
    */
   function dump(filePath: string): Array<string>;
 }

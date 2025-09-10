@@ -25,7 +25,7 @@
 /**
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 export declare class console {
   /**
@@ -43,7 +43,7 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static debug(message: string, ...arguments: any[]): void;
 
@@ -62,7 +62,7 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static log(message: string, ...arguments: any[]): void;
 
@@ -81,7 +81,7 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static info(message: string, ...arguments: any[]): void;
 
@@ -100,7 +100,7 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static warn(message: string, ...arguments: any[]): void;
 
@@ -119,7 +119,7 @@ export declare class console {
    * @param { any[] } arguments
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   static error(message: string, ...arguments: any[]): void;
 }

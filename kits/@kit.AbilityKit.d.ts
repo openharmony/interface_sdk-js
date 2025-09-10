@@ -136,7 +136,7 @@ export {
   InteropAbilityLifecycleCallback
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import common from '@ohos.app.ability.common';
 import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
 import { Configuration } from '@ohos.app.ability.Configuration';

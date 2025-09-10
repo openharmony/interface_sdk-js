@@ -27,7 +27,7 @@ import base from '@ohos.base';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 export declare enum SplitPolicy {
@@ -37,7 +37,7 @@ export declare enum SplitPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   HOME_PAGE = 0,
 
@@ -47,7 +47,7 @@ export declare enum SplitPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   DETAIL_PAGE = 1,
 
@@ -57,7 +57,7 @@ export declare enum SplitPolicy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   FULL_PAGE = 2,
 }
@@ -69,7 +69,7 @@ export declare enum SplitPolicy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 @Component
@@ -81,7 +81,7 @@ export declare struct MultiNavigation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   @State
   multiStack: MultiNavPathStack;
@@ -93,7 +93,7 @@ export declare struct MultiNavigation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   @BuilderParam
   navDestination: NavDestinationBuildFunction;
@@ -105,7 +105,7 @@ export declare struct MultiNavigation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   onNavigationModeChange?: OnNavigationModeChangeCallback;
 
@@ -116,7 +116,7 @@ export declare struct MultiNavigation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   onHomeShowOnTop?: OnHomeShowOnTopCallback;
 }
@@ -128,7 +128,7 @@ export declare struct MultiNavigation {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 export declare class MultiNavPathStack extends NavPathStack {
@@ -138,7 +138,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   constructor();
 
@@ -152,7 +152,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void;
 
@@ -166,7 +166,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): void;
 
@@ -181,7 +181,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPolicy): void;
 
@@ -197,7 +197,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pushPathByName(
     name: string, param: Object, onPop?: base.Callback<PopInfo>, animated?: boolean, policy?: SplitPolicy): void;
@@ -211,7 +211,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   replacePath(info: NavPathInfo, animated?: boolean): void;
 
@@ -224,7 +224,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
@@ -238,7 +238,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
@@ -250,7 +250,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   removeByIndexes(indexes: Array<number>): number;
 
@@ -262,7 +262,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   removeByName(name: string): number;
 
@@ -275,7 +275,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pop(animated?: boolean): NavPathInfo | undefined;
 
@@ -290,7 +290,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   pop(result?: Object, animated?: boolean): NavPathInfo | undefined;
 
@@ -304,7 +304,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   popToName(name: string, animated?: boolean): number;
 
@@ -319,7 +319,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   popToName(name: string, result: Object, animated?: boolean): number;
 
@@ -331,7 +331,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   popToIndex(index: number, animated?: boolean): void;
 
@@ -344,7 +344,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   popToIndex(index: number, result: Object, animated?: boolean): void;
 
@@ -358,7 +358,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   moveToTop(name: string, animated?: boolean): number;
 
@@ -370,7 +370,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   moveIndexToTop(index: number, animated?: boolean): void;
 
@@ -382,7 +382,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   clear(animated?: boolean): void;
 
@@ -393,7 +393,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   getAllPathName(): Array<string>;
 
@@ -406,7 +406,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   getParamByIndex(index: number): Object | undefined;
 
@@ -418,7 +418,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   getParamByName(name: string): Array<Object>;
 
@@ -430,7 +430,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   getIndexByName(name: string): Array<number>;
 
@@ -441,7 +441,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   size(): number;
 
@@ -452,7 +452,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   disableAnimation(disable: boolean): void;
 
@@ -465,7 +465,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   switchFullScreenState(isFullScreen?: boolean): boolean;
 
@@ -477,7 +477,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   setHomeWidthRange(minPercent: number, maxPercent: number): void;
 
@@ -488,7 +488,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   keepBottomPage(keepBottom: boolean): void;
 
@@ -499,7 +499,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   setPlaceholderPage(info: NavPathInfo): void;
 }
@@ -513,7 +513,7 @@ export declare class MultiNavPathStack extends NavPathStack {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 declare type NavDestinationBuildFunction = (name: string, param?: object) => void;
@@ -526,7 +526,7 @@ declare type NavDestinationBuildFunction = (name: string, param?: object) => voi
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
@@ -539,7 +539,7 @@ declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 14
+ * @since 14 dynamic
  * @noninterop
  */
 declare type OnHomeShowOnTopCallback = (name: string) => void;

@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceStr } from './arkui/component/units';
 import { Component } from './arkui/component/customComponent';
@@ -27,7 +26,7 @@ import { Builder } from './arkui/component/builder';
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class ComposeTitleBarMenuItem {
@@ -36,7 +35,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public value: ResourceStr;
   /**
@@ -44,7 +43,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
@@ -52,7 +51,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public label?: ResourceStr;
   /**
@@ -60,7 +59,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public isEnabled?: boolean;
   /**
@@ -68,7 +67,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public action?: () => void;
   /**
@@ -76,7 +75,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -84,7 +83,7 @@ export declare class ComposeTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -98,7 +97,7 @@ export declare class ComposeTitleBarMenuItem {
    *     "no-hide-descendants":The current component and all its child components are not selectable<br/>
    *     for the accessibility service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityLevel?: string;
 }
@@ -106,7 +105,7 @@ export declare class ComposeTitleBarMenuItem {
  * Declaration of the composable title bar.
  * @struct { ComposeTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -116,7 +115,7 @@ export declare struct ComposeTitleBar {
    *
    * @type { ?ComposeTitleBarMenuItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   item?: ComposeTitleBarMenuItem;
   /**
@@ -124,7 +123,7 @@ export declare struct ComposeTitleBar {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   title: ResourceStr;
   /**
@@ -132,7 +131,7 @@ export declare struct ComposeTitleBar {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   subtitle?: ResourceStr;
   /**
@@ -140,14 +139,14 @@ export declare struct ComposeTitleBar {
    *
    * @type { ?Array<ComposeTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   menuItems?: Array<ComposeTitleBarMenuItem>;
   /**
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;

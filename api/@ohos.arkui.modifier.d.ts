@@ -17,7 +17,7 @@
  * Export CommonModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { CommonModifier } from './arkui/CommonModifier';
@@ -26,7 +26,7 @@ export { CommonModifier } from './arkui/CommonModifier';
  * Export AlphabetIndexerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
@@ -35,7 +35,7 @@ export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
  * Export BlankModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { BlankModifier } from './arkui/BlankModifier';
@@ -44,7 +44,7 @@ export { BlankModifier } from './arkui/BlankModifier';
  * Export ButtonModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ButtonModifier } from './arkui/ButtonModifier';
@@ -53,7 +53,7 @@ export { ButtonModifier } from './arkui/ButtonModifier';
  * Export CalendarPickerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { CalendarPickerModifier } from './arkui/CalendarPickerModifier';
@@ -62,7 +62,7 @@ export { CalendarPickerModifier } from './arkui/CalendarPickerModifier';
  * Export CheckboxModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { CheckboxModifier } from './arkui/CheckboxModifier';
@@ -71,7 +71,7 @@ export { CheckboxModifier } from './arkui/CheckboxModifier';
  * Export CheckboxGroupModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { CheckboxGroupModifier } from './arkui/CheckboxGroupModifier';
@@ -80,7 +80,7 @@ export { CheckboxGroupModifier } from './arkui/CheckboxGroupModifier';
  * Export ColumnModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ColumnModifier } from './arkui/ColumnModifier';
@@ -89,7 +89,7 @@ export { ColumnModifier } from './arkui/ColumnModifier';
  * Export ColumnSplitModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ColumnSplitModifier } from './arkui/ColumnSplitModifier';
@@ -98,7 +98,7 @@ export { ColumnSplitModifier } from './arkui/ColumnSplitModifier';
  * Export CounterModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { CounterModifier } from './arkui/CounterModifier';
@@ -107,7 +107,7 @@ export { CounterModifier } from './arkui/CounterModifier';
  * Export DataPanelModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { DataPanelModifier } from './arkui/DataPanelModifier';
@@ -116,7 +116,7 @@ export { DataPanelModifier } from './arkui/DataPanelModifier';
  * Export DatePickerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { DatePickerModifier } from './arkui/DatePickerModifier';
@@ -125,7 +125,7 @@ export { DatePickerModifier } from './arkui/DatePickerModifier';
  * Export DividerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { DividerModifier } from './arkui/DividerModifier';
@@ -135,7 +135,7 @@ export { DividerModifier } from './arkui/DividerModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { FormComponentModifier } from './arkui/FormComponentModifier';
@@ -144,7 +144,7 @@ export { FormComponentModifier } from './arkui/FormComponentModifier';
  * Export GaugeModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { GaugeModifier } from './arkui/GaugeModifier';
@@ -153,7 +153,7 @@ export { GaugeModifier } from './arkui/GaugeModifier';
  * Export GridModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { GridModifier } from './arkui/GridModifier';
@@ -162,7 +162,7 @@ export { GridModifier } from './arkui/GridModifier';
  * Export GridColModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { GridColModifier } from './arkui/GridColModifier';
@@ -171,7 +171,7 @@ export { GridColModifier } from './arkui/GridColModifier';
  * Export GridItemModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { GridItemModifier } from './arkui/GridItemModifier';
@@ -180,7 +180,7 @@ export { GridItemModifier } from './arkui/GridItemModifier';
  * Export GridRowModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { GridRowModifier } from './arkui/GridRowModifier';
@@ -189,7 +189,7 @@ export { GridRowModifier } from './arkui/GridRowModifier';
  * Export HyperlinkModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { HyperlinkModifier } from './arkui/HyperlinkModifier';
@@ -198,7 +198,7 @@ export { HyperlinkModifier } from './arkui/HyperlinkModifier';
  * Export ImageAnimatorModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
@@ -207,7 +207,7 @@ export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
  * Export ImageModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ImageModifier } from './arkui/ImageModifier';
@@ -221,7 +221,7 @@ export { ImageModifier } from './arkui/ImageModifier';
  * Export SymbolGlyphModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
@@ -229,7 +229,7 @@ export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
  * Export ImageSpanModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ImageSpanModifier } from './arkui/ImageSpanModifier';
@@ -238,7 +238,7 @@ export { ImageSpanModifier } from './arkui/ImageSpanModifier';
  * Export LineModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { LineModifier } from './arkui/LineModifier';
@@ -247,7 +247,7 @@ export { LineModifier } from './arkui/LineModifier';
  * Export ListModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ListModifier } from './arkui/ListModifier';
@@ -256,7 +256,7 @@ export { ListModifier } from './arkui/ListModifier';
  * Export ListItemModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ListItemModifier } from './arkui/ListItemModifier';
@@ -265,7 +265,7 @@ export { ListItemModifier } from './arkui/ListItemModifier';
  * Export ListItemGroupModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ListItemGroupModifier } from './arkui/ListItemGroupModifier';
@@ -274,7 +274,7 @@ export { ListItemGroupModifier } from './arkui/ListItemGroupModifier';
  * Export LoadingProgressModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { LoadingProgressModifier } from './arkui/LoadingProgressModifier';
@@ -283,7 +283,7 @@ export { LoadingProgressModifier } from './arkui/LoadingProgressModifier';
  * Export MarqueeModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { MarqueeModifier } from './arkui/MarqueeModifier';
@@ -292,7 +292,7 @@ export { MarqueeModifier } from './arkui/MarqueeModifier';
  * Export MenuModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { MenuModifier } from './arkui/MenuModifier';
@@ -301,7 +301,7 @@ export { MenuModifier } from './arkui/MenuModifier';
  * Export MenuItemModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { MenuItemModifier } from './arkui/MenuItemModifier';
@@ -310,7 +310,7 @@ export { MenuItemModifier } from './arkui/MenuItemModifier';
  * Export NavDestinationModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { NavDestinationModifier } from './arkui/NavDestinationModifier';
@@ -319,7 +319,7 @@ export { NavDestinationModifier } from './arkui/NavDestinationModifier';
  * Export NavigationModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { NavigationModifier } from './arkui/NavigationModifier';
@@ -328,7 +328,7 @@ export { NavigationModifier } from './arkui/NavigationModifier';
  * Export NavigatorModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { NavigatorModifier } from './arkui/NavigatorModifier';
@@ -337,7 +337,7 @@ export { NavigatorModifier } from './arkui/NavigatorModifier';
  * Export NavRouterModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { NavRouterModifier } from './arkui/NavRouterModifier';
@@ -346,7 +346,7 @@ export { NavRouterModifier } from './arkui/NavRouterModifier';
  * Export PanelModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { PanelModifier } from './arkui/PanelModifier';
@@ -355,7 +355,7 @@ export { PanelModifier } from './arkui/PanelModifier';
  * Export PathModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { PathModifier } from './arkui/PathModifier';
@@ -364,7 +364,7 @@ export { PathModifier } from './arkui/PathModifier';
  * Export PatternLockModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { PatternLockModifier } from './arkui/PatternLockModifier';
@@ -373,7 +373,7 @@ export { PatternLockModifier } from './arkui/PatternLockModifier';
  * Export PolygonModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { PolygonModifier } from './arkui/PolygonModifier';
@@ -382,7 +382,7 @@ export { PolygonModifier } from './arkui/PolygonModifier';
  * Export PolylineModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { PolylineModifier } from './arkui/PolylineModifier';
@@ -391,7 +391,7 @@ export { PolylineModifier } from './arkui/PolylineModifier';
  * Export ProgressModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ProgressModifier } from './arkui/ProgressModifier';
@@ -400,7 +400,7 @@ export { ProgressModifier } from './arkui/ProgressModifier';
  * Export QRCodeModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { QRCodeModifier } from './arkui/QRCodeModifier';
@@ -409,7 +409,7 @@ export { QRCodeModifier } from './arkui/QRCodeModifier';
  * Export RadioModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RadioModifier } from './arkui/RadioModifier';
@@ -418,7 +418,7 @@ export { RadioModifier } from './arkui/RadioModifier';
  * Export RatingModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RatingModifier } from './arkui/RatingModifier';
@@ -427,7 +427,7 @@ export { RatingModifier } from './arkui/RatingModifier';
  * Export RectModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RectModifier } from './arkui/RectModifier';
@@ -436,7 +436,7 @@ export { RectModifier } from './arkui/RectModifier';
  * Export RefreshModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RefreshModifier } from './arkui/RefreshModifier';
@@ -445,7 +445,7 @@ export { RefreshModifier } from './arkui/RefreshModifier';
  * Export RichEditorModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RichEditorModifier } from './arkui/RichEditorModifier';
@@ -454,7 +454,7 @@ export { RichEditorModifier } from './arkui/RichEditorModifier';
  * Export RowModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RowModifier } from './arkui/RowModifier';
@@ -463,7 +463,7 @@ export { RowModifier } from './arkui/RowModifier';
  * Export RowSplitModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { RowSplitModifier } from './arkui/RowSplitModifier';
@@ -472,7 +472,7 @@ export { RowSplitModifier } from './arkui/RowSplitModifier';
  * Export ScrollModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ScrollModifier } from './arkui/ScrollModifier';
@@ -481,7 +481,7 @@ export { ScrollModifier } from './arkui/ScrollModifier';
  * Export SearchModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SearchModifier } from './arkui/SearchModifier';
@@ -490,7 +490,7 @@ export { SearchModifier } from './arkui/SearchModifier';
  * Export SelectModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SelectModifier } from './arkui/SelectModifier';
@@ -499,7 +499,7 @@ export { SelectModifier } from './arkui/SelectModifier';
  * Export ShapeModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ShapeModifier } from './arkui/ShapeModifier';
@@ -508,7 +508,7 @@ export { ShapeModifier } from './arkui/ShapeModifier';
  * Export SideBarContainerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
@@ -517,7 +517,7 @@ export { SideBarContainerModifier } from './arkui/SideBarContainerModifier';
  * Export SliderModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SliderModifier } from './arkui/SliderModifier';
@@ -526,7 +526,7 @@ export { SliderModifier } from './arkui/SliderModifier';
  * Export SpanModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SpanModifier } from './arkui/SpanModifier';
@@ -535,7 +535,7 @@ export { SpanModifier } from './arkui/SpanModifier';
  * Export StackModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { StackModifier } from './arkui/StackModifier';
@@ -544,7 +544,7 @@ export { StackModifier } from './arkui/StackModifier';
  * Export StepperItemModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { StepperItemModifier } from './arkui/StepperItemModifier';
@@ -553,7 +553,7 @@ export { StepperItemModifier } from './arkui/StepperItemModifier';
  * Export SwiperModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SwiperModifier } from './arkui/SwiperModifier';
@@ -562,7 +562,7 @@ export { SwiperModifier } from './arkui/SwiperModifier';
  * Export TabsModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TabsModifier } from './arkui/TabsModifier';
@@ -571,7 +571,7 @@ export { TabsModifier } from './arkui/TabsModifier';
  * Export TextAreaModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextAreaModifier } from './arkui/TextAreaModifier';
@@ -580,7 +580,7 @@ export { TextAreaModifier } from './arkui/TextAreaModifier';
  * Export TextModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextModifier } from './arkui/TextModifier';
@@ -589,7 +589,7 @@ export { TextModifier } from './arkui/TextModifier';
  * Export TextClockModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextClockModifier } from './arkui/TextClockModifier';
@@ -598,7 +598,7 @@ export { TextClockModifier } from './arkui/TextClockModifier';
  * Export TextInputModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextInputModifier } from './arkui/TextInputModifier';
@@ -607,7 +607,7 @@ export { TextInputModifier } from './arkui/TextInputModifier';
  * Export TextPickerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextPickerModifier } from './arkui/TextPickerModifier';
@@ -616,7 +616,7 @@ export { TextPickerModifier } from './arkui/TextPickerModifier';
  * Export TextTimerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TextTimerModifier } from './arkui/TextTimerModifier';
@@ -625,7 +625,7 @@ export { TextTimerModifier } from './arkui/TextTimerModifier';
  * Export TimePickerModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { TimePickerModifier } from './arkui/TimePickerModifier';
@@ -634,7 +634,7 @@ export { TimePickerModifier } from './arkui/TimePickerModifier';
  * Export ToggleModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ToggleModifier } from './arkui/ToggleModifier';
@@ -643,7 +643,7 @@ export { ToggleModifier } from './arkui/ToggleModifier';
  * Export VideoModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { VideoModifier } from './arkui/VideoModifier';
@@ -652,7 +652,7 @@ export { VideoModifier } from './arkui/VideoModifier';
  * Export WaterFlowModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { WaterFlowModifier } from './arkui/WaterFlowModifier';
@@ -661,7 +661,7 @@ export { WaterFlowModifier } from './arkui/WaterFlowModifier';
  * Export AttributeUpdater, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { AttributeUpdater } from './arkui/AttributeUpdater';
@@ -672,7 +672,7 @@ export { AttributeUpdater } from './arkui/AttributeUpdater';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
@@ -683,7 +683,7 @@ export { ContainerSpanModifier } from './arkui/ContainerSpanModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
@@ -694,7 +694,7 @@ export { SymbolSpanModifier } from './arkui/SymbolSpanModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export { ParticleModifier } from './arkui/ParticleModifier';
@@ -703,7 +703,7 @@ export { ParticleModifier } from './arkui/ParticleModifier';
  * Export StepperModifier, which is used to expose applyNormalAttribute function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export { StepperModifier } from './arkui/StepperModifier';

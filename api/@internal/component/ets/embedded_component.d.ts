@@ -25,7 +25,7 @@
  * @interface EmbeddedComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 interface EmbeddedComponentInterface {
@@ -38,7 +38,7 @@ interface EmbeddedComponentInterface {
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (
     loader: import('../api/@ohos.app.ability.Want').default,
@@ -52,7 +52,7 @@ interface EmbeddedComponentInterface {
  * @interface TerminationInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface TerminationInfo {
   /**
@@ -61,7 +61,7 @@ declare interface TerminationInfo {
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   code: number;
 
@@ -71,7 +71,7 @@ declare interface TerminationInfo {
    * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   want?: import('../api/@ohos.app.ability.Want').default;
 }
@@ -82,7 +82,7 @@ declare interface TerminationInfo {
  * @extends CommonMethod<EmbeddedComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
@@ -93,7 +93,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
 
@@ -104,7 +104,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
 }
@@ -114,7 +114,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const EmbeddedComponent: EmbeddedComponentInterface;
@@ -124,7 +124,7 @@ declare const EmbeddedComponent: EmbeddedComponentInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const EmbeddedComponentInstance: EmbeddedComponentAttribute;

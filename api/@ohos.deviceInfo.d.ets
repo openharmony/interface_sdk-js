@@ -24,8 +24,7 @@
  * @class deviceInfo
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 declare class deviceInfo {
     
@@ -37,8 +36,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get deviceType(): string;
     
@@ -48,8 +46,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get manufacture(): string;
     
@@ -59,8 +56,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */  
     static get brand(): string;
 
@@ -70,8 +66,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get marketName(): string;
     
@@ -81,8 +76,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get productSeries(): string;
     
@@ -93,8 +87,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get productModel(): string;
 
@@ -103,8 +96,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get productModelAlias(): string;
     
@@ -114,8 +106,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get softwareModel(): string;
     
@@ -125,8 +116,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get hardwareModel(): string;
 
@@ -136,8 +126,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get hardwareProfile(): string;
 
@@ -147,8 +136,7 @@ declare class deviceInfo {
      * @permission ohos.permission.sec.ACCESS_UDID
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get serial(): string;
     
@@ -158,8 +146,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get bootloaderVersion(): string;
     
@@ -169,8 +156,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get abiList(): string;
     
@@ -180,8 +166,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get securityPatchTag(): string;
     
@@ -191,8 +176,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get displayVersion(): string;
     
@@ -202,8 +186,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get incrementalVersion(): string;
     
@@ -215,8 +198,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get osReleaseType(): string;
     
@@ -227,8 +209,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get osFullName(): string;
     
@@ -239,8 +220,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get majorVersion(): int;
     
@@ -252,8 +232,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get seniorVersion(): int;
     
@@ -264,8 +243,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get featureVersion(): int;
     
@@ -276,8 +254,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildVersion(): int;
     
@@ -288,8 +265,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get sdkApiVersion(): int;
     
@@ -299,8 +275,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get firstApiVersion(): int;
     
@@ -310,8 +285,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get versionId(): string;
     
@@ -321,8 +295,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildType(): string;
     
@@ -332,8 +305,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildUser(): string;
     
@@ -343,8 +315,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildHost(): string;
     
@@ -354,8 +325,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildTime(): string;
     
@@ -365,8 +335,7 @@ declare class deviceInfo {
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get buildRootHash(): string;
 
@@ -376,8 +345,7 @@ declare class deviceInfo {
      * @permission ohos.permission.sec.ACCESS_UDID
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get udid(): string;
 
@@ -389,8 +357,7 @@ declare class deviceInfo {
      *
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get distributionOSName(): string;
 
@@ -402,8 +369,7 @@ declare class deviceInfo {
      *
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get distributionOSVersion(): string;
 
@@ -415,8 +381,7 @@ declare class deviceInfo {
      *
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get distributionOSApiVersion(): int;
 
@@ -426,8 +391,7 @@ declare class deviceInfo {
      * distributionOSApiName will return the ISV OS api name
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get distributionOSApiName(): string;
 
@@ -439,8 +403,7 @@ declare class deviceInfo {
      *
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get distributionOSReleaseType(): string;
 
@@ -461,8 +424,7 @@ declare class deviceInfo {
      *
      *
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get ODID(): string;
     
@@ -471,8 +433,7 @@ declare class deviceInfo {
      *
      * @permission ohos.permission.ACCESS_DISK_PHY_INFO
      * @syscap SystemCapability.Startup.SystemInfo
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     static get diskSN(): string;
 
@@ -481,8 +442,7 @@ declare class deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   static get sdkMinorApiVersion(): int;
 
@@ -491,8 +451,7 @@ declare class deviceInfo {
    * 
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   static get sdkPatchApiVersion(): int;
 }

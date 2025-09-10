@@ -20,7 +20,7 @@
 
 import window from './@ohos.window';
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 /**
  * The callback was called when only an ability is registered for listening.
  *
@@ -28,7 +28,7 @@ import window from './@ohos.window';
  * @param { any } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 type AbilityCallbackFn = (ability: any) => void;
 
@@ -40,12 +40,12 @@ type AbilityCallbackFn = (ability: any) => void;
  * @param { window.WindowStage } windowStage - Indicates the window stage to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 21
+ * @since 21 dynamic
  */
 type WindowStageCallbackFn = (ability: any, windowStage: window.WindowStage) => void;
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 /**
  * The callback was called when only an ability is registered for listening.
  *
@@ -53,8 +53,7 @@ type WindowStageCallbackFn = (ability: any, windowStage: window.WindowStage) => 
  * @param { Any } ability - Indicates the ability to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 21
- * @arkts 1.2
+ * @since 21 static
  */
 type AbilityCallbackFn = (ability: Any) => void;
 
@@ -66,8 +65,7 @@ type AbilityCallbackFn = (ability: Any) => void;
  * @param { window.WindowStage } windowStage - Indicates the window stage to register for listening.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 21
- * @arkts 1.2
+ * @since 21 static
  */
 type WindowStageCallbackFn = (ability: Any, windowStage: window.WindowStage) => void;
 /*** endif */
@@ -78,8 +76,7 @@ type WindowStageCallbackFn = (ability: Any, windowStage: window.WindowStage) => 
  * @typedef InteropAbilityLifecycleCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 21
- * @arkts 1.1&1.2
+ * @since 21 dynamic&static
  */
 declare interface InteropAbilityLifecycleCallback {
   /**
@@ -88,8 +85,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { AbilityCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onAbilityCreate: AbilityCallbackFn;
 
@@ -99,8 +95,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { WindowStageCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onWindowStageCreate: WindowStageCallbackFn;
 
@@ -110,8 +105,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { WindowStageCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onWindowStageDestroy: WindowStageCallbackFn;
 
@@ -121,8 +115,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { AbilityCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onAbilityDestroy: AbilityCallbackFn;
 
@@ -132,8 +125,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { AbilityCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onAbilityForeground: AbilityCallbackFn;
 
@@ -143,8 +135,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @type { AbilityCallbackFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic&static
    */
   onAbilityBackground: AbilityCallbackFn;
 }

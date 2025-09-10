@@ -27,7 +27,7 @@ import insightIntent from './@ohos.app.ability.insightIntent';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface IntentDecoratorInfo {
   /**
@@ -37,7 +37,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   intentName: string;
 
@@ -48,7 +48,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   domain: string;
 
@@ -59,7 +59,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   intentVersion: string;
 
@@ -70,7 +70,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   displayName: string;
 
@@ -81,7 +81,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   displayDescription?: string;
 
@@ -92,7 +92,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   schema?: string;
 
@@ -104,7 +104,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   icon?: ResourceStr;
 
@@ -115,7 +115,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   llmDescription?: string;
 
@@ -126,7 +126,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   keywords?: string[];
 
@@ -137,7 +137,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   parameters?: Record<string, Object>;
 
@@ -148,7 +148,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   result?: Record<string, Object>;
 
@@ -159,7 +159,7 @@ declare interface IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   example?: string;
 }
@@ -172,7 +172,7 @@ declare interface IntentDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
   /**
@@ -182,7 +182,7 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   uri: string;
 
@@ -193,7 +193,7 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   paramMappings?: LinkIntentParamMapping[];
 }
@@ -208,7 +208,7 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
  * @systemapi
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare enum LinkParamCategory {
   /**
@@ -218,7 +218,7 @@ declare enum LinkParamCategory {
    * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   LINK = 'link',
 
@@ -229,7 +229,7 @@ declare enum LinkParamCategory {
    * @systemapi
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   WANT = 'want',
 }
@@ -241,7 +241,7 @@ declare enum LinkParamCategory {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface LinkIntentParamMapping {
   /**
@@ -251,7 +251,7 @@ declare interface LinkIntentParamMapping {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   paramName: string;
 
@@ -262,7 +262,7 @@ declare interface LinkIntentParamMapping {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   paramMappingName?: string;
 
@@ -273,7 +273,7 @@ declare interface LinkIntentParamMapping {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   paramCategory?: LinkParamCategory;
 }
@@ -285,7 +285,7 @@ declare interface LinkIntentParamMapping {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentLink: ((intentInfo: LinkIntentDecoratorInfo) => ClassDecorator);
 
@@ -297,7 +297,7 @@ export declare const InsightIntentLink: ((intentInfo: LinkIntentDecoratorInfo) =
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
   /**
@@ -307,7 +307,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   uiAbility?: string;
 
@@ -318,7 +318,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   pagePath: string;
 
@@ -329,7 +329,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   navigationId?: string;
 
@@ -340,7 +340,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   navDestinationName?: string;
 }
@@ -352,7 +352,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentPage: ((intentInfo: PageIntentDecoratorInfo) => ClassDecorator);
 
@@ -364,7 +364,7 @@ export declare const InsightIntentPage: ((intentInfo: PageIntentDecoratorInfo) =
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface FunctionIntentDecoratorInfo extends IntentDecoratorInfo {}
 
@@ -375,7 +375,7 @@ declare interface FunctionIntentDecoratorInfo extends IntentDecoratorInfo {}
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentFunctionMethod: ((intentInfo: FunctionIntentDecoratorInfo) => MethodDecorator);
 
@@ -386,7 +386,7 @@ export declare const InsightIntentFunctionMethod: ((intentInfo: FunctionIntentDe
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentFunction: (() => ClassDecorator);
 
@@ -398,7 +398,7 @@ export declare const InsightIntentFunction: (() => ClassDecorator);
   * @syscap SystemCapability.Ability.AbilityRuntime.Core
   * @stagemodelonly
   * @atomicservice
-  * @since 20
+  * @since 20 dynamiconly
   */
 declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
 /**
@@ -408,7 +408,7 @@ declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   formName: string;
 }
@@ -421,7 +421,7 @@ declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
   /**
@@ -431,7 +431,7 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   abilityName: string;
 
@@ -444,7 +444,7 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   executeMode: insightIntent.ExecuteMode[];
 }
@@ -456,7 +456,7 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentEntry: ((intentInfo: EntryIntentDecoratorInfo) => ClassDecorator);
 
@@ -468,7 +468,7 @@ export declare const InsightIntentEntry: ((intentInfo: EntryIntentDecoratorInfo)
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
   /**
@@ -478,7 +478,7 @@ declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   formName: string;
 }
@@ -490,7 +490,7 @@ declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentForm: ((intentInfo: FormIntentDecoratorInfo) => ClassDecorator);
 
@@ -501,7 +501,7 @@ export declare const InsightIntentForm: ((intentInfo: FormIntentDecoratorInfo) =
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 declare interface IntentEntityDecoratorInfo {
   /**
@@ -511,7 +511,7 @@ declare interface IntentEntityDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   entityCategory: string;
 
@@ -522,7 +522,7 @@ declare interface IntentEntityDecoratorInfo {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   parameters?: Record<string, Object>;
 }
@@ -534,6 +534,6 @@ declare interface IntentEntityDecoratorInfo {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamiconly
  */
 export declare const InsightIntentEntity: ((intentEntityInfo: IntentEntityDecoratorInfo) => ClassDecorator);

@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Component } from './arkui/component/customComponent';
 import { ResourceStr, Resource, ResourceColor } from './arkui/component/units';
@@ -32,7 +31,7 @@ import { Builder } from './arkui/component/builder';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare enum ItemState {
@@ -40,21 +39,21 @@ export declare enum ItemState {
    * Enable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   ENABLE = 1,
   /**
    * Disable type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   DISABLE = 2,
   /**
    * Activate type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   ACTIVATE = 3
 }
@@ -63,7 +62,7 @@ export declare enum ItemState {
  *
  * @interface ToolBarSymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface ToolBarSymbolGlyphOptions {
@@ -72,7 +71,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   normal?: SymbolGlyphModifier;
   /**
@@ -80,7 +79,7 @@ export interface ToolBarSymbolGlyphOptions {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   activated?: SymbolGlyphModifier;
 }
@@ -88,7 +87,7 @@ export interface ToolBarSymbolGlyphOptions {
  * Declare type ToolBarOption.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Observed
@@ -98,7 +97,7 @@ export declare class ToolBarOption {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public content: ResourceStr;
   /**
@@ -106,7 +105,7 @@ export declare class ToolBarOption {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public action?: () => void;
   /**
@@ -114,7 +113,7 @@ export declare class ToolBarOption {
    *
    * @type { ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public icon?: Resource;
   /**
@@ -122,7 +121,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ItemState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public state?: ItemState;
   /**
@@ -130,7 +129,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public textColor?: ResourceColor;
   /**
@@ -138,7 +137,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public activatedTextColor?: ResourceColor;
   /**
@@ -146,7 +145,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public iconColor?: ResourceColor;
   /**
@@ -154,7 +153,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public activatedIconColor?: ResourceColor;
   /**
@@ -162,7 +161,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ToolBarSymbolGlyphOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public toolBarSymbolOptions?: ToolBarSymbolGlyphOptions;
   /**
@@ -170,7 +169,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -178,7 +177,7 @@ export declare class ToolBarOption {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -187,7 +186,7 @@ export declare class ToolBarOption {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public accessibilityLevel?: string;
 }
@@ -195,7 +194,7 @@ export declare class ToolBarOption {
  * Declare ToolBarOptions use in ToolBar.
  * @typedef { Array<ToolBarOption> } ToolBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export type ToolBarOptions = Array<ToolBarOption>
@@ -203,7 +202,7 @@ export type ToolBarOptions = Array<ToolBarOption>
  * Declare ToolBarModifier use in ToolBar.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class ToolBarModifier {
@@ -213,7 +212,7 @@ export declare class ToolBarModifier {
    * @param { LengthMetrics } height - toolBar's height.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public height(height: LengthMetrics): ToolBarModifier;
   /**
@@ -222,7 +221,7 @@ export declare class ToolBarModifier {
    * @param { ResourceColor } backgroundColor - toolBar's backgroundColor.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public backgroundColor(backgroundColor: ResourceColor): ToolBarModifier;
   /**
@@ -231,7 +230,7 @@ export declare class ToolBarModifier {
    * @param { LengthMetrics } padding - left and right padding.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public padding(padding: LengthMetrics): ToolBarModifier;
   /**
@@ -240,7 +239,7 @@ export declare class ToolBarModifier {
    * @param { boolean } stateEffect - press status effect.
    * @returns { ToolBarModifier } returns the instance of the ToolBarModifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public stateEffect(stateEffect: boolean): ToolBarModifier;
 }
@@ -248,7 +247,7 @@ export declare class ToolBarModifier {
  * Declare Component ToolBar.
  * @struct { ToolBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -258,7 +257,7 @@ export declare struct ToolBar {
    *
    * @type { ToolBarOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @ObjectLink
   toolBarList: ToolBarOptions;
@@ -267,7 +266,7 @@ export declare struct ToolBar {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   activateIndex?: int;
@@ -276,7 +275,7 @@ export declare struct ToolBar {
    *
    * @type { TabsController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   controller: TabsController;
   /**
@@ -284,7 +283,7 @@ export declare struct ToolBar {
    *
    * @type { ?DividerModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   dividerModifier?: DividerModifier;
@@ -293,7 +292,7 @@ export declare struct ToolBar {
    *
    * @type { ?ToolBarModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   toolBarModifier?: ToolBarModifier;
@@ -301,7 +300,7 @@ export declare struct ToolBar {
    * The method to build component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @Builder
   build(): void;

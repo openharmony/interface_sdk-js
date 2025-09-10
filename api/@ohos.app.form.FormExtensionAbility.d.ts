@@ -37,8 +37,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
@@ -51,8 +50,7 @@ type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnShareFormFn = (formId: string) => Record<string, Object>;
 
@@ -65,8 +63,7 @@ type OnShareFormFn = (formId: string) => Record<string, Object>;
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
 
@@ -77,8 +74,7 @@ type OnAcquireFormDataFn = (formId: string) => Record<string, Object>;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnStopFn = () => void;
 
@@ -95,8 +91,8 @@ type OnStopFn = () => void;
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare class FormExtensionAbility {
   /**
@@ -114,8 +110,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   context: FormExtensionContext;
 
@@ -142,8 +138,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onAddForm(want: Want): formBindingData.FormBindingData;
 
@@ -162,8 +158,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onCastToNormalForm(formId: string): void;
 
@@ -192,8 +188,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   onUpdateForm(formId: string, wantParams?: Record<string, Object>): void;
 
@@ -226,8 +222,8 @@ declare class FormExtensionAbility {
    *                                               becomes invisible.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onChangeFormVisibility(newStatus: Record<string, int>): void;
 
@@ -254,8 +250,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onFormEvent(formId: string, message: string): void;
 
@@ -276,8 +272,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onRemoveForm(formId: string): void;
 
@@ -296,8 +292,8 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since arkts{ '1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   onConfigurationUpdate(newConfig: Configuration): void;
 
@@ -326,7 +322,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onAcquireFormState?(want: Want): formInfo.FormState;
 
@@ -339,8 +335,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
     onAcquireFormState?: OnAcquireFormStateFn;
 
@@ -362,7 +357,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onShareForm?(formId: string): Record<string, Object>;
 
@@ -373,8 +368,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onShareForm?: OnShareFormFn;
 
@@ -396,7 +390,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   onAcquireFormData?(formId: string): Record<string, Object>;
 
@@ -407,8 +401,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onAcquireFormData?: OnAcquireFormDataFn;
 
@@ -418,7 +411,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onStop?(): void;
 
@@ -429,8 +422,7 @@ declare class FormExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onStop?: OnStopFn;
 
@@ -442,8 +434,7 @@ declare class FormExtensionAbility {
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;
 }

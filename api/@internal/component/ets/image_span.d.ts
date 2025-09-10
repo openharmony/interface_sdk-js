@@ -33,7 +33,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface ImageSpanInterface {
@@ -54,7 +54,7 @@ interface ImageSpanInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: ResourceStr | PixelMap): ImageSpanAttribute;
 }
@@ -74,7 +74,7 @@ interface ImageSpanInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
@@ -95,7 +95,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   verticalAlign(value: ImageSpanAlignment): ImageSpanAttribute;
 
@@ -107,7 +107,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 14
+   * @since 14 dynamic
    */
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 
@@ -128,7 +128,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectFit(value: ImageFit): ImageSpanAttribute;
   
@@ -141,7 +141,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
@@ -154,7 +154,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
 
@@ -165,7 +165,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   alt(value: PixelMap): ImageSpanAttribute;
 }
@@ -183,7 +183,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const ImageSpan: ImageSpanInterface;
@@ -201,7 +201,7 @@ declare const ImageSpan: ImageSpanInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const ImageSpanInstance: ImageSpanAttribute;
@@ -214,7 +214,7 @@ declare const ImageSpanInstance: ImageSpanAttribute;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 type ImageCompleteCallback = (result: ImageLoadResult) => void;
 
@@ -225,7 +225,7 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface ImageLoadResult {
   /**
@@ -235,7 +235,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   width: number;
   /**
@@ -245,7 +245,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   height: number;
   /**
@@ -255,7 +255,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   componentWidth: number;
   /**
@@ -265,7 +265,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   componentHeight: number;
   /**
@@ -277,7 +277,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   loadingStatus: number;
   /**
@@ -287,7 +287,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentWidth: number;
   /**
@@ -297,7 +297,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentHeight: number;
   /**
@@ -307,7 +307,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentOffsetX: number;
   /**
@@ -317,7 +317,7 @@ declare interface ImageLoadResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentOffsetY: number;
 }

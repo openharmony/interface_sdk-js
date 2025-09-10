@@ -18,7 +18,7 @@
  * @kit ArkWeb
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import webview from '@ohos.web.webview';
 import { WebNetErrorList } from '@ohos.web.netErrorList';
 

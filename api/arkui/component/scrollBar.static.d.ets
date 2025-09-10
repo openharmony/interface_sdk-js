@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Scroller } from "./scroll";
 import { BarState } from './enums';
@@ -28,21 +27,21 @@ import { AttributeModifier, CommonMethod } from "./common";
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum ScrollBarDirection {
     /**
      * Vertical scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Vertical,
     /**
      * Horizontal scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Horizontal
 }
@@ -51,7 +50,7 @@ export declare enum ScrollBarDirection {
  *
  * @interface ScrollBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ScrollBarOptions {
     /**
@@ -59,7 +58,7 @@ export declare interface ScrollBarOptions {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     scroller: Scroller;
     /**
@@ -67,7 +66,7 @@ export declare interface ScrollBarOptions {
      *
      * @type { ?ScrollBarDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     direction?: ScrollBarDirection;
     /**
@@ -75,7 +74,7 @@ export declare interface ScrollBarOptions {
      *
      * @type { ?BarState }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     state?: BarState;
 }
@@ -86,7 +85,7 @@ export declare interface ScrollBarOptions {
  * @extends CommonMethod
  * @interface ScrollBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface ScrollBarAttribute extends CommonMethod {
@@ -95,7 +94,7 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      * @param { Optional<boolean> } enabled - Whether to enable nested scroll.
      * @returns { this } The attribute of the scroll bar
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableNestedScroll(enabled: boolean | undefined): this;
     /**
@@ -104,7 +103,7 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      * @param { AttributeModifier<ScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<ScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -116,7 +115,7 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { ScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

@@ -26,8 +26,8 @@ import { AsyncCallback } from './@ohos.base';
  * @namespace workScheduler
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since arkts {'1.1':'9','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace workScheduler {
   /**
@@ -36,8 +36,8 @@ declare namespace workScheduler {
    * @interface WorkInfo
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export interface WorkInfo {
     /**
@@ -46,8 +46,8 @@ declare namespace workScheduler {
      * @type { int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     workId: int;
     /**
@@ -56,8 +56,8 @@ declare namespace workScheduler {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     bundleName: string;
     /**
@@ -66,8 +66,8 @@ declare namespace workScheduler {
      * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     abilityName: string;
     /**
@@ -76,8 +76,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     isPersisted?: boolean;
     /**
@@ -86,8 +86,8 @@ declare namespace workScheduler {
      * @type { ?NetworkType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     networkType?: NetworkType;
     /**
@@ -96,8 +96,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     isCharging?: boolean;
     /**
@@ -106,8 +106,8 @@ declare namespace workScheduler {
      * @type { ?ChargingType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     chargerType?: ChargingType;
     /**
@@ -116,8 +116,8 @@ declare namespace workScheduler {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     batteryLevel?: int;
     /**
@@ -126,8 +126,8 @@ declare namespace workScheduler {
      * @type { ?BatteryStatus }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     batteryStatus?: BatteryStatus;
     /**
@@ -136,8 +136,8 @@ declare namespace workScheduler {
      * @type { ?StorageRequest }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     storageRequest?: StorageRequest;
     /**
@@ -146,8 +146,8 @@ declare namespace workScheduler {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     repeatCycleTime?: int;
     /**
@@ -156,8 +156,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     isRepeat?: boolean;
     /**
@@ -166,8 +166,8 @@ declare namespace workScheduler {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     repeatCount?: int;
     /**
@@ -176,8 +176,8 @@ declare namespace workScheduler {
      * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     isDeepIdle?: boolean;
     /**
@@ -186,8 +186,8 @@ declare namespace workScheduler {
      * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     idleWaitTime?: int;
     /**
@@ -196,8 +196,8 @@ declare namespace workScheduler {
      * @type { ?Record<string, int | double | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     parameters?: Record<string, int | double | string | boolean>;
   }
@@ -217,8 +217,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function startWork(work: WorkInfo): void;
 
@@ -236,8 +236,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopWork(work: WorkInfo, needCancel?: boolean): void;
 
@@ -254,8 +254,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getWorkStatus(workId: int, callback: AsyncCallback<WorkInfo>): void;
 
@@ -272,8 +272,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getWorkStatus(workId: int): Promise<WorkInfo>;
 
@@ -290,7 +290,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
@@ -307,8 +307,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>): void;
 
@@ -324,8 +324,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function obtainAllWorks(): Promise<Array<WorkInfo>>;
 
@@ -340,8 +340,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function stopAndClearWorks(): void;
 
@@ -359,7 +359,7 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
@@ -377,8 +377,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>): void;
 
@@ -395,8 +395,8 @@ declare namespace workScheduler {
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function isLastWorkTimeOut(workId: int): Promise<boolean>;
 
@@ -406,8 +406,8 @@ declare namespace workScheduler {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    * @name NetworkType
   */
   export enum NetworkType {
@@ -416,8 +416,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_ANY = 0,
     /**
@@ -425,8 +425,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_MOBILE,
     /**
@@ -434,8 +434,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_WIFI,
     /**
@@ -443,8 +443,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_BLUETOOTH,
     /**
@@ -452,8 +452,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_WIFI_P2P,
     /**
@@ -461,8 +461,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     NETWORK_TYPE_ETHERNET
   }
@@ -473,8 +473,8 @@ declare namespace workScheduler {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    * @name ChargingType
   */
   export enum ChargingType {
@@ -483,8 +483,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CHARGING_PLUGGED_ANY = 0,
     /**
@@ -492,8 +492,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CHARGING_PLUGGED_AC,
     /**
@@ -501,8 +501,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CHARGING_PLUGGED_USB,
     /**
@@ -510,8 +510,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     CHARGING_PLUGGED_WIRELESS
   }
@@ -522,8 +522,8 @@ declare namespace workScheduler {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    * @name BatteryStatus
   */
   export enum BatteryStatus {
@@ -532,8 +532,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     BATTERY_STATUS_LOW = 0,
     /**
@@ -541,8 +541,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     BATTERY_STATUS_OKAY,
     /**
@@ -550,8 +550,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     BATTERY_STATUS_LOW_OR_OKAY
   }
@@ -562,8 +562,8 @@ declare namespace workScheduler {
    * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @StageModelOnly
-   * @since arkts {'1.1':'9','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    * @name StorageRequest
   */
   export enum StorageRequest {
@@ -572,8 +572,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STORAGE_LEVEL_LOW = 0,
     /**
@@ -581,8 +581,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STORAGE_LEVEL_OKAY,
     /**
@@ -590,8 +590,8 @@ declare namespace workScheduler {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @StageModelOnly
-     * @since arkts {'1.1':'9','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     STORAGE_LEVEL_LOW_OR_OKAY
   }

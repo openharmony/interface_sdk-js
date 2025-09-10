@@ -22,16 +22,16 @@
  *
  * @namespace common2D
  * @syscap SystemCapability.Graphics.Drawing
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace common2D {
   /**
    * Describes a color in ARGB format.
    * @typedef Color
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Color {
     /**
@@ -45,8 +45,7 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     alpha: int;
     /**
@@ -60,8 +59,7 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     red: int;
     /**
@@ -75,8 +73,7 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     green: int;
     /**
@@ -90,8 +87,7 @@ declare namespace common2D {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     blue: int;
   }
@@ -100,8 +96,8 @@ declare namespace common2D {
    * Describes a rectangle, which can be defined by two coordinate points: upper left corner point and lower right corner point.
    * @typedef Rect
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Rect {
     /**
@@ -115,8 +111,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     left: double;
     /**
@@ -130,8 +125,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     top: double;
     /**
@@ -145,8 +139,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     right: double;
     /**
@@ -160,8 +153,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     bottom: double;
   }
@@ -170,8 +162,8 @@ declare namespace common2D {
    * Describes a coordinate point.
    * @typedef Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   interface Point {
     /**
@@ -185,8 +177,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     x: double;
 
@@ -201,8 +192,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     y: double;
   }
@@ -213,7 +203,7 @@ declare namespace common2D {
    * @typedef Point3d
    * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since 12 dynamic
    */
   interface Point3d extends Point {
     /**
@@ -227,7 +217,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     z: double;
   }
@@ -237,7 +227,7 @@ declare namespace common2D {
    * @typedef Color4f
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   interface Color4f {
     /**
@@ -245,7 +235,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     alpha: double;
     /**
@@ -253,7 +243,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     red: double;
     /**
@@ -261,7 +251,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     green: double;
     /**
@@ -269,7 +259,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     blue: double;
   }

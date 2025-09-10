@@ -19,10 +19,10 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type * as _BusinessAbilityInfo from './application/BusinessAbilityInfo';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { BusinessAbilityInfo as _BusinessAbilityInfo } from './application/BusinessAbilityInfo';
 /*** endif */
 
@@ -32,8 +32,8 @@ import { BusinessAbilityInfo as _BusinessAbilityInfo } from './application/Busin
  * @namespace businessAbilityRouter
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace businessAbilityRouter {
   /**
@@ -42,8 +42,8 @@ declare namespace businessAbilityRouter {
    * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   export enum BusinessType {
     /**
@@ -51,8 +51,8 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     SHARE = 0,
 
@@ -61,8 +61,8 @@ declare namespace businessAbilityRouter {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     UNSPECIFIED = 255
   }
@@ -73,8 +73,8 @@ declare namespace businessAbilityRouter {
    * @typedef BusinessAbilityFilter
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   export interface BusinessAbilityFilter {
     /**
@@ -83,8 +83,8 @@ declare namespace businessAbilityRouter {
      * @type { BusinessType }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     businessType: BusinessType;
 
@@ -94,8 +94,8 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     mimeType?: string;
 
@@ -105,8 +105,8 @@ declare namespace businessAbilityRouter {
      * @type { ?string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     uri?: string;
   }
@@ -125,8 +125,8 @@ declare namespace businessAbilityRouter {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function queryBusinessAbilityInfo(
     filter: BusinessAbilityFilter,
@@ -146,8 +146,8 @@ declare namespace businessAbilityRouter {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function queryBusinessAbilityInfo(filter: BusinessAbilityFilter): Promise<Array<BusinessAbilityInfo>>;
 
@@ -157,7 +157,7 @@ declare namespace businessAbilityRouter {
    * @typedef { _BusinessAbilityInfo.BusinessAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 10
+   * @since 10 dynamic
    */
   export type BusinessAbilityInfo = _BusinessAbilityInfo.BusinessAbilityInfo;
 
@@ -167,8 +167,7 @@ declare namespace businessAbilityRouter {
    * @typedef { _BusinessAbilityInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   export type BusinessAbilityInfo = _BusinessAbilityInfo;
 }

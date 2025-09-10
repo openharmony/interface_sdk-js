@@ -35,8 +35,8 @@ import CompletionHandler from './@ohos.app.ability.CompletionHandler';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export default class StartOptions {
   /**
@@ -48,8 +48,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   windowMode?: int;
 
@@ -68,8 +68,8 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   displayId?: long;
 
@@ -79,8 +79,8 @@ export default class StartOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   withAnimation?: boolean;
 
@@ -90,8 +90,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowLeft?: int;
 
@@ -101,8 +101,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowTop?: int;
 
@@ -112,8 +112,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowWidth?: int;
 
@@ -123,8 +123,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   windowHeight?: int;
 
@@ -135,8 +135,8 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   windowFocused?: boolean;
 
@@ -148,8 +148,8 @@ export default class StartOptions {
    * @type { ?contextConstant.ProcessMode }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   processMode?: contextConstant.ProcessMode;
 
@@ -161,8 +161,8 @@ export default class StartOptions {
    * @type { ?contextConstant.StartupVisibility }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startupVisibility?: contextConstant.StartupVisibility;
 
@@ -172,8 +172,8 @@ export default class StartOptions {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startWindowIcon?: image.PixelMap;
 
@@ -183,8 +183,8 @@ export default class StartOptions {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startWindowBackgroundColor?: string;
 
@@ -194,8 +194,8 @@ export default class StartOptions {
    * @type { ?Array<bundleManager.SupportWindowMode> }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   supportWindowModes?: Array<bundleManager.SupportWindowMode>;
 
@@ -205,8 +205,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   minWindowWidth?: int;
 
@@ -216,8 +216,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   minWindowHeight?: int;
 
@@ -227,8 +227,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   maxWindowWidth?: int;
 
@@ -238,8 +238,8 @@ export default class StartOptions {
    * @type { ?int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since arkts{ '1.1':'17','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 17 dynamic
+   * @since 20 static
    */
   maxWindowHeight?: int;
 
@@ -250,8 +250,7 @@ export default class StartOptions {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   completionHandler?: CompletionHandler;
 
@@ -261,8 +260,7 @@ export default class StartOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   hideStartWindow?: boolean;
 }
