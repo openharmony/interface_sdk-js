@@ -348,7 +348,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * <br>Dynamic update is not supported.
    * </p>
    *
-   * @param { Array<ImageFrameInfo> } value - Image frame informatio, Default value is [].
+   * @param { Array<ImageFrameInfo> } value - Image frame information, Default value is [].
    * @returns { ImageAnimatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
