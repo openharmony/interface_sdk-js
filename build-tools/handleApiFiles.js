@@ -522,7 +522,7 @@ function handlehasTagFile(sourceFile, outputPath) {
  */
 function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   dirType = DirType.typeThree;
-  const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(dynamic&)?static)\s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(staticonly|(dynamic&)?static))\s*(\r|\n)\s*/g;
   const fileContent = sourceFile.getFullText();
   let newContent = '';
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
