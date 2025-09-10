@@ -114,6 +114,16 @@ export interface NotificationBasicContent {
    * @arkts 1.1&1.2
    */
   lockscreenPicture?: image.PixelMap;
+
+  /**
+   * Structured text of the notification. Its key or value cannot exceed 512 bytes. Excess content will be truncated.
+   *
+   * @type { ?Map<string, string> }
+   * @syscap SystemCapability.Notification.Notification
+   * @since arkts {'1.1':'21', '1.2':'21'}
+   * @arkts 1.1&1.2
+   */
+  structuredText?: Map<string, string>;
 }
 
 /**
