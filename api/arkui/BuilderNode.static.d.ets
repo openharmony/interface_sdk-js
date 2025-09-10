@@ -25,6 +25,7 @@ import { FrameNode } from './FrameNode';
 import { Size } from './Graphics';
 import { TouchEvent, MouseEvent, AxisEvent } from './component/common';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
+import { RecordData } from '../@ohos.base';
 
 /**
  * Render type of the node using for indicating that
@@ -190,11 +191,11 @@ export declare class BuilderNode<T = undefined> {
   /**
    * Reuse the BuilderNode based on the provided parameters.
    *
-   * @param { Object } [param] - Parameters for reusing BuilderNode.
+   * @param { RecordData } [param] - Parameters for reusing BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  reuse(param?: Object): void;
+  reuse(param?: RecordData): void;
 
   /**
    * Recycle the BuilderNode.
