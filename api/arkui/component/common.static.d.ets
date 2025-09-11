@@ -10782,18 +10782,8 @@ export declare interface CommonMethod {
      * <p><strong>NOTE</strong>
      * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
      * <br>the component and all its children are treated as a single selectable unit, and the accessibility
-     * <br>service will no longer focus on the individual child components.</p>
+     * <br>service will no longer focus on the individual child components.
      *
-     * @param { boolean | undefined } value - set group with accessibility, default value is false.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityGroupWithValue(value: boolean | undefined): this;
-    /**
-     * Sets whether to enable accessibility grouping.
-     *
-     * <p><strong>NOTE</strong>
      * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
      * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
      * <br>its child components to form a merged text for the component. If a child component lacks a universal
@@ -10805,27 +10795,12 @@ export declare interface CommonMethod {
      * <br>If a child component lacks both, it will be ignored.</p>
      *
      * @param { boolean | undefined } isGroup - set group with accessibility, default value is false.
-     * @param { AccessibilityOptions | undefined } config - accessibilityOptions for accessibility, default value is false.
+     * @param { ?AccessibilityOptions } [accessibilityOptions] - options for accessibility, default value is false.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityGroupWithConfig(isGroup: boolean | undefined, config: AccessibilityOptions | undefined): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityGroup { accessibilityGroupWithValue, accessibilityGroupWithConfig };
-    /**
-     * Sets the accessibility text.
-     * When a component does not contain a text attribute, you can use this API to set an accessibility
-     * text attribute, so that accessibility services can announce the specified content for the component.
-     *
-     * @param { string | undefined } value - set accessibility text, default value is "".
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityTextOfStringType(value: string | undefined): this;
+    default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions?: AccessibilityOptions): this;
     /**
      * Sets accessibility next focus id
      * @param { string | undefined } nextId - set component next accessibility focus id
@@ -10861,21 +10836,19 @@ export declare interface CommonMethod {
     /**
      * Sets the accessibility text.
      * <p><strong>NOTE</strong>
-     * If a component has both text content and accessibility text, only the accessibility text is announced.
+     * <br>When a component does not contain a text attribute, you can use this API to set an accessibility
+     * <br>text attribute, so that accessibility services can announce the specified content for the component.
+     * <br>If a component has both text content and accessibility text, only the accessibility text is announced.
      * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
      * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
      * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
      * </p>
-     * @param { Resource } text - set accessibility text
+     * @param { Resource | string | undefined } text - set accessibility text, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityTextOfResourceType(text: Resource): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityText { accessibilityTextOfStringType, accessibilityTextOfResourceType };
+    default accessibilityText(text: Resource | string | undefined): this;
     /**
      * Sets accessibility role,role indicates the custom type of the component
      * @param { AccessibilityRoleType | undefined } role - set accessibility component type
@@ -10904,15 +10877,6 @@ export declare interface CommonMethod {
     /**
      * Sets accessibilityDescription
      *
-     * @param { string | undefined } value - set description of accessibility, default value is "".
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityDescriptionOfStringType(value: string | undefined): this;
-    /**
-     * Sets accessibilityDescription
-     *
      * with support for resource references using Resource.
      * This property provides additional context or explanation for the component,
      * helping users understand the action or function it performs.
@@ -10922,16 +10886,12 @@ export declare interface CommonMethod {
      * <br>cannot be learned from component attributes and accessibility text. If a component contains
      * <br>both text information and the accessibility description, the text is read first and then the
      * <br>accessibility description, when the component is selected.</p>
-     * @param { Resource } description - set description of accessibility
+     * @param { Resource | string | undefined } description - set description of accessibility, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityDescriptionOfResourceType(description: Resource): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityDescription { accessibilityDescriptionOfStringType, accessibilityDescriptionOfResourceType };
+    default accessibilityDescription(description: Resource | string | undefined): this;
     /**
      * Sets the accessibility level.
      * This property determines whether the component can be recognized by accessibility services.
