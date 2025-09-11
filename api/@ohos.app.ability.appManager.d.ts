@@ -358,6 +358,310 @@ declare namespace appManager {
     }
   
   /**
+   * Bundle type filter flags.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  export enum FilterBundleType {
+    /**
+    * Indicates the app bundle type.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    APP = 1 << 0,
+
+    /**
+    * Indicates the atomic service bundle type.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ATOMIC_SERVICE = 1 << 1
+  }
+
+  /**
+   * Application state filter flags.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  export enum FilterAppStateType {
+    /**
+    * Indicates the application creation state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    CREATE = 1 << 0,
+
+    /**
+    * Indicates the application foreground state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    FOREGROUND = 1 << 1,
+
+    /**
+    * Indicates the application background state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    BACKGROUND = 1 << 2,
+
+    /**
+    * Indicates the application destruction state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    DESTROY = 1 << 3
+  }
+
+  /**
+   * Process state filter flags.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  export enum FilterProcessStateType {
+    /**
+    * Indicates the process creation state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    CREATE = 1 << 0,
+
+    /**
+    * Indicates the process foreground state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    FOREGROUND = 1 << 1,
+
+    /**
+    * Indicates the process background state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    BACKGROUND = 1 << 2,
+
+    /**
+    * Indicates the process destruction state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    DESTROY = 1 << 3
+  }
+
+  /**
+   * Ability state filter flags.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  export enum FilterAbilityStateType {
+    /**
+    * Indicates the ability creation state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    CREATE = 1 << 0,
+
+    /**
+    * Indicates the ability foreground state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    FOREGROUND = 1 << 1,
+
+    /**
+    * Indicates the ability background state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    BACKGROUND = 1 << 2,
+
+    /**
+    * Indicates the ability destruction state.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    DESTROY = 1 << 3
+  }
+
+  /**
+   * Callback type filter flags.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  export enum FilterCallback {
+    /**
+    * Indicates the foreground application changed callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_FOREGROUND_APPLICATION_CHANGED = 1 << 0,
+
+    /**
+    * Indicates the ability state changed callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_ABILITY_STATE_CHANGED = 1 << 1,
+
+    /**
+    * Indicates the process created callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_PROCESS_CREATED = 1 << 2,
+
+    /**
+    * Indicates the process died callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_PROCESS_DIED = 1 << 3,
+
+    /**
+    * Indicates the process state changed callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_PROCESS_STATE_CHANGED = 1 << 4,
+
+    /**
+    * Indicates the application started callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_APP_STARTED = 1 << 5,
+
+    /**
+    * Indicates the application stopped callback.
+    *
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    ON_APP_STOPPED = 1 << 6
+  }
+
+  /**
+   * Application state filter configuration.
+   *
+   * @typedef AppStateFilter
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  interface AppStateFilter {
+    /**
+    * Bundle type filter flags, bitwise OR combination of {@link FilterBundleType}.
+    * If unset, all bundle types are monitored.
+    *
+    * @type { ?int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    bundleTypes?: int;
+
+    /**
+    * Application state filter flags, bitwise OR combination of {@link FilterAppStateType}.
+    * If unset, all application states are monitored.
+    *
+    * @type { ?int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    appStateTypes?: int;
+
+    /**
+    * Process state filter flags, bitwise OR combination of {@link FilterProcessStateType}.
+    * If unset, all process states are monitored.
+    *
+    * @type { ?int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    processStateTypes?: int;
+
+    /**
+    * Ability state filter flags, bitwise OR combination of {@link FilterAbilityStateType}.
+    * If unset, all ability states are monitored.
+    *
+    * @type { ?int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    abilityStateTypes?: int;
+
+    /**
+    * Callback type filter flags, bitwise OR combination of {@link FilterCallback}.
+    * If unset, all callback types are monitored.
+    *
+    * @type { ?int }
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @systemapi
+    * @since 21
+    */
+    callbacks?: int;
+  }
+  
+  /**
    * Register application state observer.
    *
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
@@ -389,6 +693,24 @@ declare namespace appManager {
    * @since 14
    */
   function on(type: 'applicationState', observer: ApplicationStateObserver, bundleNameList: Array<string>): number;
+
+  /**
+   * Register application state observer with filter.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { 'applicationState' } type - applicationState.
+   * @param { ApplicationStateObserver } observer - The application state observer.
+   * @param { AppStateFilter } filter - Filter configuration for targeted monitoring.
+   * @returns { int } Returns the number code of the observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 21
+   */
+  function on(type: 'applicationState', observer: ApplicationStateObserver, filter: AppStateFilter): int;
 
   /**
    * Register app foreground or background state observer.
