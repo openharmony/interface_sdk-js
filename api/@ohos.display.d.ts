@@ -805,6 +805,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 20 static
    */
   function addVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
@@ -821,6 +822,7 @@ declare namespace display {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
+   * @since 20 static
    */
   function removeVirtualScreenBlocklist(windowIds: Array<int>): Promise<void>;
 
@@ -2231,6 +2233,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     colorSpaces: Array<colorSpaceManager.ColorSpace>;
 
@@ -2248,6 +2251,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     hdrFormats: Array<hdrCapability.HDRFormat>;
 
