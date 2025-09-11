@@ -34154,6 +34154,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
+   * Called when the scrollable will start dragging.
+   *
+   * @param { VoidCallback } handler - callback of start dragging.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  onWillStartDragging(handler: VoidCallback): T;
+
+  /**
    * Called when the scrollable will end dragging.
    *
    * @param { OnWillStopDraggingCallback } handler - callback of end dragging.
@@ -34165,6 +34178,45 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 20
    */
   onWillStopDragging(handler: OnWillStopDraggingCallback): T;
+
+  /**
+   * Called when the scrollable did end dragging.
+   *
+   * @param { OnDidStopDraggingCallback } handler - callback of end dragging.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  onDidStopDragging(handler: OnDidStopDraggingCallback): T;
+
+  /**
+   * Called when the scrollable will start fling.
+   *
+   * @param { VoidCallback } handler - callback of start fling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  onWillStartFling(handler: VoidCallback): T;
+
+  /**
+   * Called when the scrollable did end fling.
+   *
+   * @param { VoidCallback } handler - callback of end fling.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  onDidStopFling(handler: VoidCallback): T;
 
   /**
    * Triggered when the scrollable component reaches the start position.
@@ -34372,6 +34424,19 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
   * @since 20
   */
 declare type OnWillStopDraggingCallback = (velocity: number) => void;
+
+/**
+ * On scroll callback using in scrollable onDidStopDragging.
+ *
+ * @typedef { function } OnDidStopDraggingCallback
+ * @param { boolean } willFling - whether start fling animation.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 22
+ */
+declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
  * Defines the onMove callback.
