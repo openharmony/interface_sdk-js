@@ -347,6 +347,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 20 static
    */
   function on(type: 'netStatsChange', callback: Callback<NetStatsChangeInfo>): void;
 
@@ -377,6 +378,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
+   * @since 20 static
    */
   function off(type: 'netStatsChange', callback?: Callback<NetStatsChangeInfo>): void;
 
@@ -708,6 +710,14 @@ declare namespace statistics {
   };
 
   /**
+   * {@link NetStatsInfo} for every UID. Key is UID.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20 static
+   */
+  export type UidNetStatsInfo = Record<int, NetStatsInfo>;
+
+  /**
    * Parameters for obtaining detailed information on specified network traffic usage.
    * @interface NetworkInfo
    * @syscap SystemCapability.Communication.NetManager.Core
@@ -769,6 +779,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function getTrafficStatsByNetwork(networkInfo: NetworkInfo): Promise<UidNetStatsInfo>;
   /**
