@@ -396,6 +396,7 @@ declare namespace pasteboard {
      * Email address pattern.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
+     * @since 20 static
      */
     EMAIL_ADDRESS = 2,
   }
