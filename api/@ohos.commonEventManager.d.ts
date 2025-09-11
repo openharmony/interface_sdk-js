@@ -258,11 +258,26 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   function createSubscriber(
     subscribeInfo: CommonEventSubscribeInfo,
     callback: AsyncCallback<CommonEventSubscriber>
+  ): void;
+
+  /**
+   * Creates a subscriber. This API uses an asynchronous callback to return the result.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @param { AsyncCallback<CommonEventSubscriber|null> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 20 static
+   */
+  function createSubscriber(
+    subscribeInfo: CommonEventSubscribeInfo,
+    callback: AsyncCallback<CommonEventSubscriber|null>
   ): void;
 
   /**
@@ -286,9 +301,21 @@ declare namespace commonEventManager {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>;
+
+  /**
+   * Creates a subscriber. This API uses a promise to return the result.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { Promise<CommonEventSubscriber|null> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform
+   * @since 20 static
+   */
+  function createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber|null>;
 
   /**
    * Creates a subscriber. The API returns the result synchronously.
@@ -310,9 +337,20 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber;
+
+  /**
+   * Creates a subscriber. The API returns the result synchronously.
+   *
+   * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
+   * @returns { CommonEventSubscriber|null } Promise used to return the subscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @since 20 static
+   */
+  function createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber|null;
 
   /**
    * Subscribes to a common event. This API uses an asynchronous callback to return the result.
