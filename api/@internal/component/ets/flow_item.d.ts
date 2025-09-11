@@ -41,7 +41,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface FlowItemInterface {
@@ -67,7 +67,7 @@ interface FlowItemInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (): FlowItemAttribute;
 }
@@ -94,7 +94,7 @@ interface FlowItemInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
@@ -118,7 +118,7 @@ declare class FlowItemAttribute extends CommonMethod<FlowItemAttribute> {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const FlowItem: FlowItemInterface
@@ -142,7 +142,7 @@ declare const FlowItem: FlowItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const FlowItemInstance: FlowItemAttribute;

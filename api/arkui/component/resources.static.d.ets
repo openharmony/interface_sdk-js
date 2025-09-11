@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Resource } from './../../../api/global/resource';
@@ -31,7 +30,7 @@ import { Resource } from './../../../api/global/resource';
  * @param { Object[] } params - Custom parameters.
  * @returns { Resource } Returns the resource instance.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function _r(
     id: number, type: number, bundleName: string, moduleName: string, ...params: Object[]): Resource;
@@ -46,7 +45,7 @@ export declare function _r(
  * @param { Object[] } params - Custom parameters.
  * @returns { Resource } Returns the resource instance.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare function _rawfile(
     id: number, type: number, bundleName: string, moduleName: string, ...params: Object[]): Resource;

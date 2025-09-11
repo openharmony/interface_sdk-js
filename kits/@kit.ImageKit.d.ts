@@ -18,7 +18,7 @@
  * @kit ImageKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import image from '@ohos.multimedia.image';
 import sendableImage from '@ohos.multimedia.sendableImage';
 import videoProcessingEngine from '@ohos.multimedia.videoProcessingEngine';
@@ -26,7 +26,7 @@ import videoProcessingEngine from '@ohos.multimedia.videoProcessingEngine';
 export { image, sendableImage, videoProcessingEngine };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import image from '@ohos.multimedia.image';
 
 export { image };

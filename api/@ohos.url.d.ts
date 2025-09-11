@@ -40,15 +40,15 @@
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace url {
     /**
      * The URLSearchParams interface defines some practical methods to process URL query strings.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.url.URLParams
      * @name URLSearchParams
@@ -64,7 +64,7 @@ declare namespace url {
          *
          * @param { string[][] | Record<string, string> | string | URLSearchParams } init - init init
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.constructor
          */
@@ -76,7 +76,7 @@ declare namespace url {
          * @param { string } name - name name Key name of the search parameter to be inserted.
          * @param { string } value - value value Values of search parameters to be inserted.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.append
          */
@@ -87,7 +87,7 @@ declare namespace url {
          *
          * @param { string } name - name name Name of the key-value pair to be deleted.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.delete
          */
@@ -99,7 +99,7 @@ declare namespace url {
          * @param { string } name - name name Specifies the name of a key value.
          * @returns { string[] } string[] Returns all key-value pairs with the specified name.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.getAll
          */
@@ -111,7 +111,7 @@ declare namespace url {
          *
          * @returns { IterableIterator<[string, string]> } Returns an iterator for ES6.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.entries
          */
@@ -123,7 +123,7 @@ declare namespace url {
          * @param { function } callbackFn - callbackFn callbackFn Current traversal key value.
          * @param { Object } thisArg - thisArg thisArg thisArg to be used as this value for when callbackFn is called
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.forEach
          */
@@ -135,7 +135,7 @@ declare namespace url {
          * @param { string } name - name name Specifies the name of a key-value pair.
          * @returns { string | null } Returns the first value found by name. If no value is found, null is returned.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.get
          */
@@ -147,7 +147,7 @@ declare namespace url {
          * @param { string } name - name name Specifies the name of a key-value pair.
          * @returns { boolean } Returns a Boolean value that indicates whether a found
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.has
          */
@@ -162,7 +162,7 @@ declare namespace url {
          * @param { string } name - name name Key name of the parameter to be set.
          * @param { string } value - value value Indicates the parameter value to be set.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.set
          */
@@ -172,7 +172,7 @@ declare namespace url {
          * Sort all key/value pairs contained in this object in place and return undefined.
          *
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.sort
          */
@@ -183,7 +183,7 @@ declare namespace url {
          *
          * @returns { IterableIterator<string> } Returns an ES6 Iterator over the names of each name-value pair.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.keys
          */
@@ -194,7 +194,7 @@ declare namespace url {
          *
          * @returns { IterableIterator<string> } Returns an ES6 Iterator over the values of each name-value pair.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.values
          */
@@ -206,7 +206,7 @@ declare namespace url {
          * @returns { IterableIterator<[string, string]> } Returns an ES6 iterator. Each item of the iterator is a JavaScript Array. 
          * The first item of Array is name, and the second item of Array is value.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.[Symbol.iterator]
          */
@@ -217,7 +217,7 @@ declare namespace url {
          *
          * @returns { string } Returns a search parameter serialized as a string, percent-encoded if necessary.
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URLParams.toString
          */
@@ -245,8 +245,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      * @name URLParams
      */
     class URLParams {
@@ -290,7 +290,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         constructor(init?: string[][] | Record<string, string> | string | URLParams);
 
@@ -306,8 +306,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         constructor(init?: [string, string][] | Record<string, string> | string | URLParams);
 
@@ -348,8 +347,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         append(name: string, value: string): void;
 
@@ -387,8 +386,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         delete(name: string): void;
 
@@ -429,8 +428,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         getAll(name: string): string[];
 
@@ -459,8 +458,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         entries(): IterableIterator<[string, string]>;
 
@@ -504,7 +503,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         forEach(callbackFn: (value: string, key: string, searchParams: URLParams) => void, thisArg?: Object): void;
 
@@ -515,8 +514,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         forEach(callbackFn: UrlCbFn): void;
 
@@ -557,7 +555,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         get(name: string): string | null;
 
@@ -570,8 +568,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get(name: string): string | undefined;
 
@@ -609,8 +606,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         has(name: string): boolean;
 
@@ -659,8 +656,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         set(name: string, value: string): void;
 
@@ -685,8 +682,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         sort(): void;
 
@@ -712,8 +709,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         keys(): IterableIterator<string>;
 
@@ -739,8 +736,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         values(): IterableIterator<string>;
 
@@ -772,7 +769,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         [Symbol.iterator](): IterableIterator<[string, string]>;
 
@@ -786,8 +783,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         $_iterator(): IterableIterator<[string, string]>;
 
@@ -813,8 +809,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         toString(): string;
     }
@@ -840,8 +836,8 @@ declare namespace url {
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      * @name URL
      */
     class URL {
@@ -854,7 +850,7 @@ declare namespace url {
          * @param { string } url - url url
          * @param { string | URL } base - base base
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URL.parseURL
          */
@@ -880,8 +876,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         constructor();
 
@@ -935,8 +931,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         static parseURL(url: string, base?: string | URL): URL;
 
@@ -962,8 +958,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         toString(): string;
 
@@ -989,8 +985,8 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since arkts {'1.1':'11', '1.2':'20'}
-         * @arkts 1.1&1.2
+         * @since 11 dynamic
+         * @since 20 static
          */
         toJSON(): string;
 
@@ -1016,7 +1012,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         hash: string;
 
@@ -1042,7 +1038,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         host: string;
 
@@ -1068,7 +1064,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         hostname: string;
 
@@ -1094,7 +1090,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         href: string;
 
@@ -1121,7 +1117,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         readonly origin: string;
 
@@ -1147,7 +1143,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         password: string;
 
@@ -1173,7 +1169,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         pathname: string;
 
@@ -1199,7 +1195,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         port: string;
 
@@ -1225,7 +1221,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         protocol: string;
 
@@ -1251,7 +1247,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         search: string;
 
@@ -1262,8 +1258,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get hash(): string;
 
@@ -1274,8 +1269,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         set hash(hash: string);
 
@@ -1286,8 +1280,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get host(): string;
 
@@ -1298,8 +1291,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set host(host: string);
 
@@ -1310,8 +1302,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get hostname(): string;
 
@@ -1322,8 +1313,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set hostname(hostname: string);
 
@@ -1334,8 +1324,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get href(): string;
 
@@ -1346,8 +1335,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         set href(href: string);
 
@@ -1358,8 +1346,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get origin(): string;
 
@@ -1370,8 +1357,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get password(): string;
 
@@ -1382,8 +1368,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         set password(password: string);
 
@@ -1394,8 +1379,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get pathname(): string;
 
@@ -1406,8 +1390,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set pathname(pathname: string);
 
@@ -1418,8 +1401,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get port(): string;
 
@@ -1430,8 +1412,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set port(port: string);
 
@@ -1442,8 +1423,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get protocol(): string;
 
@@ -1454,8 +1434,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set protocol(protocol: string);
 
@@ -1466,8 +1445,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get search(): string;
 
@@ -1478,8 +1456,7 @@ declare namespace url {
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform
        * @atomicservice
-       * @since 20
-       * @arkts 1.2
+       * @since 20 static
        */
         set search(search: string);
         /**
@@ -1491,8 +1468,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get params(): URLParams;
 
@@ -1503,8 +1479,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 20
-         * @arkts 1.2
+         * @since 20 static
          */
         get username(): string;
 
@@ -1515,8 +1490,7 @@ declare namespace url {
         * @syscap SystemCapability.Utils.Lang
         * @crossplatform
         * @atomicservice
-        * @since 20
-        * @arkts 1.2
+        * @since 20 static
         */
         set username(username: string);
 
@@ -1526,7 +1500,7 @@ declare namespace url {
          * the URL instance. To replace the entire query parameter for a URL, use url.searchsetter.
          *
          * @syscap SystemCapability.Utils.Lang
-         * @since 7
+         * @since 7 dynamiconly
          * @deprecated since 9
          * @useinstead ohos.url.URL.params
          */
@@ -1561,7 +1535,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         readonly params: URLParams;
 
@@ -1587,7 +1561,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @crossplatform
          * @atomicservice
-         * @since 11
+         * @since 11 dynamic
          */
         username: string;
     }
@@ -1602,8 +1576,7 @@ declare namespace url {
      * @returns { void } This callback does not return a value.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     type UrlCbFn = (value: string, key: string, searchParams: URLParams) => void;
 }

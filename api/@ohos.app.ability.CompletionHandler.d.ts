@@ -28,8 +28,7 @@ import { ElementName } from './bundleManager/ElementName';
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
 /**
@@ -40,8 +39,7 @@ type OnRequestSuccessFn = (elementName: ElementName, message: string) => void;
  * @param { string } message - Indicates the message of the request result.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
 
@@ -51,8 +49,7 @@ type OnRequestFailureFn = (elementName: ElementName, message: string) => void;
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare class CompletionHandler {
   /**
@@ -63,7 +60,7 @@ declare class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestSuccess(elementName: ElementName, message: string): void;
 
@@ -75,7 +72,7 @@ declare class CompletionHandler {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onRequestFailure(elementName: ElementName, message: string): void;
 
@@ -85,8 +82,7 @@ declare class CompletionHandler {
    * @type { OnRequestSuccessFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onRequestSuccess: OnRequestSuccessFn;
 
@@ -96,8 +92,7 @@ declare class CompletionHandler {
    * @type { OnRequestFailureFn }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onRequestFailure: OnRequestFailureFn;
 }

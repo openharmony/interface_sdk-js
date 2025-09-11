@@ -40,7 +40,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum SeekMode {
   /**
@@ -62,7 +62,7 @@ declare enum SeekMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   PreviousKeyframe,
 
@@ -85,7 +85,7 @@ declare enum SeekMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   NextKeyframe,
 
@@ -108,7 +108,7 @@ declare enum SeekMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   ClosestKeyframe,
 
@@ -131,7 +131,7 @@ declare enum SeekMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Accurate,
 }
@@ -158,7 +158,7 @@ declare enum SeekMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare enum PlaybackSpeed {
   /**
@@ -180,7 +180,7 @@ declare enum PlaybackSpeed {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Speed_Forward_0_75_X,
 
@@ -203,7 +203,7 @@ declare enum PlaybackSpeed {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Speed_Forward_1_00_X,
 
@@ -226,7 +226,7 @@ declare enum PlaybackSpeed {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Speed_Forward_1_25_X,
 
@@ -249,7 +249,7 @@ declare enum PlaybackSpeed {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Speed_Forward_1_75_X,
 
@@ -272,7 +272,7 @@ declare enum PlaybackSpeed {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   Speed_Forward_2_00_X,
 }
@@ -284,7 +284,7 @@ declare enum PlaybackSpeed {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface FullscreenInfo {
   /**
@@ -311,7 +311,7 @@ interface FullscreenInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   fullscreen: boolean;
 }
@@ -323,7 +323,7 @@ interface FullscreenInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface PreparedInfo {
   /**
@@ -350,7 +350,7 @@ interface PreparedInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   duration: number;
 }
@@ -362,7 +362,7 @@ interface PreparedInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface PlaybackInfo {
   /**
@@ -389,7 +389,7 @@ interface PlaybackInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   time: number;
 }
@@ -400,7 +400,7 @@ interface PlaybackInfo {
  * @interface PosterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface PosterOptions {
   /**
@@ -410,7 +410,7 @@ declare interface PosterOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   showFirstFrame?: boolean;
 }
@@ -446,7 +446,7 @@ declare interface PosterOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface VideoOptions {
   /**
@@ -471,7 +471,7 @@ declare interface VideoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   src?: string | Resource;
 
@@ -497,7 +497,7 @@ declare interface VideoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   currentProgressRate?: number | string | PlaybackSpeed;
 
@@ -523,7 +523,7 @@ declare interface VideoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   previewUri?: string | PixelMap | Resource;
 
@@ -549,7 +549,7 @@ declare interface VideoOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   controller?: VideoController;
 
@@ -559,7 +559,7 @@ declare interface VideoOptions {
    * @type { ?ImageAIOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   imageAIOptions?: ImageAIOptions;
 
@@ -569,7 +569,7 @@ declare interface VideoOptions {
    * @type { ?PosterOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   posterOptions?: PosterOptions;
 }
@@ -593,7 +593,7 @@ declare interface VideoOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare class VideoController {
   /**
@@ -615,7 +615,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   constructor();
 
@@ -638,7 +638,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   start();
 
@@ -661,7 +661,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   pause();
 
@@ -684,7 +684,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   stop();
 
@@ -710,7 +710,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setCurrentTime(value: number);
 
@@ -736,7 +736,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   requestFullscreen(value: boolean);
 
@@ -759,7 +759,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   exitFullscreen();
 
@@ -788,7 +788,7 @@ declare class VideoController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   setCurrentTime(value: number, seekMode: SeekMode);
 
@@ -797,7 +797,7 @@ declare class VideoController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   reset(): void;
 }
@@ -824,7 +824,7 @@ declare class VideoController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface VideoInterface {
@@ -853,7 +853,7 @@ interface VideoInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (value: VideoOptions): VideoAttribute;
 }
@@ -880,7 +880,7 @@ interface VideoInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
@@ -909,7 +909,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   muted(value: boolean): VideoAttribute;
 
@@ -938,7 +938,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   autoPlay(value: boolean): VideoAttribute;
 
@@ -967,7 +967,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   controls(value: boolean): VideoAttribute;
 
@@ -996,7 +996,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   loop(value: boolean): VideoAttribute;
 
@@ -1025,7 +1025,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   objectFit(value: ImageFit): VideoAttribute;
 
@@ -1065,7 +1065,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onStart(event: VoidCallback): VideoAttribute;
 
@@ -1105,7 +1105,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onPause(event: VoidCallback): VideoAttribute;
 
@@ -1145,7 +1145,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onFinish(event: VoidCallback): VideoAttribute;
 
@@ -1185,7 +1185,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onFullscreenChange(callback: Callback<FullscreenInfo>): VideoAttribute;
 
@@ -1225,7 +1225,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onPrepared(callback: Callback<PreparedInfo>): VideoAttribute;
 
@@ -1265,7 +1265,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onSeeking(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1305,7 +1305,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onSeeked(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1345,7 +1345,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onUpdate(callback: Callback<PlaybackInfo>): VideoAttribute;
 
@@ -1384,7 +1384,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onError(event: VoidCallback | import('../api/@ohos.base').ErrorCallback): VideoAttribute;
 
@@ -1396,7 +1396,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   onStop(event: Callback<void>): VideoAttribute;
 
@@ -1407,7 +1407,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   enableAnalyzer(enable: boolean): VideoAttribute;
 
@@ -1418,7 +1418,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
 
@@ -1429,7 +1429,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 15
+   * @since 15 dynamic
    */
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 
@@ -1444,7 +1444,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since 15
+   * @since 15 dynamic
    */
   enableShortcutKey(enabled: boolean): VideoAttribute;
 }
@@ -1468,7 +1468,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Video: VideoInterface;
@@ -1492,7 +1492,7 @@ declare const Video: VideoInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const VideoInstance: VideoAttribute;

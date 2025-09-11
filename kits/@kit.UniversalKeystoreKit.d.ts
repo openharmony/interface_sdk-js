@@ -18,7 +18,7 @@
  * @kit UniversalKeystoreKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import huks from '@ohos.security.huks';
 
 export { huks };

@@ -17,14 +17,14 @@
  * @file
  * @kit LocationKit
  */
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import geoLocationManager from '@ohos.geoLocationManager';
 export {
   geoLocationManager
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import geolocation from '@ohos.geolocation';
 import FenceExtensionAbility from '@ohos.app.ability.FenceExtensionAbility';
 import FenceExtensionContext from '@ohos.app.ability.FenceExtensionContext';

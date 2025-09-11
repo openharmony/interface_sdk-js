@@ -28,8 +28,8 @@ import type Want from '../@ohos.app.ability.Want';
  * @extends ExtensionContext
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @StageModelOnly
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare class WorkSchedulerExtensionContext extends ExtensionContext {
   /**
@@ -59,8 +59,8 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   startServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -88,8 +88,8 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13 dynamic
+   * @since 20 static
    */
   stopServiceExtensionAbility(want: Want): Promise<void>;
 }
@@ -99,7 +99,7 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
  * @typedef { WorkSchedulerExtensionContext }
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export default WorkSchedulerExtensionContext;

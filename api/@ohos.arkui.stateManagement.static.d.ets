@@ -17,7 +17,6 @@
 /**
  * @file State management API file
  * @kit ArkUI
- * @arkts 1.2
  */
  
 export * from './arkui/stateManagement/decorator';

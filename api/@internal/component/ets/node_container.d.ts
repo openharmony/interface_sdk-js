@@ -34,7 +34,7 @@
  * @crossplatform
  * @atomicservice
  * @noninterop
- * @since 12
+ * @since 12 dynamic
  */
 interface NodeContainerInterface {
   /**
@@ -54,7 +54,7 @@ interface NodeContainerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
 }
@@ -72,7 +72,7 @@ interface NodeContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
@@ -90,7 +90,7 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const NodeContainer: NodeContainerInterface;
@@ -108,7 +108,7 @@ declare const NodeContainer: NodeContainerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 declare const NodeContainerInstance: NodeContainerAttribute;

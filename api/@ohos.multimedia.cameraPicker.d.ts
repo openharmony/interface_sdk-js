@@ -30,8 +30,8 @@ import type camera from './@ohos.multimedia.camera';
  * @namespace cameraPicker
  * @syscap SystemCapability.Multimedia.Camera.Core
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace cameraPicker {
 
@@ -46,8 +46,8 @@ declare namespace cameraPicker {
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class PickerProfile {
     /**
@@ -63,8 +63,8 @@ declare namespace cameraPicker {
      * @type { camera.CameraPosition }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     cameraPosition: camera.CameraPosition;
 
@@ -81,8 +81,8 @@ declare namespace cameraPicker {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     saveUri?: string;
 
@@ -99,8 +99,8 @@ declare namespace cameraPicker {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     videoDuration?: int;
   }
@@ -118,8 +118,8 @@ declare namespace cameraPicker {
    * @enum { string }
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum PickerMediaType {
     /**
@@ -133,8 +133,8 @@ declare namespace cameraPicker {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PHOTO = 'photo',
 
@@ -149,8 +149,8 @@ declare namespace cameraPicker {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     VIDEO = 'video'
   }
@@ -166,8 +166,8 @@ declare namespace cameraPicker {
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class PickerResult {
     /**
@@ -183,8 +183,8 @@ declare namespace cameraPicker {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     resultCode: int;
 
@@ -201,8 +201,8 @@ declare namespace cameraPicker {
      * @type { string }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     resultUri: string;
 
@@ -219,8 +219,8 @@ declare namespace cameraPicker {
      * @type { PickerMediaType }
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     mediaType: PickerMediaType;
   }
@@ -246,8 +246,8 @@ declare namespace cameraPicker {
    * method. The return value is PickerResult.
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function pick(context: Context, mediaTypes: Array<PickerMediaType>, pickerProfile: PickerProfile): Promise<PickerResult>;
 }

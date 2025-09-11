@@ -17,7 +17,6 @@
 /**
  * @file Grid modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from '@ohos.arkui.component';
@@ -29,7 +28,7 @@ import { GridAttribute } from '@ohos.arkui.component';
  *
  * @implements { GridAttribute, AttributeModifier<GridAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class GridModifier implements GridAttribute, AttributeModifier<GridAttribute> {}

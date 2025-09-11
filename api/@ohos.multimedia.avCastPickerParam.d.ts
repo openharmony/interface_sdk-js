@@ -29,8 +29,8 @@
  * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare enum AVCastPickerState {
   /**
@@ -42,8 +42,8 @@ export declare enum AVCastPickerState {
    * The picker starts showing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   STATE_APPEARING,
 
@@ -56,8 +56,8 @@ export declare enum AVCastPickerState {
    * The picker finishes presenting.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   STATE_DISAPPEARING,
 }
@@ -67,16 +67,16 @@ export declare enum AVCastPickerState {
  * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare enum AVCastPickerStyle {
   /**
    * The picker shows in a panel style.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   STYLE_PANEL,
 
@@ -84,8 +84,8 @@ export declare enum AVCastPickerStyle {
    * The picker shows in a menu style.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   STYLE_MENU,
 }
@@ -95,16 +95,16 @@ export declare enum AVCastPickerStyle {
  * @enum { int }
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export declare enum AVCastPickerColorMode {
   /**
    * Auto mode which follows the definition of system.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   AUTO,
 
@@ -112,8 +112,8 @@ export declare enum AVCastPickerColorMode {
    * Dark mode.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   DARK,
 
@@ -121,8 +121,8 @@ export declare enum AVCastPickerColorMode {
    * Light mode.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   LIGHT,
 }

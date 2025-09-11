@@ -27,7 +27,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * Common products should not use these APIs.</p>
  *
  * @namespace wifiManagerExt
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace wifiManagerExt {
 
@@ -39,7 +39,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   function enableHotspot(): void;
@@ -52,7 +52,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   function disableHotspot(): void;
@@ -65,7 +65,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    */
   function getSupportedPowerMode(): Promise<Array<PowerMode>>;
 
@@ -77,7 +77,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    */
   function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
@@ -89,7 +89,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    */
   function getPowerMode(): Promise<PowerMode>;
 
@@ -101,7 +101,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    */
   function getPowerMode(callback: AsyncCallback<PowerMode>): void;
 
@@ -113,7 +113,7 @@ declare namespace wifiManagerExt {
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 10
    */
   function setPowerMode(mode: PowerMode): void;
@@ -123,13 +123,13 @@ declare namespace wifiManagerExt {
    * 
    * @enum { number } PowerMode
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
-   * @since 9
+   * @since 9 dynamic
    */
   export enum PowerMode {
     /** 
      * Sleeping Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since 9 dynamic
     */
     
     SLEEPING = 0,
@@ -137,14 +137,14 @@ declare namespace wifiManagerExt {
     /** 
      * General Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since 9 dynamic
      * */
     GENERAL = 1,
 
     /** 
      * Through wall Mode. 
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @since 9 dynamic
      * */
     THROUGH_WALL = 2,
   }

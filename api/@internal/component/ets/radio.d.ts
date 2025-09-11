@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare enum RadioIndicatorType {
   /**
@@ -36,7 +36,7 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   TICK = 0,
   /**
@@ -46,7 +46,7 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOT = 1,
     /**
@@ -56,7 +56,7 @@ declare enum RadioIndicatorType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CUSTOM = 2,
 }
@@ -93,7 +93,7 @@ declare enum RadioIndicatorType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface RadioOptions {
   /**
@@ -128,7 +128,7 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   group: string;
 
@@ -164,7 +164,7 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value: string;
   /**
@@ -175,7 +175,7 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   indicatorType?: RadioIndicatorType;
   /**
@@ -186,7 +186,7 @@ declare interface RadioOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   indicatorBuilder?: CustomBuilder;
 }
@@ -206,7 +206,7 @@ declare interface RadioOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface RadioStyle {
   /**
@@ -226,7 +226,7 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   checkedBackgroundColor?: ResourceColor;
 
@@ -247,7 +247,7 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   uncheckedBorderColor?: ResourceColor;
 
@@ -268,7 +268,7 @@ declare interface RadioStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   indicatorColor?: ResourceColor;
 }
@@ -305,7 +305,7 @@ declare interface RadioStyle {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface RadioInterface {
@@ -345,7 +345,7 @@ interface RadioInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (options: RadioOptions): RadioAttribute;
 }
@@ -357,7 +357,7 @@ interface RadioInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare type OnRadioChangeCallback = (isChecked: boolean) => void;
 
@@ -393,7 +393,7 @@ declare type OnRadioChangeCallback = (isChecked: boolean) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
@@ -433,7 +433,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   checked(value: boolean): RadioAttribute;
 
@@ -446,7 +446,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   checked(isChecked: Optional<boolean>): RadioAttribute;
 
@@ -486,7 +486,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
@@ -499,7 +499,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
 
@@ -520,7 +520,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   radioStyle(value?: RadioStyle): RadioAttribute;
 
@@ -532,7 +532,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
 
@@ -544,7 +544,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */  
   contentModifier(modifier: Optional<ContentModifier<RadioConfiguration>>): RadioAttribute;
 }
@@ -557,7 +557,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
     /**
@@ -567,7 +567,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   value: string;
   
@@ -578,7 +578,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   checked: boolean;
 
@@ -589,7 +589,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   triggerChange: Callback<boolean>;
 }
@@ -622,7 +622,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Radio: RadioInterface;
@@ -655,7 +655,7 @@ declare const Radio: RadioInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const RadioInstance: RadioAttribute;

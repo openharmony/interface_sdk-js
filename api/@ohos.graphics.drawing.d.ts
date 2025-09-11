@@ -28,8 +28,8 @@ import { Resource } from './global/resource';
  *
  * @namespace drawing
  * @syscap SystemCapability.Graphics.Drawing
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace drawing {
   /**
@@ -53,212 +53,212 @@ declare namespace drawing {
    *
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   enum BlendMode {
     /**
      * r = 0, sets the the destination pixels to fully transparent.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     CLEAR = 0,
     /**
      * r = s (all channels of the result equal those of the source), replaces the destination pixels with the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SRC = 1,
     /**
      * r = d (all channels of the result equal those of the destination), keeps the destination pixels unchanged.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DST = 2,
     /**
      * r = s + (1 - sa) * d, draws the source pixels over the destination pixels, considering the source's transparency.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SRC_OVER = 3,
     /**
      * r = d + (1 - da) * s, draws the destination pixels over the source pixels, considering the destination's transparency.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DST_OVER = 4,
     /**
      * r = s * da, retains only the intersection of the source pixels with the opaque parts of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SRC_IN = 5,
     /**
      * r = d * sa, retains only the intersection of the destination pixels with the opaque parts of the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DST_IN = 6,
     /**
      * r = s * (1 - da), retains the parts of the source pixels that do not overlap with the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SRC_OUT = 7,
     /**
      * r = d * (1 - sa), retains the parts of the destination pixels that do not overlap with the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DST_OUT = 8,
     /**
      * r = s * da + d * (1 - sa), covers the destination pixels with the source pixels, showing the source only in the opaque parts of the destination.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SRC_ATOP = 9,
     /**
      * r = d * sa + s * (1 - da), covers the source pixels with the destination pixels, showing the destination only in the opaque parts of the source.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DST_ATOP = 10,
     /**
      * r = s * (1 - da) + d * (1 - sa), shows only the non-overlapping parts of the source and destination pixels.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     XOR = 11,
     /**
      * r = min(s + d, 1), adds the color values of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     PLUS = 12,
     /**
      * r = s * d, multiplies the color values of the source and destination pixels.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     MODULATE = 13,
     /**
      * r = s + d - s * d, inverts the color values of the source and destination pixels, multiplies them,
      * and then inverts the result, typically producing a brighter outcome.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SCREEN = 14,
     /**
      * Selectively applies MULTIPLY or SCREEN based on the brightness of the destination pixels, enhancing contrast.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     OVERLAY = 15,
     /**
      * rc = s + d - max(s * da, d * sa), ra = s + (1 - sa) * d, takes the darker color values between the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DARKEN = 16,
     /**
      * rc = s + d - min(s * da, d * sa), ra = s + (1 - sa) * d, takes the lighter color values between the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     LIGHTEN = 17,
     /**
      * Brightens the destination pixels by reducing contrast to reflect the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     COLOR_DODGE = 18,
     /**
      * Darkens the destination pixels by increasing contrast to reflect the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     COLOR_BURN = 19,
     /**
      * Selectively applies MULTIPLY or SCREEN based on the brightness of the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     HARD_LIGHT = 20,
     /**
      * Softly brightens or darkens the destination pixels based on the brightness of the source pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SOFT_LIGHT = 21,
     /**
      * rc = s + d - 2 * (min(s * da, d * sa)), ra = s + (1 - sa) * d, calculates the difference between the color values of the source and destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     DIFFERENCE = 22,
     /**
      * rc = s + d - two(s * d), ra = s + (1 - sa) * d, similar to DIFFERENCE but with lower contrast.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     EXCLUSION = 23,
     /**
      * r = s * (1 - da) + d * (1 - sa) + s * d, multiplies the color values of the source and destination pixels, typically resulting in a darker outcome.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     MULTIPLY = 24,
     /**
      * Uses the hue of the source pixels and the saturation and brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     HUE = 25,
     /**
      * Uses the saturation of the source pixels and the hue and brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     SATURATION = 26,
     /**
      * Uses the hue and saturation of the source pixels and the brightness of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     COLOR = 27,
     /**
      * Uses the brightness of the source pixels and the hue and saturation of the destination pixels.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     LUMINOSITY = 28,
   }
@@ -269,11 +269,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the directions of a closed contour.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum PathDirection {
     /**
      * Adds a closed contour clockwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Adds a closed contour clockwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     CLOCKWISE = 0,
 
@@ -281,6 +294,12 @@ declare namespace drawing {
      * Adds a closed contour counterclockwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Adds a closed contour counterclockwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     COUNTER_CLOCKWISE = 1,
   }
@@ -291,24 +310,63 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the fill types of a path.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum PathFillType {
     /**
-     * Specifies that "inside" is computed by a non-zero sum of signed edge crossings. Specifically, draws a point and emits a ray in any direction.
-     * A count is used to record the number of intersection points of the ray and path, and the initial count is 0.
-     * When encountering a clockwise intersection point (the path passes from the left to the right of the ray), the count increases by 1.
-     * When encountering a counterclockwise intersection point (the path passes from the right to the left of the ray), the count decreases by 1.
-     * If the final count is not 0, the point is inside the path and needs to be colored. If the final count is 0, the point is not colored.
+     * Specifies that "inside" is computed by a non-zero sum of signed edge crossings.
+     * Specifically, draws a point and emits a ray in any direction.
+     * A count is used to record the number of intersection points of the ray and path,
+     * and the initial count is 0.
+     * When encountering a clockwise intersection point (the path passes from the left to the right of the ray),
+     * the count increases by 1.
+     * When encountering a counterclockwise intersection point (the path passes from the right to the left of the ray),
+     * the count decreases by 1.
+     * If the final count is not 0, the point is inside the path and needs to be colored. If the final count is 0,
+     * the point is not colored.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Specifies that "inside" is computed by a non-zero sum of signed edge crossings.
+     * Specifically, draws a point and emits a ray in any direction.
+     * A count is used to record the number of intersection points of the ray and path,
+     * and the initial count is 0.
+     * When encountering a clockwise intersection point (the path passes from the left to the right of the ray),
+     * the count increases by 1.
+     * When encountering a counterclockwise intersection point (the path passes from the right to the left of the ray),
+     * the count decreases by 1.
+     * If the final count is not 0, the point is inside the path and needs to be colored. If the final count is 0,
+     * the point is not colored.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     WINDING = 0,
 
     /**
-     * Specifies that "inside" is computed by an odd number of edge crossings. Specifically, draws a point and emits a ray in any direction.
-     * If the number of intersection points of the ray and path is an odd number, the point is considered to be inside the path and needs to be colored.
+     * Specifies that "inside" is computed by an odd number of edge crossings.
+     * Specifically, draws a point and emits a ray in any direction.
+     * If the number of intersection points of the ray and path is an odd number,
+     * the point is considered to be inside the path and needs to be colored.
      * If the number is an even number, the point is not colored.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Specifies that "inside" is computed by an odd number of edge crossings.
+     * Specifically, draws a point and emits a ray in any direction.
+     * If the number of intersection points of the ray and path is an odd number,
+     * the point is considered to be inside the path and needs to be colored.
+     * If the number is an even number, the point is not colored.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     EVEN_ODD = 1,
 
@@ -317,6 +375,12 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Same as WINDING, but draws outside of the path, rather than inside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     INVERSE_WINDING = 2,
 
     /**
@@ -324,21 +388,40 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Same as EVEN_ODD, but draws outside of the path, rather than inside.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     INVERSE_EVEN_ODD = 3,
   }
 
   /**
-  * Enumerates the dimensions of matrix information in path measurement.
-  * It is often used in animation scenarios where objects move along a path.
+  * Enumerates the types of matrix information obtained during path measurement.
   * @enum { int }
   * @syscap SystemCapability.Graphics.Drawing
   * @since 12
   */
+  /**
+   * Enumerates the dimensions of matrix information in path measurement.
+   * It is often used in animation scenarios where objects move along a path.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum PathMeasureMatrixFlags {
     /**
      * Matrix corresponding to the position information.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Matrix corresponding to the position information.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     GET_POSITION_MATRIX = 0,
     /**
@@ -346,11 +429,23 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Matrix corresponding to the tangent information.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     GET_TANGENT_MATRIX = 1,
     /**
      * Matrix corresponding to the position and tangent information.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Matrix corresponding to the position and tangent information.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     GET_POSITION_AND_TANGENT_MATRIX = 2,
   }
@@ -359,8 +454,8 @@ declare namespace drawing {
    * Implements a rounded rectangle.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class RoundRect {
 
@@ -369,7 +464,7 @@ declare namespace drawing {
      * @param { RoundRect } roundRect - The round rect object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     constructor(roundRect: RoundRect);
 
@@ -400,8 +495,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     constructor(rect: common2D.Rect, xRadii: double, yRadii: double);
 
@@ -428,7 +522,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setCorner(pos: CornerPos, x: double, y: double): void;
 
@@ -440,7 +534,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getCorner(pos: CornerPos): common2D.Point;
 
@@ -469,58 +563,89 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     offset(dx: double, dy: double): void;
   }
 
   /**
+   * Enumerates the operations when two paths are combined.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  /**
    * Enumerates the path operation types. It is often used in path combination and clipping scenarios.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum PathOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     DIFFERENCE = 0,
 
     /**
      * Intersection operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Intersection operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     INTERSECT = 1,
 
     /**
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Union operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     UNION = 2,
 
     /**
      * XOR operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * XOR operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12 dynamic
+     * @since 20 static
      */
     XOR = 3,
 
     /**
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
-    REVERSE_DIFFERENCE = 4,
+    /**
+     * Reverse difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    REVERSE_DIFFERENCE = 4
   }
 
   /**
@@ -529,11 +654,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
+  /**
+   * Enumerates the path operation types contained in an iterator. It is used to read path operation instructions.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum PathIteratorVerb {
     /**
      * Sets the start point.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Sets the start point.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     MOVE = 0,
 
@@ -542,12 +680,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Adds a line segment.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     LINE = 1,
 
     /**
      * Adds a quadratic Bezier curve for smooth transitions.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Adds a quadratic Bezier curve for smooth transitions.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     QUAD = 2,
 
@@ -556,12 +706,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Adds a conic curve.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     CONIC = 3,
 
     /**
      * Adds a cubic Bezier curve for smooth transitions.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Adds a cubic Bezier curve for smooth transitions.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     CUBIC = 4,
 
@@ -570,6 +732,12 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Closes a path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     CLOSE = 5,
 
     /**
@@ -577,30 +745,42 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * The path setting is complete.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     DONE = CLOSE + 1,
   }
 
   /**
+   * Describes a pathIterator object
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 18
+   */
+  /**
    * Implements a path operation iterator. You can read path operation instructions by traversing the iterator.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class PathIterator {
     /**
      * Creates an iterator and binds it with a path.
      * @param { Path } path - Path object bound to the iterator.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     constructor(path: Path);
 
     /**
      * Retrieves the next operation in this path and moves the iterator to that operation.
      * @param { Array<common2D.Point> } points - Indicates the point array.
-     * @param { int } [offset] - Indicates the offset into the array where entries should be placed.
+     * @param { number } [offset] - Indicates the offset into the array where entries should be placed.
      *     The default value is 0.
      * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -611,16 +791,29 @@ declare namespace drawing {
     /**
      * Retrieves the next operation in this path and moves the iterator to that operation.
      * @param { Array<common2D.Point> } points - Indicates the point array.
-     * @param { int } [offset] - Indicates the offset into the array where entries should be placed.
+     * @param { number } [offset] - Indicates the offset into the array where entries should be placed.
      *     The default value is 0.
      * @returns { PathIteratorVerb } Returns the next verb in this iterator's path.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    next(points: Array<common2D.Point>, offset?: int): PathIteratorVerb;
+    next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb;
+
+    /**
+     * Retrieves the next operation in this path and moves the iterator to that operation.
+     * @param { Array<common2D.Point> } points - Indicates the point array.
+     * @param { int } [offset] - Indicates the offset into the array where entries should be placed.
+     *     The default value is 0.
+     * @returns { PathIteratorVerb | undefined } Returns the next verb in this iterator's path.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    next(points: Array<common2D.Point>, offset?: int): PathIteratorVerb | undefined;
 
     /**
      * Retrieves the next operation in this path, without moving the iterator.
@@ -628,13 +821,35 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Retrieves the next operation in this path, without moving the iterator.
+     * @returns { PathIteratorVerb } Returns the next verb in the iteration.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     peek(): PathIteratorVerb;
+
+    /**
+     * Retrieves the next operation in this path, without moving the iterator.
+     * @returns { PathIteratorVerb | undefined } Returns the next verb in the iteration.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    peek(): PathIteratorVerb | undefined;
 
     /**
      * Checks whether there is a next operation in the path operation iterator.
      * @returns { boolean } Returns true if there are more elements to be iterated through, false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Checks whether there is a next operation in the path operation iterator.
+     * @returns { boolean } Returns true if there are more elements to be iterated through, false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     hasNext(): boolean;
   }
@@ -643,15 +858,15 @@ declare namespace drawing {
    * A compound geometric path consisting of line segments, arcs, quadratic Bezier curves, and cubic Bezier curves.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Path {
     /**
      * Constructs a path.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor();
 
@@ -659,8 +874,8 @@ declare namespace drawing {
      * Constructs a copy of an existing path.
      * @param { Path } path - Path to copy.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor(path: Path);
 
@@ -669,7 +884,7 @@ declare namespace drawing {
      * @param { Path } src - the path to copy content from.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     set(src: Path): void;
 
@@ -690,7 +905,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     moveTo(x: double, y: double): void;
 
@@ -713,7 +928,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     lineTo(x: double, y: double): void;
 
@@ -762,8 +977,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     arcTo(x1: double, y1: double, x2: double, y2: double, startDeg: double, sweepDeg: double): void;
 
@@ -790,7 +1004,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     quadTo(ctrlX: double, ctrlY: double, endX: double, endY: double): void;
 
@@ -825,7 +1039,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     conicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
@@ -856,7 +1070,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     cubicTo(ctrlX1: double, ctrlY1: double, ctrlX2: double, ctrlY2: double, endX: double, endY: double): void;
 
@@ -887,7 +1101,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     rMoveTo(dx: double, dy: double): void;
 
@@ -917,7 +1131,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     rLineTo(dx: double, dy: double): void;
 
@@ -960,7 +1174,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     rQuadTo(dx1: double, dy1: double, dx2: double, dy2: double): void;
 
@@ -1013,7 +1227,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     rConicTo(ctrlX: double, ctrlY: double, endX: double, endY: double, weight: double): void;
 
@@ -1080,19 +1294,32 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     rCubicTo(ctrlX1: double, ctrlY1: double, ctrlX2: double, ctrlY2: double, endX: double, endY: double): void;
 
     /**
      * Adds a polygon to this path.
      * @param { Array<common2D.Point> } points - Array that holds the vertex coordinates of the polygon.
-     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment from the start point
-     * to the end point of the path. The value true means to close the path, and false means the opposite.
+     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment
+     *     from the start point to the end point of the path. The value true means to close the path,
+     *     and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Adds a polygon to this path.
+     * @param { Array<common2D.Point> } points - Array that holds the vertex coordinates of the polygon.
+     * @param { boolean } close - Whether to close the path, that is, whether to add a line segment
+     *     from the start point to the end point of the path. The value true means to close the path,
+     *     and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     addPolygon(points: Array<common2D.Point>, close: boolean): void;
 
@@ -1100,12 +1327,24 @@ declare namespace drawing {
      * Combines this path with the passed-in path based on the specified operation mode.
      * @param { Path } path - Path object, which will be combined with the current path.
      * @param { PathOp } pathOp - Operation mode.
-     * @returns { boolean } boolean - Result of the path combination result. The value true means that the path combination is successful,
-     * and false means the opposite.
+     * @returns { boolean } boolean - Result of the path combination result.
+     *     The value true means that the path combination is successful, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Combines this path with the passed-in path based on the specified operation mode.
+     * @param { Path } path - Path object, which will be combined with the current path.
+     * @param { PathOp } pathOp - Operation mode.
+     * @returns { boolean } boolean - Result of the path combination result.
+     *     The value true means that the path combination is successful, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     op(path: Path, pathOp: PathOp): boolean;
 
@@ -1150,7 +1389,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     addArc(rect: common2D.Rect, startAngle: double, sweepAngle: double): void;
 
@@ -1177,7 +1416,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     addCircle(x: double, y: double, radius: double, pathDirection?: PathDirection): void;
 
@@ -1204,7 +1443,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     addOval(rect: common2D.Rect, start: int, pathDirection?: PathDirection): void;
 
@@ -1213,9 +1452,19 @@ declare namespace drawing {
      * @param { common2D.Rect } rect - Rectangle.
      * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Adds a rectangle to this path in the specified direction. The start point is the upper left corner of the rectangle.
+     * @param { common2D.Rect } rect - Rectangle.
+     * @param { PathDirection } pathDirection - Direction of the path. The default direction is clockwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     addRect(rect: common2D.Rect, pathDirection?: PathDirection): void;
 
@@ -1227,9 +1476,22 @@ declare namespace drawing {
      * @param { RoundRect } roundRect - Rounded rectangle.
      * @param { PathDirection } pathDirection - The default value is CLOCKWISE.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Adds a rounded rectangle to this path in the specified direction. When the path direction is clockwise,
+     * the start point is at the intersection of the rounded rectangle's left boundary and its lower left corner.
+     * When the path direction is counterclockwise, the start point is at the intersection point
+     * between the left boundary and the upper left corner.
+     * @param { RoundRect } roundRect - Rounded rectangle.
+     * @param { PathDirection } pathDirection - The default value is CLOCKWISE.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     addRoundRect(roundRect: RoundRect, pathDirection?: PathDirection): void;
 
@@ -1238,9 +1500,19 @@ declare namespace drawing {
      * @param { Path } path - Source Path object.
      * @param { Matrix | null } matrix - Matrix object. The default value is an identity matrix.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Transforms the points in a path by a matrix and stores the resulting path in the current Path object.
+     * @param { Path } path - Source Path object.
+     * @param { Matrix | null } matrix - Matrix object. The default value is an identity matrix.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     addPath(path: Path, matrix?: Matrix | null): void;
 
@@ -1248,9 +1520,18 @@ declare namespace drawing {
      * Transforms the points in this path by a matrix.
      * @param { Matrix } matrix - Matrix object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Transforms the points in this path by a matrix.
+     * @param { Matrix } matrix - Matrix object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     transform(matrix: Matrix): void;
 
@@ -1275,7 +1556,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     contains(x: double, y: double): boolean;
 
@@ -1285,7 +1566,7 @@ declare namespace drawing {
      * @param { double } y - Indicates the new y-axis value for the last point.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setLastPoint(x: double, y: double): void;
 
@@ -1295,9 +1576,20 @@ declare namespace drawing {
      * When EvenOdd is used, "inside" of the path is determined by an odd number of edge crossings.
      * @param { PathFillType } pathFillType - Fill type of the path.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Sets the fill type of this path. The fill type determines how "inside" of the path is drawn.
+     * For example, when the fill type Winding is used, "inside" of the path is determined by a non-zero sum of signed edge crossings.
+     * When EvenOdd is used, "inside" of the path is determined by an odd number of edge crossings.
+     * @param { PathFillType } pathFillType - Fill type of the path.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setFillType(pathFillType: PathFillType): void;
 
@@ -1306,7 +1598,7 @@ declare namespace drawing {
      * @returns { PathFillType } Returns the pathFillType.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getFillType(): PathFillType;
 
@@ -1316,12 +1608,33 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Obtains the minimum bounding rectangle that encloses this path.
+     * @returns { common2D.Rect } Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     getBounds(): common2D.Rect;
+
+    /**
+     * Obtains the minimum bounding rectangle that encloses this path.
+     * @returns { common2D.Rect | undefined } Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getBounds(): common2D.Rect | undefined;
 
     /**
      * Closes this path by adding a line segment from the start point to the last point of the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
+     */
+    /**
+     * Closes this path by adding a line segment from the start point to the last point of the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     close(): void;
 
@@ -1357,22 +1670,41 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     offset(dx: double, dy: double): Path;
 
     /**
+     * Offsets this path by specified distances along the X axis and Y axis and
+     * stores the resulting path in the Path object returned.
+     * @param { double } dx - X offset. A positive number indicates an offset
+     *     towards the positive direction of the X axis, and a negative number
+     *     indicates an offset towards the negative direction of the X axis.
+     *     The value is a floating point number.
+     * @param { double } dy - Y offset. A positive number indicates an offset
+     *     towards the positive direction of the Y axis, and a negative number
+     *     indicates an offset towards the negative direction of the Y axis.
+     *     The value is a floating point number.
+     * @returns { Path | undefined } New path generated.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    offset(dx: double, dy: double): Path | undefined;
+
+    /**
      * Resets the path data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     reset(): void;
 
     /**
      * Clears any lines and curves from the path but keeps the internal storage for faster reuse.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
+     * @since 20 dynamic
      */
     rewind(): void;
 
@@ -1381,7 +1713,7 @@ declare namespace drawing {
      *
      * @returns { boolean } Returns true if the path is empty; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
+     * @since 20 dynamic
      */
     isEmpty(): boolean;
 
@@ -1391,7 +1723,7 @@ declare namespace drawing {
      * @param { common2D.Rect | null } rect - Indicates the Rect object.
      * @returns { boolean } Returns true if the path represents a rectangle; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20
+     * @since 20 dynamic
      */
     isRect(rect: common2D.Rect | null): boolean;
 
@@ -1412,7 +1744,7 @@ declare namespace drawing {
      * @returns { double } Return path length.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     getLength(forceClosed: boolean): double;
 
@@ -1454,7 +1786,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     getPositionAndTangent(forceClosed: boolean, distance: double, position: common2D.Point, tangent: common2D.Point): boolean;
 
@@ -1503,7 +1835,7 @@ declare namespace drawing {
      *     The value **true** means that the extraction is successful, and **false** means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     getSegment(forceClosed: boolean, start: double, stop: double, startWithMoveTo: boolean, dst: Path): boolean;
 
@@ -1513,6 +1845,14 @@ declare namespace drawing {
      * @returns { boolean } - Check result. The value true means that the path is closed, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Checks whether a path is closed.
+     * 
+     * @returns { boolean } - Check result. The value true means that the path is closed, and false means the opposite.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     isClosed(): boolean;
 
@@ -1553,7 +1893,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
     */
     getMatrix(forceClosed: boolean, distance: double, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean;
 
@@ -1561,10 +1901,22 @@ declare namespace drawing {
      * Parses the path represented by an SVG string.
      *
      * @param { string } str - String in SVG format, which is used to describe the path.
-     * @returns { boolean } Result of the parsing operation. The value true means that the operation is successful, and false means the opposite.
+     * @returns { boolean } Result of the parsing operation.
+     *     The value true means that the operation is successful, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Parses the path represented by an SVG string.
+     *
+     * @param { string } str - String in SVG format, which is used to describe the path.
+     * @returns { boolean } Result of the parsing operation.
+     *     The value true means that the operation is successful, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     buildFromSvgString(str: string): boolean;
 
@@ -1575,7 +1927,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Obtains the operation iterator of this path.
+     *
+     * @returns { PathIterator } Indicates the pointer to an pathIterator object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     getPathIterator(): PathIterator;
+
+    /**
+     * Obtains the operation iterator of this path.
+     *
+     * @returns { PathIterator | undefined } Indicates the pointer to an pathIterator object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getPathIterator(): PathIterator | undefined;
 
     /**
      * Approximates the path with a series of line segments.
@@ -1589,7 +1958,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     approximate(acceptableError: double): Array<double>;
 
@@ -1606,7 +1975,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     interpolate(other: Path, weight: double, interpolatedPath: Path): boolean;
 
@@ -1619,7 +1988,7 @@ declare namespace drawing {
      * @returns { boolean } - Returns true if the current path and the other path are compatible for interpolation; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isInterpolate(other: Path): boolean;
   }
@@ -1628,27 +1997,27 @@ declare namespace drawing {
    * Enumerates the modes for drawing multiple points in an array.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since 12 dynamic
    */
   enum PointMode {
     /**
      * Draws each point separately.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     POINTS = 0,
 
     /**
      * Draws every two points as a line segment.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     LINES = 1,
 
     /**
      * Draws an array of points as an open polygon.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     POLYGON = 2,
   }
@@ -1657,23 +2026,39 @@ declare namespace drawing {
    * Enumerates the filter modes.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Enumerates the filter modes.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum FilterMode {
     /**
      * Nearest filter mode.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Nearest filter mode.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FILTER_MODE_NEAREST = 0,
 
     /**
      * Linear filter mode.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Linear filter mode.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FILTER_MODE_LINEAR = 1,
   }
@@ -1682,34 +2067,34 @@ declare namespace drawing {
    * Enumerates the shadow drawing behaviors.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since 12 dynamic
    */
   enum ShadowFlag {
     /**
      * None of the flags are enabled.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     NONE = 0,
 
     /**
      * The occluder is transparent.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     TRANSPARENT_OCCLUDER = 1,
 
     /**
      * Only the geometric shadow effect is used.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     GEOMETRIC_ONLY = 2,
 
     /**
      * All the flags are enabled.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     ALL = 3,
   }
@@ -1717,15 +2102,15 @@ declare namespace drawing {
   /**
    * Implements sampling options.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class SamplingOptions {
     /**
      * Creates a SamplingOptions object. The default value of FilterMode is FILTER_MODE_NEAREST.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor();
     /**
@@ -1734,8 +2119,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor(filterMode: FilterMode);
   }
@@ -1743,8 +2128,8 @@ declare namespace drawing {
   /**
    * A carrier that carries the drawn content and drawing status.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Canvas {
     /**
@@ -1753,8 +2138,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     constructor(pixelmap: image.PixelMap);
 
@@ -1773,8 +2158,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     drawRect(rect: common2D.Rect): void;
 
@@ -1809,8 +2193,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     drawRect(left: double, top: double, right: double, bottom: double): void;
 
@@ -1820,7 +2203,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawRoundRect(roundRect: RoundRect): void;
 
@@ -1832,7 +2215,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void;
 
@@ -1842,7 +2225,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawBackground(brush: Brush): void;
 
@@ -1877,7 +2260,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: double,
       ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void;
@@ -1913,7 +2296,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: double,
       ambientColor: common2D.Color | int, spotColor: common2D.Color | int, flag: ShadowFlag) : void;
@@ -1939,7 +2322,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawCircle(x: double, y: double, radius: double): void;
 
@@ -1978,7 +2361,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawImage(pixelmap: image.PixelMap, left: double, top: double, samplingOptions?: SamplingOptions): void;
     
@@ -1996,7 +2379,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since 18 dynamic
      */
     drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.Rect,
       filterMode: FilterMode): void;
@@ -2013,7 +2396,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since 18 dynamic
      */
     drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D.Rect,
       filterMode: FilterMode): void;
@@ -2027,8 +2410,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void;
 
@@ -2043,7 +2426,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect,
       samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void;
@@ -2055,7 +2438,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     drawColor(color: common2D.Color, blendMode?: BlendMode): void;
 
@@ -2092,7 +2475,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawColor(alpha: int, red: int, green: int, blue: int, blendMode?: BlendMode): void;
 
@@ -2113,7 +2496,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawColor(color: int, blendMode?: BlendMode): void;
 
@@ -2123,7 +2506,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawOval(oval: common2D.Rect): void;
 
@@ -2160,7 +2543,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawArc(arc: common2D.Rect, startAngle: double, sweepAngle: double): void;
 
@@ -2195,7 +2578,7 @@ declare namespace drawing {
      * The value true means that they are connected to the center; the value false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawArcWithCenter(arc: common2D.Rect, startAngle: double, sweepAngle: double, useCenter: boolean): void;
 
@@ -2216,7 +2599,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawPoint(x: double, y: double): void;
 
@@ -2227,7 +2610,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawPoints(points: Array<common2D.Point>, mode?: PointMode): void;
 
@@ -2237,7 +2620,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     drawPath(path: Path): void;
 
@@ -2265,7 +2648,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawLine(x0: double, y0: double, x1: double, y1: double): void;
 
@@ -2296,7 +2679,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawSingleCharacter(text: string, font: Font, x: double, y: double): void;
 
@@ -2325,7 +2708,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     drawTextBlob(blob: TextBlob, x: double, y: double): void;
 
@@ -2360,8 +2743,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: int, meshHeight: int,
       vertices: Array<double>, vertOffset: int, colors: Array<int>, colorOffset: int): void;
@@ -2372,7 +2754,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     drawRegion(region: Region): void;
 
@@ -2382,7 +2764,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     attachPen(pen: Pen): void;
 
@@ -2392,23 +2774,23 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     attachBrush(brush: Brush): void;
 
     /**
      * Detaches the pen from the canvas. When you draw on the canvas, the pen is no longer used to outline shapes.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     detachPen(): void;
 
     /**
      * Detaches the brush from the canvas. When you draw on the canvas, the brush is no longer used to fill the interior of shapes.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     detachBrush(): void;
 
@@ -2425,7 +2807,7 @@ declare namespace drawing {
      * @returns { int } Number of canvas statuses. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     save(): int;
 
@@ -2451,8 +2833,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): long;
 
@@ -2462,7 +2843,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     clear(color: common2D.Color): void;
 
@@ -2477,15 +2858,15 @@ declare namespace drawing {
      * @param { common2D.Color | int } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     clear(color: common2D.Color | int): void;
 
     /**
      * Restores the canvas state (canvas matrix and clipping area) saved on the top of the stack.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     restore(): void;
 
@@ -2508,7 +2889,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     restoreToCount(count: int): void;
 
@@ -2523,7 +2904,7 @@ declare namespace drawing {
      * @returns { int } Number of canvas statuses that have been saved. The value is a positive integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getSaveCount(): int;
 
@@ -2538,7 +2919,7 @@ declare namespace drawing {
      * @returns { int } Canvas width. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getWidth(): int;
 
@@ -2553,7 +2934,7 @@ declare namespace drawing {
      * @returns { int } Canvas height. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getHeight(): int;
 
@@ -2561,7 +2942,7 @@ declare namespace drawing {
      * Obtains the bounds of the cropping region of the canvas.
      * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getLocalClipBounds(): common2D.Rect;
 
@@ -2569,7 +2950,7 @@ declare namespace drawing {
      * Obtains the canvas matrix.
      * @returns { Matrix } Canvas matrix.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getTotalMatrix(): Matrix;
 
@@ -2592,7 +2973,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     scale(sx: double, sy: double): void;
 
@@ -2623,7 +3004,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     skew(sx: double, sy: double) : void;
 
@@ -2649,8 +3030,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     rotate(degrees: double, sx: double, sy: double) : void;
 
@@ -2675,7 +3055,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     translate(dx: double, dy: double): void;
 
@@ -2688,7 +3068,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
@@ -2701,7 +3081,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
@@ -2712,7 +3092,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     concatMatrix(matrix: Matrix): void;
 
@@ -2723,7 +3103,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     clipRegion(region: Region, clipOp?: ClipOp): void;
 
@@ -2736,7 +3116,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void;
 
@@ -2744,7 +3124,7 @@ declare namespace drawing {
      * Checks whether the region that can be drawn is empty after clipping.
      * @returns { boolean } Returns true if drawable area is empty.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isClipEmpty(): boolean;
 
@@ -2765,14 +3145,14 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setMatrix(matrix: Matrix): void;
 
     /**
      * Resets the matrix of this canvas to an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     resetMatrix(): void;
 
@@ -2781,7 +3161,7 @@ declare namespace drawing {
      * @param { Path } path - Path to draw.
      * @returns { boolean } Returns true if path is not intersect; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since 18 dynamic
      */
     quickRejectPath(path: Path): boolean;
 
@@ -2790,32 +3170,50 @@ declare namespace drawing {
      * @param { common2D.Rect } rect - Rectangle to determines.
      * @returns { boolean } Returns true if rect and region is not intersect; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since 18 dynamic
      */
     quickRejectRect(rect: common2D.Rect): boolean;
   }
 
   /**
-   * Enumerates the canvas clipping modes.
+   * Enumerates clip operations.
    *
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Enumerates the canvas clipping modes.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum ClipOp {
     /**
      * Clips a specified area. That is, the difference set is obtained.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Clips a specified area. That is, the difference set is obtained.	
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     DIFFERENCE = 0,
     /**
      * Retains a specified area. That is, the intersection is obtained.	
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Retains a specified area. That is, the intersection is obtained.	
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     INTERSECT = 1,
   }
@@ -2824,7 +3222,7 @@ declare namespace drawing {
    * Describes a series of consecutive glyphs with the same attributes in a text blob.
    * @typedef TextBlobRunBuffer
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 11 dynamic
    */
   interface TextBlobRunBuffer {
     /**
@@ -2838,7 +3236,7 @@ declare namespace drawing {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     glyph: int;
     /**
@@ -2852,7 +3250,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     positionX: double;
     /**
@@ -2866,7 +3264,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     positionY: double;
   }
@@ -2876,31 +3274,31 @@ declare namespace drawing {
    *
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 11 dynamic
    */
   enum TextEncoding {
     /**
      * One byte is used to indicate UTF-8 or ASCII characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     TEXT_ENCODING_UTF8 = 0,
     /**
      * Two bytes are used to indicate most Unicode characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     TEXT_ENCODING_UTF16 = 1,
     /**
      * Four bytes are used to indicate all Unicode characters.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     TEXT_ENCODING_UTF32 = 2,
     /**
      * Two bytes are used to indicate the glyph index.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     TEXT_ENCODING_GLYPH_ID = 3,
   }
@@ -2910,7 +3308,7 @@ declare namespace drawing {
    *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11
+   * @since 11 dynamic
    */
   class TextBlob {
     /**
@@ -2924,7 +3322,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
 
@@ -2959,7 +3357,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeFromPosText(text: string, len: int, points: common2D.Point[], font: Font): TextBlob;
 
@@ -2973,7 +3371,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob;
 
@@ -2981,7 +3379,7 @@ declare namespace drawing {
      * Obtains the rectangular bounding box of the text blob.
      * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     bounds(): common2D.Rect;
 
@@ -2996,7 +3394,7 @@ declare namespace drawing {
      * @returns { long } Unique, non-zero identifier of this TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     uniqueID(): long;
   }
@@ -3005,14 +3403,14 @@ declare namespace drawing {
    * Provides an interface to the drawing, and describe the arguments for a font.
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic&static
    */
   class TypefaceArguments {
     /**
      * Constructor for the TypefaceArguments.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     constructor();
     /**
@@ -3022,24 +3420,35 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     addVariation(axis: string, value: double);
+
+    /**
+     * Adds variation axis for the TypefaceArguments.
+     * @param { string } axis  - Indicates the axis tag, which must contain four ASCII characters.
+     * @param { double } value  - Indicates the value of the axis field.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 static
+     */
+    addVariation(axis: string, value: double): void;
   }
 
   /**
    * Describes the style of a typeface, such as SimSun or KaiTi.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Typeface {
     /**
      * Obtains the name of the typeface family, which is the name given to a collection of related typeface designs.
      * @returns { string } Family name.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     getFamilyName(): string;
 
@@ -3049,7 +3458,7 @@ declare namespace drawing {
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
 
@@ -3060,8 +3469,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
      static makeFromFile(filePath: string): Typeface;
 
@@ -3074,7 +3483,7 @@ declare namespace drawing {
      * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18
+     * @since 18 dynamic
      */
     static makeFromRawFile(rawfile: Resource): Typeface;
 
@@ -3086,7 +3495,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface;
 
@@ -3098,7 +3507,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface;
   }
@@ -3110,11 +3519,25 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the font edging types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum FontEdging {
     /**
      * No anti-aliasing processing is used.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * No anti-aliasing processing is used.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     ALIAS = 0,
 
@@ -3123,12 +3546,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Uses anti-aliasing to smooth the jagged edges.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     ANTI_ALIAS = 1,
 
     /**
      * Uses sub-pixel anti-aliasing to provide a smoother effect for jagged edges.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Uses sub-pixel anti-aliasing to provide a smoother effect for jagged edges.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     SUBPIXEL_ANTI_ALIAS = 2,
   }
@@ -3140,11 +3575,25 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the font hinting types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum FontHinting {
     /**
      * No font hinting is used.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * No font hinting is used.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     NONE = 0,
 
@@ -3153,12 +3602,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Slight font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     SLIGHT = 1,
 
     /**
      * Normal font hinting is used to improve contrast.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Normal font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     NORMAL = 2,
 
@@ -3167,6 +3628,12 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Full font hinting is used to improve contrast.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     FULL = 3,
   }
 
@@ -3174,8 +3641,8 @@ declare namespace drawing {
    * Describes the attributes used for text rendering, such as size and typeface.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Font {
     /**
@@ -3185,7 +3652,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     enableSubpixel(isSubpixel: boolean): void;
 
@@ -3196,7 +3663,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     enableEmbolden(isEmbolden: boolean): void;
 
@@ -3207,7 +3674,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     enableLinearMetrics(isLinearMetrics: boolean): void;
 
@@ -3228,8 +3695,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     setSize(textSize: double): void;
 
@@ -3244,7 +3710,7 @@ declare namespace drawing {
      * @returns { double } Font size. The value is a floating point number.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getSize(): double;
 
@@ -3254,8 +3720,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setTypeface(typeface: Typeface): void;
 
@@ -3263,7 +3729,7 @@ declare namespace drawing {
      * Obtains the typeface.
      * @returns { Typeface } Typeface object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     getTypeface(): Typeface;
 
@@ -3271,8 +3737,8 @@ declare namespace drawing {
      * Obtains the font metrics of the typeface.
      * @returns { FontMetrics } The fontMetrics value returned to the caller.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     getMetrics(): FontMetrics;
 
@@ -3297,7 +3763,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     measureSingleCharacter(text: string): double;
 
@@ -3320,7 +3786,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     measureText(text: string, encoding: TextEncoding): double;
 
@@ -3339,7 +3805,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setScaleX(scaleX: double): void;
 
@@ -3362,7 +3828,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setSkewX(skewX: double): void;
 
@@ -3372,7 +3838,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setEdging(edging: FontEdging): void;
 
@@ -3382,7 +3848,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setHinting(hinting: FontHinting): void;
 
@@ -3403,7 +3869,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     countText(text: string): int;
 
@@ -3414,7 +3880,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setBaselineSnap(isBaselineSnap: boolean): void;
 
@@ -3423,7 +3889,7 @@ declare namespace drawing {
      * @returns { boolean } Check result. The value true means that the baselines are requested to be snapped to pixels,
      * and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isBaselineSnap(): boolean;
 
@@ -3434,7 +3900,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void;
 
@@ -3442,7 +3908,7 @@ declare namespace drawing {
      * Checks whether bitmaps are used in this font.
      * @returns { boolean } Check result. The value true means that the bitmaps are used, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isEmbeddedBitmaps(): boolean;
 
@@ -3453,7 +3919,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setForceAutoHinting(isForceAutoHinting: boolean): void;
 
@@ -3461,7 +3927,7 @@ declare namespace drawing {
      * Checks whether auto hinting is forcibly used.
      * @returns { boolean } Check result. The value true means that auto hinting is forcibly used, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isForceAutoHinting(): boolean;
 
@@ -3482,7 +3948,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getWidths(glyphs: Array<int>): Array<double>;
 
@@ -3509,7 +3975,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     textToGlyphs(text: string, glyphCount?: int): Array<int>;
 
@@ -3517,7 +3983,7 @@ declare namespace drawing {
      * Checks whether sub-pixel rendering is used for this font.
      * @returns { boolean } Check result. The value true means that sub-pixel rendering is used, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isSubpixel(): boolean;
 
@@ -3525,7 +3991,7 @@ declare namespace drawing {
      * Checks whether linear scaling is used for this font.
      * @returns { boolean } Checks whether linear scaling is used for this font.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isLinearMetrics(): boolean;
     
@@ -3540,7 +4006,7 @@ declare namespace drawing {
      * @returns { double } Horizontal skew factor.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getSkewX(): double;
 
@@ -3549,7 +4015,7 @@ declare namespace drawing {
      * @returns { boolean } Check result. The value true means that the bold effect is set, and false means the opposite.
      * returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isEmbolden(): boolean;
 
@@ -3564,7 +4030,7 @@ declare namespace drawing {
      * @returns { double } Horizontal scale ratio.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getScaleX(): double;
 
@@ -3572,7 +4038,7 @@ declare namespace drawing {
      * Obtains the font hinting effect.
      * @returns { FontHinting } Font hinting effect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getHinting(): FontHinting;
 
@@ -3580,7 +4046,7 @@ declare namespace drawing {
      * Obtains the font edging effect.
      * @returns { FontEdging } Font edging effect.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getEdging(): FontEdging;
 
@@ -3599,13 +4065,13 @@ declare namespace drawing {
      * Note: Path use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     createPathForGlyph(index: int): Path;
 
     /**
      * Obtains the rectangular bounding box of each glyph in an array.
-     * @param { Array<int> } glyphs - Glyph array, which can be generated by textToGlyphs.
+     * @param { Array<number> } glyphs - Glyph array, which can be generated by textToGlyphs.
      * @returns { Array<common2D.Rect> } Array that holds the rectangular bounding boxes.
      *     Note: 1. Rect use y-axis-goes-down system, y axis is inverted to the y-axis-goes-up system.
      *     <br>2. Rect use two points(left-bottom & right-top) to describe the bound.
@@ -3622,7 +4088,7 @@ declare namespace drawing {
      *     <br>3. The bound rect will be snap to integral boundaries.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getBounds(glyphs: Array<int>): Array<common2D.Rect>;
 
@@ -3653,7 +4119,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getTextPath(text: string, byteLength: int, x: double, y: double): Path;
 
@@ -3665,7 +4131,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 15
+     * @since 15 dynamic
      */
     setThemeFontFollowed(followed: boolean): void;
 
@@ -3673,22 +4139,37 @@ declare namespace drawing {
      * Checks whether the font follows the theme font. By default, the font follows the theme font.
      * @returns { boolean } Check result. The value true means that the theme font is followed, and false means the opposite.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 15
+     * @since 15 dynamic
      */
     isThemeFontFollowed(): boolean;
   }
 
   /**
-   * Enumerates the font measurement flags, which is used to specify whether a field in the font measurement information is valid.
+   * Enumerates the font measurement flags,
+   * which is used to specify whether a field in the font measurement information is valid.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
+   */
+  /**
+   * Enumerates the font measurement flags,
+   * which is used to specify whether a field in the font measurement information is valid.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum FontMetricsFlags {
     /**
      * The underlineThickness field in the FontMetrics struct is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * The underlineThickness field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     UNDERLINE_THICKNESS_VALID = 1 << 0,
 
@@ -3697,12 +4178,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * The underlinePosition field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     UNDERLINE_POSITION_VALID = 1 << 1,
 
     /**
      * The strikethroughThickness field in the FontMetrics struct is valid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * The strikethroughThickness field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     STRIKETHROUGH_THICKNESS_VALID = 1 << 2,
 
@@ -3711,12 +4204,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * The strikethroughPosition field in the FontMetrics struct is valid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     STRIKETHROUGH_POSITION_VALID = 1 << 3,
 
     /**
      * The boundary metrics (such as top, bottom, xMin, and xMax) in the FontMetrics struct are invalid.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * The boundary metrics (such as top, bottom, xMin, and xMax) in the FontMetrics struct are invalid.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     BOUNDS_INVALID = 1 << 4,
   }
@@ -3725,8 +4230,14 @@ declare namespace drawing {
    * Describes the attributes that describe the font size and layout. A typeface has similar font metrics.
    * @typedef FontMetrics
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Describes the attributes that describe the font size and layout. A typeface has similar font metrics.
+   * @typedef FontMetrics
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   interface FontMetrics {
     /**
@@ -3734,6 +4245,13 @@ declare namespace drawing {
      * @type { ?FontMetricsFlags }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Font measurement flags that are valid.
+     * @type { ?FontMetricsFlags }
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     flags?: FontMetricsFlags;
 
@@ -3748,8 +4266,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     top: double;
     /**
@@ -3763,8 +4280,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     ascent: double;
     /**
@@ -3778,8 +4294,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     descent: double;
     /**
@@ -3793,8 +4308,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     bottom: double;
     /**
@@ -3810,8 +4324,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     leading: double;
     /**
@@ -3825,7 +4338,7 @@ declare namespace drawing {
      * @type { ?double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
      avgCharWidth?: double;
 
@@ -3840,7 +4353,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      maxCharWidth?: double;
  
@@ -3857,7 +4370,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      xMin?: double;
  
@@ -3874,7 +4387,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      xMax?: double;
  
@@ -3889,7 +4402,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      xHeight?: double;
  
@@ -3904,7 +4417,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      capHeight?: double;
  
@@ -3919,7 +4432,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      underlineThickness?: double;
  
@@ -3934,7 +4447,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      underlinePosition?: double;
  
@@ -3949,7 +4462,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      strikethroughThickness?: double;
  
@@ -3964,7 +4477,7 @@ declare namespace drawing {
       * @type { ?double }
       * @syscap SystemCapability.Graphics.Drawing
       * @crossplatform
-      * @since 20
+      * @since 20 dynamic&static
       */
      strikethroughPosition?: double;
   }
@@ -3972,8 +4485,8 @@ declare namespace drawing {
   /**
    * Implements a lattice object, which is used to divide an image by lattice.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class Lattice {
     /**
@@ -4023,8 +4536,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     static createImageLattice(xDivs: Array<int>, yDivs: Array<int>, fXCount: int, fYCount: int,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null): Lattice;
@@ -4078,41 +4590,63 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createImageLattice(xDivs: Array<int>, yDivs: Array<int>, fXCount: int, fYCount: int,
       fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<int> | null): Lattice;
   }
 
   /**
+   * Enumerate rect types. Optional setting per rectangular grid entry to make it transparent,
+   * or to fill the grid entry with a color. only used in Lattice.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  /**
    * Enumerates the types of rectangles used to fill the lattices. This enum is used only in Lattice.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum RectType {
     /**
      * Draws an image into the lattice.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Draws an image into the lattice.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     DEFAULT = 0,
 
     /**
      * Sets the lattice to transparent.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Sets the lattice to transparent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     TRANSPARENT = 1,
 
     /**
      * Draws the colors in the fColors array in Lattice into the lattice.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Draws the colors in the fColors array in Lattice into the lattice.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FIXEDCOLOR = 2
   }
@@ -4122,11 +4656,17 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Implements a mask filter.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   class MaskFilter {
     /**
      * Creates a mask filter with a blur effect.
      * @param { BlurType } blurType - Blur type.
-     * @param { double } sigma - Standard deviation of the Gaussian blur to apply.
+     * @param { number } sigma - Standard deviation of the Gaussian blur to apply.
      *     The value must be a floating point number greater than 0.
      * @returns { MaskFilter } MaskFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4138,7 +4678,7 @@ declare namespace drawing {
     /**
      * Creates a mask filter with a blur effect.
      * @param { BlurType } blurType - Blur type.
-     * @param { double } sigma - Standard deviation of the Gaussian blur to apply.
+     * @param { number } sigma - Standard deviation of the Gaussian blur to apply.
      *     The value must be a floating point number greater than 0.
      * @returns { MaskFilter } MaskFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4146,9 +4686,23 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    static createBlurMaskFilter(blurType: BlurType, sigma: double): MaskFilter;
+    static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter;
+
+    /**
+     * Creates a mask filter with a blur effect.
+     * @param { BlurType } blurType - Blur type.
+     * @param { double } sigma - Standard deviation of the Gaussian blur to apply.
+     *     The value must be a floating point number greater than 0.
+     * @returns { MaskFilter | undefined } MaskFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createBlurMaskFilter(blurType: BlurType, sigma: double): MaskFilter | undefined;
   }
 
   /**
@@ -4157,11 +4711,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 18
    */
+  /**
+   * Enumerates the styles of the dashed path effect.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
    enum PathDashStyle {
     /**
      * Translates only, not rotating with the path.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Translates only, not rotating with the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     TRANSLATE = 0,
     /**
@@ -4169,11 +4736,23 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
+    /**
+     * Rotates with the path.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     ROTATE = 1,
     /**
      * Rotates with the path and stretches or compresses at turns to enhance smoothness.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
+     */
+    /**
+     * Rotates with the path and stretches or compresses at turns to enhance smoothness.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     MORPH = 2,
   }
@@ -4183,12 +4762,18 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Implements a path effect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   class PathEffect {
     /**
      * Creates a PathEffect object that converts a path into a dotted line.
-     * @param { Array<double> } intervals - Array of ON and OFF lengths of dotted lines.
+     * @param { Array<number> } intervals - Array of ON and OFF lengths of dotted lines.
      * The number of arrays must be an even number and be greater than or equal to 2.
-     * @param { double } phase - Offset used during drawing. The value is a floating point number.
+     * @param { number } phase - Offset used during drawing. The value is a floating point number.
      * @returns { PathEffect } PathEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4198,23 +4783,37 @@ declare namespace drawing {
      */
     /**
      * Creates a PathEffect object that converts a path into a dotted line.
-     * @param { Array<double> } intervals - Array of ON and OFF lengths of dotted lines.
+     * @param { Array<number> } intervals - Array of ON and OFF lengths of dotted lines.
      * The number of arrays must be an even number and be greater than or equal to 2.
-     * @param { double } phase - Offset used during drawing. The value is a floating point number.
+     * @param { number } phase - Offset used during drawing. The value is a floating point number.
      * @returns { PathEffect } PathEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    static createDashPathEffect(intervals: Array<double>, phase: double): PathEffect;
+    static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect;
+
+    /**
+     * Creates a PathEffect object that converts a path into a dotted line.
+     * @param { Array<double> } intervals - Array of ON and OFF lengths of dotted lines.
+     * The number of arrays must be an even number and be greater than or equal to 2.
+     * @param { double } phase - Offset used during drawing. The value is a floating point number.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createDashPathEffect(intervals: Array<double>, phase: double): PathEffect | undefined;
 
     /**
      * Creates a path effect that transforms the sharp angle between line segments
      * into a rounded corner with the specified radius.
-     * @param { double } radius - Radius of the rounded corner.
+     * @param { number } radius - Radius of the rounded corner.
      *     The value must be greater than 0. The value is a floating point number.
      * @returns { PathEffect } PathEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4226,7 +4825,7 @@ declare namespace drawing {
     /**
      * Creates a path effect that transforms the sharp angle between line segments
      * into a rounded corner with the specified radius.
-     * @param { double } radius - Radius of the rounded corner.
+     * @param { number } radius - Radius of the rounded corner.
      *     The value must be greater than 0. The value is a floating point number.
      * @returns { PathEffect } PathEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4234,18 +4833,32 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    static createCornerPathEffect(radius: double): PathEffect;
+    static createCornerPathEffect(radius: number): PathEffect;
+
+    /**
+     * Creates a path effect that transforms the sharp angle between line segments
+     * into a rounded corner with the specified radius.
+     * @param { double } radius - Radius of the rounded corner.
+     *     The value must be greater than 0. The value is a floating point number.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createCornerPathEffect(radius: double): PathEffect | undefined;
 
     /**
      * Creates an effect that segments the path and scatters the segments in an irregular pattern along the path.
-     * @param { double } segLength - Distance along the path at which each segment is fragmented.
+     * @param { number } segLength - Distance along the path at which each segment is fragmented.
      *     The value is a floating point number.
      *     If a negative number or the value 0 is passed in, no effect is created.
-     * @param { double } dev - Maximum amount by which the end points of the segments can be
+     * @param { number } dev - Maximum amount by which the end points of the segments can be
      *     randomly displaced during rendering. The value is a floating-point number.
-     * @param { int } [seedAssist] - Optional parameter to assist in generating a pseudo-random seed for the effect.
+     * @param { number } [seedAssist] - Optional parameter to assist in generating a pseudo-random seed for the effect.
      *     The default value is 0, and the value is a 32-bit unsigned integer.
      * @returns { PathEffect } PathEffect object.
      * @static
@@ -4254,6 +4867,23 @@ declare namespace drawing {
      */
     /**
      * Creates an effect that segments the path and scatters the segments in an irregular pattern along the path.
+     * @param { number } segLength - Distance along the path at which each segment is fragmented.
+     *     The value is a floating point number.
+     *     If a negative number or the value 0 is passed in, no effect is created.
+     * @param { number } dev - Maximum amount by which the end points of the segments can be
+     *     randomly displaced during rendering. The value is a floating-point number.
+     * @param { number } [seedAssist] - Optional parameter to assist in generating a pseudo-random seed for the effect.
+     *     The default value is 0, and the value is a 32-bit unsigned integer.
+     * @returns { PathEffect } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
+    static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect;
+
+    /**
+     * Creates an effect that segments the path and scatters the segments in an irregular pattern along the path.
      * @param { double } segLength - Distance along the path at which each segment is fragmented.
      *     The value is a floating point number.
      *     If a negative number or the value 0 is passed in, no effect is created.
@@ -4261,32 +4891,52 @@ declare namespace drawing {
      *     randomly displaced during rendering. The value is a floating-point number.
      * @param { int } [seedAssist] - Optional parameter to assist in generating a pseudo-random seed for the effect.
      *     The default value is 0, and the value is a 32-bit unsigned integer.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createDiscretePathEffect(segLength: double, dev: double, seedAssist?: int): PathEffect | undefined;
+
+    /**
+     * Creates a path effect by sequentially applying the inner effect and then the outer effect.
+     * @param { PathEffect } outer - Path effect that is applied second, overlaying the first effect.
+     * @param { PathEffect } inner - Inner path effect that is applied first.
+     * @returns { PathEffect } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 18
+     */
+    /**
+     * Creates a path effect by sequentially applying the inner effect and then the outer effect.
+     * @param { PathEffect } outer - Path effect that is applied second, overlaying the first effect.
+     * @param { PathEffect } inner - Inner path effect that is applied first.
      * @returns { PathEffect } PathEffect object.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    static createDiscretePathEffect(segLength: double, dev: double, seedAssist?: int): PathEffect;
-
-     /**
-      * Creates a path effect by sequentially applying the inner effect and then the outer effect.
-      * @param { PathEffect } outer - Path effect that is applied second, overlaying the first effect.
-      * @param { PathEffect } inner - Inner path effect that is applied first.
-      * @returns { PathEffect } PathEffect object.
-      * @static
-      * @syscap SystemCapability.Graphics.Drawing
-      * @since 18
-      */
     static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect;
 
     /**
+     * Creates a path effect by sequentially applying the inner effect and then the outer effect.
+     * @param { PathEffect } outer - Path effect that is applied second, overlaying the first effect.
+     * @param { PathEffect } inner - Inner path effect that is applied first.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect | undefined;
+
+    /**
      * Creates a dashed path effect based on the shape described by a path.
      * @param { Path } path - Path that defines the shape to be used for filling each dash in the pattern.
-     * @param { double } advance - Distance between two consecutive dashes.
+     * @param { number } advance - Distance between two consecutive dashes.
      *     The value is a floating point number greater than 0.
      *     Otherwise, an error code is thrown.
-     * @param { double } phase - Starting offset of the dash pattern. The value is a floating point number.
+     * @param { number } phase - Starting offset of the dash pattern. The value is a floating point number.
      *     The actual offset used is the absolute value of this value modulo the value of advance.
      * @param { PathDashStyle } style - Style of the dashed path effect.
      * @returns { PathEffect } PathEffect object.
@@ -4299,10 +4949,10 @@ declare namespace drawing {
     /**
      * Creates a dashed path effect based on the shape described by a path.
      * @param { Path } path - Path that defines the shape to be used for filling each dash in the pattern.
-     * @param { double } advance - Distance between two consecutive dashes.
+     * @param { number } advance - Distance between two consecutive dashes.
      *     The value is a floating point number greater than 0.
      *     Otherwise, an error code is thrown.
-     * @param { double } phase - Starting offset of the dash pattern. The value is a floating point number.
+     * @param { number } phase - Starting offset of the dash pattern. The value is a floating point number.
      *     The actual offset used is the absolute value of this value modulo the value of advance.
      * @param { PathDashStyle } style - Style of the dashed path effect.
      * @returns { PathEffect } PathEffect object.
@@ -4311,21 +4961,64 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    static createPathDashEffect(path: Path, advance: double, phase: double, style: PathDashStyle): PathEffect;
+    static createPathDashEffect(path: Path, advance: number, phase: number, style: PathDashStyle): PathEffect;
+    /**
+     * Creates a dashed path effect based on the shape described by a path.
+     * @param { Path } path - Path that defines the shape to be used for filling each dash in the pattern.
+     * @param { double } advance - Distance between two consecutive dashes.
+     *     The value is a floating point number greater than 0.
+     *     Otherwise, an error code is thrown.
+     * @param { double } phase - Starting offset of the dash pattern. The value is a floating point number.
+     *     The actual offset used is the absolute value of this value modulo the value of advance.
+     * @param { PathDashStyle } style - Style of the dashed path effect.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createPathDashEffect(path: Path, advance: double, phase: double, style: PathDashStyle): PathEffect | undefined;
 
-     /**
-      * Creates an overlay path effect based on two distinct path effects.
-      * Different from createComposePathEffect, this API applies each effect separately and then displays them as a simple overlay.
-      * @param { PathEffect } firstPathEffect - First path effect.
-      * @param { PathEffect } secondPathEffect - Second path effect.
-      * @returns { PathEffect } PathEffect object.
-      * @static
-      * @syscap SystemCapability.Graphics.Drawing
-      * @since 18
-      */
+    /**
+     * Creates an overlay path effect based on two distinct path effects.
+     * Different from createComposePathEffect,
+     * this API applies each effect separately and then displays them as a simple overlay.
+     * @param { PathEffect } firstPathEffect - First path effect.
+     * @param { PathEffect } secondPathEffect - Second path effect.
+     * @returns { PathEffect } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 18
+     */
+    /**
+     * Creates an overlay path effect based on two distinct path effects.
+     * Different from createComposePathEffect,
+     * this API applies each effect separately and then displays them as a simple overlay.
+     * @param { PathEffect } firstPathEffect - First path effect.
+     * @param { PathEffect } secondPathEffect - Second path effect.
+     * @returns { PathEffect } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect;
+
+    /**
+     * Creates an overlay path effect based on two distinct path effects.
+     * Different from createComposePathEffect,
+     * this API applies each effect separately and then displays them as a simple overlay.
+     * @param { PathEffect } firstPathEffect - First path effect.
+     * @param { PathEffect } secondPathEffect - Second path effect.
+     * @returns { PathEffect | undefined } PathEffect object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 dynamic
+     */
+    static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect | undefined;
   }
 
   /**
@@ -4333,7 +5026,7 @@ declare namespace drawing {
    * the shader effect instead of the color attribute is used for drawing. In this case,
    * the alpha value set for the pen or brush still takes effect.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since 12 dynamic
    */
   class ShaderEffect {
     /**
@@ -4355,7 +5048,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createColorShader(color: int): ShaderEffect;
 
@@ -4398,7 +5091,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array<int>,
       mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
@@ -4452,7 +5145,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createRadialGradient(centerPt: common2D.Point, radius: double, colors: Array<int>,
       mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
@@ -4522,7 +5215,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createSweepGradient(centerPt: common2D.Point, colors: Array<int>,
       mode: TileMode, startAngle: double, endAngle: double, pos?: Array<double> | null,
@@ -4577,7 +5270,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createConicalGradient(startPt: common2D.Point, startRadius: double, endPt: common2D.Point,
       endRadius: double, colors: Array<int>, mode: TileMode,
@@ -4595,7 +5288,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode,
       samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect;
@@ -4610,7 +5303,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect,
       blendMode: BlendMode): ShaderEffect;
@@ -4622,11 +5315,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the tile modes of the shader effect.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum TileMode {
     /**
      * Replicates the edge color if the shader effect draws outside of its original boundary.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Replicates the edge color if the shader effect draws outside of its original boundary.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     CLAMP = 0,
 
@@ -4635,12 +5341,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Repeats the shader effect in both horizontal and vertical directions.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     REPEAT = 1,
 
     /**
      * Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Repeats the shader effect in both horizontal and vertical directions, alternating mirror images.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     MIRROR = 2,
 
@@ -4649,13 +5367,19 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Renders the shader effect only within the original boundary.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     DECAL = 3,
   }
 
   /**
    * Implements a shadow layer.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12
+   * @since 12 dynamic
    */
   class ShadowLayer {
     /**
@@ -4689,7 +5413,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static create(blurRadius: double, x: double, y: double, color: common2D.Color): ShadowLayer;
     
@@ -4722,7 +5446,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static create(blurRadius: double, x: double, y: double, color: common2D.Color | int): ShadowLayer;
   }
@@ -4731,8 +5455,8 @@ declare namespace drawing {
    * Defines a color filter.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class ColorFilter {
     /**
@@ -4756,8 +5480,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     static createBlendModeColorFilter(color: common2D.Color, mode: BlendMode): ColorFilter;
 
@@ -4782,8 +5505,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     static createBlendModeColorFilter(color: common2D.Color | int, mode: BlendMode): ColorFilter;
 
@@ -4793,12 +5515,37 @@ declare namespace drawing {
      * @param { ColorFilter } inner - Color filter that takes effect first in the new filter.
      * @returns { ColorFilter } Colorfilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
+    /**
+     * Creates a ColorFilter object by combining another two color filters.
+     * @param { ColorFilter } outer - Color filter that takes effect later in the new filter.
+     * @param { ColorFilter } inner - Color filter that takes effect first in the new filter.
+     * @returns { ColorFilter } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter;
+
+    /**
+     * Creates a ColorFilter object by combining another two color filters.
+     * @param { ColorFilter } outer - Color filter that takes effect later in the new filter.
+     * @param { ColorFilter } inner - Color filter that takes effect first in the new filter.
+     * @returns { ColorFilter | undefined } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createComposeColorFilter(outer: ColorFilter, inner: ColorFilter): ColorFilter | undefined;
 
     /**
      * Creates a ColorFilter object that applies the sRGB gamma curve to the RGB channels.
@@ -4807,7 +5554,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
+    /**
+     * Creates a ColorFilter object that applies the sRGB gamma curve to the RGB channels.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createLinearToSRGBGamma(): ColorFilter;
+
+    /**
+     * Creates a ColorFilter object that applies the sRGB gamma curve to the RGB channels.
+     * @returns { ColorFilter | undefined} Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createLinearToSRGBGamma(): ColorFilter | undefined;
 
     /**
      * Creates a ColorFilter object that applies the RGB channels to the sRGB gamma curve.
@@ -4816,7 +5580,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
+    /**
+     * Creates a ColorFilter object that applies the RGB channels to the sRGB gamma curve.
+     * @returns { ColorFilter } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createSRGBGammaToLinear(): ColorFilter;
+
+    /**
+     * Creates a ColorFilter object that applies the RGB channels to the sRGB gamma curve.
+     * @returns { ColorFilter | undefined } Colorfilter object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createSRGBGammaToLinear(): ColorFilter | undefined;
 
     /**
      * Creates a ColorFilter object that multiplies the luma into the alpha channel and sets the RGB channels to zero.
@@ -4825,7 +5606,25 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11
      */
+    /**
+     * Creates a ColorFilter object that multiplies the luma into the alpha channel and sets the RGB channels to zero.
+     * @returns { ColorFilter } Colorfilter.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createLumaColorFilter(): ColorFilter;
+
+    /**
+     * Creates a ColorFilter object that multiplies the luma into the alpha channel and sets the RGB channels to zero.
+     * @returns { ColorFilter | undefined } Colorfilter.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createLumaColorFilter(): ColorFilter | undefined;
+
     /**
      * Creates a color filter object with a 4*5 color matrix.
      * @param { Array<double> } matrix - An array of 20 numbers, indicating the 4*5 matrix.
@@ -4845,9 +5644,21 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createMatrixColorFilter(matrix: Array<double>): ColorFilter;
+
+    /**
+     * Creates a color filter object with a 4*5 color matrix.
+     * @param { Array<double> } matrix - An array of 20 numbers, indicating the 4*5 matrix.
+     * @returns { ColorFilter | undefined } Colorfilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createMatrixColorFilter(matrix: Array<double>): ColorFilter | undefined;
     
     /**
      * Makes a color filter with the given mutColor and addColor.
@@ -4857,7 +5668,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createLightingColorFilter(mutColor: common2D.Color | int, addColor: common2D.Color | int): ColorFilter;
 
@@ -4869,6 +5680,13 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Implements an image filter.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   class ImageFilter {
     /**
      * Creates an image filter with a given blur effect.
@@ -4877,7 +5695,7 @@ declare namespace drawing {
      * @param { double } sigmaY - Standard deviation of the Gaussian blur along the Y axis.
      *     The value must be a floating point number greater than 0.
      * @param { TileMode } tileMode - Tile mode to apply to the edges.
-     * @param { ImageFilter | null } imageFilter - Filter to which the image filter will be applied.
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied.
      *     The default value is null, indicating that the image filter is directly applied to the original image.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4893,7 +5711,7 @@ declare namespace drawing {
      * @param { double } sigmaY - Standard deviation of the Gaussian blur along the Y axis.
      *     The value must be a floating point number greater than 0.
      * @param { TileMode } tileMode - Tile mode to apply to the edges.
-     * @param { ImageFilter | null } imageFilter - Filter to which the image filter will be applied.
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied.
      *     The default value is null, indicating that the image filter is directly applied to the original image.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4901,14 +5719,34 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createBlurImageFilter(sigmaX: double, sigmaY: double,
       tileMode: TileMode, imageFilter?: ImageFilter | null): ImageFilter;
+    
+    /**
+     * Creates an image filter with a given blur effect.
+     * @param { double } sigmaX - Standard deviation of the Gaussian blur along the X axis.
+     *     The value must be a floating point number greater than 0.
+     * @param { double } sigmaY - Standard deviation of the Gaussian blur along the Y axis.
+     *     The value must be a floating point number greater than 0.
+     * @param { TileMode } tileMode - Tile mode to apply to the edges.
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied.
+     *     The default value is null, indicating that the image filter is directly applied to the original image.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createBlurImageFilter(sigmaX: double, sigmaY: double,
+      tileMode: TileMode, imageFilter?: ImageFilter | null): ImageFilter | undefined;
+
     /**
      * Creates an image filter object with a given color filter effect.
      * @param { ColorFilter } colorFilter - Color filter.
-     * @param { ImageFilter | null } imageFilter - Filter to which the image filter will be applied. The default value is null,
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied. The default value is null,
      * indicating that the image filter is directly applied to the original image.
      * @returns { ImageFilter } ImageFilter object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4917,7 +5755,34 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Creates an image filter object with a given color filter effect.
+     * @param { ColorFilter } colorFilter - Color filter.
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied. The default value is null,
+     * indicating that the image filter is directly applied to the original image.
+     * @returns { ImageFilter } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter;
+
+    /**
+     * Creates an image filter object with a given color filter effect.
+     * @param { ColorFilter } colorFilter - Color filter.
+     * @param { ImageFilter | null } [imageFilter] - Filter to which the image filter will be applied. The default value is null,
+     * indicating that the image filter is directly applied to the original image.
+     * @returns { ImageFilter | undefined } ImageFilter object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter | undefined;
 
     /**
      * Makes an ImageFilter object that instance with the provided x and y offset.
@@ -4929,7 +5794,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createOffsetImageFilter(dx: double, dy: double, input?: ImageFilter | null): ImageFilter;
     
@@ -4942,7 +5807,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter;
   
@@ -4956,7 +5821,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
     */
     static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter;
 
@@ -4970,7 +5835,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter;
 
@@ -4982,7 +5847,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static createFromShaderEffect(shader: ShaderEffect): ImageFilter;
   }
@@ -4992,12 +5857,26 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the join styles of a pen. The join style defines the shape of the joints of a polyline segment drawn by the pen.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum JoinStyle {
     /**
      * Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate.
      * In this case, you need to use the miter limit to limit the miter length.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate.
+     * In this case, you need to use the miter limit to limit the miter length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     MITER_JOIN = 0,
 
@@ -5006,12 +5885,25 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Round corner.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     ROUND_JOIN = 1,
 
     /**
      * Bevel corner.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Mitered corner. If the angle of a polyline is small, its miter length may be inappropriate.
+     * In this case, you need to use the miter limit to limit the miter length.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     BEVEL_JOIN = 2
   }
@@ -5022,11 +5914,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the cap styles of a pen. The cap style defines the style of both ends of a line segment drawn by the pen.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum CapStyle {
     /**
      * There is no cap style. Both ends of the line segment are cut off square.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * There is no cap style. Both ends of the line segment are cut off square.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FLAT_CAP = 0,
 
@@ -5035,12 +5940,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Square cap style. Both ends have a square, the height of which is half of the width of the line segment, with the same width.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     SQUARE_CAP = 1,
 
     /**
      * Round cap style. Both ends have a semicircle centered, the diameter of which is the same as the width of the line segment.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Round cap style. Both ends have a semicircle centered, the diameter of which is the same as the width of the line segment.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     ROUND_CAP = 2
   }
@@ -5051,11 +5968,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the blur types of a mask filter.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum BlurType {
     /**
      * Both the outer edges and the inner solid parts are blurred.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Both the outer edges and the inner solid parts are blurred.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     NORMAL = 0,
 
@@ -5064,12 +5994,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * The inner solid part remains unchanged, while only the outer edges are blurred.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     SOLID = 1,
 
     /**
      * Only the outer edges are blurred, with the inner solid part being fully transparent.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Only the outer edges are blurred, with the inner solid part being fully transparent.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     OUTER = 2,
 
@@ -5078,21 +6020,27 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Only the inner solid part is blurred, while the outer edges remain sharp.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     INNER = 3
   }
 
   /**
    * Defines a pen, which is used to describe the style and color to outline a shape.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Pen {
     /**
      * A constructor used to create a Pen object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor();
 
@@ -5102,8 +6050,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor(pen: Pen);
 
@@ -5130,7 +6078,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setMiterLimit(miter: double): void;
 
@@ -5145,7 +6093,7 @@ declare namespace drawing {
      * @returns { double } Returns the miter limit.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getMiterLimit(): double;
 
@@ -5155,7 +6103,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
@@ -5176,7 +6124,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(color: common2D.Color): void;
 
@@ -5217,7 +6165,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(alpha: int, red: int, green: int, blue: int): void;
 
@@ -5232,7 +6180,7 @@ declare namespace drawing {
      * @param { int } color - Color in hexadecimal ARGB format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(color: int): void;
 
@@ -5244,7 +6192,7 @@ declare namespace drawing {
      * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
 
@@ -5252,7 +6200,7 @@ declare namespace drawing {
      * Obtains the color of this pen.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getColor(): common2D.Color;
 
@@ -5261,7 +6209,7 @@ declare namespace drawing {
      * @returns { common2D.Color4f } Returns four floating point values that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getColor4f(): common2D.Color4f;
 
@@ -5276,7 +6224,7 @@ declare namespace drawing {
      * @returns { int } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getHexColor(): int;
 
@@ -5301,7 +6249,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setStrokeWidth(width: double): void;
 
@@ -5316,7 +6264,7 @@ declare namespace drawing {
      * @returns { double } Stroke width for the pen, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getWidth(): double;
 
@@ -5328,7 +6276,7 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 11
+    * @since 11 dynamic
     */
     setAntiAlias(aa: boolean): void;
 
@@ -5336,7 +6284,7 @@ declare namespace drawing {
      * Checks whether anti-aliasing is enabled for this pen.
      * @returns { boolean } Returns true if the anti-aliasing is enabled; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isAntiAlias(): boolean;
 
@@ -5359,7 +6307,7 @@ declare namespace drawing {
     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
     * @crossplatform
-    * @since 20
+    * @since 20 dynamic
     */
     setAlpha(alpha: int): void;
 
@@ -5374,7 +6322,7 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getAlpha(): int;
 
@@ -5385,14 +6333,14 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 11
+    * @since 11 dynamic
     */
     setColorFilter(filter: ColorFilter): void;
     /**
      * Obtains the color filter of this pen.
      * @returns { ColorFilter } ColorFilter.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getColorFilter(): ColorFilter;
     /**
@@ -5401,7 +6349,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setImageFilter(filter: ImageFilter | null): void;
     /**
@@ -5411,7 +6359,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setMaskFilter(filter: MaskFilter): void;
 
@@ -5422,7 +6370,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setPathEffect(effect: PathEffect): void;
 
@@ -5433,7 +6381,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setShadowLayer(shadowLayer: ShadowLayer): void;
 
@@ -5444,8 +6392,8 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since arkts {'1.1':'11', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 11 dynamic
+    * @since 20 static
     */
     setBlendMode(mode: BlendMode): void;
 
@@ -5456,7 +6404,7 @@ declare namespace drawing {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     * <br>2. Incorrect parameter types.
     * @syscap SystemCapability.Graphics.Drawing
-    * @since 11
+    * @since 11 dynamic
     */
     setDither(dither: boolean): void;
 
@@ -5467,7 +6415,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setJoinStyle(style: JoinStyle): void;
 
@@ -5476,7 +6424,7 @@ declare namespace drawing {
      *
      * @returns { JoinStyle } The JoinStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getJoinStyle(): JoinStyle;
 
@@ -5487,7 +6435,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setCapStyle(style: CapStyle): void;
 
@@ -5496,15 +6444,15 @@ declare namespace drawing {
      *
      * @returns { CapStyle } The CapStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getCapStyle(): CapStyle;
 
     /**
      * Resets this pen to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     reset(): void;
     /**
@@ -5516,7 +6464,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getFillPath(src: Path, dst: Path): boolean;
   }
@@ -5524,15 +6472,15 @@ declare namespace drawing {
   /**
    * Defines a brush, which is used to describe the style and color to fill in a shape.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   class Brush {
     /**
      * A constructor used to create a Brush object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor();
 
@@ -5542,8 +6490,8 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     constructor(brush: Brush);
 
@@ -5564,7 +6512,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(color: common2D.Color): void;
 
@@ -5597,7 +6545,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(alpha: int, red: int, green: int, blue: int): void;
 
@@ -5616,7 +6564,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor(color: int): void;
 
@@ -5628,7 +6576,7 @@ declare namespace drawing {
      * @param { colorSpaceManager.ColorSpaceManager | null } colorSpace - Indicates colorSpaceManager.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void;
 
@@ -5636,7 +6584,7 @@ declare namespace drawing {
      * Obtains the color of this brush.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getColor(): common2D.Color;
 
@@ -5645,7 +6593,7 @@ declare namespace drawing {
      * @returns { common2D.Color4f } Returns four floating point values that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getColor4f(): common2D.Color4f;
 
@@ -5660,7 +6608,7 @@ declare namespace drawing {
      * @returns { int } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getHexColor(): int;
 
@@ -5671,7 +6619,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     setAntiAlias(aa: boolean): void;
 
@@ -5679,7 +6627,7 @@ declare namespace drawing {
      * Checks whether anti-aliasing is enabled for this brush.
      * @returns { boolean } Returns true if anti-aliasing is enabled; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isAntiAlias(): boolean;
 
@@ -5700,7 +6648,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setAlpha(alpha: int): void;
 
@@ -5715,7 +6663,7 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getAlpha(): int;
 
@@ -5725,7 +6673,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11
+     * @since 11 dynamic
      */
     setColorFilter(filter: ColorFilter): void;
 
@@ -5733,7 +6681,7 @@ declare namespace drawing {
      * Obtains the color filter of this brush.
      * @returns { ColorFilter } ColorFilter.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     getColorFilter(): ColorFilter;
     /**
@@ -5742,7 +6690,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setImageFilter(filter: ImageFilter | null): void;
     /**
@@ -5751,7 +6699,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setMaskFilter(filter: MaskFilter): void;
 
@@ -5762,7 +6710,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setShadowLayer(shadowLayer: ShadowLayer): void;
 
@@ -5772,7 +6720,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setShaderEffect(shaderEffect: ShaderEffect): void;
 
@@ -5782,16 +6730,16 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     setBlendMode(mode: BlendMode): void;
 
     /**
      * Resets this brush to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     reset(): void;
   }
@@ -5800,15 +6748,26 @@ declare namespace drawing {
    * Implements a matrix.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Implements a matrix.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Matrix {
     /**
      * Creates a Matrix object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Creates a Matrix object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     constructor();
 
@@ -5817,7 +6776,7 @@ declare namespace drawing {
      * @param { Matrix } matrix - The matrix object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     constructor(matrix: Matrix);
 
@@ -5826,7 +6785,7 @@ declare namespace drawing {
      * @returns { boolean } Returns true if the matrix is affine; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isAffine(): boolean;
 
@@ -5835,7 +6794,7 @@ declare namespace drawing {
      * @returns { boolean } Returns true if the transformation keeps rectangles as rectangles; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     rectStaysRect(): boolean;
 
@@ -5860,7 +6819,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     setRotation(degree: double, px: double, py: double): void;
 
@@ -5889,7 +6848,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     setScale(sx: double, sy: double, px: double, py: double): void;
 
@@ -5922,7 +6881,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setTranslation(dx: double, dy: double): void;
 
@@ -5934,7 +6893,7 @@ declare namespace drawing {
      * @param { double } py - The y-coordinate of the point around which to apply the skew.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setSkew(kx: double, ky: double, px: double, py: double): void;
 
@@ -5946,7 +6905,7 @@ declare namespace drawing {
      * @param { double } py - The y-coordinate of the point around which to rotate.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setSinCos(sinValue: double, cosValue: double, px: double, py: double): void;
 
@@ -5983,7 +6942,7 @@ declare namespace drawing {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     setMatrix(values: Array<double>): void;
 
@@ -5992,7 +6951,7 @@ declare namespace drawing {
      * @param { Array<double> | Matrix } matrix - Indicates the Matrix object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setMatrix(matrix: Array<double> | Matrix): void;
 
@@ -6002,7 +6961,7 @@ declare namespace drawing {
      * @param { Matrix } matrixB - Indicates the MatrixB object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setConcat(matrixA: Matrix, matrixB: Matrix): void;
 
@@ -6011,7 +6970,7 @@ declare namespace drawing {
      * @param { Matrix } matrix - Indicates the other Matrix object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     postConcat(matrix: Matrix): void;
 
@@ -6023,6 +6982,15 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Preconcats the existing matrix with the passed-in matrix.
+     * @param { Matrix } matrix - Matrix object, which is on the right of a multiplication expression.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     preConcat(matrix: Matrix): void;
 
     /**
@@ -6030,29 +6998,83 @@ declare namespace drawing {
      * @param { Matrix } matrix - Matrix to compare.
      * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Checks whether this matrix is equal to another matrix.
+     * @param { Matrix } matrix - Matrix to compare.
+     * @returns { Boolean } Returns true if the two matrices are equal; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     isEqual(matrix: Matrix): Boolean;
 
     /**
+     * Checks whether this matrix is equal to another matrix.
+     * @param { Matrix } matrix - Matrix to compare.
+     * @returns { boolean } Returns true if the two matrices are equal; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    isEqual(matrix: Matrix): boolean;
+
+    /**
      * Inverts this matrix and returns the result.
      * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
-     * @returns { Boolean } Check result. The value true means that the matrix is revertible and the matrix object is set to its inverse,
-     * and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @returns { Boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Inverts this matrix and returns the result.
+     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
+     * @returns { Boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     invert(matrix: Matrix): Boolean;
+
+    /**
+     * Inverts this matrix and returns the result.
+     * @param { Matrix } matrix - Matrix object used to store the inverted matrix.
+     * @returns { boolean } Check result. The value true means that the matrix is revertible
+     *     and the matrix object is set to its inverse,
+     *     and false means that the matrix is not revertible and the matrix object remains unchanged.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    invert(matrix: Matrix): boolean;
 
     /**
      * Checks whether this matrix is an identity matrix.
      * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Checks whether this matrix is an identity matrix.
+     * @returns { Boolean } Returns true if matrix is identity; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     isIdentity(): Boolean;
 
@@ -6073,7 +7095,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     getValue(index: int): double;
     /**
@@ -6099,7 +7121,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     postRotate(degree: double, px: double, py: double): void;
     /**
@@ -6129,7 +7151,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     postScale(sx: double, sy: double, px: double, py: double): void;
     /**
@@ -6163,7 +7185,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     postTranslate(dx: double, dy: double): void;
 
@@ -6190,7 +7212,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     preRotate(degree: double, px: double, py: double): void;
 
@@ -6203,7 +7225,7 @@ declare namespace drawing {
      * @param { double } py - Indicates the pivot on y-axis.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     postSkew(kx: double, ky: double, px: double, py: double): void;
 
@@ -6234,7 +7256,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     preScale(sx: double, sy: double, px: double, py: double): void;
     /**
@@ -6268,7 +7290,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     preTranslate(dx: double, dy: double): void;
     
@@ -6281,14 +7303,14 @@ declare namespace drawing {
      * @param { double } py - Indicates the pivot on y-axis.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     preSkew(kx: double, ky: double, px: double, py: double): void;
     /**
      * Resets this matrix to an identity matrix.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     reset(): void;
     /**
@@ -6296,11 +7318,32 @@ declare namespace drawing {
      * @param { Array<common2D.Point> } src - Array of source points.
      * @returns { Array<common2D.Point> } Return mapped points array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Maps a source point array to a destination point array by means of matrix transformation.
+     * @param { Array<common2D.Point> } src - Array of source points.
+     * @returns { Array<common2D.Point> } Return mapped points array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     mapPoints(src: Array<common2D.Point>): Array<common2D.Point>;
+
+    /**
+     * Maps a source point array to a destination point array by means of matrix transformation.
+     * @param { Array<common2D.Point> } src - Array of source points.
+     * @returns { Array<common2D.Point> | undefined } Return mapped points array.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    mapPoints(src: Array<common2D.Point>): Array<common2D.Point> | undefined;
 
     /**
      * Forms a circle by radius and maps it to a ellipse, returns the average radius of the ellipse.
@@ -6309,30 +7352,36 @@ declare namespace drawing {
      * @returns { double } Return average mapped radius.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     mapRadius(radius: double): double;
 
     /**
      * Obtains all element values of this matrix.
-     * @returns { Array<int> } nine scalar values contained by Matrix.
+     * @returns { Array<number> } nine scalar values contained by Matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     /**
      * Obtains all element values of this matrix.
-     * @returns { Array<int> } nine scalar values contained by Matrix.
+     * @returns { Array<number> } nine scalar values contained by Matrix.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
-    getAll(): Array<int>;
+    getAll(): Array<number>;
+
     /**
-     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the source rectangle
-     * with a matrix transformation. As shown in the figure below, the blue rectangle represents the source rectangle,
-     * and the yellow rectangle is the shape obtained after a matrix transformation is applied to the source rectangle.
-     * Since the edges of the yellow rectangle are not aligned with the coordinate axes, it cannot be represented by a rectangle object.
-     * To address this issue, a destination rectangle (black rectangle) is defined as the bounding rectangle.
+     * Obtains all element values of this matrix.
+     * @returns { Array<double> | undefined } nine scalar values contained by Matrix.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getAll(): Array<double> | undefined;
+
+    /**
+     * Sets the destination rectangle to the bounding rectangle of the shape obtained after transforming the
+     * source rectangle with a matrix transformation.
      * @param { common2D.Rect } dst - Rectangle object, which is used to store the bounding rectangle.
      * @param { common2D.Rect } src - Source rectangle.
      * @returns { boolean } Returns true if the mapped src is equal to the dst; returns false is not equal.
@@ -6341,20 +7390,58 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * ets the destination rectangle to the bounding rectangle of the shape obtained after
+     * transforming the source rectangle
+     * with a matrix transformation. As shown in the figure below, the blue rectangle represents the source rectangle,
+     * and the yellow rectangle is the shape obtained after a matrix transformation is applied to the source rectangle.
+     * Since the edges of the yellow rectangle are not aligned with the coordinate axes,
+     * it cannot be represented by a rectangle object.
+     * To address this issue, a destination rectangle (black rectangle) is defined as the bounding rectangle.
+     * @param { common2D.Rect } dst - Rectangle object, which is used to store the bounding rectangle.
+     * @param { common2D.Rect } src - Source rectangle.
+     * @returns { boolean } Returns true if the mapped src is equal to the dst; returns false is not equal.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     mapRect(dst: common2D.Rect, src: common2D.Rect): boolean;
     /**
      * Sets this matrix to a transformation matrix that maps a source rectangle to a destination rectangle.
      * @param { common2D.Rect } src - Source rectangle.
      * @param { common2D.Rect } dst - Destination rectangle.
      * @param { ScaleToFit } scaleToFit - Mapping mode from the source rectangle to the target rectangle.
-     * @returns { boolean } Check result. The value true means that the matrix can represent the mapping, and false means the opposite.
-     * If either the width or the height of the source rectangle is less than or equal to 0, the API returns false
-     * and sets the matrix to an identity matrix. If either the width or height of the destination rectangle is less than or equal to 0,
-     * the API returns true and sets the matrix to a matrix with all values 0, except for a perspective scaling coefficient of 1.
+     * @returns { boolean } Check result. The value true means that the matrix can represent the mapping,
+     *     and false means the opposite.
+     *     If either the width or the height of the source rectangle is less than or equal to 0,
+     *     the API returns false and sets the matrix to an identity matrix.
+     *     If either the width or height of the destination rectangle is less than or equal to 0,
+     *     the API returns true and sets the matrix to a matrix with all values 0,
+     *     except for a perspective scaling coefficient of 1.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Sets this matrix to a transformation matrix that maps a source rectangle to a destination rectangle.
+     * @param { common2D.Rect } src - Source rectangle.
+     * @param { common2D.Rect } dst - Destination rectangle.
+     * @param { ScaleToFit } scaleToFit - Mapping mode from the source rectangle to the target rectangle.
+     * @returns { boolean } Check result. The value true means that the matrix can represent the mapping,
+     *     and false means the opposite.
+     *     If either the width or the height of the source rectangle is less than or equal to 0,
+     *     the API returns false and sets the matrix to an identity matrix.
+     *     If either the width or height of the destination rectangle is less than or equal to 0,
+     *     the API returns true and sets the matrix to a matrix with all values 0,
+     *     except for a perspective scaling coefficient of 1.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): boolean;
     /**
@@ -6384,7 +7471,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic&static
      */
     setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: int): boolean;
   }
@@ -6395,11 +7482,24 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the modes of scaling a source rectangle into a destination rectangle.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum ScaleToFit {
     /**
      * Scales the source rectangle to completely fill the destination rectangle, potentially changing the aspect ratio of the source rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Scales the source rectangle to completely fill the destination rectangle, potentially changing the aspect ratio of the source rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FILL_SCALE_TO_FIT = 0,
 
@@ -6408,12 +7508,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Scales the source rectangle, preserving its aspect ratio, to align it to the upper left corner of the destination rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     START_SCALE_TO_FIT = 1,
 
     /**
      * Scales the source rectangle, preserving its aspect ratio, to align it to the center of the destination rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Scales the source rectangle, preserving its aspect ratio, to align it to the center of the destination rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     CENTER_SCALE_TO_FIT = 2,
 
@@ -6422,21 +7534,27 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Scales the source rectangle, preserving its aspect ratio, to align it to the lower right corner of the destination rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     END_SCALE_TO_FIT = 3
   }
 
   /**
    * Describes a region, which is used to describe the region where the shape can be drawn.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   class Region {
     /**
      * Creates an empty region.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     constructor();
 
@@ -6445,7 +7563,7 @@ declare namespace drawing {
      * @param { Region } region - The region object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     constructor(region: Region);
 
@@ -6457,7 +7575,7 @@ declare namespace drawing {
      * @param { int } bottom - Indicates the bottom edge of the rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     constructor(left: int, top: int, right: int, bottom: int);
 
@@ -6467,7 +7585,7 @@ declare namespace drawing {
      * @returns { boolean } Returns compare result.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isEqual(other: Region): boolean;
 
@@ -6477,7 +7595,7 @@ declare namespace drawing {
      * <br>returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isComplex(): boolean;
 
@@ -6486,7 +7604,7 @@ declare namespace drawing {
      * @returns { boolean } Returns true if the region is empty; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isEmpty(): boolean;
 
@@ -6495,7 +7613,7 @@ declare namespace drawing {
      * @returns { common2D.Rect } Returns Rect object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getBounds(): common2D.Rect;
 
@@ -6504,7 +7622,7 @@ declare namespace drawing {
      * @returns { Path } Returns Path object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     getBoundaryPath(): Path;
 
@@ -6531,7 +7649,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     isPointContained(x: int, y:int): boolean;
 
@@ -6543,7 +7661,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     isRegionContained(other: Region): boolean;
 
@@ -6557,6 +7675,17 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Performs an operation on this region and another region, and stores the resulting region in this Region object.
+     * @param { Region } region - Region object.
+     * @param { RegionOp } regionOp - Operation mode of the region.
+     * @returns { boolean } Returns true if replaced region is not empty; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     op(region: Region, regionOp: RegionOp): boolean;
 
     /**
@@ -6565,7 +7694,7 @@ declare namespace drawing {
      * @param { int } dy - Indicates the y coordinate of the point. The parameter must be an integer.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     offset(dx: int, dy: int): void;
 
@@ -6604,7 +7733,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     quickReject(left: int, top: int, right: int, bottom: int): boolean;
 
@@ -6615,7 +7744,7 @@ declare namespace drawing {
      * <br>returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     quickRejectRegion(region: Region): boolean;
 
@@ -6627,7 +7756,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
+     * @since 12 dynamic
      */
     setPath(path: Path, clip: Region): boolean;
 
@@ -6662,7 +7791,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setRect(left: int, top: int, right: int, bottom: int): boolean;
 
@@ -6671,7 +7800,7 @@ declare namespace drawing {
      * @param { Region } region - Region object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setRegion(region: Region): void;
 
@@ -6679,7 +7808,7 @@ declare namespace drawing {
      * Sets the region to empty.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     setEmpty(): void;
   }
@@ -6688,55 +7817,91 @@ declare namespace drawing {
    * Enumerates the operations for combining two regions.
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
+   */
+  /**
+   * Enumerates the operations for combining two regions.
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum RegionOp {
     /**
      * Difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     DIFFERENCE = 0,
 
     /**
      * Intersect operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Intersect operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     INTERSECT = 1,
 
     /**
      * Union operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Union operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     UNION = 2,
 
     /**
      * Xor operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Xor operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     XOR = 3,
 
     /**
      * Reverse difference operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Reverse difference operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     REVERSE_DIFFERENCE = 4,
 
     /**
      * Replace operation.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
+     */
+    /**
+     * Replace operation.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     REPLACE = 5
   }
@@ -6748,11 +7913,25 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
    */
+  /**
+   * Enumerates the corner positions of a rounded rectangle.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum CornerPos {
     /**
      * Top left corner of the rounded rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Top left corner of the rounded rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     TOP_LEFT_POS = 0,
 
@@ -6761,12 +7940,24 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Top right corner of the rounded rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     TOP_RIGHT_POS = 1,
 
     /**
      * Bottom right corner of the rounded rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * Bottom right corner of the rounded rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     BOTTOM_RIGHT_POS = 2,
 
@@ -6775,16 +7966,33 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Bottom left corner of the rounded rectangle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     BOTTOM_LEFT_POS = 3
   }
 
   /**
    * Enumerates the constraints on the source rectangle.
-   * It is used to specify whether to limit the sampling range within the source rectangle when drawing an image on a canvas.
+   * It is used to specify whether to limit the sampling range within the source
+   * rectangle when drawing an image on a canvas.
    *
    * @enum { int }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12
+   */
+  /**
+   * Enumerates the constraints on the source rectangle.
+   * It is used to specify whether to limit the sampling range within the source
+   * rectangle when drawing an image on a canvas.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   enum SrcRectConstraint {
 
@@ -6794,13 +8002,29 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * The sampling range is strictly confined to the source rectangle, resulting in a slow sampling speed.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     STRICT = 0,
 
     /**
-     * The sampling range is not limited to the source rectangle and can extend beyond it, allowing for a high sampling speed.
+     * The sampling range is not limited to the source rectangle and can extend beyond it,
+     * allowing for a high sampling speed.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
+     */
+    /**
+     * The sampling range is not limited to the source rectangle and can extend beyond it,
+     * allowing for a high sampling speed.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     FAST = 1
   }
@@ -6809,7 +8033,7 @@ declare namespace drawing {
    * A utility class that provides only static methods to convert data structs defined in other modules and common2D.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 15
+   * @since 15 dynamic
    */
   class Tool {
     /**
@@ -6822,7 +8046,7 @@ declare namespace drawing {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 15
+     * @since 15 dynamic
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
   }
@@ -6832,7 +8056,7 @@ declare namespace drawing {
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
-   * @since 20
+   * @since 20 dynamic
    */
   class RectUtils {
     /**
@@ -6842,7 +8066,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeEmpty() : common2D.Rect;
 
@@ -6856,7 +8080,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeLtrb(left: double, top: double, right: double, bottom: double) : common2D.Rect;
 
@@ -6867,7 +8091,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static makeCopy(src: common2D.Rect) : common2D.Rect;
 
@@ -6879,7 +8103,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static getWidth(rect: common2D.Rect): double;
 
@@ -6891,7 +8115,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static getHeight(rect: common2D.Rect): double;
 
@@ -6903,7 +8127,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static centerX(rect: common2D.Rect): double;
 
@@ -6915,7 +8139,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static centerY(rect: common2D.Rect): double;
 
@@ -6928,7 +8152,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -6944,7 +8168,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static contains(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): boolean;
 
@@ -6958,7 +8182,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static contains(rect: common2D.Rect, x: double, y: double): boolean;
 
@@ -6973,7 +8197,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static inset(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
@@ -6988,7 +8212,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static intersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -7001,7 +8225,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static isIntersect(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -7013,7 +8237,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static union(rect: common2D.Rect, other: common2D.Rect): void;
 
@@ -7025,7 +8249,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static isEmpty(rect: common2D.Rect): boolean;
 
@@ -7039,7 +8263,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static offset(rect: common2D.Rect, dx: double, dy: double): void;
 
@@ -7052,7 +8276,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static offsetTo(rect: common2D.Rect, newLeft: double, newTop: double): void;
 
@@ -7063,7 +8287,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static setRect(rect: common2D.Rect, other: common2D.Rect): void;
 
@@ -7077,7 +8301,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static setLtrb(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
@@ -7087,7 +8311,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static setEmpty(rect: common2D.Rect): void;
 
@@ -7101,7 +8325,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static sort(rect: common2D.Rect): void;
 
@@ -7114,7 +8338,7 @@ declare namespace drawing {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20
+     * @since 20 dynamic
      */
     static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean;
   }

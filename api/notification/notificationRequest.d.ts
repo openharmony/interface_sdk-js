@@ -25,12 +25,12 @@ import { NotificationContent } from './notificationContent';
 import { NotificationActionButton } from './notificationActionButton';
 import { NotificationTemplate } from './notificationTemplate';
 import { NotificationFlags } from './notificationFlags';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import notification from '../@ohos.notification';
 import { WantAgent } from '../@ohos.wantAgent';
 import type { BundleOption } from './NotificationCommonDef';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
 import { BundleOption } from './NotificationCommonDef';
 /*** endif */
@@ -48,8 +48,8 @@ import { BundleOption } from './NotificationCommonDef';
  * @typedef NotificationRequest
  * @syscap SystemCapability.Notification.Notification
  * @crossplatform
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface NotificationRequest {
   /**
@@ -65,8 +65,8 @@ export interface NotificationRequest {
    * @type { NotificationContent }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   content: NotificationContent;
 
@@ -83,8 +83,8 @@ export interface NotificationRequest {
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   id?: int;
 
@@ -97,8 +97,8 @@ export interface NotificationRequest {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   appMessageId?: string;
 
@@ -107,7 +107,7 @@ export interface NotificationRequest {
    *
    * @type { ?notification.SlotType }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead NotificationRequest#notificationSlotType
    */
@@ -118,8 +118,8 @@ export interface NotificationRequest {
    *
    * @type { ?notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   notificationSlotType?: notificationManager.SlotType;
 
@@ -136,8 +136,8 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isOngoing?: boolean;
 
@@ -146,8 +146,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isUnremovable?: boolean;
 
@@ -158,8 +158,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   updateOnly?: boolean;
 
@@ -176,8 +176,8 @@ export interface NotificationRequest {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   deliveryTime?: long;
 
@@ -198,8 +198,8 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   tapDismissed?: boolean;
 
@@ -220,8 +220,8 @@ export interface NotificationRequest {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   autoDeletedTime?: long;
 
@@ -230,8 +230,8 @@ export interface NotificationRequest {
    *
    * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   wantAgent?: WantAgent;
 
@@ -240,7 +240,7 @@ export interface NotificationRequest {
    *
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
-   * @since 7
+   * @since 7 dynamic
    */
   extraInfo?: { [key: string]: any };
 
@@ -249,8 +249,7 @@ export interface NotificationRequest {
    *
    * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   extraInfo?: Record<string, Object>;
 
@@ -260,8 +259,7 @@ export interface NotificationRequest {
    * @type { Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   extendInfo?: Record<string, Object>;
 
@@ -270,8 +268,8 @@ export interface NotificationRequest {
    *
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   color?: long;
 
@@ -280,8 +278,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   colorEnabled?: boolean;
 
@@ -304,8 +302,8 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   isAlertOnce?: boolean;
 
@@ -314,8 +312,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isStopwatch?: boolean;
 
@@ -324,8 +322,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isCountDown?: boolean;
 
@@ -334,8 +332,8 @@ export interface NotificationRequest {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   isFloatingIcon?: boolean;
 
@@ -345,8 +343,8 @@ export interface NotificationRequest {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   label?: string;
 
@@ -355,8 +353,8 @@ export interface NotificationRequest {
    *
    * @type { ?int }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   badgeIconStyle?: int;
 
@@ -373,8 +371,8 @@ export interface NotificationRequest {
    * @type { ?boolean }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   showDeliveryTime?: boolean;
 
@@ -383,8 +381,8 @@ export interface NotificationRequest {
    *
    * @type { ?Array<NotificationActionButton> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   actionButtons?: Array<NotificationActionButton>;
 
@@ -394,8 +392,8 @@ export interface NotificationRequest {
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   smallIcon?: image.PixelMap;
 
@@ -405,8 +403,8 @@ export interface NotificationRequest {
    *
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   largeIcon?: image.PixelMap;
 
@@ -416,8 +414,8 @@ export interface NotificationRequest {
    * @type { ?image.PixelMap }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   overlayIcon?: image.PixelMap;
 
@@ -434,8 +432,8 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   groupName?: string;
 
@@ -445,8 +443,8 @@ export interface NotificationRequest {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly creatorBundleName?: string;
 
@@ -456,8 +454,8 @@ export interface NotificationRequest {
    * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly creatorUid?: int;
 
@@ -467,8 +465,8 @@ export interface NotificationRequest {
    * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly creatorPid?: int;
 
@@ -478,8 +476,8 @@ export interface NotificationRequest {
    * @type { ?int }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   readonly creatorUserId?: int;
 
@@ -490,7 +488,7 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamiconly
    * @deprecated since 15
    * @useinstead NotificationRequest#appInstanceKey
    */
@@ -501,8 +499,8 @@ export interface NotificationRequest {
    *
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   sound?: string;
 
@@ -512,8 +510,8 @@ export interface NotificationRequest {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   classification?: string;
 
@@ -523,8 +521,8 @@ export interface NotificationRequest {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   readonly hashCode?: string;
 
@@ -545,8 +543,8 @@ export interface NotificationRequest {
    * @default true
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   isRemoveAllowed?: boolean;
 
@@ -557,8 +555,8 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   readonly source?: int;
 
@@ -567,8 +565,8 @@ export interface NotificationRequest {
    *
    * @type { ?NotificationTemplate }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   template?: NotificationTemplate;
 
@@ -577,8 +575,8 @@ export interface NotificationRequest {
    *
    * @type { ?DistributedOptions }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   distributedOption?: DistributedOptions;
 
@@ -589,8 +587,8 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   readonly deviceId?: string;
 
@@ -600,8 +598,8 @@ export interface NotificationRequest {
    * @type { ?NotificationFlags }
    * @readonly
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   readonly notificationFlags?: NotificationFlags;
 
@@ -611,8 +609,8 @@ export interface NotificationRequest {
    *
    * @type { ?WantAgent }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   removalWantAgent?: WantAgent;
 
@@ -631,8 +629,8 @@ export interface NotificationRequest {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   badgeNumber?: long;
 
@@ -642,8 +640,8 @@ export interface NotificationRequest {
    * @type { ?BundleOption }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   representativeBundle?: BundleOption;
   
@@ -654,8 +652,8 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly agentBundle?: BundleOption;
 
@@ -665,8 +663,8 @@ export interface NotificationRequest {
    * @type { ?UnifiedGroupInfo }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   unifiedGroupInfo?: UnifiedGroupInfo;
 
@@ -676,8 +674,8 @@ export interface NotificationRequest {
    * @type { ?long }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   notificationControlFlags?: long;
 
@@ -688,8 +686,8 @@ export interface NotificationRequest {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   readonly appInstanceKey?: string;
 
@@ -700,8 +698,8 @@ export interface NotificationRequest {
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   forceDistributed?: boolean;
 
@@ -712,8 +710,8 @@ export interface NotificationRequest {
    * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   notDistributed?: boolean;
 }
@@ -723,8 +721,8 @@ export interface NotificationRequest {
  *
  * @typedef DistributedOptions
  * @syscap SystemCapability.Notification.Notification
- * @since arkts {'1.1':'8', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 8 dynamic
+ * @since 20 static
  */
 export interface DistributedOptions {
   /**
@@ -733,8 +731,8 @@ export interface DistributedOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   isDistributed?: boolean;
 
@@ -743,8 +741,8 @@ export interface DistributedOptions {
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   supportDisplayDevices?: Array<string>;
 
@@ -753,8 +751,8 @@ export interface DistributedOptions {
    *
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   supportOperateDevices?: Array<string>;
 
@@ -765,8 +763,8 @@ export interface DistributedOptions {
    * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8 dynamic
+   * @since 20 static
    */
   readonly remindType?: int;
 }
@@ -777,8 +775,8 @@ export interface DistributedOptions {
  * @typedef NotificationFilter
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface NotificationFilter {
   /**
@@ -787,8 +785,8 @@ export interface NotificationFilter {
    * @type { BundleOption }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   bundle: BundleOption;
 
@@ -798,8 +796,8 @@ export interface NotificationFilter {
    * @type { notificationSubscribe.NotificationKey }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   notificationKey: notificationSubscribe.NotificationKey;
 
@@ -809,8 +807,8 @@ export interface NotificationFilter {
    * @type { ?Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   extraInfoKeys?: Array<string>;
 }
@@ -821,8 +819,8 @@ export interface NotificationFilter {
  * @typedef NotificationCheckRequest
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface NotificationCheckRequest {
   /**
@@ -831,8 +829,8 @@ export interface NotificationCheckRequest {
    * @type { notificationManager.ContentType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   contentType: notificationManager.ContentType;
 
@@ -842,8 +840,8 @@ export interface NotificationCheckRequest {
    * @type { notificationManager.SlotType }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   slotType: notificationManager.SlotType;
 
@@ -853,8 +851,8 @@ export interface NotificationCheckRequest {
    * @type { Array<string> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   extraInfoKeys: Array<string>;
 }
@@ -865,8 +863,8 @@ export interface NotificationCheckRequest {
  * @typedef UnifiedGroupInfo
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface UnifiedGroupInfo {
   /**
@@ -875,8 +873,8 @@ export interface UnifiedGroupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   key?: string;
 
@@ -886,8 +884,8 @@ export interface UnifiedGroupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   title?: string;
 
@@ -897,8 +895,8 @@ export interface UnifiedGroupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   content?: string;
 
@@ -908,8 +906,8 @@ export interface UnifiedGroupInfo {
    * @type { ?string }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   sceneName?: string;
 
@@ -919,7 +917,7 @@ export interface UnifiedGroupInfo {
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   extraInfo?: { [key: string]: any };
 
@@ -929,8 +927,7 @@ export interface UnifiedGroupInfo {
    * @type { ?object }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   extraInfo?: Record<string, Object>;
 }

@@ -46,7 +46,7 @@ export {
   sendableRelationalStore, intelligence, ContentFormCard, FormType
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import relationalStore from '@ohos.data.relationalStore';
 import unifiedDataChannel from '@ohos.data.unifiedDataChannel';
 import uniformTypeDescriptor from '@ohos.data.uniformTypeDescriptor';

@@ -25,8 +25,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  *
  * @namespace power
  * @syscap SystemCapability.PowerManager.PowerManager.Core
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace power {
   /**
@@ -42,8 +42,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function shutdown(reason: string): void;
 
@@ -55,7 +55,7 @@ declare namespace power {
    * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
    * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#reboot
    */
@@ -75,8 +75,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function reboot(reason: string): void;
 
@@ -85,7 +85,7 @@ declare namespace power {
    *
    * @param { AsyncCallback<boolean> } callback Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#isActive
    */
@@ -96,7 +96,7 @@ declare namespace power {
    *
    * @returns { Promise<boolean> } Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7
+   * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead power#isActive
    */
@@ -109,8 +109,8 @@ declare namespace power {
    *
    * @returns { boolean } Returns true if the device is active; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function isActive(): boolean;
 
@@ -138,8 +138,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   function wakeup(detail: string): void;
 
@@ -175,8 +175,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   function suspend(isImmediate?: boolean): void;
 
@@ -185,8 +185,8 @@ declare namespace power {
    *
    * @returns { DevicePowerMode } The power mode {@link DevicePowerMode} of current device .
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function getPowerMode(): DevicePowerMode;
 
@@ -202,8 +202,8 @@ declare namespace power {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
@@ -219,8 +219,8 @@ declare namespace power {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
@@ -230,8 +230,8 @@ declare namespace power {
    * @returns { boolean } Returns true if the device is in idle mode; returns false otherwise.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   function isStandby(): boolean;
 
@@ -257,8 +257,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   function hibernate(clearMemory: boolean): void;
 
@@ -284,8 +284,8 @@ declare namespace power {
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since arkts {'1.1':'19', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 19 dynamic
+   * @since 20 static
    */
   function setScreenOffTime(timeout: long): void;
 
@@ -294,23 +294,23 @@ declare namespace power {
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   export enum DevicePowerMode {
     /**
      * Normal power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MODE_NORMAL = 600,
     /**
      * Power save mode
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      *
      */
     MODE_POWER_SAVE,
@@ -318,16 +318,16 @@ declare namespace power {
      * Performance power mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MODE_PERFORMANCE,
     /**
      * Extreme power save mode
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     MODE_EXTREME_POWER_SAVE
   }

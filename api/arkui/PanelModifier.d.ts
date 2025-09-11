@@ -25,7 +25,7 @@
  * @implements AttributeModifier<PanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @deprecated since 20
  * @noninterop
  */
@@ -38,7 +38,7 @@ export declare class PanelModifier extends PanelAttribute implements AttributeMo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    * @deprecated since 20
    */
   applyNormalAttribute?(instance: PanelAttribute): void;

@@ -28,7 +28,7 @@ import type { SendableContext as _SendableContext } from './application/Sendable
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 12
+ * @since 12 dynamiconly
  */
 declare namespace sendableContextManager {
   /**
@@ -38,7 +38,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   export type SendableContext = _SendableContext;
 
@@ -53,7 +53,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertFromContext(context: common.Context): SendableContext;
 
@@ -67,7 +67,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertToContext(sendableContext: SendableContext): common.Context;
 
@@ -81,7 +81,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertToApplicationContext(sendableContext: SendableContext): common.ApplicationContext;
 
@@ -95,7 +95,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertToAbilityStageContext(sendableContext: SendableContext): common.AbilityStageContext;
 
@@ -109,7 +109,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
   function convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityContext;
 
@@ -123,7 +123,7 @@ declare namespace sendableContextManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamiconly
    */
   function setEventHubMultithreadingEnabled(context: common.Context, enabled: boolean): void;
 }

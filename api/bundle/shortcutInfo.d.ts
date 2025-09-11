@@ -25,7 +25,7 @@
  * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
- * @since 7
+ * @since 7 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
  */
@@ -34,7 +34,7 @@ export interface ShortcutWant {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly targetBundle: string;
@@ -42,7 +42,7 @@ export interface ShortcutWant {
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly targetClass: string;
@@ -53,70 +53,70 @@ export interface ShortcutWant {
  *
  * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7
+ * @since 7 dynamic
  * @deprecated since 9
  */
 export interface ShortcutInfo {
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly id: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly bundleName: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly hostAbility: string;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly icon: string;
   /**
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly iconId: number;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly label: string;
   /**
    * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8
+   * @since 8 dynamic
    * @deprecated since 9
    */
   readonly labelId: number;
   /**
    * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly disableMessage: string;
   /**
    * @type { Array<ShortcutWant> }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly wants: Array<ShortcutWant>;
@@ -124,7 +124,7 @@ export interface ShortcutInfo {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly isStatic?: boolean;
@@ -132,7 +132,7 @@ export interface ShortcutInfo {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly isHomeShortcut?: boolean;
@@ -140,7 +140,7 @@ export interface ShortcutInfo {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7
+   * @since 7 dynamic
    * @deprecated since 9
    */
   readonly isEnabled?: boolean;

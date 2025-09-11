@@ -28,7 +28,7 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  * @namespace distributedBundle
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi Hide this for inner system use
- * @since 8
+ * @since 8 dynamiconly
  * @deprecated since 9
  * @useinstead ohos.bundle.distributedBundleManager
  */
@@ -41,7 +41,7 @@ declare namespace distributedBundle {
    * @param { AsyncCallback<RemoteAbilityInfo> } callback
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
@@ -55,7 +55,7 @@ declare namespace distributedBundle {
    * @returns { Promise<RemoteAbilityInfo> } Returns the ability info of the remote device.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
@@ -69,7 +69,7 @@ declare namespace distributedBundle {
    * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */
@@ -84,7 +84,7 @@ declare namespace distributedBundle {
    * @returns { Promise<Array<RemoteAbilityInfo>> } Returns the ability infos of the remote device.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.bundle.distributedBundleManager#getRemoteAbilityInfo
    */

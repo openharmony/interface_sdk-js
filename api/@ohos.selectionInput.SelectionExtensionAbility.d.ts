@@ -25,7 +25,7 @@ import type ExtensionContext from './application/ExtensionContext';
 /**
  * Defines the class of the ExtensionAbility for word selection.
  * @syscap SystemCapability.SelectionInput.Selection
- * @since 20
+ * @since 20 dynamic
  */
 
 export default class SelectionExtensionAbility {
@@ -33,7 +33,7 @@ export default class SelectionExtensionAbility {
    * Context of the ExtensionAbility.
    * @type { ExtensionContext }
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   context: ExtensionContext;
 
@@ -42,14 +42,14 @@ export default class SelectionExtensionAbility {
    * @param { Want } want Want object used to initialize the ExtensionAbility.
    * @returns { rpc.RemoteObject } RPC remote connection object.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   onConnect(want: Want): rpc.RemoteObject;
 
   /**
    * Callback invoked when the ExtensionAbility is disconnected.
    * @syscap SystemCapability.SelectionInput.Selection
-   * @since 20
+   * @since 20 dynamic
    */
   onDisconnect(): void;
 }

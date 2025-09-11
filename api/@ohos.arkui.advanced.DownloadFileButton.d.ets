@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare enum DownloadIconStyle {
@@ -35,7 +35,7 @@ export declare enum DownloadIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   FULL_FILLED = 1,
 
@@ -45,7 +45,7 @@ export declare enum DownloadIconStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   LINES = 2
 }
@@ -57,7 +57,7 @@ export declare enum DownloadIconStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare enum DownloadDescription {
@@ -68,7 +68,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOWNLOAD = 1,
 
@@ -78,7 +78,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOWNLOAD_FILE = 2,
 
@@ -88,7 +88,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SAVE = 3,
 
@@ -98,7 +98,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SAVE_IMAGE = 4,
 
@@ -108,7 +108,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   SAVE_FILE = 5,
 
@@ -118,7 +118,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   DOWNLOAD_AND_SHARE = 6,
 
@@ -128,7 +128,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   RECEIVE = 7,
 
@@ -138,7 +138,7 @@ export declare enum DownloadDescription {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   CONTINUE_TO_RECEIVE = 8
 }
@@ -150,7 +150,7 @@ export declare enum DownloadDescription {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export declare enum DownloadLayoutDirection {
@@ -161,7 +161,7 @@ export declare enum DownloadLayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   HORIZONTAL = 0,
 
@@ -171,7 +171,7 @@ export declare enum DownloadLayoutDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   VERTICAL = 1
 }
@@ -183,7 +183,7 @@ export declare enum DownloadLayoutDirection {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface DownloadContentOptions {
@@ -194,7 +194,7 @@ export interface DownloadContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   icon?: DownloadIconStyle;
 
@@ -205,7 +205,7 @@ export interface DownloadContentOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   text?: DownloadDescription;
 }
@@ -217,7 +217,7 @@ export interface DownloadContentOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 export interface DownloadStyleOptions {
@@ -229,7 +229,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   iconSize?: Dimension;
 
@@ -240,7 +240,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   layoutDirection?: DownloadLayoutDirection;
 
@@ -251,7 +251,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontSize?: Dimension;
 
@@ -262,7 +262,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontStyle?: FontStyle;
 
@@ -273,7 +273,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontWeight?: number | FontWeight | string;
 
@@ -284,7 +284,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontFamily?: string | Resource;
 
@@ -295,7 +295,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   fontColor?: ResourceColor;
 
@@ -306,7 +306,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   iconColor?: ResourceColor;
 
@@ -317,7 +317,7 @@ export interface DownloadStyleOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   textIconSpace?: Dimension;
 }
@@ -328,7 +328,7 @@ export interface DownloadStyleOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  * @noninterop
  */
 @Component
@@ -340,7 +340,7 @@ export declare struct DownloadFileButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @State contentOptions: DownloadContentOptions;
   /**
@@ -350,7 +350,7 @@ export declare struct DownloadFileButton {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   @State styleOptions: DownloadStyleOptions;
 }

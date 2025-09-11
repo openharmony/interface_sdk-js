@@ -32,7 +32,7 @@ import dataShare from './@ohos.data.dataShare';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @stagemodelonly
- * @since 12
+ * @since 12 dynamic
  */
 export type UpdateOperation = dataShare.UpdateOperation;
 
@@ -45,8 +45,7 @@ export type UpdateOperation = dataShare.UpdateOperation;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type OnCreateFn = (want: Want, callback: AsyncCallback<void>) => void;
 
@@ -60,8 +59,7 @@ type OnCreateFn = (want: Want, callback: AsyncCallback<void>) => void;
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>) => void;
 
@@ -77,8 +75,7 @@ type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type UpdateFn = (
   uri: string,
@@ -98,8 +95,7 @@ type UpdateFn = (
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type DeleteFn = (
   uri: string,
@@ -121,8 +117,7 @@ type DeleteFn = (
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type QueryFn = (
   uri: string,
@@ -141,8 +136,7 @@ type QueryFn = (
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 type BatchInsertFn = (uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>) => void;
 
@@ -152,8 +146,8 @@ type BatchInsertFn = (uri: string, valueBuckets: Array<ValuesBucket>, callback: 
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class DataShareExtensionAbility {
   /**
@@ -163,8 +157,8 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   context: ExtensionContext;
 
@@ -176,7 +170,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   onCreate?(want: Want, callback: AsyncCallback<void>): void;
 
@@ -187,8 +181,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   onCreate?: OnCreateFn;
 
@@ -201,7 +194,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   insert?(uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -212,8 +205,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   insert?: InsertFn;
 
@@ -228,7 +220,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   update?(
     uri: string,
@@ -244,8 +236,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   update?: UpdateFn;
 
@@ -257,7 +248,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 12
+   * @since 12 dynamic
    */
   batchUpdate?(
     operations: Record<string, Array<UpdateOperation>>,
@@ -274,7 +265,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   delete?(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
 
@@ -285,8 +276,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   delete?: DeleteFn;
 
@@ -303,7 +293,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   query?(
     uri: string,
@@ -320,8 +310,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   query?: QueryFn;
 
@@ -334,7 +323,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   batchInsert?(uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -345,8 +334,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 20
-   * @arkts 1.2
+   * @since 20 static
    */
   batchInsert?: BatchInsertFn;
 
@@ -360,7 +348,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   normalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 
@@ -376,7 +364,7 @@ declare class DataShareExtensionAbility {
    * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
    * @systemapi
    * @StageModelOnly
-   * @since 9
+   * @since 9 dynamic
    */
   denormalizeUri?(uri: string, callback: AsyncCallback<string>): void;
 }

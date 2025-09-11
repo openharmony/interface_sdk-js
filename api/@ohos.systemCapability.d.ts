@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
@@ -26,7 +25,8 @@ import { AsyncCallback, Callback } from './@ohos.base';
 * @namespace systemCapability
 * @syscap SystemCapability.Developtools.Syscap
 * @systemapi
-* @since 9
+* @since 9 dynamic
+* @since 22 static
 */
 declare namespace systemCapability {
   /**
@@ -34,7 +34,8 @@ declare namespace systemCapability {
    * @param { AsyncCallback<string> }callback indicates the system capability string result.
    * @syscap SystemCapability.Developtools.Syscap
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function querySystemCapabilities(callback: AsyncCallback<string>): void;
 
@@ -43,7 +44,8 @@ declare namespace systemCapability {
    * @returns { Promise<string> } system capability string.
    * @syscap SystemCapability.Developtools.Syscap
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
+   * @since 22 static
    */
   function querySystemCapabilities(): Promise<string>;
 }

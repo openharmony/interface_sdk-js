@@ -26,7 +26,7 @@ export {
   ActionResult, Notification, ShowNotificationOptions, notificationManager, notificationSubscribe
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import notificationManager from '@ohos.notificationManager';
 import notificationSubscribe from '@ohos.notificationSubscribe';
 

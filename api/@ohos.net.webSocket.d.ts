@@ -40,15 +40,15 @@ import type connection from './@ohos.net.connection';
  * @syscap SystemCapability.Communication.NetStack
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 declare namespace webSocket {
   /**
    * @typedef { connection.HttpProxy }
    * @syscap SystemCapability.Communication.NetManager.Core
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   type HttpProxy = connection.HttpProxy;
 
@@ -71,8 +71,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function createWebSocket(): WebSocket;
 
@@ -95,8 +95,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface WebSocketRequestOptions {
     /**
@@ -118,7 +118,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     header?: Object;
 
@@ -126,8 +126,7 @@ declare namespace webSocket {
      * HTTP request header.
      * @type {?Record<string, string>}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     header?: Record<string, string>;
 
@@ -142,8 +141,8 @@ declare namespace webSocket {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     caPath?: string;
 
@@ -158,8 +157,8 @@ declare namespace webSocket {
      * @type {?ClientCert}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     clientCert?: ClientCert;
 
@@ -167,8 +166,8 @@ declare namespace webSocket {
      * HTTP proxy configuration. Use 'system' if this filed is not set.
      * @type {?ProxyConfiguration}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     proxy?: ProxyConfiguration;
 
@@ -176,8 +175,8 @@ declare namespace webSocket {
      * Self defined protocol.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     protocol?: string;
   }
@@ -189,8 +188,8 @@ declare namespace webSocket {
    * object of @type {connection.HttpProxy} means providing custom proxy settings
    * @typedef { 'system' | 'no-proxy' | HttpProxy }
    * @syscap SystemCapability.Communication.NetStack
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy;
 
@@ -209,8 +208,8 @@ declare namespace webSocket {
    * @interface ClientCert
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export interface ClientCert {
     /**
@@ -224,8 +223,8 @@ declare namespace webSocket {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     certPath: string;
     
@@ -240,8 +239,8 @@ declare namespace webSocket {
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     keyPath: string;
 
@@ -256,8 +255,8 @@ declare namespace webSocket {
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     keyPassword?: string;
   }
@@ -281,8 +280,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface WebSocketCloseOptions {
     /**
@@ -304,8 +303,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     code?: int;
     /**
@@ -327,8 +326,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     reason?: string;
   }
@@ -346,8 +345,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface CloseResult {
     /**
@@ -363,8 +362,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     code: int;
     /**
@@ -380,8 +379,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     reason: string;
   }
@@ -390,7 +389,7 @@ declare namespace webSocket {
    * HTTP response headers.
    * @typedef { object }
    * @syscap SystemCapability.Communication.NetStack
-   * @since 12
+   * @since 12 dynamic
    */
   export type ResponseHeaders = {
     [k: string]: string | string[] | undefined;
@@ -418,8 +417,8 @@ declare namespace webSocket {
    * @syscap SystemCapability.Communication.NetStack
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface WebSocket {
     /**
@@ -472,8 +471,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     connect(url: string, callback: AsyncCallback<boolean>): void;
 
@@ -531,8 +530,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback<boolean>): void;
 
@@ -590,8 +589,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     connect(url: string, options?: WebSocketRequestOptions): Promise<boolean>;
 
@@ -626,8 +625,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     send(data: string | ArrayBuffer, callback: AsyncCallback<boolean>): void;
 
@@ -662,8 +661,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     send(data: string | ArrayBuffer): Promise<boolean>;
 
@@ -695,8 +694,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     close(callback: AsyncCallback<boolean>): void;
 
@@ -731,8 +730,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     close(options: WebSocketCloseOptions, callback: AsyncCallback<boolean>): void;
 
@@ -767,8 +766,8 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     close(options?: WebSocketCloseOptions): Promise<boolean>;
 
@@ -794,7 +793,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'open', callback: AsyncCallback<Object>): void;
 
@@ -820,7 +819,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'open', callback?: AsyncCallback<Object>): void;
 
@@ -849,7 +848,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void;
 
@@ -878,7 +877,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'message', callback?: AsyncCallback<string | ArrayBuffer>): void;
 
@@ -907,7 +906,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'close', callback: AsyncCallback<CloseResult>): void;
 
@@ -936,7 +935,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'close', callback?: AsyncCallback<CloseResult>): void;
 
@@ -962,7 +961,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -988,7 +987,7 @@ declare namespace webSocket {
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -1005,7 +1004,7 @@ declare namespace webSocket {
      * @param { Callback<void> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'dataEnd', callback: Callback<void>): void;
 
@@ -1022,7 +1021,7 @@ declare namespace webSocket {
      * @param { Callback<void> } [ callback ] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
      * @crossplatform
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'dataEnd', callback?: Callback<void>): void;
 
@@ -1031,7 +1030,7 @@ declare namespace webSocket {
      * @param { 'headerReceive'} type - Indicates Event name.
      * @param { Callback<ResponseHeaders> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 12
+     * @since 12 dynamic
      */
     on(type: 'headerReceive', callback: Callback<ResponseHeaders>): void;
 
@@ -1040,7 +1039,7 @@ declare namespace webSocket {
      * @param { 'headerReceive' } type - Indicates Event name.
      * @param { Callback<ResponseHeaders> } [callback] - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 12
+     * @since 12 dynamic
      */
     off(type: 'headerReceive', callback?: Callback<ResponseHeaders>): void;
   }
@@ -1049,7 +1048,7 @@ declare namespace webSocket {
    * Creates a web socket Server.
    * @returns { WebSocketServer } the WebSocketServer Object.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   function createWebSocketServer(): WebSocketServer;
 
@@ -1057,7 +1056,7 @@ declare namespace webSocket {
    * Defines parameters for a WebSocket Server.
    * @interface WebSocketServerConfig
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export interface WebSocketServerConfig {
     /**
@@ -1065,7 +1064,7 @@ declare namespace webSocket {
      * The server listens on this specific address. It's 0.0.0.0 by default.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     serverIP?: string;
 
@@ -1073,7 +1072,7 @@ declare namespace webSocket {
      * Port number that the server listens on.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     serverPort: number;
 
@@ -1081,7 +1080,7 @@ declare namespace webSocket {
      * Server cert.
      * @type {?ServerCert}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     serverCert?: ServerCert;
 
@@ -1089,7 +1088,7 @@ declare namespace webSocket {
      * Maximum number of concurrent clients. When it's reached, the server will reject new connections.
      * @type { number }
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     maxConcurrentClientsNumber: number;
 
@@ -1097,7 +1096,7 @@ declare namespace webSocket {
      * Self defined protocol.
      * @type {?string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     protocol?: string;
 
@@ -1105,7 +1104,7 @@ declare namespace webSocket {
      * Maximum number of one client's connections. When it's reached, the server will reject new connections.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     maxConnectionsForOneClient: number;
   }
@@ -1115,14 +1114,14 @@ declare namespace webSocket {
    * File paths of server certificate (certPath) and certificate private key (keyPath). Only support PEM format.
    * @interface ServerCert
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export interface ServerCert {
     /**
      * File path for the server cert.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     certPath: string;
 
@@ -1130,7 +1129,7 @@ declare namespace webSocket {
      * The path of the server certificate private key file.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     keyPath: string;
   }
@@ -1139,14 +1138,14 @@ declare namespace webSocket {
    * Info about the connection from each specific client.
    * @interface WebSocketConnection
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export interface WebSocketConnection {
     /**
      * IP address of the client.
      * @type {string}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     clientIP: string;
 
@@ -1154,7 +1153,7 @@ declare namespace webSocket {
      * Port of the client.
      * @type {number}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     clientPort: number;
   }
@@ -1163,14 +1162,14 @@ declare namespace webSocket {
    * Info about the message received from a specific client.
    * @interface WebSocketMessage
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export interface WebSocketMessage {
     /**
      * Contend of the message.
      * @type {string | ArrayBuffer}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     data: string | ArrayBuffer;
 
@@ -1178,7 +1177,7 @@ declare namespace webSocket {
      * The connection where the message comes from.
      * @type {WebSocketConnection}
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     clientConnection: WebSocketConnection;
   }
@@ -1189,7 +1188,7 @@ declare namespace webSocket {
    * @param { WebSocketConnection } clientConnection - the connection which is closed.
    * @param { CloseResult } closeReason - the error code and reason why the connection is closed.
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, closeReason: CloseResult) => void;
 
@@ -1198,7 +1197,7 @@ declare namespace webSocket {
    * you need to call webSocketServer.createWebSocketServer to create a WebSocket Server.</p>
    * @interface WebSocketServer
    * @syscap SystemCapability.Communication.NetStack
-   * @since 19
+   * @since 19 dynamic
    */
   export interface WebSocketServer {
     /**
@@ -1212,7 +1211,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 2302005 - Can't listen on the given Port.
      * @throws { BusinessError } 2302999 - Websocket other unknown error.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     start(config: WebSocketServerConfig): Promise<boolean>;
 
@@ -1222,7 +1221,7 @@ declare namespace webSocket {
      * @returns { WebSocketConnection[] } an array consists connections from all clients.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     listAllConnections(): WebSocketConnection[];
 
@@ -1235,7 +1234,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2302006 - websocket connection does not exist.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise<boolean>;
 
@@ -1248,7 +1247,7 @@ declare namespace webSocket {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 2302006 - websocket connection does not exist.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     send(data: string | ArrayBuffer, connection: WebSocketConnection): Promise<boolean>;
 
@@ -1258,7 +1257,7 @@ declare namespace webSocket {
       * @returns { Promise<boolean> } The Indicating whether the server stops sucessfully.
       * @throws { BusinessError } 201 - Permission denied.
       * @syscap SystemCapability.Communication.NetStack
-      * @since 19
+      * @since 19 dynamic
       */
     stop(): Promise<boolean>;
 
@@ -1267,7 +1266,7 @@ declare namespace webSocket {
      * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     on(type: 'error', callback: ErrorCallback): void;
 
@@ -1276,7 +1275,7 @@ declare namespace webSocket {
      * @param { 'connect' } type - event indicating that a client requested to connect the server.
      * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
      on(type: 'connect', callback: Callback<WebSocketConnection>): void;
 
@@ -1285,7 +1284,7 @@ declare namespace webSocket {
       * @param { 'messageReceive' } type - event indicating that the server received a message.
       * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
       * @syscap SystemCapability.Communication.NetStack
-      * @since 19
+      * @since 19 dynamic
       */
      on(type: 'messageReceive', callback: Callback<WebSocketMessage>): void;
 
@@ -1294,7 +1293,7 @@ declare namespace webSocket {
       * @param { 'close' } type - event indicating that a connection from a given client has been closed.
       * @param { ClientConnectionCloseCallback } callback - the callback function when a client connection is closed.
       * @syscap SystemCapability.Communication.NetStack
-      * @since 19
+      * @since 19 dynamic
       */
      on(type: 'close', callback: ClientConnectionCloseCallback): void;
 
@@ -1303,7 +1302,7 @@ declare namespace webSocket {
      * @param { 'error' } type - event indicating that the WebSocket Server has encountered an error.
      * @param { ErrorCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     off(type: 'error', callback?: ErrorCallback): void;
 
@@ -1312,7 +1311,7 @@ declare namespace webSocket {
      * @param { 'connect' } type - event indicating that a client requested to connect the server.
      * @param { Callback<WebSocketConnection> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     off(type: 'connect', callback?: Callback<WebSocketConnection>): void;
 
@@ -1321,7 +1320,7 @@ declare namespace webSocket {
      * @param { 'close' } type - event indicating that a connection from a given client has been closed.
      * @param { ClientConnectionCloseCallback } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     off(type: 'close', callback?: ClientConnectionCloseCallback): void;
 
@@ -1330,7 +1329,7 @@ declare namespace webSocket {
      * @param { 'messageReceive' } type - event indicating that the server received a message.
      * @param { Callback<WebSocketMessage> } callback - the callback used to return the result.
      * @syscap SystemCapability.Communication.NetStack
-     * @since 19
+     * @since 19 dynamic
      */
     off(type: 'messageReceive', callback?: Callback<WebSocketMessage>): void;
   }

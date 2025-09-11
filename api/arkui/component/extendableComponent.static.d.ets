@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { UIContext } from '@ohos.arkui.UIContext'
@@ -30,7 +29,7 @@ import promptAction from '@ohos.promptAction'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export interface LifeCycle {
     /**
@@ -42,7 +41,7 @@ export interface LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToAppear(): void {}
 
@@ -54,7 +53,7 @@ export interface LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     aboutToDisappear(): void {}
 
@@ -66,7 +65,7 @@ export interface LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     onDidBuild(): void {}
 
@@ -76,7 +75,7 @@ export interface LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     @Builder
     build(): void
@@ -89,7 +88,7 @@ export interface LifeCycle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 static
  */
 export declare abstract class ExtendableComponent implements LifeCycle {
     /**
@@ -99,7 +98,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     getUIContext(): UIContext
 
@@ -110,7 +109,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since 20
+     * @since 20 static
      */
     getUniqueId(): int
     
@@ -119,7 +118,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
     *
     * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     queryNavDestinationInfo(): NavDestinationInfo | undefined;
 
@@ -129,7 +128,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
     * @param { Optional<boolean> } isInner
     * @returns { NavDestinationInfo | undefined } The navigation destination information, or undefined if it is not available.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     queryNavDestinationInfo(isInner: Optional<boolean>): NavDestinationInfo | undefined;
 
@@ -138,7 +137,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
     *
     * @returns { NavigationInfo | undefined } The navigation information, or undefined if it is not available
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     queryNavigationInfo(): NavigationInfo | undefined;
 
@@ -147,7 +146,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
     *
     * @returns { RouterPageInfo | undefined } The router page information, or undefined if it is not available.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20
+    * @since 20 static
     */
     queryRouterPageInfo(): RouterPageInfo | undefined;
 
@@ -157,7 +156,7 @@ export declare abstract class ExtendableComponent implements LifeCycle {
      * @returns { promptAction.DialogController | undefined } The controller of dialog,
      * or undefined if the custom component does not display in the dialog.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     getDialogController(): promptAction.DialogController | undefined;
 }

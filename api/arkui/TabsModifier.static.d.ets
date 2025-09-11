@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,7 +29,7 @@ import { TabsAttribute } from './component/tabs';
  *
  * @implements { TabsAttribute, AttributeModifier<TabsAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class TabsModifier implements TabsAttribute, AttributeModifier<TabsAttribute> {}

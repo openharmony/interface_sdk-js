@@ -26,7 +26,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface IDataSourcePrefetching extends IDataSource {
   /**
@@ -38,7 +38,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   prefetch(index: number): Promise<void> | void;
 
@@ -51,7 +51,7 @@ export interface IDataSourcePrefetching extends IDataSource {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   cancel?(index: number): Promise<void> | void;
 }
@@ -63,7 +63,7 @@ export interface IDataSourcePrefetching extends IDataSource {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export interface IPrefetcher {
   /**
@@ -73,7 +73,7 @@ export interface IPrefetcher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
@@ -85,7 +85,7 @@ export interface IPrefetcher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   visibleAreaChanged(minVisible: number, maxVisible: number): void;
 }
@@ -101,7 +101,7 @@ export interface IPrefetcher {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export class BasicPrefetcher implements IPrefetcher {
   /**
@@ -111,7 +111,7 @@ export class BasicPrefetcher implements IPrefetcher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   constructor(dataSource?: IDataSourcePrefetching);
 
@@ -122,7 +122,7 @@ export class BasicPrefetcher implements IPrefetcher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
@@ -134,7 +134,7 @@ export class BasicPrefetcher implements IPrefetcher {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   visibleAreaChanged(minVisible: number, maxVisible: number): void;
 }

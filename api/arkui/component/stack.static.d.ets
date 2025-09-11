@@ -15,7 +15,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Alignment } from './enums';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
@@ -25,7 +24,7 @@ import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
  *
  * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface StackOptions {
     /**
@@ -35,7 +34,7 @@ export declare interface StackOptions {
      * @type { ?Alignment }
      * @default Alignment.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     alignContent?: Alignment;
 }
@@ -46,7 +45,7 @@ export declare interface StackOptions {
  * @extends CommonMethod
  * @interface StackAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface StackAttribute extends CommonMethod {
@@ -56,7 +55,7 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { Alignment } value
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default alignContent(value: Alignment | undefined): this;
     /**
@@ -66,7 +65,7 @@ export declare interface StackAttribute extends CommonMethod {
     * @returns { StackAttribute } The attribute of the stack.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 20
+    * @since 20 static
     */
     default pointLight(value: PointLightStyle): StackAttribute;
     /**
@@ -75,7 +74,7 @@ export declare interface StackAttribute extends CommonMethod {
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { StackAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod>
         | undefined): this;
@@ -88,7 +87,7 @@ export declare interface StackAttribute extends CommonMethod {
  * @param { function } [content_] - container
  * @returns { StackAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

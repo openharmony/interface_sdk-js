@@ -33,8 +33,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @namespace statfs
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform
- * @since 20
- * @arkts 1.1&1.2
+ * @since 20 dynamic&static
  */
 declare namespace statfs {
   /**
@@ -78,8 +77,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getFreeSize(path: string): Promise<long>;
 
@@ -124,8 +122,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -170,8 +167,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getFreeSizeSync(path: string): long;
 
@@ -216,8 +212,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getTotalSize(path: string): Promise<long>;
 
@@ -262,8 +257,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
@@ -308,8 +302,7 @@ declare namespace statfs {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   function getTotalSizeSync(path: string): long;
 }

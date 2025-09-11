@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonConfiguration, CommonMethod, ContentModifier, Optional, BlurStyle, Bindable } from './common';
 import { ControlSize } from './button';
@@ -32,7 +31,7 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @interface SelectOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SelectOption {
     /**
@@ -40,7 +39,7 @@ export declare interface SelectOption {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: ResourceStr;
     /**
@@ -48,7 +47,7 @@ export declare interface SelectOption {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     icon?: ResourceStr;
     /**
@@ -56,7 +55,7 @@ export declare interface SelectOption {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     symbolIcon?: SymbolGlyphModifier;
 }
@@ -65,21 +64,21 @@ export declare interface SelectOption {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum ArrowPosition {
     /**
      * The value of arrow position end
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     END = 0,
     /**
      * The value of arrow position start
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     START = 1
 }
@@ -88,28 +87,28 @@ export declare enum ArrowPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum MenuAlignType {
     /**
      * The value of menu align type start.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     START,
     /**
      * The value of menu align type center.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CENTER,
     /**
      * The value of menu align type end.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     END
 }
@@ -117,21 +116,21 @@ export declare enum MenuAlignType {
  * Enumeration of avoidance modes for the Select dropdown menu
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum AvoidanceMode {
     /**
      * The value covers the target component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     COVER_TARGET,
     /**
      * This value is displayed in the maximum space.(Compress the scrollbar)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     AVOID_AROUND_TARGET
 }
@@ -142,7 +141,7 @@ export declare enum AvoidanceMode {
  * @param {number} index - The index of the selected item.
  * @param {string} selectStr - The value of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export type OnSelectCallback = (index: number, selectStr: string) => void;
 /**
@@ -150,7 +149,7 @@ export type OnSelectCallback = (index: number, selectStr: string) => void;
  *
  * @interface MenuOutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface MenuOutlineOptions {
     /**
@@ -158,7 +157,7 @@ export declare interface MenuOutlineOptions {
      *
      * @type { ?(Dimension | EdgeOutlineWidths) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     width?: Dimension | EdgeOutlineWidths;
     /**
@@ -166,7 +165,7 @@ export declare interface MenuOutlineOptions {
      *
      * @type { ?(ResourceColor | EdgeColors) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     color?: ResourceColor | EdgeColors;
 }
@@ -177,7 +176,7 @@ export declare interface MenuOutlineOptions {
  * @extends CommonMethod
  * @interface SelectAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface SelectAttribute extends CommonMethod {
     /**
@@ -187,7 +186,7 @@ export declare interface SelectAttribute extends CommonMethod {
      *     the serial number of the select item.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default selected(numCount: number | Resource | undefined | Bindable<number> | Bindable<Resource>): this;
     /**
@@ -197,7 +196,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * the text display of the select button itself.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default value(resStr: ResourceStr | undefined | Bindable<string> | Bindable<Resource>): this;
     /**
@@ -206,7 +205,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default font(value: Font | undefined): this;
     /**
@@ -215,7 +214,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -224,7 +223,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default selectedOptionBgColor(value: ResourceColor | undefined): this;
     /**
@@ -233,7 +232,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default selectedOptionFont(value: Font | undefined): this;
     /**
@@ -242,7 +241,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default selectedOptionFontColor(value: ResourceColor | undefined): this;
     /**
@@ -251,7 +250,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionBgColor(value: ResourceColor | undefined): this;
     /**
@@ -260,7 +259,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionFont(value: Font | undefined): this;
     /**
@@ -269,7 +268,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionFontColor(value: ResourceColor | undefined): this;
     /**
@@ -278,7 +277,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { OnSelectCallback | undefined } callback
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onSelect(callback: OnSelectCallback | undefined): this;
     /**
@@ -287,7 +286,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Length | undefined } value - indicates the length of the space
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default space(value: Length | undefined): this;
     /**
@@ -296,7 +295,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ArrowPosition | undefined } value - indicates the arrow position in the select
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default arrowPosition(value: ArrowPosition | undefined): this;
     /**
@@ -306,7 +305,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Offset | undefined } [offset] - The offset between select and menu.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menuAlign(alignType: MenuAlignType | undefined, offset?: Offset | undefined): this;
     /**
@@ -316,7 +315,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * The length of option width and decide option width to fit trigger or content.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionWidth(value: Dimension | OptionWidthMode | undefined): this;
     /**
@@ -325,7 +324,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { Dimension | undefined } value - The length of option height.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionHeight(value: Dimension | undefined): this;
     /**
@@ -334,7 +333,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - The backgroundColor of menu.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menuBackgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -343,7 +342,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { BlurStyle | undefined } value - The BackgroundBlurStyle of menu.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menuBackgroundBlurStyle(value: BlurStyle | undefined): this;
     /**
@@ -352,7 +351,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { ControlSize | undefined } value - control size
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default controlSize(value: ControlSize | undefined): this;
     /**
@@ -362,7 +361,7 @@ export declare interface SelectAttribute extends CommonMethod {
      *     The content modifier of select menu item.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration> | undefined): this;
     /**
@@ -371,7 +370,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { DividerOptions | null | undefined } options Set custom and hidden divider.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default divider(options: DividerOptions | null | undefined): this;
     /**
@@ -380,7 +379,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { TextModifier | undefined } modifier Set modifier for the text of select.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default textModifier(modifier: TextModifier | undefined): this;
     /**
@@ -389,7 +388,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { SymbolGlyphModifier | undefined } modifier Set modifier for the arrow symbol of select.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default arrowModifier(modifier: SymbolGlyphModifier | undefined): this;
     /**
@@ -398,7 +397,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { TextModifier | undefined } modifier Set modifier for the text of each option.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default optionTextModifier(modifier: TextModifier | undefined): this;
     /**
@@ -407,7 +406,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { TextModifier | undefined } modifier Set modifier for the text of selected option.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default selectedOptionTextModifier(modifier: TextModifier | undefined): this;
     /**
@@ -416,7 +415,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { DividerStyleOptions | undefined } style
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default dividerStyle(style: DividerStyleOptions | undefined): this;
     /**
@@ -425,7 +424,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { AvoidanceMode | undefined } mode - Enumeration value of the avoidance mode
      * @returns { SelectAttribute } Returns the chained object of Select component attributes
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default avoidance(mode: AvoidanceMode | undefined): this;
     /**
@@ -434,7 +433,7 @@ export declare interface SelectAttribute extends CommonMethod {
      * @param { MenuOutlineOptions | undefined } outline Set the outline of menu.
      * @returns { SelectAttribute } the attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default menuOutline(outline: MenuOutlineOptions | undefined): this;
     /**
@@ -444,7 +443,7 @@ export declare interface SelectAttribute extends CommonMethod {
      *     The attribute modifier of select.
      * @returns { SelectAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<SelectAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -454,7 +453,7 @@ export declare interface SelectAttribute extends CommonMethod {
  * @extends CommonConfiguration<MenuItemConfiguration>
  * @interface MenuItemConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration> {
     /**
@@ -462,7 +461,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: ResourceStr;
     /**
@@ -470,7 +469,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     icon?: ResourceStr;
     /**
@@ -478,7 +477,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     symbolIcon?: SymbolGlyphModifier;
     /**
@@ -486,7 +485,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     selected: boolean;
     /**
@@ -494,7 +493,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      *
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     index: number;
     /**
@@ -503,7 +502,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
      * @param { number } index - The value of menu item index.
      * @param { string } value - The value of menu item text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     triggerSelect(index: number, value: string): void;
 }
@@ -514,7 +513,7 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
  * @param { function } [content_] - container
  * @returns { SelectAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @memo
 @ComponentBuilder

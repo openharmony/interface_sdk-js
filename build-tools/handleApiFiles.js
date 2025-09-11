@@ -360,17 +360,17 @@ function handleNoTagFileInFirstType(sourceFile, outputPath, fileContent) {
  * @returns 
  */
 function deleteArktsTag(fileContent) {
-  const arktsTagRegx = /\*\s*@arkts\s(1\.1|1\.2|1\.1&1\.2|dynamic|static|dynamic&static)\s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\s*\*\s*@arkts\s(1\.1|1\.2|1\.1&1\.2|dynamic|static|dynamic&static)\s*(?=\r|\n)/g;
   fileContent = fileContent.replace(arktsTagRegx, (substring, p1) => {
     return '';
   });
-  const arktsSinceTagRegx = /\*\s*@since\s\S*\s(dynamic&static|dynamiconly|dynamic|static)\s*(\r|\n)\s*/g;
+  const arktsSinceTagRegx = /\s*\*\s*@since\s\S*\s(dynamic&static|dynamiconly|dynamic|staticonly|static)\s*(?=\r|\n)/g;
   // 处理@since xx dynamic&static格式标签文本
   fileContent = fileContent.replace(arktsSinceTagRegx, (substring, p1) => {
     if (dirType === DirType.typeOne && substring.indexOf('dynamic') !== -1) {
       substring = substring.replace(/\s(dynamiconly|dynamic(&static)?)/g, '');
     } else if ((dirType === DirType.typeTwo || dirType === DirType.typeThree) && substring.indexOf('static') !== -1) {
-      substring = substring.replace(/\s(dynamic&)?static/g, '');
+      substring = substring.replace(/\s(staticonly|(dynamic&)?static)/g, '');
     } else {
       substring = '';
     }
@@ -522,7 +522,7 @@ function handlehasTagFile(sourceFile, outputPath) {
  */
 function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   dirType = DirType.typeThree;
-  const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(dynamic&)?static)\s*(\r|\n)\s*/g;
+  const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(staticonly|(dynamic&)?static))\s*(\r|\n)\s*/g;
   const fileContent = sourceFile.getFullText();
   let newContent = '';
   // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
@@ -656,7 +656,7 @@ function joinFileJsdoc(deletionContent, sourceFile) {
 
   if (dirType !== DirType.typeOne) {
     // TODO：添加use static字符串
-   newContent = addStaticString(newContent);
+    newContent = addStaticString(newContent);
   }
   return newContent;
 }
@@ -935,7 +935,8 @@ function judgeIsDeleteApi(node) {
   let sinceVersion = 20;
 
   if (dirType === DirType.typeOne) {
-    return /@arkts\s*1\.2/g.test(notesStr) || (/@since\s\S*\sstatic/g.test(notesStr) && !/@since\s\S*\sdynamic/g.test(notesStr));
+    return /@arkts\s*1\.2/g.test(notesStr) ||
+      (/@since\s\S*\s(staticonly|static)/g.test(notesStr) && !/@since\s\S*\sdynamic/g.test(notesStr));
   }
 
   if (sinceArr) {
@@ -943,13 +944,13 @@ function judgeIsDeleteApi(node) {
   }
 
   if (dirType === DirType.typeTwo) {
-    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) || 
-      /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) || 
+    return (/@deprecated/g.test(notesStr) && sinceVersion < 20) ||
+      /@arkts\s*1\.1(?!&1\.2)/g.test(notesStr) ||
       (/@since\s\S*\s(dynamiconly|dynamic)/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr));
   }
 
   if (dirType === DirType.typeThree) {
-    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(dynamic&)?static/g.test(notesStr);
+    return !/@arkts\s*(1\.1&)?1\.2/g.test(notesStr) && !/@since\s\S*\s(staticonly|(dynamic&)?static)/g.test(notesStr);
   }
 
   return false;

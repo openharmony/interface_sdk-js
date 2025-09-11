@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceStr } from './arkui/component/units';
 import { Component } from './arkui/component/customComponent';
@@ -28,7 +27,7 @@ import { Builder } from './arkui/component/builder';
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare enum TreeListenType {
@@ -36,35 +35,35 @@ export declare enum TreeListenType {
      * register listener after a node is clicked.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NODE_CLICK = 'NodeClick',
     /**
      * register listener after a node is add.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * 
-     * @since 20
+     * @since 20 static
      */
     NODE_ADD = 'NodeAdd',
     /**
      * register listener after a node is delected.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NODE_DELETE = 'NodeDelete',
     /**
      * register listener after a node is modified.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NODE_MODIFY = 'NodeModify',
     /**
      * register listener after a node is moved.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     NODE_MOVE = 'NodeMove',
 }
@@ -74,7 +73,7 @@ export declare enum TreeListenType {
  * @typedef { function } OnChangedCallback
  * @param { CallbackParam } callbackParam - The result of event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
@@ -82,7 +81,7 @@ declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
  * Declare class TreeListener
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class TreeListener {
@@ -93,7 +92,7 @@ export declare class TreeListener {
      * @param { TreeListenType } type - Registered Events.
      * @param { OnChangedCallback } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public on(type: TreeListenType, callback: OnChangedCallback): void;
     /**
@@ -103,7 +102,7 @@ export declare class TreeListener {
      * @param { TreeListenType } type - Registered Events.
      * @param { OnChangedCallback } callback
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public once(type: TreeListenType, callback: OnChangedCallback): void;
     /**
@@ -112,7 +111,7 @@ export declare class TreeListener {
      * @param { TreeListenType } type - Registered Events.
      * @param { OnChangedCallback } [callback]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public off(type: TreeListenType, callback?: OnChangedCallback): void;
 }
@@ -120,7 +119,7 @@ export declare class TreeListener {
  * Declare class TreeListenerManager
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class TreeListenerManager {
@@ -130,7 +129,7 @@ export declare class TreeListenerManager {
      * @returns { TreeListenerManager } Returns the treeListenerManager instance.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     static getInstance(): TreeListenerManager;
     /**
@@ -138,7 +137,7 @@ export declare class TreeListenerManager {
      *
      * @returns { TreeListener } Returns the treeListener object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public getTreeListener(): TreeListener;
 }
@@ -146,7 +145,7 @@ export declare class TreeListenerManager {
  * Declare TreeView Component
  * @struct { TreeView }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -156,14 +155,14 @@ export declare struct TreeView {
      *
      * @type { TreeController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     treeController: TreeController;
     /**
      * The method to build component.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     @Builder build(): void;
 }
@@ -172,7 +171,7 @@ export declare struct TreeView {
  *
  * @typedef CallbackParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface CallbackParam {
@@ -181,7 +180,7 @@ export interface CallbackParam {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     currentNodeId: int,
     /**
@@ -189,7 +188,7 @@ export interface CallbackParam {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     parentNodeId?: int,
     /**
@@ -197,7 +196,7 @@ export interface CallbackParam {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     childIndex?: int
 }
@@ -206,7 +205,7 @@ export interface CallbackParam {
  *
  * @typedef NodeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface NodeParam {
@@ -215,7 +214,7 @@ export interface NodeParam {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     parentNodeId?: int,
     /**
@@ -223,7 +222,7 @@ export interface NodeParam {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     currentNodeId?: int,
     /**
@@ -231,7 +230,7 @@ export interface NodeParam {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     isFolder?: boolean;
     /**
@@ -239,7 +238,7 @@ export interface NodeParam {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     icon?: ResourceStr;
     /**
@@ -247,7 +246,7 @@ export interface NodeParam {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     symbolIconStyle?: SymbolGlyphModifier;
     /**
@@ -255,7 +254,7 @@ export interface NodeParam {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     selectedIcon?: ResourceStr;
     /**
@@ -263,7 +262,7 @@ export interface NodeParam {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     symbolSelectedIconStyle?: SymbolGlyphModifier;
     /**
@@ -271,7 +270,7 @@ export interface NodeParam {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     editIcon?: ResourceStr;
     /**
@@ -279,7 +278,7 @@ export interface NodeParam {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     symbolEditIconStyle?: SymbolGlyphModifier;
     /**
@@ -287,7 +286,7 @@ export interface NodeParam {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     primaryTitle?: ResourceStr;
     /**
@@ -295,7 +294,7 @@ export interface NodeParam {
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * 
-     * @since 20
+     * @since 20 static
      */
     secondaryTitle?: ResourceStr;
     /**
@@ -303,7 +302,7 @@ export interface NodeParam {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     container?: () => void;
 }
@@ -311,7 +310,7 @@ export interface NodeParam {
  * Declare TreeController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class TreeController {
@@ -321,7 +320,7 @@ export declare class TreeController {
      * nodes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public removeNode(): void;
     /**
@@ -329,7 +328,7 @@ export declare class TreeController {
      * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public modifyNode(): void;
     /**
@@ -341,7 +340,7 @@ export declare class TreeController {
      * @param { NodeParam } [nodeParam] Configuration information of the newly added node.
      * @returns { TreeController } ListTreeNode Tree view component proxy class.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public addNode(nodeParam?: NodeParam): TreeController;
     /**
@@ -351,7 +350,7 @@ export declare class TreeController {
      * @param { ResourceStr } parentSubTitle - secondaryTitle of parent node.
      * @param { ResourceStr } currentSubtitle - secondaryTitle of current node.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public refreshNode(parentId: int, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
     /**
@@ -360,7 +359,7 @@ export declare class TreeController {
      * This interface must be called when you finish initializing the ListTreeView by addNode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     public buildDone(): void;
 }

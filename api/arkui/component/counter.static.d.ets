@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { CommonMethod } from './common';
 import { VoidCallback } from "./units";
@@ -30,7 +29,7 @@ import { AttributeModifier } from "./common";
  * @extends CommonMethod
  * @interface CounterAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare interface CounterAttribute extends CommonMethod {
@@ -41,7 +40,7 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onInc(event: VoidCallback | undefined): this;
     /**
@@ -51,7 +50,7 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default onDec(event: VoidCallback | undefined): this;
     /**
@@ -61,7 +60,7 @@ export declare interface CounterAttribute extends CommonMethod {
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableDec(value: boolean | undefined): this;
     /**
@@ -71,7 +70,7 @@ export declare interface CounterAttribute extends CommonMethod {
      *     operations such as clicking. If false, click operations are not responded.
      * @returns { CounterAttribute } The attribute of the counter.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default enableInc(value: boolean | undefined): this;
     /**
@@ -80,7 +79,7 @@ export declare interface CounterAttribute extends CommonMethod {
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     default attributeModifier(modifier: AttributeModifier<CounterAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -90,7 +89,7 @@ export declare interface CounterAttribute extends CommonMethod {
  * @param { function } [content_]
  * @returns { CounterAttribute } The attribute of the Counter.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @memo

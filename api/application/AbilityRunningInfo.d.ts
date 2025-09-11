@@ -26,8 +26,8 @@ import abilityManager from '../@ohos.app.ability.abilityManager';
  *
  * @typedef AbilityRunningInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since arkts {'1.1':'14', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14 dynamic
+ * @since 20 static
  */
 export interface AbilityRunningInfo {
   /**
@@ -44,8 +44,8 @@ export interface AbilityRunningInfo {
    * @type { ElementName }
    * @default the ohos.bundleManager.ElementName object of the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   ability: ElementName;
 
@@ -55,8 +55,8 @@ export interface AbilityRunningInfo {
    * @type { int }
    * @default process id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   pid: int;
 
@@ -66,8 +66,8 @@ export interface AbilityRunningInfo {
    * @type { int }
    * @default user id
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   uid: int;
 
@@ -77,8 +77,8 @@ export interface AbilityRunningInfo {
    * @type { string }
    * @default the name of the process
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   processName: string;
 
@@ -88,8 +88,8 @@ export interface AbilityRunningInfo {
    * @type { long }
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   startTime: long;
 
@@ -99,8 +99,8 @@ export interface AbilityRunningInfo {
    * @type { abilityManager.AbilityState }
    * @default Enumerates state of the ability state info
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   abilityState: abilityManager.AbilityState;
 }

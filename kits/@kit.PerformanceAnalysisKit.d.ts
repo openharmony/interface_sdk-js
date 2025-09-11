@@ -18,8 +18,7 @@
  * @kit PerformanceAnalysisKit
  */
 
-/*** if arkts 1.1&1.2 */
-import FaultLogger from '@ohos.faultLogger';
+/*** if arkts dynamic&static */
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';
 import hichecker from '@ohos.hichecker';
 import hidebug from '@ohos.hidebug';
@@ -30,15 +29,16 @@ import hiTraceMeter from '@ohos.hiTraceMeter';
 import logLibrary from '@ohos.logLibrary';
 
 export {
-  FaultLogger, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
+  hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
   logLibrary
 };
 /*** endif */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
+import FaultLogger from '@ohos.faultLogger';
 import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
-  jsLeakWatcher 
+  FaultLogger, jsLeakWatcher 
 };
 /*** endif */

@@ -26,8 +26,8 @@ import { ElementName } from './ElementName';
  *
  * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since arkts {'1.1':'18', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18 dynamic
+ * @since 20 static
  */
 export interface LauncherAbilityInfo {
   /**
@@ -36,8 +36,8 @@ export interface LauncherAbilityInfo {
    * @type { ApplicationInfo }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly applicationInfo: ApplicationInfo;
 
@@ -47,8 +47,8 @@ export interface LauncherAbilityInfo {
    * @type { ElementName }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly elementName: ElementName;
 
@@ -58,8 +58,8 @@ export interface LauncherAbilityInfo {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly labelId: long;
 
@@ -69,8 +69,8 @@ export interface LauncherAbilityInfo {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly iconId: long;
 
@@ -80,8 +80,8 @@ export interface LauncherAbilityInfo {
    * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly userId: int;
 
@@ -91,8 +91,8 @@ export interface LauncherAbilityInfo {
    * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   readonly installTime: long;
 }

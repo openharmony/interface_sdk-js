@@ -25,7 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 declare interface ArcAlphabetIndexerInitInfo  {
   /**
@@ -35,7 +35,7 @@ declare interface ArcAlphabetIndexerInitInfo  {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   arrayValue: string[];
   /**
@@ -45,7 +45,7 @@ declare interface ArcAlphabetIndexerInitInfo  {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selected: number;
 }
@@ -58,7 +58,7 @@ declare interface ArcAlphabetIndexerInitInfo  {
   * @syscap SystemCapability.ArkUI.ArkUI.Circle
   * @crossplatform
   * @atomicservice
-  * @since 18
+  * @since 18 dynamic
   */
 declare type OnSelectCallback =  (index: number) => void;
 
@@ -69,7 +69,7 @@ declare type OnSelectCallback =  (index: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 export interface ArcAlphabetIndexerInterface {
@@ -84,7 +84,7 @@ export interface ArcAlphabetIndexerInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (info: ArcAlphabetIndexerInitInfo): ArcAlphabetIndexerAttribute;
 }
@@ -96,7 +96,7 @@ export interface ArcAlphabetIndexerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexerAttribute> {
@@ -108,7 +108,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   color(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -120,7 +120,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -132,7 +132,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   popupColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -144,7 +144,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedBackgroundColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -156,7 +156,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   popupBackground(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -168,7 +168,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   usePopup(enabled: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
@@ -180,7 +180,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selectedFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
@@ -192,7 +192,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   popupFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
@@ -204,7 +204,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   font(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
@@ -216,7 +216,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   itemSize(size: Optional<LengthMetrics>): ArcAlphabetIndexerAttribute;
 
@@ -228,7 +228,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   selected(index: Optional<number>): ArcAlphabetIndexerAttribute;
 
@@ -240,7 +240,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   autoCollapse(enable: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
@@ -252,7 +252,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   onSelect(handler: Optional<OnSelectCallback>): ArcAlphabetIndexerAttribute;
 
@@ -264,7 +264,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   popupBackgroundBlurStyle(style: Optional<BlurStyle>): ArcAlphabetIndexerAttribute;
 }
@@ -284,7 +284,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
@@ -295,7 +295,7 @@ declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  * @noninterop
  */
 declare const ArcAlphabetIndexerInstance: ArcAlphabetIndexerAttribute;

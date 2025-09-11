@@ -35,8 +35,8 @@ import type { AbilityInfo } from './bundleManager/AbilityInfo';
  * @namespace cardEmulation
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 declare namespace cardEmulation {
   /**
@@ -44,7 +44,7 @@ declare namespace cardEmulation {
    *
    * @enum { number }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
    */
@@ -53,7 +53,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether HCE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     HCE = 0,
@@ -62,7 +62,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether SIM card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     UICC = 1,
@@ -71,7 +71,7 @@ declare namespace cardEmulation {
      * This constant is used to check whether eSE card emulation is supported.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 6
+     * @since 6 dynamic
      * @deprecated since 9
      */
     ESE = 2
@@ -90,8 +90,8 @@ declare namespace cardEmulation {
    * @enum { string }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enum CardType {
     /**
@@ -105,8 +105,8 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     PAYMENT = 'payment',
 
@@ -121,8 +121,8 @@ declare namespace cardEmulation {
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     OTHER = 'other'
   }
@@ -134,7 +134,7 @@ declare namespace cardEmulation {
    * @param { number } feature Indicates the card emulation type, {@code HCE}, {@code UICC}, or {@code ESE}.
    * @returns { boolean } Returns true if the specified type of card emulation is supported; returns false otherwise.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 6
+   * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.nfc.cardEmulation/cardEmulation#hasHceCapability
    */
@@ -159,8 +159,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function hasHceCapability(): boolean;
 
@@ -195,8 +195,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
@@ -210,8 +210,8 @@ declare namespace cardEmulation {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getPaymentServices(): AbilityInfo[];
 
@@ -230,8 +230,8 @@ declare namespace cardEmulation {
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   export class HceService {
     /**
@@ -241,7 +241,7 @@ declare namespace cardEmulation {
      * @param { string[] } aidList - The aid list to be registered by this service
      * @returns { boolean } Returns true if HCE is enabled or has been enabled; returns false otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#start
      */
@@ -278,8 +278,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     start(elementName: ElementName, aidList: string[]): void;
 
@@ -289,7 +289,7 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @returns { boolean } Returns true if HCE is disabled or has been disabled; returns false otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#stop
      */
@@ -324,8 +324,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     stop(elementName: ElementName): void;
 
@@ -349,8 +349,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
 
@@ -364,8 +364,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18 dynamic
+     * @since 20 static
      */
     off(type: 'hceCmd', callback?: AsyncCallback<int[]>): void;
 
@@ -376,7 +376,7 @@ declare namespace cardEmulation {
      * @permission ohos.permission.NFC_CARD_EMULATION
      * @param { number[] } responseApdu Indicates the response, which is a byte array.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 8
+     * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#transmit
      */
@@ -413,8 +413,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     transmit(response: int[]): Promise<void>;
 
@@ -449,8 +449,8 @@ declare namespace cardEmulation {
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     transmit(response: int[], callback: AsyncCallback<void>): void;
   }

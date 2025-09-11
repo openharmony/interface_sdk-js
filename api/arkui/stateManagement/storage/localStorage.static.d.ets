@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AbstractProperty, SubscribedAbstractProperty } from './storageProperty';
@@ -31,7 +30,7 @@ import { RecordData } from '@ohos.base';
  * UI state of app-wide access and same life cycle as the app.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class LocalStorage {
   /**
@@ -41,7 +40,7 @@ export declare class LocalStorage {
    *
    * @param { RecordData } [initializingProperties] initial data in storage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public constructor(initializingProperties?: RecordData);
   /**
@@ -51,7 +50,7 @@ export declare class LocalStorage {
    * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
    * return undefined otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public ref<T>(propName: string): AbstractProperty<T> | undefined;
   /**
@@ -64,7 +63,7 @@ export declare class LocalStorage {
    *        create it with given default value.pe
    * @returns { AbstractProperty<T> } AbstractProperty object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
   /**
@@ -76,7 +75,7 @@ export declare class LocalStorage {
    *           Apps can use SDK functions of base class SubscribedPropertyAbstract<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 static
    */
   public link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
@@ -89,7 +88,7 @@ export declare class LocalStorage {
    * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
    *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
@@ -101,7 +100,7 @@ export declare class LocalStorage {
    * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public has(propName: string): boolean;
   /**
@@ -111,7 +110,7 @@ export declare class LocalStorage {
    * @param { string } propName - property name
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public get<T>(propName: string): T | undefined;
   /**
@@ -123,7 +122,7 @@ export declare class LocalStorage {
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public set<T>(propName: string, newValue: T): boolean;
   /**
@@ -135,7 +134,7 @@ export declare class LocalStorage {
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public setOrCreate<T>(propName: string, newValue: T): boolean;
   /**
@@ -144,7 +143,7 @@ export declare class LocalStorage {
    *
    * @returns { IterableIterator<string> } return a Map Iterator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public keys(): IterableIterator<string>;
   /**
@@ -153,7 +152,7 @@ export declare class LocalStorage {
    *
    * @returns { int } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public size(): int;
   /**
@@ -173,7 +172,7 @@ export declare class LocalStorage {
    * @param { string } propName
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public delete(propName: string): boolean;
   /**
@@ -184,7 +183,7 @@ export declare class LocalStorage {
    *
    * @returns { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   public clear(): boolean;
 }

@@ -23,14 +23,14 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  *
  * @enum { int }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @since 20
+ * @since 20 dynamic
  */
 declare enum FormType {
   /**
    * Big form card, with fixed size of 4 x 4.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   TYPE_BIG = 0,
 
@@ -38,7 +38,7 @@ declare enum FormType {
    * Medium-sized form card, with fixed size of 4 x 2.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   TYPE_MID = 1,
 
@@ -46,7 +46,7 @@ declare enum FormType {
    * Small form card, with fixed size of 2 x 1.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   TYPE_SMALL = 2
 }
@@ -56,7 +56,7 @@ declare enum FormType {
  *
  * @struct { ContentFormCard }
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @since 20
+ * @since 20 dynamic
  */
 @Component
 declare struct ContentFormCard {
@@ -65,7 +65,7 @@ declare struct ContentFormCard {
    *
    * @type { uniformDataStruct.ContentForm }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   contentFormData: uniformDataStruct.ContentForm;
 
@@ -74,7 +74,7 @@ declare struct ContentFormCard {
    *
    * @type { FormType }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop
   formType: FormType;
@@ -84,7 +84,7 @@ declare struct ContentFormCard {
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop
   formWidth?: double;
@@ -94,7 +94,7 @@ declare struct ContentFormCard {
    *
    * @type { ?double }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   @Prop
   formHeight?: double;
@@ -104,7 +104,7 @@ declare struct ContentFormCard {
    *
    * @type { ?Function }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 20
+   * @since 20 dynamic
    */
   handleOnClick?: Function;
 }

@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface LineOptions {
   /**
@@ -82,7 +82,7 @@ interface LineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   width?: Length;
 
@@ -139,7 +139,7 @@ interface LineOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   height?: Length;
 }
@@ -176,7 +176,7 @@ interface LineOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface LineInterface {
@@ -236,7 +236,7 @@ interface LineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   new (options?: LineOptions): LineAttribute;
 
@@ -296,7 +296,7 @@ interface LineInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options?: LineOptions): LineAttribute;
 }
@@ -333,7 +333,7 @@ interface LineInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
@@ -373,7 +373,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   startPoint(value: Array<any>): LineAttribute;
 
@@ -413,7 +413,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   endPoint(value: Array<any>): LineAttribute;
 }
@@ -446,7 +446,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Line: LineInterface;
@@ -479,7 +479,7 @@ declare const Line: LineInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const LineInstance: LineAttribute;

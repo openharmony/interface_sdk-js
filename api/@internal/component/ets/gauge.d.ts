@@ -26,7 +26,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 18
+ * @since 18 dynamic
  */
 interface GaugeOptions {
   /**
@@ -72,7 +72,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   value: number;
 
@@ -119,7 +119,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   min?: number;
 
@@ -166,7 +166,7 @@ interface GaugeOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   max?: number;
 }
@@ -203,7 +203,7 @@ interface GaugeOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface GaugeInterface {
@@ -263,7 +263,7 @@ interface GaugeInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   (options: GaugeOptions): GaugeAttribute;
 }
@@ -285,7 +285,7 @@ interface GaugeInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GaugeShadowOptions extends MultiShadowOptions {}
 
@@ -304,7 +304,7 @@ declare interface GaugeShadowOptions extends MultiShadowOptions {}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GaugeIndicatorOptions {
 
@@ -325,7 +325,7 @@ declare interface GaugeIndicatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   icon?: ResourceStr;
 
@@ -346,7 +346,7 @@ declare interface GaugeIndicatorOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   space?: Dimension;
 }
@@ -359,7 +359,7 @@ declare interface GaugeIndicatorOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
   /**
@@ -369,7 +369,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   value: number;
 
@@ -380,7 +380,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   min: number;
 
@@ -391,7 +391,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   max: number;
 }
@@ -420,7 +420,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
@@ -460,7 +460,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   value(value: number): GaugeAttribute;
 
@@ -500,7 +500,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   startAngle(angle: number): GaugeAttribute;
 
@@ -540,7 +540,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   endAngle(angle: number): GaugeAttribute;
 
@@ -580,7 +580,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>): GaugeAttribute;
 
@@ -620,7 +620,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   strokeWidth(length: Length): GaugeAttribute;
 
@@ -641,7 +641,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   description(value: CustomBuilder): GaugeAttribute;
 
@@ -662,7 +662,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   trackShadow(value: GaugeShadowOptions): GaugeAttribute;
 
@@ -683,7 +683,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   indicator(value: GaugeIndicatorOptions): GaugeAttribute;
 
@@ -696,7 +696,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   privacySensitive(isPrivacySensitiveMode: Optional<boolean>): GaugeAttribute;
 
@@ -708,7 +708,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   contentModifier(modifier: ContentModifier<GaugeConfiguration>): GaugeAttribute;
 }
@@ -741,7 +741,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const Gauge: GaugeInterface;
@@ -774,7 +774,7 @@ declare const Gauge: GaugeInterface;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const GaugeInstance: GaugeAttribute;

@@ -18,11 +18,11 @@
  * @kit CoreFileKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.ability.wantConstant';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { AsyncCallback, Callback } from './@ohos.base';
 import type wantConstant from './@ohos.app.ability.wantConstant';
 /*** endif */
@@ -31,8 +31,8 @@ import type wantConstant from './@ohos.app.ability.wantConstant';
  *
  * @namespace fileShare
  * @syscap SystemCapability.FileManagement.AppFileService
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace fileShare {
   /**
@@ -40,16 +40,16 @@ declare namespace fileShare {
    *
    * @enum { int } OperationMode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export enum OperationMode {
     /**
      * Indicates read permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     READ_MODE = 0b1,
 
@@ -57,8 +57,8 @@ declare namespace fileShare {
      * Indicates write permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     WRITE_MODE = 0b10,
 
@@ -66,7 +66,7 @@ declare namespace fileShare {
      * Indicates creating permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
      */
     CREATE_MODE = 0b100,
 
@@ -74,7 +74,7 @@ declare namespace fileShare {
      * Indicates deleting permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
      */
     DELETE_MODE = 0b1000,
 
@@ -82,7 +82,7 @@ declare namespace fileShare {
      * Indicates renaming permissions.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 20
+     * @since 20 dynamic
      */
     RENAME_MODE = 0b10000,
   }
@@ -92,14 +92,14 @@ declare namespace fileShare {
    *
    * @enum { number } PolicyErrorCode
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
    */
   export enum PolicyErrorCode {
     /**
      * Indicates that the policy is not allowed to be persisted.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     PERSISTENCE_FORBIDDEN = 1,
 
@@ -107,7 +107,7 @@ declare namespace fileShare {
      * Indicates that the mode of this policy is invalid.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     INVALID_MODE = 2,
 
@@ -115,7 +115,7 @@ declare namespace fileShare {
      * Indicates that the path of this policy is invalid.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     INVALID_PATH = 3,
 
@@ -123,7 +123,7 @@ declare namespace fileShare {
      * Indicates that the permission is not persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 12
+     * @since 12 dynamic
      */
     PERMISSION_NOT_PERSISTED = 4,
   }
@@ -133,7 +133,7 @@ declare namespace fileShare {
    *
    * @typedef { object }
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
    */
   export type PolicyErrorResult = {
     /**
@@ -141,7 +141,7 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     uri: string;
 
@@ -150,7 +150,7 @@ declare namespace fileShare {
      *
      * @type { PolicyErrorCode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     code: PolicyErrorCode;
 
@@ -159,7 +159,7 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since 11
+     * @since 11 dynamic
      */
     message: string;
   };
@@ -169,8 +169,8 @@ declare namespace fileShare {
    *
    * @interface PolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   export interface PolicyInfo {
     /**
@@ -178,8 +178,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     uri: string;
 
@@ -188,8 +188,8 @@ declare namespace fileShare {
      *
      * @type { int }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     operationMode: int;
   }
@@ -199,8 +199,8 @@ declare namespace fileShare {
    *
    * @interface PathPolicyInfo
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   export interface PathPolicyInfo {
     /**
@@ -208,8 +208,8 @@ declare namespace fileShare {
      *
      * @type { string }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     path: string;
  
@@ -218,8 +218,8 @@ declare namespace fileShare {
      *
      * @type { OperationMode }
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     operationMode: OperationMode;
   }
@@ -229,16 +229,16 @@ declare namespace fileShare {
    *
    * @enum { number } policyType
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   export enum PolicyType {
     /**
      * Indicates that the policy is temporary.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     TEMPORARY_TYPE = 0,
  
@@ -246,8 +246,8 @@ declare namespace fileShare {
      * Indicates that the policy is persistent.
      *
      * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-     * @since arkts {'1.1':'15', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 15 dynamic
+     * @since 20 static
      */
     PERSISTENT_TYPE = 1,
   }
@@ -267,8 +267,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function grantUriPermission(
     uri: string,
@@ -292,8 +292,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 14300001 - IPC error
    * @syscap SystemCapability.FileManagement.AppFileService
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function grantUriPermission(uri: string, bundleName: string, flag: wantConstant.Flags): Promise<void>;
 
@@ -312,7 +312,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900011 - Out of memory.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function grantUriPermission(policies: Array<PolicyInfo>, targetBundleName: string, appCloneIndex: number): Promise<void>;
 
@@ -329,7 +329,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
    */
   function persistPermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -346,7 +346,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 11
+   * @since 11 dynamic
    */
   function revokePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -363,8 +363,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function activatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -381,8 +381,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 13900001 - Operation not permitted.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function deactivatePermission(policies: Array<PolicyInfo>): Promise<void>;
 
@@ -410,7 +410,7 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 13900042 - Out of memory
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
-   * @since 17
+   * @since 17 dynamic
    */
   function checkPersistentPermission(policies: Array<PolicyInfo>): Promise<Array<boolean>>;
 
@@ -429,8 +429,8 @@ declare namespace fileShare {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.FileManagement.AppFileService.FolderAuthorization
    * @systemapi
-   * @since arkts {'1.1':'15', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15 dynamic
+   * @since 20 static
    */
   function checkPathPermission(tokenID: int, policies: Array<PathPolicyInfo>, policyType: PolicyType): Promise<Array<boolean>>;
 }

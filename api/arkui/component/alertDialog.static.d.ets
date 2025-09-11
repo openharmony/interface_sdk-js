@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from './units';
 import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
@@ -30,77 +29,77 @@ import { AttributeModifier, CommonMethod } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare enum DialogAlignment {
     /**
      * Vertical top alignment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Top,
     /**
      * Align vertically to the center.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Center,
     /**
      * Vertical bottom alignment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Bottom,
     /**
      * Default alignment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     Default,
     /**
      * Align the upper left corner.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TopStart,
     /**
      * Align the upper right corner.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     TopEnd,
     /**
      * Left center alignment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CenterStart,
     /**
      * Right center alignment.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     CenterEnd,
     /**
      * Align the lower left corner.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BottomStart,
     /**
      * Align the lower right corner.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     BottomEnd
 }
@@ -109,28 +108,28 @@ export declare enum DialogAlignment {
 *
 * @enum { number }
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20
+* @since 20 static
 */
 export declare enum DialogButtonDirection {
     /**
      * Two or fewer buttons are arranged horizontally,
      * and two or more buttons are arranged vertically.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     AUTO = 0,
     /**
      * Buttons are arranged horizontally.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     HORIZONTAL = 1,
     /**
      * Buttons are arranged vertically.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     VERTICAL = 2
 }
@@ -139,7 +138,7 @@ export declare enum DialogButtonDirection {
  *
  * @interface AlertDialogButtonBaseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogButtonBaseOptions {
     /**
@@ -149,7 +148,7 @@ export declare interface AlertDialogButtonBaseOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enabled?: boolean;
     /**
@@ -159,7 +158,7 @@ export declare interface AlertDialogButtonBaseOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     defaultFocus?: boolean;
     /**
@@ -169,7 +168,7 @@ export declare interface AlertDialogButtonBaseOptions {
      * @type { ?DialogButtonStyle }
      * @default -
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     style?: DialogButtonStyle;
     /**
@@ -178,7 +177,7 @@ export declare interface AlertDialogButtonBaseOptions {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     value: ResourceStr;
     /**
@@ -187,7 +186,7 @@ export declare interface AlertDialogButtonBaseOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     fontColor?: ResourceColor;
     /**
@@ -196,7 +195,7 @@ export declare interface AlertDialogButtonBaseOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -205,7 +204,7 @@ export declare interface AlertDialogButtonBaseOptions {
      *
      * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     action: VoidCallback;
 }
@@ -215,7 +214,7 @@ export declare interface AlertDialogButtonBaseOptions {
  * @extends AlertDialogButtonBaseOptions
  * @interface AlertDialogButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
     /**
@@ -224,7 +223,7 @@ export declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseO
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     primary?: boolean;
 }
@@ -233,7 +232,7 @@ export declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseO
  *
  * @interface AlertDialogTextStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogTextStyleOptions {
     /**
@@ -241,7 +240,7 @@ export declare interface AlertDialogTextStyleOptions {
      *
      * @type { ?WordBreak }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     wordBreak?: WordBreak;
 }
@@ -250,7 +249,7 @@ export declare interface AlertDialogTextStyleOptions {
  *
  * @interface AlertDialogParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogParam {
     /**
@@ -258,14 +257,14 @@ export declare interface AlertDialogParam {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     title?: ResourceStr;
     /**
      * Subtitle Properties
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     subtitle?: ResourceStr;
     /**
@@ -273,7 +272,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     message: ResourceStr;
     /**
@@ -281,7 +280,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     autoCancel?: boolean;
     /**
@@ -290,7 +289,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     cancel?: VoidCallback;
     /**
@@ -298,7 +297,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?DialogAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     alignment?: DialogAlignment;
     /**
@@ -306,7 +305,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Offset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     offset?: Offset;
     /**
@@ -314,7 +313,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     gridCount?: number;
     /**
@@ -322,7 +321,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Rectangle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     maskRect?: Rectangle;
     /**
@@ -331,7 +330,7 @@ export declare interface AlertDialogParam {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     showInSubWindow?: boolean;
     /**
@@ -339,7 +338,7 @@ export declare interface AlertDialogParam {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     isModal?: boolean;
     /**
@@ -348,7 +347,7 @@ export declare interface AlertDialogParam {
      * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -357,7 +356,7 @@ export declare interface AlertDialogParam {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -365,7 +364,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
     /**
@@ -373,7 +372,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     backgroundEffect?: BackgroundEffectOptions;
     /**
@@ -381,7 +380,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Callback<DismissDialogAction> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onWillDismiss?: Callback<DismissDialogAction>;
     /**
@@ -389,7 +388,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?TransitionEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     transition?: TransitionEffect;
     /**
@@ -397,7 +396,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
     /**
@@ -405,7 +404,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     width?: Dimension;
     /**
@@ -413,7 +412,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Dimension }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     height?: Dimension;
     /**
@@ -421,7 +420,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
     /**
@@ -429,7 +428,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
     /**
@@ -437,7 +436,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?(BorderStyle | EdgeStyles) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     borderStyle?: BorderStyle | EdgeStyles;
     /**
@@ -445,7 +444,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
@@ -453,7 +452,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?AlertDialogTextStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     textStyle?: AlertDialogTextStyleOptions;
     /**
@@ -462,7 +461,7 @@ export declare interface AlertDialogParam {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     enableHoverMode?: boolean;
     /**
@@ -471,7 +470,7 @@ export declare interface AlertDialogParam {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     hoverModeArea?: HoverModeAreaType;
     /**
@@ -479,7 +478,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDidAppear?: Callback<void>;
     /**
@@ -487,7 +486,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onDidDisappear?: Callback<void>;
     /**
@@ -495,7 +494,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onWillAppear?: Callback<void>;
     /**
@@ -503,7 +502,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?Callback<void> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     onWillDisappear?: Callback<void>;
     /**
@@ -512,7 +511,7 @@ export declare interface AlertDialogParam {
      * @type { ?LevelMode }
      * @default LevelMode.OVERLAY
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     levelMode?: LevelMode;
     /**
@@ -520,7 +519,7 @@ export declare interface AlertDialogParam {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     levelUniqueId?: number;
     /**
@@ -529,7 +528,7 @@ export declare interface AlertDialogParam {
      * @type { ?ImmersiveMode }
      * @default ImmersiveMode.DEFAULT
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     immersiveMode?: ImmersiveMode;
     /**
@@ -538,7 +537,7 @@ export declare interface AlertDialogParam {
      * @type { ?LevelOrder }
      * @default The value returns by LevelOrder.clamp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     levelOrder?: LevelOrder;
 }
@@ -548,7 +547,7 @@ export declare interface AlertDialogParam {
  * @extends AlertDialogParam
  * @interface AlertDialogParamWithConfirm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
     /**
@@ -557,7 +556,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
      *
      * @type { ?AlertDialogButtonBaseOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     confirm?: AlertDialogButtonBaseOptions;
 }
@@ -567,7 +566,7 @@ export declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  * @extends AlertDialogParam
  * @interface AlertDialogParamWithButtons
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
     /**
@@ -576,7 +575,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
      *
      * @type { AlertDialogButtonBaseOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     primaryButton: AlertDialogButtonBaseOptions;
     /**
@@ -585,7 +584,7 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
      *
      * @type { AlertDialogButtonBaseOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     secondaryButton: AlertDialogButtonBaseOptions;
 }
@@ -595,14 +594,14 @@ export declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  * @extends AlertDialogParam
  * @interface AlertDialogParamWithOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface AlertDialogParamWithOptions extends AlertDialogParam {
     /**
      * The array of buttons.
      * @type { Array<AlertDialogButtonOptions> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     buttons: Array<AlertDialogButtonOptions>;
     /**
@@ -610,7 +609,7 @@ export declare interface AlertDialogParamWithOptions extends AlertDialogParam {
      * @type { ?DialogButtonDirection }
      * @default DialogButtonDirection.AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     buttonDirection?: DialogButtonDirection;
 }

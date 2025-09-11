@@ -17,7 +17,6 @@
 /**
  * @file Marquee modifier file，defines modifier and function.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,7 +29,7 @@ import { MarqueeAttribute } from '@ohos.arkui.component';
  *
  * @implements { MarqueeAttribute, AttributeModifier<MarqueeAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class MarqueeModifier implements MarqueeAttribute, AttributeModifier<MarqueeAttribute> {}

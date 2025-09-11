@@ -35,7 +35,7 @@
  * @enum { FilterType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare enum FilterType {
@@ -48,7 +48,7 @@ export declare enum FilterType {
      * The multi_line_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     MULTI_LINE_FILTER = 0,
 
@@ -61,7 +61,7 @@ export declare enum FilterType {
      * The list_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     LIST_FILTER = 1
 }
@@ -75,7 +75,7 @@ export declare enum FilterType {
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class FilterParams {
@@ -90,7 +90,7 @@ export declare class FilterParams {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     name: ResourceStr;
     /**
@@ -104,7 +104,7 @@ export declare class FilterParams {
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     options: Array<ResourceStr>;
 }
@@ -120,7 +120,7 @@ export declare class FilterParams {
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 export declare class FilterResult {
@@ -135,7 +135,7 @@ export declare class FilterResult {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     name: ResourceStr;
     /**
@@ -149,7 +149,7 @@ export declare class FilterResult {
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     index: number;
     /**
@@ -163,7 +163,7 @@ export declare class FilterResult {
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     value: ResourceStr;
 }
@@ -177,7 +177,7 @@ export declare class FilterResult {
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 @Component
@@ -193,7 +193,7 @@ export declare struct Filter {
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     @BuilderParam container: () => void;
 
@@ -208,7 +208,7 @@ export declare struct Filter {
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     @Prop multiFilters: Array<FilterParams>;
 
@@ -223,7 +223,7 @@ export declare struct Filter {
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     @Prop additionFilters?: FilterParams;
 
@@ -238,7 +238,7 @@ export declare struct Filter {
      * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     onFilterChanged: (filterResults: Array<FilterResult>) => void;
 
@@ -253,7 +253,7 @@ export declare struct Filter {
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     @Prop filterType?: FilterType;
 }

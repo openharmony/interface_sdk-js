@@ -43,7 +43,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GridColColumnOption {
   /**
@@ -71,7 +71,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xs?: number,
 
@@ -100,7 +100,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   sm?: number,
 
@@ -129,7 +129,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   md?: number,
 
@@ -158,7 +158,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   lg?: number,
 
@@ -187,7 +187,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xl?: number,
 
@@ -216,7 +216,7 @@ declare interface GridColColumnOption {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   xxl?: number,
 }
@@ -246,7 +246,7 @@ declare interface GridColColumnOption {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 declare interface GridColOptions {
   /**
@@ -274,7 +274,7 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   span?: number | GridColColumnOption;
 
@@ -303,7 +303,7 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   offset?: number | GridColColumnOption;
 
@@ -332,7 +332,7 @@ declare interface GridColOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   order?: number | GridColColumnOption;
 }
@@ -362,7 +362,7 @@ declare interface GridColOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 interface GridColInterface {
@@ -394,7 +394,7 @@ interface GridColInterface {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   (option?: GridColOptions): GridColAttribute;
 }
@@ -424,7 +424,7 @@ interface GridColInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare class GridColAttribute extends CommonMethod<GridColAttribute> {
@@ -456,7 +456,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   span(value: number | GridColColumnOption): GridColAttribute;
 
@@ -488,7 +488,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   gridColOffset(value: number | GridColColumnOption): GridColAttribute;
 
@@ -520,7 +520,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
    */
   order(value: number | GridColColumnOption): GridColAttribute;
 }
@@ -547,7 +547,7 @@ declare class GridColAttribute extends CommonMethod<GridColAttribute> {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const GridCol: GridColInterface
@@ -574,7 +574,7 @@ declare const GridCol: GridColInterface
  * @crossplatform
  * @form
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  * @noninterop
  */
 declare const GridColInstance: GridColAttribute;

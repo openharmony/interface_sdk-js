@@ -31,7 +31,7 @@ import { ConnectOptions } from '../ability/connectOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since 14 dynamic
  */
 export default class UIServiceExtensionContext extends ExtensionContext {
   /**
@@ -67,7 +67,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -78,7 +78,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   terminateSelf(): Promise<void>;
 
@@ -98,7 +98,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -133,7 +133,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
@@ -149,7 +149,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since 14 dynamic
    */
   disconnectServiceExtensionAbility(connectionId: long): Promise<void>;
 }

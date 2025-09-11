@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 
@@ -30,7 +29,7 @@ import { ContainerSpanAttribute } from '@ohos.arkui.component';
  *
  * @implements { ContainerSpanAttribute, AttributeModifier<ContainerSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class ContainerSpanModifier implements

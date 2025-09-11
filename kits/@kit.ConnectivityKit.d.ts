@@ -19,7 +19,7 @@
  */
 
 /* 共用部分 */
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import a2dp from '@ohos.bluetooth.a2dp';
 import access from '@ohos.bluetooth.access';
 import baseProfile from '@ohos.bluetooth.baseProfile';

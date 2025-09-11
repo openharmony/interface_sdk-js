@@ -42,8 +42,8 @@ import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
  * @syscap SystemCapability.Ability.AbilityBase
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface Configuration {
   /**
@@ -68,8 +68,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   language?: string;
 
@@ -95,8 +95,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   colorMode?: ConfigurationConstant.ColorMode;
 
@@ -122,8 +122,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   direction?: ConfigurationConstant.Direction;
 
@@ -149,8 +149,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   screenDensity?: ConfigurationConstant.ScreenDensity;
 
@@ -167,8 +167,8 @@ export interface Configuration {
    * @type { ?long }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   displayId?: long;
 
@@ -185,8 +185,8 @@ export interface Configuration {
    * @type { ?boolean }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   hasPointerDevice?: boolean;
 
@@ -196,8 +196,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   fontId?: string;
 
@@ -216,8 +216,8 @@ export interface Configuration {
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   fontSizeScale?: double;
 
@@ -227,8 +227,8 @@ export interface Configuration {
    * @type { ?double }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   fontWeightScale?: double;
 
@@ -238,8 +238,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   mcc?: string;
 
@@ -249,8 +249,8 @@ export interface Configuration {
    * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   mnc?: string;
 
@@ -260,8 +260,7 @@ export interface Configuration {
    * @type { ?Intl.Locale }
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
     locale?: Intl.Locale;
 }

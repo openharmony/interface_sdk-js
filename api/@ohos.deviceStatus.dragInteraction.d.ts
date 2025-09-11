@@ -26,8 +26,8 @@ import { Callback } from './@ohos.base';
  * @namespace dragInteraction
  * @syscap SystemCapability.Msdp.DeviceStatus.Drag
  * @systemapi Hide this for inner system use.
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 declare namespace dragInteraction {
   /**
@@ -36,8 +36,8 @@ declare namespace dragInteraction {
    * @enum { number }
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   enum DragState {
     /**
@@ -45,8 +45,8 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     MSG_DRAG_STATE_START = 1,
 
@@ -55,8 +55,8 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     MSG_DRAG_STATE_STOP = 2,
 
@@ -65,8 +65,8 @@ declare namespace dragInteraction {
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     MSG_DRAG_STATE_CANCEL = 3,
   }
@@ -77,8 +77,8 @@ declare namespace dragInteraction {
    * @interface Summary
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   interface Summary {
     /**
@@ -87,8 +87,8 @@ declare namespace dragInteraction {
      * @type { string }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     dataType: string;
 
@@ -98,8 +98,8 @@ declare namespace dragInteraction {
      * @type { int }
      * @syscap SystemCapability.Msdp.DeviceStatus.Drag
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
+     * @since 20 static
      */
     dataSize: int;
   }
@@ -125,8 +125,8 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'drag', callback: Callback<DragState>): void;
 
@@ -153,8 +153,8 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'drag', callback?: Callback<DragState>): void;
 
@@ -165,8 +165,8 @@ declare namespace dragInteraction {
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   function getDataSummary(): Array<Summary>;
 
@@ -177,7 +177,7 @@ declare namespace dragInteraction {
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 18 dynamic
    */
   function setDragSwitchState(enabled: boolean): void;
 
@@ -191,7 +191,7 @@ declare namespace dragInteraction {
    * <br>2.Incorrect parameter types.3.Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
-   * @since 18
+   * @since 18 dynamic
    */
   function setAppDragSwitchState(enabled: boolean, bundleName: string): void;
 }

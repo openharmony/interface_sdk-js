@@ -19,7 +19,6 @@ import { PolylineAttribute } from '@ohos.arkui.component';
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 /**
@@ -27,7 +26,7 @@ import { PolylineAttribute } from '@ohos.arkui.component';
  *
  * @implements PolylineAttribute, AttributeModifier<PolylineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare class PolylineModifier implements PolylineAttribute, AttributeModifier<PolylineAttribute> {}

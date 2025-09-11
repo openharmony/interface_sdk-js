@@ -37,7 +37,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  * @noninterop
  */
 export declare class CheckboxGroupModifier extends CheckboxGroupAttribute implements AttributeModifier<CheckboxGroupAttribute> {
@@ -49,7 +49,7 @@ export declare class CheckboxGroupModifier extends CheckboxGroupAttribute implem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   applyNormalAttribute?(instance: CheckboxGroupAttribute): void;
 }

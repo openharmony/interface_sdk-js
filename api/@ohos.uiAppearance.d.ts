@@ -33,7 +33,7 @@ import type { AsyncCallback } from './@ohos.base';
 *
 * @namespace uiAppearance
 * @syscap SystemCapability.ArkUI.UiAppearance
-* @since 20
+* @since 20 dynamic
 */
 declare namespace uiAppearance {
   /**
@@ -49,7 +49,7 @@ declare namespace uiAppearance {
    *
    * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since 20 dynamic
    */
   enum DarkMode {
     /**
@@ -63,7 +63,7 @@ declare namespace uiAppearance {
      * Always display with dark mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20
+     * @since 20 dynamic
      */
     ALWAYS_DARK = 0,
 
@@ -78,7 +78,7 @@ declare namespace uiAppearance {
      * Always display with light mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20
+     * @since 20 dynamic
      */
     ALWAYS_LIGHT = 1
   }
@@ -97,7 +97,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 10
+   * @since 10 dynamic
    */
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
@@ -115,7 +115,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 10
+   * @since 10 dynamic
    */
   function setDarkMode(mode: DarkMode): Promise<void>;
 
@@ -144,7 +144,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since 20 dynamic
    */
   function getDarkMode(): DarkMode;
 
@@ -163,7 +163,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since 12 dynamic
    */
   function setFontScale(fontScale: number): Promise<void>;
 
@@ -193,7 +193,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since 20 dynamic
    */
   function getFontScale(): number;
 
@@ -212,7 +212,7 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
-   * @since 12
+   * @since 12 dynamic
    */
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
@@ -242,7 +242,7 @@ declare namespace uiAppearance {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20
+   * @since 20 dynamic
    */
   function getFontWeightScale(): number;
 }
