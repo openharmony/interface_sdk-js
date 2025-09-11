@@ -31,8 +31,7 @@ import { ValuesBucket, ValueType } from './@ohos.data.ValuesBucket';
  * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
  * @systemapi
  * @stagemodelonly
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9
  */
 /**
  * This module provides the dataShare capability for consumer.
@@ -575,8 +574,7 @@ declare namespace dataShare {
   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
   * @systemapi
   * @stagemodelonly
-  * @since arkts {'1.1':'12', '1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
  /**
   * Enumerates the data change types.
@@ -594,8 +592,7 @@ declare namespace dataShare {
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
-     * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     /**
      * Data inserted.
@@ -613,8 +610,7 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @systemapi
     * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * Data deleted.
@@ -631,8 +627,7 @@ declare namespace dataShare {
     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
     * @systemapi
     * @stagemodelonly
-    * @since arkts {'1.1':'12', '1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
    /**
     * Data updated.
