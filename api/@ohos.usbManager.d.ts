@@ -235,7 +235,6 @@ declare namespace usbManager {
    * @useinstead ohos.usbManager/usbManager#getDeviceFunctions
    */
   function getCurrentFunctions(): FunctionType;
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
@@ -446,7 +445,6 @@ declare namespace usbManager {
    * @arkts 1.1&1.2
    */
   function getDeviceFunctions(): FunctionType;
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
@@ -457,7 +455,6 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
