@@ -3736,72 +3736,64 @@ declare namespace sensor {
    * Indicates geomagnetic field data.
    * @typedef GeomagneticResponse
    * @syscap SystemCapability.Sensors.Sensor
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   interface GeomagneticResponse {
     /**
      * Geomagnetic x-axis component.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    x: double;
+    x: number;
 
     /**
      * Geomagnetic y-axis component.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    y: double;
+    y: number;
 
     /**
      * Geomagnetic z-axis component.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    z: double;
+    z: number;
 
     /**
      * The Angle between the earth's magnetic field lines and the horizontal plane.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    geomagneticDip: double;
+    geomagneticDip: number;
 
     /**
      * The Angle of magnetic north and true north on a horizontal plane.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    deflectionAngle: double;
+    deflectionAngle: number;
 
     /**
      * The horizontal strength of the geomagnetic field.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    levelIntensity: double;
+    levelIntensity: number;
 
     /**
      * The total strength of the geomagnetic field.
-     * @type { double }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    totalIntensity: double;
+    totalIntensity: number;
   }
 
   /**
@@ -4100,25 +4092,22 @@ declare namespace sensor {
    * Indicates the axis of the new coordinate system that coincides with the XY axis of the original coordinate system.
    * @typedef CoordinatesOptions
    * @syscap SystemCapability.Sensors.Sensor
-   * @since arkts {'1.1':'8', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 8
    */
   interface CoordinatesOptions {
     /** Indicates the axis of the new coordinate system that coincides with the X axis of the original coordinate system. 
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    x: int;
+    x: number;
 
     /** Indicates the axis of the new coordinate system that coincides with the Y axis of the original coordinate system. 
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.Sensors.Sensor
-     * @since arkts {'1.1':'8', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 8
      */
-    y: int;
+    y: number;
   }
 
   /**

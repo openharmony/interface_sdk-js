@@ -963,49 +963,44 @@ declare namespace vibrator {
    *
    * @interface ContinuousParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface ContinuousParam {
     /**
      * Intensity of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    intensity?: int;
+    intensity?: number;
 
     /**
      * Frequency of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    frequency?: int;
+    frequency?: number;
 
     /**
      * The points of vibration
      *
      * @type { ?VibratorCurvePoint[] }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     points?: VibratorCurvePoint[];
 
     /**
      * Index of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    index?: int;
+    index?: number;
   }
 
   /**
@@ -1013,39 +1008,35 @@ declare namespace vibrator {
    *
    * @interface TransientParam
    * @syscap SystemCapability.Sensors.MiscDevice
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   interface TransientParam {
     /**
      * Intensity of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    intensity?: int;
+    intensity?: number;
 
     /**
      * Frequency of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    frequency?: int;
+    frequency?: number;
 
     /**
      * Index of vibration
      *
-     * @type { ?int }
+     * @type { ?number }
      * @syscap SystemCapability.Sensors.MiscDevice
-     * @since arkts {'1.1':'18', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
-    index?: int;
+    index?: number;
   }
 
   /**
