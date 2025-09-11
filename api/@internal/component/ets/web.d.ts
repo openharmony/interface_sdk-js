@@ -610,7 +610,8 @@ declare enum MixedMode {
  * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'21'}
+ *  @arkts 1.1&1.2
  */
 type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
 
