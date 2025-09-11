@@ -99,7 +99,7 @@ declare namespace avSession {
    * @arkts 1.1&1.2
    */
   function getAllSessionDescriptors(callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
-  
+
   /**
    * Get all avsession descriptors of the system
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
@@ -1171,8 +1171,7 @@ declare namespace avSession {
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     readonly sessionType: AVSessionType;
 
@@ -2938,7 +2937,7 @@ declare namespace avSession {
 
     /**
      * Activate the session, indicating that the session can accept control commands
-     * @returns { Promise<void> } void result promise when executed successfully 
+     * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2946,7 +2945,7 @@ declare namespace avSession {
      */
     /**
      * Activate the session, indicating that the session can accept control commands
-     * @returns { Promise<void> } void result promise when executed successfully 
+     * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -3064,8 +3063,7 @@ declare namespace avSession {
      * @type { AVCastControlCommandType }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     command: AVCastControlCommandType;
 
@@ -3092,8 +3090,7 @@ declare namespace avSession {
      * @type { ?(media.PlaybackSpeed | double | string | LoopMode) }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     parameter?: media.PlaybackSpeed | double | string | LoopMode;
   }
@@ -4419,8 +4416,7 @@ declare namespace avSession {
      * Defination of avc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_AVC = "video/avc",
 
@@ -4428,8 +4424,7 @@ declare namespace avSession {
      * Defination of hevc codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_VIDEO_HEVC = "video/hevc",
 
@@ -4437,8 +4432,7 @@ declare namespace avSession {
      * Defination of audio vivid codec type.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     OH_AVCODEC_MIMETYPE_AUDIO_VIVID = "audio/av3a"
   }
@@ -4456,8 +4450,7 @@ declare namespace avSession {
      * Defination of 480P which typically resolution is 640*480.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     RESOLUTION_480P = 0,
 
@@ -4465,8 +4458,7 @@ declare namespace avSession {
      * Defination of 720P which typically resolution is 1280*720.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     RESOLUTION_720P = 1,
 
@@ -4474,8 +4466,7 @@ declare namespace avSession {
      * Defination of 1080P which typically resolution is 1920*1080.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     RESOLUTION_1080P = 2,
 
@@ -4483,8 +4474,7 @@ declare namespace avSession {
      * Defination of 2K which typically resolution is 2560*1440.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     RESOLUTION_2K = 3,
 
@@ -4492,8 +4482,7 @@ declare namespace avSession {
      * Defination of 4K which typically resolution is 4096*3840.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     RESOLUTION_4K = 4
   }
@@ -4601,8 +4590,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     title?: string;
 
@@ -4754,8 +4742,7 @@ declare namespace avSession {
      * The publishDate of the media
      * @type { ?Date }
      * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @since arkts {'1.1':'10','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10
      */
     publishDate?: Date;
 
@@ -4966,8 +4953,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     description?: string;
 
@@ -4984,8 +4970,7 @@ declare namespace avSession {
      * @type { ?(image.PixelMap | string) }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     mediaImage?: image.PixelMap | string;
     /**
@@ -5014,8 +4999,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     mediaType?: string;
 
@@ -5539,7 +5523,6 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     extras?: Record<string, Object>;
   }
@@ -6024,8 +6007,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     manufacturer?: string;
 
@@ -6034,8 +6016,7 @@ declare namespace avSession {
      * @type { ?string }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     modelName?: string;
 
@@ -6080,8 +6061,7 @@ declare namespace avSession {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     supportedProtocols?: int;
 
