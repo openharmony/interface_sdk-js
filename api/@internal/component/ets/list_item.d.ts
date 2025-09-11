@@ -285,10 +285,10 @@ declare enum ListItemSwipeActionDirection {
  */
 declare class ListItemSwipeActionManager {
   /**
-   * Expend the swipe action
+   * Expand the swipe action
    *
    * @param { FrameNode } node - The ListItem FrameNode.
-   * @param { ListItemSwipeActionDirection } direction - The direction to expend
+   * @param { ListItemSwipeActionDirection } direction - The direction to expand.
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @static
