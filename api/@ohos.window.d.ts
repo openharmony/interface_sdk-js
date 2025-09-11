@@ -3805,7 +3805,8 @@ declare namespace window {
   /**
    * List the window modes of the foreground window on the specified display.
    *
-   * @param { number } displayId - Indicate the id of display.
+   * @param { number } [displayId] - Indicate the id of display.
+   *     Not passing or passing a value of null or undefined indicates querying all screens.
    * @returns { Promise<number> } Promise used to return the window modes.
    * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -5619,11 +5620,15 @@ declare namespace window {
      * @param { boolean } enabled - The value true means the first level sub window supports maintaining
      *     the same relative position with the main window, and false means the opposite.
      * @param { WindowAnchor } [anchor] - Window anchor point that setting
-     *     when the relative position between the primary sub window and the main window remains unchanged.
+     *     when the relative position between the primary sub window and the main window remains unchanged. The
+     *     default value is window.WindowAnchor.TOP_Start, meaning the default anchor point is the top-left corner
+     *     of the window.
      * @param { number } [offsetX] - The x-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
+     *     The default value is 0.
      * @param { number } [offsetY] - The y-axis offset
      *     between the anchor point of the first level sub window and the anchor point of the main window.
+     *     The default value is 0.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function setRelativePositionToParentWindowEnabled can not work correctly due to limited device capabilities.
@@ -12139,6 +12144,7 @@ declare namespace window {
      *
      * @param { number } density - the specified custom density value.
      * @param { boolean } [applyToSubWindow] - whether to apply the custom density to already created subwindows.
+     *     The default value is false.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.

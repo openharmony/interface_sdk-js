@@ -991,9 +991,9 @@ declare namespace bundleManager {
      * Indicates extension info with type of the faultLog
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @atomicservice
      * @since 21 dynamic
-     */
+     * @since 22 static
+    */
     FAULT_LOG = 33,
 
     /**

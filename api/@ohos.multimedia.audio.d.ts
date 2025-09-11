@@ -1068,6 +1068,30 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the device select strategy.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @systemapi
+   * @since 21
+   */
+  enum AudioDevcieSelectStrategy {
+    /**
+     * The default follow device select strategy.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    SELECT_STRATEGY_DEFAULT = 0,
+    /**
+     * The independent device select strategy.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    SELECT_STRATEGY_INDEPENDENT = 1,
+  }
+
+  /**
    * Enumerates ringer modes.
    * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Communication
@@ -2265,6 +2289,17 @@ declare namespace audio {
      * @since 12
      */
     PRIVACY_TYPE_PRIVATE = 1,
+
+    /**
+     * Privacy type that stream can be safely captured or screen casted.
+     * For example, the audio renderer with {@link StreamUsage#STREAM_USAGE_VOICE_COMMUNICATION} cannot be
+     * captured or screen casted by third party applications under the PRIVACY_TYPE_PUBLIC policy.
+     * However, the internal capture is allowed under the PRIVACY_TYPE_SHARED policy.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    PRIVACY_TYPE_SHARED = 2,
   }
 
   /**
@@ -3782,6 +3817,21 @@ declare namespace audio {
     selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors): Promise<void>;
 
     /**
+     * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
+     * @param { AudioRendererFilter } filter - Filter for affected AudioRenderer.
+     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device to select. 
+     * @param { AudioDevcieSelectStrategy } strategy - Target audio device select strategy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    selectOutputDeviceByFilter(filter: AudioRendererFilter, outputAudioDevices: AudioDeviceDescriptors, strategy: AudioDevcieSelectStrategy): Promise<void>;
+
+    /**
      * Select the input device. This method uses an asynchronous callback to return the result.
      * @param { AudioDeviceDescriptors } inputAudioDevices - Audio device description
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
@@ -3959,6 +4009,36 @@ declare namespace audio {
      * @since 12
      */
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Subscribes to prefer output device change events. When preferred device for target audio renderer
+     * filter changes, registered clients will receive the callback.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
+     * @param { AudioRendererFilter } filter - Filter for AudioRenderer.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback used to obtain the changed prefer devices
+     *     information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    on(type: 'preferredOutputDeviceChangeByFilter', filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * UnSubscribes to prefer output device change events.
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - Type of the event to listen for. Only the
+     *     preferredOutputDeviceChangeByFilter event is supported.
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 21
+     */
+    off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
      * Get input device for target audio capturer info.
@@ -4577,6 +4657,18 @@ declare namespace audio {
      * @since 20
      */
     isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean;
+
+    /**
+     * Checks whether the system recording enables Intelligent noise reduction for current device
+     * @param { SourceType } sourceType Type of audio source.
+     * @returns { boolean } Check result. The value <b>true</b> means that the system recording enables intelligent noise reduction for current device,
+     *          and <b>false</b> means the opposite.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean;
+
   }
 
   /**
@@ -4822,6 +4914,64 @@ declare namespace audio {
   }
 
   /**
+   * Enumerates the categories application prefer to use
+   * when recording with bluetooth and nearlink.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 21
+   */
+  enum BluetoothAndNearlinkPreferredRecordCategory {
+    /**
+     * Not prefer to use bluetooth and nearlink to record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_NONE = 0,
+    /**
+     * Prefer to use bluetooth and nearlink to record.
+     * However, whether to use low latency or high quality recording depends on system.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_DEFAULT = 1,
+    /**
+     * Prefer to use bluetooth and nearlink low latency mode to record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_LOW_LATENCY = 2,
+    /**
+     * Prefer to use bluetooth and nearlink high quality mode to record.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    PREFERRED_HIGH_QUALITY = 3,
+  }
+
+  /**
+   * Audio session input device change info.
+   * @typedef CurrentInputDeviceChangedEvent
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @since 21
+   */
+  interface CurrentInputDeviceChangedEvent {
+    /**
+     * Audio input device descriptors after change.
+     * @type { AudioDeviceDescriptors }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    devices: AudioDeviceDescriptors;
+    /**
+     * Audio input device change reason.
+     * @type { AudioStreamDeviceChangeReason }
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @since 21
+     */
+    changeReason: AudioStreamDeviceChangeReason;
+  }
+
+  /**
    * Implements audio session management.
    * @typedef AudioSessionManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -4984,6 +5134,128 @@ declare namespace audio {
      * @since 20
      */
     off(type: 'currentOutputDeviceChanged', callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
+
+    /**
+     * Obtains all the available audio devices with a specific device usage.
+     * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
+     * @returns { AudioDeviceDescriptors } The device list.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Subscribes to available device change events. When a device is connected/disconnected, registered clients
+     * will receive the callback.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
+     *     event is supported.
+     * @param { DeviceUsage } deviceUsage - Audio device usage to filter available devices.
+     * @param { Callback<DeviceChangeAction> } callback - Callback used to obtain the device update details.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Unsubscribes to available device change events.
+     * @param { 'availableDeviceChange' } type - Type of the event to listen for. Only the availableDeviceChange
+     *     event is supported.
+     * @param { Callback<DeviceChangeAction> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
+
+    /**
+     * Selects the media input device. It uses a promise to return the result.
+     * This function is not valid for call recording, whose SourceType is
+     * SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
+     * In scenarios where there are concurrent recording streams with higher priority,
+     * the actual input device used by the application may differ from the selected one.
+     * The application can obtain currently active input device by subscribing to the
+     * currentInputDeviceChanged event.
+     * @param { AudioDeviceDescriptor } inputAudioDevice - Audio device description.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Gets the selected media input device. If never set, it returns a device descriptor
+     * with INVALID DeviceType.
+     * @returns { AudioDeviceDescriptor } - Selected audio device.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getSelectedMediaInputDevice(): AudioDeviceDescriptor;
+
+    /**
+     * Clears the selected media input device.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    clearSelectedMediaInputDevice(): Promise<void>;
+
+    /**
+     * Sets the prefered record category with bluetooth and nearlink device.
+     * The application can set this category before bluetooth or nearlink connected, and the system will
+     * prefer to use bluetooth and nearlink to record when the device connected.
+     * In scenarios where there are concurrent recording streams with higher priority,
+     * the actual input device used by the application may differ from the prefered one.
+     * The application can obtain currently active input device by subscribing to the
+     * currentInputDeviceChanged event.
+     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - The category application prefer
+     *     to use when recording with bluetooth and nearlink.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise<void>;
+
+    /**
+     * Gets the prefered record category with bluetooth and nearlink device.
+     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - The category application prefer
+     *     to use when recording with bluetooth and nearlink.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory;
+
+    /**
+     * Subscribes input device change event callback. The event is triggered when current input device change.
+     * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentInputDeviceChangedEvent> } callback - Callback used to listen input device change event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    on(type: 'currentInputDeviceChanged', callback: Callback<CurrentInputDeviceChangedEvent>): void;
+
+    /**
+     * Unsubscribes current input device change events.
+     * @param { 'currentInputDeviceChanged' } type - Type of the event to listen for.
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 21
+     */
+    off(type: 'currentInputDeviceChanged', callback?: Callback<CurrentInputDeviceChangedEvent>): void;
   }
 
   /**
@@ -7438,6 +7710,16 @@ declare namespace audio {
      * @since 18
      */
     readonly dmDeviceType?: number;
+
+    /**
+     * whether supports high-quality recording.
+     * @type { ?boolean }
+     * @readonly
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 21
+     */
+    readonly highQualityRecordingSupported?: boolean;
   }
 
   /**
@@ -11839,7 +12121,7 @@ declare namespace audio {
      * Get the current reverberation.
      * The defalut reverberation preset of audio loopback is {@link AudioLoopbackReverbPreset#THEATER} if
      * users do not modify the preset.
-     * 
+     *
      * @returns { AudioLoopbackReverbPreset  } Returns the current reverberation.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21
@@ -11861,7 +12143,7 @@ declare namespace audio {
      * Gets the current equalizer preset.
      * The defalut equalizer preset of audio loopback is {@link AudioLoopbackEqualizerPreset#FULL} if
      * users do not modify the preset.
-     * 
+     *
      * @returns { AudioLoopbackEqualizerPreset } Returns the current equalizer preset.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 21

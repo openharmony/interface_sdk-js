@@ -1000,7 +1000,8 @@ declare enum WebDarkMode {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum WebCaptureMode {
   /**
@@ -1012,7 +1013,8 @@ declare enum WebCaptureMode {
    * Capture of the home screen.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   HOME_SCREEN = 0
 }
@@ -1173,7 +1175,8 @@ declare interface ScreenCaptureConfig {
    * @type { WebCaptureMode }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   captureMode: WebCaptureMode;
 }
@@ -2423,7 +2426,8 @@ declare class ScreenCaptureHandler {
    * @returns { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getOrigin(): string;
 

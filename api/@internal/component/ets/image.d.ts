@@ -2271,6 +2271,18 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 21
    */
   supportSvg2(enable: boolean) : ImageAttribute;
+
+  /**
+   * Animation effect when the image content changes.
+   *
+   * @param { ContentTransitionEffect } transition - Animation effect type
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  contentTransition(transition: ContentTransitionEffect): ImageAttribute;
 }
 
 /**

@@ -401,6 +401,16 @@ declare namespace unifiedDataChannel {
      * @since 11
      */
     totalSize: number;
+
+    /**
+     * Indicates the overview information of unifiedData.
+     *
+     * @returns { Record<string, long> } Key represents the data type, and value represents the corresponding data size.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @atomicservice
+     * @since 22
+     */
+    get overview(): Record<string, long>;
   }
 
   /**

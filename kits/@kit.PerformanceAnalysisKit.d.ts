@@ -19,7 +19,6 @@
  */
 
 /*** if arkts 1.1&1.2 */
-import FaultLogger from '@ohos.faultLogger';
 import hiAppEvent from '@ohos.hiviewdfx.hiAppEvent';
 import hichecker from '@ohos.hichecker';
 import hidebug from '@ohos.hidebug';
@@ -32,15 +31,16 @@ import FaultLogExtensionAbility from '@ohos.hiviewdfx.FaultLogExtensionAbility';
 import FaultLogExtensionContext from '@ohos.hiviewdfx.FaultLogExtensionContext';
 
 export {
-  FaultLogger, hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
+  hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
   logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext
 };
 /*** endif */
 
-/*** if arkts 1.1*/
+/*** if arkts 1.1 */
+import FaultLogger from '@ohos.faultLogger';
 import jsLeakWatcher from '@ohos.hiviewdfx.jsLeakWatcher';
 
 export {
-  jsLeakWatcher
+  FaultLogger, jsLeakWatcher 
 };
 /*** endif */

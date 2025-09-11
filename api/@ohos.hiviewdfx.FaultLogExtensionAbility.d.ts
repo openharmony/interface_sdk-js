@@ -26,6 +26,7 @@ import type FaultLogExtensionContext from './@ohos.hiviewdfx.FaultLogExtensionCo
  * @syscap SystemCapability.HiviewDFX.FaultLogger
  * @StageModelOnly
  * @since 21 dynamic
+ * @since 22 static
 */
 declare class FaultLogExtensionAbility {
   /**
@@ -35,6 +36,7 @@ declare class FaultLogExtensionAbility {
    * @syscap SystemCapability.HiviewDFX.FaultLogger
    * @StageModelOnly
    * @since 21 dynamic
+   * @since 22 static
    */
   context: FaultLogExtensionContext;
 
@@ -44,6 +46,7 @@ declare class FaultLogExtensionAbility {
    * @syscap SystemCapability.HiviewDFX.FaultLogger
    * @StageModelOnly
    * @since 21 dynamic
+   * @since 22 static
    */
   onFaultReportReady(): void;
 
@@ -53,6 +56,7 @@ declare class FaultLogExtensionAbility {
    * @syscap SystemCapability.HiviewDFX.FaultLogger
    * @StageModelOnly
    * @since 21 dynamic
+   * @since 22 static
    */
   onConnect(): void;
 
@@ -62,6 +66,7 @@ declare class FaultLogExtensionAbility {
    * @syscap SystemCapability.HiviewDFX.FaultLogger
    * @StageModelOnly
    * @since 21 dynamic
+   * @since 22 static
    */
   onDisConnect(): void;
 }
@@ -72,5 +77,6 @@ declare class FaultLogExtensionAbility {
  * @syscap SystemCapability.HiviewDFX.FaultLogger
  * @StageModelOnly
  * @since 21 dynamic
+ * @since 22 static
  */
 export default FaultLogExtensionAbility;

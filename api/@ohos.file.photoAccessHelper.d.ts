@@ -128,6 +128,81 @@ declare namespace photoAccessHelper {
   }
 
   /**
+  * Context information of the exit status of PhotoPicker,
+  * which can be used for on-site recovery of PhotoPicker next time.
+  * 
+  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+  * @atomicservice
+  * @since 21
+  */
+  class ContextRecoveryInfo {
+    /**
+     * The album URI from which the user exited during the last selection.
+     * The default value is empty string.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    albumUri: string;
+
+    /**
+     * Timestamp of the first fully visible photo in the last selection interface.
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    time: number;
+
+    /**
+     * Filename of the first fully visible photo in the last selection interface.
+     * The default value is empty string.
+     * 
+     * @type { string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    displayName: string;
+
+    /**
+     * Enum value of the recommendation content set by the user during the last selection (see `RecommendationType`).
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    recommendationType: number;
+
+    /**
+     * Enum value of the recommendation content selected by  the user during the last selection (see `RecommendationType`).
+     * The default value is 0.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    selectedRecommendationType: number;
+
+    /**
+     * Context data version number for validating compatibility of context recovery.
+     * 
+     * @type { number }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    version: number;
+  }
+
+  /**
    * Enumerates media file types.
    *
    * @enum { number } PhotoType
@@ -7910,6 +7985,16 @@ declare namespace photoAccessHelper {
      * @since 18
      */
     userId?: number;
+
+     /**
+     * Context recovery information for restoring the last selection session.
+     * 
+     * @type { ?ContextRecoveryInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    contextRecoveryInfo?: ContextRecoveryInfo;
   }
 
   /**
@@ -8050,6 +8135,16 @@ declare namespace photoAccessHelper {
      * @since 12
      */
     isOriginalPhoto: boolean;
+
+    /**
+     * Contextual information about the PhotoPicker's exit state.
+     * 
+     * @type { ContextRecoveryInfo }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @atomicservice
+     * @since 21
+     */
+    contextRecoveryInfo: ContextRecoveryInfo;
   }
 
   /**
@@ -9997,8 +10092,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     ALBUM_INFO = 2
   }
@@ -10111,8 +10205,7 @@ declare namespace photoAccessHelper {
    * @enum { number } HighlightAlbumChangeAttribute
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   enum HighlightAlbumChangeAttribute {
     /**
@@ -10120,8 +10213,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     IS_VIEWED = 0,
 
@@ -10130,8 +10222,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     NOTIFICATION_TIME = 1,
 
@@ -10140,8 +10231,7 @@ declare namespace photoAccessHelper {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     IS_FAVORITE = 2
   }
@@ -10230,7 +10320,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
      * @since 21
-     * @arkts 1.1&1.2
      */
      setRelationship(relationship: string): Promise<void>;
   }
@@ -10241,8 +10330,7 @@ declare namespace photoAccessHelper {
    * @extends MediaAnalysisAlbumChangeRequest
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
-   * @since arkts {'1.1':'21','1.2':'22'}
-   * @arkts 1.1&1.2
+   * @since 21
    */
   class MediaHighlightAlbumChangeRequest extends MediaAnalysisAlbumChangeRequest {
     /**
@@ -10256,8 +10344,7 @@ declare namespace photoAccessHelper {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     constructor(album: Album);
 
@@ -10277,8 +10364,7 @@ declare namespace photoAccessHelper {
      *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts {'1.1':'21','1.2':'22'}
-     * @arkts 1.1&1.2
+     * @since 21
      */
     setHighlightAttribute(attribute: HighlightAlbumChangeAttribute, value: string): void;
   }
@@ -10332,7 +10418,6 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi 
      * @since 21
-     * @arkts 1.1&1.2
      */
      getRelationship(): Promise<string>;
   }
