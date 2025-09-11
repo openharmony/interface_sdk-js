@@ -303,6 +303,23 @@ declare namespace mechanicManager {
     function off(type: 'rotationAxesStatusChange', callback?: Callback<RotationAxesStateChangeInfo>): void;
 
     /**
+     * Searching for a specified target.
+     *
+     * @param { TargetInfo } target - Target infomation.
+     * @param { SearchParams } params - Parameters to use when searching.
+     * @returns { Promise<SearchResult> } Promise that return the Search result.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 33300001 - Service exception.
+     * @throws { BusinessError } 33300002 - Device not connected.
+     * @throws { BusinessError } 33300003 - Feature not supported.
+     * @throws { BusinessError } 33300004 - Camera not opened.
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    function searchTarget(target: TargetInfo, params: SearchParams): Promise<SearchResult>;
+
+    /**
      * Mechanical device information.
      * @typedef MechInfo
      * @syscap SystemCapability.Mechanic.Core
@@ -694,6 +711,64 @@ declare namespace mechanicManager {
     }
 
     /**
+     * Target information.
+     *
+     * @typedef TargetInfo
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    export interface TargetInfo {
+        /**
+         * Target type.
+         * @type { TargetType }
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        targetType: TargetType;
+    }
+
+    /**
+     * Parameters for target searching.
+     *
+     * @typedef SearchParams
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    export interface SearchParams {
+
+        /**
+         * Search direction.
+         * @type { SearchDirection }
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        direction: SearchDirection;
+    }
+
+    /**
+     * Search result.
+     *
+     * @typedef SearchResult
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    export interface SearchResult {
+        /**
+         * Search result. Returns the number of targets found.0 means not found.
+         * @type { number }
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        targetCount: number;
+    }
+
+    /**
      * Enumerates the user operations.
      * @enum { number }
      * @syscap SystemCapability.Mechanic.Core
@@ -875,6 +950,57 @@ declare namespace mechanicManager {
         RIGHT = 3
     }
 
+    /**
+     * Target type.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    export enum TargetType {
+        /**
+         * human Face type.
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        HUMAN_FACE = 0
+    }
+
+    /**
+     * Search direction.
+     *
+     * @enum { int }
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 21
+     */
+    export enum SearchDirection {
+        /**
+         * System Default Direction.
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        DEFAULT = 0,
+
+        /**
+         * Leftward direction. Also indicates clockwise direction.
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        LEFTWARD = 1,
+
+        /**
+         * Rightward direction. Also indicates the counterclockwise direction.
+         * @syscap SystemCapability.Mechanic.Core
+         * @systemapi
+         * @since 21
+         */
+        RIGHTWARD = 2,
+    }
 }
 
 export default mechanicManager;
