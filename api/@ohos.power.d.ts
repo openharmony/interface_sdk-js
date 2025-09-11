@@ -303,7 +303,8 @@ declare namespace power {
    *     interval is 100 ms.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
-   * @since 20
+   * @since arkts {'1.1':'20', '1.2':'22'}
+   * @arkts 1.1&1.2
    */
   function refreshActivity(reason: string): void;
 
@@ -352,7 +353,8 @@ declare namespace power {
      * Custom power save mode.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     MODE_CUSTOM_POWER_SAVE = 650
   }
