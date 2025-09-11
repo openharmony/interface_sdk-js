@@ -460,18 +460,6 @@ function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void
  *
  * @param { string } src - source path.
  * @param { string } dest - destination path.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
- * @throws { BusinessError } 13900015 - File exists
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
-
-/**
- * Copy directory.
- *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
  * @param { int } mode - mode.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -495,19 +483,6 @@ function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<
  * @since 20
  */
 function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
-
-/**
- * Copy directory.
- *
- * @param { string } src - source path.
- * @param { string } dest - destination path.
- * @param { int } mode - mode.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
- * @throws { BusinessError } 13900015 - File exists
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy directory with sync interface.
@@ -1682,18 +1657,6 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void
  *
  * @param { string } src - source file path.
  * @param { string } dest - destination file path.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
- * @throws { BusinessError } 13900015 - File exists
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
-
-/**
- * Move directory.
- *
- * @param { string } src - source file path.
- * @param { string } dest - destination file path.
  * @param { int } mode - move mode when duplicate file name exists.
  * @param { AsyncCallback<void> } callback - Return the callback function.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1718,19 +1681,6 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<
  * @since 20
  */
 function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void>): void;
-
-/**
- * Move directory.
- *
- * @param { string } src - source file path.
- * @param { string } dest - destination file path.
- * @param { int } mode - move mode when duplicate file name exists.
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
- * @throws { BusinessError } 13900015 - File exists
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory with sync interface.
@@ -4592,34 +4542,6 @@ export interface Filter {
    * @since 20
    */
   excludeMedia?: boolean;
-}
-
-/**
- * Conflict Files type
- *
- * @interface ConflictFiles
- * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20
- */
-export interface ConflictFiles {
-
-  /**
-   * The path of the source file.
-   * 
-   * @type { string }
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  srcFile: string;
-
-  /**
-   * The path of the destination file.
-   * 
-   * @type { string }
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20
-   */
-  destFile: string;
 }
 
 /**
