@@ -3944,6 +3944,18 @@ declare namespace avSession {
     select(options?: AVCastPickerOptions): Promise<void>;
 
     /**
+     * Restore default communication audio output device.
+     * For example, the audio output device will be switched to earpiece for voice call scene and
+     * to speaker for video call scene on phone.
+     *
+     * @returns { Promise<void> } void promise when executed successfully
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @atomicservice
+     * @since 21
+     */
+    restoreDefaultCommunicationDevice(): Promise<void>;
+
+    /**
      * Register picker state change callback.
      * @param { 'pickerStateChange' } type - 'pickerStateChange'
      * @param { Callback<AVCastPickerState> } callback - The callback used to handle picker state changed event.
