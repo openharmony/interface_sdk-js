@@ -490,8 +490,14 @@ declare namespace eSIM {
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
-     * @since 18 dynamic
-     * @since 20 static
+     * @since 18
+     */
+    /**
+     * The type of access.
+     * 
+     * @type { int }
+     * @syscap SystemCapability.Telephony.CoreService.Esim
+     * @since 20 dynamic&&static
      */
     accessType: int;
   }
