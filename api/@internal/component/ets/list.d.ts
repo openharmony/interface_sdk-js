@@ -443,6 +443,17 @@ declare enum StickyStyle {
    * @arkts 1.1&1.2
    */
   Footer = 2,
+  /**
+   * In the <em>ListItemGroup</em> component, the header is pinned to the top,
+   * and the footer is pinned to the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20
+   */
+  BOTH = 3,
 }
 
 /**
