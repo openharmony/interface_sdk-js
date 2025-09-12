@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -23,60 +23,54 @@ import type FaultLogExtensionContext from './@ohos.hiviewdfx.FaultLogExtensionCo
 /**
  * Class of the FaultLog extension ability.
  *
- * @syscap SystemCapability.HiviewDFX.FaultLogger
- * @StageModelOnly
+ * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+ * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
-*/
+ */
 declare class FaultLogExtensionAbility {
   /**
    * Indicates FaultLog extension ability context.
    *
    * @type { FaultLogExtensionContext }
-   * @syscap SystemCapability.HiviewDFX.FaultLogger
-   * @StageModelOnly
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   context: FaultLogExtensionContext;
 
   /**
    * Called back when a FaultLog extension is ready to report fault.
    *
-   * @syscap SystemCapability.HiviewDFX.FaultLogger
-   * @StageModelOnly
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   onFaultReportReady(): void;
 
   /**
    * Called back when a FaultLog extension is connected.
    *
-   * @syscap SystemCapability.HiviewDFX.FaultLogger
-   * @StageModelOnly
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   onConnect(): void;
 
   /**
    * Called back when a FaultLog extension is disconnected.
    *
-   * @syscap SystemCapability.HiviewDFX.FaultLogger
-   * @StageModelOnly
+   * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+   * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
-  onDisConnect(): void;
+  onDisconnect(): void;
 }
 
 /**
  * Class of the FaultLog extension ability.
  *
- * @syscap SystemCapability.HiviewDFX.FaultLogger
- * @StageModelOnly
+ * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+ * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
  */
 export default FaultLogExtensionAbility;
