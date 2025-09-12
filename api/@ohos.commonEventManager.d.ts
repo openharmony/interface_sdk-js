@@ -2766,7 +2766,20 @@ declare namespace commonEventManager {
      * @since 21
      * @arkts 1.1&1.2
      */
-    COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END'
+    COMMON_EVENT_RESTORE_END = 'usual.event.RESTORE_END',
+
+    /**
+     * This common event means that the sync folder of cloud disk has been updated.
+     * To subscribe to this common event, your application must have the
+     * ohos.permission.ACCESS_CLOUD_DISK_INFO permission.
+     * This is a protected common event that can only be sent by system.
+     * 
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    COMMON_EVENT_CLOUD_DISK_STATE_CHANGED = 'usual.event.CLOUD_DISK_STATE_CHANGED',
   }
 
   /**

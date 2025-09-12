@@ -23,6 +23,7 @@ import BackupExtensionContext from '@ohos.file.BackupExtensionContext';
 import backup from '@ohos.file.backup';
 import cloudSync from '@ohos.file.cloudSync';
 import cloudSyncManager from '@ohos.file.cloudSyncManager';
+import cloudDiskManager from '@ohos.file.cloudDiskManager';
 import Environment from '@ohos.file.environment';
 import fileAccess from '@ohos.file.fileAccess';
 import fileExtensionInfo from '@ohos.file.fileExtensionInfo';
@@ -46,7 +47,7 @@ import fileShare from '@ohos.fileshare';
 export {
   BackupExtensionAbility, BackupExtensionContext, BundleVersion, ConflictFiles, Environment, Filter, Options, ReaderIteratorResult,
   WatchEvent, WatchEventListener, Watcher, ReadOptions, ReadTextOptions, WriteOptions, ListFileOptions,
-  backup, cloudSync, cloudSyncManager, fileAccess, fileExtensionInfo,
+  backup, cloudSync, cloudSyncManager, cloudDiskManager, fileAccess, fileExtensionInfo,
   fileIo, fileShare, fileUri, hash, picker, recent, securityLabel, statfs,
   storageStatistics, trash, userFileManager, volumeManager, keyManager, DfsListeners, TaskSignal
 };
