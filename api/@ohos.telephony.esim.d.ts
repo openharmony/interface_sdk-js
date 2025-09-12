@@ -497,7 +497,7 @@ declare namespace eSIM {
      * 
      * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
-     * @since 20 dynamic&&static
+     * @since 20 dynamic&static
      */
     accessType: int;
   }
