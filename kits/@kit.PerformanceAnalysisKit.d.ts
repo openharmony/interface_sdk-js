@@ -27,10 +27,12 @@ import hiSysEvent from '@ohos.hiSysEvent';
 import hiTraceChain from '@ohos.hiTraceChain';
 import hiTraceMeter from '@ohos.hiTraceMeter';
 import logLibrary from '@ohos.logLibrary';
+import FaultLogExtensionAbility from '@ohos.hiviewdfx.FaultLogExtensionAbility';
+import FaultLogExtensionContext from '@ohos.hiviewdfx.FaultLogExtensionContext';
 
 export {
   hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-  logLibrary
+  logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext
 };
 /*** endif */
 
