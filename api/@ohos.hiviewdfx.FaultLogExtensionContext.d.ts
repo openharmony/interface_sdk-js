@@ -19,15 +19,13 @@
  */
 
 import ExtensionContext from './application/ExtensionContext';
-
 /**
  * The context of FaultLog extension.
  *
  * @extends ExtensionContext
- * @syscap SystemCapability.HiviewDFX.FaultLogger
- * @StageModelOnly
+ * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
+ * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
  */
 export default class FaultLogExtensionContext extends ExtensionContext {
 }
