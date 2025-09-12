@@ -487,12 +487,13 @@ declare namespace eSIM {
     /**
      * The type of access.
      * 
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
+     * @since 20 static
      */
-    accessType: number;
+    accessType: int;
   }
 
   /**
