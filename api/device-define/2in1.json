@@ -143,7 +143,6 @@
     "SystemCapability.Communication.NetManager.MDNS",
     "SystemCapability.Communication.NetManager.NetSharing",
     "SystemCapability.Communication.NetManager.Ethernet",
-    "SystemCapability.UserIAM.UserAuth.PinAuth",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.Multimedia.MediaLibrary.DistributedCore",
