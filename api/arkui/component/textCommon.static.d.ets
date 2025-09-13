@@ -297,8 +297,7 @@ export type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export type EditableTextOnChangeCallback = 
-                                    (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
+export type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 /**
  * Define the text selection controller.
  *

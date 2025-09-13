@@ -854,8 +854,8 @@ export declare class MutableStyledString extends StyledString {
     /**
      * constructor.
      *
-     * @param { string | ImageAttachment | CustomSpan } value
-     * - indicates the current object value of the MutableStyledString.
+     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of
+     *    the MutableStyledString.
      * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
