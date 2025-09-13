@@ -34094,6 +34094,36 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   friction(value: number | Resource): T;
 
   /**
+   * Sets the offset from the start of the content to the boundary of the scrollable display area.
+   *
+   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
+   *    the scrollable display area.
+   *    <br>Default value: <em>0</em>
+   *    <br>Unit: vp
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  contentStartOffset(offset: number | Resource): T;
+
+  /**
+   * Sets the offset from the end of the content to the boundary of the scrollable display area.
+   *
+   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
+   *    the scrollable display area.
+   *    <br>Default value: <em>0</em>
+   *    <br>Unit: vp
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  contentEndOffset(offset: number | Resource): T;
+
+  /**
    * Triggered when the scrollable component scrolls.
    *
    * @param { function } event - callback of scrollable,
