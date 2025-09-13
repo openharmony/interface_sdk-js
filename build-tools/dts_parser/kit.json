@@ -432,6 +432,7 @@
     { "filePath": "@ohos.faultLogger.d.ts", "kitName": "PerformanceAnalysisKit", "subSystem": "DFX" },
     { "filePath": "@ohos.file.backup.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.cloudSync.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
+    { "filePath": "@ohos.file.cloudDiskManager.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.cloudSyncManager.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.environment.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
     { "filePath": "@ohos.file.fileAccess.d.ts", "kitName": "CoreFileKit", "subSystem": "文件管理" },
