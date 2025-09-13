@@ -5689,7 +5689,7 @@ declare interface LargestContentfulPaint {
   largestTextPaintTime?: number;
 
   /**
-   * Bits per pixel of image, in milliseconds.
+   * Bits per pixel of maximum image.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -5709,7 +5709,7 @@ declare interface LargestContentfulPaint {
   largestImageLoadStartTime?: number;
 
   /**
-   * Number of pixels of the maximum image.
+   * Load end time of largest image, in milliseconds.
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -9999,7 +9999,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the first meaningful paint occurs on the web page.
    *
-   * @param { OnFirstMeaningfulPaintCallback } callback Callback invoked when the First Meaningful Paint occurs on the web page.
+   * @param { OnFirstMeaningfulPaintCallback } callback Callback invoked when the first meaningful paint occurs on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
