@@ -188,6 +188,7 @@
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Communication.IPC.Core"
   ]
 }
