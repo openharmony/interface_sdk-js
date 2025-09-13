@@ -32,7 +32,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declaration of the menu item on the right side.
@@ -40,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 export declare class ComposeTitleBarMenuItem {
   /**
@@ -219,7 +219,6 @@ export declare class ComposeTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declaration of the composable title bar.
@@ -227,6 +226,7 @@ export declare class ComposeTitleBarMenuItem {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 @Component
 export declare struct ComposeTitleBar {

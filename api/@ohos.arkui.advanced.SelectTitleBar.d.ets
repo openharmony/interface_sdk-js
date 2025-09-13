@@ -32,7 +32,6 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declaration of the menu item on the right side.
@@ -40,6 +39,7 @@
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 export declare class SelectTitleBarMenuItem {
   /**
@@ -209,7 +209,6 @@ export declare class SelectTitleBarMenuItem {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
- * @noninterop
  */
 /**
  * Declaration of the selectable title bar.
@@ -217,6 +216,7 @@ export declare class SelectTitleBarMenuItem {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
+ * @noninterop
  */
 @Component
 export declare struct SelectTitleBar {
