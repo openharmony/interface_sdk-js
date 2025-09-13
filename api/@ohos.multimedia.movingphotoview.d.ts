@@ -27,8 +27,7 @@ import photoAccessHelper from './@ohos.file.photoAccessHelper';
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface MovingPhotoViewOptions {
     /**
@@ -38,8 +37,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     movingPhoto: photoAccessHelper.MovingPhoto;
     /**
@@ -49,8 +47,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     controller?: MovingPhotoViewController;
     /**
@@ -60,8 +57,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     imageAIOptions?: ImageAIOptions;
 
@@ -71,8 +67,7 @@ declare interface MovingPhotoViewOptions {
      * @type { ?PixelMapFormat }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     movingPhotoFormat?: PixelMapFormat;
     /**
@@ -81,8 +76,7 @@ declare interface MovingPhotoViewOptions {
      * @type { ?DynamicRangeMode }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     dynamicRangeMode?: DynamicRangeMode;
     /**
@@ -91,8 +85,7 @@ declare interface MovingPhotoViewOptions {
      * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'19','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 19
      */
     playWithMask?: boolean;
 }
@@ -103,8 +96,7 @@ declare interface MovingPhotoViewOptions {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface MovingPhotoViewInterface {
     /**
@@ -115,8 +107,7 @@ interface MovingPhotoViewInterface {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     (options: MovingPhotoViewOptions): MovingPhotoViewAttribute;
 }
@@ -128,8 +119,7 @@ interface MovingPhotoViewInterface {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type MovingPhotoViewEventCallback = () => void;
 
@@ -140,8 +130,7 @@ declare type MovingPhotoViewEventCallback = () => void;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttribute> {
     /**
@@ -152,8 +141,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     muted(isMuted: boolean): MovingPhotoViewAttribute;
 	/**
@@ -164,8 +152,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
     /**
@@ -176,8 +163,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -188,8 +174,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onStart(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -200,8 +185,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -212,8 +196,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -224,8 +207,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onFinish(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -236,8 +218,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -249,23 +230,21 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @crossplatform
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     onPrepared(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
      * Sets automatic play period, If not set, the moving photo plays in the full video duration.
      * If set, the moving photo plays in the automatic play period.
      *
-     * @param { double } startTime video plays start time
-     * @param { double } endTime   video plays end time
+     * @param { number } startTime video plays start time
+     * @param { number } endTime   video plays end time
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
-    autoPlayPeriod(startTime: double, endTime: double): MovingPhotoViewAttribute;
+    autoPlayPeriod(startTime: number, endTime: number): MovingPhotoViewAttribute;
     /**
      * Sets whether to allow automatic play. If the value is true, the moving photo starts 
      * automatic after the resource is loaded.
@@ -275,8 +254,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
@@ -288,8 +266,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'13','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 13
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
 
@@ -302,8 +279,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
 }
@@ -313,8 +289,7 @@ declare class MovingPhotoViewAttribute extends CommonMethod<MovingPhotoViewAttri
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 export class MovingPhotoViewController {
     /**
@@ -323,8 +298,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     constructor();
     /**
@@ -333,8 +307,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     startPlayback();
     /**
@@ -343,8 +316,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12
      */
     stopPlayback();
     /**
@@ -353,8 +325,7 @@ export class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts{ '1.1':'18','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 18
      */
     refreshMovingPhoto();
     /**
@@ -366,7 +337,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     pausePlayback();
     /**
@@ -377,7 +347,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     reset();
     /**
@@ -388,7 +357,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     restart();
     /**
@@ -400,22 +368,20 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     enableTransition(enabled: boolean);
     /**
      * Set moving photo playback period
      * 
-     * @param { double } startTime - video playback start time
-     * @param { double } endTime - video playback end time
+     * @param { number } startTime - video playback start time
+     * @param { number } endTime - video playback end time
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
-    setPlaybackPeriod(startTime: double, endTime: double);
+    setPlaybackPeriod(startTime: number, endTime: number);
     /**
      * Dynamically refresh the autoplay property, which will force to play after
      * moving photo is initialized
@@ -426,7 +392,6 @@ export class MovingPhotoViewController {
      * @systemapi
      * @atomicservice
      * @since 20
-     * @arkts 1.1&1.2
      */
     enableAutoPlay(enabled: boolean);
 }
@@ -437,8 +402,7 @@ export class MovingPhotoViewController {
  * @crossplatform
  * @atomicservice
  * @uicomponent
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare const MovingPhotoView: MovingPhotoViewInterface;
 /**
@@ -447,19 +411,17 @@ declare const MovingPhotoView: MovingPhotoViewInterface;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @crossplatform
  * @atomicservice
- * @since arkts{ '1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare const MovingPhotoViewInstance: MovingPhotoViewAttribute;
 
 /**
  * Dynamic range mode of moving photo.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
- * @since arkts{ '1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export declare enum DynamicRangeMode {
     /**
@@ -467,8 +429,7 @@ export declare enum DynamicRangeMode {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     STANDARD = 2,
     /**
@@ -476,8 +437,7 @@ export declare enum DynamicRangeMode {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     CONSTRAINT = 1,
     /**
@@ -485,8 +445,7 @@ export declare enum DynamicRangeMode {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     HIGH = 0,
 }
@@ -494,11 +453,10 @@ export declare enum DynamicRangeMode {
 /**
  * Enumerates pixel map formats.
  *
- * @enum { int }
+ * @enum { number }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
- * @since arkts{ '1.1':'14','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 14
  */
 export declare enum PixelMapFormat {
     /**
@@ -507,8 +465,7 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     NV21 = 2,
 
@@ -517,8 +474,7 @@ export declare enum PixelMapFormat {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     YCBCR_P010 = 4,
 
@@ -527,8 +483,7 @@ export declare enum PixelMapFormat {
      * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     RGBA_1010102 = 3,
 
@@ -538,8 +493,7 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     RGBA_8888 = 1,
 
@@ -548,8 +502,7 @@ export declare enum PixelMapFormat {
      * and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     YCRCB_P010 = 5,
 
@@ -558,8 +511,7 @@ export declare enum PixelMapFormat {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since arkts{ '1.1':'14','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14
      */
     UNKNOWN = 0
 }
