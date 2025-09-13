@@ -1749,6 +1749,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   contentStartOffset(value: number): ListAttribute;
 
   /**
+   * Sets the offset from the start of the list content to the boundary of the list display area.
+   *
+   * @param { number | Resource } offset - Offset from the start of the list content to the boundary of
+   *    the list display area.
+   *    <br>Default value: <em>0</em>
+   *    <br>Unit: vp
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  contentStartOffset(offset: number | Resource): ListAttribute;
+
+  /**
    * Called when need to decide contentEndOffset the list will show.
    * @param { number } value - the value Of endOffset.
    * @returns { ListAttribute } the attribute of the list.
@@ -1769,6 +1784,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @arkts 1.1&1.2
    */
   contentEndOffset(value: number): ListAttribute;
+
+  /**
+   * Sets the offset from the end of the list content to the boundary of the list display area.
+   *
+   * @param { number | Resource } offset - Offset from the end of the list content to the boundary of
+   *    the list display area.
+   *    <br>Default value: <em>0</em>
+   *    <br>Unit: vp
+   * @returns { ListAttribute } the attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  contentEndOffset(offset: number | Resource): ListAttribute;
 
   /**
    * Called when the ListItem split line style is set.
