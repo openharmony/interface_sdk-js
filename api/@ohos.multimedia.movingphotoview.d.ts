@@ -57,7 +57,7 @@ declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 12
+     * @since 18
      */
     imageAIOptions?: ImageAIOptions;
 
