@@ -610,7 +610,8 @@ declare enum MixedMode {
  * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
 
@@ -1025,7 +1026,8 @@ declare enum WebCaptureMode {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
+ * @since arkts {'1.1':'11', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare enum ThreatType {
   /**
@@ -10126,6 +10128,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   onSafeBrowsingCheckResult(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
+
+  /**
+   * Triggered when the website security risk check is completed.
+   * <p><strong>API Note</strong>:<br>
+   * Unlike onSafeBrowsingCheckResult, which is only triggered when a URL has security risks, onSafeBrowsingCheckFinish
+   * is also triggered when the website security risk check is not performed or no risks are found.
+   *
+   * @param { OnSafeBrowsingCheckResultCallback } callback - Triggered when received website security risk check result.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  onSafeBrowsingCheckFinish(callback: OnSafeBrowsingCheckResultCallback): WebAttribute;
 
   /**
    * Called when the load committed.
