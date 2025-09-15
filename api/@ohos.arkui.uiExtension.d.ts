@@ -88,10 +88,12 @@ declare namespace uiExtension {
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Subscribes to the window size change event of the host application.
+     * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
-     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange', indicating the window size change event.
-     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange',
+     *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     * @param { Callback<window.Size> } callback - Callback used to return the component (EmbeddedComponent or
+     *        UIExtensionComponent) size.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -103,10 +105,12 @@ declare namespace uiExtension {
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
-     * Unsubscribes from the window size change event of the host application.
+     * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
-     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange', indicating the window size change event.
-     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @param { 'windowSizeChange' } type - Event type. The value is fixed at 'windowSizeChange',
+     *        indicating the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     * @param { Callback<window.Size> } [callback] - Unregister the callback function.
+     *        If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
