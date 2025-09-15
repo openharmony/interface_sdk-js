@@ -1544,7 +1544,6 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @since 22 static
    * @test
    */
@@ -1578,7 +1577,6 @@ declare interface UIEventObserver {
    * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
-   * @atomicservice
    * @since 22 static
    * @test
    */
