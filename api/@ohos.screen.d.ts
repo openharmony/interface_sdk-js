@@ -693,6 +693,17 @@ declare namespace screen {
     readonly id: number;
 
     /**
+     * Screen rsId
+     *
+     * @type { number }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 21
+     */
+    readonly rsId: number;
+    
+    /**
      * Group id
      *
      * @type { number }
