@@ -4289,10 +4289,12 @@ declare namespace webview {
     storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
     /**
-     * Let the Web zoom by.
+     * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * @param { number } factor - The zoom factor.
-     *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
+     *                            The value 1 indicates that the page is not zoomed.
+     *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
+     *                            Value range: (0, 100].
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4301,13 +4303,12 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom by.
+     * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * <p><strong>API Note</strong>:<br>
-     * zoomAccess must be true.
-     * </p>
-     *
-     * @param { number } factor - The zoom factor.
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
+     *                            The value 1 indicates that the page is not zoomed.
+     *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
+     *                            Value range: (0, 100].
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4321,7 +4322,7 @@ declare namespace webview {
     zoom(factor: number): void;
 
     /**
-     * Let the Web zoom in.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4330,7 +4331,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom in.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4340,8 +4341,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Let the Web zoom in.
-     * Call this interface to enlarge the current page by 25%.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4354,7 +4354,7 @@ declare namespace webview {
     zoomIn(): void;
 
     /**
-     * Let the Web zoom out.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4363,7 +4363,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom out.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4373,8 +4373,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Let the Web zoom out.
-     * Call this interface to shrink the current page by 20%.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
