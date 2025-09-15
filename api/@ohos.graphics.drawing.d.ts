@@ -22,6 +22,9 @@ import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
 import type colorSpaceManager from './@ohos.graphics.colorSpaceManager';
 import { Resource } from './global/resource';
+/*** if arkts static */
+import { ResourceColor } from '@ohos.arkui.component';
+/*** endif */
 
 /**
  * The common2D module defines some common data types in the 2D graphics field.
@@ -451,11 +454,17 @@ declare namespace drawing {
   }
 
   /**
+   * Provides the definition of the roundRect.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  /**
    * Implements a rounded rectangle.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class RoundRect {
 
@@ -469,14 +478,10 @@ declare namespace drawing {
     constructor(roundRect: RoundRect);
 
     /**
-     * A constructor used to create a RoundRect object.
-     * A rounded rectangle is created when both xRadii and yRadii are greater than 0.
-     * Otherwise, only a rectangle is created.
-     * @param { common2D.Rect } rect - Rectangle that encloses the rounded rectangle to create.
-     * @param { double } xRadii - Radius of the rounded corner on the X axis.
-     *     The value is a floating point number. A negative number is invalid.
-     * @param { double } yRadii - Radius of the rounded corner on the Y axis.
-     *     The value is a floating point number. A negative number is invalid.
+     * Creates a simple round rect with the same four corner radii.
+     * @param { common2D.Rect } rect - Indicates the Rect object.
+     * @param { double } xRadii - Indicates the corner radii on x-axis.
+     * @param { double } yRadii - Indicates the corner radii on y-axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
@@ -522,21 +527,47 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setCorner(pos: CornerPos, x: double, y: double): void;
 
     /**
      * Obtains the radii of the specified rounded corner in this rounded rectangle.
      * @param { CornerPos } pos - Position of the rounded corner.
-     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of the rounded corner on the X axis,
+     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of
+     *     the rounded corner on the X axis,
      * and the vertical coordinate indicates the radius on the Y axis.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      */
+    /**
+     * Obtains the radii of the specified rounded corner in this rounded rectangle.
+     * @param { CornerPos } pos - Position of the rounded corner.
+     * @returns { common2D.Point } Point. The horizontal coordinate indicates the radius of
+     *     the rounded corner on the X axis,
+     * and the vertical coordinate indicates the radius on the Y axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
     getCorner(pos: CornerPos): common2D.Point;
+
+    /**
+     * Obtains the radii of the specified rounded corner in this rounded rectangle.
+     * @param { CornerPos } pos - Position of the rounded corner.
+     * @returns { common2D.Point | undefined } Point. The horizontal coordinate indicates the radius of
+     *     the rounded corner on the X axis,
+     * and the vertical coordinate indicates the radius on the Y axis.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getCorner(pos: CornerPos): common2D.Point | undefined;
 
     /**
      * Translates this rounded rectangle by an offset along the X axis and Y axis.
@@ -563,7 +594,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     offset(dx: double, dy: double): void;
   }
@@ -3222,7 +3253,14 @@ declare namespace drawing {
    * Describes a series of consecutive glyphs with the same attributes in a text blob.
    * @typedef TextBlobRunBuffer
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describes a series of consecutive glyphs with the same attributes in a text blob.
+   * @typedef TextBlobRunBuffer
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   interface TextBlobRunBuffer {
     /**
@@ -3236,7 +3274,7 @@ declare namespace drawing {
      * @type { int }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     glyph: int;
     /**
@@ -3250,7 +3288,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     positionX: double;
     /**
@@ -3264,7 +3302,7 @@ declare namespace drawing {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     positionY: double;
   }
@@ -3276,11 +3314,25 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @since 11 dynamic
    */
+  /**
+   * Enumerates the text encoding types.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
+   */
   enum TextEncoding {
     /**
      * One byte is used to indicate UTF-8 or ASCII characters.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11 dynamic
+     */
+    /**
+     * One byte is used to indicate UTF-8 or ASCII characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     TEXT_ENCODING_UTF8 = 0,
     /**
@@ -3288,17 +3340,35 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11 dynamic
      */
+    /**
+     * Two bytes are used to indicate most Unicode characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     TEXT_ENCODING_UTF16 = 1,
     /**
      * Four bytes are used to indicate all Unicode characters.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11 dynamic
      */
+    /**
+     * Four bytes are used to indicate all Unicode characters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     TEXT_ENCODING_UTF32 = 2,
     /**
      * Two bytes are used to indicate the glyph index.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 11 dynamic
+     */
+    /**
+     * Two bytes are used to indicate the glyph index.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     TEXT_ENCODING_GLYPH_ID = 3,
   }
@@ -3308,30 +3378,67 @@ declare namespace drawing {
    *
    * class TextBlob
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Defines a block consisting of one or more characters with the same font.
+   *
+   * class TextBlob
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class TextBlob {
     /**
      * Converts a value of the string type into a TextBlob object.
      * @param { string } text - Content to be used for drawing the text blob.
      * @param { Font } font - Specify text size, font, text scale, etc.
-     * @param { TextEncoding } encoding - Encoding type. The default value is TEXT_ENCODING_UTF8.
-     * Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
+     * @param { TextEncoding } [encoding] - Encoding type. The default value is TEXT_ENCODING_UTF8.
+     *     Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Converts a value of the string type into a TextBlob object.
+     * @param { string } text - Content to be used for drawing the text blob.
+     * @param { Font } font - Specify text size, font, text scale, etc.
+     * @param { TextEncoding } [encoding] - Encoding type. The default value is TEXT_ENCODING_UTF8.
+     *     Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
+     * @returns { TextBlob } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *    <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob;
+
+    /**
+     * Converts a value of the string type into a TextBlob object.
+     * @param { string } text - Content to be used for drawing the text blob.
+     * @param { Font } font - Specify text size, font, text scale, etc.
+     * @param { TextEncoding } [encoding] - Encoding type. The default value is TEXT_ENCODING_UTF8.
+     * Currently, only TEXT_ENCODING_UTF8 takes effect, and other encoding types are treated as TEXT_ENCODING_UTF8.
+     * @returns { TextBlob | undefined } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob | undefined;
 
     /**
      * Creates a TextBlob object from the text.
      * The coordinates of each font in the TextBlob object are determined by
      * the coordinate information in the points array.
      * @param { string } text - Content to be used for drawing the text blob.
-     * @param { int } len - Number of fonts. The value is an integer and is obtained from countText.
+     * @param { number } len - Number of fonts. The value is an integer and is obtained from countText.
      * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
      *     The array length must be the same as the value of len.
      * @param { Font } font - Specify text size, font, text scale, etc.
@@ -3347,7 +3454,7 @@ declare namespace drawing {
      * The coordinates of each font in the TextBlob object are determined by
      * the coordinate information in the points array.
      * @param { string } text - Content to be used for drawing the text blob.
-     * @param { int } len - Number of fonts. The value is an integer and is obtained from countText.
+     * @param { number } len - Number of fonts. The value is an integer and is obtained from countText.
      * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
      *     The array length must be the same as the value of len.
      * @param { Font } font - Specify text size, font, text scale, etc.
@@ -3359,29 +3466,89 @@ declare namespace drawing {
      * @crossplatform
      * @since 20 dynamic
      */
-    static makeFromPosText(text: string, len: int, points: common2D.Point[], font: Font): TextBlob;
+    static makeFromPosText(text: string, len: number, points: common2D.Point[], font: Font): TextBlob;
+
+    /**
+     * Creates a TextBlob object from the text.
+     * The coordinates of each font in the TextBlob object are determined by
+     * the coordinate information in the points array.
+     * @param { string } text - Content to be used for drawing the text blob.
+     * @param { int } len - Number of fonts. The value is an integer and is obtained from countText.
+     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font.
+     *     The array length must be the same as the value of len.
+     * @param { Font } font - Specify text size, font, text scale, etc.
+     * @returns { TextBlob | undefined } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeFromPosText(text: string, len: int, points: common2D.Point[], font: Font): TextBlob | undefined;
 
     /**
      * Creates a Textblob object based on the RunBuffer information.
      * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
      * @param { Font } font - Font used for this run.
-     * @param { common2D.Rect } bounds - Optional run bounding box. The default value is null;
+     * @param { common2D.Rect } [bounds] - Optional run bounding box. The default value is null;
      * @returns { TextBlob } TextBlob object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Creates a Textblob object based on the RunBuffer information.
+     * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
+     * @param { Font } font - Font used for this run.
+     * @param { common2D.Rect } [bounds] - Optional run bounding box. The default value is null;
+     * @returns { TextBlob } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob;
+
+    /**
+     * Creates a Textblob object based on the RunBuffer information.
+     * @param { Array<TextBlobRunBuffer> } pos - The array of TextBlobRunBuffer.
+     * @param { Font } font - Font used for this run.
+     * @param { common2D.Rect } [bounds] - Optional run bounding box. The default value is null;
+     * @returns { TextBlob | undefined } TextBlob object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob | undefined;
 
     /**
      * Obtains the rectangular bounding box of the text blob.
      * @returns { common2D.Rect } Rect object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Obtains the rectangular bounding box of the text blob.
+     * @returns { common2D.Rect } Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     bounds(): common2D.Rect;
+
+    /**
+     * Obtains the rectangular bounding box of the text blob.
+     * @returns { common2D.Rect | undefined } Rect object.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    bounds(): common2D.Rect | undefined;
 
     /**
      * Obtains the unique, non-zero identifier of this TextBlob object.
@@ -3394,7 +3561,7 @@ declare namespace drawing {
      * @returns { long } Unique, non-zero identifier of this TextBlob object.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     uniqueID(): long;
   }
@@ -3437,20 +3604,41 @@ declare namespace drawing {
   }
 
   /**
+   * The Typeface class specifies the typeface and intrinsic style of a font.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 11
+   */
+  /**
    * Describes the style of a typeface, such as SimSun or KaiTi.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11 dynamic
-   * @since 20 static
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Typeface {
     /**
-     * Obtains the name of the typeface family, which is the name given to a collection of related typeface designs.
+     * Obtains the name of the typeface, that is, the name of the font family.
      * @returns { string } Family name.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Get the family name for this typeface.
+     * @returns { string } Family name.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     getFamilyName(): string;
+
+    /**
+     * Get the family name for this typeface.
+     * @returns { string | undefined } Family name.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getFamilyName(): string | undefined;
 
     /**
      * Generate typeface from current typeface and TypefaceArguments.
@@ -3463,29 +3651,87 @@ declare namespace drawing {
     makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface;
 
     /**
+     * Generate a typeface from a file.
+     * @param { string } filePath - file path for typeface.
+     * @returns { Typeface } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * Constructs a typeface from a file.
      * @param { string } filePath - file path for typeface.
      * @returns { Typeface } Typeface.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
+     * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic
      */
-     static makeFromFile(filePath: string): Typeface;
+    static makeFromFile(filePath: string): Typeface;
 
     /**
-     * Constructs a typeface from a file, which must be stored in the resources/rawfile directory of the application project.
-     * @param { Resource } rawfile - Resource object corresponding to the file.
-     * Currently, only resource objects referenced in rawfile format are supported.
-     * The corresponding format is rawfile('filePath'), where filePath is the relative path of the file to the resources/rawfile directory in the project.
-     * If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
-     * If the file is stored in a subdirectory, for example, in resources/rawfile/ttf, the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * Constructs a typeface from a file.
+     * @param { string } filePath - file path for typeface.
+     * @returns { Typeface | undefined } Typeface.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeFromFile(filePath: string): Typeface | undefined;
+
+    /**
+     * Constructs a typeface from a file, which must be stored in the
+     * resources/rawfile directory of the application project.
+     * @param { Resource } rawfile - Resource object corresponding to the file. Currently,
+     *     only resource objects referenced in rawfile format are supported.
+     *     The corresponding format is rawfile('filePath'),
+     *     where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     *     If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     *     If the file is stored in a subdirectory, for example, in resources/rawfile/ttf,
+     *     the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
      * @returns { Typeface } Typeface.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 18 dynamic
+     * @since 18
+     */
+    /**
+     * Constructs a typeface from a file, which must be stored in the
+     * resources/rawfile directory of the application project.
+     * @param { Resource } rawfile - Resource object corresponding to the file.
+     *     Currently, only resource objects referenced in rawfile format are supported.
+     *     The corresponding format is rawfile('filePath'),
+     *     where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     *     If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     *     If the file is stored in a subdirectory, for example, in resources/rawfile/ttf,
+     *     the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * @returns { Typeface } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     static makeFromRawFile(rawfile: Resource): Typeface;
+
+    /**
+     * Constructs a typeface from a file, which must be stored in the
+     * resources/rawfile directory of the application project.
+     * @param { Resource } rawfile - Resource object corresponding to the file.
+     *     Currently, only resource objects referenced in rawfile format are supported.
+     *     The corresponding format is rawfile('filePath'),
+     *     where filePath is the relative path of the file to the resources/rawfile directory in the project.
+     *     If the file is stored in resources/rawfile, the reference format is rawfile('HarmonyOS_Sans_Bold.ttf').
+     *     If the file is stored in a subdirectory, for example, in resources/rawfile/ttf,
+     *     the reference format is rawfile('ttf/HarmonyOS_Sans_Bold.ttf').
+     * @returns { Typeface | undefined } Typeface.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeFromRawFile(rawfile: Resource): Typeface | undefined;
 
     /**
      * Generate typeface from file and TypefaceArguments.
@@ -5026,12 +5272,20 @@ declare namespace drawing {
    * the shader effect instead of the color attribute is used for drawing. In this case,
    * the alpha value set for the pen or brush still takes effect.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
+   * @since 12
+   */
+  /**
+   * Implements the shader effect. After a shader effect is set for a pen or brush,
+   * the shader effect instead of the color attribute is used for drawing. In this case,
+   * the alpha value set for the pen or brush still takes effect.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class ShaderEffect {
     /**
      * Creates a ShaderEffect object with a single color.
-     * @param { int } color - Color in the ARGB format. The value is a 32-bit unsigned integer.
+     * @param { number } color - Color in the ARGB format. The value is a 32-bit unsigned integer.
      * @returns { ShaderEffect } Returns the shader with single color ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -5041,7 +5295,7 @@ declare namespace drawing {
      */
     /**
      * Creates a ShaderEffect object with a single color.
-     * @param { int } color - Color in the ARGB format. The value is a 32-bit unsigned integer.
+     * @param { number } color - Color in the ARGB format. The value is a 32-bit unsigned integer.
      * @returns { ShaderEffect } Returns the shader with single color ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types.
@@ -5050,7 +5304,19 @@ declare namespace drawing {
      * @crossplatform
      * @since 20 dynamic
      */
-    static createColorShader(color: int): ShaderEffect;
+    static createColorShader(color: number): ShaderEffect;
+
+    /**
+     * Creates a ShaderEffect object with a single color.
+     * @param { int } color - Color in the ARGB format. The value is a 32-bit unsigned integer.
+     * @returns { ShaderEffect | undefined } Returns the shader with single color ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createColorShader(color: int): ShaderEffect | undefined;
 
     /**
      * Creates a ShaderEffect object that generates a linear gradient between two points.
@@ -5059,11 +5325,11 @@ declare namespace drawing {
      * @param { Array<int> } colors - Array of colors to distribute between the two points.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors. The first element in the array must be 0.0,
      *     the last element must be 1.0, and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that colors are evenly distributed between the two points.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
      * @returns { ShaderEffect } Returns a linear gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5079,11 +5345,11 @@ declare namespace drawing {
      * @param { Array<int> } colors - Array of colors to distribute between the two points.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors. The first element in the array must be 0.0,
      *     the last element must be 1.0, and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that colors are evenly distributed between the two points.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
      * @returns { ShaderEffect } Returns a linear gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5094,7 +5360,30 @@ declare namespace drawing {
      * @since 20 dynamic
      */
     static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array<int>,
-      mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
+        mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
+
+    /**
+     * Creates a ShaderEffect object that generates a linear gradient between two points.
+     * @param { common2D.Point } startPt - Start point.
+     * @param { common2D.Point } endPt - End point.
+     * @param { Array<int> } colors - Array of colors to distribute between the two points.
+     *     The values in the array are 32-bit (ARGB) unsigned integers.
+     * @param { TileMode } mode - Tile mode of the shader effect.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
+     *     The array length must be the same as that of colors. The first element in the array must be 0.0,
+     *     the last element must be 1.0, and the middle elements must be between 0.0 and 1.0 and increase by index.
+     *     The default value is null, indicating that colors are evenly distributed between the two points.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
+     *     The default value is null, indicating the identity matrix.
+     * @returns { ShaderEffect | undefined } Returns a linear gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array<int>,
+        mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect | undefined;
 
     /**
      * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
@@ -5106,13 +5395,13 @@ declare namespace drawing {
      *     and ending shape of the circle.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors. The first element in the array must be 0.0,
      *     the last element must be 1.0,
      *     and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that colors are evenly distributed between
      *     the center and ending shape of the circle.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
      * @returns { ShaderEffect } Returns a radial gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5131,13 +5420,13 @@ declare namespace drawing {
      *     and ending shape of the circle.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors. The first element in the array must be 0.0,
      *     the last element must be 1.0,
      *     and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that colors are evenly distributed between
      *     the center and ending shape of the circle.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
      * @returns { ShaderEffect } Returns a radial gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5151,30 +5440,58 @@ declare namespace drawing {
       mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
+     * Creates a ShaderEffect object that generates a radial gradient based on the center and radius of a circle.
+     * A radial gradient refers to the color transition that spreads out gradually from the center of a circle.
+     * @param { common2D.Point } centerPt - Center of the circle.
+     * @param { double } radius - Radius of the gradient. A negative number is invalid.
+     *     The value is a floating point number.
+     * @param { Array<int> } colors - Array of colors to distribute between the center
+     *     and ending shape of the circle.
+     *     The values in the array are 32-bit (ARGB) unsigned integers.
+     * @param { TileMode } mode - Tile mode of the shader effect.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
+     *     The array length must be the same as that of colors. The first element in the array must be 0.0,
+     *     the last element must be 1.0,
+     *     and the middle elements must be between 0.0 and 1.0 and increase by index.
+     *     The default value is null, indicating that colors are evenly distributed between
+     *     the center and ending shape of the circle.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
+     *     The default value is null, indicating the identity matrix.
+     * @returns { ShaderEffect | undefined } Returns a radial gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createRadialGradient(centerPt: common2D.Point, radius: double, colors: Array<int>,
+      mode: TileMode, pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect | undefined;
+
+    /**
      * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
      * either in a clockwise or counterclockwise direction.
      * @param { common2D.Point } centerPt - Center of the circle.
-     * @param { Array<int> } colors - Array of colors to distribute between the start angle and end angle.
+     * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { double } startAngle - Start angle of the sweep gradient, in degrees.
+     * @param { number } startAngle - Start angle of the sweep gradient, in degrees.
      *     The value 0 indicates the positive direction of the X axis.
      *     A positive number indicates an offset towards the positive direction,
      *     and a negative number indicates an offset towards the negative direction.
      *     The value is a floating point number.
-     * @param { double } endAngle - End angle of the sweep gradient, in degrees.
+     * @param { number } endAngle - End angle of the sweep gradient, in degrees.
      *     The value 0 indicates the positive direction of the X axis.
      *     A positive number indicates an offset towards the positive direction,
      *     and a negative number indicates an offset towards the negative direction.
      *     A value less than the start angle is invalid.
      *     The value is a floating point number.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<number> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors.
      *     The first element in the array must be 0.0, the last element must be 1.0,
      *     and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that the colors are evenly distributed between
      *     the start angle and end angle.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
      * @returns { ShaderEffect } Returns a sweep gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -5183,6 +5500,44 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
+    /**
+     * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
+     * either in a clockwise or counterclockwise direction.
+     * @param { common2D.Point } centerPt - Center of the circle.
+     * @param { Array<number> } colors - Array of colors to distribute between the start angle and end angle.
+     *     The values in the array are 32-bit (ARGB) unsigned integers.
+     * @param { TileMode } mode - Tile mode of the shader effect.
+     * @param { number } startAngle - Start angle of the sweep gradient, in degrees.
+     *     The value 0 indicates the positive direction of the X axis.
+     *     A positive number indicates an offset towards the positive direction,
+     *     and a negative number indicates an offset towards the negative direction.
+     *     The value is a floating point number.
+     * @param { number } endAngle - End angle of the sweep gradient, in degrees.
+     *     The value 0 indicates the positive direction of the X axis.
+     *     A positive number indicates an offset towards the positive direction,
+     *     and a negative number indicates an offset towards the negative direction.
+     *     A value less than the start angle is invalid.
+     *     The value is a floating point number.
+     * @param { Array<number> | null } [pos] - Relative position of each color in the color array.
+     *     The array length must be the same as that of colors.
+     *     The first element in the array must be 0.0, the last element must be 1.0,
+     *     and the middle elements must be between 0.0 and 1.0 and increase by index.
+     *     The default value is null, indicating that the colors are evenly distributed between
+     *     the start angle and end angle.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
+     *     The default value is null, indicating the identity matrix.
+     * @returns { ShaderEffect } Returns a sweep gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
+     */
+    static createSweepGradient(centerPt: common2D.Point, colors: Array<number>,
+        mode: TileMode, startAngle: number, endAngle: number, pos?: Array<number> | null,
+        matrix?: Matrix | null): ShaderEffect;
+    
     /**
      * Creates a ShaderEffect object that generates a color sweep gradient around a given center point,
      * either in a clockwise or counterclockwise direction.
@@ -5201,15 +5556,69 @@ declare namespace drawing {
      *     and a negative number indicates an offset towards the negative direction.
      *     A value less than the start angle is invalid.
      *     The value is a floating point number.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors.
      *     The first element in the array must be 0.0, the last element must be 1.0,
      *     and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that the colors are evenly distributed between
      *     the start angle and end angle.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
-     * @returns { ShaderEffect } Returns a sweep gradient ShaderEffect object.
+     * @returns { ShaderEffect | undefined } Returns a sweep gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static createSweepGradient(centerPt: common2D.Point, colors: Array<int>,
+        mode: TileMode, startAngle: double, endAngle: double, pos?: Array<double> | null,
+        matrix?: Matrix | null): ShaderEffect | undefined;
+
+    /**
+     * Creates a ShaderEffect object that generates a conical gradient between two given circles.
+     * @param { common2D.Point } startPt - Center of the start circle of the gradient.
+     * @param { number } startRadius - Radius of the start circle of the gradient. A negative number is invalid.
+     *     The value is a floating point number.
+     * @param { common2D.Point } endPt - Center of the end circle of the gradient.
+     * @param { number } endRadius - Radius of the end circle of the gradient. A negative value is invalid.
+     *     The value is a floating point number.
+     * @param { Array<number> } colors - Array of colors to distribute between the start circle and end circle.
+     *     The values in the array are 32-bit (ARGB) unsigned integers.
+     * @param { TileMode } mode - Tile mode of the shader effect.
+     * @param { Array<number> | null } [pos] - Relative position of each color in the color array.
+     *     The array length must be the same as that of colors.
+     *     The first element in the array must be 0.0, the last element must be 1.0,
+     *     and the middle elements must be between 0.0 and 1.0 and increase by index.
+     *     The default value is null, indicating that colors are evenly distributed between the two circles.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
+     *     The default value is null, indicating the identity matrix.
+     * @returns { ShaderEffect } Returns a conical gradient ShaderEffect object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
+     * Creates a ShaderEffect object that generates a conical gradient between two given circles.
+     * @param { common2D.Point } startPt - Center of the start circle of the gradient.
+     * @param { number } startRadius - Radius of the start circle of the gradient. A negative number is invalid.
+     *     The value is a floating point number.
+     * @param { common2D.Point } endPt - Center of the end circle of the gradient.
+     * @param { number } endRadius - Radius of the end circle of the gradient. A negative value is invalid.
+     *     The value is a floating point number.
+     * @param { Array<number> } colors - Array of colors to distribute between the start circle and end circle.
+     *     The values in the array are 32-bit (ARGB) unsigned integers.
+     * @param { TileMode } mode - Tile mode of the shader effect.
+     * @param { Array<number> | null } [pos] - Relative position of each color in the color array.
+     *     The array length must be the same as that of colors.
+     *     The first element in the array must be 0.0, the last element must be 1.0,
+     *     and the middle elements must be between 0.0 and 1.0 and increase by index.
+     *     The default value is null, indicating that colors are evenly distributed between the two circles.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
+     *     The default value is null, indicating the identity matrix.
+     * @returns { ShaderEffect } Returns a conical gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
@@ -5217,9 +5626,9 @@ declare namespace drawing {
      * @crossplatform
      * @since 20 dynamic
      */
-    static createSweepGradient(centerPt: common2D.Point, colors: Array<int>,
-      mode: TileMode, startAngle: double, endAngle: double, pos?: Array<double> | null,
-      matrix?: Matrix | null): ShaderEffect;
+    static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point,
+        endRadius: number, colors: Array<number>, mode: TileMode,
+        pos?: Array<number> | null, matrix?: Matrix | null): ShaderEffect;
 
     /**
      * Creates a ShaderEffect object that generates a conical gradient between two given circles.
@@ -5232,49 +5641,23 @@ declare namespace drawing {
      * @param { Array<int> } colors - Array of colors to distribute between the start circle and end circle.
      *     The values in the array are 32-bit (ARGB) unsigned integers.
      * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
+     * @param { Array<double> | null } [pos] - Relative position of each color in the color array.
      *     The array length must be the same as that of colors.
      *     The first element in the array must be 0.0, the last element must be 1.0,
      *     and the middle elements must be between 0.0 and 1.0 and increase by index.
      *     The default value is null, indicating that colors are evenly distributed between the two circles.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
+     * @param { Matrix | null } [matrix] - Matrix object used to perform matrix transformation on the shader effect.
      *     The default value is null, indicating the identity matrix.
-     * @returns { ShaderEffect } Returns a conical gradient ShaderEffect object.
+     * @returns { ShaderEffect | undefined } Returns a conical gradient ShaderEffect object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12
-     */
-    /**
-     * Creates a ShaderEffect object that generates a conical gradient between two given circles.
-     * @param { common2D.Point } startPt - Center of the start circle of the gradient.
-     * @param { double } startRadius - Radius of the start circle of the gradient. A negative number is invalid.
-     *     The value is a floating point number.
-     * @param { common2D.Point } endPt - Center of the end circle of the gradient.
-     * @param { double } endRadius - Radius of the end circle of the gradient. A negative value is invalid.
-     *     The value is a floating point number.
-     * @param { Array<int> } colors - Array of colors to distribute between the start circle and end circle.
-     *     The values in the array are 32-bit (ARGB) unsigned integers.
-     * @param { TileMode } mode - Tile mode of the shader effect.
-     * @param { Array<double> | null } pos - Relative position of each color in the color array.
-     *     The array length must be the same as that of colors.
-     *     The first element in the array must be 0.0, the last element must be 1.0,
-     *     and the middle elements must be between 0.0 and 1.0 and increase by index.
-     *     The default value is null, indicating that colors are evenly distributed between the two circles.
-     * @param { Matrix | null } matrix - Matrix object used to perform matrix transformation on the shader effect.
-     *     The default value is null, indicating the identity matrix.
-     * @returns { ShaderEffect } Returns a conical gradient ShaderEffect object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @static
-     * @syscap SystemCapability.Graphics.Drawing
-     * @crossplatform
-     * @since 20 dynamic
+     * @since 20 static
      */
     static createConicalGradient(startPt: common2D.Point, startRadius: double, endPt: common2D.Point,
-      endRadius: double, colors: Array<int>, mode: TileMode,
-      pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect;
+        endRadius: double, colors: Array<int>, mode: TileMode,
+        pos?: Array<double> | null, matrix?: Matrix | null): ShaderEffect | undefined;
 
     /**
      * Creates an ShaderEffect object that generates a shader with single image.
@@ -5379,16 +5762,22 @@ declare namespace drawing {
   /**
    * Implements a shadow layer.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
+   * @since 12
+   */
+  /**
+   * Implements a shadow layer.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class ShadowLayer {
     /**
      * Creates a ShadowLayer object.
      *
-     * @param { double } blurRadius - Radius of the shadow layer.
+     * @param { number } blurRadius - Radius of the shadow layer.
      *     The value must be a floating point number greater than 0.
-     * @param { double } x - Offset on the X axis. The value is a floating point number.
-     * @param { double } y - Offset on the Y axis. The value is a floating point number.
+     * @param { number } x - Offset on the X axis. The value is a floating point number.
+     * @param { number } y - Offset on the Y axis. The value is a floating point number.
      * @param { common2D.Color } color - Color in ARGB format.
      *     The value of each color channel is an integer ranging from 0 to 255.
      * @returns { ShadowLayer } ShadowLayer object.
@@ -5401,10 +5790,10 @@ declare namespace drawing {
     /**
      * Creates a ShadowLayer object.
      *
-     * @param { double } blurRadius - Radius of the shadow layer.
+     * @param { number } blurRadius - Radius of the shadow layer.
      *     The value must be a floating point number greater than 0.
-     * @param { double } x - Offset on the X axis. The value is a floating point number.
-     * @param { double } y - Offset on the Y axis. The value is a floating point number.
+     * @param { number } x - Offset on the X axis. The value is a floating point number.
+     * @param { number } y - Offset on the Y axis. The value is a floating point number.
      * @param { common2D.Color } color - Color in ARGB format.
      *     The value of each color channel is an integer ranging from 0 to 255.
      * @returns { ShadowLayer } ShadowLayer object.
@@ -5415,8 +5804,8 @@ declare namespace drawing {
      * @crossplatform
      * @since 20 dynamic
      */
-    static create(blurRadius: double, x: double, y: double, color: common2D.Color): ShadowLayer;
-    
+    static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer;
+
     /**
      * Creates a ShadowLayer object.
      *
@@ -5424,7 +5813,25 @@ declare namespace drawing {
      *     The value must be a floating point number greater than 0.
      * @param { double } x - Offset on the X axis. The value is a floating point number.
      * @param { double } y - Offset on the Y axis. The value is a floating point number.
-     * @param { common2D.Color | int } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
+     * @param { common2D.Color } color - Color in ARGB format.
+     *     The value of each color channel is an integer ranging from 0 to 255.
+     * @returns { ShadowLayer | undefined } ShadowLayer object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static create(blurRadius: double, x: double, y: double, color: common2D.Color): ShadowLayer | undefined;
+
+    /**
+     * Creates a ShadowLayer object.
+     *
+     * @param { number } blurRadius - Radius of the shadow layer.
+     *     The value must be a floating point number greater than 0.
+     * @param { number } x - Offset on the X axis. The value is a floating point number.
+     * @param { number } y - Offset on the Y axis. The value is a floating point number.
+     * @param { common2D.Color | number } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
      * @returns { ShadowLayer } ShadowLayer object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5435,11 +5842,11 @@ declare namespace drawing {
     /**
      * Creates a ShadowLayer object.
      *
-     * @param { double } blurRadius - Radius of the shadow layer.
+     * @param { number } blurRadius - Radius of the shadow layer.
      *     The value must be a floating point number greater than 0.
-     * @param { double } x - Offset on the X axis. The value is a floating point number.
-     * @param { double } y - Offset on the Y axis. The value is a floating point number.
-     * @param { common2D.Color | int } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
+     * @param { number } x - Offset on the X axis. The value is a floating point number.
+     * @param { number } y - Offset on the Y axis. The value is a floating point number.
+     * @param { common2D.Color | number } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
      * @returns { ShadowLayer } ShadowLayer object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5448,7 +5855,24 @@ declare namespace drawing {
      * @crossplatform
      * @since 20 dynamic
      */
-    static create(blurRadius: double, x: double, y: double, color: common2D.Color | int): ShadowLayer;
+    static create(blurRadius: number, x: number, y: number, color: common2D.Color | number): ShadowLayer;
+
+    /**
+     * Creates a ShadowLayer object.
+     *
+     * @param { double } blurRadius - Radius of the shadow layer.
+     *     The value must be a floating point number greater than 0.
+     * @param { double } x - Offset on the X axis. The value is a floating point number.
+     * @param { double } y - Offset on the Y axis. The value is a floating point number.
+     * @param { common2D.Color | int } color - Color, represented by an unsigned integer in hexadecimal ARGB format.
+     * @returns { ShadowLayer | undefined } ShadowLayer object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static create(blurRadius: double, x: double, y: double, color: common2D.Color | int): ShadowLayer | undefined;
   }
 
   /**
@@ -6030,28 +6454,46 @@ declare namespace drawing {
   }
 
   /**
+   * Provides settings for strokes during drawing.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 11
+   */
+  /**
    * Defines a pen, which is used to describe the style and color to outline a shape.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11 dynamic
-   * @since 20 static
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Pen {
     /**
+     * Constructor for the pen.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * A constructor used to create a Pen object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     constructor();
 
     /**
+     * Constructor for the pen from an existing pen object pen.
+     * @param { Pen } pen - Indicates the Pen object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * Copies a Pen object to create a new one.
      * @param { Pen } pen - Pen object to copy.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     constructor(pen: Pen);
 
@@ -6078,7 +6520,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setMiterLimit(miter: double): void;
 
@@ -6093,19 +6535,30 @@ declare namespace drawing {
      * @returns { double } Returns the miter limit.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getMiterLimit(): double;
 
     /**
      * Sets the shader effect for this pen.
-     * @param { ShaderEffect } shaderEffect -  ShaderEffect object. If null is passed in, the shader effect will be cleared.
+     * @param { ShaderEffect } shaderEffect -  ShaderEffect object.
+     *     If null is passed in, the shader effect will be cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setShaderEffect(shaderEffect: ShaderEffect): void;
+    /**
+     * Sets the shader effect for this pen.
+     * @param { ShaderEffect | null } shaderEffect -  ShaderEffect object.
+     *     If null is passed in, the shader effect will be cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setShaderEffect(shaderEffect: ShaderEffect | null): void;
 
     /**
      * Sets a color for this pen.
@@ -6124,7 +6577,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(color: common2D.Color): void;
 
@@ -6165,7 +6618,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(alpha: int, red: int, green: int, blue: int): void;
 
@@ -6180,7 +6633,7 @@ declare namespace drawing {
      * @param { int } color - Color in hexadecimal ARGB format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(color: int): void;
 
@@ -6200,9 +6653,24 @@ declare namespace drawing {
      * Obtains the color of this pen.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the color of this pen.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of this pen.
+     * @returns { common2D.Color | undefined } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getColor(): common2D.Color | undefined;
 
     /**
      * Obtains the color of a pen. The color is used by the pen to outline a shape.
@@ -6224,7 +6692,7 @@ declare namespace drawing {
      * @returns { int } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getHexColor(): int;
 
@@ -6249,7 +6717,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setStrokeWidth(width: double): void;
 
@@ -6264,51 +6732,71 @@ declare namespace drawing {
      * @returns { double } Stroke width for the pen, in px.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getWidth(): double;
 
     /**
-    * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
-    * If this API is not called, anti-aliasing is disabled by default.
-    *
-    * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    * <br>2. Incorrect parameter types.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 11 dynamic
-    */
+     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
+     * If this API is not called, anti-aliasing is disabled by default.
+     *
+     * @param { boolean } aa - Whether to enable anti-aliasing.
+     *     The value true means to enable anti-aliasing, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    /**
+     * Enables anti-aliasing for this pen. Anti-aliasing makes the edges of the content smoother.
+     * If this API is not called, anti-aliasing is disabled by default.
+     *
+     * @param { boolean } aa - Whether to enable anti-aliasing.
+     *     The value true means to enable anti-aliasing, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     setAntiAlias(aa: boolean): void;
 
     /**
      * Checks whether anti-aliasing is enabled for this pen.
      * @returns { boolean } Returns true if the anti-aliasing is enabled; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Checks whether anti-aliasing is enabled for this pen.
+     * @returns { boolean } Returns true if the anti-aliasing is enabled; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     isAntiAlias(): boolean;
 
     /**
-    * Sets an alpha value for this pen.
-    *
-    * @param { int } alpha - Alpha value. The value is an integer in the range [0, 255].
-    *     If a floating point number is passed in, the value is rounded down.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 11
-    */
-   /**
-    * Sets an alpha value for this pen.
-    *
-    * @param { int } alpha - Alpha value. The value is an integer in the range [0, 255].
-    *     If a floating point number is passed in, the value is rounded down.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @crossplatform
-    * @since 20 dynamic
-    */
+     * Sets an alpha value for this pen.
+     *
+     * @param { int } alpha - Alpha value. The value is an integer in the range [0, 255].
+     *     If a floating point number is passed in, the value is rounded down.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    /**
+     * Sets an alpha value for this pen.
+     *
+     * @param { int } alpha - Alpha value. The value is an integer in the range [0, 255].
+     *     If a floating point number is passed in, the value is rounded down.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     setAlpha(alpha: int): void;
 
     /**
@@ -6322,34 +6810,71 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getAlpha(): int;
 
     /**
-    * Sets a color filter for this pen.
-    *
-    * @param { ColorFilter } filter - Color filter. If null is passed in, the color filter is cleared.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    * <br>2. Incorrect parameter types.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 11 dynamic
-    */
-    setColorFilter(filter: ColorFilter): void;
+     * Sets a color filter for this pen.
+     *
+     * @param { ColorFilter } filter - Color filter. If null is passed in, the color filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    /**
+     * Sets a color filter for this pen.
+     *
+     * @param { ColorFilter | null } filter - Color filter. If null is passed in, the color filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setColorFilter(filter: ColorFilter | null): void;
+  
     /**
      * Obtains the color filter of this pen.
      * @returns { ColorFilter } ColorFilter.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the color filter of this pen.
+     * @returns { ColorFilter } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     getColorFilter(): ColorFilter;
+
+    /**
+     * Obtains the color filter of this pen.
+     * @returns { ColorFilter | undefined } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getColorFilter(): ColorFilter | undefined;
     /**
      * Sets an image filter for this pen.
-     * @param { ImageFilter | null } filter - Image filter. If null is passed in, the image filter effect of the pen will be cleared.
+     * @param { ImageFilter | null } filter - Image filter.
+     *     If null is passed in, the image filter effect of the pen will be cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Sets an image filter for this pen.
+     * @param { ImageFilter | null } filter - Image filter.
+     *     If null is passed in, the image filter effect of the pen will be cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setImageFilter(filter: ImageFilter | null): void;
     /**
@@ -6357,55 +6882,106 @@ declare namespace drawing {
      *
      * @param { MaskFilter } filter - Mask filter. If null is passed in, the mask filter is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setMaskFilter(filter: MaskFilter): void;
+    /**
+     * Adds a mask filter for this pen.
+     *
+     * @param { MaskFilter | null } filter - Mask filter. If null is passed in, the mask filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setMaskFilter(filter: MaskFilter | null): void;
 
     /**
      * Sets the path effect for this pen.
      *
      * @param { PathEffect } effect - Path effect. If null is passed in, the path filter is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setPathEffect(effect: PathEffect): void;
+    /**
+     * Sets the path effect for this pen.
+     *
+     * @param { PathEffect | null } effect - Path effect. If null is passed in, the path filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setPathEffect(effect: PathEffect | null): void;
 
     /**
      * Sets a shadow layer for this pen. The shadow layer effect takes effect only when text is drawn.
      *
      * @param { ShadowLayer } shadowLayer - Shadow layer. If null is passed in, the shadow layer is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setShadowLayer(shadowLayer: ShadowLayer): void;
+    /**
+     * Sets a shadow layer for this pen. The shadow layer effect takes effect only when text is drawn.
+     *
+     * @param { ShadowLayer | null } shadowLayer - Shadow layer. If null is passed in, the shadow layer is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setShadowLayer(shadowLayer: ShadowLayer | null): void;
 
     /**
-    * Sets a blend mode for this pen.
-    *
-    * @param { BlendMode } mode - Blend mode.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 11 dynamic
-    * @since 20 static
-    */
+     * Sets a blender that implements the specified blendmode enum.
+     *
+     * @param { BlendMode } mode - Blendmode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    /**
+     * Sets a blend mode for this pen.
+     *
+     * @param { BlendMode } mode - Blend mode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     setBlendMode(mode: BlendMode): void;
 
     /**
-    * Enables dithering for this pen. Dithering make the drawn color more realistic.
-    *
-    * @param { boolean } dither - Whether to enable dithering. The value true means to enable dithering, and false means the opposite.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-    * <br>2. Incorrect parameter types.
-    * @syscap SystemCapability.Graphics.Drawing
-    * @since 11 dynamic
-    */
+     * Enables dithering for this pen. Dithering make the drawn color more realistic.
+     *
+     * @param { boolean } dither - Whether to enable dithering.
+     *     The value true means to enable dithering, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 11
+     */
+    /**
+     * Enables dithering for this pen. Dithering make the drawn color more realistic.
+     *
+     * @param { boolean } dither - Whether to enable dithering.
+     *     The value true means to enable dithering, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
     setDither(dither: boolean): void;
 
     /**
@@ -6413,9 +6989,19 @@ declare namespace drawing {
      *
      * @param { JoinStyle } style - Join style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Sets the join style for this pen. If this API is not called, the default join style is MITER_JOIN.
+     *
+     * @param { JoinStyle } style - Join style.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setJoinStyle(style: JoinStyle): void;
 
@@ -6424,7 +7010,15 @@ declare namespace drawing {
      *
      * @returns { JoinStyle } The JoinStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the join style of this pen.
+     *
+     * @returns { JoinStyle } The JoinStyle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     getJoinStyle(): JoinStyle;
 
@@ -6433,9 +7027,19 @@ declare namespace drawing {
      *
      * @param { CapStyle } style - Cap style.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Sets the cap style for this pen. If this API is not called, the default cap style is FLAT_CAP.
+     *
+     * @param { CapStyle } style - Cap style.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setCapStyle(style: CapStyle): void;
 
@@ -6444,15 +7048,28 @@ declare namespace drawing {
      *
      * @returns { CapStyle } The CapStyle.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the cap style of this pen.
+     *
+     * @returns { CapStyle } The CapStyle.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     getCapStyle(): CapStyle;
 
     /**
+     * Resets all pen contents to their initial values.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * Resets this pen to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     reset(): void;
     /**
@@ -6460,38 +7077,70 @@ declare namespace drawing {
      *
      * @param { Path } src - Source path.
      * @param { Path } dst - Destination path.
-     * @returns { boolean } true if the path should be filled, or false if it should be drawn with a hairline (width == 0)
+     * @returns { boolean } true if the path should be filled,
+     *     or false if it should be drawn with a hairline (width == 0)
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the source path outline drawn using this pen and represents it using a destination path.
+     *
+     * @param { Path } src - Source path.
+     * @param { Path } dst - Destination path.
+     * @returns { boolean } true if the path should be filled,
+     *     or false if it should be drawn with a hairline (width == 0)
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     getFillPath(src: Path, dst: Path): boolean;
   }
 
   /**
+   * Provides settings for brush fill when drawing.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 11
+   */
+  /**
    * Defines a brush, which is used to describe the style and color to fill in a shape.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 11 dynamic
-   * @since 20 static
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Brush {
     /**
+     * Constructor for the Brush.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * A constructor used to create a Brush object.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     constructor();
 
     /**
+     * Constructor for the Brush from an existing brush object brush.
+     * @param { Brush } brush - Indicates the Brush object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * Copies a Brush object to create a new one.
      * @param { Brush } brush - Indicates the Brush object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     constructor(brush: Brush);
 
@@ -6512,40 +7161,48 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(color: common2D.Color): void;
 
     /**
      * Sets a color for this brush. This API provides better performance than setColor and is recommended.
-     * @param { int } alpha - Alpha channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } red - Red channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } green - Green channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } blue - Blue channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
+     * @param { int } alpha - Alpha channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } red - Red channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } green - Green channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } blue - Blue channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
     /**
      * Sets a color for this brush. This API provides better performance than setColor and is recommended.
-     * @param { int } alpha - Alpha channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } red - Red channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } green - Green channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
-     * @param { int } blue - Blue channel value of the color in ARGB format. The value is an integer ranging from 0 to 255.
-     * Any passed-in floating point number is rounded down.
+     * @param { int } alpha - Alpha channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } red - Red channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } green - Green channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
+     * @param { int } blue - Blue channel value of the color in ARGB format.
+     *     The value is an integer ranging from 0 to 255.
+     *     Any passed-in floating point number is rounded down.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(alpha: int, red: int, green: int, blue: int): void;
 
@@ -6553,7 +7210,7 @@ declare namespace drawing {
      * Sets a color for this brush.
      * @param { int } color - Color in hexadecimal ARGB format.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18
      */
@@ -6561,10 +7218,10 @@ declare namespace drawing {
      * Sets a color for this brush.
      * @param { int } color - Color in hexadecimal ARGB format.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setColor(color: int): void;
 
@@ -6584,9 +7241,24 @@ declare namespace drawing {
      * Obtains the color of this brush.
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the color of this brush.
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     getColor(): common2D.Color;
+
+    /**
+     * Obtains the color of this brush.
+     * @returns { common2D.Color | undefined } Returns a 32-bit (ARGB) variable that describes the color.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getColor(): common2D.Color | undefined;
 
     /**
      * Obtains the color of a brush. The color is used by the brush to outline a shape.
@@ -6608,18 +7280,30 @@ declare namespace drawing {
      * @returns { int } Returns a 32-bit (ARGB) variable that describes the color of hexadecimal format.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getHexColor(): int;
 
     /**
      * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
      * If this API is not called, anti-aliasing is disabled by default.
-     * @param { boolean } aa - Whether to enable anti-aliasing. The value true means to enable anti-aliasing, and false means the opposite.
+     * @param { boolean } aa - Whether to enable anti-aliasing.
+     *     The value true means to enable anti-aliasing, and false means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Enables anti-aliasing for this brush. Anti-aliasing makes the edges of the content smoother.
+     * If this API is not called, anti-aliasing is disabled by default.
+     * @param { boolean } aa - Whether to enable anti-aliasing.
+     *     The value true means to enable anti-aliasing, and false means the opposite.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setAntiAlias(aa: boolean): void;
 
@@ -6627,7 +7311,14 @@ declare namespace drawing {
      * Checks whether anti-aliasing is enabled for this brush.
      * @returns { boolean } Returns true if anti-aliasing is enabled; returns false otherwise.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Checks whether anti-aliasing is enabled for this brush.
+     * @returns { boolean } Returns true if anti-aliasing is enabled; returns false otherwise.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     isAntiAlias(): boolean;
 
@@ -6648,7 +7339,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setAlpha(alpha: int): void;
 
@@ -6663,7 +7354,7 @@ declare namespace drawing {
      * @returns { int } Returns a 8-bit variable that describes the alpha.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getAlpha(): int;
 
@@ -6671,75 +7362,154 @@ declare namespace drawing {
      * Sets a color filter for this brush.
      * @param { ColorFilter } filter - Color filter. If null is passed in, the color filter is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
+     * @since 11
      */
-    setColorFilter(filter: ColorFilter): void;
+    /**
+     * Sets a color filter for this brush.
+     * @param { ColorFilter | null } filter - Color filter. If null is passed in, the color filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setColorFilter(filter: ColorFilter | null): void;
 
     /**
      * Obtains the color filter of this brush.
      * @returns { ColorFilter } ColorFilter.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Obtains the color filter of this brush.
+     * @returns { ColorFilter } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     getColorFilter(): ColorFilter;
+
+    /**
+     * Obtains the color filter of this brush.
+     * @returns { ColorFilter | undefined } ColorFilter.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    getColorFilter(): ColorFilter | undefined;
+
     /**
      * Sets an image filter for this brush.
-     * @param { ImageFilter | null } filter - Image filter. If null is passed in, the image filter effect of the brush will be cleared.
+     * @param { ImageFilter | null } filter - Image filter.
+     *     If null is passed in, the image filter effect of the brush will be cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Sets an image filter for this brush.
+     * @param { ImageFilter | null } filter - Image filter.
+     *     If null is passed in, the image filter effect of the brush will be cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setImageFilter(filter: ImageFilter | null): void;
     /**
      * Adds a mask filter for this brush.
      * @param { MaskFilter } filter - Mask filter. If null is passed in, the mask filter is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setMaskFilter(filter: MaskFilter): void;
+    /**
+     * Adds a mask filter for this brush.
+     * @param { MaskFilter | null } filter - Mask filter. If null is passed in, the mask filter is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setMaskFilter(filter: MaskFilter | null): void;
 
     /**
      * Sets a shadow layer for this brush. The shadow layer effect takes effect only when text is drawn.
      *
      * @param { ShadowLayer } shadowLayer - Shadow layer. If null is passed in, the shadow layer is cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setShadowLayer(shadowLayer: ShadowLayer): void;
+    /**
+     * Sets a shadow layer for this brush. The shadow layer effect takes effect only when text is drawn.
+     *
+     * @param { ShadowLayer | null } shadowLayer - Shadow layer. If null is passed in, the shadow layer is cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setShadowLayer(shadowLayer: ShadowLayer | null): void;
 
     /**
      * Sets the shader effect for this brush.
-     * @param { ShaderEffect } shaderEffect - ShaderEffect object. If null is passed in, the shader effect will be cleared.
+     * @param { ShaderEffect } shaderEffect - ShaderEffect object.
+     *     If null is passed in, the shader effect will be cleared.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
      */
-    setShaderEffect(shaderEffect: ShaderEffect): void;
+    /**
+     * Sets the shader effect for this brush.
+     * @param { ShaderEffect | null } shaderEffect - ShaderEffect object.
+     *     If null is passed in, the shader effect will be cleared.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
+     */
+    setShaderEffect(shaderEffect: ShaderEffect | null): void;
 
     /**
-     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * Sets a blender that implements the specified blendmode enum.
      * @param { BlendMode } mode - Blend mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 11 dynamic
-     * @since 20 static
+     * @since 11
+     */
+    /**
+     * Sets a blend mode for this brush. If this API is not called, the default blend mode is SRC_OVER.
+     * @param { BlendMode } mode - Blendmode.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setBlendMode(mode: BlendMode): void;
 
     /**
+     * Resets all brush contents to their initial values.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 12
+     */
+    /**
      * Resets this brush to the initial state.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
-     * @since 20 static
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     reset(): void;
   }
@@ -7544,17 +8314,22 @@ declare namespace drawing {
   }
 
   /**
+   * Describes a region object.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  /**
    * Describes a region, which is used to describe the region where the shape can be drawn.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
-   * @since 20 static
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Region {
     /**
      * Creates an empty region.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     constructor();
 
@@ -7563,7 +8338,7 @@ declare namespace drawing {
      * @param { Region } region - The region object to copy.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     constructor(region: Region);
 
@@ -7575,7 +8350,7 @@ declare namespace drawing {
      * @param { int } bottom - Indicates the bottom edge of the rectangle.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     constructor(left: int, top: int, right: int, bottom: int);
 
@@ -7649,7 +8424,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     isPointContained(x: int, y:int): boolean;
 
@@ -7657,11 +8432,22 @@ declare namespace drawing {
      * Checks whether another region is contained in this region.
      * @param { Region } other - Region object.
      * @returns { boolean } Returns true if other region is completely inside the region object;
-     * <br>returns false otherwise.
+     *     <br>returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Checks whether another region is contained in this region.
+     * @param { Region } other - Region object.
+     * @returns { boolean } Returns true if other region is completely inside the region object;
+     *     <br>returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     isRegionContained(other: Region): boolean;
 
@@ -7671,7 +8457,7 @@ declare namespace drawing {
      * @param { RegionOp } regionOp - Operation mode of the region.
      * @returns { boolean } Returns true if replaced region is not empty; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
      */
@@ -7733,7 +8519,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     quickReject(left: int, top: int, right: int, bottom: int): boolean;
 
@@ -7754,9 +8540,20 @@ declare namespace drawing {
      * @param { Region } clip - Region object.
      * @returns { boolean } Returns true if constructed region is not empty; returns false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 12 dynamic
+     * @since 12
+     */
+    /**
+     * Sets a region that matches the outline of a path within the cropping area.
+     * @param { Path } path - Path object.
+     * @param { Region } clip - Region object.
+     * @returns { boolean } Returns true if constructed region is not empty; returns false otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic&static
      */
     setPath(path: Path, clip: Region): boolean;
 
@@ -7791,7 +8588,7 @@ declare namespace drawing {
      *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     setRect(left: int, top: int, right: int, bottom: int): boolean;
 
@@ -8033,22 +8830,64 @@ declare namespace drawing {
    * A utility class that provides only static methods to convert data structs defined in other modules and common2D.
    *
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 15 dynamic
+   * @since 15
+   */
+  /**
+   * A utility class that provides only static methods to convert data structs defined in other modules and common2D.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   class Tool {
     /**
      * Converts a color value of the ResourceColor type to a common2D.Color object.
-     * @param { ResourceColor } resourceColor - Color value of the ResourceColor type. (All four types of inputs are supported.
-     * The following provides 13 example inputs.) The fourth type of Resource supports only the construction method $r('belonging.type.name').
-     * Ensure that the resource has been defined in the main/resources/base/element directory. (The types color, string,
-     * and integer are available for the belonging app, whereas only the type color is available for the belonging sys.)
+     * @param { ResourceColor } resourceColor - Color value of the ResourceColor type.
+     *     (All four types of inputs are supported. The following provides 13 example inputs.)
+     *     The fourth type of Resource supports only the construction method $r('belonging.type.name').
+     *     Ensure that the resource has been defined in the main/resources/base/element directory.
+     *     (The types color, string, and integer are available for the belonging app,
+     *     whereas only the type color is available for the belonging sys.)
      * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 15 dynamic
+     * @since 15
+     */
+    /**
+     * Converts a color value of the ResourceColor type to a common2D.Color object.
+     * @param { ResourceColor } resourceColor - Color value of the ResourceColor type.
+     *     (All four types of inputs are supported. The following provides 13 example inputs.)
+     *     The fourth type of Resource supports only the construction method $r('belonging.type.name').
+     *     Ensure that the resource has been defined in the main/resources/base/element directory.
+     *     (The types color, string, and integer are available for the belonging app,
+     *     whereas only the type color is available for the belonging sys.)
+     * @returns { common2D.Color } Returns a 32-bit (ARGB) variable that describes the color.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform
+     * @since 20 dynamic
      */
     static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color;
+
+    /**
+     * Converts a color value of the ResourceColor type to a common2D.Color object.
+     * @param { ResourceColor } resourceColor - Color value of the ResourceColor type.
+     *     (All four types of inputs are supported. The following provides 13 example inputs.)
+     *     The fourth type of Resource supports only the construction method $r('belonging.type.name').
+     *     Ensure that the resource has been defined in the main/resources/base/element directory.
+     *     (The types color, string, and integer are available for the belonging app,
+     *     whereas only the type color is available for the belonging sys.)
+     * @returns { common2D.Color | undefined } Returns a 32-bit (ARGB) variable that describes the color.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @since 20 static
+     */
+    static makeColorFromResourceColor(resourceColor: ResourceColor): common2D.Color | undefined;
   }
 
   /**
