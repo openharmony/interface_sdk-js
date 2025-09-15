@@ -224,6 +224,7 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
-    "SystemCapability.Test.PerfTest"
+    "SystemCapability.Test.PerfTest",
+    "SystemCapability.ArkUI.ArkUI.Lite"
   ]
 }
