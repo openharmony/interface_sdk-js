@@ -67,7 +67,8 @@ declare namespace screenshot {
    * @permission ohos.permission.CAPTURE_SCREEN
    * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
    * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
-   * return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available, only return one SDR PixelMap object.
+   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
+   *     only return one SDR PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
