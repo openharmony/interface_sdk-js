@@ -2170,7 +2170,7 @@ declare namespace photoAccessHelper {
      *    1. Database corrupted.2. The file system is abnorma1.3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 20
+     * @since 21
      */
     createTemporaryCompatibleDuplicate(): Promise<void>;
     /**
@@ -6383,7 +6383,7 @@ declare namespace photoAccessHelper {
      *    <br>Possible causes: 1. The IPC request timed out. 2.system running error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
-     * @since 20
+     * @since 21
      */
     isCompatibleDuplicateSupported(bundleName: string): Promise<boolean>;
 
