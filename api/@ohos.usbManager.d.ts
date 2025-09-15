@@ -236,7 +236,6 @@ declare namespace usbManager {
    */
   function getCurrentFunctions(): FunctionType;
 
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
@@ -448,7 +447,6 @@ declare namespace usbManager {
    */
   function getDeviceFunctions(): FunctionType;
 
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
@@ -459,7 +457,6 @@ declare namespace usbManager {
    * @systemapi
    * @since 12
    */
-  /* usb port functions begin */
   /**
    * Obtains the USBPort list.
    *
