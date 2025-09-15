@@ -611,6 +611,39 @@ declare namespace observer {
   function off(type: 'callStateChange', callback?: Callback<CallStateInfo>): void;
 
   /**
+   * Callback when the telCall state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to be subscribed to.
+   * @param { Callback<TelCallState> } callback - Indicates the callback for
+   *     getting the telCall state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function on(type: 'callStateChangeEx', callback: Callback<TelCallState>, options?: ObserverOptions): void;
+
+  /**
+   * Cancel callback when the telCall state is updated.
+   *
+   * @param { 'callStateChangeEx' } type - Event type. Indicates the callStateChangeEx event to unsubscribe from.
+   * @param { Callback<TelCallState> } [callback] - Indicates the callback to
+   *     unsubscribe from the callStateChangeEx event.
+   * @throws { BusinessError } 8800001 - Invalid parameter value.
+   * @throws { BusinessError } 8800002 - Service connection failed.
+   * @throws { BusinessError } 8800003 - System internal error.
+   * @throws { BusinessError } 8800999 - Unknown error.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  function off(type: 'callStateChangeEx', callback?: Callback<TelCallState>): void;
+
+  /**
    * Callback when the sim state corresponding to the default sim card is updated.
    *
    * @param { 'simStateChange' } type - Event type. Indicates the simStateChange event to be subscribed to.

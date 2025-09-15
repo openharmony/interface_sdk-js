@@ -4182,6 +4182,71 @@ declare namespace call {
   }
 
   /**
+   * Indicates the states of telCall.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Telephony.CallManager
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  export enum TelCallState {
+    /**
+     * Indicates an invalid state, which is used when the call state fails to be obtained.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_UNKNOWN = -1,
+
+    /**
+     * Indicates that there is no ongoing call.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_IDLE = 0,
+
+    /**
+     * Indicates that an incoming call is ringing or waiting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_RINGING = 1,
+
+    /**
+     * Indicates that a least one call is in the dialing, and there is no new
+     * incoming call ringing or waiting.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_OFFHOOK = 2,
+
+    /**
+     * Indicates that call is answered
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_ANSWERED = 3,
+
+    /**
+     * Indicates that call is connected
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @since 21
+     * @arkts 1.1&1.2
+     */
+    TEL_CALL_STATE_CONNECTED = 4
+  }
+
+  /**
    * Indicates the options of placing a call.
    *
    * @interface DialOptions
