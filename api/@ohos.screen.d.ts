@@ -693,7 +693,7 @@ declare namespace screen {
     readonly id: number;
     
     /**
-     * Screen rsId
+     * Screen port id
      *
      * @type { long }
      * @readonly
