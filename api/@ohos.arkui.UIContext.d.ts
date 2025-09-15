@@ -2534,6 +2534,59 @@ export declare class UIObserver {
   off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
   /**
+  * Registers a callback function to be called when text field's content is changed.
+  *
+  * @param { 'textChange' } type - The type of event to listen for. Must be 'textChange'.
+  * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
+  *                                                                  text field's content is changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  on(type: 'textChange', callback: Callback<observer.TextChangeEventInfo>): void;
+  /**
+  * Removes a callback function that was previously registered with `on()`.
+  *
+  * @param { 'textChange' } type - The type of event to remove the listener for. Must be 'textChange'.
+  * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+  *                                                                     all callbacks for the given event type will be removed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void;
+
+
+  /**
+  * Registers a callback function to be called when text field's content is changed.
+  *
+  * @param { 'textChange' } type - The type of event to listen for. Must be 'textChange'.
+  * @param { observer.ObserverOptions } identity - Identity options.
+  * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
+  *     text field's content is changed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void
+  /**
+  * Removes a callback function that was previously registered with `on()`.
+  *
+  * @param { 'textChange' } type - The type of event to remove the listener for. Must be 'textChange'.
+  * @param { observer.ObserverOptions } identity - Identity options.
+  * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+  *     all callbacks for the given event type will be removed.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 22 dynamic
+  */
+  off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void
+
+  /**
    * Registers a callback to monitor the gesture trigger information.
    *
    * @param { GestureListenerType } type - The type of gesture to monitor.

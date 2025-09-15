@@ -970,6 +970,49 @@ declare namespace uiObserver {
   }
 
   /**
+  * Text change event info
+  *
+  * @interface TextChangeEventInfo
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform
+  * @atomicservice
+  * @since 22
+  */
+  export interface TextChangeEventInfo {
+      /**
+      * The id of text input component.
+      *
+      * @type { string }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 22 dynamic
+      */
+      id: string;
+
+      /**
+      * The uniqueId of the text input component.
+      *
+      * @type { number }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 22 dynamic
+      */
+      uniqueId: number;
+      /**
+      * Current content of text field component .
+      *
+      * @type { string }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @crossplatform
+      * @atomicservice
+      * @since 22 dynamic
+      */
+      content: string;
+}
+
+  /**
    * Indicates the options of NavDestination switch.
    *
    * @interface NavDestinationSwitchObserverOptions
