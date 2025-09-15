@@ -23,26 +23,29 @@
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec2 {
   /**
    * X component of the vec2.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec2.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: double;
 }
 
 /**
@@ -50,35 +53,39 @@ export interface Vec2 {
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec3 {
   /**
    * X component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  z: number;
+  z: double;
 }
 
 /**
@@ -86,44 +93,49 @@ export interface Vec3 {
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Vec4 {
   /**
    * X component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  z: number;
+  z: double;
 
   /**
    * W component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  w: number;
+  w: double;
 }
 
 /**
@@ -131,44 +143,49 @@ export interface Vec4 {
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Quaternion {
   /**
    * X component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  z: number;
+  z: double;
 
   /**
    * W component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  w: number;
+  w: double;
 }
 
 /**
@@ -203,44 +220,49 @@ export interface Aabb {
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Color {
   /**
    * R component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  r: number;
+  r: double;
 
   /**
    * G component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  g: number;
+  g: double;
 
   /**
    * B component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  b: number;
+  b: double;
 
   /**
    * A component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  a: number;
+  a: double;
 }
 
 /**
@@ -248,50 +270,53 @@ export interface Color {
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Rect {
   /**
    * Left up x coordinate.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  x: number;
+  x: double;
 
   /**
    * Left up y coordinate.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  y: number;
+  y: double;
 
   /**
    * The width of the rectangle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  width: number;
+  width: double;
 
   /**
    * The height of the rectangle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  height: number;
+  height: double;
 }
 
 /**
  * Types of geometric shapes.
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18
  */
@@ -350,7 +375,7 @@ export declare abstract class GeometryDefinition {
 /**
  * How vertices in a sequence form triangles.
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 
  */
@@ -411,12 +436,12 @@ export declare class CustomGeometry extends GeometryDefinition {
    *     indices = [0, 1, 2, 3]
    *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
    * 
-   * @type { ?number[] }
+   * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  indices?: number[];
+  indices?: int[];
 
   /**
    * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
@@ -493,27 +518,28 @@ export declare class SphereGeometry extends GeometryDefinition {
   /**
    * The radius of the sphere.
    * 
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  radius: number;
+  radius: double;
 
   /**
    * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
    * 
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  segmentCount: number;
+  segmentCount: int;
 }
 /**
  * 3D position information.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Position3 = Vec3;
 
@@ -531,6 +557,7 @@ export type Rotation3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export type Scale3 = Vec3;

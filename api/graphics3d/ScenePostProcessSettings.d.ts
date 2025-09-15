@@ -21,16 +21,18 @@
 /**
  * The enum of tone mapping type.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export enum ToneMappingType {
   /**
    * The tone mapping type is ACES.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ACES = 0,
 
@@ -38,7 +40,8 @@ export enum ToneMappingType {
    * The tone mapping type is ACES_2020.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   ACES_2020 = 1,
 
@@ -46,7 +49,8 @@ export enum ToneMappingType {
    * The tone mapping type is FILMIC.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   FILMIC = 2,
 }
@@ -56,7 +60,8 @@ export enum ToneMappingType {
  *
  * @typedef ToneMappingSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface ToneMappingSettings {
   /**
@@ -64,18 +69,20 @@ export interface ToneMappingSettings {
    *
    * @type { ?ToneMappingType }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   type?: ToneMappingType;
 
   /**
    * Exposure of the tone mapping.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  exposure?: number;
+  exposure?: double;
 }
 
 /**
@@ -89,40 +96,40 @@ export interface BloomSettings {
   /**
    * Bloom threshold hard.
    * 
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  thresholdHard?: number;
+  thresholdHard?: double;
 
   /**
    * Bloom threshold soft.
    * 
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  thresholdSoft?: number;
+  thresholdSoft?: double;
 
   /**
    * Scaling factor. Controls the amount of scaling and bloom spread.
    * Reduces the downscale and upscale steps.
    * Values 0 - 1. Value of 0.5 halves the scale steps.
    * 
-   * @type { ?number}
+   * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  scaleFactor?: number;
+  scaleFactor?: double;
 
   /**
    * Scatter (amount of bloom spread). (1.0 full spread / default).
    * 
-   * @type { ?number }
+   * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  scatter?: number;
+  scatter?: double;
 }
 
 /**
@@ -130,7 +137,8 @@ export interface BloomSettings {
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since arkts {'1.1':'12','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface PostProcessSettings {
   /**
@@ -138,7 +146,8 @@ export interface PostProcessSettings {
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since arkts {'1.1':'12','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   toneMapping?: ToneMappingSettings;
 
