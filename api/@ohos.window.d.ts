@@ -7672,9 +7672,22 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
      */
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
+
+    /**
+     * Register the callback of window highlight state change
+     *
+     * @param { Callback<boolean> } callback - Callback used to return the highlight status of the window.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 static
+     */
+    onWindowHighlightChange(callback: Callback<boolean>): void;
 
     /**
      * Unregister the callback of window highlight state change
@@ -7690,10 +7703,24 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 20 static
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
   
+    /**
+     * Unregister the callback of window highlight state change
+     *
+     * @param { Callback<boolean> } [callback] - Callback used to return the highlight status of the window.
+     *     if not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 static
+     */
+    offWindowHighlightChange(callback?: Callback<boolean>): void;
+
     /**
      * Bind dialog to the target window.
      *
