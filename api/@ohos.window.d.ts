@@ -7597,10 +7597,20 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     on(type: 'windowEvent', callback: Callback<WindowEventType>): void;
+
+    /**
+     * Subscribes to the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    onWindowEvent(callback: Callback<WindowEventType>): void;
 
     /**
      * Unregister the callback of windowEvent
@@ -7624,10 +7634,21 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     off(type: 'windowEvent', callback?: Callback<WindowEventType>): void;
+
+    /**
+     * Unsubscribes from the window lifecycle change event.
+     *
+     * @param { Callback<WindowEventType> } [callback] - Unregister the callback function.
+     *		If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    offWindowEvent(callback?: Callback<WindowEventType>): void;
 
     /**
      * Register the callback of windowStatusChange
@@ -11947,10 +11968,24 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    onWindowStageEvent(callback: Callback<WindowStageEventType>): void;
+
     /**
      * Window stage event callback off.
      *
@@ -11993,10 +12028,24 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11 dynamic
      */
     off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageEventType> } [callback] - Unregister the callback function.
+     *		If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @StageModelOnly
+     * @crossplatform
+     * @atomicservice
+     * @since 22 static
+     */
+    offWindowStageEvent(callback?: Callback<WindowStageEventType>): void;
 
     /**
      * Subscribes to the window stage lifecycle change event.
@@ -12011,9 +12060,24 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Subscribes to the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageLifecycleEventType> } callback Callback used to
+     *     return the window stage lifecycle state.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 22 static
+     */
+    onWindowStageLifecycleEvent(callback: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Unsubscribes from the window stage lifecycle change event.
@@ -12030,9 +12094,24 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20
+     * @since 20 dynamic
      */
     off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void;
+
+    /**
+     * Unsubscribes from the window stage lifecycle change event.
+     *
+     * @param { Callback<WindowStageLifecycleEventType> } [callback] - Unregister the callback function.
+     *		If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300005 - This window stage is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 20 static
+     */
+    offWindowStageLifecycleEvent(callback?: Callback<WindowStageLifecycleEventType>): void;
 
     /**
      * Subscribes to the click event on the close button in the three-button navigation bar of the main window.
