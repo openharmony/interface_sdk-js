@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { ToJSONType, FromJSONType } from './persistentStorage';
@@ -29,7 +28,7 @@ import contextConstant from '@ohos.app.ability.contextConstant';
  * @typedef { function } StorageDefaultCreator<T>
  * @returns { T } default creator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare type StorageDefaultCreator<T> = () => T;
 
@@ -37,7 +36,7 @@ export declare type StorageDefaultCreator<T> = () => T;
  * Define ConnectOptions class.
  * @typedef ConnectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare interface ConnectOptions<T extends object> {
 
@@ -45,7 +44,7 @@ export declare interface ConnectOptions<T extends object> {
    * Define class constructor
    * @type { Type } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   type: Type;
 
@@ -53,7 +52,7 @@ export declare interface ConnectOptions<T extends object> {
    * Defines alias name of the key, or the function generating the default value.
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   key?: string;
 
@@ -61,7 +60,7 @@ export declare interface ConnectOptions<T extends object> {
    * Define the function generating the default value.
    * @type { ?StorageDefaultCreator<T>}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   defaultCreator?: StorageDefaultCreator<T>;
 
@@ -71,7 +70,7 @@ export declare interface ConnectOptions<T extends object> {
    *
    * @type { ?contextConstant.AreaMode}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   areaMode?: contextConstant.AreaMode;
 }
@@ -84,7 +83,7 @@ export declare interface ConnectOptions<T extends object> {
  * @param { 'quota' | 'serialization' | 'unknown' } reason reason type when error
  * @param { string } message more message when error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void;
 
@@ -94,7 +93,7 @@ export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | '
  * @extends jsonx.JsonElementSerializable, jsonx.JsonElementDeserializable
  * @interface SerializableObject
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export interface SerializableObject extends jsonx.JsonElementSerializable, jsonx.JsonElementDeserializable {}
 
@@ -103,7 +102,7 @@ export interface SerializableObject extends jsonx.JsonElementSerializable, jsonx
  * and saves database content in disk.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class PersistenceV2 {
   /**
@@ -118,7 +117,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static connect<T extends object>(
     ttype: Type,
@@ -140,7 +139,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static connect<T extends object>(
     ttype: Type,
@@ -160,7 +159,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static connect<T extends SerializableObject>(
     ttype: Type,
@@ -178,7 +177,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static connect<T extends SerializableObject>(
     ttype: Type,
@@ -195,7 +194,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static globalConnect<T extends SerializableObject>(connectOptions: ConnectOptions<T>): T | undefined;
 
@@ -210,7 +209,7 @@ export declare class PersistenceV2 {
    * @returns { T | undefined } the value of the existed key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static globalConnect<T extends object>(connectOptions: ConnectOptions<T>,
     toJson: ToJSONType<T>, fromJson: FromJSONType<T>): T | undefined;
@@ -221,7 +220,7 @@ export declare class PersistenceV2 {
    * @param { string | Type } keyOrType key or class type need to persist.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static save(keyOrType: string | Type): void;
 
@@ -231,7 +230,7 @@ export declare class PersistenceV2 {
    * @param { PersistenceErrorCallback | undefined } callback called when error
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static notifyOnError(callback: PersistenceErrorCallback | undefined): void;
 
@@ -241,7 +240,7 @@ export declare class PersistenceV2 {
    * @param { string | Type } keyOrType key or class type removing
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static remove(keyOrType: string | Type): void;
 
@@ -251,7 +250,7 @@ export declare class PersistenceV2 {
    * @returns { Array<string> } the array of all keys
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   static keys(): Array<string>;
 }

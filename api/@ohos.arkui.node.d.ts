@@ -29,7 +29,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
 
@@ -38,7 +38,7 @@ export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { BuildOptions } from './arkui/BuilderNode';
 
@@ -47,7 +47,7 @@ export { BuildOptions } from './arkui/BuilderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export { InputEventType } from './arkui/BuilderNode';
 
@@ -66,7 +66,7 @@ export { InputEventType } from './arkui/BuilderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { NodeController } from './arkui/NodeController';
 
@@ -83,7 +83,7 @@ export { NodeController } from './arkui/NodeController';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
 
@@ -93,7 +93,7 @@ export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameN
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { typeNode, NodeAdapter } from './arkui/FrameNode';
 
@@ -110,7 +110,7 @@ export { typeNode, NodeAdapter } from './arkui/FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts 12
+ * @since 12 dynamic
  */
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
@@ -120,7 +120,7 @@ export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics';
 
@@ -137,7 +137,7 @@ export { LengthUnit, SizeT, LengthMetrics, ColorMetrics } from './arkui/Graphics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { RenderNode } from './arkui/RenderNode';
 
@@ -154,7 +154,7 @@ export { RenderNode } from './arkui/RenderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { XComponentNode } from './arkui/XComponentNode';
 
@@ -164,7 +164,7 @@ export { XComponentNode } from './arkui/XComponentNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { Content } from './arkui/Content';
 
@@ -174,7 +174,7 @@ export { Content } from './arkui/Content';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { ComponentContent , ComponentContentBase } from './arkui/ComponentContent';
 
@@ -184,6 +184,6 @@ export { ComponentContent , ComponentContentBase } from './arkui/ComponentConten
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
 export { NodeContent } from './arkui/NodeContent';
