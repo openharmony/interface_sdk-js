@@ -1303,6 +1303,18 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   barState(value: BarState): TextAreaAttribute;
 
   /**
+   * Color of the scrollbar.
+   *
+   * @param { ColorMetrics | undefined } thumbColor - scroll bar thumb Color of the TextArea.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  scrollBarColor(thumbColor: ColorMetrics | undefined): TextAreaAttribute;
+
+  /**
    * Controls whether the selection menu pops up.
    *
    * @param { boolean } value
