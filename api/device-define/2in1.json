@@ -204,7 +204,6 @@
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.MiscServices.InputMethodFramework",
     "SystemCapability.HiviewDFX.HiTrace",
-    "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.DistributedDataManager.KVStore.Core",
