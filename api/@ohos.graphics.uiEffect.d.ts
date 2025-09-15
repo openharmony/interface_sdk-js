@@ -699,7 +699,7 @@ declare namespace uiEffect {
   function createEffect(): VisualEffect;
 
   /**
-   * Create a BrightnessBlender to add BrightnessBlender to the component.
+   * Create a BrightnessBlender, which is used to adjust the brightness of UI components.
    * @param { BrightnessBlenderParam } param - The brightness blender parameters.
    * @returns { BrightnessBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
@@ -710,7 +710,7 @@ declare namespace uiEffect {
   function createBrightnessBlender(param: BrightnessBlenderParam): BrightnessBlender;
 
   /**
-   * Create a HdrBrightnessBlender to add HdrBrightnessBlender to the component.
+   * Create an HdrBrightnessBlender, which is used to adjust the HDR brightness of UI components.
    * @param { BrightnessBlenderParam } param - The brightness blender parameters.
    * @returns { HdrBrightnessBlender } Returns the blender.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
