@@ -674,6 +674,20 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBarColor(value: Color | number | string): GridAttribute;
 
   /**
+   * Sets the scrollbar color.
+   *
+   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+   * <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+   * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  scrollBarColor(color: Color | number | string | Resource): GridAttribute;
+
+  /**
    * Let you set the scrollbar state.
    *
    * @param { BarState } value - Scrollbar state.<br>Default value: <em>BarState.Off</em>
