@@ -988,6 +988,35 @@ declare enum WebDarkMode {
   Auto = 2
 }
 
+
+/**
+ * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ * @arkts 1.1&1.2
+ */
+declare enum WebRotateEffect {
+  /**
+   * The content area is drawn in top-left of the node.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  TOPLEFT_EFFECT = 0,
+
+  /**
+   * Scale the content area to cover the node.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  RESIZE_COVER_EFFECT = 1
+}
+
 /**
  * Enum type supplied to {@link captureMode} for setting the web capture mode.
  *
@@ -7783,6 +7812,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
+
+  /**
+   * Set up the effect of web roation
+   *
+   * @param { WebRotateEffect } effect - The effect of roation.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  rotateRenderEffect(effect: WebRotateEffect): WebAttribute;
 
   /**
    * Sets whether to allow access to geographical locations.
