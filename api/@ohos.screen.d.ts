@@ -69,9 +69,41 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
+  
+  /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onConnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onDisconnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen changes.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function onChange(callback: Callback<long>): void;
 
   /**
    * Unregister the callback for screen changes.
@@ -86,9 +118,44 @@ declare namespace screen {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offConnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offDisconnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *		If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 static
+   */
+  function offChange(callback?: Callback<long>): void;
 
   /**
    * Make screens as expand-screen
