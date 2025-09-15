@@ -4889,7 +4889,7 @@ export declare enum DragResult {
      * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20
+     * @since 20 static
      */
     UNKNOWN = -1,
     /**

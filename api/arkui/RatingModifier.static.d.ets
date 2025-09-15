@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { AttributeModifier } from './component/common';
@@ -27,6 +26,6 @@ import { RatingAttribute } from './component/rating';
  *
  * @implements { RatingAttribute, AttributeModifier<RatingAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 export declare class RatingModifier implements RatingAttribute, AttributeModifier<RatingAttribute> {}

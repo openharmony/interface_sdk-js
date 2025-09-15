@@ -18,7 +18,7 @@
  * @kit DistributedServiceKit
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import cooperate from '@ohos.cooperate';
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
 import deviceManager from '@ohos.distributedHardware.deviceManager';
@@ -35,7 +35,7 @@ export {
 };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
 
 export { 
