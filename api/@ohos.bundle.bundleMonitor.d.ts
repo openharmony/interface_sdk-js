@@ -54,25 +54,25 @@ declare namespace bundleMonitor {
     /**
      * The user id
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly userId: number;
+    readonly userId: int;
     /**
      * The app index of clone app
      *
-     * @type { number }
+     * @type { int }
      * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    readonly appIndex: number;
+    readonly appIndex: int;
   }
 
   /**

@@ -114,14 +114,14 @@ export interface SkillUri {
   /**
    * Indicates the port of the skillUri
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly port: number;
+  readonly port: int;
 
   /**
    * Indicates the path of the skillUri
@@ -186,14 +186,14 @@ export interface SkillUri {
   /**
    * Indicates the maxFileSupported of the skillUri
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly maxFileSupported: number;
+  readonly maxFileSupported: int;
 
   /**
    * Indicates the linkFeature of the skillUri

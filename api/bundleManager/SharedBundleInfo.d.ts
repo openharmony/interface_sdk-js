@@ -27,7 +27,8 @@ import bundleManager from '../@ohos.bundle.bundleManager';
  * @typedef SharedBundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SharedBundleInfo {
   /**
@@ -37,7 +38,8 @@ export interface SharedBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -48,7 +50,8 @@ export interface SharedBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly compatiblePolicy: bundleManager.CompatiblePolicy;
 
@@ -59,7 +62,8 @@ export interface SharedBundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly sharedModuleInfo: Array<SharedModuleInfo>;
 }
@@ -70,7 +74,8 @@ export interface SharedBundleInfo {
  * @typedef SharedModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface SharedModuleInfo {
   /**
@@ -80,20 +85,22 @@ export interface SharedModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
   /**
    * Indicates the version code of the shared module
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly versionCode: number;
+  readonly versionCode: long;
 
   /**
    * Indicates the version name of the shared module
@@ -102,7 +109,8 @@ export interface SharedModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly versionName: string;
 
@@ -113,18 +121,20 @@ export interface SharedModuleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly description: string;
 
   /**
    * Indicates the description of this shared module
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly descriptionId: number;
+  readonly descriptionId: long;
 }

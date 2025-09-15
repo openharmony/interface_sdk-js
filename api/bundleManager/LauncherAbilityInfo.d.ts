@@ -55,44 +55,44 @@ export interface LauncherAbilityInfo {
   /**
    * Obtains labelId about an launcher ability.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly labelId: number;
+  readonly labelId: long;
 
   /**
    * Obtains iconId about an launcher ability.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly iconId: number;
+  readonly iconId: long;
 
   /**
    * Obtains userId about an launcher ability.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly userId: number;
+  readonly userId: int;
 
   /**
    * Obtains installTime about an launcher ability.
    *
-   * @type { number }
+   * @type { long }
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  readonly installTime: number;
+  readonly installTime: long;
 }
