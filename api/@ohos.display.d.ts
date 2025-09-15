@@ -833,7 +833,7 @@ declare namespace display {
    *
    * @param { Position } position - The global coordinates to be converted.
    * @param { number } [displayId] - The optional display id indicate the display relative to. 
-   * If not specified,use the display where the coodinates are located.
+   *     If not specified, use the display where the coodinates are located.
    * @returns { RelativePosition } The relative coordinates.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
