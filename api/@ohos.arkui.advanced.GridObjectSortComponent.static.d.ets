@@ -60,11 +60,11 @@ export interface GridObjectSortComponentItem {
   /**
    * id of GridObjectSortComponent item.
    *
-   * @type { number | string }
+   * @type { int | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  id: number | string;
+  id: int | string;
   /**
    * GridObjectSortComponent item text.
    *
@@ -84,11 +84,11 @@ export interface GridObjectSortComponentItem {
   /**
    * order of GridObjectSortComponentItem, Used for sorting dataList.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  order: number;
+  order: int;
   /**
    * image resource path of the GridObjectSortComponent item.
    *
@@ -127,11 +127,11 @@ export interface GridObjectSortComponentOptions {
   /**
    * The size of the GridObjectSortComponent image.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(int | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  imageSize?: number | Resource;
+  imageSize?: int | Resource;
   /**
    * The title displayed in the unedited state of the  GridObjectSortComponent.
    *
