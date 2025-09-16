@@ -314,11 +314,11 @@ export declare interface Frame {
 /**
  * Defines the Edge property.
  *
- * @interface Edges
+ * @interface NodeEdges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export interface Edges<T> {
+export interface NodeEdges<T> {
   /**
    * Left property.
    *
@@ -1099,31 +1099,31 @@ export declare class ShapeClip {
  * Obtain a object with all edges are set to the same color.
  *
  * @param { number } all - The edge color will be set.
- * @returns { Edges<number> } - The object with all edges are set to the same color.
+ * @returns { NodeEdges<number> } - The object with all edges are set to the same color.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare function edgeColors(all: number): Edges<number>;
+export declare function edgeColors(all: number): NodeEdges<number>;
 
 /**
  * Obtain a object with all edges are set to the same width.
  *
  * @param { number } all - The edge width will be set.
- * @returns { Edges<number> } - The object with all edges are set to the same width.
+ * @returns { NodeEdges<number> } - The object with all edges are set to the same width.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare function edgeWidths(all: number): Edges<number>;
+export declare function edgeWidths(all: number): NodeEdges<number>;
 
 /**
  * Obtain a object with all edges are set to the same style.
  *
  * @param { BorderStyle } all - The edge style will be set.
- * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
+ * @returns { NodeEdges<BorderStyle> } - The object with all edges are set to the same style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export declare function borderStyles(all: BorderStyle): Edges<BorderStyle>;
+export declare function borderStyles(all: BorderStyle): NodeEdges<BorderStyle>;
 
 /**
  * Obtain a BorderRadiuses object with all edges are set to the same radius.

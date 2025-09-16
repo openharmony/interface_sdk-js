@@ -19,7 +19,7 @@
  */
 
 import { RenderNode } from 'arkui.RenderNode';
-import { Size, Position, Edges, LengthMetrics, SizeT } from 'arkui.Graphics';
+import { Size, Position, NodeEdges, LengthMetrics, SizeT } from 'arkui.Graphics';
 import { DrawContext } from 'arkui.Graphics';
 import { ComponentContent } from 'arkui.ComponentContent';
 import { BusinessError } from '@ohos.base';
