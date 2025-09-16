@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CustomTheme } from '../../@ohos.arkui.theme';
-import { ThemeColorMode } from './common';
-/*** endif */
-
 /**
  * CustomTheme.
  *
@@ -41,8 +36,7 @@ declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface WithThemeOptions {
     /**
@@ -52,8 +46,7 @@ declare interface WithThemeOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     theme?: CustomTheme;
 
@@ -64,8 +57,7 @@ declare interface WithThemeOptions {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
     colorMode?: ThemeColorMode;
 }
@@ -89,8 +81,7 @@ declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttrib
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @crossplatform
 * @atomicservice
-* @since arkts {'1.1':'12','1.2':'20'}
-* @arkts 1.1&1.2
+* @since 12
 */
 declare class WithThemeAttribute {
 }

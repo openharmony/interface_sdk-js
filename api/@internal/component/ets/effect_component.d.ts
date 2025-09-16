@@ -17,10 +17,7 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts 1.2 */
-import { CommonMethod} from './common';
 
-/*** endif */
 /**
  * Provides an Effect Component, which is invisible, but setting properties on this component defines an effect template
  * that child components can apply by setting useEffect(true).
@@ -28,8 +25,7 @@ import { CommonMethod} from './common';
  * @interface EffectComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 interface EffectComponentInterface {
   /**
@@ -38,8 +34,7 @@ interface EffectComponentInterface {
    * @returns { EffectComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   (): EffectComponentAttribute;
   
@@ -118,8 +113,7 @@ declare interface EffectComponentOptions {
  * @extends CommonMethod<EffectComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since arkts {'1.1':'10','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10
  */
 declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttribute> {
   /**

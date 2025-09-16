@@ -18,18 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional } from "./common";
-import { CustomBuilder } from './builder';
-import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow,
-   CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from './enums';
-import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from './units';
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions,
-  AutoCapitalizationMode,EditableTextChangeValue,KeyboardAppearance } from "./textCommon";
-import { KeyboardOptions, PasteEvent } from "./richEditor";
-/*** endif */
-
 /**
  * Declare the type of input box
  *
@@ -52,8 +40,7 @@ import { KeyboardOptions, PasteEvent } from "./richEditor";
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum InputType {
   /**
@@ -75,8 +62,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Normal,
 
@@ -99,8 +85,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Number,
 
@@ -123,8 +108,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   PhoneNumber,
 
@@ -152,8 +136,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Email,
 
@@ -184,8 +167,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Password,
 
@@ -209,8 +191,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NUMBER_PASSWORD = 8,
 
@@ -219,8 +200,7 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   SCREEN_LOCK_PASSWORD = 9,
 
@@ -239,8 +219,7 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   USER_NAME = 10,
 
@@ -262,8 +241,7 @@ declare enum InputType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NEW_PASSWORD = 11,
 
@@ -277,8 +255,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   NUMBER_DECIMAL = 12,
 
@@ -288,8 +265,7 @@ declare enum InputType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   URL = 13,
 
@@ -309,8 +285,7 @@ declare enum InputType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum ContentType {
   /**
@@ -319,8 +294,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   USER_NAME = 0,
 
@@ -330,8 +304,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PASSWORD = 1,
 
@@ -341,8 +314,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NEW_PASSWORD = 2,
 
@@ -353,8 +325,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FULL_STREET_ADDRESS = 3,
 
@@ -365,8 +336,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   HOUSE_NUMBER = 4,
 
@@ -377,8 +347,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DISTRICT_ADDRESS = 5,
 
@@ -389,8 +358,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   CITY_ADDRESS = 6,
 
@@ -401,8 +369,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PROVINCE_ADDRESS = 7,
 
@@ -413,8 +380,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   COUNTRY_ADDRESS = 8,
 
@@ -425,8 +391,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_FULL_NAME = 9,
 
@@ -437,8 +402,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_LAST_NAME = 10,
 
@@ -449,8 +413,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PERSON_FIRST_NAME = 11,
 
@@ -461,8 +424,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PHONE_NUMBER = 12,
 
@@ -473,8 +435,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PHONE_COUNTRY_CODE = 13,
 
@@ -485,8 +446,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FULL_PHONE_NUMBER = 14,
 
@@ -497,8 +457,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   EMAIL_ADDRESS = 15,
 
@@ -509,8 +468,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BANK_CARD_NUMBER = 16,
 
@@ -521,8 +479,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ID_CARD_NUMBER = 17,
 
@@ -533,8 +490,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NICKNAME = 23,
 
@@ -545,8 +501,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DETAIL_INFO_WITHOUT_STREET = 24,
 
@@ -557,8 +512,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FORMAT_ADDRESS = 25,
 
@@ -569,8 +523,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   PASSPORT_NUMBER = 26,
 
@@ -581,8 +534,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   VALIDITY = 27,
 
@@ -593,8 +545,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ISSUE_AT = 28,
 
@@ -605,8 +556,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ORGANIZATION = 29,
 
@@ -617,8 +567,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   TAX_ID = 30,
 
@@ -629,8 +578,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ADDRESS_CITY_AND_STATE = 31,
 
@@ -640,8 +588,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   FLIGHT_NUMBER = 32,
 
@@ -651,8 +598,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_NUMBER = 33,
 
@@ -662,8 +608,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_FILE_NUMBER = 34,
 
@@ -674,8 +619,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_PLATE = 35,
 
@@ -685,8 +629,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ENGINE_NUMBER = 36,
 
@@ -696,8 +639,7 @@ declare enum ContentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   LICENSE_CHASSIS_NUMBER = 37
 }
@@ -724,8 +666,7 @@ declare enum ContentType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum EnterKeyType {
   /**
@@ -747,8 +688,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Go = 2,
 
@@ -771,8 +711,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Search = 3,
 
@@ -795,8 +734,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Send = 4,
 
@@ -819,8 +757,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Next = 5,
 
@@ -843,8 +780,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Done = 6,
 
@@ -861,8 +797,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   PREVIOUS = 7,
 
@@ -879,8 +814,7 @@ declare enum EnterKeyType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   NEW_LINE = 8,
 }
@@ -892,8 +826,7 @@ declare enum EnterKeyType {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'12','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 12
   */
 declare interface UnderlineColor {
   /**
@@ -908,8 +841,7 @@ declare interface UnderlineColor {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
   typing?: ResourceColor | undefined;
   /**
@@ -924,8 +856,7 @@ declare interface UnderlineColor {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
   normal?: ResourceColor | undefined;
   /**
@@ -942,8 +873,7 @@ declare interface UnderlineColor {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
   error?: ResourceColor | undefined;
   /**
@@ -958,8 +888,7 @@ declare interface UnderlineColor {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
   disable?: ResourceColor | undefined;
 } 
@@ -971,8 +900,7 @@ declare interface UnderlineColor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface SubmitEvent {
   /**
@@ -981,8 +909,7 @@ declare interface SubmitEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   keepEditableState(): void;
 
@@ -993,8 +920,7 @@ declare interface SubmitEvent {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text: string;
 }
@@ -1020,8 +946,7 @@ declare interface SubmitEvent {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class TextInputController extends TextContentControllerBase {
   /**
@@ -1044,8 +969,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   constructor();
 
@@ -1076,8 +1000,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   caretPosition(value: number): void;
 
@@ -1117,8 +1040,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
@@ -1135,8 +1057,7 @@ declare class TextInputController extends TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   stopEditing(): void;
 }
@@ -1163,8 +1084,7 @@ declare class TextInputController extends TextContentControllerBase {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare interface TextInputOptions {
   /**
@@ -1189,8 +1109,7 @@ declare interface TextInputOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placeholder?: ResourceStr;
 
@@ -1223,8 +1142,7 @@ declare interface TextInputOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   text?: ResourceStr;
 
@@ -1250,8 +1168,7 @@ declare interface TextInputOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   controller?: TextInputController;
 }
@@ -1278,8 +1195,7 @@ declare interface TextInputOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare enum TextInputStyle {
   /**
@@ -1306,8 +1222,7 @@ declare enum TextInputStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Default,
 
@@ -1338,8 +1253,7 @@ declare enum TextInputStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   Inline
 }
@@ -1366,8 +1280,7 @@ declare enum TextInputStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface TextInputInterface {
   /**
@@ -1395,8 +1308,7 @@ interface TextInputInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   (value?: TextInputOptions): TextInputAttribute;
 }
@@ -1415,8 +1327,7 @@ interface TextInputInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface PasswordIcon {
   /**
@@ -1438,8 +1349,7 @@ interface PasswordIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   onIconSrc?: string | Resource;
 
@@ -1462,8 +1372,7 @@ interface PasswordIcon {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   offIconSrc?: string | Resource;
 }
@@ -1478,8 +1387,7 @@ interface PasswordIcon {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
@@ -1493,8 +1401,7 @@ declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 
@@ -1508,8 +1415,7 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 
@@ -1524,8 +1430,7 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
@@ -1551,8 +1456,7 @@ declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   /**
@@ -1580,8 +1484,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   type(value: InputType): TextInputAttribute;
 
@@ -1592,8 +1495,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   contentType(value: ContentType): TextInputAttribute;
 
@@ -1622,8 +1524,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
@@ -1648,8 +1549,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textOverflow(value: TextOverflow): TextInputAttribute;
 
@@ -1661,8 +1561,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   textIndent(value: Dimension): TextInputAttribute;
 
@@ -1696,8 +1595,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   placeholderFont(value?: Font): TextInputAttribute;
 
@@ -1726,8 +1624,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enterKeyType(value: EnterKeyType): TextInputAttribute;
 
@@ -1760,8 +1657,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   caretColor(value: ResourceColor): TextInputAttribute;
 
@@ -1825,8 +1721,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onEditChange(callback: Callback<boolean>): TextInputAttribute;
 
@@ -1866,8 +1761,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onSubmit(callback: OnSubmitCallback): TextInputAttribute;
 
@@ -1911,8 +1805,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onChange(callback: EditableTextOnChangeCallback): TextInputAttribute;
 
@@ -1944,8 +1837,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): TextInputAttribute;
 
@@ -1977,8 +1869,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
@@ -2012,8 +1903,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maxLength(value: number): TextInputAttribute;
 
@@ -2042,8 +1932,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontColor(value: ResourceColor): TextInputAttribute;
 
@@ -2079,8 +1968,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontSize(value: Length): TextInputAttribute;
 
@@ -2109,8 +1997,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontStyle(value: FontStyle): TextInputAttribute;
 
@@ -2159,7 +2046,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextInputAttribute;
 
@@ -2194,8 +2080,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   fontFamily(value: ResourceStr): TextInputAttribute;
 
@@ -2248,8 +2133,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   inputFilter(value: ResourceStr, error?: Callback<string>): TextInputAttribute;
 
@@ -2289,8 +2173,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onCopy(callback: Callback<string>): TextInputAttribute;
 
@@ -2330,8 +2213,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onCut(callback: Callback<string>): TextInputAttribute;
 
@@ -2374,8 +2256,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   onPaste(callback: OnPasteCallback): TextInputAttribute;
 
@@ -2410,8 +2291,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   copyOption(value: CopyOptions): TextInputAttribute;
 
@@ -2449,8 +2329,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showPasswordIcon(value: boolean): TextInputAttribute;
 
@@ -2488,8 +2367,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   textAlign(value: TextAlign): TextInputAttribute;
 
@@ -2522,8 +2400,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   style(value: TextInputStyle | TextContentStyle): TextInputAttribute;
 
@@ -2544,8 +2421,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   caretStyle(value: CaretStyle): TextInputAttribute;
 
@@ -2570,8 +2446,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectedBackgroundColor(value: ResourceColor): TextInputAttribute;
 
@@ -2592,8 +2467,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   caretPosition(value: number): TextInputAttribute;
 
@@ -2619,8 +2493,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   enableKeyboardOnFocus(value: boolean): TextInputAttribute;
 
@@ -2646,8 +2519,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   passwordIcon(value: PasswordIcon): TextInputAttribute;
 
@@ -2685,8 +2557,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showError(value?: ResourceStr | undefined): TextInputAttribute;
 
@@ -2710,8 +2581,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showUnit(value: CustomBuilder): TextInputAttribute;
 
@@ -2736,8 +2606,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showUnderline(value: boolean): TextInputAttribute;
 
@@ -2756,8 +2625,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   underlineColor(value: ResourceColor | UnderlineColor | undefined): TextInputAttribute;
 
@@ -2789,8 +2657,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   selectionMenuHidden(value: boolean): TextInputAttribute;
 
@@ -2809,8 +2676,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   barState(value: BarState): TextInputAttribute;
 
@@ -2831,8 +2697,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   maxLines(value: number): TextInputAttribute;
 
@@ -2851,8 +2716,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   wordBreak(value: WordBreak): TextInputAttribute;
 
@@ -2870,8 +2734,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lineBreakStrategy(strategy: LineBreakStrategy): TextInputAttribute;
 
@@ -2917,8 +2780,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute;
 
@@ -2946,8 +2808,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showCounter(value: boolean, options?: InputCounterOptions): TextInputAttribute;
 
@@ -3005,19 +2866,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
   /**
-   * Set the cancel button style
-   *
-   * @param { CancelButtonOptions | CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  cancelButton(symbolOptions: CancelButtonOptions | CancelButtonSymbolOptions): TextInputAttribute;
-
-  /**
    * Sets selection when on focus.
    *
    * @param { boolean } value - Sets selection or not.
@@ -3038,8 +2886,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   selectAll(value: boolean): TextInputAttribute;
 
@@ -3059,8 +2906,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   minFontSize(value: number | string | Resource): TextInputAttribute;
 
@@ -3080,8 +2926,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
@@ -3103,7 +2948,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   minFontScale(scale: Optional<number | Resource>): TextInputAttribute;
 
@@ -3125,7 +2969,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   maxFontScale(scale: Optional<number | Resource>): TextInputAttribute;
   
@@ -3155,8 +2998,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
 
@@ -3175,8 +3017,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enableAutoFill(value: boolean): TextInputAttribute;
 
@@ -3192,8 +3033,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   decoration(value: TextDecorationOptions): TextInputAttribute;
 
@@ -3214,8 +3054,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   letterSpacing(value: number | string | Resource): TextInputAttribute;
 
@@ -3233,8 +3072,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lineHeight(value: number | string | Resource): TextInputAttribute;
 
@@ -3257,8 +3095,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   passwordRules(value: string): TextInputAttribute;
 
@@ -3279,8 +3116,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fontFeature(value: string): TextInputAttribute;  
 
@@ -3301,8 +3137,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showPassword(visible: boolean): TextInputAttribute;
 
@@ -3314,8 +3149,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onSecurityStateChange(callback: Callback<boolean>): TextInputAttribute;
 
@@ -3333,8 +3167,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute;
 
@@ -3350,8 +3183,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDidInsert(callback: Callback<InsertValue>): TextInputAttribute;
 
@@ -3369,8 +3201,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute;
 
@@ -3386,8 +3217,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute;
 
@@ -3413,8 +3243,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   editMenuOptions(editMenu: EditMenuOptions): TextInputAttribute;
 
@@ -3431,8 +3260,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   enablePreviewText(enable: boolean): TextInputAttribute;
 
@@ -3444,8 +3272,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
@@ -3458,7 +3285,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
 
@@ -3470,8 +3296,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
   
@@ -3483,8 +3308,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 
@@ -3495,8 +3319,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
@@ -3508,8 +3331,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
 
@@ -3520,8 +3342,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
 
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;

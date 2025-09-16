@@ -25,11 +25,9 @@ import type inspector from './@ohos.arkui.inspector';
 import promptAction, { LevelOrder } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
-/*** if arkts 1.1 */
 import { ComponentContent, FrameNode, Frame } from './@ohos.arkui.node';
 import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import type observer from './@ohos.arkui.observer';
-/*** endif */
 import { SimpleAnimatorOptions } from './@ohos.animator';
 import type { Callback, AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
@@ -39,29 +37,6 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 
-/*** if arkts 1.2 */
-import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
-import type observer from '@ohos.arkui.observer';
-import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
-import {
-  ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam,
-  KeyframeState, SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional
-} from './arkui/component/common';
-import { CustomBuilder } from './arkui/component/builder';
-import { GestureEvent, GestureRecognizer } from './arkui/component/gesture';
-import { ResourceStr, SizeOptions, VoidCallback } from './arkui/component/units';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from './arkui/component/enums';
-import { TimePickerDialogOptions } from './arkui/component/timePicker';
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
-import { ActionSheetOptions } from './arkui/component/actionSheet';
-import { TextPickerDialogOptions } from './arkui/component/textPicker';
-import { LocalStorage } from './arkui/stateManagement/storages/localStorage';
-import { DatePickerDialogOptions } from './arkui/component/datePicker';
-import { TabsController } from './arkui/component/tabs';
-import { Scroller } from './arkui/component/scroll';
-import { KeyProcessingMode } from './arkui/component/focus';
-import { TextMenuOptions } from './arkui/component/textCommon';
-/*** endif */
 /**
  * class Font
  *
@@ -80,10 +55,9 @@ import { TextMenuOptions } from './arkui/component/textCommon';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
-export declare class Font {
+export class Font {
   /**
    * Register a customized font in the FontManager.
    *
@@ -99,8 +73,7 @@ export declare class Font {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   registerFont(options: font.FontOptions): void;
 
@@ -120,8 +93,7 @@ export declare class Font {
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getSystemFontList(): Array<string>;
 
@@ -138,8 +110,7 @@ export declare class Font {
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getFontByName(fontName: string): font.FontInfo;
 }
@@ -157,10 +128,9 @@ export declare class Font {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
-export declare class MediaQuery {
+export class MediaQuery {
   /**
    * Sets the media query criteria and returns the corresponding listening handle
    *
@@ -178,8 +148,7 @@ export declare class MediaQuery {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
 }
@@ -195,10 +164,9 @@ export declare class MediaQuery {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
-export declare class UIInspector {
+export class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
@@ -214,8 +182,7 @@ export declare class UIInspector {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   createComponentObserver(id: string): inspector.ComponentObserver;
 }
@@ -241,10 +208,9 @@ export declare class UIInspector {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class Router {
+export class Router {
   /**
    * Navigates to a specified page in the application.
    *
@@ -276,8 +242,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
@@ -312,8 +277,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushUrl(options: router.RouterOptions): Promise<void>;
 
@@ -350,8 +314,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -388,8 +351,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -422,8 +384,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
@@ -456,8 +417,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceUrl(options: router.RouterOptions): Promise<void>;
 
@@ -492,8 +452,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -528,8 +487,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -556,8 +514,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   back(options?: router.RouterOptions): void;
 
@@ -569,8 +526,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   back(index: number, params?: Object): void;
 
@@ -587,8 +543,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   clear(): void;
 
@@ -607,8 +562,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getLength(): string;
 
@@ -627,8 +581,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getState(): router.RouterState;
 
@@ -640,8 +593,7 @@ export declare class Router {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
   */
   getStateByIndex(index: number): router.RouterState | undefined;
 
@@ -653,8 +605,7 @@ export declare class Router {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
   */
   getStateByUrl(url: string): Array<router.RouterState>;
 
@@ -683,8 +634,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showAlertBeforeBackPage(options: router.EnableAlertOptions): void;
 
@@ -701,8 +651,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   hideAlertBeforeBackPage(): void;
 
@@ -721,8 +670,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getParams(): Object;
 
@@ -755,8 +703,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
@@ -789,8 +736,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pushNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -825,8 +771,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
   */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -861,8 +806,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
   */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -893,8 +837,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
@@ -922,8 +865,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -953,8 +895,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -987,8 +928,7 @@ export declare class Router {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 }
@@ -1000,8 +940,7 @@ export declare class Router {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'18','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type CustomBuilderWithId = (id: number) => void;
 
@@ -1012,8 +951,7 @@ declare type CustomBuilderWithId = (id: number) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'18','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export interface TargetInfo {
   /**
@@ -1023,8 +961,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   id: string | number;
 
@@ -1035,8 +972,7 @@ export interface TargetInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   componentId?: number;
 }
@@ -1054,10 +990,9 @@ export interface TargetInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
-export declare class PromptAction {
+export class PromptAction {
   /**
    * Displays the notification text.
    *
@@ -1083,8 +1018,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showToast(options: promptAction.ShowToastOptions): void;
 
@@ -1101,8 +1035,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   openToast(options: promptAction.ShowToastOptions): Promise<number>;
 
@@ -1119,8 +1052,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   closeToast(toastId: number): void;
 
@@ -1167,8 +1099,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
 
@@ -1200,8 +1131,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
@@ -1238,8 +1168,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
 
@@ -1271,8 +1200,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 
@@ -1291,8 +1219,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
 
@@ -1303,7 +1230,7 @@ export declare class PromptAction {
    *
    * @param { ComponentContent<T> } dialogContent - the content of custom dialog.
    * @param { promptAction.DialogController } controller - Dialog controller.
-   * @param { promptAction.BaseDialogOptions } [options] - Options.
+   * @param { promptAction.BaseDialogOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
@@ -1314,8 +1241,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController,
     options?: promptAction.BaseDialogOptions): Promise<void>;
@@ -1336,8 +1262,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
 
@@ -1374,8 +1299,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>;
 
@@ -1396,8 +1320,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController,
     options?: promptAction.DialogOptions): Promise<number>;
@@ -1414,8 +1337,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   closeCustomDialog(dialogId: number): void;
 
@@ -1426,8 +1348,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getTopOrder(): LevelOrder;
 
@@ -1438,8 +1359,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getBottomOrder(): LevelOrder;
 
@@ -1461,8 +1381,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: PopupCommonOptions): Promise<void>;
 
@@ -1484,8 +1403,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1503,8 +1421,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
   */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
   
@@ -1526,8 +1443,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
@@ -1549,8 +1465,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -1568,8 +1483,7 @@ export declare class PromptAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
   */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
@@ -1585,10 +1499,9 @@ export declare class PromptAction {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
+declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch pan event.
@@ -1602,10 +1515,9 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'19','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 19
  */
-type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
+declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver watch gesture.
@@ -1618,10 +1530,9 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
+declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
@@ -1634,7 +1545,7 @@ type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => v
  * @atomicservice
  * @since 20
  */
-export declare type NodeIdentity = string | number;
+declare type NodeIdentity = string | number;
 
 /**
  * Defines the callback type used in UIObserver to monitor one specific node's render state.
@@ -1642,12 +1553,13 @@ export declare type NodeIdentity = string | number;
  * @typedef { function } NodeRenderStateChangeCallback
  * @param { NodeRenderState } state - the node's render state
  * @param { FrameNode } [node] - the information of frameNode
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
  * @since 20
  */
-export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
+declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
  * Defines the callback type used in UIObserver to monitor specific gesture triggered information.
@@ -1672,8 +1584,7 @@ export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface PageInfo {
   /**
@@ -1682,8 +1593,7 @@ export interface PageInfo {
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   routerPageInfo?: observer.RouterPageInfo;
 
@@ -1693,8 +1603,7 @@ export interface PageInfo {
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   navDestinationInfo?: observer.NavDestinationInfo;
 }
@@ -1706,8 +1615,7 @@ export interface PageInfo {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'15','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 15
  */
 export interface OverlayManagerOptions {
   /**
@@ -1718,8 +1626,7 @@ export interface OverlayManagerOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   renderRootOverlay?: boolean;
 
@@ -1741,7 +1648,6 @@ export interface OverlayManagerOptions {
    * @crossplatform
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   enableBackPressedEvent?: boolean;
 }
@@ -1765,16 +1671,7 @@ export interface OverlayManagerOptions {
  * @atomicservice
  * @since 12
  */
-/**
- * Register callbacks to observe ArkUI behavior.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class UIObserver {
+export class UIObserver {
   /**
    * Subscribes to status changes of this **NavDestination** component.
    *
@@ -1805,24 +1702,6 @@ export declare class UIObserver {
   on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the navigation destination is updated.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to listen for. Must be 'navDestinationUpdate'.
-   * @param { observer.NavDestinationSwitchObserverOptions } options - The options object.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when the navigation destination is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  on(
-    type: 'navDestinationUpdate',
-    options: observer.NavDestinationSwitchObserverOptions,
-    callback: Callback<observer.NavDestinationInfo>
-  ): void;
-
-  /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
@@ -1846,25 +1725,6 @@ export declare class UIObserver {
    * @since 12
    */
   off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void;
-  
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'navDestinationUpdate' } type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
-   * @param { observer.NavDestinationSwitchObserverOptions } options - The options object.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                             navigation ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  off(
-    type: 'navDestinationUpdate',
-    options: observer.NavDestinationSwitchObserverOptions,
-    callback?: Callback<observer.NavDestinationInfo>
-  ): void;
 
   /**
    * Subscribes to status changes of this **NavDestination** component.
@@ -1889,8 +1749,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
 
@@ -1913,8 +1772,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
@@ -1954,8 +1812,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
@@ -1969,8 +1826,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
 
@@ -1982,8 +1838,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
 
@@ -1996,8 +1851,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
 
@@ -2020,8 +1874,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void;
 
@@ -2044,8 +1897,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
 
@@ -2057,8 +1909,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
 
@@ -2071,8 +1922,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
 
@@ -2084,8 +1934,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
     on(type: 'willDraw', callback: Callback<void>): void;
 
@@ -2098,8 +1947,7 @@ export declare class UIObserver {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
     off(type: 'willDraw', callback?: Callback<void>): void;
 
@@ -2111,8 +1959,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'didLayout', callback: Callback<void>): void;
 
@@ -2125,8 +1972,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'didLayout', callback?: Callback<void>): void;
 
@@ -2139,8 +1985,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(
     type: 'navDestinationSwitch',
@@ -2156,8 +2001,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(
     type: 'navDestinationSwitch',
@@ -2174,8 +2018,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(
     type: 'navDestinationSwitch',
@@ -2193,8 +2036,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(
     type: 'navDestinationSwitch',
@@ -2211,8 +2053,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'willClick', callback: ClickEventListenerCallback): void;
 
@@ -2225,8 +2066,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'willClick', callback?: ClickEventListenerCallback): void;
 
@@ -2239,8 +2079,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'didClick', callback: ClickEventListenerCallback): void;
 
@@ -2253,8 +2092,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'didClick', callback?: ClickEventListenerCallback): void;
 
@@ -2267,8 +2105,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'willClick', callback: GestureEventListenerCallback): void;
 
@@ -2281,8 +2118,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'willClick', callback?: GestureEventListenerCallback): void;
 
@@ -2295,8 +2131,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'didClick', callback: GestureEventListenerCallback): void;
 
@@ -2309,8 +2144,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 
@@ -2323,8 +2157,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   on(type: 'beforePanStart', callback: PanListenerCallback): void;
 
@@ -2337,8 +2170,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   off(type: 'beforePanStart', callback?: PanListenerCallback): void;
 
@@ -2351,8 +2183,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   on(type: 'beforePanEnd', callback: PanListenerCallback): void;
 
@@ -2365,8 +2196,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
 
@@ -2379,8 +2209,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   on(type: 'afterPanStart', callback: PanListenerCallback): void;
 
@@ -2393,8 +2222,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   off(type: 'afterPanStart', callback?: PanListenerCallback): void;
 
@@ -2407,8 +2235,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   on(type: 'afterPanEnd', callback: PanListenerCallback): void;
 
@@ -2421,8 +2248,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'19','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 19
    */
   off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
 
@@ -2436,8 +2262,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
 
@@ -2451,8 +2276,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
 
@@ -2465,8 +2289,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void;
 
@@ -2479,8 +2302,7 @@ export declare class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
 
@@ -2572,10 +2394,9 @@ export declare class UIObserver {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
-export declare class ComponentUtils {
+export class ComponentUtils {
   /**
    * Provide the ability to obtain the coordinates and size of component drawing areas.
    *
@@ -2593,8 +2414,7 @@ export declare class ComponentUtils {
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getRectangleById(id: string): componentUtils.ComponentInfo;
 }
@@ -2604,10 +2424,9 @@ export declare class ComponentUtils {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class OverlayManager {
+export class OverlayManager {
   /**
    * Adds a specified ComponentContent node to the OverlayManager.
    *
@@ -2627,8 +2446,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   addComponentContent(content: ComponentContent, index?: number): void;
 
@@ -2646,8 +2464,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void;
 
@@ -2658,8 +2475,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   removeComponentContent(content: ComponentContent): void;
 
@@ -2670,8 +2486,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showComponentContent(content: ComponentContent): void;
 
@@ -2682,8 +2497,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   hideComponentContent(content: ComponentContent): void;
 
@@ -2693,8 +2507,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   showAllComponentContents(): void;
 
@@ -2704,8 +2517,7 @@ export declare class OverlayManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   hideAllComponentContents(): void;
 }
@@ -2723,8 +2535,7 @@ export declare class OverlayManager {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export interface AtomicServiceBar {
   /**
@@ -2733,8 +2544,7 @@ export interface AtomicServiceBar {
    * @param { boolean } visible - whether this bar is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   setVisible(visible: boolean): void;
 
@@ -2751,8 +2561,7 @@ export interface AtomicServiceBar {
    * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setBackgroundColor(color: Nullable< Color | number | string>): void;
 
@@ -2769,8 +2578,7 @@ export interface AtomicServiceBar {
    * @param { string } content - the content of the bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setTitleContent(content: string): void;
 
@@ -2787,8 +2595,7 @@ export interface AtomicServiceBar {
    * @param { FontStyle } font - the font style of the bar's title.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setTitleFontStyle(font: FontStyle): void;
 
@@ -2805,8 +2612,7 @@ export interface AtomicServiceBar {
    * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setIconColor(color: Nullable< Color | number | string>): void;
 
@@ -2817,8 +2623,7 @@ export interface AtomicServiceBar {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   getBarRect(): Frame;
 }
@@ -2904,18 +2709,16 @@ export interface GestureObserverConfigs {
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class DynamicSyncScene {
+export class DynamicSyncScene {
   /**
    * Sets the FrameRateRange of the DynamicSyncScene.
    * 
    * @param { ExpectedFrameRateRange } range - The range of frameRate.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setFrameRateRange(range: ExpectedFrameRateRange): void;
 
@@ -2925,8 +2728,7 @@ export declare class DynamicSyncScene {
    * @returns { ExpectedFrameRateRange } The range of frameRate.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFrameRateRange(): ExpectedFrameRateRange;
 }
@@ -2937,18 +2739,16 @@ export declare class DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
+export class SwiperDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the SwiperDynamicSyncSceneType.
   * @type { SwiperDynamicSyncSceneType }
   * @readonly
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts { '1.1':'12','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 12
   */
   readonly type: SwiperDynamicSyncSceneType;
 }
@@ -2959,18 +2759,16 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'14','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 14
  */
-export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
+export class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
   * Type of the MarqueeDynamicSyncSceneType.
   * @type { MarqueeDynamicSyncSceneType }
   * @readonly
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @atomicservice
-  * @since arkts { '1.1':'14','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 14
   */
   readonly type: MarqueeDynamicSyncSceneType;
 }
@@ -2991,8 +2789,7 @@ export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'18','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 18
  */
 export declare class DragController {
   /**
@@ -3038,8 +2835,7 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
@@ -3084,8 +2880,7 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
@@ -3130,8 +2925,7 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
@@ -3154,8 +2948,7 @@ export declare class DragController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -3171,8 +2964,7 @@ export declare class DragController {
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
 
@@ -3181,8 +2973,7 @@ export declare class DragController {
     * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
     */
   notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 
@@ -3194,8 +2985,7 @@ export declare class DragController {
    * @throws { BusinessError } 190004 - Operation failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   cancelDataLoading(key: string): void;
 
@@ -3233,10 +3023,9 @@ export declare class DragController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class MeasureUtils {
+export class MeasureUtils {
   /**
    * Obtains the width of the specified text in a single line layout.
    *
@@ -3245,8 +3034,7 @@ export declare class MeasureUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   measureText(options: MeasureOptions): number;
 
@@ -3258,8 +3046,7 @@ export declare class MeasureUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
 
@@ -3279,16 +3066,14 @@ export declare class MeasureUtils {
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class FocusController {
+export class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   clearFocus(): void;
 
@@ -3300,8 +3085,7 @@ export declare class FocusController {
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   requestFocus(key: string): void;
 
@@ -3312,8 +3096,7 @@ export declare class FocusController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'14','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 14
    */
   activate(isActive: boolean, autoInactive?: boolean): void;
 
@@ -3325,7 +3108,7 @@ export declare class FocusController {
    * @atomicservice
    * @since 20
    */
-  isActive(): boolean
+  isActive(): boolean;
 
   /**
   * Set whether to enable autofocus transfer.
@@ -3333,8 +3116,7 @@ export declare class FocusController {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-   * @since arkts { '1.1':'14','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 14
   */
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
 
@@ -3344,8 +3126,7 @@ export declare class FocusController {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
   */
   setKeyProcessingMode(mode: KeyProcessingMode): void;
 }
@@ -3356,8 +3137,7 @@ export declare class FocusController {
  * @typedef {pointer.PointerStyle} PointerStyle
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type PointerStyle = pointer.PointerStyle;
 
@@ -3367,18 +3147,16 @@ export type PointerStyle = pointer.PointerStyle;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class CursorController {
+export class CursorController {
   /**
    * Restore default cursor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   restoreDefault(): void;
   /**
@@ -3388,8 +3166,7 @@ export declare class CursorController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCursor(value: PointerStyle): void;
 }
@@ -3400,8 +3177,7 @@ export declare class CursorController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class ContextMenuController {
   /**
@@ -3410,8 +3186,7 @@ export declare class ContextMenuController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   close(): void;
 }
@@ -3424,16 +3199,7 @@ export declare class ContextMenuController {
  * @atomicservice
  * @since 12
  */
-/**
- * Class FrameCallback
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare abstract class FrameCallback {
+export abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
@@ -3442,8 +3208,7 @@ export declare abstract class FrameCallback {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onFrame(frameTimeInNano: number): void;
 
@@ -3455,8 +3220,7 @@ export declare abstract class FrameCallback {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onIdle(timeLeftInNano: number): void;
 }
@@ -3470,8 +3234,7 @@ export declare abstract class FrameCallback {
  * @StageModelOnly
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export type Context = common.Context;
 
@@ -3479,8 +3242,7 @@ export type Context = common.Context;
  * class ComponentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export declare class ComponentSnapshot {
   /**
@@ -3497,8 +3259,7 @@ export declare class ComponentSnapshot {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
-     * @since arkts { '1.1':'12','1.2':'20' }
-     * @arkts 1.1&1.2
+     * @since 12
      */
   get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void;
 
@@ -3516,8 +3277,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
@@ -3539,8 +3299,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
@@ -3563,8 +3322,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
@@ -3586,8 +3344,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
@@ -3605,8 +3362,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
@@ -3627,8 +3383,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
@@ -3650,8 +3405,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
@@ -3692,16 +3446,7 @@ export declare class ComponentSnapshot {
  * @atomicservice
  * @since 11
  */
-/**
- * class UIContext
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.1&1.2
- */
-export declare class UIContext {
+export class UIContext {
       /**
    * Checks whether the UiContext object ia available.
    *
@@ -3728,8 +3473,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getFont(): Font;
 
@@ -3748,8 +3492,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getMediaQuery(): MediaQuery;
 
@@ -3766,8 +3509,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getUIInspector(): UIInspector;
 
@@ -3782,8 +3524,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFilteredInspectorTree(filters?: Array<string>): string;
 
@@ -3800,8 +3541,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
 
@@ -3820,8 +3560,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getRouter(): Router;
 
@@ -3840,8 +3579,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getPromptAction(): PromptAction;
 
@@ -3858,8 +3596,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getComponentUtils(): ComponentUtils;
 
@@ -3878,8 +3615,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getUIObserver(): UIObserver;
 
@@ -3890,8 +3626,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getOverlayManager(): OverlayManager;
 
@@ -3903,8 +3638,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
 
@@ -3915,8 +3649,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   getOverlayManagerOptions(): OverlayManagerOptions;
 
@@ -3945,8 +3678,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   createAnimator(options: AnimatorOptions): AnimatorResult;
 
@@ -3962,8 +3694,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
@@ -3984,8 +3715,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   animateTo(value: AnimateParam, event: () => void): void;
 
@@ -4005,8 +3735,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
@@ -4025,8 +3754,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showActionSheet(value: ActionSheetOptions): void;
 
@@ -4045,8 +3773,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showDatePickerDialog(options: DatePickerDialogOptions): void;
 
@@ -4065,8 +3792,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showTimePickerDialog(options: TimePickerDialogOptions): void;
 
@@ -4085,8 +3811,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   showTextPickerDialog(options: TextPickerDialogOptions): void;
 
@@ -4116,8 +3841,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   runScopedTask(callback: () => void): void;
 
@@ -4129,8 +3853,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
@@ -4140,8 +3863,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
@@ -4152,8 +3874,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   setPixelRoundMode(mode: PixelRoundMode): void;
 
@@ -4164,8 +3885,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getPixelRoundMode(): PixelRoundMode;
 
@@ -4178,8 +3898,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'15','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 15
    */
   dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
 
@@ -4189,8 +3908,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   getAtomicServiceBar(): Nullable<AtomicServiceBar>;
 
@@ -4213,8 +3931,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   getDragController(): DragController;
 
@@ -4224,8 +3941,7 @@ export declare class UIContext {
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @crossplatform
     * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
     */
   getMeasureUtils(): MeasureUtils;
 
@@ -4246,8 +3962,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
@@ -4256,8 +3971,7 @@ export declare class UIContext {
    * @returns { FocusController } the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFocusController(): FocusController;
 
@@ -4269,8 +3983,7 @@ export declare class UIContext {
    * and the system will automatically insert transition animations for state changes caused by the closure function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   animateToImmediately(param: AnimateParam, event: Callback<void>): void;
 
@@ -4282,8 +3995,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFrameNodeById(id: string): FrameNode | null;
 
@@ -4295,8 +4007,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getAttachedFrameNodeById(id: string): FrameNode | null;
 
@@ -4315,8 +4026,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getFrameNodeByUniqueId(id: number): FrameNode | null;
 
@@ -4330,8 +4040,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getPageInfoByUniqueId(id: number): PageInfo;
 
@@ -4344,8 +4053,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
 
@@ -4357,8 +4065,7 @@ export declare class UIContext {
    * set values less than 0 to 0 and values greater than 1 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setDynamicDimming(id: string, value: number): void;
 
@@ -4369,8 +4076,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getCursorController(): CursorController;
 
@@ -4381,8 +4087,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getContextMenuController(): ContextMenuController;
 
@@ -4391,8 +4096,7 @@ export declare class UIContext {
    * @returns { ComponentSnapshot } the ComponentSnapshot
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getComponentSnapshot(): ComponentSnapshot;
 
@@ -4402,8 +4106,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   vp2px(value: number): number;
 
@@ -4413,8 +4116,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   px2vp(value: number): number;
 
@@ -4424,8 +4126,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   fp2px(value: number): number;
 
@@ -4435,8 +4136,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   px2fp(value: number): number;
 
@@ -4446,8 +4146,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   lpx2px(value: number): number;
 
@@ -4457,8 +4156,7 @@ export declare class UIContext {
    * @returns { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   px2lpx(value: number): number;
 
@@ -4470,8 +4168,7 @@ export declare class UIContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getSharedLocalStorage(): LocalStorage | undefined;
 
@@ -4483,8 +4180,7 @@ export declare class UIContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getHostContext(): Context | undefined;
 
@@ -4495,8 +4191,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getWindowName(): string | undefined;
   
@@ -4506,8 +4201,7 @@ export declare class UIContext {
    * @returns { WidthBreakpoint } The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
   
@@ -4517,8 +4211,7 @@ export declare class UIContext {
    * @returns { HeightBreakpoint } The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice 
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
@@ -4549,8 +4242,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: number): Promise<void>;
 
@@ -4572,8 +4264,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
@@ -4594,8 +4285,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
 
@@ -4605,8 +4295,7 @@ export declare class UIContext {
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   postFrameCallback(frameCallback: FrameCallback): void;
 
@@ -4617,8 +4306,7 @@ export declare class UIContext {
    * @param { number } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
 
@@ -4629,8 +4317,7 @@ export declare class UIContext {
    * @returns { Array<DynamicSyncScene>} The instance of SwiperDynamicSyncScene.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   requireDynamicSyncScene(id: string): Array<DynamicSyncScene>;
 
@@ -4651,8 +4338,7 @@ export declare class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   clearResourceCache(): void;
 
@@ -4663,8 +4349,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   isFollowingSystemFontScale(): boolean;
 
@@ -4675,8 +4360,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   getMaxFontScale(): number;
 
@@ -4688,8 +4372,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
 
@@ -4701,8 +4384,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
 
@@ -4715,8 +4397,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
 
@@ -4729,8 +4410,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'13','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 13
    */
   unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
 
@@ -4740,8 +4420,7 @@ export declare class UIContext {
    * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @atomicservice
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   enableSwipeBack(enabled: Optional<boolean>): void;
 
@@ -4753,8 +4432,7 @@ export declare class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   freezeUINode(id: string, isFrozen: boolean): void;
 
@@ -4766,8 +4444,7 @@ export declare class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts { '1.1':'18','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 18
    */
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
 
@@ -4778,8 +4455,7 @@ export declare class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'16','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 16
    */
   getTextMenuController(): TextMenuController;
 
@@ -4807,8 +4483,7 @@ export declare class UIContext {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'17','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 17
    */
   static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
 
@@ -4818,8 +4493,7 @@ export declare class UIContext {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'17','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 17
    */
   static destroyUIContextWithoutWindow(): void;
 
@@ -4849,8 +4523,7 @@ export declare class UIContext {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'11','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 11
  */
 
 export const enum KeyboardAvoidMode {
@@ -4859,8 +4532,7 @@ export const enum KeyboardAvoidMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts { '1.1':'11','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 11
   */
   OFFSET = 0,
 
@@ -4869,8 +4541,7 @@ export const enum KeyboardAvoidMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'11','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 11
    */
   RESIZE = 1,
 
@@ -4879,8 +4550,7 @@ export const enum KeyboardAvoidMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts { '1.1':'14','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 14
   */
   OFFSET_WITH_CARET = 2,
 
@@ -4889,8 +4559,7 @@ export const enum KeyboardAvoidMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts { '1.1':'14','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 14
   */
   RESIZE_WITH_CARET = 3,
 
@@ -4899,8 +4568,7 @@ export const enum KeyboardAvoidMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts { '1.1':'14','1.2':'20' }
-  * @arkts 1.1&1.2
+  * @since 14
   */
   NONE = 4,
 }
@@ -4911,8 +4579,7 @@ export const enum KeyboardAvoidMode {
  * @enum { number } SwiperDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'12','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 12
  */
 export const enum SwiperDynamicSyncSceneType {
   /**
@@ -4920,8 +4587,7 @@ export const enum SwiperDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   GESTURE = 0,
 
@@ -4930,8 +4596,7 @@ export const enum SwiperDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'12','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ANIMATION = 1
 }
@@ -4942,8 +4607,7 @@ export const enum SwiperDynamicSyncSceneType {
  * @enum { number } MarqueeDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts { '1.1':'14','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 14
  */
 export const enum MarqueeDynamicSyncSceneType {
   /**
@@ -4951,8 +4615,7 @@ export const enum MarqueeDynamicSyncSceneType {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts { '1.1':'14','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 14
    */
   ANIMATION = 1
 }
@@ -4963,10 +4626,9 @@ export const enum MarqueeDynamicSyncSceneType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts { '1.1':'16','1.2':'20' }
- * @arkts 1.1&1.2
+ * @since 16
  */
-export declare class TextMenuController {
+export class TextMenuController {
   /**
    * Set text menu options.
    *
@@ -4974,8 +4636,7 @@ export declare class TextMenuController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts { '1.1':'16','1.2':'20' }
-   * @arkts 1.1&1.2
+   * @since 16
    */
   setMenuOptions(options: TextMenuOptions): void;
 
