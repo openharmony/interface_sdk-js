@@ -216,11 +216,11 @@ export type Offset = Vector2;
 /**
  * Position info.
  *
- * @typedef { Vector2 } Position
+ * @typedef { Vector2 } NodePosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type Position = Vector2;
+export type NodePosition = Vector2;
 
 /**
  * PositionT info.
