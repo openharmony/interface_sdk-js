@@ -29,7 +29,7 @@
  */
 export interface KioskStatus {
   /**
-   * Whether current system is in kiosk mode.
+   * Whether current system is in Kiosk mode.
    *
    * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -40,7 +40,7 @@ export interface KioskStatus {
   isKioskMode: boolean;
 
   /**
-   * The bundle name of kiosk app.
+   * The bundle name of Kiosk app.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -51,7 +51,7 @@ export interface KioskStatus {
   kioskBundleName: string;
 
   /**
-   * The budle uid of kiosk app.
+   * The budle uid of Kiosk app.
    *
    * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
