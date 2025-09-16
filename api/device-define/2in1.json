@@ -120,6 +120,7 @@
     "SystemCapability.USB.USBManager",
     "SystemCapability.USB.USBManager.Serial",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.Security.ScreenLockFileManager",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
