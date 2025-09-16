@@ -2897,41 +2897,45 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 0
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static TF_SYNC: int;
+    static readonly TF_SYNC: int;
 
     /**
      * Indicates asynchronous call.
      *
      * @type { int }
      * @default 1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static TF_ASYNC: int;
+    static readonly TF_ASYNC: int;
 
     /**
      * Indicates the sendRequest API for returning the file descriptor.
      *
      * @type { int }
      * @default 16
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static TF_ACCEPT_FDS: int;
+    static readonly TF_ACCEPT_FDS: int;
 
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
      * @default 4
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2941,12 +2945,13 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 8
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
      * @since 20 static
      */
-    static TF_WAIT_TIME: int;
+    static readonly TF_WAIT_TIME: int;
 
     /**
      * A constructor used to create a MessageOption instance.
@@ -3351,36 +3356,39 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 1599098439
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static PING_TRANSACTION: int;
+    static readonly PING_TRANSACTION: int;
 
     /**
      * Indicates the message code for a dump operation.
      *
      * @type { int }
      * @default 1598311760
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static DUMP_TRANSACTION: int;
+    static readonly DUMP_TRANSACTION: int;
 
     /**
      * Indicates the message code for a transmission.
      *
      * @type { int }
      * @default 1598968902
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static INTERFACE_TRANSACTION: int;
+    static readonly INTERFACE_TRANSACTION: int;
 
     /**
      * Indicates the minimum value of a valid message code.
@@ -3388,12 +3396,13 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 0x1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static MIN_TRANSACTION_ID: int;
+    static readonly MIN_TRANSACTION_ID: int;
 
     /**
      * Indicates the maximum value of a valid message code.
@@ -3401,12 +3410,13 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 0x00FFFFFF
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 20 static
      */
-    static MAX_TRANSACTION_ID: int;
+    static readonly MAX_TRANSACTION_ID: int;
 
     /**
      * Queries a local interface with a specified descriptor.
@@ -3844,48 +3854,52 @@ declare namespace rpc {
      *
      * @type { int }
      * @default 4
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      * @since 20 static
      */
-    static PROT_EXEC: int;
+    static readonly PROT_EXEC: int;
 
     /**
      * The mapped memory is inaccessible.
      *
      * @type { int }
      * @default 0
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      * @since 20 static
      */
-    static PROT_NONE: int;
+    static readonly PROT_NONE: int;
 
     /**
      * The mapped memory is readable.
      *
      * @type { int }
      * @default 1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      * @since 20 static
      */
-    static PROT_READ: int;
+    static readonly PROT_READ: int;
 
     /**
      * The mapped memory is writable.
      *
      * @type { int }
      * @default 2
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      * @since 20 static
      */
-    static PROT_WRITE: int;
+    static readonly PROT_WRITE: int;
 
     /**
      * Creates an Ashmem object with the specified name and size.
