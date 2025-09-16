@@ -441,7 +441,7 @@ export declare class Scene {
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12
    */
-  readonly root: Node | null;
+  get root(): Node | null;
 
   /**
    * Get a node by path.

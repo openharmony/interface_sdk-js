@@ -407,7 +407,7 @@ export enum PrimitiveTopology {
 export declare class CustomGeometry extends GeometryDefinition {
   /**
    * How to form mesh triangles from the indexed vertices.
-   * 
+   *
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -416,26 +416,57 @@ export declare class CustomGeometry extends GeometryDefinition {
   topology?: PrimitiveTopology;
 
   /**
+   * How to form mesh triangles from the indexed vertices.
+   *
+   * @return { PrimitiveTopology | undefined }
+   * @default PrimitiveTopology.TRIANGLE_LIST
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  get topology(): PrimitiveTopology | undefined;
+
+  /**
+   * How to form mesh triangles from the indexed vertices.
+   *
+   * @param { PrimitiveTopology | undefined } value
+   * @default PrimitiveTopology.TRIANGLE_LIST
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  set topology(value: PrimitiveTopology | undefined);
+
+  /**
    * An array of vertices.
-   * 
-   * @type { Vec3[] }
+   *
+   * @return { Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  vertices: Vec3[];
+  get vertices(): Vec3[];
+
+  /**
+   * An array of vertices.
+   *
+   * @param { Vec3[] } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  set vertices(value: Vec3[]);
 
   /**
    * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
-   * 
+   *
    * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]    
+   *     indices = [0, 1, 2, 2, 1, 3]
    *     resulting triangles: abc, cbd
-   * 
+   *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
    *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
-   * 
+   *
    * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -444,8 +475,48 @@ export declare class CustomGeometry extends GeometryDefinition {
   indices?: int[];
 
   /**
+   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   *
+   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   *     topology = PrimitiveTopology.TRIANGLE_LIST
+   *     indices = [0, 1, 2, 2, 1, 3]
+   *     resulting triangles: abc, cbd
+   *
+   *     topology = PrimitiveTopology.TRIANGLE_STRIP
+   *     indices = [0, 1, 2, 3]
+   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *
+   * @return { int[] | undefined }
+   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  get indices(): int[] | undefined;
+
+  /**
+   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   *
+   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   *     topology = PrimitiveTopology.TRIANGLE_LIST
+   *     indices = [0, 1, 2, 2, 1, 3]
+   *     resulting triangles: abc, cbd
+   *
+   *     topology = PrimitiveTopology.TRIANGLE_STRIP
+   *     indices = [0, 1, 2, 3]
+   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *
+   * @param { int[] | undefined } value
+   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  set indices(value: int[] | undefined);
+
+  /**
    * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
-   * 
+   *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
@@ -453,8 +524,28 @@ export declare class CustomGeometry extends GeometryDefinition {
   normals?: Vec3[];
 
   /**
+   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   *
+   * @return { Vec3[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  get normals(): Vec3[] | undefined;
+
+  /**
+   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   *
+   * @param { Vec3[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  set normals(value: Vec3[] | undefined);
+
+  /**
    * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
-   * 
+   *
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
@@ -462,13 +553,53 @@ export declare class CustomGeometry extends GeometryDefinition {
   uvs?: Vec2[];
 
   /**
+   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   *
+   * @return { Vec2[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  get uvs(): Vec2[] | undefined;
+
+  /**
+   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   *
+   * @param { Vec2[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  set uvs(value: Vec2[] | undefined);
+
+  /**
    * Vertex color. If colors is not null, colors[N] is for vertices[N].
-   * 
+   *
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
   colors?: Color[];
+
+  /**
+   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   *
+   * @return { Color[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  get colors(): Color[] | undefined;
+
+  /**
+   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   *
+   * @param { Color[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20
+   * @arkts 1.2
+   */
+  set colors(value: Color[] | undefined);
 }
 
 /**
@@ -481,12 +612,21 @@ export declare class CustomGeometry extends GeometryDefinition {
 export declare class CubeGeometry extends GeometryDefinition {
   /**
    * The width, height and depth of the cube.
-   * 
-   * @type { Vec3 }
+   *
+   * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  size: Vec3;
+  get size(): Vec3;
+
+  /**
+   * The width, height and depth of the cube.
+   *
+   * @param { Vec3 } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  set size(value: Vec3);
 }
 
 /**
@@ -499,12 +639,21 @@ export declare class CubeGeometry extends GeometryDefinition {
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
    * The width and length of the plane.
-   * 
-   * @type { Vec2 }
+   *
+   * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  size: Vec2;
+  get size(): Vec2;
+
+  /**
+   * The width and length of the plane.
+   *
+   * @param { Vec2 } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  set size(value: Vec2);
 }
 
 /**
