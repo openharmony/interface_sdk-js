@@ -679,12 +679,12 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?(Record<string, RecordData> | ESObject) }
+     * @type { ?(Record<string, RecordData> | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @since 20 static
      */
-    data?: Record<string, RecordData> | ESObject;
+    data?: Record<string, RecordData> | ESValue;
   }
 
   /**
@@ -955,12 +955,12 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?(T | ESObject) }
+     * @type { ?(T | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @since 20 static
      */
-    data?: T | ESObject;
+    data?: T | ESValue;
   }
 }
 
