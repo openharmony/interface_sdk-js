@@ -6668,6 +6668,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -6684,6 +6685,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
   
@@ -6746,12 +6748,13 @@ declare namespace webview {
     /**
      * Gets the loading progress for the current page.
      *
-     * @returns { number } The loading progress for the current page.
+     * @returns { int } The loading progress for the current page.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
-    getProgress() : number;
+    getProgress() : int;
 
     /**
      * Sets the bottom avoidance height of the web visible viewport.
@@ -6854,6 +6857,7 @@ declare namespace webview {
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
       * @since 20
+      * @arkts 1.1&1.2
       */
     getErrorPageEnabled(): boolean;
   
@@ -6865,6 +6869,7 @@ declare namespace webview {
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
       * @since 20
+      * @arkts 1.1&1.2
       */
     setErrorPageEnabled(enable: boolean): void;
 
@@ -6878,6 +6883,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static enablePrivateNetworkAccess(enable: boolean): void;
 
@@ -6888,6 +6894,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isPrivateNetworkAccessEnabled(): boolean;
 
