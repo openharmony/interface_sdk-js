@@ -18,17 +18,9 @@
  * @kit ArkTS
  */
 
-/**
- * RecordData is used for input parameter obj of the equal function
- *
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+/*** if arkts static */
+import { RecordData } from '@ohos.base';
+/*** endif */
 
 /**
  * List is implemented based on the singly linked list. Each node has a reference pointing to the next element.
