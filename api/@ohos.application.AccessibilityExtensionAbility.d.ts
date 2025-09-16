@@ -28,10 +28,10 @@ import type {
   WindowType as _WindowType,
   Rect as _Rect,
 } from './application/AccessibilityExtensionContext';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type * as _AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
-/*** if arkts 1.2 */
+/*** if arkts static */
 import AccessibilityExtensionContext from './application/AccessibilityExtensionContext';
 /*** endif */
 import { AccessibilityEventType } from './@ohos.accessibility';
@@ -42,8 +42,8 @@ import { AccessibilityEventType } from './@ohos.accessibility';
  *
  * @typedef {_AccessibilityElement}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type AccessibilityElement = _AccessibilityElement;
 
@@ -52,8 +52,8 @@ export type AccessibilityElement = _AccessibilityElement;
  *
  * @typedef {_ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type ElementAttributeValues = _ElementAttributeValues;
 
@@ -62,8 +62,8 @@ export type ElementAttributeValues = _ElementAttributeValues;
  *
  * @typedef {_FocusDirection}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type FocusDirection = _FocusDirection;
 
@@ -72,8 +72,8 @@ export type FocusDirection = _FocusDirection;
  *
  * @typedef {keyof ElementAttributeValues}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type ElementAttributeKeys = keyof ElementAttributeValues;
 
@@ -82,8 +82,8 @@ export type ElementAttributeKeys = keyof ElementAttributeValues;
  *
  * @typedef {_FocusType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type FocusType = _FocusType;
 
@@ -92,8 +92,8 @@ export type FocusType = _FocusType;
  *
  * @typedef {_WindowType}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type WindowType = _WindowType;
 
@@ -102,8 +102,8 @@ export type WindowType = _WindowType;
  *
  * @typedef {_Rect}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'10', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 10 dynamic
+ * @since 20 static
  */
 export type Rect = _Rect;
 
@@ -112,7 +112,7 @@ export type Rect = _Rect;
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 export { Parameter } from './application/AccessibilityExtensionContext';
 
@@ -121,7 +121,7 @@ export { Parameter } from './application/AccessibilityExtensionContext';
  *
  * @typedef {_AccessibilityExtensionContext.default}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 10
+ * @since 10 dynamic
  */
 export type AccessibilityExtensionContext = _AccessibilityExtensionContext.default;
 
@@ -129,8 +129,7 @@ export type AccessibilityExtensionContext = _AccessibilityExtensionContext.defau
  * The accessibility extension context. Used to configure, query information, and inject gestures.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since 20
- * @arkts 1.2
+ * @since 20 static
  */
 export { AccessibilityExtensionContext };
 
@@ -138,8 +137,8 @@ export { AccessibilityExtensionContext };
  * class of accessibility extension ability.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class AccessibilityExtensionAbility {
   /**
@@ -147,8 +146,8 @@ declare class AccessibilityExtensionAbility {
    *
    * @type {AccessibilityExtensionContext}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   context: AccessibilityExtensionContext;
 
@@ -156,7 +155,7 @@ declare class AccessibilityExtensionAbility {
    * Called when extension ability is connected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   onConnect(): void;
@@ -165,7 +164,7 @@ declare class AccessibilityExtensionAbility {
    * Called when extension ability is disconnected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   onDisconnect(): void;
@@ -175,7 +174,7 @@ declare class AccessibilityExtensionAbility {
    *
    * @param { AccessibilityEvent } event Indicates an accessibility event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
@@ -186,7 +185,7 @@ declare class AccessibilityExtensionAbility {
    * @param { KeyEvent } keyEvent Indicates the physical key event.
    * @returns { boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
@@ -199,8 +198,7 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onAccessibilityConnect(): void;
 
@@ -212,8 +210,7 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   onAccessibilityDisconnect(): void;
 
@@ -226,7 +223,7 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   onAccessibilityEventInfo(event: AccessibilityEventInfo): void;
 
@@ -240,7 +237,7 @@ declare class AccessibilityExtensionAbility {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   onAccessibilityKeyEvent(keyEvent: KeyEvent): boolean;
 }
@@ -254,7 +251,7 @@ export default AccessibilityExtensionAbility;
  * @typedef AccessibilityEventInfo
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 export declare interface AccessibilityEventInfo {
   /**
@@ -263,7 +260,7 @@ export declare interface AccessibilityEventInfo {
    * @type { AccessibilityEventType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   eventType: AccessibilityEventType;
 
@@ -273,7 +270,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   target?: AccessibilityElement;
 
@@ -283,7 +280,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   timestamp?: long;
 
@@ -293,7 +290,7 @@ export declare interface AccessibilityEventInfo {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   extraInfo?: string;
 }
@@ -304,8 +301,8 @@ export declare interface AccessibilityEventInfo {
  *
  * @typedef AccessibilityEvent
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export declare interface AccessibilityEvent {
   /**
@@ -313,8 +310,8 @@ export declare interface AccessibilityEvent {
    *
    * @type { accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   eventType: accessibility.EventType | accessibility.WindowUpdateType | TouchGuideType | GestureType | PageUpdateType;
 
@@ -323,8 +320,8 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?AccessibilityElement }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   target?: AccessibilityElement;
 
@@ -333,8 +330,8 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   timeStamp?: long;
 
@@ -343,8 +340,8 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   elementId?: long;
 
@@ -353,8 +350,8 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   textAnnouncedForAccessibility?: string;
 
@@ -363,8 +360,7 @@ export declare interface AccessibilityEvent {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20
-   * @arkts 1.1&1.2
+   * @since 20 dynamic&static
    */
   extraInfo?: string;
 }
@@ -392,8 +388,8 @@ export declare interface AccessibilityEvent {
  * 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight' }
 * @typedef {'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' | 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' | 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' | 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' | 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' | 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' | 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight'}
 * @syscap SystemCapability.BarrierFree.Accessibility.Core
-* @since arkts {'1.1':'11', '1.2':'20'}
-* @arkts 1.1&1.2
+* @since 11 dynamic
+* @since 20 static
 */
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
   'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' |
@@ -411,8 +407,8 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' |
  *
  * @typedef {'pageContentUpdate' | 'pageStateUpdate'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
 
@@ -421,7 +417,7 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate';
  *
  * @typedef {'touchBegin' | 'touchEnd'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 type TouchGuideType = 'touchBegin' | 'touchEnd';
