@@ -20,7 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type constant from './@ohos.bluetooth.constant';
-import type common  from './@ohos.bluetooth.common';
+import type common from './@ohos.bluetooth.common';
 
 /**
  * Provides methods to operate or manage Bluetooth.
@@ -148,8 +148,8 @@ declare namespace connection {
    *
    * @typedef { common.BluetoothAddress } BluetoothAddress
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 21 dynamic
-   * @since 22 static
+   * @since 21
+   * @arkts 1.1&1.2
    */
   type BluetoothAddress = common.BluetoothAddress;
 
@@ -304,7 +304,7 @@ declare namespace connection {
    * Starts pairing with a remote Bluetooth device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates address of peer device.
+   * @param { BluetoothAddress } deviceId - Indicates address of peer device.
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -313,8 +313,8 @@ declare namespace connection {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @crossplatform
-   * @since 21 dynamic
-   * @since 22 static
+   * @since 21
+   * @arkts 1.1&1.2
    */
   function pairDevice(deviceId: BluetoothAddress): Promise<void>;
 

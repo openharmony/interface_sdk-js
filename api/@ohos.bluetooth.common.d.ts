@@ -24,8 +24,8 @@
  *
  * @namespace common
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 21 dynamic
- * @since 22 static
+ * @since 21
+ * @arkts 1.1&1.2
  */
 declare namespace common {
     /**
@@ -33,8 +33,8 @@ declare namespace common {
      *
      * @typedef BluetoothAddress
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 21
+     * @arkts 1.1&1.2
      */
     export interface BluetoothAddress {
       /**
@@ -42,8 +42,8 @@ declare namespace common {
        *
        * @type { string }
        * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 22 static
+       * @since 21
+       * @arkts 1.1&1.2
        */
       address: string;
       /**
@@ -51,8 +51,8 @@ declare namespace common {
        *
        * @type { BluetoothAddressType }
        * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 22 static
+       * @since 21
+       * @arkts 1.1&1.2
        */
       addressType: BluetoothAddressType;
     }
@@ -62,24 +62,24 @@ declare namespace common {
      *
      * @enum { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 21 dynamic
-     * @since 22 static
+     * @since 21
+     * @arkts 1.1&1.2
      */
     export enum BluetoothAddressType {
       /**
        * virtual address.
        *
        * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 22 static
+       * @since 21
+       * @arkts 1.1&1.2
        */
       VIRTUAL = 1,
       /**
        * real address.
        *
        * @syscap SystemCapability.Communication.Bluetooth.Core
-       * @since 21 dynamic
-       * @since 22 static
+       * @since 21
+       * @arkts 1.1&1.2
        */
       REAL = 2
     }
