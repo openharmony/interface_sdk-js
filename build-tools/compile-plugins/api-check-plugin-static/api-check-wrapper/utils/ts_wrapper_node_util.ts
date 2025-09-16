@@ -375,9 +375,6 @@ export function handleCallExpression(node: arkts.CallExpression) {
   if (!!node.arguments) {
     node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
   }
-  if (!!node.arguments) {
-    node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
-  }
 }
 
 export function handleCatchClause(node: arkts.CatchClause) {
@@ -525,9 +522,6 @@ export function handleDirectEvalExpression(node: arkts.DirectEvalExpression) {
   }
   if (!!node.arguments) {
     node.arguments.forEach((item: arkts.Expression) => handleAstNode(item));
-  }
-  if (!!node.params) {
-    node.params.forEach((item: arkts.TypeNode) => handleAstNode(item));
   }
 }
 
