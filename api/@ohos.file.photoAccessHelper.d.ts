@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Huawei Device Co., Ltd.
+ * Copyright (C) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -3336,6 +3336,16 @@ declare namespace photoAccessHelper {
    * @since arkts {'1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
+  /**
+   * Options for creating an image or video asset.
+   *
+   * @interface CreateOptions
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   interface CreateOptions {
     /**
      * Title of the asset
@@ -3351,6 +3361,16 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Title of the asset
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     title?: string;
@@ -5208,6 +5228,26 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
+    /**
+     * Creates an image or video asset with the specified file type, file name extension, and options.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { CreateOptions } options - Options for creating the image or video asset, for example, {title: 'testPhoto'}.
+     * @param { AsyncCallback<string> } callback - Callback used to return the URI of the created image or video asset.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback<string>): void;
     /**
      * Creates an image or video asset with the specified file type and file name extension.
@@ -5241,6 +5281,25 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Creates an image or video asset with the specified file type and file name extension.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { AsyncCallback<string> } callback - Callback used to return the URI of the created image or video asset.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback<string>): void;
@@ -5278,6 +5337,26 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since arkts {'1.1':'11','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Creates an image or video asset with the specified file type, file name extension, and options.
+     * This API uses a promise to return the result.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
+     * @param { string } extension - File name extension, for example, 'jpg'.
+     * @param { CreateOptions } [options] - Options for creating the image or video asset, for example, {title: 'testPhoto'}.
+     * @returns { Promise<string> } Returns the uri of the newly created asset
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000011 - System inner fail
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
