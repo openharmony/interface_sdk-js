@@ -6394,6 +6394,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @since 18
    */
   isRefreshed: boolean;
+
+  /**
+   * Whether is triggered by main frame.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  isMainFrame?: boolean;
 }
 
 /**
