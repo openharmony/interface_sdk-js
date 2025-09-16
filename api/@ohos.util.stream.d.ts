@@ -406,22 +406,9 @@ declare namespace stream {
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
+     * @since 20 static
      */
     constructor(options: ReadableOptions);
-
-    /**
-     * The Readable constructor.
-     *
-     * @param { ReadableOptions } options - Provide options.
-     * @syscap SystemCapability.Utils.Lang
-     * @since 20 static
-     */
-    constructor fromOptions(options: ReadableOptions);
-
-    /**
-     * @since 20 static
-     */
-    overload constructor { fromOptions };
 
     /**
      * Reads a buffer of a specified size from the buffer. If the available buffer is sufficient, the result
