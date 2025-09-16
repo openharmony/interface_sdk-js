@@ -257,7 +257,7 @@ export interface NotificationRequest {
   /**
    * Extended parameter.
    *
-   * @type { Record<string, Object> }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 dynamic
@@ -267,7 +267,7 @@ export interface NotificationRequest {
   /**
    * Extended parameter.
    *
-   * @type { Record<string, RecordData> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 static
