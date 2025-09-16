@@ -50,7 +50,7 @@ import type { NotificationCheckRequest as _NotificationCheckRequest } from './no
 import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 /*** if arkts static */
-import { AsyncCallback } from '@ohos.base';
+import { AsyncCallback, RecordData } from '@ohos.base';
 import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
 import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
 import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
@@ -4323,9 +4323,19 @@ declare namespace notificationManager {
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     extraInfos?: Record<string, Object>;
+
+    /**
+     * Additional information of the live view notification.
+     *
+     * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
+     * @type { ?Record<string, RecordData> }
+     * @syscap SystemCapability.Notification.Notification
+     * @systemapi
+     * @since 20 static
+     */
+    extraInfos?: Record<string, RecordData>;
   }
 
   /**

@@ -25,6 +25,7 @@ import { WantAgent } from '../@ohos.wantAgent';
 /*** endif */
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -68,11 +69,11 @@ export interface NotificationActionButton {
   /**
    * Extra information of the button.
    *
-   * @type { ?object }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 20 static
    */
-    extras?: Record<string, Object>;
+  extras?: Record<string, RecordData>;
 
   /**
    * User input object. ID entered by a subscriber.
