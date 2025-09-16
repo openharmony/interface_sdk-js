@@ -32206,6 +32206,29 @@ declare interface LightSource {
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
+ * Defines the callback type used in mutableBuilder.
+ *
+ * @typedef { function } BuilderCallback
+ * @param { Args } args - The parameter of MutableBuilder.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
+ */
+declare type BuilderCallback = (...args: Args) => void
+
+/**
+ * Defining mutableBuilder function.
+ * @param { BuilderCallback } builder
+ * @returns { MutableBuilder<Args> }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
+ */
+declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
+
+/**
  * The WrappedBuilder object is also a template class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
@@ -32252,6 +32275,16 @@ declare class WrappedBuilder<Args extends Object[]> {
   constructor(builder: (...args: Args) => void);
 }
 
+/**
+ * Defines the MutableBuilder class.
+ * @extends WrappedBuilder<Args>
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamiconly
+ */
+declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {
+}
 
 /**
  * Defines the overall animation parameters of the keyframe animation.
