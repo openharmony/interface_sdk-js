@@ -23,8 +23,8 @@ const deleteApiSet = new Set();
 const importNameSet = new Set();
 const ARKTS_FLAG = 'use static';
 
-// 处理的目录类型，ets代表处理的是1.1目录，ets2代表处理的是1.2目录里有@arkts 1.1&1.2标签的文件，
-// noTagInEts2代表处理的是1.2目录里无标签的文件
+// 处理的目录类型，ets代表处理的是不支持ArkTs静态类型目录，ets2代表处理的是支持ArkTs静态类型目录，
+// noTagInEts2代表处理的是支持ArkTs静态类型目录里无标签static的文件
 const DirType = {
   'typeOne': 'ets',
   'typeTwo': 'ets2',
@@ -55,7 +55,7 @@ function isStaticFile(path) {
 }
 
 function hasEtsFile(path) {
-  // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
+  // 为StateManagement.d.ts设定白名单，在ArkTs静态类型打包的时候在Linux上有大小写不同的重名，碰到直接返回true
   if (path.includes('StateManagement.d.ts')) {
     console.log('StateManagement.d.ts is in white list, return true. path = ', path);
     return true;
@@ -69,7 +69,7 @@ function hasTsFile(path) {
 }
 
 function hasStaticFile(path) {
-  // 为StateManagement.d.ts设定白名单，在1.2打包的时候在Linux上有大小写不同的重名，碰到直接返回true
+  // 为StateManagement.d.ts设定白名单，在ArkTs静态类型打包的时候在Linux上有大小写不同的重名，碰到直接返回true
   if (path.includes('StateManagement.d.ts')) {
     console.log('StateManagement.d.ts is in white list, return true. path = ', path);
     return true;
@@ -227,7 +227,7 @@ function isHandleFullPath(fullPath, apiRelativePath, type) {
 }
 
 /**
- * 处理文件过滤 if arkts 1.1|1.2|1.1&1.2 定义
+ * 处理文件过滤 if arkts dynamic|static|dynamic&static 定义
  * 
  * @param {*} type 
  * @param {*} fileContent 
@@ -287,18 +287,18 @@ function saveLatestJsDoc(fileContent) {
 function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
   const outputPath = output ? path.join(output, apiRelativePath) : fullPath;
   let fileContent = fs.readFileSync(fullPath, 'utf-8');
-  //删除使用/*** if arkts 1.2 */
+  //删除使用/*** if arkts static */
   fileContent = handleArktsDefinition(type, fileContent);
 
   const sourceFile = ts.createSourceFile(path.basename(apiRelativePath), fileContent, ts.ScriptTarget.ES2017, true);
   const secondRegx = /(?:\*\s(@arkts\s1.2|@arkts\sstatic)\s*(\r|\n)\s*)/;
   const thirdRegx = /(?:\*\s(@arkts\s1\.1&1\.2|@arkts\sdynamic&static)\s*(\r|\n)\s*)/;
   if (sourceFile.statements.length === 0) {
-    // reference文件识别不到首段jsdoc，全文匹配1.2标签，有的话直接删除
+    // reference文件识别不到首段jsdoc，全文匹配static标签，有的话直接删除
     if (secondRegx.test(sourceFile.getFullText())) {
       return;
     }
-    // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
+    // 标有dynamic&static的声明文件，处理since版本号，删除dynamic&static标签
     if (thirdRegx.test(sourceFile.getFullText())) {
       fileContent = handleSinceInFirstType(deleteArktsTag(fileContent));
       writeFile(outputPath, fileContent);
@@ -314,11 +314,11 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
 
   if (firstNode) {
     const firstJsdocText = getFileJsdoc(firstNode);
-    // 标有1.2标签的声明文件，不拷贝
+    // 标有static标签的声明文件，不拷贝
     if (secondRegx.test(firstJsdocText)) {
       return;
     }
-    // 标有@arkts 1.1&1.2的声明文件，处理since版本号，删除@arkts 1.1&1.2标签
+    // 标有dynamic&static的声明文件，处理since版本号，删除dynamic&static标签
     if (thirdRegx.test(firstJsdocText)) {
       fileContent = handleSinceInFirstType(deleteArktsTag(fileContent));
       writeFile(outputPath, fileContent);
@@ -330,7 +330,7 @@ function handleFileInFirstType(apiRelativePath, fullPath, type, output) {
 }
 
 /**
- * 处理1.1目录中无arkts标签的文件
+ * 处理dynamic目录中无arkts标签的文件
  * @param {*} sourceFile 
  * @param {*} outputPath 
  * @returns 
@@ -381,7 +381,7 @@ function deleteArktsTag(fileContent) {
 }
 
 /**
- * 删除1.2未支持标签
+ * 删除Arkts静态类型未支持标签
  * 
  * @param {*} fileContent 文件内容
  * @param {*} regx 删除的正则表达式
@@ -396,7 +396,7 @@ function deleteUnsportedTag(fileContent) {
 }
 
 /**
- * 生成1.1目录里文件时，需要去掉since标签里的1.2版本号
+ * 生成dynamic目录里文件时，需要去掉since标签里的static版本号
  * 
  * @param {*} sourceFile 
  * @param {*} fullPath 
@@ -412,7 +412,7 @@ function handleSinceInFirstType(fileContent) {
 }
 
 /**
- * 处理ets2目录
+ * 处理static目录
  * 
  * @param {string} fullPath 文件完整路径
  * @returns 
@@ -428,25 +428,25 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     saveApiByArktsDefinition(sourceFile, fileContent, outputPath);
     return;
   }
-  //删除使用/*** if arkts 1.2 */
+  //删除使用/*** if arkts static */
   fileContent = handleArktsDefinition(type, fileContent);
   sourceFile = ts.createSourceFile(path.basename(fullPath), fileContent, ts.ScriptTarget.ES2017, true);
   const regx = /(?:\*\s(@arkts\s1\.1|@since\s\S\sdynamic)\s*(\r|\n)\s*)/;
 
   if (sourceFile.statements.length === 0) {
-    // 有1.2标签的文件，删除标记
+    // 有static标签的文件，删除标记
     if (secondRegx.test(sourceFile.getFullText())) {
       let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
       newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
-    // 处理标有@arkts 1.1&1.2的声明文件
+    // 处理标有dynamic&static的声明文件
     if (thirdRegx.test(sourceFile.getFullText())) {
       handlehasTagFile(sourceFile, outputPath);
       return;
     }
-    // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
+    // 处理既没有static，也没有dynamic&static的声明文件
     handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
     return;
   }
@@ -460,21 +460,21 @@ function handleFileInSecondType(apiRelativePath, fullPath, type, output) {
     if (regx.test(firstJsdocText)) {
       return;
     }
-    // 有1.2标签的文件，删除标记
+    // 有static标签的文件，删除标记
     if (secondRegx.test(firstJsdocText)) {
       let newFileContent = getFileContent(deleteUnsportedTag(fileContent), fullPath);
       newFileContent = addStaticString(newFileContent);
       writeFile(outputPath, deleteArktsTag(newFileContent));
       return;
     }
-    // 处理标有@arkts 1.1&1.2的声明文件
+    // 处理标有dynamic&static的声明文件
     if (thirdRegx.test(firstJsdocText)) {
       handlehasTagFile(sourceFile, outputPath);
       return;
     }
   }
 
-  // 处理既没有@arkts 1.2，也没有@arkts 1.1&1.2的声明文件
+  // 处理既没有static，也没有dynamic&static的声明文件
   handleNoTagFileInSecondType(sourceFile, outputPath, fullPath);
 }
 
@@ -498,7 +498,7 @@ function getFileJsdoc(firstNode) {
 }
 
 /**
- * 处理有@arkts 1.1&1.2标签的文件
+ * 处理有dynamic&static标签的文件
  * @param {*} outputPath 
  */
 function handlehasTagFile(sourceFile, outputPath) {
@@ -515,7 +515,7 @@ function handlehasTagFile(sourceFile, outputPath) {
 }
 
 /**
- * 处理1.2目录中无arkts标签的文件
+ * 处理static目录中动静态标签的文件
  * @param {*} sourceFile 
  * @param {*} outputPath 
  * @returns 
@@ -525,7 +525,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   const arktsTagRegx = /\*\s*(@arkts\s(1.1&)?1.2|@since\s\S*\s(staticonly|(dynamic&)?static))\s*(\r|\n)\s*/g;
   const fileContent = sourceFile.getFullText();
   let newContent = '';
-  // API未标@arkts 1.2或@arkts 1.1&1.2标签，删除文件
+  // API未标static或dynamic&static标签，删除文件
   if (!arktsTagRegx.test(fileContent)) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
       newContent = saveLatestJsDoc(fileContent);
@@ -607,7 +607,7 @@ function processStructDeclaration(node) {
 }
 
 /**
- * 没有arkts标签，但有if arkts 1.2和1.1&1.2的情况
+ * 没有动静态标签，但有if arkts static和dynamic&static的情况
  * @param {*} sourceFile 
  * @param {*} fileContent 
  * @param {*} outputPath 
@@ -957,7 +957,7 @@ function judgeIsDeleteApi(node) {
 }
 
 /**
- * 生成1.2目录里文件时，需要去掉since标签里的dynamic版本号
+ * 生成static目录里文件时，需要去掉since标签里的dynamic版本号
  * 
  * @param {*} fileContent 
  * @returns 
