@@ -23,84 +23,47 @@ import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import Want from './@ohos.app.ability.Want';
 import window from './@ohos.window';
 import UIAbilityContext from './application/UIAbilityContext';
-/*** if arkts 1.1 */
 import rpc from './@ohos.rpc';
-/*** endif */
-
-/**
- * The prototype of the listener function interface registered by the Caller.
- *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-export interface OnReleaseCallback {
-/**
- * Defines the callback that is invoked when the stub on the target UIAbility is disconnected.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (msg: string): void;
-}
 
 /**
  * The prototype of the listener function interface registered by the Caller.
  * Defines the callback of OnRelease.
  *
- * @typedef OnReleaseCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @typedef { function } OnReleaseCallback
  * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 20
- * @arkts 1.2
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export type OnReleaseCallback = (msg: string)=> void;
-
+export type OnReleaseCallback = (msg: string) => void;
 
 /**
  * The prototype of the listener function interface registered by the Caller.
+ * Defines the callback of OnRemoteStateChange.
  *
- * @typedef OnRemoteStateChangeCallback
+ * @typedef { function } OnRemoteStateChangeCallback
+ * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 10
+ * @since arkts {'1.1':'10', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export interface OnRemoteStateChangeCallback {
-/**
- * Defines the callback that is invoked when the remote UIAbility state changes in the collaboration scenario.
- *
- * @param { string } msg - Message used for disconnection.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 10
- */
-  (msg: string): void;
-}
+export type OnRemoteStateChangeCallback = (msg: string) => void;
 
 /**
  * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of Callee.
  *
- * @typedef CalleeCallback
+ * @typedef { function } CalleeCallback
+ * @param { rpc.MessageSequence } indata - Notification indata to the callee.
+ * @returns { rpc.Parcelable } Returns the callee's notification result indata.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
-export interface CalleeCallback {
-/**
- * Defines the callback of the registration message notification of the UIAbility.
- *
- * @param { rpc.MessageSequence } indata - Data to be transferred.
- * @returns { rpc.Parcelable } Returned data object.
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @since 9
- */
-  (indata: rpc.MessageSequence): rpc.Parcelable;
-}
+export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
 /**
  * Implements sending of parcelable data to the target UIAbility when the CallerAbility invokes the target UIAbility (CalleeAbility).
@@ -126,7 +89,8 @@ export interface Caller {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
@@ -145,7 +109,8 @@ export interface Caller {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
@@ -156,7 +121,8 @@ export interface Caller {
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(): void;
 
@@ -185,7 +151,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
@@ -200,7 +167,8 @@ export interface Caller {
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -214,7 +182,8 @@ export interface Caller {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'release', callback: OnReleaseCallback): void;
 
@@ -227,7 +196,8 @@ export interface Caller {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'release'): void;
 }
@@ -238,7 +208,8 @@ export interface Caller {
  * @interface Callee
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface Callee {
   /**
@@ -253,7 +224,8 @@ export interface Callee {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(method: string, callback: CalleeCallback): void;
 
@@ -267,7 +239,8 @@ export interface Callee {
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(method: string): void;
 }

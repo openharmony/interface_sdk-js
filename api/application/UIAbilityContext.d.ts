@@ -1299,7 +1299,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityByCall(want: Want): Promise<Caller>;
 
