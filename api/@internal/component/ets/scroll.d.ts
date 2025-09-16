@@ -1684,6 +1684,20 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
   scrollBarColor(color: Color | number | string): ScrollAttribute;
 
   /**
+   * Sets the scrollbar color.
+   *
+   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+   * <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+   * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @returns { ScrollAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  scrollBarColor(color: Color | number | string | Resource): ScrollAttribute;
+
+  /**
    * Called when the width of the scroll bar is set.
    *
    * @param { number | string } value

@@ -31358,6 +31358,21 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string): T;
 
   /**
+   * Sets the scrollbar color.
+   *
+   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
+
+   * <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+   * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  scrollBarColor(color: Color | number | string | Resource): T;
+
+  /**
    * Sets the scrollbar width.
    *
    * @param { number | string } value  - Scrollbar width.<br>Default value: <em>4</em>
