@@ -99,6 +99,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DATE_FORMAT: string
 
@@ -124,6 +125,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AUTO_GAIN_TIME: string
 
@@ -136,6 +138,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AUTO_GAIN_TIME_ZONE: string
   }
@@ -223,6 +226,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_SCREEN_ROTATION: string
 
@@ -235,6 +239,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const ANIMATOR_DURATION_SCALE: string
 
@@ -245,6 +250,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const TRANSITION_ANIMATION_SCALE: string
 
@@ -255,6 +261,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WINDOW_ANIMATION_SCALE: string
 
@@ -267,6 +274,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DISPLAY_INVERSION_STATUS: string
   }
@@ -289,6 +297,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const SETUP_WIZARD_FINISHED: string
 
@@ -306,6 +315,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const END_BUTTON_ACTION: string
 
@@ -330,6 +340,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AIRPLANE_MODE_STATUS: string
 
@@ -342,6 +353,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEVICE_PROVISION_STATUS: string
 
@@ -353,6 +365,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const HDC_STATUS: string
 
@@ -362,6 +375,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const BOOT_COUNTING: string
 
@@ -374,6 +388,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const CONTACT_METADATA_SYNC_STATUS: string
 
@@ -386,6 +401,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEVELOPMENT_SETTINGS_STATUS: string
 
@@ -407,6 +423,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const USB_STORAGE_STATUS: string
 
@@ -419,6 +436,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEBUGGER_WAITING: string
 
@@ -428,6 +446,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEBUG_APP_PACKAGE: string
 
@@ -440,6 +459,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const ACCESSIBILITY_STATUS: string
 
@@ -449,6 +469,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const ACTIVATED_ACCESSIBILITY_SERVICES: string
 
@@ -459,6 +480,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const GEOLOCATION_ORIGINS_ALLOWED: string
 
@@ -472,6 +494,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const SKIP_USE_HINTS: string
 
@@ -484,6 +507,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const TOUCH_EXPLORATION_STATUS: string
   }
@@ -503,6 +527,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_INPUT_METHOD: string
 
@@ -526,6 +551,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const ACTIVATED_INPUT_METHODS: string
 
@@ -538,6 +564,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const SELECTOR_VISIBILITY_FOR_INPUT_METHOD: string
 
@@ -550,6 +577,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AUTO_CAPS_TEXT_INPUT: string
 
@@ -563,6 +591,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AUTO_PUNCTUATE_TEXT_INPUT: string
 
@@ -575,6 +604,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AUTO_REPLACE_TEXT_INPUT: string
 
@@ -588,6 +618,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const SHOW_PASSWORD_TEXT_INPUT: string
   }
@@ -610,6 +641,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DATA_ROAMING_STATUS: string
 
@@ -620,6 +652,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const HTTP_PROXY_CFG: string
 
@@ -629,6 +662,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const NETWORK_PREFERENCE_USAGE: string
   }
@@ -649,6 +683,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const RTT_CALLING_STATUS: string
   }
@@ -672,6 +707,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const VIBRATE_WHILE_RINGING: string
 
@@ -683,6 +719,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_ALARM_ALERT: string
 
@@ -695,6 +732,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DTMF_TONE_TYPE_WHILE_DIALING: string
 
@@ -707,6 +745,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DTMF_TONE_WHILE_DIALING: string
 
@@ -719,6 +758,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AFFECTED_MODE_RINGER_STREAMS: string
 
@@ -730,6 +770,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AFFECTED_MUTE_STREAMS: string
 
@@ -741,6 +782,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_NOTIFICATION_SOUND: string
 
@@ -752,6 +794,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_RINGTONE: string
 
@@ -764,6 +807,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const SOUND_EFFECTS_STATUS: string
 
@@ -776,6 +820,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const VIBRATE_STATUS: string
 
@@ -787,6 +832,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const HAPTIC_FEEDBACK_STATUS: string
   }
@@ -808,6 +854,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_TTS_PITCH: string
 
@@ -817,6 +864,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_TTS_RATE: string
 
@@ -826,6 +874,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const DEFAULT_TTS_SYNTH: string
 
@@ -836,6 +885,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const ENABLED_TTS_PLUGINS: string
   }
@@ -859,6 +909,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const BLUETOOTH_DISCOVER_ABILITY_STATUS: string
 
@@ -870,6 +921,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const BLUETOOTH_DISCOVER_TIMEOUT: string
 
@@ -887,6 +939,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const AIRPLANE_MODE_RADIOS: string
 
@@ -898,6 +951,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const BLUETOOTH_STATUS: string
 
@@ -907,6 +961,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const BLUETOOTH_RADIO: string
 
@@ -916,6 +971,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const CELL_RADIO: string
 
@@ -925,6 +981,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const NFC_RADIO: string
 
@@ -934,6 +991,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WIFI_RADIO: string
 
@@ -947,6 +1005,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const OWNER_LOCKDOWN_WIFI_CFG: string
 
@@ -956,6 +1015,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WIFI_DHCP_MAX_RETRY_COUNT: string
 
@@ -966,6 +1026,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WIFI_TO_MOBILE_DATA_AWAKE_TIMEOUT: string
 
@@ -977,6 +1038,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WIFI_STATUS: string
 
@@ -989,6 +1051,7 @@ declare namespace settings {
      * @constant
      * @syscap SystemCapability.Applications.Settings.Core
      * @since 7
+     * @deprecated since 21
      */
     const WIFI_WATCHDOG_STATUS: string
   }
