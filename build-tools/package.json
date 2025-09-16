@@ -5,7 +5,7 @@
   "main": "delete_systemapi_plugin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd arkui_transformer && npm install"
+    "postinstall": "cd arkui_transformer && npm install && cd ../compile-plugins/api-check-plugin-static && npm install"
   },
   "author": "",
   "license": "ISC",
