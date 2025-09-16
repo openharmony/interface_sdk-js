@@ -12109,7 +12109,7 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 20 static
+     * @since 22 static
      */
     offWindowStageLifecycleEvent(callback?: Callback<WindowStageLifecycleEventType>): void;
 
