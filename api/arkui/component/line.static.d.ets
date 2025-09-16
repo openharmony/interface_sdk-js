@@ -65,6 +65,7 @@ export interface LineOptions {
  * @interface LineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface LineAttribute extends CommonShapeMethod {
     /**
@@ -104,6 +105,7 @@ export declare interface LineAttribute extends CommonShapeMethod {
  * @returns { LineAttribute } The attribute of the Line.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

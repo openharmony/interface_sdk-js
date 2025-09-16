@@ -53,6 +53,7 @@ export declare interface PolygonOptions {
  * @interface PolygonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface PolygonAttribute extends CommonShapeMethod {
     /**
@@ -83,6 +84,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
  * @returns { PolygonAttribute } The attribute of the Polygon.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
