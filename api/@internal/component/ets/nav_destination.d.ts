@@ -595,6 +595,17 @@ declare interface NavDestinationContext {
   navDestinationId?: string;
 
   /**
+   * The mode of NavDestination.
+   *
+   * @type { ?NavDestinationMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  mode?: NavDestinationMode;
+
+  /**
    * Get configuration of current Destination in module.json
    * 
    * @returns {RouteMapConfig | undefined} - Route map configuration of the current page.
