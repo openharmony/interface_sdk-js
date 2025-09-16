@@ -3671,8 +3671,8 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 12 dynamic
-   * @since 20 static
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function shiftAppWindowFocus(sourceWindowId: int, targetWindowId: int): Promise<void>;
 
@@ -7830,8 +7830,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15 dynamic
-     * @since 20 static
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'windowHighlightChange', callback: Callback<boolean>): void;
 
@@ -7848,8 +7848,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15 dynamic
-     * @since 20 static
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'windowHighlightChange', callback?: Callback<boolean>): void;
   
@@ -8515,8 +8515,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowFocusable(isFocusable: boolean): Promise<void>;
 
@@ -8543,8 +8543,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12 dynamic
-     * @since 20 static
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     setWindowFocusable(isFocusable: boolean, callback: AsyncCallback<void>): void;
 
