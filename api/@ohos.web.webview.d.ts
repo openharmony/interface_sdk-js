@@ -3686,7 +3686,29 @@ declare namespace webview {
      */
     ERR_SIGNIFICANT_CHANGE = -5
   }
+
+  /**
+  * Indicates the keyboard behavior mode of the web component, default value is DEFAULT.
+  * @enum {int}
+  * @syscap SystemCapability.Web.Webview.Core
+  * @since 22 dynamic&static
+  */
+   enum WebSoftKeyboardBehaviorMode {
+    /**
+     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22  dynamic&static
+     */
+    DEFAULT = 0,
  
+    /**
+     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic&static
+     */
+    DISABLE_AUTO_KEYBOARD_ON_ACTIVE = 1
+  }
+
   /**
    * Defines the blankless information.
    *
@@ -6964,6 +6986,18 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static setSocketIdleTimeout(timeout: int): void;
+    
+    /**
+     * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
+     * in particular situation, for example, when web is inactive or active.
+     * 
+     * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic&static
+     */
+    setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
   }
 
   /**

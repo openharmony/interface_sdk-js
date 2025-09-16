@@ -7299,7 +7299,15 @@ declare enum WebKeyboardAvoidMode {
    * @atomicservice
    * @since 12
    */
-  OVERLAYS_CONTENT = 2
+  OVERLAYS_CONTENT = 2,
+
+  /**
+   * When the soft keyboard avoid, follow the avoid result of UIContext.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  RETURN_TO_UICONTEXT = 3
 }
 
 /**
