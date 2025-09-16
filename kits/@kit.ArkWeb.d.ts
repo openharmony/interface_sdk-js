@@ -21,6 +21,11 @@
 import { WebNetErrorList } from '@ohos.web.netErrorList';
 export { WebNetErrorList };
 
+import WebNativeMessagingExtensionAbility, { ConnectionInfo } from '@ohos.web.WebNativeMessagingExtensionAbility';
+import webNativeMessagingExtensionManager from '@ohos.web.webNativeMessagingExtensionManager';
+
+export { WebNativeMessagingExtensionAbility, webNativeMessagingExtensionManager, ConnectionInfo};
+
 /*** if arkts 1.1&1.2 */
 import webview from '@ohos.web.webview';
 
