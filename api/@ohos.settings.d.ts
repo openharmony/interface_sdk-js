@@ -1051,8 +1051,7 @@ declare namespace settings {
   /**
    * Get value from settingsdata
    *
-   * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
-   * the database.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { AsyncCallback<string> } [callback] - The callback of getValue result.
    * @syscap SystemCapability.Applications.Settings.Core
@@ -1063,8 +1062,7 @@ declare namespace settings {
 
   /**
    * Get value from settingsdata
-   * @param { Context } context - Indicates the Context or dataAbilityHelper used to access
-   * the database.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
    * null} otherwise.
@@ -1078,7 +1076,7 @@ declare namespace settings {
    * Get value from settingsdata
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @param { Context } context - Indicates the Context used to access the database.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { Promise<string> } Returns the value of the character string in the domain if any is found; returns {@code
@@ -1127,7 +1125,7 @@ declare namespace settings {
    * Set settingsdata value.
    *
    * @permission ohos.permission.MANAGE_SETTINGS
-   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @param { AsyncCallback<boolean> } [callback] - The callback of setValue result.
@@ -1141,7 +1139,7 @@ declare namespace settings {
    * Set settingsdata value.
    *
    * @permission ohos.permission.MANAGE_SETTINGS
-   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @returns { Promise<boolean> } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
@@ -1157,7 +1155,7 @@ declare namespace settings {
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS or ohos.permission.MANAGE_SETTINGS
-   * @param { Context } context - Indicates Context instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
@@ -1238,7 +1236,7 @@ declare namespace settings {
   /**
    * Get value from settingsdata(synchronous method)
    *
-   * @param { Context } context - Indicates Context or dataAbilityHelper instance
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @returns { string } Returns settingsdata value.
@@ -1252,7 +1250,7 @@ declare namespace settings {
    * Get value from settingsdata(synchronous method).
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @param { Context } context - Indicates Context instance
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } defValue - Indicates the default value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
@@ -1283,7 +1281,7 @@ declare namespace settings {
    * Set settingsdata value(synchronous method)
    *
    * @permission ohos.permission.MANAGE_SETTINGS
-   * @param { Context } context - Indicates Context or dataAbilityHelper instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
@@ -1299,7 +1297,7 @@ declare namespace settings {
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS or ohos.permission.MANAGE_SETTINGS
-   * @param { Context } context - Indicates Context instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } value - Indicates the value of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
@@ -1315,7 +1313,7 @@ declare namespace settings {
    * Monitor registration key(synchronous method)
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @param { Context } context - Indicates Context instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @param { AsyncCallback<void> } observer - callback when monitored key value is changed.
@@ -1330,7 +1328,7 @@ declare namespace settings {
    * Monitor unregister key(synchronous method)
    * [USER_SECURE] domain need ohos.permission.MANAGE_SECURE_SETTINGS permission.
    *
-   * @param { Context } context - Indicates Context instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @param { string } name - Indicates the name of the character string.
    * @param { string } domainName - Indicates the name of the domain name to set.
    * @returns { boolean } Returns {@code true} if the operation is successful; returns {@code false} otherwise.
@@ -1343,7 +1341,7 @@ declare namespace settings {
   /**
    * Open the network manager settings page.
    *
-   * @param { Context } context - Indicates Context instance.
+   * @param { Context } context - Application context. Only UIAbilityContext and ExtensionContext are supported.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 14800000 - Parameter error.
    * @throws { BusinessError } 14800010 - Original service error.
