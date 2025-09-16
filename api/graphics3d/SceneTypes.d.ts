@@ -517,22 +517,41 @@ export declare class PlaneGeometry extends GeometryDefinition {
 export declare class SphereGeometry extends GeometryDefinition {
   /**
    * The radius of the sphere.
-   * 
-   * @type { double }
+   *
+   * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  radius: double;
+  get radius(): double;
+
+  /**
+   * The radius of the sphere.
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  set radius(value: double);
 
   /**
    * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
-   * 
-   * @type { int }
+   *
+   * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18
    */
-  segmentCount: int;
+  get segmentCount(): int;
+
+  /**
+   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
+   *
+   * @param { int } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18
+   */
+  set segmentCount(value: int);
 }
+
 /**
  * 3D position information.
  *
