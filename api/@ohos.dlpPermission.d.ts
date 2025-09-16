@@ -1132,6 +1132,14 @@ declare namespace dlpPermission {
      * @since 21
      */
     fileId?: string;
+
+    /**
+     * Defines the number of times the DLP file can be opened.
+     * @type { ?number }
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 21
+     */
+    allowedOpenCount?: number;
   }
 
   /**
