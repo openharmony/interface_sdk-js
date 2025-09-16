@@ -5018,6 +5018,14 @@ declare interface WebOptions {
    * @arkts 1.1&1.2
    */
   sharedRenderProcessToken? : string;
+
+  /**
+   * Sets whether mouse event will be transferred to touch event.
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   */
+  emulateTouchFromMouseEvent? : boolean;
 }
 
 /**
