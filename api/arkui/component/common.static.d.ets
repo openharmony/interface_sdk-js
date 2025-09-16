@@ -11216,6 +11216,7 @@ export type FractionStop = [
  * @interface CommonShapeMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface CommonShapeMethod extends CommonMethod {
     /**

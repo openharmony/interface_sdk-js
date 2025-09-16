@@ -52,6 +52,7 @@ export declare interface CircleOptions {
  * @interface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface CircleAttribute extends CommonShapeMethod {
     /**
@@ -73,6 +74,7 @@ export declare interface CircleAttribute extends CommonShapeMethod {
  * @returns { CircleAttribute } The attribute of the Circle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder
