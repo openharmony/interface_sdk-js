@@ -21,7 +21,12 @@
 
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
+/*** if arkts dynamic */
 import { AvoidAreaInfo } from './@ohos.arkui.uiExtension';
+/*** endif */
+/*** if arkts static */
+import { AvoidAreaInfo } from '@ohos.arkui.uiExtension';
+/*** endif */
 /**
  * uiExtensionHost.
  *
