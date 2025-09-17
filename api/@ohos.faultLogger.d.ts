@@ -38,6 +38,7 @@ declare namespace FaultLogger {
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 8
    * @deprecated since 18
+   * @useinstead ohos.hiviewdfx.hiAppEvent/hiAppEvent.event
    */
   enum FaultType {
     /**
@@ -102,6 +103,7 @@ declare namespace FaultLogger {
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    * @deprecated since 18
+   * @useinstead ohos.hiviewdfx.hiAppEvent/hiAppEvent#addWatcher
    */
   function query(faultType: FaultType, callback: AsyncCallback<Array<FaultLogInfo>>): void;
 
@@ -115,6 +117,7 @@ declare namespace FaultLogger {
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9
    * @deprecated since 18
+   * @useinstead ohos.hiviewdfx.hiAppEvent/hiAppEvent#addWatcher
    */
   function query(faultType: FaultType): Promise<Array<FaultLogInfo>>;
 
