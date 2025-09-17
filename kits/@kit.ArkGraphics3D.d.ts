@@ -18,7 +18,7 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
   GeometryType, GeometryDefinition, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
@@ -40,7 +40,7 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext };
 /*** endif */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { ToneMappingType, ToneMappingSettings, PostProcessSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3,
   SceneResource, Animation, EnvironmentBackgroundType, Environment,

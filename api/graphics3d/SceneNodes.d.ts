@@ -18,10 +18,10 @@
  * @kit ArkGraphics3D
  */
 
-/*** if arkts 1.2 */
-import { SceneResource } from './SceneResources';
+/*** if arkts static */
+import { Resource } from '../global/resource';
 /*** endif */
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
 /*** endif */
@@ -29,11 +29,20 @@ import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
 
 /**
+ * Defines the string which can use resource.
+ *
+ * @typedef { string | Resource } ResourceStr
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 20 static
+ */
+declare type ResourceStr = string | Resource;
+
+/**
  * Defines the layer mask of the node.
  *
  * @interface LayerMask
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export interface LayerMask {
   /**
@@ -42,7 +51,7 @@ export interface LayerMask {
    * @param { int } index - the layer mask
    * @returns { boolean } whether layer mask is enabled 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   getEnabled(index: int): boolean;
 
@@ -52,7 +61,7 @@ export interface LayerMask {
    * @param { int } index - the layer mask
    * @param { boolean } enabled - whether layer mask is enabled
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   setEnabled(index: int, enabled: boolean): void;
 }
@@ -62,16 +71,16 @@ export interface LayerMask {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export enum NodeType {
   /**
    * The node is an empty node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   NODE = 1,
 
@@ -79,8 +88,8 @@ export enum NodeType {
    * The node is a geometry node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   GEOMETRY = 2,
 
@@ -88,8 +97,8 @@ export enum NodeType {
    * The node is a camera node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   CAMERA = 3,
 
@@ -97,8 +106,8 @@ export enum NodeType {
    * The node is a light node.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   LIGHT = 4
 }
@@ -108,7 +117,7 @@ export enum NodeType {
  *
  * @interface Container
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export interface Container<T> {
   /**
@@ -116,7 +125,7 @@ export interface Container<T> {
    *
    * @param { T } item - the item append to the end of container
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   append(item: T): void;
 
@@ -126,7 +135,7 @@ export interface Container<T> {
    * @param { T } item - the item insert to the container
    * @param { T | null } sibling - insert after this item, insert to the head if sibling is null
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   insertAfter(item: T, sibling: T | null): void;
 
@@ -135,7 +144,7 @@ export interface Container<T> {
    *
    * @param { T } item - the item to be removed
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   remove(item: T): void;
 
@@ -145,7 +154,7 @@ export interface Container<T> {
    * @param { int } index - the index of the child to return
    * @returns { T | null } return the item specified by the index
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   get(index: int): T | null;
 
@@ -153,7 +162,7 @@ export interface Container<T> {
    * Clear all children.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   clear(): void;
 
@@ -162,7 +171,7 @@ export interface Container<T> {
    *
    * @returns { int } the number of the container
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   count(): int;
 }
@@ -173,8 +182,8 @@ export interface Container<T> {
  * @extends SceneResource
  * @interface Node
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Node extends SceneResource {
   /**
@@ -182,8 +191,8 @@ export interface Node extends SceneResource {
    *
    * @type { Position3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   position: Position3;
 
@@ -192,8 +201,8 @@ export interface Node extends SceneResource {
    *
    * @type { Quaternion }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   rotation: Quaternion;
 
@@ -202,8 +211,8 @@ export interface Node extends SceneResource {
    *
    * @type { Scale3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   scale: Scale3;
 
@@ -212,8 +221,8 @@ export interface Node extends SceneResource {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   visible: boolean;
 
@@ -223,8 +232,8 @@ export interface Node extends SceneResource {
    * @type { NodeType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   readonly nodeType: NodeType;
 
@@ -234,7 +243,7 @@ export interface Node extends SceneResource {
    * @type { LayerMask }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly layerMask: LayerMask;
 
@@ -244,7 +253,7 @@ export interface Node extends SceneResource {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly path: string;
 
@@ -254,7 +263,7 @@ export interface Node extends SceneResource {
    * @type { Node | null }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly parent: Node | null;
 
@@ -264,8 +273,8 @@ export interface Node extends SceneResource {
    * @param { string } path - the path of the node queried
    * @returns { Node | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getNodeByPath(path: string): Node | null;
 
@@ -275,7 +284,7 @@ export interface Node extends SceneResource {
    * @type { Container<Node> }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly children: Container<Node>
 }
@@ -286,7 +295,7 @@ export interface Node extends SceneResource {
  * @extends Node
  * @interface Geometry
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export interface Geometry extends Node {
   /**
@@ -295,7 +304,7 @@ export interface Geometry extends Node {
    * @type { Mesh }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly mesh: Mesh;
   
@@ -305,7 +314,7 @@ export interface Geometry extends Node {
    * @type { ?Morpher }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20 
+   * @since 20 dynamic
    */
   readonly morpher?: Morpher;
 }
@@ -315,16 +324,16 @@ export interface Geometry extends Node {
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export enum LightType {
   /**
    * Directional light.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   DIRECTIONAL = 1,
 
@@ -332,8 +341,8 @@ export enum LightType {
    * Spot light.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   SPOT = 2,
 }
@@ -344,8 +353,8 @@ export enum LightType {
  * @extends Node
  * @interface Light
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Light extends Node {
   /**
@@ -354,7 +363,7 @@ export interface Light extends Node {
    * @type { LightType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   readonly lightType: LightType;
 
@@ -363,8 +372,8 @@ export interface Light extends Node {
    *
    * @type { Color }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   color: Color;
 
@@ -373,8 +382,8 @@ export interface Light extends Node {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   intensity: double;
 
@@ -383,8 +392,8 @@ export interface Light extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   shadowEnabled: boolean;
 
@@ -393,8 +402,8 @@ export interface Light extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enabled: boolean;
 }
@@ -405,7 +414,7 @@ export interface Light extends Node {
  * @extends Light
  * @interface SpotLight
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export interface SpotLight extends Light {
 }
@@ -416,8 +425,8 @@ export interface SpotLight extends Light {
  * @extends Light
  * @interface DirectionalLight
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface DirectionalLight extends Light {
 }
@@ -428,8 +437,8 @@ export interface DirectionalLight extends Light {
  * @extends Node
  * @interface Camera
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Camera extends Node {
   /**
@@ -437,7 +446,7 @@ export interface Camera extends Node {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   fov: double;
 
@@ -446,7 +455,7 @@ export interface Camera extends Node {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   nearPlane: double;
 
@@ -455,7 +464,7 @@ export interface Camera extends Node {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   farPlane: double;
 
@@ -464,8 +473,8 @@ export interface Camera extends Node {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enabled: boolean;
 
@@ -474,8 +483,8 @@ export interface Camera extends Node {
    *
    * @type { PostProcessSettings | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   postProcess: PostProcessSettings | null;
 
@@ -485,7 +494,7 @@ export interface Camera extends Node {
    *
    * @type { Color | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   clearColor: Color | null;
 
@@ -495,7 +504,7 @@ export interface Camera extends Node {
    * @param { RaycastParameters } params - Options used to execute the ray cast.
    * @returns { Promise<RaycastResult[]> } - Promise used to return an array of hit results, sorted from the closest to the farthest. The array may be empty.
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 20
+   * @since 20 dynamic
    */
   raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>;
 }
