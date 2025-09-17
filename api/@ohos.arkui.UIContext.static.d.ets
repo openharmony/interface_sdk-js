@@ -2115,11 +2115,11 @@ export declare class MeasureUtils {
    * Obtains the width of the specified text in a single line layout.
    *
    * @param { MeasureOptions } options - Options.
-   * @returns { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  measureText(options: MeasureOptions): number;
+  measureText(options: MeasureOptions): double;
 
   /**
    * Obtains the width and height of the specified text in a single line layout.
