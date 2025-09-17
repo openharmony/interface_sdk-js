@@ -5593,7 +5593,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 21 dynamic&static
+     * @since 21 dynamic
      */
     static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void;
 
