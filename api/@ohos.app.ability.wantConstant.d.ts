@@ -398,7 +398,7 @@ declare namespace wantConstant {
     *
     * @syscap SystemCapability.Ability.AbilityBase
     * @atomicservice
-    * @since 20 dynamic
+    * @since 20 dynamic&static
     */
     ABILITY_UNIFIED_DATA_KEY = 'ohos.param.ability.udKey',
 
