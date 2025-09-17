@@ -3634,6 +3634,7 @@ declare namespace webview {
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   enum WebBlanklessErrorCode {
     /**
@@ -3693,6 +3694,7 @@ declare namespace webview {
    * @typedef BlanklessInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface BlanklessInfo {
     /**
@@ -3709,21 +3711,21 @@ declare namespace webview {
      * value closer to 1 indicates higher similarity. This value has a certain lag, meaning that the similarity of
      * the current loading will only be reflected in the next loading. It is recommended that the frame interpolation
      * functionality be disabled when the similarity is 0.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
-    similarity: number;
+    similarity: double;
 
     /**
      * Obtains the loading time based on the historical loading time. The unit is ms and the value is greater
      * than 0.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
      */
-    loadingTime: number;
+    loadingTime: int;
   }
 
   /**
@@ -6767,6 +6769,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     getBlanklessInfoWithKey(key: string) : BlanklessInfo;
 
@@ -6789,6 +6792,7 @@ declare namespace webview {
      * @throws { BusinessError } 801 Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     setBlanklessLoadingWithKey(key: string, is_start: boolean) : WebBlanklessErrorCode;
 
@@ -6806,6 +6810,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static clearBlanklessLoadingCache(keys?: Array<string>) : void;
 
@@ -6813,19 +6818,20 @@ declare namespace webview {
      * Sets the cache capacity of the blankless loading solution and returns the value that takes effect. If
      * this API is not called, the default capacity 30 MB is used. The maximum capacity cannot exceed 100 MB.
      *
-     * @param { number } capacity  Cache capacity, in MB. The maximum value is 100 MB.
+     * @param { int } capacity  Cache capacity, in MB. The maximum value is 100 MB.
      * The default value is 30 MB.
      * The value ranges from 0 to 100. If this parameter is set to 0, no cache capacity is available and the
      * functionality is disabled globally.
      * When the value is set to a number smaller than 0, the value 0 takes effect. When the value is set to a
      * number greater than 100, the value 100 takes effect.
-     * @returns { number } The effective value that ranges from 0 MB to 100 MB.
+     * @returns { int } The effective value that ranges from 0 MB to 100 MB.
      * @throws { BusinessError } 801 Capability not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
-    static setBlanklessLoadingCacheCapacity(capacity: number) : number;
+    static setBlanklessLoadingCacheCapacity(capacity: int) : int;
 
     /**
       * Get whether default error page feature is enabled.
