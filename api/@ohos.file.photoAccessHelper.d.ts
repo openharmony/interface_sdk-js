@@ -3021,7 +3021,15 @@ declare namespace photoAccessHelper {
      * @since 21
      * @arkts 1.1&1.2
      */
-    APPLINK = 'applink'
+    APPLINK = 'applink',
+    /**
+     * HDR mode of the asset, read only
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_MODE = 'hdr_mode'
   }
 
   /**
@@ -11612,6 +11620,65 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     close(): void;
+  }
+
+  /**
+   * Enumerates the HDR mode of media assets.
+   *
+   * @enum { number } HdrMode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 21 dynamic&static
+   */
+  enum HdrMode {
+    /**
+     * Default type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * Indicates ISO HDR type of single layer image
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_ISO_SINGLE = 1,
+    /**
+     * Indicates ISO HDR type of dual layer image
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_ISO_DUAL = 2,
+    /**
+     * Indicates CUVA HDR type of image
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_CUVA = 3,
+    /**
+     * Indicates HDR vivid type of single layer image
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_VIVID_SINGLE = 4,
+    /**
+     * Indicates HDR vivid type of dual layer image
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21 dynamic&static
+     */
+    HDR_VIVID_DUAL = 5,
   }
 
 }
