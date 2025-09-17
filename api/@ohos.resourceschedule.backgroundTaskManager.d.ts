@@ -855,7 +855,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 19
+   * @since 21
    */
   function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
 
