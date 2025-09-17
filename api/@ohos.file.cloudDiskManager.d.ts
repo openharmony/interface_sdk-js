@@ -144,9 +144,10 @@ declare namespace cloudDiskManager {
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - Permission verification failed,
      *    application which is not a system application uses system API.
+     * @throws { BusinessError } 801 - Device not supported.
      * @throws { BusinessError } 34400003 - IPC communication failed.
-     * @throws { BusinessError } 34400015 - Internal error.
-     * @throws { BusinessError } 34400016 - Cloud disk not support.
+     * @throws { BusinessError } 34400014 - Temporary failure, Retry is recommended (e.g., network issues).
+     * @throws { BusinessError } 34400015 - Cloud disk not allowed on this device.
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @since 21
