@@ -425,7 +425,8 @@ declare namespace baseProfile {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
@@ -454,7 +455,8 @@ declare namespace baseProfile {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @crossplatform
-     * @since 13
+     * @since arkts {'1.1':'13','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
   }
