@@ -2500,10 +2500,7 @@ export declare class UIContext {
    * get the filtered attributes of the component tree.
    * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
    * @returns { string } the specified attributes of the component tree in json string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100023 - Unable to obtain current ui context.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
@@ -2512,13 +2509,11 @@ export declare class UIContext {
   /**
    * get the filtered attributes of the component tree with the specified id and depth
    * @param { string } id - ID of the specified component tree to be obtained.
-   * @param { number } depth - depth of the component tree to be obtained.
+   * @param { int } depth - depth of the component tree to be obtained.
    * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
    * @returns { string } the specified attributes of the component tree in json string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100023 - Unable to obtain current ui context.
+   * @throws { BusinessError } 100024 - The parameter depth must be greater than 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
