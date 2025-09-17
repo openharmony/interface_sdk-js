@@ -101,14 +101,14 @@ declare namespace insightIntent {
     /**
      * Indicates result code.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @StageModelOnly
      * @atomicservice
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    code: number;
+    code: int;
 
     /**
      * Indicates execute result.
@@ -141,14 +141,14 @@ declare namespace insightIntent {
      * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}|
      * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    flags?: number;
+    flags?: int;
   }
 
   /**

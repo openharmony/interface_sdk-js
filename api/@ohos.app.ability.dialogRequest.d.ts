@@ -18,7 +18,7 @@
  * @kit AbilityKit
  */
 
- /*** if arkts 1.1 */
+/*** if arkts 1.1 */
 import Want from './@ohos.app.ability.Want';
 /*** endif */
 

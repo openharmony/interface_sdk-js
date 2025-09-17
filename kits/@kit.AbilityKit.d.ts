@@ -147,9 +147,33 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import { ErrorCode } from '@ohos.ability.errorCode';
+import Ability from '@ohos.app.ability.Ability';
+import ApplicationStateChangeCallback from '@ohos.app.ability.ApplicationStateChangeCallback';
+import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
+import EnvironmentCallback from '@ohos.app.ability.EnvironmentCallback';
+import InsightIntentContext from '@ohos.app.ability.InsightIntentContext';
+import ServiceExtensionAbility from '@ohos.app.ability.ServiceExtensionAbility';
+import ShareExtensionAbility from '@ohos.app.ability.ShareExtensionAbility';
+import UIExtensionContentSession from '@ohos.app.ability.UIExtensionContentSession';
+import UIAbility, {
+  Callee, CalleeCallback, Caller, OnReleaseCallback,
+} from '@ohos.app.ability.UIAbility';
+import abilityManager from '@ohos.app.ability.abilityManager';
+import appManager from '@ohos.app.ability.appManager';
+import application from '@ohos.app.ability.application';
+import common from '@ohos.app.ability.common';
+import dataUriUtils from '@ohos.app.ability.dataUriUtils';
+import dialogRequest from '@ohos.app.ability.dialogRequest';
+import missionManager from '@ohos.app.ability.missionManager';
+import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
+import uriPermissionManager from '@ohos.application.uriPermissionManager';
 
 export {
   bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
-  shortcutManager
+  shortcutManager, ErrorCode, Ability, ApplicationStateChangeCallback, AtomicServiceOptions, EnvironmentCallback,
+  InsightIntentContext, ServiceExtensionAbility, UIExtensionContentSession, Callee, CalleeCallback, Caller, OnReleaseCallback,
+  UIAbility, abilityManager, appManager, application, common, dataUriUtils, dialogRequest, missionManager, wantAgent,
+ uriPermissionManager
 };
 /*** endif */
