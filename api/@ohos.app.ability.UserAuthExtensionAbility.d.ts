@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit UserAuthenticationKit
- * @arkts 1.1&1.2
  */
 
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
@@ -28,7 +27,8 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi Hide this for inner system use.
  * @StageModelOnly
- * @since arkts {'1.1':'10','1.2':'22'}
+ * @since 10 dynamic
+ * @since 22 static
  */
 export default class UserAuthExtensionAbility extends UIExtensionAbility {
 }
