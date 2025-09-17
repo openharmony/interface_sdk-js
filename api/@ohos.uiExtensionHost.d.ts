@@ -21,12 +21,7 @@
 
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
-/*** if arkts dynamic */
-import { AvoidAreaInfo } from './@ohos.arkui.uiExtension';
-/*** endif */
-/*** if arkts static */
-import { AvoidAreaInfo } from '@ohos.arkui.uiExtension';
-/*** endif */
+import uiExtension from './@ohos.arkui.uiExtension';
 /**
  * uiExtensionHost.
  *
@@ -64,7 +59,7 @@ declare namespace uiExtensionHost {
      * Register the callback of avoidAreaChange
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the area.
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -74,13 +69,13 @@ declare namespace uiExtensionHost {
      * @since 11 dynamic
      * @since 20 static
      */
-    on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
+    on(type: 'avoidAreaChange', callback: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
      *
      * @param { 'avoidAreaChange' } type - The value is fixed at 'avoidAreaChange', indicating the event of changes to the avoid area.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the area.
+     * @param { Callback<uiExtension.AvoidAreaInfo> } callback - Callback used to return the area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      * <br> 1. Mandatory parameters are left unspecified.
      * <br> 2. Incorrect parameters types.
@@ -90,7 +85,7 @@ declare namespace uiExtensionHost {
      * @since 11 dynamic
      * @since 20 static
      */
-    off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
+    off(type: 'avoidAreaChange', callback?: Callback<uiExtension.AvoidAreaInfo>): void;
 
     /**
      * Register the callback of windowSizeChange
