@@ -898,6 +898,41 @@ declare namespace uiObserver {
   }
 
   /**
+   * Defines the window size layout breakpoint information.
+   * This class provides the current breakpoint classification of the window's width and height
+   * based on the configured breakpoint thresholds.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  export class WindowSizeLayoutBreakpointInfo {
+    /**
+     * The width breakpoint classification of the current window.
+     * This value indicates which width category the window currently falls into based on
+     * the configured width breakpoint thresholds.
+     *
+     * @type { WidthBreakpoint }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    widthBreakpoint: WidthBreakpoint;
+
+    /**
+     * The height breakpoint classification of the current window.
+     * This value indicates which height category the window currently falls into based on
+     * the configured height breakpoint thresholds and aspect ratio.
+     *
+     * @type { HeightBreakpoint }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice
+     * @since 22 dynamic
+     */
+    heightBreakpoint: HeightBreakpoint;
+  }
+
+  /**
   * Text change event info
   *
   * @interface TextChangeEventInfo
