@@ -23,26 +23,29 @@
  *
  * @typedef Vec2
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Vec2 {
   /**
    * X component of the vec2.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec2.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  y: number;
+  y: double;
 }
 
 /**
@@ -50,35 +53,39 @@ export interface Vec2 {
  *
  * @typedef Vec3
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Vec3 {
   /**
    * X component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the vec3.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  z: number;
+  z: double;
 }
 
 /**
@@ -86,44 +93,49 @@ export interface Vec3 {
  *
  * @typedef Vec4
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Vec4 {
   /**
    * X component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  z: number;
+  z: double;
 
   /**
    * W component of the vec4.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  w: number;
+  w: double;
 }
 
 /**
@@ -131,44 +143,49 @@ export interface Vec4 {
  *
  * @typedef Quaternion
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Quaternion {
   /**
    * X component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  x: number;
+  x: double;
 
   /**
    * Y component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  y: number;
+  y: double;
 
   /**
    * Z component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  z: number;
+  z: double;
 
   /**
    * W component of the quaternion.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  w: number;
+  w: double;
 }
 
 /**
@@ -176,7 +193,7 @@ export interface Quaternion {
  *
  * @typedef Aabb 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export interface Aabb {
   /**
@@ -184,7 +201,7 @@ export interface Aabb {
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   aabbMin: Vec3;
 
@@ -193,7 +210,7 @@ export interface Aabb {
    *
    * @type { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
   aabbMax: Vec3;
 }
@@ -203,44 +220,49 @@ export interface Aabb {
  *
  * @typedef Color 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Color {
   /**
    * R component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  r: number;
+  r: double;
 
   /**
    * G component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  g: number;
+  g: double;
 
   /**
    * B component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  b: number;
+  b: double;
 
   /**
    * A component of the color.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  a: number;
+  a: double;
 }
 
 /**
@@ -248,59 +270,62 @@ export interface Color {
  *
  * @typedef Rect
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export interface Rect {
   /**
    * Left up x coordinate.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  x: number;
+  x: double;
 
   /**
    * Left up y coordinate.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
+   * @since 20 static
    */
-  y: number;
+  y: double;
 
   /**
    * The width of the rectangle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
-  width: number;
+  width: double;
 
   /**
    * The height of the rectangle.
    *
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 12
+   * @since 12 dynamic
    */
-  height: number;
+  height: double;
 }
 
 /**
  * Types of geometric shapes.
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export enum GeometryType {
   /**
    * A custom geometric shape.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   CUSTOM = 0,
 
@@ -308,7 +333,7 @@ export enum GeometryType {
    * A cube.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   CUBE = 1,
 
@@ -316,7 +341,7 @@ export enum GeometryType {
    * A plane.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   PLANE = 2,
 
@@ -324,7 +349,7 @@ export enum GeometryType {
    * A sphere.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   SPHERE = 3
 }
@@ -333,7 +358,7 @@ export enum GeometryType {
  * Define a geometric shape for mesh creation.
  * 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export declare abstract class GeometryDefinition {
   /**
@@ -342,7 +367,7 @@ export declare abstract class GeometryDefinition {
    * @type { GeometryType }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   readonly geometryType: GeometryType;
 }
@@ -350,16 +375,16 @@ export declare abstract class GeometryDefinition {
 /**
  * How vertices in a sequence form triangles.
  * 
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18 
+ * @since 18 dynamic
  */
 export enum PrimitiveTopology {
   /**
    * The vertices form a set of independent triangle. Vertices (0, 1, 2), (3, 4, 5), ... define separate triangles.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   TRIANGLE_LIST = 0,
 
@@ -367,7 +392,7 @@ export enum PrimitiveTopology {
    * The vertices form a triangle strip. Starting from the 3rd, each vertex defines a triangle with the previous two.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   TRIANGLE_STRIP = 1
 }
@@ -377,73 +402,194 @@ export enum PrimitiveTopology {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export declare class CustomGeometry extends GeometryDefinition {
   /**
    * How to form mesh triangles from the indexed vertices.
-   * 
+   *
    * @type { ?PrimitiveTopology }
    * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   topology?: PrimitiveTopology;
 
   /**
-   * An array of vertices.
-   * 
-   * @type { Vec3[] }
+   * How to form mesh triangles from the indexed vertices.
+   *
+   * @return { PrimitiveTopology | undefined }
+   * @default PrimitiveTopology.TRIANGLE_LIST
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 20 static
    */
-  vertices: Vec3[];
+  get topology(): PrimitiveTopology | undefined;
+
+  /**
+   * How to form mesh triangles from the indexed vertices.
+   *
+   * @param { PrimitiveTopology | undefined } value
+   * @default PrimitiveTopology.TRIANGLE_LIST
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  set topology(value: PrimitiveTopology | undefined);
+
+  /**
+   * An array of vertices.
+   *
+   * @return { Vec3[] }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  get vertices(): Vec3[];
+
+  /**
+   * An array of vertices.
+   *
+   * @param { Vec3[] } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  set vertices(value: Vec3[]);
 
   /**
    * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
-   * 
+   *
    * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
    *     topology = PrimitiveTopology.TRIANGLE_LIST
-   *     indices = [0, 1, 2, 2, 1, 3]    
+   *     indices = [0, 1, 2, 2, 1, 3]
    *     resulting triangles: abc, cbd
-   * 
+   *
    *     topology = PrimitiveTopology.TRIANGLE_STRIP
    *     indices = [0, 1, 2, 3]
    *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
-   * 
-   * @type { ?number[] }
+   *
+   * @type { ?int[] }
    * @default indices: [0, 1 ,2,..., vertices.size() - 1]
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
-  indices?: number[];
+  indices?: int[];
+
+  /**
+   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   *
+   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   *     topology = PrimitiveTopology.TRIANGLE_LIST
+   *     indices = [0, 1, 2, 2, 1, 3]
+   *     resulting triangles: abc, cbd
+   *
+   *     topology = PrimitiveTopology.TRIANGLE_STRIP
+   *     indices = [0, 1, 2, 3]
+   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *
+   * @return { int[] | undefined }
+   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  get indices(): int[] | undefined;
+
+  /**
+   * Indices of those vertices that form triangles. PrimitiveTopology is applied to the sequence defined by indices.
+   *
+   * An example of creating an identical pair of triangles, given vertices = [a, b, c, d]:
+   *     topology = PrimitiveTopology.TRIANGLE_LIST
+   *     indices = [0, 1, 2, 2, 1, 3]
+   *     resulting triangles: abc, cbd
+   *
+   *     topology = PrimitiveTopology.TRIANGLE_STRIP
+   *     indices = [0, 1, 2, 3]
+   *     resulting triangles: abc, cbd (b and c are reversed in cbd, to match the face direction of the first triangle)
+   *
+   * @param { int[] | undefined } value
+   * @default indices: [0, 1 ,2,..., vertices.size() - 1]
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  set indices(value: int[] | undefined);
 
   /**
    * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
-   * 
+   *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   normals?: Vec3[];
 
   /**
+   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   *
+   * @return { Vec3[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  get normals(): Vec3[] | undefined;
+
+  /**
+   * Vertex normal. If normals is not null. normals[N] is for vertices[N] and generateNormals is ignored.
+   *
+   * @param { Vec3[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  set normals(value: Vec3[] | undefined);
+
+  /**
    * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
-   * 
+   *
    * @type { ?Vec2[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   uvs?: Vec2[];
 
   /**
+   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   *
+   * @return { Vec2[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  get uvs(): Vec2[] | undefined;
+
+  /**
+   * Vertex texture mapping UV coordinate. If uvs is not null, uvs[N] is for vertices[N]
+   *
+   * @param { Vec2[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  set uvs(value: Vec2[] | undefined);
+
+  /**
    * Vertex color. If colors is not null, colors[N] is for vertices[N].
-   * 
+   *
    * @type { ?Color[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
   colors?: Color[];
+
+  /**
+   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   *
+   * @return { Color[] | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  get colors(): Color[] | undefined;
+
+  /**
+   * Vertex color. If colors is not null, colors[N] is for vertices[N].
+   *
+   * @param { Color[] | undefined } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 static
+   */
+  set colors(value: Color[] | undefined);
 }
 
 /**
@@ -451,17 +597,26 @@ export declare class CustomGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export declare class CubeGeometry extends GeometryDefinition {
   /**
    * The width, height and depth of the cube.
-   * 
-   * @type { Vec3 }
+   *
+   * @return { Vec3 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
-  size: Vec3;
+  get size(): Vec3;
+
+  /**
+   * The width, height and depth of the cube.
+   *
+   * @param { Vec3 } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  set size(value: Vec3);
 }
 
 /**
@@ -469,17 +624,26 @@ export declare class CubeGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export declare class PlaneGeometry extends GeometryDefinition {
   /**
    * The width and length of the plane.
-   * 
-   * @type { Vec2 }
+   *
+   * @return { Vec2 }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
-  size: Vec2;
+  get size(): Vec2;
+
+  /**
+   * The width and length of the plane.
+   *
+   * @param { Vec2 } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  set size(value: Vec2);
 }
 
 /**
@@ -487,33 +651,53 @@ export declare class PlaneGeometry extends GeometryDefinition {
  * 
  * @extends GeometryDefinition
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 18
+ * @since 18 dynamic
  */
 export declare class SphereGeometry extends GeometryDefinition {
   /**
    * The radius of the sphere.
-   * 
-   * @type { number }
+   *
+   * @return { double }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
-  radius: number;
+  get radius(): double;
+
+  /**
+   * The radius of the sphere.
+   *
+   * @param { double } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  set radius(value: double);
 
   /**
    * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
-   * 
-   * @type { number }
+   *
+   * @return { int }
    * @syscap SystemCapability.ArkUi.Graphics3D
-   * @since 18
+   * @since 18 dynamic
    */
-  segmentCount: number;
+  get segmentCount(): int;
+
+  /**
+   * Divide the sphere latitudinally into this many circles and each circle longitudinally into this many segments.
+   *
+   * @param { int } value
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 18 dynamic
+   */
+  set segmentCount(value: int);
 }
+
 /**
  * 3D position information.
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export type Position3 = Vec3;
 
@@ -522,7 +706,7 @@ export type Position3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
  */
 export type Rotation3 = Vec3;
 
@@ -531,6 +715,7 @@ export type Rotation3 = Vec3;
  *
  * @typedef { Vec3 } 
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 12
+ * @since 12 dynamic
+ * @since 20 static
  */
 export type Scale3 = Vec3;
