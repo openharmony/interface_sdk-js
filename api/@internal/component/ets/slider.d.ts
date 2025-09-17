@@ -1175,7 +1175,7 @@ declare class SliderAttribute extends CommonMethod<SliderAttribute> {
    */
   blockColor(value: ResourceColor): SliderAttribute;
   /**
-   * Called when the slider color of the slider bar is set.
+   * Set the color of the slider bar.
    *
    * @param { ResourceColor | LinearGradient } value
    * @returns { SliderAttribute }
