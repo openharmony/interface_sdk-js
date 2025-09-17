@@ -8264,6 +8264,34 @@ declare namespace audio {
   }
 
   /**
+   * Audio render target.
+   * @enum { number }
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @since 22
+   */
+  enum RenderTarget {
+    /**
+     * Playback. Under this target, the audio renderer will be played out. This is the default
+     * target of audio renderer.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 22
+     */
+    PLAYBACK = 0,
+
+    /**
+     * Inject to voice communication capture. Under this target, the audio renderer will be injected
+     * to audio capture with source type of {@link SourceType#SOURCE_TYPE_VOICE_COMMUNICATION} when the
+     * audio scene is {@link AudioScene#AUDIO_SCENE_VOICE_CHAT}.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 22
+     */
+    INJECT_TO_VOICE_COMMUNICATION_CAPTURE = 1,
+  }
+
+  /**
    * Provides audio playback APIs.
    * @typedef AudioRenderer
    * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -9258,6 +9286,47 @@ declare namespace audio {
      * @since 20
      */
     getLoudnessGain(): number;
+
+    /**
+     * Sets the render target of this audio renderer.
+     * This function can only be called when the audio renderer is not in the running or released state.
+     * Otherwise, it will return an error. The caller must have the
+     * ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE permission when target is not {@link RenderTarget#PLAYBACK}.
+     * After changing render target to non-PLAYBACK, caller should note that if the render target is not supported,
+     * the error 6800103 will returned by following interfaces:
+     * 1. {@link start}. If the render target is set as {@link RenderTarget#INJECT_TO_VOICE_COMMUNICATION_CAPTURE},
+     * while the audio scene is not {@link AudioScene#AUDIO_SCENE_VOICE_CHAT}.
+     * 2. {@link getAudioTime} and {@link getAudioTimeSync}.
+     * 3. {@link getAudioTimestampInfo} and {@link getAudioTimestampInfoSync}
+     * 4. {@link setDefaultOutputDevice}.
+     * Also, if the target is non-PLAYBACK, the audio route and interruption strategy of this renderer will not be
+     * affected by {@link AudioSessionManager}.
+     * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
+     * @param { RenderTarget } target - Render target.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at running and release state.
+     * @throws { BusinessError } 6800104 - Current renderer is not supported to set target.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 22
+     */
+    setTarget(target: RenderTarget): Promise<void>;
+
+    /**
+     * Gets the currently render target of this audio renderer.
+     * If the render target has not been changed, the default value {@link RenderTarget#PLAYBACK} will be returned.
+     * Ensure that the {@link setTarget} promise is resolved successfully before calling this interface,
+     * otherwise, the obtained value may be inaccurate.
+     * @returns { RenderTarget } Render target of this audio renderer.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @since 22
+     */
+    getTarget(): RenderTarget;
 
     /**
      * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
