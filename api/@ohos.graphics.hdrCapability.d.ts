@@ -35,24 +35,22 @@ import { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @atomicservice
  * @since arkts {'1.1':'12', '1.2':'20'}
- * @arkts 1.1&1.2
  */
 declare namespace hdrCapability {
   /**
    * Enumerates the HDR Format
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @since 11
    */
   /**
    * Enumerates the HDR Format
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @atomicservice
-   * @since arkts{ '1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since arkts {'1.1':'12', '1.2':'20'}
    */
   enum HDRFormat {
     /**
@@ -67,7 +65,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     NONE = 0,
     /**
@@ -82,7 +79,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     VIDEO_HLG = 1,
     /**
@@ -97,7 +93,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     VIDEO_HDR10 = 2,
     /**
@@ -112,7 +107,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     VIDEO_HDR_VIVID = 3,
     /**
@@ -127,7 +121,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     IMAGE_HDR_VIVID_DUAL = 4,
     /**
@@ -142,7 +135,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     IMAGE_HDR_VIVID_SINGLE = 5,
     /**
@@ -157,7 +149,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     IMAGE_HDR_ISO_DUAL = 6,
     /**
@@ -172,7 +163,6 @@ declare namespace hdrCapability {
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
-     * @arkts 1.1&1.2
      */
     IMAGE_HDR_ISO_SINGLE = 7,
   }

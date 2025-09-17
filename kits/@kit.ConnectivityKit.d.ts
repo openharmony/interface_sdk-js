@@ -24,6 +24,7 @@ import baseProfile from '@ohos.bluetooth.baseProfile';
 import ble from '@ohos.bluetooth.ble';
 import connection from '@ohos.bluetooth.connection';
 import constant from '@ohos.bluetooth.constant';
+import common from '@ohos.bluetooth.common';
 import bluetooth from '@ohos.bluetooth';
 import hfp from '@ohos.bluetooth.hfp';
 import hid from '@ohos.bluetooth.hid';
@@ -52,5 +53,5 @@ export {
   BLEFoundResponse, Bluetooth, BluetoothDevice, StartBLEScanOptions, StopBLEScanOptions,
   SubscribeBLEFoundOptions, a2dp, access, baseProfile, ble, bluetooth, bluetoothManager, cardEmulation,
   connectedTag, connection, constant, hfp, hid, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
-  wifiManager, wifiManagerExt, wifiext
+  wifiManager, wifiManagerExt, wifiext, common
 };

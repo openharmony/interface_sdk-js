@@ -4289,10 +4289,12 @@ declare namespace webview {
     storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback<string>): void;
 
     /**
-     * Let the Web zoom by.
+     * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * @param { number } factor - The zoom factor.
-     *                            Reduced when the input parameter is less than 1. Enlarged when the input parameter is greater than 1.Value range: (0, 100].
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
+     *                            The value 1 indicates that the page is not zoomed.
+     *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
+     *                            Value range: (0, 100].
      * @throws { BusinessError } 401 - Invalid input parameter.
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4301,13 +4303,12 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom by.
+     * Zooms in or out of this web page. This API is effective only when zoomAccess is true.
      *
-     * <p><strong>API Note</strong>:<br>
-     * zoomAccess must be true.
-     * </p>
-     *
-     * @param { number } factor - The zoom factor.
+     * @param { number } factor - Relative zoom ratio. The value must be greater than 0.
+     *                            The value 1 indicates that the page is not zoomed.
+     *                            A value smaller than 1 indicates zoom-out, and a value greater than 1 indicates zoom-in.
+     *                            Value range: (0, 100].
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
@@ -4321,7 +4322,7 @@ declare namespace webview {
     zoom(factor: number): void;
 
     /**
-     * Let the Web zoom in.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4330,7 +4331,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom in.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4340,8 +4341,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Let the Web zoom in.
-     * Call this interface to enlarge the current page by 25%.
+     * Zooms in on this web page by 25%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4354,7 +4354,7 @@ declare namespace webview {
     zoomIn(): void;
 
     /**
-     * Let the Web zoom out.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4363,7 +4363,7 @@ declare namespace webview {
      * @since 9
      */
     /**
-     * Let the Web zoom out.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -4373,8 +4373,7 @@ declare namespace webview {
      * @since 11
      */
     /**
-     * Let the Web zoom out.
-     * Call this interface to shrink the current page by 20%.
+     * Zooms out of this web page by 20%.
      *
      * @throws { BusinessError } 17100001 - Init error.
      *                           The WebviewController must be associated with a Web component.
@@ -5578,6 +5577,25 @@ declare namespace webview {
      * @since 12
      */
     static customizeSchemes(schemes: Array<WebCustomScheme>): void;
+    /**
+     * Register Web custom schemes.
+     * 
+     * @param { Array<WebCustomScheme> } schemes - Configuration of web custom scheme.
+     * @param { boolean } lazyInitWebEngine - When true: The interface internally skips initializing WebEngine and
+     *     temporarily stores the registered schemes, which will be passed to WebEngine when it actually
+     *     initializes. When false: The interface automatically performs WebEngine initialization internally.
+     * @throws { BusinessError } 17100020 - Failed to register custom schemes.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. The length of the schemes array is greater than 10.
+     *     2. The character length of the scheme is greater than 32.
+     *     3. The character in the scheme is not within the allowed range of lowercase English letters, numbers,
+     *     and the symbols ".", "+", "-".
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 21 dynamic&static
+     */
+    static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void;
 
     /**
      * Get certificate for the current website.
@@ -6650,6 +6668,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setAppCustomUserAgent(userAgent: string) : void;
 
@@ -6666,6 +6685,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static setUserAgentForHosts(userAgent: string, hosts : Array<string>) : void;
   
@@ -6728,12 +6748,13 @@ declare namespace webview {
     /**
      * Gets the loading progress for the current page.
      *
-     * @returns { number } The loading progress for the current page.
+     * @returns { int } The loading progress for the current page.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
-    getProgress() : number;
+    getProgress() : int;
 
     /**
      * Sets the bottom avoidance height of the web visible viewport.
@@ -6836,6 +6857,7 @@ declare namespace webview {
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
       * @since 20
+      * @arkts 1.1&1.2
       */
     getErrorPageEnabled(): boolean;
   
@@ -6847,6 +6869,7 @@ declare namespace webview {
       *                           The WebviewController must be associated with a Web component.
       * @syscap SystemCapability.Web.Webview.Core
       * @since 20
+      * @arkts 1.1&1.2
       */
     setErrorPageEnabled(enable: boolean): void;
 
@@ -6860,6 +6883,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static enablePrivateNetworkAccess(enable: boolean): void;
 
@@ -6870,6 +6894,7 @@ declare namespace webview {
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     static isPrivateNetworkAccessEnabled(): boolean;
 

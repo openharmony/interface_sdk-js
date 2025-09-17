@@ -90,6 +90,7 @@ type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 type OnOverrideErrorPageCallback = (errorPageEvent: OnErrorReceiveEvent) => string;
 
@@ -628,7 +629,8 @@ type OnSafeBrowsingCheckResultCallback = (threatType: ThreatType) => void;
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
+ * @deprecated since 21
+ * @useinstead ohos.web.webview.webview.WebHitTestType
  */
 declare enum HitTestType {
   /**
@@ -642,7 +644,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#EditText
    */
   EditText = 0,
 
@@ -657,7 +660,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Email
    */
   Email = 1,
 
@@ -672,7 +676,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchor
    */
   HttpAnchor = 2,
 
@@ -687,7 +692,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#HttpAnchorImg
    */
   HttpAnchorImg = 3,
 
@@ -702,7 +708,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Img
    */
   Img = 4,
 
@@ -717,7 +724,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Map
    */
   Map = 5,
 
@@ -732,7 +740,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Phone
    */
   Phone = 6,
 
@@ -747,7 +756,8 @@ declare enum HitTestType {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
-   * @since 11
+   * @deprecated since 21
+   * @useinstead ohos.web.webview.webview.WebHitTestType#Unknown
    */
   Unknown = 7
 }
@@ -5811,6 +5821,7 @@ declare interface OnPageBeginEvent {
  * @typedef OnLoadStartedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface OnLoadStartedEvent {
   /**
@@ -5819,6 +5830,7 @@ declare interface OnLoadStartedEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   url: string;
 }
@@ -5829,6 +5841,7 @@ declare interface OnLoadStartedEvent {
  * @typedef OnLoadFinishedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface OnLoadFinishedEvent {
   /**
@@ -5837,6 +5850,7 @@ declare interface OnLoadFinishedEvent {
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   url: string;
 }
@@ -6064,7 +6078,7 @@ declare interface OnBeforeUnloadEvent {
 }
 
 /**
- * Defines the triggered function when the web page wants to display a JavaScript confirm() dialog.
+ * Defines callback triggered when confirm() is invoked by the web page.
  *
  * @typedef OnConfirmEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -6200,7 +6214,8 @@ declare interface OnConsoleEvent {
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare interface OnErrorReceiveEvent {
   /**
@@ -6388,6 +6403,15 @@ declare interface OnRefreshAccessedHistoryEvent {
    * @since 18
    */
   isRefreshed: boolean;
+
+  /**
+   * Whether is triggered by main frame.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  isMainFrame?: boolean;
 }
 
 /**
@@ -8276,6 +8300,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onLoadStarted(callback: Callback<OnLoadStartedEvent>): WebAttribute;
 
@@ -8290,6 +8315,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onLoadFinished(callback: Callback<OnLoadFinishedEvent>): WebAttribute;
 
@@ -8429,17 +8455,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onRequestSelected(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the Web wants to display a JavaScript alert() dialog.
+   * Triggered when alert() is invoked to display an alert dialog box on the web page.
    *
-   * @param { function } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
-   * Triggered when the Web wants to display a JavaScript alert() dialog.
+   * Triggered when alert() is invoked to display an alert dialog box on the web page.
    *
-   * @param { function } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   * @param { function } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8447,9 +8473,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the Web wants to display a JavaScript alert() dialog.
+   * Triggered when alert() is invoked to display an alert dialog box on the web page.
    *
-   * @param {  Callback<OnAlertEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript alert() dialog.
+   * @param {  Callback<OnAlertEvent, boolean> } callback Callback used when alert() is invoked to display an alert dialog box on the web page.
    *     {@code true} means the application can invoke custom pop-up dialog capabilities (with confirmation and cancellation buttons).
    *                  Developers need to use the JsResult interface to notify the web component whether to leave the current page
    *                  according to the user's choice.
@@ -8501,17 +8527,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page wants to display a JavaScript confirm() dialog.
+   * Triggered when confirm() is invoked by the web page.
    *
-   * @param { function } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
+   * @param { function } callback Callback triggered when confirm() is invoked by the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8
    */
   /**
-   * Triggered when the web page wants to display a JavaScript confirm() dialog.
+   * Triggered when confirm() is invoked by the web page.
    *
-   * @param { function } callback The Triggered function when the web page wants to display a JavaScript confirm() dialog.
+   * @param { function } callback Callback triggered when confirm() is invoked by the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8519,9 +8545,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the web page wants to display a JavaScript confirm() dialog.
+   * Triggered when confirm() is invoked by the web page.
    *
-   * @param { Callback<OnConfirmEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript confirm() dialog.
+   * @param { Callback<OnConfirmEvent, boolean> } callback Callback triggered when confirm() is invoked by the web page.
    *     {@code true} means the application can call the custom pop-up capability (including confirmation and cancellation), and needs to call JsResult
    *                  to notify the Web component whether to leave the current page based on the user's confirmation or cancellation operation.
    *     {@code false} means the custom pop-up drawn in the function is invalid.
@@ -8535,17 +8561,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onConfirm(callback: Callback<OnConfirmEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * Triggered when prompt() is invoked by the web page.
    *
-   * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { function } callback Callback used when prompt() is invoked by the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 9
    */
   /**
-   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * Triggered when prompt() is invoked by the web page.
    *
-   * @param { function } callback The Triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { function } callback Callback used when prompt() is invoked by the web page.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8553,9 +8579,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
-   * Triggered when the web page wants to display a JavaScript prompt() dialog.
+   * Triggered when prompt() is invoked by the web page.
    *
-   * @param { Callback<OnPromptEvent, boolean> } callback The triggered function when the web page wants to display a JavaScript prompt() dialog.
+   * @param { Callback<OnPromptEvent, boolean> } callback Callback used when prompt() is invoked by the web page.
    *     {@code true} means the application can call the custom pop-up window capability (including confirmation, cancellation, and input),and needs to
    *                   call JsResult to notify the Web component of the final processing result based on the user's confirmation or cancellation operation.
    *     {@code false} means the pop-up window processing result is considered as a cancellation.
@@ -8680,6 +8706,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onOverrideErrorPage(callback: OnOverrideErrorPageCallback): WebAttribute;
 
@@ -10724,7 +10751,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *
    * @param { boolean } enable {@code true} means the Web will not comply with the zoom restrictions
    *     set by the<meta name="viewport">tag on the webpage; {@code false} otherwise.
-   *     The default value is false.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21

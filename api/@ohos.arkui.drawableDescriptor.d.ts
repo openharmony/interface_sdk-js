@@ -71,17 +71,15 @@ export interface DrawableDescriptorLoadedResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class DrawableDescriptor {
+export class DrawableDescriptor {
   /**
    * Creates a new DrawableDescriptor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
-   * @since arkts {'1.1':'10','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10
    */
   constructor();
 
@@ -107,8 +105,7 @@ export declare class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getPixelMap(): image.PixelMap;
 
@@ -159,10 +156,9 @@ export declare class DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
+export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new LayeredDrawableDescriptor.
    *
@@ -171,8 +167,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(
     foreground?: DrawableDescriptor,
@@ -202,8 +197,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getForeground(): DrawableDescriptor;
 
@@ -231,16 +225,6 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @atomicservice
    * @since 12
    */
-  /**
-   * Get DrawableDescriptor for the background.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
-   */
   getBackground(): DrawableDescriptor;
 
   /**
@@ -265,8 +249,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getMask(): DrawableDescriptor;
 
@@ -292,8 +275,7 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static getMaskClipPath(): string;
 }
@@ -304,17 +286,15 @@ export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
  * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
+export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new PixelMapDrawableDescriptor.
    * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(src?: image.PixelMap);
 }
@@ -326,10 +306,9 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare interface AnimationOptions {
+declare interface AnimationOptions {
   /**
    * The duration of animation playback once.
    *
@@ -337,8 +316,7 @@ export declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   duration?: number;
   /**
@@ -348,8 +326,7 @@ export declare interface AnimationOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   iterations?: number;
   /**
@@ -443,10 +420,9 @@ export interface AnimationController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
-export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
+export class AnimatedDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new AnimatedDrawableDescriptor.
    *
@@ -455,8 +431,7 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
 

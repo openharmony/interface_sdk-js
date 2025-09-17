@@ -18,13 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { ResourceColor, ResourceStr, Length } from './units';
-import { DecorationStyleInterface, MutableStyledString, StyledString } from './styled_string';
-import { SelectionOptions, Callback } from './common';
-import { TextDecorationType, TextDecorationStyle } from './enums';
-/*** endif */
-
 /**
  * Defines the text data detector type.
  *
@@ -38,8 +31,7 @@ import { TextDecorationType, TextDecorationStyle } from './enums';
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum TextDataDetectorType {
   /**
@@ -53,8 +45,7 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */   
   PHONE_NUMBER = 0,
 
@@ -69,8 +60,7 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   URL = 1,
 
@@ -85,8 +75,7 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */ 
   EMAIL = 2,
 
@@ -101,8 +90,7 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   ADDRESS = 3,
 
@@ -111,8 +99,7 @@ declare enum TextDataDetectorType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   DATE_TIME = 4,
 }
@@ -130,8 +117,7 @@ declare enum TextDataDetectorType {
  * @interface TextDataDetectorConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextDataDetectorConfig {
   /**
@@ -147,8 +133,7 @@ declare interface TextDataDetectorConfig {
    * @type { TextDataDetectorType[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   types: TextDataDetectorType[]
 
@@ -165,8 +150,7 @@ declare interface TextDataDetectorConfig {
    * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDetectResultUpdate?: Callback<string>
   /**
@@ -175,8 +159,7 @@ declare interface TextDataDetectorConfig {
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color?: ResourceColor,
 
@@ -186,8 +169,7 @@ declare interface TextDataDetectorConfig {
    * @type { ?DecorationStyleInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   decoration?: DecorationStyleInterface;
 
@@ -209,8 +191,7 @@ declare interface TextDataDetectorConfig {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextRange {
   /**
@@ -221,8 +202,7 @@ declare interface TextRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   start?: number;
 
@@ -234,8 +214,7 @@ declare interface TextRange {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   end?: number;
 }
@@ -247,8 +226,7 @@ declare interface TextRange {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface InsertValue {
   /**
@@ -258,8 +236,7 @@ declare interface InsertValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   insertOffset: number;
 
@@ -270,8 +247,7 @@ declare interface InsertValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   insertValue: string;
 }
@@ -283,8 +259,7 @@ declare interface InsertValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare enum TextDeleteDirection {
   /**
@@ -293,8 +268,7 @@ declare enum TextDeleteDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   BACKWARD = 0,
 
@@ -304,8 +278,7 @@ declare enum TextDeleteDirection {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   FORWARD = 1,
 }
@@ -358,8 +331,7 @@ declare enum SuperscriptStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'13','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 13
  */
 declare enum MenuType {
   /**
@@ -368,8 +340,7 @@ declare enum MenuType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   SELECTION_MENU = 0,
 
@@ -379,8 +350,7 @@ declare enum MenuType {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   PREVIEW_MENU = 1,
 }
@@ -392,8 +362,7 @@ declare enum MenuType {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'20','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 20
  */
 declare enum AutoCapitalizationMode {
   /**
@@ -402,8 +371,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   NONE = 0,
 
@@ -413,8 +381,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   WORDS = 1,
 
@@ -424,8 +391,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   SENTENCES = 2,
 
@@ -435,8 +401,7 @@ declare enum AutoCapitalizationMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'20','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   ALL_CHARACTERS = 3,
 }
@@ -448,8 +413,7 @@ declare enum AutoCapitalizationMode {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface DeleteValue {
   /**
@@ -459,8 +423,7 @@ declare interface DeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   deleteOffset: number;
 
@@ -471,8 +434,7 @@ declare interface DeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   direction: TextDeleteDirection;
 
@@ -483,8 +445,7 @@ declare interface DeleteValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   deleteValue: string;
 }
@@ -498,8 +459,7 @@ declare interface DeleteValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
@@ -512,8 +472,7 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 /**
  * Callback when input sometimes has info of previewText.
@@ -525,8 +484,7 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
@@ -537,8 +495,7 @@ declare type EditableTextOnChangeCallback = (value: string, previewText?: Previe
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextBaseController {
   /**
@@ -550,8 +507,7 @@ declare interface TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
@@ -561,8 +517,7 @@ declare interface TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   closeSelectionMenu(): void;
 
@@ -573,8 +528,7 @@ declare interface TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getLayoutManager(): LayoutManager;
 }
@@ -587,8 +541,7 @@ declare interface TextBaseController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextEditControllerEx extends TextBaseController {
   /**
@@ -598,8 +551,7 @@ declare interface TextEditControllerEx extends TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   isEditing(): boolean;
 
@@ -609,8 +561,7 @@ declare interface TextEditControllerEx extends TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   stopEditing(): void;
 
@@ -622,8 +573,7 @@ declare interface TextEditControllerEx extends TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setCaretOffset(offset: number): boolean;
 
@@ -634,8 +584,7 @@ declare interface TextEditControllerEx extends TextBaseController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getCaretOffset(): number;
 
@@ -649,18 +598,6 @@ declare interface TextEditControllerEx extends TextBaseController {
    * @since 12
    */
   getPreviewText?(): PreviewText;
-
-  /**
-   * Get PreviewText.
-   *
-   * @returns { PreviewText } - Return the PreviewText.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  getPreviewText(): PreviewText;
 }
 
 /**
@@ -669,8 +606,7 @@ declare interface TextEditControllerEx extends TextBaseController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface PreviewText {
   /**
@@ -680,8 +616,7 @@ declare interface PreviewText {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   offset: number;
 
@@ -692,8 +627,7 @@ declare interface PreviewText {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   value: string;
 }
@@ -705,8 +639,7 @@ declare interface PreviewText {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface StyledStringController {
   /**
@@ -716,8 +649,7 @@ declare interface StyledStringController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   setStyledString(styledString: StyledString): void;
 
@@ -728,8 +660,7 @@ declare interface StyledStringController {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getStyledString(): MutableStyledString;
 }
@@ -741,8 +672,7 @@ declare interface StyledStringController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface StyledStringChangedListener {
   /**
@@ -752,8 +682,7 @@ declare interface StyledStringChangedListener {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onWillChange?: Callback<StyledStringChangeValue, boolean>;
 
@@ -764,8 +693,7 @@ declare interface StyledStringChangedListener {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   onDidChange?: OnDidChangeCallback;
 }
@@ -777,8 +705,7 @@ declare interface StyledStringChangedListener {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface StyledStringChangeValue {
   /**
@@ -788,8 +715,7 @@ interface StyledStringChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   range: TextRange;
 
@@ -800,8 +726,7 @@ interface StyledStringChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   replacementString: StyledString;
 
@@ -812,8 +737,7 @@ interface StyledStringChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   previewText?: StyledString;
 }
@@ -825,8 +749,7 @@ interface StyledStringChangeValue {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface LayoutManager {
   /**
@@ -836,8 +759,7 @@ declare interface LayoutManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getLineCount(): number;
 
@@ -850,8 +772,7 @@ declare interface LayoutManager {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
@@ -888,8 +809,7 @@ declare interface LayoutManager {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface PositionWithAffinity {
   /**
@@ -899,8 +819,7 @@ interface PositionWithAffinity {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   position: number;
 
@@ -996,8 +915,7 @@ declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface CaretStyle {
   /**
@@ -1015,8 +933,7 @@ interface CaretStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 11
    */
   width?: Length,
 
@@ -1035,8 +952,7 @@ interface CaretStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   color?: ResourceColor,
 }
@@ -1047,8 +963,7 @@ interface CaretStyle {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2 
+ * @since 12
  */
 declare class TextMenuItemId {
   /**
@@ -1060,8 +975,7 @@ declare class TextMenuItemId {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 12
    */
   static of(id: ResourceStr): TextMenuItemId;
  
@@ -1073,8 +987,7 @@ declare class TextMenuItemId {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 12
    */
   equals(id: TextMenuItemId): boolean;
  
@@ -1086,8 +999,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 12
    */
   static readonly CUT: TextMenuItemId;
  
@@ -1099,8 +1011,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 12
    */
   static readonly COPY: TextMenuItemId;
  
@@ -1112,8 +1023,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2 
+   * @since 12
    */
   static readonly PASTE: TextMenuItemId;
  
@@ -1125,8 +1035,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static readonly SELECT_ALL: TextMenuItemId;
  
@@ -1138,8 +1047,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static readonly COLLABORATION_SERVICE: TextMenuItemId;
  
@@ -1151,8 +1059,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   static readonly CAMERA_INPUT: TextMenuItemId;
 
@@ -1164,8 +1071,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'13','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 13
    */
   static readonly AI_WRITER: TextMenuItemId;
 
@@ -1177,8 +1083,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   static readonly TRANSLATE: TextMenuItemId;
 
@@ -1190,8 +1095,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   static readonly SEARCH: TextMenuItemId;
 
@@ -1203,8 +1107,7 @@ declare class TextMenuItemId {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   static readonly SHARE: TextMenuItemId;
 
@@ -1278,7 +1181,6 @@ declare class TextMenuItemId {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 20
-   * @arkts 1.1&1.2
    */
   static readonly askAI: TextMenuItemId;
 }
@@ -1290,8 +1192,7 @@ declare class TextMenuItemId {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface TextMenuItem {
   /**
@@ -1301,8 +1202,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   content: ResourceStr;
   /**
@@ -1312,8 +1212,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   icon?: ResourceStr;
   /**
@@ -1323,8 +1222,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   id: TextMenuItemId;
   /**
@@ -1334,8 +1232,7 @@ declare interface TextMenuItem {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   labelInfo?: ResourceStr;
 }
@@ -1354,43 +1251,13 @@ declare interface TextMenuItem {
 type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 
 /**
- * Callback function when the selection menu create.
- *
- * @typedef { function } OnCreateMenuCallback
- * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
- * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
-
-/**
- * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
- *
- * @typedef { function } OnMenuItemClickCallback
- * @param { TextMenuItem } menuItem - current default menu.
- * @param { TextRange } range - current selected range.
- * @returns { boolean } - Return True, the event is consumed, false otherwise.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20
- * @arkts 1.2
- */
-type OnMenuItemClickCallback = (menuItem: TextMenuItem, range: TextRange) => boolean
-
-/**
  * EditMenuOptions
  *
  * @interface EditMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface EditMenuOptions {
   /**
@@ -1426,30 +1293,6 @@ declare interface EditMenuOptions {
    * @since 20
    */
   onPrepareMenu?: OnPrepareMenuCallback;
-
-  /**
-   * Passes the default menu, invokes before every display to generate a menu for triggering click events.
-   *
-   * @type { OnCreateMenuCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onCreateMenu: OnCreateMenuCallback;
-
-  /**
-   * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
-   *
-   * @type { OnMenuItemClickCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  onMenuItemClick: OnMenuItemClickCallback;
 }
 
 /**
@@ -1459,8 +1302,7 @@ declare interface EditMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface DecorationStyleResult {
   /**
@@ -1470,8 +1312,7 @@ interface DecorationStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   type: TextDecorationType;
 
@@ -1482,8 +1323,7 @@ interface DecorationStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   color: ResourceColor;
 
@@ -1494,8 +1334,7 @@ interface DecorationStyleResult {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   style?: TextDecorationStyle;
 
@@ -1519,8 +1358,7 @@ interface DecorationStyleResult {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare interface FontSettingOptions {
   /**
@@ -1531,8 +1369,7 @@ declare interface FontSettingOptions {
     * @crossplatform
     * @form
     * @atomicservice
-    * @since arkts {'1.1':'12','1.2':'20'}
-    * @arkts 1.1&1.2
+    * @since 12
     */
   enableVariableFontWeight?: boolean;
  }
@@ -1543,8 +1380,7 @@ declare interface FontSettingOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare interface TextChangeOptions {
   /**
@@ -1554,8 +1390,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   rangeBefore: TextRange;
 
@@ -1566,8 +1401,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   rangeAfter: TextRange;
 
@@ -1578,8 +1412,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   oldContent: string;
 
@@ -1590,8 +1423,7 @@ declare interface TextChangeOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   oldPreviewText: PreviewText;
 }
@@ -1603,8 +1435,7 @@ declare interface TextChangeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 interface EditableTextChangeValue {
   /**
@@ -1614,8 +1445,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   content: string;
 
@@ -1626,8 +1456,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   previewText?: PreviewText;
 
@@ -1638,8 +1467,7 @@ interface EditableTextChangeValue {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   options?: TextChangeOptions;
 }
@@ -1651,8 +1479,7 @@ interface EditableTextChangeValue {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'16','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 16
   */
 declare enum TextMenuShowMode {
   /**
@@ -1661,8 +1488,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   DEFAULT = 0,
 
@@ -1673,8 +1499,7 @@ declare enum TextMenuShowMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   PREFER_WINDOW = 1,
 }
@@ -1686,8 +1511,7 @@ declare enum TextMenuShowMode {
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @crossplatform
   * @atomicservice
-  * @since arkts {'1.1':'16','1.2':'20'}
-  * @arkts 1.1&1.2
+  * @since 16
   */
 declare interface TextMenuOptions {
   /**
@@ -1697,8 +1521,7 @@ declare interface TextMenuOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since arkts {'1.1':'16','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 16
    */
   showMode?: TextMenuShowMode;
 }
@@ -1708,8 +1531,7 @@ declare interface TextMenuOptions {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
- * @since arkts {'1.1':'15','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 15
  */
 declare enum KeyboardAppearance {
   /**
@@ -1717,8 +1539,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   NONE_IMMERSIVE = 0,
 
@@ -1727,8 +1548,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   IMMERSIVE = 1,
 
@@ -1737,8 +1557,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   LIGHT_IMMERSIVE = 2,
 
@@ -1747,8 +1566,7 @@ declare enum KeyboardAppearance {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
-   * @since arkts {'1.1':'15','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 15
    */
   DARK_IMMERSIVE = 3,
 }

@@ -18,11 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { NodeController } from '../../@ohos.arkui.node';
-import { CommonMethod } from './common';
-/*** endif */
-
 /**
  * Defines the Interface of NodeContainer. To display the node build by an associated NodeController.
  *
@@ -38,8 +33,7 @@ import { CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 interface NodeContainerInterface {
   /**
@@ -62,18 +56,6 @@ interface NodeContainerInterface {
   * @since 12
   */
   (controller: import('../api/@ohos.arkui.node').NodeController): NodeContainerAttribute;
-  /**
-   * Constructor parameters
-   *
-   * @param { NodeController } controller - Indicates the controller of the NodeContainer.
-   * @returns { NodeContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20
-   * @arkts 1.2
-   */
-  (controller: NodeController): NodeContainerAttribute;
 }
 
 /**
@@ -89,8 +71,7 @@ interface NodeContainerInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
- * @since arkts {'1.1':'12','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 12
  */
 declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute> {}
 

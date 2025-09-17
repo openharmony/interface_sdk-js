@@ -691,6 +691,17 @@ declare namespace screen {
      * @since 9
      */
     readonly id: number;
+    
+    /**
+     * Screen port id from the Render Service
+     *
+     * @type { long }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 21 dynamic
+     */
+    readonly rsId: long;
 
     /**
      * Group id
