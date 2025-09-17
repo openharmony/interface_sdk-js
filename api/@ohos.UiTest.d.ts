@@ -214,7 +214,7 @@ declare class By {
    * @param { number } id The id value.
    * @returns { By } this {@link By} object.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @test
    */
@@ -378,7 +378,7 @@ declare class UiComponent {
    *
    * @returns { Promise<number> } the id value.
    * @syscap SystemCapability.Test.UiTest
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    * @test
    */
@@ -1534,10 +1534,20 @@ declare interface UIEventObserver {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    * @test
    */
   once(type: 'toastShow', callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen for toast show once
+   * 
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  onceToastShow( callback: Callback<UIElementInfo>): void;
 
   /**
    * Listen for dialog show once
@@ -1558,10 +1568,19 @@ declare interface UIEventObserver {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    * @test
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
+  /**
+   * Listen for dialog show once
+   * 
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @since 22 static
+   * @test
+   */
+  onceDialogShow(callback: Callback<UIElementInfo>): void;
 }
 
 /**
@@ -3365,20 +3384,6 @@ declare class Component {
     */
    pinchIn(scale: double): Promise<void>;
 
-
-   /**
-    * Scroll on this {@link Component}to find matched {@link Component},applicable to scrollable one.
-    *
-    * @param { On } on - the attribute requirements of the target {@link Component}.
-    * @returns { Promise<Component | null> } the found result, or null if not found.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.
-    * @throws { BusinessError } 17000002 - The async function is not called with await.
-    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
-    * @syscap SystemCapability.Test.UiTest
-    * @since 20 static
-    * @test
-    */
-   scrollSearch(on: On): Promise<Component | null>;
   /**
    * Get the description attribute value.
    *
@@ -4702,7 +4707,6 @@ declare class Driver {
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    * @test
    */
   mouseScroll(p: Point, down: boolean, d: int, key1?: int, key2?: int): Promise<void>;
