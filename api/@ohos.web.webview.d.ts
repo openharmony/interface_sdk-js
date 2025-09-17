@@ -5684,6 +5684,18 @@ declare namespace webview {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Prefetch the resources required by the page, but will not execute js or render the page.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the URL.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 22
+     */
     prefetchPage(url: string, additionalHeaders?: Array<WebHeader>): void;
 
     /**
@@ -5728,6 +5740,20 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Preresolve or Preconnect the url. This API can be called before loading the url to make loading faster.
+     * @param { string } url - Which url to preresolve/preconnect.
+     * @param { boolean } preconnectable - Indicates whether to preconnect.
+     * @param { number } numSockets - If preconnectable is true, this parameter indicates the number of sockets
+     *     to be preconnected.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @throws { BusinessError } 17100013 - The number of preconnect sockets is invalid.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 22
      */
     static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void;
 
@@ -5831,6 +5857,19 @@ declare namespace webview {
      * @crossplatform
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Start a download.
+     * @param { string } url - The download url.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      * @arkts 1.1&1.2
      */
     startDownload(url: string): void;
@@ -6316,6 +6355,28 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Prefetches resource requests based on specified request information and additional HTTP request headers,
+     * saves the requests to the memory cache, and specifies the cache key and validity period to accelerate loading.
+     * Currently, only POST requests whose Content-Type is application/x-www-form-urlencoded are supported.
+     * A maximum of six POST requests can be pre-obtained. To prefetch the seventh post request,
+     * call API{@link clearPrefetchedResource} to clear the cache of unnecessary post requests.
+     * Otherwise, the cache of the earliest prefetched POST request will be automatically cleared.
+     * To use the prefetched resource cache, you need to add the key value ArkWebPostCacheKey to the header of the
+     * POST request. The content of the key value is the cacheKey of the corresponding cache.
+     * @param { RequestInfo } request - The information of the request.
+     * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
+     * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
+     *     Only support number and letters.
+     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     *     The unit is second. Default value is 300s.
+     *     The value of cacheValidTime must between 1 and 2147483647.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 22
+     */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
       cacheValidTime?: number): void;
 
@@ -6429,6 +6490,16 @@ declare namespace webview {
      * @atomicservice
      * @since 12
      */
+    /**
+     * Warmup the registered service worker associated the url.
+     * @param { string } url - The url.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @static
+     * @syscap SystemCapability.Web.Webview.Core
+     * @atomicservice
+     * @since 22
+     */
     static warmupServiceWorker(url: string): void;
 
     /**
@@ -6445,6 +6516,18 @@ declare namespace webview {
      *                           length exceeds 2048.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12
+     */
+    /**
+     * Inject offline resources into cache.
+     *
+     * @param { Array<OfflineResourceMap> } resourceMaps - Array of offline resource info maps.
+     *     The count of array must between 1 and 30.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
+     *     length exceeds 2*1024*1024.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22
      */
     injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void;
 
