@@ -189,7 +189,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
     fontColor(value: ResourceColor): MenuAttribute;
     /**
      * Sets the radius of the corner around the menu.
-     * When the radius is less than the menu width, the default border radius is used.
+     * When the radius is more than the menu width, the default border radius is used.
      *
      * @param { Dimension | BorderRadiuses } value - the border radius.
      * @returns { MenuAttribute }
@@ -199,7 +199,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      */
     /**
      * Sets the radius of the corner around the menu.
-     * When the radius is less than the menu width, the default border radius is used.
+     * When the radius is more than the menu width, the default border radius is used.
      *
      * @param { Dimension | BorderRadiuses } value - the border radius.
      * @returns { MenuAttribute }
