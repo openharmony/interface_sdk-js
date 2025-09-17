@@ -603,20 +603,6 @@ declare namespace emitter {
    */
   function emitWithEventIdTypeStringOptionsDataTypeGenericEventData<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
 
-
-  /**
-   * Emits an event of a specified priority.
-   *
-   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Options } options - Event emit priority.
-   * @param { GenericEventData<T> } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 20
-   * @arkts 1.2
-   */
-  function emitWithEventIdTypeStringOptionsDataTypeGenericEventData<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
-
   /**
    * @since 20
    * @arkts 1.2

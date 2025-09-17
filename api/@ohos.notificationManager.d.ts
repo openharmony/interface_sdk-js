@@ -4223,7 +4223,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
  
@@ -4243,7 +4242,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
  
