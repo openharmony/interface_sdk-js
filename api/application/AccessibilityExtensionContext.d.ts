@@ -80,8 +80,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus: boolean, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -96,8 +97,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus?: boolean): Promise<AccessibilityElement>;
 
@@ -110,8 +112,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -126,8 +129,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId: number, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -142,8 +146,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
 
@@ -156,8 +161,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -172,8 +178,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId: number, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -188,8 +195,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
 
@@ -202,8 +210,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -435,7 +444,7 @@ export declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<Array<T>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
@@ -444,7 +453,7 @@ export declare interface AccessibilityElement {
    * Get a list of attribute names.
    * @returns { Promise<Array<T>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
@@ -460,7 +469,7 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(
@@ -479,7 +488,7 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
@@ -489,8 +498,9 @@ export declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<Array<string>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(callback: AsyncCallback<Array<string>>): void;
 
@@ -499,8 +509,9 @@ export declare interface AccessibilityElement {
    *
    * @returns { Promise<Array<string>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(): Promise<Array<string>>;
 
@@ -516,8 +527,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
 
@@ -533,8 +545,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters?: object): Promise<void>;
 
@@ -549,8 +562,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, callback: AsyncCallback<void>): void;
 
@@ -604,8 +618,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -620,8 +635,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -668,8 +684,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -684,8 +701,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 
@@ -702,9 +720,20 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
+
+  /**
+   * Find elements that match the condition.
+   *
+   * @param { string } condition Indicates the specific content to be queried.
+   * @returns { Promise<Array<AccessibilityElement>> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  findElementByTextType(condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
    * Find elements that match the condition.
@@ -719,9 +748,20 @@ export declare interface AccessibilityElement {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   findElement(type: 'elementId', condition: long): Promise<AccessibilityElement>;
+
+  /**
+   * Find elements that match the condition.
+   *
+   * @param { long } condition Indicates the specific content to be queried.
+   * @returns { Promise<AccessibilityElement> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  findElementByElementId(condition: long): Promise<AccessibilityElement>;
 
   /**
    * Indicates accessibility focus state.
