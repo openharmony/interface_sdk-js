@@ -167,9 +167,9 @@ declare namespace inputConsumer {
      */
     /**
      * Key value. One of KEYCODE_VOLUME_UP/KEYCODE_VOLUME_DOWN/KEYCODE_MEDIA_PLAY_PAUSE/
-     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT/KEYCODE_PREVIOUS/KEYCODE_EXIT.
+     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21
      */
@@ -186,7 +186,7 @@ declare namespace inputConsumer {
      * Key event type. Setting the value to 1 indicates that the key is pressed,
      * and setting the value to 2 indicates that the key is pressed and released.
      *
-     * @type { int }
+     * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21
      */
