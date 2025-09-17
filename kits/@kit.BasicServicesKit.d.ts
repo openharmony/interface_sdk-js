@@ -91,9 +91,11 @@ export {
 };
 
 /*** if arkts 1.2 */
+import configPolicy from '@ohos.configPolicy';
+import customConfig from '@ohos.customization.customConfig';
 import zlib from '@ohos.zlib';
 
 export {
-  zlib
+  zlib, configPolicy, customConfig
 };
 /*** endif */
