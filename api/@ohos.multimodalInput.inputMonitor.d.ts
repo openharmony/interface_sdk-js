@@ -36,6 +36,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace inputMonitor {
   /**
@@ -44,8 +45,7 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7 dynamic
-   * @since 20 static
+   * @since 7 dynamiconly
    */
   interface TouchEventReceiver {
     /**
@@ -56,11 +56,23 @@ declare namespace inputMonitor {
      * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
-     * @since 7 dynamic
-     * @since 20 static
+     * @since 7 dynamiconly
      */
     (touchEvent: TouchEvent): Boolean;
   }
+
+  /**
+   * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
+   * and the system performs the closing operation.
+   *
+   * @typedef { function } TouchEventReceiver
+   * @param { TouchEvent } touchEvent - the reported touch event.
+   * @returns { boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 20 staticonly
+   */
+  type TouchEventReceiver = (touchEvent: TouchEvent) => boolean;
 
   /**
    * Enables listening for global touch (touchscreen) events.
@@ -88,6 +100,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'touch', receiver: TouchEventReceiver): void;
 
@@ -117,6 +130,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
 
@@ -139,7 +153,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'mouse' } type - Event type. This field has a fixed value of mouse.
-   * @param { display.Rect[] } rect - Rectangular area where a callback is triggered. One or two rectangular areas can be specified.
+   * @param { Array<display.Rect> } rect - Rectangular area where a callback is triggered. One or two rectangular areas can be specified.
    * @param { Callback<MouseEvent> } receiver - Callback used to return mouse events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -148,8 +162,9 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
-  function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
+  function on(type: 'mouse', rect: Array<display.Rect>, receiver: Callback<MouseEvent>): void;
 
   /**
    * Disables listening for global touch (touchscreen) events.
@@ -179,6 +194,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'touch', receiver?: TouchEventReceiver): void;
 
@@ -210,6 +226,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
 
@@ -226,6 +243,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function on(type: 'pinch', receiver: Callback<Pinch>): void;
 
@@ -243,6 +261,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function off(type: 'pinch', receiver?: Callback<Pinch>): void;
 
@@ -260,6 +279,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   function on(type: 'pinch', fingers: number, receiver: Callback<Pinch>): void;
 
@@ -268,7 +288,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - Event type. This field has a fixed value of pinch.
-   * @param { number } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
+   * @param { int } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
    * @param { Callback<Pinch> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -278,15 +298,16 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
-  function off(type: 'pinch', fingers: number, receiver?: Callback<Pinch>): void;
+  function off(type: 'pinch', fingers: int, receiver?: Callback<Pinch>): void;
 
   /**
    * Enables listening for rotation events of the touchpad.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - Event type. This field has a fixed value of rotate.
-   * @param { number } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
+   * @param { int } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
    * @param { Callback<Rotate> } receiver - Callback used to return rotation events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -295,15 +316,16 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
-  function on(type: 'rotate', fingers: number, receiver: Callback<Rotate>): void;
+  function on(type: 'rotate', fingers: int, receiver: Callback<Rotate>): void;
 
   /**
    * Disables listening for rotation events of the touchpad.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - Event type. This field has a fixed value of rotate.
-   * @param { number } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
+   * @param { int } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
    * @param { Callback<Rotate> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -313,8 +335,9 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
-  function off(type: 'rotate', fingers: number, receiver?: Callback<Rotate>): void;
+  function off(type: 'rotate', fingers: int, receiver?: Callback<Rotate>): void;
 
   /**
    * Enables listening for three-finger swipe events.
@@ -329,6 +352,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function on(type: 'threeFingersSwipe', receiver: Callback<ThreeFingersSwipe>): void;
 
@@ -346,6 +370,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function off(type: 'threeFingersSwipe', receiver?: Callback<ThreeFingersSwipe>): void;
 
@@ -362,6 +387,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function on(type: 'fourFingersSwipe', receiver: Callback<FourFingersSwipe>): void;
 
@@ -379,6 +405,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
 
@@ -395,6 +422,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
 
@@ -412,6 +440,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
 
@@ -428,6 +457,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
 
@@ -444,6 +474,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
 
@@ -459,6 +490,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function on(type: 'swipeInward', receiver: Callback<SwipeInward>): void;
 
@@ -474,6 +506,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
 
@@ -482,7 +515,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of touchscreenSwipe.
-   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { int } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return touchscreen swipe events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -493,15 +526,16 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
+   * @since 20 static
    */
-  function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenSwipe', fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening for touchscreen swipe events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of touchscreenSwipe.
-   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { int } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -513,15 +547,16 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
+   * @since 20 static
    */
-  function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenSwipe', fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
   /**
    * Enables listening for touchscreen pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of touchscreenPinch.
-   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { int } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return touchscreen pinch events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -532,15 +567,16 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
+   * @since 20 static
    */
-  function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenPinch', fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening for touchscreen pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of touchscreenPinch.
-   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { int } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -552,8 +588,9 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
+   * @since 20 static
    */
-  function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenPinch', fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
 /**
    * Listens for the press and release events of the specified key, which can be the META_LEFT, META_RIGHT, power, or volume key.
@@ -571,6 +608,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 15 dynamic
+   * @since 20 static
    */
   function on(type: 'keyPressed', keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
 
@@ -589,6 +627,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 15 dynamic
+   * @since 20 static
    */
   function off(type: 'keyPressed', receiver?: Callback<KeyEvent>): void;
 
@@ -597,7 +636,7 @@ declare namespace inputMonitor {
    * The returned touch event contains only the following valid information: actionTime, sourceType, isInject, pressure, tiltX, tiltY.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { number } count - Number of touch events to query.
+   * @param { int } count - Number of touch events to query.
    * @returns { Promise<Array<TouchEvent>> } Returns the result through a promise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -605,7 +644,8 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 20 dynamic
+   * @since 20 static
    */
-  function queryTouchEvents(count: number) : Promise<Array<TouchEvent>>;
+  function queryTouchEvents(count: int) : Promise<Array<TouchEvent>>;
 }
 export default inputMonitor;

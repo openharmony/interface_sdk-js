@@ -196,6 +196,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   enum ShieldMode {
     /**
@@ -204,6 +205,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
      * @since 11 dynamic
+     * @since 20 static
      */
     FACTORY_MODE
   }
@@ -284,6 +286,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
+   * @since 20 static
    */
   function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
 
@@ -300,6 +303,7 @@ declare namespace inputConsumer {
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
+   * @since 20 static
    */
   function getShieldStatus(shieldMode: ShieldMode): boolean;
 
@@ -310,6 +314,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
+   * @since 20 static
    */
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
