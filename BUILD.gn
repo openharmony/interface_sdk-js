@@ -44,7 +44,7 @@ action("ohos_base_split") {
     "--output-interface-sdk",
     rebase_path(interface_sdk_path, root_build_dir),
   ]
-  outputs = [ "${root_out_dir}/sdk-interface" ]
+  outputs = [ "${interface_sdk_path}" ]
 }
 
 template("ohos_copy_internal") {
@@ -143,6 +143,9 @@ template("ohos_handle_declaration_template") {
     deps += [ ":$_module_info_target" ]
     inputs = []
     outputs = [ target_out_dir + "/ohos_sdk_arkui/${target_name}" ]
+    if (target_name == "ohos_build_ets_sdk_api"){
+      outputs += [target_out_dir + "/ohos_sdk_arkui/${target_name}/bundle/bundleStatusCallback.d.ts"]
+    }
 
     script = "//interface/sdk-js/delete_arkui_label.py"
     args = [
@@ -278,8 +281,9 @@ ohos_copy_internal("ets_internal_api2") {
 if (!sdk_build_public) {
   # ets/build-tools/ets-loader/declarations脚本
   ohos_copy("bundle_api") {
+    deps = [ ":ohos_build_ets_sdk_api" ]
     sdk_type = "ets"
-    sources = [ "api/bundle/bundleStatusCallback.d.ts" ]
+    sources = [ target_out_dir + "/ohos_sdk_arkui/ohos_build_ets_sdk_api/bundle/bundleStatusCallback.d.ts" ]
     outputs =
         [ target_out_dir + "/${sdk_type}/${target_name}/{{source_file_part}}" ]
     module_source_dir = target_out_dir + "/${sdk_type}/${target_name}"
