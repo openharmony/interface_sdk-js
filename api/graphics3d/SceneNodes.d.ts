@@ -19,7 +19,7 @@
  */
 
 /*** if arkts static */
-import { Resource } from '../global/resource';
+import { SceneResource } from './SceneResources';
 /*** endif */
 /*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
@@ -27,15 +27,6 @@ import { RaycastParameters, RaycastResult } from './Scene';
 /*** endif */
 import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
-
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 20 static
- */
-declare type ResourceStr = string | Resource;
 
 /**
  * Defines the layer mask of the node.
