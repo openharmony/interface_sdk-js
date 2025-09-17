@@ -92,15 +92,15 @@ declare namespace backgroundTaskManager {
     continuousTaskId?: number = -1;
 
     /**
-     * Whether the modes of continuous task is supported.
+     * Whether the modes of continuous task are supported.
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @returns { boolean } Whether the modes of continuous task is supported.
+     * @returns { boolean } Whether the modes of continuous task are supported.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    isModeSupported?(): boolean;
+    isModeSupported(): boolean;
   }
 
   /**
@@ -1228,7 +1228,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    SUBMODE_OBVIOUS_NOTIFICATION = 3,
+    SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
 
     /**
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
