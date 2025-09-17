@@ -19,6 +19,28 @@
  */
 
 /**
+ * Prepare the unit testing environment for running test cases.
+ *
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+type OnPrepareFn = () => void;
+
+/**
+ * Run all test cases.
+ * 
+ * @typedef { Function }
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @atomicservice
+ * @since 20
+ * @arkts 1.1&1.2
+ */
+type OnRunFn = () => void;
+
+/**
  * Base class for the test framework.
  * If you want to implement your own unit test framework, you must inherit this class and overrides all its methods.
  *
@@ -48,10 +70,18 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Prepare the unit testing environment for running test cases.
+   * 
+   * @type { OnPrepareFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  onPrepare(): void;
+  onPrepare: OnPrepareFn;
 
   /**
    * Run all test cases.
@@ -64,10 +94,18 @@ interface TestRunner {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @since 11
+   */
+  /**
+   * Run all test cases.
+   *
+   * @typedef { OnRunFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @atomicservice
+   * @since 20
    * @arkts 1.1&1.2
    */
-  onRun(): void;
+  onRun: OnRunFn;
 }
 
 /*** if arkts 1.1 */
