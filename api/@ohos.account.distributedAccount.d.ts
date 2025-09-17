@@ -19,17 +19,17 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-/***if arkts 1.2 */
+/*** if arkts static */
 import type { RecordData } from './@ohos.base';
-/***endif */
+/*** endif */
 
 /**
  * This module provides the capability to manage distributed accounts.
  *
  * @namespace distributedAccount
  * @syscap SystemCapability.Account.OsAccount
- * @since arkts {'1.1':'7', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 7 dynamic
+ * @since 20 static
  */
 declare namespace distributedAccount {
   /**
@@ -37,8 +37,8 @@ declare namespace distributedAccount {
    *
    * @returns { DistributedAccountAbility } Ability to manage operations of distributed account.
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   function getDistributedAccountAbility(): DistributedAccountAbility;
 
@@ -47,8 +47,8 @@ declare namespace distributedAccount {
    *
    * @interface DistributedAccountAbility
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   interface DistributedAccountAbility {
     /**
@@ -57,7 +57,7 @@ declare namespace distributedAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
      * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead distributedAccount.DistributedAccountAbility#getOsAccountDistributedInfo
      */
@@ -69,7 +69,7 @@ declare namespace distributedAccount {
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
      * @returns { Promise<DistributedInfo> } The distributed information of the current OS account.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead distributedAccount.DistributedAccountAbility#getOsAccountDistributedInfo
      */
@@ -85,8 +85,8 @@ declare namespace distributedAccount {
      * <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
 
@@ -98,8 +98,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     getOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
@@ -132,8 +132,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
@@ -166,8 +165,7 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20
-     * @arkts 1.1&1.2
+     * @since 20 dynamic&static
      */
     getOsAccountDistributedInfoByLocalId(localId: int): Promise<DistributedInfo>;
 
@@ -178,7 +176,7 @@ declare namespace distributedAccount {
      * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
      * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead distributedAccount.DistributedAccountAbility#setOsAccountDistributedInfo
      */
@@ -191,7 +189,7 @@ declare namespace distributedAccount {
      * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
      * @returns { Promise<void> } The promise returned by the function.
      * @syscap SystemCapability.Account.OsAccount
-     * @since 7
+     * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead distributedAccount.DistributedAccountAbility#setOsAccountDistributedInfo
      */
@@ -211,8 +209,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -230,8 +228,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * This API can be called only by system applications.
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
@@ -252,8 +250,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300008 - Restricted OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
@@ -274,8 +272,8 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300008 - Restricted OS account.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo): Promise<void>;
   }
@@ -285,16 +283,16 @@ declare namespace distributedAccount {
    *
    * @enum { int }
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   enum DistributedAccountStatus {
     /**
      * Indicates that the account is not logged in.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     NOT_LOGGED_IN = 0,
 
@@ -302,8 +300,8 @@ declare namespace distributedAccount {
      * Indicates that the account is logged in.
      *
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     LOGGED_IN = 1
   }
@@ -313,8 +311,8 @@ declare namespace distributedAccount {
    *
    * @interface DistributedInfo
    * @syscap SystemCapability.Account.OsAccount
-   * @since arkts {'1.1':'7', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 7 dynamic
+   * @since 20 static
    */
   interface DistributedInfo {
     /**
@@ -322,8 +320,8 @@ declare namespace distributedAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     name: string;
 
@@ -332,8 +330,8 @@ declare namespace distributedAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     id: string;
 
@@ -342,8 +340,8 @@ declare namespace distributedAccount {
      *
      * @type { string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'7', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 7 dynamic
+     * @since 20 static
      */
     event: string;
 
@@ -352,8 +350,8 @@ declare namespace distributedAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     nickname?: string;
 
@@ -362,8 +360,8 @@ declare namespace distributedAccount {
      *
      * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     avatar?: string;
 
@@ -373,8 +371,8 @@ declare namespace distributedAccount {
      * @type { ?DistributedAccountStatus }
      * @readonly
      * @syscap SystemCapability.Account.OsAccount
-     * @since arkts {'1.1':'10', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 10 dynamic
+     * @since 20 static
      */
     readonly status?: DistributedAccountStatus;
 
@@ -383,7 +381,7 @@ declare namespace distributedAccount {
      *
      * @type { ?object }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 8
+     * @since 8 dynamic
      */
     scalableData?: object;
 
@@ -392,8 +390,7 @@ declare namespace distributedAccount {
      *
      * @type { ?RecordData }
      * @syscap SystemCapability.Account.OsAccount
-     * @since 20
-     * @arkts 1.2
+     * @since 20 static
      */
     scalableData?: RecordData;
   }

@@ -2850,6 +2850,15 @@ declare namespace rpc {
   }
 
   /**
+   * Called to perform subsequent operations when a death notification of the remote object is received.
+   *
+   * @typedef { function } OnRemoteDiedFunc
+   * @syscap SystemCapability.Communication.IPC.Core
+   * @since 20 static
+   */
+  type OnRemoteDiedFunc = () => void;
+
+  /**
    * @typedef DeathRecipient
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 7
@@ -2875,9 +2884,17 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
-     * @since 20 static
      */
     onRemoteDied(): void;
+
+    /**
+     * Called to perform subsequent operations when a death notification of the remote object is received.
+     *
+     * @type { OnRemoteDiedFunc }
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    onRemoteDied: OnRemoteDiedFunc;
   }
 
   /**
