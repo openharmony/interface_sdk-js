@@ -653,7 +653,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 21
+   * @since 22
    */
   scrollBarColor(color: Color | number | string | Resource): GridAttribute;
 
