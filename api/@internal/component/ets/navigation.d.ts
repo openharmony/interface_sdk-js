@@ -1795,6 +1795,22 @@ declare type NavBar = 'navBar'
 declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
+ * navigation interception callback.
+ *
+ * @typedef { function } InterceptionCallback
+ * @param { NavPathInfo | NavBar } from - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathInfo | NavBar } to - Indicates the info of NavDestination or NavBar.
+ * @param { NavPathStack } pathStack - The NavPathStack of current Navigation.
+ * @param { NavigationOperation } operation - Indicates the type of navigation operation.
+ * @param { boolean } isAnimated - Indicates whether the transition is animated.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare type InterceptionCallback = (from: NavPathInfo|NavBar, to: NavPathInfo|NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void;
+
+/**
  * navigation interception callback using in navigation mode change
  *
  * @typedef { function } InterceptionModeCallback
@@ -1849,6 +1865,17 @@ declare interface NavigationInterception {
    * @since 12
    */
   modeChange?: InterceptionModeCallback;
+
+  /**
+   * Called before destination is created.For details, see { @Link InterceptionCallback}.
+   *
+   * @type { ?InterceptionCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interception?: InterceptionCallback;
 }
 
 /**
