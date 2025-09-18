@@ -9408,15 +9408,6 @@ export declare interface CommonMethod {
     /**
      * Keyboard input
      *
-     * @param { ((event: KeyEvent) => void) | undefined } event
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default onKeyEvent(event: ((event: KeyEvent) => void) | undefined): this;
-    /**
-     * Keyboard input
-     *
      * @param { Callback<KeyEvent, boolean> | undefined } event - Callback for handling the key event.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9564,16 +9555,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default focusBox(style: FocusBoxStyle | undefined): this;
-    /**
-    * Set container as a focus group with a specific identifier.
-    *
-    * @param { string | undefined } id - focus scope identifier.
-    * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
-    */
-    default focusScopeId(id: string | undefined, isGroup?: boolean): this;
     /**
     * Set container as a focus group with a specific identifier.
     *
@@ -10278,12 +10259,12 @@ export declare interface CommonMethod {
      * This callback is triggered when the drag behavior is stopped within the scope of the component.
      *
      * @param { OnDragEventCallback | undefined } eventCallback - event callback.
-     * @param { DropOptions } [dropOptions] - the drop handling options.
+     * @param { DropOptions } dropOptions - the drop handling options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions?: DropOptions): this;
+    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
     /**
      * This function is called when the drag event is end.
      *
@@ -10312,15 +10293,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default draggable(value: boolean | undefined): this;
-    /**
-     * Set preview of the component for dragging process
-     *
-     * @param { CustomBuilder | DragItemInfo | string | undefined } value - preview of the component for dragging process
-     * @returns { this } return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default dragPreview(value: CustomBuilder | DragItemInfo | string | undefined): this;
     /**
      * Set preview of the component for dragging process
      *
