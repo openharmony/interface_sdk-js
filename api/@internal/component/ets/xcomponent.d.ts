@@ -159,6 +159,29 @@ declare interface SurfaceRotationOptions {
 }
 
 /**
+ * Surface config.
+ *
+ * @interface SurfaceConfig
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 22
+ */
+declare interface SurfaceConfig {
+  /**
+   * Whether the surface held by XComponent needs to be considered opaque,
+   * even if the surface has translucent pixel.
+   * True means needing to be considered opaque, false otherwise.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  isOpaque?: boolean;
+}
+
+/**
  * Defines the controller of the XComponent.
  * You can bind the controller to the XComponent to call the component APIs through the controller.
  *
@@ -437,6 +460,16 @@ declare class XComponentController {
    * @since 20
    */
   unlockCanvasAndPost(canvas: DrawingCanvas):void;
+
+  /**
+   * Set the config of the surface created by the XComponent.
+   *
+   * @param { SurfaceConfig } config - surface config
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22
+   */
+  setXComponentSurfaceConfig(config: SurfaceConfig):void;
 }
 
 /**
