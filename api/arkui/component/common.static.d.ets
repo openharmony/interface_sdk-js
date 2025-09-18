@@ -11406,6 +11406,16 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default systemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Sets the state anouncement text of the component under accessibility.
+     *
+     * @param { string | Resource | undefined } description the state anouncement text of the component under accessibility.
+     *     if incoming is undefined, it will be processed as empty string.
+     * @returns { this } return component instance who call the method.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 23 static
+     */
+    default accessibilityStateDescription(description: string | Resource | undefined): this;
 }
 /**
  * CommonAttribute for ide.
