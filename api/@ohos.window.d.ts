@@ -7414,7 +7414,7 @@ declare namespace window {
      * Interaction events include physical keyboard input events and screen touch/click events, but not soft keyboard input events.
      *
      * @param { 'noInteractionDetected' } type - The value is fixed at 'noInteractionDetected', indicating the window has no interaction for a long time.
-     * @param { number } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
      * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -7427,7 +7427,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    on(type: 'noInteractionDetected', timeout: number, callback: Callback<void>): void;
+    on(type: 'noInteractionDetected', timeout: long, callback: Callback<void>): void;
 
     /**
      * Unsubscribes from non-interaction events in a window within the specified period.
