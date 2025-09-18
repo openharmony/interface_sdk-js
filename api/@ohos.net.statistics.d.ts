@@ -700,6 +700,48 @@ declare namespace statistics {
   }[];
 
   /**
+   * Array of {@link NetStatsInfoSequenceItem}.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20 static
+   */
+  export type NetStatsInfoSequence = Array<NetStatsInfoSequenceItem>;
+
+  /**
+   * Parameters for an {@link NetStatsInfo} with start time and end time.
+   * @interface NetStatsInfoSequenceItem
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 20 static
+   */
+  export interface NetStatsInfoSequenceItem {
+    /**
+     * Start time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20 static
+     */
+    startTime: int;
+    /**
+     * End time for querying traffic.
+     * @type { int }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20 static
+     */
+    endTime: int;
+    /**
+     * Detailed information of statistics.
+     * @type { NetStatsInfo }
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 20 static
+     */
+    info: NetStatsInfo;
+  }
+
+  /**
    * {@link NetStatsInfo} for every UID. Key is UID.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
@@ -798,6 +840,7 @@ declare namespace statistics {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
+   * @since 20 static
    */
   function getTrafficStatsByUidNetwork(uid: int, networkInfo: NetworkInfo): Promise<NetStatsInfoSequence>;
 }
