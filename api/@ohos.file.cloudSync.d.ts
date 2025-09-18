@@ -225,9 +225,23 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     on(evt: 'progress', callback: (pg: SyncProgress) => void): void;
+    /**
+     * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onProgress(callback: Callback<SyncProgress>): void;
     /**
      * Unsubscribes from sync progress event.
      *
@@ -242,9 +256,23 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     off(evt: 'progress', callback: (pg: SyncProgress) => void): void;
+    /**
+     * Unsubscribes from sync progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offProgress(callback: Callback<SyncProgress>): void;
     /**
      * Unsubscribes all callbacks objects from sync progress event.
      *
@@ -258,9 +286,20 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     off(evt: 'progress'): void;
+    /**
+     * Unsubscribes all callbacks objects from sync progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offProgress(): void;
     /**
      * Start the gallery sync task.
      *
@@ -517,9 +556,23 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     on(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
+    /**
+     * Subscribes to download progress change event. This method uses a callback to get download progress changes.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<SyncProgress> } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    onProgress(callback: Callback<DownloadProgress>): void;
     /**
      * Unsubscribes from download progress event.
      *
@@ -534,9 +587,23 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     off(evt: 'progress', callback: (pg: DownloadProgress) => void): void;
+    /**
+     * Unsubscribes from download progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offProgress(callback: Callback<DownloadProgress>): void;
     /**
      * Unsubscribes all callbacks objects from download progress event.
      *
@@ -550,9 +617,20 @@ declare namespace cloudSync {
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @systemapi
      * @since 10 dynamic
-     * @since 20 static
      */
     off(evt: 'progress'): void;
+    /**
+     * Unsubscribes all callbacks objects from download progress event.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @since 22 static
+     */
+    offProgress(): void;
     /**
      * Start the download task.
      *
@@ -663,9 +741,19 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
      */
     on(event: 'progress', callback: Callback<SyncProgress>): void;
+    /**
+     * Subscribes to sync progress change event. This method uses a callback to get sync progress changes.
+     *
+     * @param { Callback<SyncProgress> } callback - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 22 static
+     */
+    onProgress(callback: Callback<SyncProgress>): void;
     /**
      * Unsubscribes from sync progress event.
      *
@@ -675,9 +763,18 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 12 dynamic
-     * @since 20 static
      */
     off(event: 'progress', callback?: Callback<SyncProgress>): void;
+    /**
+     * Unsubscribes from sync progress event.
+     *
+     * @param { Callback<SyncProgress> } [callback] - callback function with a `SyncProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 22 static
+     */
+    offProgress(callback?: Callback<SyncProgress>): void;
     /**
      * Start the file sync task.
      *
@@ -780,22 +877,41 @@ declare namespace cloudSync {
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     on(event: 'progress', callback: Callback<DownloadProgress>): void;
     /**
+     * Subscribes to cloud file cache download progress change event. This method uses a callback to get download progress changes.
+     *
+     * @param { Callback<DownloadProgress> } callback - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 22 static
+     */
+    onProgress(callback: Callback<DownloadProgress>): void;
+    /**
      * Unsubscribes from cloud file cache download progress event.
      *
-     * @param { 'progress' } event - event type.
      * @param { Callback<DownloadProgress> } [callback] - callback function with a `DownloadProgress` argument.
      * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameter types.
      * @throws { BusinessError } 13600001 - IPC error
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
-     * @since 20 static
      */
     off(event: 'progress', callback?: Callback<DownloadProgress>): void;
+    /**
+     * Unsubscribes from cloud file cache download progress event.
+     *
+     * @param { Callback<DownloadProgress> } [callback] - callback function with a `DownloadProgress` argument.
+     * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left unspecified;
+     * <br>2.Incorrect parameter types.
+     * @throws { BusinessError } 13600001 - IPC error
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @since 22 static
+     */
+    offProgress(callback?: Callback<DownloadProgress>): void;
 
     /**
      * Start the cloud file cache download task.
