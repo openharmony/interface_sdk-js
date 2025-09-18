@@ -4798,7 +4798,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     beginRect: Rect;
 
@@ -4808,7 +4809,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 18
+     * @since arkts {'1.1':'18', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     endRect: Rect;
 
@@ -7060,7 +7062,7 @@ declare namespace window {
      * Register the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7071,7 +7073,7 @@ declare namespace window {
      * Register the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px.
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7080,13 +7082,13 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    on(type: 'keyboardHeightChange', callback: Callback<number>): void;
+    on(type: 'keyboardHeightChange', callback: Callback<int>): void;
 
     /**
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
      * If a value is passed in, the corresponding subscription is canceled. 
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -7098,7 +7100,7 @@ declare namespace window {
      * Unregister the callback of keyboardHeightChange
      *
      * @param { 'keyboardHeightChange' } type - The value is fixed at 'keyboardHeightChange', indicating the keyboard height change event.
-     * @param { Callback<number> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
+     * @param { Callback<int> } callback - Callback used to return the current keyboard height, which is an integer, in px. 
      * If a value is passed in, the corresponding subscription is canceled. 
      * If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
@@ -7108,7 +7110,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    off(type: 'keyboardHeightChange', callback?: Callback<number>): void;
+    off(type: 'keyboardHeightChange', callback?: Callback<int>): void;
 
     /**
      * Register the callback of keyboardWillShow
