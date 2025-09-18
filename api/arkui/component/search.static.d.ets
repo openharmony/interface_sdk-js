@@ -47,11 +47,11 @@ export declare class SearchController extends TextContentControllerBase {
     /**
      * Called when the position of the insertion cursor is set.
      *
-     * @param { number } value - Length from the start of the character string to the position where the caret is located.
+     * @param { int } value - Length from the start of the character string to the position where the caret is located.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    caretPosition(value: number): void;
+    caretPosition(value: int): void;
     /**
      * Exit edit state.
      *
@@ -71,18 +71,18 @@ export declare class SearchController extends TextContentControllerBase {
      * <br>This API works only when the value of selectionStart is less than that of selectionEnd.
      * </p>
      *
-     * @param { number } selectionStart - The start position of the selected text.
+     * @param { int } selectionStart - The start position of the selected text.
      * The start position of text in the text box is 0.
      * A value less than 0 is handled as 0.
      * A value greater than the maximum text length is handled as the maximum text length.
-     * @param { number } selectionEnd - The end position of the selected text.
+     * @param { int } selectionEnd - The end position of the selected text.
      * A value less than 0 is handled as the value 0.
      * A value greater than the maximum text length is handled as the maximum text length.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
+    setTextSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
 }
 /**
  * Enum for the style of cancel button
@@ -666,12 +666,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>When the maximum number is reached, no more characters can be entered.
      * </p>
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxLength(value: number | undefined): this;
+    default maxLength(value: int | undefined): this;
     /**
      * Called when the text align is set.
      *
@@ -723,12 +723,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontSize(value: number | string | Resource | undefined): this;
+    default minFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the maximum font size of the font is set.
      *
@@ -738,12 +738,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontSize(value: number | string | Resource | undefined): this;
+    default maxFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      * Value range: [0, 1]
@@ -755,12 +755,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      * Value range: [1, +∞)
@@ -771,12 +771,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource | undefined } scale
+     * @param { double | Resource | undefined } scale
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Define custom keyboard.
      *
@@ -820,12 +820,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>A negative value too small may result in the text being compressed to 0 and no content being displayed.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value - The unit is fp.
+     * @param { double | string | Resource | undefined } value - The unit is fp.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default letterSpacing(value: number | string | Resource | undefined): this;
+    default letterSpacing(value: double | string | Resource | undefined): this;
     /**
      * Called when the line height of the font is set.
      *
@@ -834,12 +834,12 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>If the value is of the number type, the unit fp is used.
      * </p>
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default lineHeight(value: number | string | Resource | undefined): this;
+    default lineHeight(value: double | string | Resource | undefined): this;
     /**
      * Called when the search type is set.
      *

@@ -348,12 +348,12 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph size is set.
      *
-     * @param { number | string | Resource } value
+     * @param { double | string | Resource } value
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the SymbolGlyph color is set.
      *
@@ -366,12 +366,12 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the font symbolGlyph weight is set.
      *
-     * @param { number | FontWeight | string } value
+     * @param { int | FontWeight | string } value
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the symbolGlyph effect is set.
      *
@@ -394,30 +394,30 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      *  Define effect options for SymbolGlyph.
      *
      * @param { SymbolEffect } [symbolEffect] - The symbol effect type
-     * @param { boolean | number } [triggerValue] - The trigger of the effect
+     * @param { boolean | int } [triggerValue] - The trigger of the effect
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | number | undefined): this;
+    default symbolEffect(symbolEffect: SymbolEffect | undefined, triggerValue?: boolean | int | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      *
-     * @param { Optional<number|Resource> } scale
+     * @param { Optional<double|Resource> } scale
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      *
-     * @param { Optional<number|Resource> } scale
+     * @param { Optional<double|Resource> } scale
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Sets the attribute modifier.
      *

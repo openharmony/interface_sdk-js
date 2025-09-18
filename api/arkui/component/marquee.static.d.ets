@@ -57,12 +57,12 @@ export interface MarqueeOptions {
      * <br>If the value is greater than the text width of the marquee, the default value is used.
      * </p>
      *
-     * @type { ?number } - The unit is vp.
+     * @type { ?double } - The unit is vp.
      * @default 6
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    step?: number;
+    step?: double;
     /**
      * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
      *
@@ -157,12 +157,12 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
      * </p>
      *
-     * @param { number | FontWeight | string | undefined } value - Default value is FontWeight.Normal.
+     * @param { int | FontWeight | string | undefined } value - Default value is FontWeight.Normal.
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Set marquee font family.
      *

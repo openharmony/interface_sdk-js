@@ -36,12 +36,12 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
     /**
      * Called when the SymbolSpan size is set.
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the SymbolSpan color is set.
      *
@@ -54,12 +54,12 @@ export declare interface SymbolSpanAttribute extends CommonMethod {
     /**
      * Called when the font SymbolSpan weight is set.
      *
-     * @param { number | FontWeight | string | undefined } value
+     * @param { int | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the SymbolSpan effect is set.
      *
