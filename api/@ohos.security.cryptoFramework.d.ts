@@ -1335,10 +1335,10 @@ declare namespace cryptoFramework {
      * Enable the hardware entropy source.
      *
      * @throws { BusinessError } 801 - this operation is not supported.
-     * @throws { BusinessError } 17620001 - memory error.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
-     * @crossplatform
      * @atomicservice
      * @since 21
      */

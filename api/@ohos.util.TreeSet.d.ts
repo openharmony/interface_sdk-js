@@ -133,14 +133,14 @@ declare class TreeSet<T> {
   /**
    * Gets the element number of the TreeSet.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
    * @since 20
    * @arkts 1.2
    */
-  get length(): number;
+  get length(): int;
 
   /**
    * Returns whether the Set object contains elements
@@ -765,7 +765,7 @@ declare class TreeSet<T> {
  * @since 20
  * @arkts 1.2
  */
-type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
+export type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
 
 /**
  * The type of TreeSet comparator.
@@ -773,12 +773,12 @@ type TreeSetForEachCb<T> = (value: T, key: T, set: TreeSet<T>) => void
  * @typedef { function } TreeSetComparator
  * @param { T } firstValue - The first value compared
  * @param { T } secondValue - The second value compared
- * @returns { number } - Comparison results
+ * @returns { double } - Comparison results
  * @syscap SystemCapability.Utils.Lang
  * @atomicservice
  * @since 20
  * @arkts 1.2
  */
-type TreeSetComparator<T> = (firstValue: T, secondValue: T) => number
+export type TreeSetComparator<T> = (firstValue: T, secondValue: T) => double
 
 export default TreeSet;

@@ -120,6 +120,7 @@
     "SystemCapability.USB.USBManager",
     "SystemCapability.USB.USBManager.Serial",
     "SystemCapability.Security.AccessToken",
+    "SystemCapability.Security.ScreenLockFileManager",
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.ResourceSchedule.UsageStatistics.AppGroup",
     "SystemCapability.ResourceSchedule.UsageStatistics.App",
@@ -204,7 +205,6 @@
     "SystemCapability.DistributedDataManager.RelationalStore.Core",
     "SystemCapability.MiscServices.InputMethodFramework",
     "SystemCapability.HiviewDFX.HiTrace",
-    "SystemCapability.Sensors.MiscDevice",
     "SystemCapability.Notification.Emitter",
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.DistributedDataManager.KVStore.Core",
@@ -223,6 +223,7 @@
     "SystemCapability.ArkUI.ArkUI.Full",
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Tee.TeeClient"
   ]
 }

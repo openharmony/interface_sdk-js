@@ -18,12 +18,6 @@
  * @kit ArkUI
  */
 
-/*** if arkts 1.2 */
-import { PointLightStyle, Optional, CommonMethod } from './common';
-import { HorizontalAlign, FlexAlign } from './enums';
-import { Resource } from './../../global/resource';
-/*** endif */
-
 /**
  * Defines the space property with string, number and resource unit.
  *
@@ -32,8 +26,7 @@ import { Resource } from './../../global/resource';
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 declare type SpaceType = string | number | Resource;
 
@@ -45,8 +38,7 @@ declare type SpaceType = string | number | Resource;
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface ColumnOptions {
   /**
@@ -81,8 +73,18 @@ interface ColumnOptions {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
+   */
+  /**
+   * Vertical layout element spacing.
+   *
+   * Anonymous Object Rectification
+   * @type { ?(string | number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18
    */
   space?: string | number;
 }
@@ -95,8 +97,7 @@ interface ColumnOptions {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'18','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 18
  */
 interface ColumnOptionsV2 {
   /**
@@ -107,8 +108,7 @@ interface ColumnOptionsV2 {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   space?: SpaceType;
 }
@@ -145,8 +145,7 @@ interface ColumnOptionsV2 {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 interface ColumnInterface {
   /**
@@ -198,27 +197,27 @@ interface ColumnInterface {
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ColumnOptions } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options?: ColumnOptions): ColumnAttribute;
   /**
    * Set the options.
    *
+   * Anonymous Object Rectification
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - column options
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'18','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18
    */
   (options?: ColumnOptions | ColumnOptionsV2): ColumnAttribute;
 }
@@ -255,8 +254,7 @@ interface ColumnInterface {
  * @crossplatform
  * @form
  * @atomicservice
- * @since arkts {'1.1':'11','1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
   /**
@@ -295,8 +293,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   alignItems(value: HorizontalAlign): ColumnAttribute;
 
@@ -336,8 +333,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   justifyContent(value: FlexAlign): ColumnAttribute;
   /**
@@ -347,8 +343,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @returns { ColumnAttribute } The attribute of the column.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since arkts {'1.1':'11','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11
    */
   pointLight(value: PointLightStyle): ColumnAttribute;
   /**
@@ -360,8 +355,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since arkts {'1.1':'12','1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12
    */
   reverse(isReversed: Optional<boolean>): ColumnAttribute;
 }

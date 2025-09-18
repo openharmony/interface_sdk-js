@@ -24,7 +24,8 @@
  * @typedef AbilityFirstFrameStateData
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface AbilityFirstFrameStateData {
   /**
@@ -33,7 +34,8 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   bundleName: string;
 
@@ -43,7 +45,8 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   moduleName: string;
 
@@ -53,20 +56,22 @@ export interface AbilityFirstFrameStateData {
    * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   abilityName: string;
 
   /**
    * The index of DLP sandbox.
    *
-   * @type { number }
+   * @type { int }
    * @default 0
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  appIndex: number;
+  appIndex: int;
 
   /**
    * The entry ability of application is cold-start return true, others false.
@@ -75,7 +80,8 @@ export interface AbilityFirstFrameStateData {
    * @default false
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   isColdStart: boolean;
 }

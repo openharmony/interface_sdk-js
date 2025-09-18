@@ -702,6 +702,17 @@ declare namespace screen {
      * @arkts 1.1&1.2
      */
     readonly id: long;
+    
+    /**
+     * Screen port id from the Render Service
+     *
+     * @type { long }
+     * @readonly
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 21 dynamic
+     */
+    readonly rsId: long;
 
     /**
      * Group id

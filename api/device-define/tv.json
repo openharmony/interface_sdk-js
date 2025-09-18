@@ -184,6 +184,7 @@
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.FileManagement.UserFileManager.DistributedCore",  
     "SystemCapability.Notification.NotificationSettings",
-    "SystemCapability.ArkUI.ArkUI.Lite"
+    "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Tee.TeeClient"
   ]
 }

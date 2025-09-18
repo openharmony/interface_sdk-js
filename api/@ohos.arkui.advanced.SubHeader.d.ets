@@ -168,20 +168,20 @@ export declare class OperationOption {
 
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * callback function when operate the text or icon.
-   * @type { () => void }.
+   * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -190,8 +190,8 @@ export declare class OperationOption {
   action?: () => void;
 
   /**
-   * The accessibilityText of this text or icon.
-   * @type { ?ResourceStr }.
+   * Accessible label name for the icon on the right side of the subheader.
+   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
@@ -494,7 +494,7 @@ export declare struct SubHeader {
    */
   /**
    * Icon resource of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -504,14 +504,14 @@ export declare struct SubHeader {
 
   /**
    * Attributes of Symbol icon.
-   * @type { SymbolOptions}.
+   * @type { ?SymbolOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Attributes of Symbol icon.
-   * @type { SymbolOptions}.
+   * @type { ?SymbolOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
@@ -520,20 +520,20 @@ export declare struct SubHeader {
 
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * The first line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -543,20 +543,20 @@ export declare struct SubHeader {
 
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * The secondary line text of content area.
-   * @type { ResourceStr }.
+   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -566,20 +566,20 @@ export declare struct SubHeader {
 
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * Select option of content area.
-   * @type { SelectOptions }.
+   * @type { ?SelectOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -589,20 +589,20 @@ export declare struct SubHeader {
 
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * Operation style of SubHeader.
-   * @type { OperationStyle }.
+   * @type { ?OperationType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -612,20 +612,20 @@ export declare struct SubHeader {
 
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 10
    */
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 11
    */
   /**
    * operation item.
-   * @type { Array<OperationOption> }.
+   * @type { ?Array<OperationOption> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -635,14 +635,14 @@ export declare struct SubHeader {
 
   /**
    * Attributes of Symbol icons in operation area.
-   * @type { Array<SymbolOptions> }.
+   * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Attributes of Symbol icons in operation area.
-   * @type { Array<SymbolOptions> }.
+   * @type { ?Array<SymbolOptions> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18
@@ -651,14 +651,14 @@ export declare struct SubHeader {
 
   /**
    * Text modifier for primary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Text modifier for primary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -668,14 +668,14 @@ export declare struct SubHeader {
 
   /**
    * Text modifier for secondary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Text modifier for secondary title.
-   * @type { TextModifier }.
+   * @type { ?TextModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -685,14 +685,14 @@ export declare struct SubHeader {
 
   /**
    * Set the title content.
-   * @type { () => void }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12
    */
   /**
    * Set the title content.
-   * @type { () => void }
+   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

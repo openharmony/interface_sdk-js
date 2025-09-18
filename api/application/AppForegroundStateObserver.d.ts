@@ -18,8 +18,14 @@
  * @kit AbilityKit
  */
 
+/*** if arkts 1.1 */
 import type AppStateData from './AppStateData';
+/*** endif */
+/*** if arkts 1.2 */
+import AppStateData from './AppStateData';
+/*** endif */
 
+/*** if arkts 1.1 */
 /**
  * The app foreground state observer.
  *
@@ -28,13 +34,32 @@ import type AppStateData from './AppStateData';
  * @since 11
  */
 export default class AppForegroundStateObserver {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The app foreground state observer.
+ *
+ * @typedef AppForegroundStateObserver
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @systemapi
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AppForegroundStateObserver {
+/*** endif */
   /**
    * Will be called when foreground or background application changed.
    *
    * @param { AppStateData } appStateData - State changed application info.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }
+
+/*** if arkts 1.2 */
+export default AppForegroundStateObserver;
+/*** endif */

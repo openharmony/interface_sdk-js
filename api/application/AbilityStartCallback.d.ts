@@ -21,18 +21,47 @@
 /*** if arkts 1.1 */
 import type { AbilityResult } from '../ability/abilityResult';
 /*** endif */
+/*** if arkts 1.2 */
+import { AbilityResult } from '../ability/abilityResult';
+/*** endif */
 import { CompletionHandlerForAbilityStartCallback } from '../@ohos.app.ability.CompletionHandlerForAbilityStartCallback';
 
+
+/**
+ * Defines a onResult function.
+ * 
+ * @typedef { function } OnResultFn
+ * @param { AbilityResult } parameter - The Parameter returned if the UIExtensionAbility call terminateSelfWithResult.
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @since 20
+ * @arkts 1.2
+ */
+type OnResultFn = (parameter: AbilityResult) => void;
+
+/*** if arkts 1.1 */
 /**
  * The callback of UIAbility or UIExtensionAbility.
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11
  */
 export default class AbilityStartCallback {
+/*** endif */
 
+/*** if arkts 1.2 */
+/**
+ * The callback of UIAbility or UIExtensionAbility.
+ *
+ * @typedef AbilityStartCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AbilityStartCallback {
+/*** endif */
   /**
    * Called when some error occurred except disconnected from UIAbility or UIExtensionAbility.
    *
@@ -42,7 +71,8 @@ export default class AbilityStartCallback {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onError(code: number, name: string, message: string): void;
 
@@ -56,6 +86,17 @@ export default class AbilityStartCallback {
    * @since 12
    */
   onResult?(parameter: AbilityResult): void;
+  
+  /**
+   * Called when UIExtensionAbility terminate with result.
+   *
+   * @type { ?OnResultFn }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 20
+   * @arkts 1.2
+   */
+  onResult?: OnResultFn;
 
   /**
    * The completion handler of startAbilityByType.
@@ -69,3 +110,7 @@ export default class AbilityStartCallback {
    */
   completionHandler?: CompletionHandlerForAbilityStartCallback;
 }
+
+/*** if arkts 1.2 */
+export default AbilityStartCallback;
+/*** endif */

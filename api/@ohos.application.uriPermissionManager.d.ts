@@ -169,7 +169,7 @@ declare namespace uriPermissionManager {
    *                                      wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION or
    *                                      wantConstant.Flags.FLAG_AUTH_PERSISTABLE_URI_PERMISSION.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { number } appCloneIndex - Indicates the clone index of target application.
+   * @param { int } appCloneIndex - Indicates the clone index of target application.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
@@ -187,7 +187,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: number): Promise<void>;
+  function grantUriPermission(uri: string, flag: wantConstant.Flags, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Revoke URI from one application
@@ -320,7 +320,7 @@ declare namespace uriPermissionManager {
    *
    * @param { string } uri - File URI.
    * @param { string } targetBundleName - Indicates the bundle name of authorization target.
-   * @param { number } appCloneIndex - Indicates the clone index of target application.
+   * @param { int } appCloneIndex - Indicates the clone index of target application.
    * @returns { Promise<void> } - the promise returned by the function.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
@@ -335,7 +335,7 @@ declare namespace uriPermissionManager {
    * @since arkts {'1.1':'19', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-    function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: number): Promise<void>;
+    function revokeUriPermission(uri: string, targetBundleName: string, appCloneIndex: int): Promise<void>;
 
   /**
    * Grant URIs in UDkey to another application
