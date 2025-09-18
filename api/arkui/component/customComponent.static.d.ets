@@ -25,6 +25,53 @@ import { ConstraintSizeOptions } from './units'
 import { Builder } from './builder'
 import { LocalStorage } from './../stateManagement/storage/localStorage';
 import { CustomDialogController } from './customDialogController';
+import { RecordData } from '@ohos.base';
+
+/**
+  * Define ReuseObject for aboutToReuse method.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @since 20
+  */
+export declare class ReuseObject {
+    /**
+     * Get the raw data of ReuseObject to get values.
+     *
+     * @returns { RecordData } - Returns the raw data of ReuseObject.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    get raw(): RecordData;
+
+    /**
+     * Get value from the ReuseObject by key.
+     *
+     * @param { string } key - the key of target value.
+     * @returns { RecordData } - the target value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    $_get(key: string): RecordData;
+
+   /**
+    * Returns if the key is in the ReuseObject.
+    *
+    * @param { string } key - the key of target value.
+    * @returns { boolean } - if the key is in the ReuseObject.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    has(key: string): boolean;
+
+   /**
+    * Returns the keys array of the ReuseObject.
+    *
+    * @returns { string[] } - the keys array of the ReuseObject.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @since 20
+    */
+    keys(): string[];
+}
 
 /**
  * Defines Entry Annotation.
@@ -240,13 +287,13 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     /**
      * aboutToReuse Method
      *
-     * @param { Record<string, Object> } params - Custom component init params.
+     * @param { ReuseObject } params - Custom component init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform
      * @atomicservice
      * @since 20 static
      */
-    aboutToReuse(params: Record<string, Object>): void;
+    aboutToReuse(params: ReuseObject): void;
 }
 
 /**
