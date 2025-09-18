@@ -1437,7 +1437,7 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
