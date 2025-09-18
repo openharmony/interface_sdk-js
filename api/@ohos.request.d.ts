@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import BaseContext from './application/BaseContext';
+import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
  * Upload and download
@@ -2954,6 +2955,14 @@ declare namespace request {
        * @since 22
        */
       visibility?: number;
+      /**
+       * The intent to send when click the notification.
+       * 
+       * @type { ?WantAgent }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 22
+       */
+      wantAgent?: WantAgent;
     }
 
     /**
