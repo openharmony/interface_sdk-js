@@ -139,9 +139,12 @@ export {
 };
 
 /*** if arkts 1.2 */
+import appControl from '@ohos.bundle.appControl';
 import bundleManager from '@ohos.bundle.bundleManager';
 import bundleMonitor from '@ohos.bundle.bundleMonitor';
 import bundleResourceManager from '@ohos.bundle.bundleResourceManager';
+import defaultAppManager from '@ohos.bundle.defaultAppManager';
+import distributedBundleManager from '@ohos.bundle.distributedBundleManager';
 import freeInstall from '@ohos.bundle.freeInstall';
 import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
@@ -170,10 +173,11 @@ import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import uriPermissionManager from '@ohos.application.uriPermissionManager';
 
 export {
-  bundleManager, bundleMonitor, bundleResourceManager, freeInstall, installer, launcherBundleManager, overlay,
-  shortcutManager, ErrorCode, Ability, ApplicationStateChangeCallback, AtomicServiceOptions, EnvironmentCallback,
+  appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
+  ErrorCode, Ability, ApplicationStateChangeCallback, AtomicServiceOptions, EnvironmentCallback,
   InsightIntentContext, ServiceExtensionAbility, UIExtensionContentSession, Callee, CalleeCallback, Caller, OnReleaseCallback,
   UIAbility, abilityManager, appManager, application, common, dataUriUtils, dialogRequest, missionManager, wantAgent,
- uriPermissionManager
+  uriPermissionManager
 };
 /*** endif */

@@ -27,78 +27,89 @@ import { ElementName } from './bundleManager/ElementName';
  *
  * @namespace defaultAppManager
  * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace defaultAppManager {
   /**
    * The constant for application type.
    *
-   * @enum { number }
+   * @enum { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export enum ApplicationType {
     /**
      * Default browser identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     BROWSER = 'Web Browser',
     /**
      * Default image identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     IMAGE = 'Image Gallery',
     /**
      * Default audio identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     AUDIO = 'Audio Player',
     /**
      * Default video identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     VIDEO = 'Video Player',
     /**
      * Default PDF identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PDF = 'PDF Viewer',
     /**
      * Default word identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WORD = 'Word Viewer',
     /**
      * Default excel identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EXCEL = 'Excel Viewer',
     /**
      * Default PPT identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 9
+     * @since arkts {'1.1':'9', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     PPT = 'PPT Viewer',
     /**
      * Default email identifier.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     EMAIL = 'Email'
   }
@@ -111,7 +122,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplication(type: string, callback: AsyncCallback<boolean>): void;
 
@@ -123,7 +135,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplication(type: string): Promise<boolean>;
 
@@ -135,7 +148,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDefaultApplicationSync(type: string): boolean;
 
@@ -144,7 +158,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -155,9 +169,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDefaultApplication(type: string, userId: number, callback: AsyncCallback<BundleInfo>): void;
+  function getDefaultApplication(type: string, userId: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
    * Get default application based on type.
@@ -173,7 +188,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
 
@@ -182,7 +198,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<BundleInfo> } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -193,16 +209,17 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDefaultApplication(type: string, userId?: number): Promise<BundleInfo>;
+  function getDefaultApplication(type: string, userId?: int): Promise<BundleInfo>;
 
   /**
    * Get default application based on type.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { BundleInfo } Return the BundleInfo object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -213,9 +230,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDefaultApplicationSync(type: string, userId?: number): BundleInfo;
+  function getDefaultApplicationSync(type: string, userId?: int): BundleInfo;
 
   /**
    * Set default application based on type.
@@ -223,7 +241,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of setting default application result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -234,10 +252,11 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string,
-    elementName: ElementName, userId: number, callback: AsyncCallback<void>): void;
+    elementName: ElementName, userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set default application based on type.
@@ -254,7 +273,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
 
@@ -264,7 +284,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of setting default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -275,9 +295,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId?: number): Promise<void>;
+  function setDefaultApplication(type: string, elementName: ElementName, userId?: int): Promise<void>;
 
   /**
    * Set default application based on type.
@@ -285,7 +306,7 @@ declare namespace defaultAppManager {
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
    * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -295,16 +316,17 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: number): void;
+  function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: int): void;
 
   /**
    * Reset default application based on type.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -314,9 +336,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function resetDefaultApplication(type: string, userId: number, callback: AsyncCallback<void>): void;
+  function resetDefaultApplication(type: string, userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Reset default application based on type.
@@ -331,7 +354,8 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
 
@@ -340,7 +364,7 @@ declare namespace defaultAppManager {
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @returns { Promise<void> } The result of resetting default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -350,16 +374,17 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function resetDefaultApplication(type: string, userId?: number): Promise<void>;
+  function resetDefaultApplication(type: string, userId?: int): Promise<void>;
 
   /**
    * Reset default application based on type.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { number } userId - Indicates the id for the user.
+   * @param { int } userId - Indicates the id for the user.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -368,9 +393,10 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function resetDefaultApplicationSync(type: string, userId?: number): void;
+  function resetDefaultApplicationSync(type: string, userId?: int): void;
 }
 
 export default defaultAppManager;
