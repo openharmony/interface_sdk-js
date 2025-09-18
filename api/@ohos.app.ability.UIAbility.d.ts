@@ -137,7 +137,7 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   onRelease(callback: OnReleaseCallback): void;
 
@@ -168,7 +168,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -183,9 +182,18 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   *
+   * @param { OnReleaseCallback } callback - Callback used to return the result.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(callback: OnReleaseCallback): void;
 
   /**
    * Unregisters a callback that is invoked when the stub on the target UIAbility is disconnected.
@@ -197,9 +205,17 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release'): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(): void;
 }
 
 /**
