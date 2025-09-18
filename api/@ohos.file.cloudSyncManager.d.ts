@@ -177,7 +177,7 @@ declare namespace cloudSyncManager {
   /**
    * Describes the clear action type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
    * @since arkts{ '1.1':'10','1.2':'20'}
@@ -245,7 +245,7 @@ declare namespace cloudSyncManager {
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @returns { Promise<void> } Return Promise
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -258,13 +258,13 @@ declare namespace cloudSyncManager {
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function notifyDataChange(userId: number, extraData: ExtraData): Promise<void>;
+  function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
   /**
    * Notify the change of data in cloud.
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { number } userId - The Id of the user whose cloud data changed
+   * @param { int } userId - The Id of the user whose cloud data changed
    * @param { ExtraData } extraData - The change info from push notification
    * @param { AsyncCallback<void> } callback - Callback function
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
@@ -277,7 +277,7 @@ declare namespace cloudSyncManager {
    * @since arkts{ '1.1':'11','1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function notifyDataChange(userId: number, extraData: ExtraData, callback: AsyncCallback<void>): void;
+  function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
   /**
    * The change info from push notification.
@@ -313,7 +313,7 @@ declare namespace cloudSyncManager {
 
   /**
    * Describes the reason why the download task stop.
-   * @enum { number } DownloadStopReason
+   * @enum { int } DownloadStopReason
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
    * @arkts 1.1&1.2
@@ -379,7 +379,7 @@ declare namespace cloudSyncManager {
 
   /**
    * Describes the state type of downgrade download.
-   * @enum { number } DownloadState
+   * @enum { int } DownloadState
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20
    * @arkts 1.1&1.2
@@ -422,57 +422,57 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located in the cloud.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    cloudFileCount: number;
+    cloudFileCount: int;
 
     /**
      * Total size of files located in the cloud, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    cloudFileTotalSize: number;
+    cloudFileTotalSize: long;
 
     /**
      * Total number of files located locally.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    localFileCount: number;
+    localFileCount: int;
 
     /**
      * Total size of files located locally, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    localFileTotalSize: number;
+    localFileTotalSize: long;
 
     /**
      * Total number of files located both locally and in the cloud.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    bothFileCount: number;
+    bothFileCount: int;
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    bothFileTotalSize: number;
+    bothFileTotalSize: long;
   }
 
   /**
@@ -494,48 +494,48 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that downloaded successfully
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    successfulCount: number;
+    successfulCount: int;
 
     /**
      * The number of files that fail to be downloaded.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    failedCount: number;
+    failedCount: int;
 
     /**
      * Total number of all files to be downloaded.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    totalCount: number;
+    totalCount: int;
 
     /**
      * Total size of downloaded files.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    downloadedSize: number;
+    downloadedSize: long;
 
     /**
      * Total size of all files to be downloaded.
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20
      * @arkts 1.1&1.2
      */
-    totalSize: number;
+    totalSize: long;
 
     /**
      * The reason for stopping the download task.
