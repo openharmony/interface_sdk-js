@@ -20,9 +20,11 @@
 
 import { AsyncCallback } from './@ohos.base';
 import { MissionInfo as _MissionInfo } from './application/MissionInfo';
+/*** if arkts 1.1 */
 import { MissionListener as _MissionListener } from './application/MissionListener';
 import { MissionSnapshot as _MissionSnapshot } from './application/MissionSnapshot';
 import StartOptions from './@ohos.app.ability.StartOptions';
+/*** endif */
 
 /**
  * This module provides the capability to manage abilities and obtaining system task information.
@@ -30,7 +32,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * @namespace missionManager
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace missionManager {
   /**
@@ -91,7 +94,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @param { AsyncCallback<MissionInfo> } callback - The callback is used to return the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -99,16 +102,17 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getMissionInfo(deviceId: string, missionId: number, callback: AsyncCallback<MissionInfo>): void;
+  function getMissionInfo(deviceId: string, missionId: int, callback: AsyncCallback<MissionInfo>): void;
 
   /**
    * Get the missionInfo with the given missionId.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { string } deviceId - Indicates the device to be queried.
-   * @param { number } missionId - Indicates mission id to be queried.
+   * @param { int } missionId - Indicates mission id to be queried.
    * @returns { Promise<MissionInfo> } Returns the MissionInfo of the given id.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -116,9 +120,10 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getMissionInfo(deviceId: string, missionId: number): Promise<MissionInfo>;
+  function getMissionInfo(deviceId: string, missionId: int): Promise<MissionInfo>;
 
   /**
    * Get missionInfos in the given deviceId with maximum number of numMax.
@@ -339,7 +344,8 @@ declare namespace missionManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearAllMissions(callback: AsyncCallback<void>): void;
 
@@ -352,7 +358,8 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function clearAllMissions(): Promise<void>;
 
@@ -502,7 +509,8 @@ declare namespace missionManager {
    * @typedef { _MissionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   export type MissionInfo = _MissionInfo;
 

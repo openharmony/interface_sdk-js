@@ -127,16 +127,17 @@ declare namespace wantAgent {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<number> } callback - Callback used to return the user ID.
+   * @param { AsyncCallback<int> } callback - Callback used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
+  function getUid(agent: WantAgent, callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the UID of a WantAgent.
@@ -155,16 +156,17 @@ declare namespace wantAgent {
    * This API uses a promise to return the result.
    *
    * @param { WantAgent } agent - Target WantAgent object.
-   * @returns { Promise<number> } Promise used to return the user ID.
+   * @returns { Promise<int> } Promise used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getUid(agent: WantAgent): Promise<number>;
+  function getUid(agent: WantAgent): Promise<int>;
 
   /**
    * Obtains the Want in a WantAgent object.
@@ -453,7 +455,7 @@ declare namespace wantAgent {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { WantAgent } agent - Target WantAgent object.
-   * @param { AsyncCallback<number> } callback - Callback used to return the operation type.
+   * @param { AsyncCallback<int> } callback - Callback used to return the operation type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -464,7 +466,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getOperationType(agent: WantAgent, callback: AsyncCallback<number>): void;
+  function getOperationType(agent: WantAgent, callback: AsyncCallback<int>): void;
 
   /**
    * Obtains the {@link OperationType} of a WantAgent.
@@ -484,7 +486,7 @@ declare namespace wantAgent {
    * This API uses a promise to return the result.
    *
    * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<number> } Returns the OperationType of the WantAgent.
+   * @returns { Promise<int> } Returns the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -495,7 +497,7 @@ declare namespace wantAgent {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getOperationType(agent: WantAgent): Promise<number>;
+  function getOperationType(agent: WantAgent): Promise<int>;
 
   /**
    * Enables or disables the WantAgent multithreading feature.
@@ -889,7 +891,8 @@ declare namespace wantAgent {
      * @type { WantAgent }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     info: WantAgent;
 
@@ -906,7 +909,8 @@ declare namespace wantAgent {
      * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     want: Want;
 
@@ -920,12 +924,13 @@ declare namespace wantAgent {
     /**
      * Request code that triggers the WantAgent object.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    finalCode: number;
+    finalCode: int;
 
     /**
      * Final data collected by the common event.
@@ -940,7 +945,8 @@ declare namespace wantAgent {
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     finalData: string;
 
@@ -964,7 +970,8 @@ declare namespace wantAgent {
      * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     extraInfo?: Record<string, Object>;
   }

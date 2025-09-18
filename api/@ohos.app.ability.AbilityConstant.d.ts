@@ -204,14 +204,14 @@ declare namespace AbilityConstant {
     /**
      * ID of the process where the ability is running when it exits last time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pid: number;
+    pid: int;
 
     /**
      * Name of the process.
@@ -228,26 +228,26 @@ declare namespace AbilityConstant {
     /**
      * UID of the application.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    uid: number;
+    uid: int;
 
     /**
      * Specific reason for the last exit of the ability.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    exitSubReason: number;
+    exitSubReason: int;
 
     /**
      * Reason why the process was killed.
@@ -264,38 +264,38 @@ declare namespace AbilityConstant {
     /**
      * RSS value of the process.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rss: number;
+    rss: int;
 
     /**
      * PSS value of the process.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pss: number;
+    pss: int;
 
     /**
      * Exact time when the ability last exits.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @atomicservice
      * @since arkts {'1.1':'18', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    timestamp: number;
+    timestamp: long;
 
     /**
      * The process state when the process exits.
