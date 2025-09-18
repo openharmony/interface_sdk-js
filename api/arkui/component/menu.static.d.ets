@@ -83,7 +83,7 @@ export declare interface MenuAttribute extends CommonMethod {
     default fontColor(value: ResourceColor | undefined): this;
     /**
      * Sets the radius of the corner around the menu.
-     * When the radius is less than the menu width, the default border radius is used.
+     * When the radius is more than the menu width, the default border radius is used.
      *
      * @param { Dimension | BorderRadiuses | undefined } value - the border radius.
      * @returns { MenuAttribute }
