@@ -2849,6 +2849,17 @@ declare namespace text {
    * @since 20
    */
   function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
+
+  /**
+   * Obtains the font descriptor array based on the provided font file path or resource.
+   * @param { string | Resource } path - Path or resource of the font file.
+   * The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+   * @returns { Promise<Array<FontDescriptor>> } Promise used to return all parsed font descriptors, and an empty array will
+   * be returned if no fonts are found, invalid path, no permission, or non-font file.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 22
+   */
+  function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
 }
 
 export default text;
