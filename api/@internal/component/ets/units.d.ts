@@ -3692,6 +3692,30 @@ declare interface AccessibilityOptions {
 }
 
 /**
+ * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ *
+ * @interface AccessibilityActionOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare interface AccessibilityActionOptions {
+  /**
+   * scrollStep - the step when the component is scrolled by accessibility.
+   *
+   * @type { ?(number) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  scrollStep?: number;
+}
+
+/**
  * Define scrollbar margin options.
  *
  * @interface ScrollBarMargin

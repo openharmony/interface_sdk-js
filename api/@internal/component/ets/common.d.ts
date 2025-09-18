@@ -28548,6 +28548,19 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   accessibilityStateDescription(description: string | Resource | undefined): T;
+  
+  /**
+   * Sets AccessibilityActionOptions that can affect operation under accessibility.
+   *
+   * @param { AccessibilityActionOptions | undefined } option - set accessibility specific operation options.
+   * @returns { T } return component instance who call the method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 }
 
 /**
