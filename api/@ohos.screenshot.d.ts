@@ -58,6 +58,21 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 11
    */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { ScreenshotOptions } [options] - Screenshot options, which consist of screenRect, imageSize, and rotation.
+   *     You need to set these parameters
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic&static
+   */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
@@ -79,6 +94,27 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
+  /**
+   * Screen capture, supporting HDR screenshots when there is HDR content.
+   * If HdrScreenshotOptions is null, save primary display Hdr picture.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
+   * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
+   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
+   *     only return one SDR PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic
+   */
   function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
 
   /**
@@ -91,6 +127,18 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7
+   */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic&static
    */
   function save(callback: AsyncCallback<image.PixelMap>): void;
 
@@ -108,6 +156,20 @@ declare namespace screenshot {
    * @systemapi Hide this for inner system use.
    * @since 7
    */
+  /**
+   * Takes a screenshot and saves it as a PixelMap object.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { ScreenshotOptions } [options] Screenshot options, which consist of screenRect, imageSize, and rotation.
+   *     You need to set these parameters
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 22 dynamic&static
+   */
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
@@ -124,6 +186,20 @@ declare namespace screenshot {
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14
+   */
+  /**
+   * Takes a capture and return as a PixelMap object.
+   *
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
+   * @param { CaptureOption } [options] which consist of CaptureOption.
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @atomicservice
+   * @since 22 dynamic&static
    */
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
