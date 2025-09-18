@@ -225,7 +225,7 @@ declare namespace inputEventClient {
    * Injects keys (including single keys and combination keys).
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { KeyEvent } KeyEvent - Key event to inject.
+   * @param { KeyEventInfo } KeyEvent - Key event to inject.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

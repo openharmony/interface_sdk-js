@@ -630,7 +630,7 @@ declare namespace inputDevice {
    * Sets the keyboard repeat delay.
    * This API uses a promise to return the result.
    * 
-   * @param { number } delay - Keyboard repeat delay, in ms. The value range is [300, 1000] and the default value is 500.
+   * @param { int } delay - Keyboard repeat delay, in ms. The value range is [300, 1000] and the default value is 500.
    * @returns { Promise<void> } A promise that returns no value.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

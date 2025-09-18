@@ -575,7 +575,7 @@ declare namespace pointer {
      * Horizontal coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
      * The minimum value is 0, and the maximum value is the maximum width of the image. The default value is 0 if the parameter is left empty.
      * 
-     * @type { int }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
      * @since 20 static
@@ -585,7 +585,7 @@ declare namespace pointer {
      * Vertical coordinate of the cursor focus. The coordinates are restricted by the size of the custom cursor. 
      * The minimum value is 0, and the maximum value is the maximum height of the image. The default value is 0 if the parameter is left empty.
      * 
-     * @type { int }
+     * @type { ?int }
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 15 dynamic
      * @since 20 static
@@ -694,7 +694,7 @@ declare namespace pointer {
   /**
    * Obtains the moving speed of the mouse pointer. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -716,7 +716,7 @@ declare namespace pointer {
   /**
    * Obtains the moving speed of the mouse pointer. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use
