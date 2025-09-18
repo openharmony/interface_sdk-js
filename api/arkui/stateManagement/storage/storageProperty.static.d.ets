@@ -58,7 +58,7 @@ export declare interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  default get(): T;
+  get(): T;
 
   /**
    * Assign a new value to the referenced property
