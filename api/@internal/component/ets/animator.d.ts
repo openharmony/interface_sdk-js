@@ -27,7 +27,6 @@ import { Curve,AnimationStatus, FillMode,PlayMode} from './enums'
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  */
 declare class SpringProp {
   /**
@@ -39,7 +38,6 @@ declare class SpringProp {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   constructor(mass: number, stiffness: number, damping: number);
 }
@@ -50,7 +48,6 @@ declare class SpringProp {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  */
 declare class SpringMotion {
   /**
@@ -63,7 +60,6 @@ declare class SpringMotion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   constructor(start: number, end: number, velocity: number, prop: SpringProp);
 }
@@ -74,7 +70,6 @@ declare class SpringMotion {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  */
 declare class FrictionMotion {
   /**
@@ -86,7 +81,6 @@ declare class FrictionMotion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   constructor(friction: number, position: number, velocity: number);
 }
@@ -97,7 +91,6 @@ declare class FrictionMotion {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  */
 declare class ScrollMotion {
   /**
@@ -111,7 +104,6 @@ declare class ScrollMotion {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
 }
@@ -123,7 +115,6 @@ declare class ScrollMotion {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  * @noninterop
  */
 interface AnimatorInterface {
@@ -135,7 +126,6 @@ interface AnimatorInterface {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   (value: string): AnimatorAttribute;
 }
@@ -147,7 +137,6 @@ interface AnimatorInterface {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
- * @since 20 static
  * @noninterop
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
@@ -159,7 +148,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   state(value: AnimationStatus): AnimatorAttribute;
 
@@ -171,7 +159,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   duration(value: number): AnimatorAttribute;
 
@@ -183,7 +170,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   curve(value: Curve): AnimatorAttribute;
 
@@ -195,7 +181,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   delay(value: number): AnimatorAttribute;
 
@@ -207,7 +192,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   fillMode(value: FillMode): AnimatorAttribute;
 
@@ -219,7 +203,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   iterations(value: number): AnimatorAttribute;
 
@@ -231,7 +214,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   playMode(value: PlayMode): AnimatorAttribute;
 
@@ -243,7 +225,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   motion(value: SpringMotion | FrictionMotion | ScrollMotion): AnimatorAttribute;
 
@@ -255,7 +236,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onStart(event: () => void): AnimatorAttribute;
 
@@ -267,7 +247,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onPause(event: () => void): AnimatorAttribute;
 
@@ -279,7 +258,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onRepeat(event: () => void): AnimatorAttribute;
 
@@ -291,7 +269,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onCancel(event: () => void): AnimatorAttribute;
 
@@ -303,7 +280,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onFinish(event: () => void): AnimatorAttribute;
 
@@ -315,7 +291,6 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 7 dynamic
-   * @since 20 static
    */
   onFrame(event: (value: number) => void): AnimatorAttribute;
 }
