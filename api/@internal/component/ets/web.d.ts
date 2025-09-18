@@ -2236,6 +2236,9 @@ declare class ClientAuthenticationHandler {
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11
+   * @since20 static
+   * @deprecated since 22
+   * @useinstead ohos.web.ClientAuthenticationHandler#confirm
    */
   confirm(priKeyFile: string, certChainFile: string): void;
 
