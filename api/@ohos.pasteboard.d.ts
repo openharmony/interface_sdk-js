@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback, RecordData } from './@ohos.base';
+import { AsyncCallback, RecordData, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
@@ -1383,7 +1383,6 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 20 static
      */
     on(type: 'update', callback: () => void): void;
 
@@ -1396,9 +1395,26 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 20 static
      */
     off(type: 'update', callback?: () => void): void;
+
+    /**
+     * Add a callback invoked when pasteboard content changes.
+     * @param { Callback<void> } callback - the callback to add.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    onUpdate(callback: Callback<void>): void;
+
+    /**
+     * Remove a callback invoked when pasteboard content changes.
+     * @param { Callback<void> } [callback] - the callback to remove. If this parameter is not filled in, it indicates
+     *     that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     *     will be cleared.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    offUpdate(callback?: Callback<void>): void;
 
     /**
      * Checks whether the data is remote.
