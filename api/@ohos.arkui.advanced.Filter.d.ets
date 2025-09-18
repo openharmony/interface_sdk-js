@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2023-2023 Huawei Device Co., Ltd.
+* Copyright (C) 2023-2025 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
@@ -37,6 +37,14 @@
  * @atomicservice
  * @since 11
  */
+/**
+ * Declare FilterType
+ * @enum { FilterType }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
 export declare enum FilterType {
     /**
      * The multi_line_filter type.
@@ -48,6 +56,13 @@ export declare enum FilterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The multi_line_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     MULTI_LINE_FILTER = 0,
 
@@ -61,6 +76,13 @@ export declare enum FilterType {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * The list_filter type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     LIST_FILTER = 1
 }
@@ -76,6 +98,13 @@ export declare enum FilterType {
  * @atomicservice
  * @since 11
  */
+/**
+ * This parameter is used to define the input of each filtering dimension.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
 export declare class FilterParams {
     /**
      * filter item name.
@@ -90,6 +119,14 @@ export declare class FilterParams {
      * @atomicservice
      * @since 11
      */
+    /**
+     * filter item name.
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     name: ResourceStr;
     /**
      * filter options.
@@ -103,6 +140,14 @@ export declare class FilterParams {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * filter options.
+     * @type { Array<ResourceStr> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     options: Array<ResourceStr>;
 }
@@ -120,6 +165,14 @@ export declare class FilterParams {
  * @atomicservice
  * @since 11
  */
+/**
+ * This parameter specifies the selection result of a filtering dimension.
+ * The index starts from 0.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
 export declare class FilterResult {
     /**
      * result name.
@@ -133,6 +186,14 @@ export declare class FilterResult {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * result name.
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     name: ResourceStr;
     /**
@@ -148,6 +209,14 @@ export declare class FilterResult {
      * @atomicservice
      * @since 11
      */
+    /**
+     * result index.
+     * @type { number }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     index: number;
     /**
      * result value.
@@ -162,6 +231,14 @@ export declare class FilterResult {
      * @atomicservice
      * @since 11
      */
+    /**
+     * result value.
+     * @type { ResourceStr }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     value: ResourceStr;
 }
 
@@ -175,6 +252,13 @@ export declare class FilterResult {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 11
+ */
+/**
+ * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
  */
 @Component
 export declare struct Filter {
@@ -191,6 +275,14 @@ export declare struct Filter {
      * @atomicservice
      * @since 11
      */
+    /**
+     * Container in the user-defined filtering result display area.
+     * @type { () => void }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     @BuilderParam container: () => void;
 
     /**
@@ -205,6 +297,14 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * Multi-dimensional filtering parameters.
+     * @type { Array<FilterParams> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     @Prop multiFilters: Array<FilterParams>;
 
@@ -221,6 +321,14 @@ export declare struct Filter {
      * @atomicservice
      * @since 11
      */
+    /**
+     * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
+     * @type { ?FilterParams }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     @Prop additionFilters?: FilterParams;
 
     /**
@@ -236,6 +344,14 @@ export declare struct Filter {
      * @atomicservice
      * @since 11
      */
+    /**
+     * FilterParams, Callback method after a user clicks a filter item.
+     * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
     onFilterChanged: (filterResults: Array<FilterResult>) => void;
 
     /**
@@ -250,6 +366,14 @@ export declare struct Filter {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 11
+     */
+    /**
+     * FilterType, Filter display style type.
+     * @type { ?FilterType }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
      */
     @Prop filterType?: FilterType;
 }
