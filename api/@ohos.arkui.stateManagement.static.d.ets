@@ -19,6 +19,12 @@
  * @kit ArkUI
  */
  
+export {
+    StateContext,
+    IncrementalScope,
+    __memo_context_type,
+    __memo_id_type
+} from './arkui/incremental/runtime/state';
 export * from './arkui/stateManagement/decorator';
 export * from './arkui/stateManagement/runtime';
 export * from './arkui/stateManagement/storage/appStorage';
