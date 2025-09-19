@@ -2466,7 +2466,6 @@ declare namespace audio {
      * However, the internal capture is allowed under the PRIVACY_TYPE_SHARED policy.
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 21
-     * @arkts 1.1&1.2
      */
     PRIVACY_TYPE_SHARED = 2,
   }
@@ -4068,7 +4067,7 @@ declare namespace audio {
     /**
      * Select the output device with desired AudioRenderer. This method uses a promise to return the result.
      * @param { AudioRendererFilter } filter - Filter for affected AudioRenderer.
-     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device to select. 
+     * @param { AudioDeviceDescriptors } outputAudioDevices - Audio device to select.
      * @param { AudioDevcieSelectStrategy } strategy - Target audio device select strategy.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not system App.
