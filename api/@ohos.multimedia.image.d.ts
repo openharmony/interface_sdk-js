@@ -5354,7 +5354,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -5365,7 +5365,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(uri: string): ImageSource | undefined;
 
@@ -5409,7 +5409,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   function createImageSource(uri: string, options: SourceOptions): ImageSource;
 
@@ -5421,7 +5421,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(uri: string, options: SourceOptions): ImageSource | undefined;
 
@@ -5450,7 +5450,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   function createImageSource(fd: int): ImageSource;
 
@@ -5461,7 +5461,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(fd: int): ImageSource | undefined;
 
@@ -5505,7 +5505,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   function createImageSource(fd: int, options: SourceOptions): ImageSource;
 
@@ -5517,7 +5517,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(fd: int, options: SourceOptions): ImageSource | undefined;
 
@@ -5557,7 +5557,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -5568,7 +5568,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(buf: ArrayBuffer): ImageSource | undefined;
 
@@ -5612,7 +5612,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
@@ -5624,7 +5624,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource | undefined;
 
@@ -5637,7 +5637,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource;
 
@@ -5649,7 +5649,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions)
     : ImageSource | undefined;
@@ -5669,7 +5669,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 10 dynamiconly
+   * @since 10 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer): ImageSource;
 
@@ -5680,7 +5680,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createIncrementalSource(buf: ArrayBuffer): ImageSource | undefined;
 
@@ -5701,7 +5701,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
-   * @since 10 dynamiconly
+   * @since 10 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
 
@@ -5713,7 +5713,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource | undefined;
 
@@ -5770,7 +5770,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 11 dynamiconly
+   * @since 11 dynamic
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver;
 
@@ -5784,7 +5784,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @returns { ImageReceiver | undefined } Returns the ImageReceiver instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
-   * @since 22 staticonly
+   * @since 22 static
    */
   function createImageReceiver(size: Size, format: ImageFormat, capacity: int): ImageReceiver | undefined;
 
@@ -7631,7 +7631,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { PixelMap } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getMainPixelmap(): PixelMap;
 
@@ -7640,7 +7640,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { PixelMap | undefined } Returns the pixel map.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getMainPixelmap(): PixelMap | undefined;
 
@@ -7652,7 +7652,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600201 - Unsupported operation. e.g.,1. The picture does not has a gainmap.
      * 2. MainPixelMap's allocator type is not DMA.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getHdrComposedPixelmap(): Promise<PixelMap>;
 
@@ -7663,7 +7663,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600901 - Unknown error.
      * @throws { BusinessError } 7600201 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getHdrComposedPixelmap(): Promise<PixelMap | undefined>;
 
@@ -7728,7 +7728,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>;
 
@@ -7739,7 +7739,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Metadata | undefined> } Return the metadata of main picture.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: Unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
@@ -7857,7 +7857,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<ArrayBuffer> } A Promise instance used to return the pixel map data.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     readPixelsToBuffer(): Promise<ArrayBuffer>;
 
@@ -7867,7 +7867,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<ArrayBuffer | undefined> } A Promise instance used to return the pixel map data.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     readPixelsToBuffer(): Promise<ArrayBuffer | undefined>;
 
@@ -7876,7 +7876,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getType(): AuxiliaryPictureType;
 
@@ -7885,7 +7885,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { AuxiliaryPictureType | undefined } Returns the type of auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getType(): AuxiliaryPictureType | undefined;
 
@@ -7915,7 +7915,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      * metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata>;
 
@@ -7927,7 +7927,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
      *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
@@ -7937,7 +7937,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
      * message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getAuxiliaryPictureInfo(): AuxiliaryPictureInfo;
 
@@ -7947,7 +7947,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { AuxiliaryPictureInfo | undefined } Returns the auxiliary picture information. If the operation fails,
      *     an error message is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getAuxiliaryPictureInfo(): AuxiliaryPictureInfo | undefined;
 
@@ -8118,7 +8118,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     getAllProperties(): Promise<Record<string, string | null>>;
 
@@ -8129,7 +8129,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Record<string, string | null> | undefined> } Array of Records instance used to
      *     return the property values.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     getAllProperties(): Promise<Record<string, string | null> | undefined>;
 
@@ -8138,7 +8138,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Metadata> } A Promise instance used to return the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     clone(): Promise<Metadata>;
 
@@ -8147,7 +8147,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @returns { Promise<Metadata | undefined> } A Promise instance used to return the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 22 staticonly
+     * @since 22 static
      */
     clone(): Promise<Metadata | undefined>;
   }
@@ -8386,7 +8386,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     getImageInfo(index: int, callback: AsyncCallback<ImageInfo>): void;
 
@@ -8397,7 +8397,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { int } index Sequence number of an image.
      * @param { AsyncCallback<ImageInfo | undefined> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     getImageInfo(index: int, callback: AsyncCallback<ImageInfo | undefined>): void;
 
@@ -8433,7 +8433,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -8442,7 +8442,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<ImageInfo | undefined> } callback Callback used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     getImageInfo(callback: AsyncCallback<ImageInfo | undefined>): void;
 
@@ -8490,7 +8490,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     getImageInfo(index?: int): Promise<ImageInfo>;
 
@@ -8501,7 +8501,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     If this parameter is not specified, the default value 0 is used.
      * @returns { Promise<ImageInfo | undefined> } A Promise instance used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     getImageInfo(index?: int): Promise<ImageInfo | undefined>;
 
@@ -8514,7 +8514,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { ImageInfo } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     getImageInfoSync(index?: int): ImageInfo;
 
@@ -8524,7 +8524,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { int } [index] Index of sequence image. If this parameter is specified, default value is 0.
      * @returns { ImageInfo | undefined } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     getImageInfoSync(index?: int): ImageInfo | undefined;
 
@@ -8568,7 +8568,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -8579,7 +8579,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { DecodingOptions } [options] Image decoding parameters.
      * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap | undefined>;
 
@@ -8615,7 +8615,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     createPixelMap(callback: AsyncCallback<PixelMap>): void;
 
@@ -8624,7 +8624,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { AsyncCallback<PixelMap | undefined> } callback Callback used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMap(callback: AsyncCallback<PixelMap | undefined>): void;
 
@@ -8668,7 +8668,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @form
      * @atomicservice
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
 
@@ -8679,7 +8679,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { DecodingOptions } options Image decoding parameters.
      * @param { AsyncCallback<PixelMap | undefined> } callback Callback used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap | undefined>): void;
 
@@ -8705,7 +8705,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 15 dynamiconly
+     * @since 15 dynamic
      */
     createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise<PixelMap>;
 
@@ -8728,7 +8728,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType)
       : Promise<PixelMap | undefined>;
@@ -8740,7 +8740,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 12 dynamiconly
+     * @since 12 dynamic
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap;
 
@@ -8750,7 +8750,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { DecodingOptions } [options] - Image decoding parameters.
      * @returns { PixelMap | undefined } Return the PixelMap. If decoding fails, return undefined.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMapSync(options?: DecodingOptions): PixelMap | undefined;
 
@@ -8776,7 +8776,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 15 dynamiconly
+     * @since 15 dynamic
      */
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap;
 
@@ -8799,7 +8799,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap | undefined;
 
@@ -8852,7 +8852,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
@@ -8903,7 +8903,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -8956,7 +8956,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array<PixelMap>>): void;
 
@@ -8993,7 +8993,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDelayTimeList(): Promise<Array<int>>;
 
@@ -9031,7 +9031,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getDelayTimeList(callback: AsyncCallback<Array<int>>): void;
 
@@ -9088,7 +9088,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getFrameCount(): Promise<int>;
 
@@ -9129,7 +9129,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getFrameCount(callback: AsyncCallback<int>): void;
 
@@ -9503,7 +9503,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9521,7 +9521,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(): Promise<void>;
 
@@ -9535,7 +9535,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 2.Incorrect parameter types; 3.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 13 dynamiconly
+     * @since 13 dynamic
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
 
@@ -9547,7 +9547,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Picture | undefined> } A Promise instance used to return the Picture object.
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 22 staticonly
+     * @since 22 static
      */
     createPicture(options?: DecodingOptionsForPicture): Promise<Picture | undefined>
 
@@ -9728,7 +9728,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToData(source: ImageSource, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9829,7 +9829,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @crossplatform
      * @atomicservice
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToData(source: PixelMap, options: PackingOption): Promise<ArrayBuffer>;
 
@@ -9869,7 +9869,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToFile(source: ImageSource, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
@@ -9894,7 +9894,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToFile(source: ImageSource, fd: int, options: PackingOption): Promise<void>;
 
@@ -9919,7 +9919,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToFile(source: PixelMap, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
@@ -9944,7 +9944,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 11 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToFile(source: PixelMap, fd: int, options: PackingOption): Promise<void>;
 
@@ -9978,7 +9978,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -9996,7 +9996,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(): Promise<void>;
 
@@ -10027,7 +10027,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
 
@@ -10111,7 +10111,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
 
@@ -10122,7 +10122,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getComponent(componentType: ComponentType): Promise<Component>;
 
@@ -10132,7 +10132,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -10142,7 +10142,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(): Promise<void>;
   }
@@ -10196,7 +10196,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<string> } callback Callback used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getReceivingSurfaceId(callback: AsyncCallback<string>): void;
 
@@ -10207,7 +10207,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     getReceivingSurfaceId(): Promise<string>;
 
@@ -10217,7 +10217,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readLatestImage(callback: AsyncCallback<Image>): void;
 
@@ -10227,7 +10227,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readLatestImage(): Promise<Image>;
 
@@ -10237,7 +10237,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<Image> } callback Callback used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readNextImage(callback: AsyncCallback<Image>): void;
 
@@ -10247,7 +10247,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Image> } A Promise instance used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     readNextImage(): Promise<Image>;
 
@@ -10258,9 +10258,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribe callback when receiving an image
+     *
+     * @param { AsyncCallback<void> } callback Callback used to return image.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 22 static
+     */
+    onImageArrival(callback: AsyncCallback<void>): void;
 
     /**
      * Remove callback subscriptions when releasing buffer
@@ -10269,9 +10277,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 13 dynamic
-     * @since 20 static
      */
     off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *s
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageReceiver
+     * @since 22 static
+     */
+    offImageArrival(callback?: AsyncCallback<void>): void;
 
     /**
      * Release image receiver instance and uses a callback to return the result.
@@ -10279,7 +10295,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -10289,7 +10305,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(): Promise<void>;
   }
@@ -10331,7 +10347,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<Image> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dequeueImage(callback: AsyncCallback<Image>): void;
 
@@ -10341,7 +10357,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<Image> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     dequeueImage(): Promise<Image>;
 
@@ -10352,7 +10368,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queueImage(image: Image, callback: AsyncCallback<void>): void;
 
@@ -10363,7 +10379,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     queueImage(image: Image): Promise<void>;
 
@@ -10374,9 +10390,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
      */
     on(type: 'imageRelease', callback: AsyncCallback<void>): void;
+
+    /**
+     * Subscribe callback when releasing buffer
+     *
+     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 22 static
+     */
+    onImageRelease(callback: AsyncCallback<void>): void;
 
     /**
      * Remove callback subscriptions when releasing buffer
@@ -10385,9 +10409,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 13 dynamic
-     * @since 20 static
      */
     off(type: 'imageRelease', callback?: AsyncCallback<void>): void;
+
+    /**
+     * Remove callback subscriptions when releasing buffer
+     *
+     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @syscap SystemCapability.Multimedia.Image.ImageCreator
+     * @since 22 static
+     */
+    offImageRelease(callback?: AsyncCallback<void>): void;
 
     /**
      * Releases buffer in bufferqueue instance and uses a callback to return the result.
@@ -10395,7 +10427,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { AsyncCallback<void> } callback Callback to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(callback: AsyncCallback<void>): void;
 
@@ -10405,7 +10437,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
-     * @since 20 static
+     * @since 22 static
      */
     release(): Promise<void>;
   }
