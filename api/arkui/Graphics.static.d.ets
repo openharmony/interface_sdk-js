@@ -94,7 +94,7 @@ export declare class DrawContext {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-interface Vector2 {
+export interface Vector2 {
   /**
    * Value for x-axis of the vector.
    *
@@ -121,7 +121,7 @@ interface Vector2 {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-interface Vector2T<T> {
+export interface Vector2T<T> {
 
   /**
    * Value for x-axis of the vector.
@@ -149,7 +149,7 @@ interface Vector2T<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-interface Vector3 {
+export interface Vector3 {
   /**
    * Value for x-axis of the vector.
    *

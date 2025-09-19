@@ -114,7 +114,7 @@ export declare interface LayoutConstraint {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-declare interface CrossLanguageOptions {
+export declare interface CrossLanguageOptions {
   /**
    * Defines if it enables setting attributes cross-language. Default value is false.
    *
