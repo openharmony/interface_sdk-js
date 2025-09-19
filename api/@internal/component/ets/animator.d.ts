@@ -17,10 +17,6 @@
  * @file
  * @kit ArkUI
  */
-/*** if arkts static */
-import { CommonMethod, } from './common';
-import { Curve,AnimationStatus, FillMode,PlayMode} from './enums'
-/*** endif */
 /**
  * Customize spring properties.
  *
