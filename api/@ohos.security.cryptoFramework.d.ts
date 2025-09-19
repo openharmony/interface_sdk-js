@@ -8757,6 +8757,51 @@ declare namespace cryptoFramework {
   }
 
   /**
+   * Specifies the X963KDF parameters.
+   *
+   * @extends KdfSpec
+   * @typedef X963KdfSpec
+   * @syscap SystemCapability.Security.CryptoFramework.Kdf
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface X963KdfSpec extends KdfSpec {
+    /**
+     * Indicates the key parameter of X963KDF.
+     *
+     * @type { string | Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    key: string | Uint8Array;
+
+    /**
+     * Indicates the info parameter of X963KDF.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    info: Uint8Array;
+
+    /**
+     * Indicates the byte length of output key of X963KDF.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Security.CryptoFramework.Kdf
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    keySize: int;
+  }
+
+  /**
    * Specifies the SCRYPT parameters.
    *
    * @extends KdfSpec
