@@ -4388,6 +4388,17 @@ declare namespace bundleManager {
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
+   * Get the install path of the specified plugin.
+   *
+   * @param { string } pluginBundleName - Indicates the plugin bundle name.
+   * @returns { string } Returns the install path of specified plugin.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 22 dynamic&static
+   */
+  function getPluginBundlePathForSelf(pluginBundleName: string): string;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
