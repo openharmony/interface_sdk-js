@@ -166,6 +166,28 @@ declare interface InputCounterOptions {
    * @since 12
    */
   highlightBorder?: boolean;
+
+  /**
+   * It is the color of counter when textField hasn't wanted to exceed the maximum character count.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  counterTextColor?: ColorMetrics;
+
+  /**
+   * It is the color of counter when textField wants exceed the maximum character count.
+   *
+   * @type { ?ColorMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  counterTextOverflowColor?: ColorMetrics;
 }
 
 /**

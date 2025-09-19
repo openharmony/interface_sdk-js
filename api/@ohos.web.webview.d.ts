@@ -6925,7 +6925,7 @@ declare namespace webview {
      * @returns { ScrollOffset } The current scroll offset of the web page (excluding over-scroll offset).
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     getPageOffset(): ScrollOffset;
 

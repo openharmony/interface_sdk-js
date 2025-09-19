@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import EventHub from './EventHub';
-/*** endif */
 import { ApplicationInfo } from '../bundleManager/ApplicationInfo';
 import ApplicationContext from './ApplicationContext';
 import type { AsyncCallback } from '../@ohos.base';
@@ -379,7 +377,8 @@ declare class Context extends BaseContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   eventHub: EventHub;
 

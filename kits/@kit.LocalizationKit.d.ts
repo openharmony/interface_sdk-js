@@ -27,9 +27,10 @@ import sendableResourceManager from '@ohos.sendableResourceManager';
 export { fontManager, i18n, intl, resourceManager, sendableResourceManager };
 /*** endif */
 /*** if arkts 1.2 */
+import fontManager from '@ohos.fontManager';
 import i18n from '@ohos.i18n';
 import intl from '@ohos.intl';
 import resourceManager from '@ohos.resourceManager';
 
-export { i18n, intl, resourceManager };
+export { fontManager, i18n, intl, resourceManager };
 /*** endif */
