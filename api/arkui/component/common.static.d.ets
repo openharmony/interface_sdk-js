@@ -12732,19 +12732,19 @@ export declare interface UICommonEvent {
     /**
      * Set or reset the callback is triggered when a component mounts a display.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setOnAppear(callback: Callback<void> | undefined): void;
+    setOnAppear(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback is triggered when component uninstallation disappears.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setOnDisappear(callback: Callback<void> | undefined): void;
+    setOnDisappear(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback is triggered when component has keyboard input.
      *
@@ -12756,19 +12756,19 @@ export declare interface UICommonEvent {
     /**
      * Set or reset the callback which is triggered when component get focus.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setOnFocus(callback: Callback<void> | undefined): void;
+    setOnFocus(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback which is triggered when lose focus.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    setOnBlur(callback: Callback<void> | undefined): void;
+    setOnBlur(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback which is triggered when has a hover event.
      *

@@ -19,6 +19,7 @@
  */
 import { BaseEvent, SourceTool, Callback } from './common';
 import { InteractionHand } from './enums';
+import { VoidCallback } from "./units";
 /**
  * Creating an Object
  *
@@ -1119,12 +1120,12 @@ export declare class GestureGroup {
     /**
      * The Gesture group is successfully recognized and a callback is triggered when the touch cancel event is received.
      *
-     * @param { Callback<void> } event
+     * @param { VoidCallback } event
      * @returns { GestureGroup }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCancel(event: Callback<void>): GestureGroup;
+    onCancel(event: VoidCallback): GestureGroup;
 }
 /**
  * Defines the gesture handler.
@@ -1649,12 +1650,12 @@ export declare class GestureGroupHandler extends GestureHandler {
      * The GestureGroup gesture is successfully recognized and a callback is triggered when the touch cancel event is
      * received.
      *
-     * @param { Callback<void> } event
+     * @param { VoidCallback } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20
      */
-    onCancel(event: Callback<void>): this;
+    onCancel(event: VoidCallback): this;
 }
 /**
  * Creating an Object
