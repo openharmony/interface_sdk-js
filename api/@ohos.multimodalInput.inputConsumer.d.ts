@@ -165,6 +165,14 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16
      */
+    /**
+     * Key value. One of KEYCODE_VOLUME_UP/KEYCODE_VOLUME_DOWN/KEYCODE_MEDIA_PLAY_PAUSE/
+     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 21
+     */
     key: number;
 
     /**
@@ -173,6 +181,14 @@ declare namespace inputConsumer {
      * @type { number }
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16
+     */
+    /**
+     * Key event type. Setting the value to 1 indicates that the key is pressed,
+     * and setting the value to 2 indicates that the key is pressed and released.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 21
      */
     action: number;
 
