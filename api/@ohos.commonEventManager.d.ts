@@ -180,7 +180,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-  /**
+/**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
@@ -193,14 +193,13 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since arkts {'1.1':'20', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
-   * @param { number } userId - Specified the user to receive the common events.
+   * @param { int } userId - Specified the user to receive the common events.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 1500003 - The common event sending frequency too high.
@@ -213,7 +212,7 @@ declare namespace commonEventManager {
    * @since 21
    * @arkts 1.1&1.2
    */
-  function publishAsUser(event: string, userId: number, callback: AsyncCallback<void>): void;
+  function publishAsUser(event: string, userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
@@ -233,7 +232,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-  /**
+    /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
@@ -248,14 +247,13 @@ declare namespace commonEventManager {
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
-   * @since arkts {'1.1':'20', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 20
    */
   /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
-   * @param { number } userId - Specified the user to receive the common events.
+   * @param { int } userId - Specified the user to receive the common events.
    * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event
    *                                             content and attributes.
    * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
@@ -272,7 +270,7 @@ declare namespace commonEventManager {
    */
   function publishAsUser(
     event: string,
-    userId: number,
+    userId: int,
     options: CommonEventPublishData,
     callback: AsyncCallback<void>
   ): void;

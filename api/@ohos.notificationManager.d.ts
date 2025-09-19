@@ -51,11 +51,12 @@ import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 /*** if arkts 1.2 */
 import { AsyncCallback } from '@ohos.base';
-import type { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
-import type { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
-import type { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
-import type { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
-import type { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
+import { NotificationLiveViewContent as _NotificationLiveViewContent } from './notification/notificationContent';
+import { NotificationIconButton as _NotificationIconButton } from './notification/notificationContent';
+import { LiveViewStatus as _LiveViewStatus } from './notification/notificationContent';
+import { LiveViewTypes as _LiveViewTypes } from './notification/notificationContent';
+import { NotificationFilter as _NotificationFilter } from './notification/notificationRequest';
+import { NotificationCheckRequest as _NotificationCheckRequest } from './notification/notificationRequest';
 import type UIAbilityContext from './application/UIAbilityContext';
 /*** endif */
 
@@ -277,7 +278,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER
    * @param { NotificationRequest } request - a notification.
-   * @param { number } userId - of subscriber receiving the notification.
+   * @param { int } userId - of subscriber receiving the notification.
    * @param { AsyncCallback<void> } callback - The callback of publish.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -302,7 +303,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function publish(request: NotificationRequest, userId: number, callback: AsyncCallback<void>): void;
+  function publish(request: NotificationRequest, userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Publishes a notification to the specified user.
@@ -360,7 +361,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER or ohos.permission.SEND_NOTIFICATION_CROSS_USER
    * @param { NotificationRequest } request - a notification.
-   * @param { number } userId - of subscriber receiving the notification.
+   * @param { int } userId - of subscriber receiving the notification.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -385,7 +386,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function publish(request: NotificationRequest, userId: number): Promise<void>;
+  function publish(request: NotificationRequest, userId: int): Promise<void>;
 
   /**
    * Publishes a representative notification.
@@ -393,7 +394,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { string } representativeBundle - bundle name of the representative
-   * @param { number } userId - userid of the representative
+   * @param { int } userId - userid of the representative
    * @param { AsyncCallback<void> } callback - The callback of publishAsBundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -414,12 +415,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publishAsBundle(
     request: NotificationRequest,
     representativeBundle: string,
-    userId: number,
+    userId: int,
     callback: AsyncCallback<void>
   ): void;
 
@@ -429,7 +431,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { NotificationRequest } request - a notification.
    * @param { string } representativeBundle - bundle name of the representative
-   * @param { number } userId - userid of the representative
+   * @param { int } userId - userid of the representative
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -450,9 +452,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: number): Promise<void>;
+  function publishAsBundle(request: NotificationRequest, representativeBundle: string, userId: int): Promise<void>;
 
   /**
    * Publishes a representative notification.
@@ -480,7 +483,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function publishAsBundle(representativeBundle: BundleOption, request: NotificationRequest): Promise<void>;
 
@@ -502,7 +506,7 @@ declare namespace notificationManager {
   /**
    * Cancels a notification with the specified ID. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } id - Notification ID.
+   * @param { int } id - Notification ID.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -516,12 +520,12 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cancel(id: number, callback: AsyncCallback<void>): void;
+  function cancel(id: int, callback: AsyncCallback<void>): void;
 
   /**
    * Cancels a notification with the specified ID and label. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } id - Notification ID.
+   * @param { int } id - Notification ID.
    * @param { string } label - Notification label.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, err is undefined;
    *                                           otherwise, err is an error object.
@@ -535,12 +539,12 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cancel(id: number, label: string, callback: AsyncCallback<void>): void;
+  function cancel(id: int, label: string, callback: AsyncCallback<void>): void;
 
   /**
    * Cancels a notification with the specified ID and optional label. This API uses a promise to return the result.
    *
-   * @param { number } id - Notification ID.
+   * @param { int } id - Notification ID.
    * @param { string } [label] - Notification label. This parameter is left empty by default.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -553,13 +557,13 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cancel(id: number, label?: string): Promise<void>;
+  function cancel(id: int, label?: string): Promise<void>;
 
   /**
    * Cancel a notification with the representative and ID.
    *
    * @param { BundleOption } representativeBundle - bundle option of the representative.
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { int } id - ID of the notification to cancel, which must be unique in the application.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -575,15 +579,15 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function cancel(representativeBundle: BundleOption, id: number): Promise<void>;
+  function cancel(representativeBundle: BundleOption, id: int): Promise<void>;
 
   /**
    * Cancel a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { int } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
-   * @param { number } userId - userid of the representative.
+   * @param { int } userId - userid of the representative.
    * @param { AsyncCallback<void> } callback - The callback of cancelAsBundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -597,12 +601,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelAsBundle(
-    id: number,
+    id: int,
     representativeBundle: string,
-    userId: number,
+    userId: int,
     callback: AsyncCallback<void>
   ): void;
 
@@ -610,9 +615,9 @@ declare namespace notificationManager {
    * Cancel a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { int } id - ID of the notification to cancel, which must be unique in the application.
    * @param { string } representativeBundle - bundle name of the representative.
-   * @param { number } userId - userid of the representative.
+   * @param { int } userId - userid of the representative.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -626,16 +631,17 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function cancelAsBundle(id: number, representativeBundle: string, userId: number): Promise<void>;
+  function cancelAsBundle(id: int, representativeBundle: string, userId: int): Promise<void>;
 
   /**
    * Cancel a representative notification.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { BundleOption } representativeBundle - bundle option of the representative.
-   * @param { number } id - ID of the notification to cancel, which must be unique in the application.
+   * @param { int } id - ID of the notification to cancel, which must be unique in the application.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -650,9 +656,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function cancelAsBundle(representativeBundle: BundleOption, id: number): Promise<void>;
+  function cancelAsBundle(representativeBundle: BundleOption, id: int): Promise<void>;
 
   /**
    * Cancels all notifications of this application. This API uses an asynchronous callback to return the result.
@@ -724,7 +731,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -744,7 +752,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(slot: NotificationSlot): Promise<void>;
 
@@ -761,7 +770,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(type: SlotType, callback: AsyncCallback<void>): void;
 
@@ -777,7 +787,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlot(type: SlotType): Promise<void>;
 
@@ -797,7 +808,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
@@ -817,7 +829,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function addSlots(slots: Array<NotificationSlot>): Promise<void>;
 
@@ -833,7 +846,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void;
 
@@ -848,7 +862,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlot(slotType: SlotType): Promise<NotificationSlot>;
 
@@ -863,19 +878,21 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void;
 
   /**
    * Obtains all notification slots of this application. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<NotificationSlot>> } 	Promise used to return the NotificationSlot array.
+   * @returns { Promise<Array<NotificationSlot>> } Promise used to return the NotificationSlot array.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getSlots(): Promise<Array<NotificationSlot>>;
 
@@ -891,7 +908,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getAllNotificationEnabledBundles(): Promise<Array<BundleOption>>;
 
@@ -907,7 +925,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void;
 
@@ -922,7 +941,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeSlot(slotType: SlotType): Promise<void>;
 
@@ -937,7 +957,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAllSlots(callback: AsyncCallback<void>): void;
 
@@ -949,7 +970,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeAllSlots(): Promise<void>;
 
@@ -1143,7 +1165,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isNotificationEnabledSync(): boolean;
 
@@ -1151,7 +1174,7 @@ declare namespace notificationManager {
    * Checks whether this application allows to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userid of the representative.
+   * @param { int } userId - The userid of the representative.
    * @param { AsyncCallback<boolean> } callback - The callback of isNotificationEnabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1166,13 +1189,13 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isNotificationEnabled(userId: number, callback: AsyncCallback<boolean>): void;
+  function isNotificationEnabled(userId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Checks whether this application allows to publish notifications under the user.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userid of the representative.
+   * @param { int } userId - The userid of the representative.
    * @returns { Promise<boolean> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1187,7 +1210,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function isNotificationEnabled(userId: number): Promise<boolean>;
+  function isNotificationEnabled(userId: int): Promise<boolean>;
 
   /**
    * Sets whether to allow the specified application to show badge.
@@ -1390,7 +1413,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -1431,7 +1455,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSlotByBundle(bundle: BundleOption, slot: NotificationSlot): Promise<void>;
 
@@ -1582,7 +1607,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { AsyncCallback<number> } callback - The callback of getSlotNumByBundle.
+   * @param { AsyncCallback<long> } callback - The callback of getSlotNumByBundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1594,9 +1619,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<number>): void;
+  function getSlotNumByBundle(bundle: BundleOption, callback: AsyncCallback<long>): void;
 
   /**
    * Obtains number of slot.
@@ -1621,7 +1647,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1633,9 +1659,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSlotNumByBundle(bundle: BundleOption): Promise<number>;
+  function getSlotNumByBundle(bundle: BundleOption): Promise<long>;
 
   /**
    * Obtains all active notifications in the current system. The caller must have system permissions to
@@ -1678,7 +1705,7 @@ declare namespace notificationManager {
   /**
    * Obtains the number of active notifications of this application. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is successful, err is undefined and data is the
+   * @param { AsyncCallback<long> } callback - Callback used to return the result. If the operation is successful, err is undefined and data is the
    *                                             obtained number of active notifications; otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
@@ -1689,12 +1716,12 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getActiveNotificationCount(callback: AsyncCallback<number>): void;
+  function getActiveNotificationCount(callback: AsyncCallback<long>): void;
 
   /**
    * Obtains the number of active notifications of this application. This API uses a promise to return the result.
    *
-   * @returns { Promise<number> } Promise used to return the result.
+   * @returns { Promise<long> } Promise used to return the result.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1702,7 +1729,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getActiveNotificationCount(): Promise<number>;
+  function getActiveNotificationCount(): Promise<long>;
 
   /**
    * Obtains the active notifications of this application. This API uses an asynchronous callback to return the result.
@@ -1747,7 +1774,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationByFilter(filter: NotificationFilter, callback: AsyncCallback<NotificationRequest>): void;
 
@@ -1764,7 +1792,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getActiveNotificationByFilter(filter: NotificationFilter): Promise<NotificationRequest>;
 
@@ -1780,7 +1809,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelGroup(groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1795,7 +1825,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function cancelGroup(groupName: string): Promise<void>;
 
@@ -1816,7 +1847,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string, callback: AsyncCallback<void>): void;
 
@@ -1837,7 +1869,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function removeGroupByBundle(bundle: BundleOption, groupName: string): Promise<void>;
 
@@ -1876,7 +1909,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate, callback: AsyncCallback<void>): void;
 
@@ -1915,7 +1949,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDoNotDisturbDate(date: DoNotDisturbDate): Promise<void>;
 
@@ -1944,7 +1979,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { AsyncCallback<void> } callback - The callback of setDoNotDisturbDate.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -1958,9 +1993,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number, callback: AsyncCallback<void>): void;
+  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Set the Do Not Disturb date under the specified user.
@@ -1987,7 +2023,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { DoNotDisturbDate } date - The Do Not Disturb date.
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2001,9 +2037,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: number): Promise<void>;
+  function setDoNotDisturbDate(date: DoNotDisturbDate, userId: int): Promise<void>;
 
   /**
    * Obtains the Do Not Disturb date.
@@ -2038,7 +2075,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDoNotDisturbDate(callback: AsyncCallback<DoNotDisturbDate>): void;
 
@@ -2071,7 +2109,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDoNotDisturbDate(): Promise<DoNotDisturbDate>;
 
@@ -2098,7 +2137,7 @@ declare namespace notificationManager {
    * Obtains the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { AsyncCallback<DoNotDisturbDate> } callback - The callback is used to return the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2112,9 +2151,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDoNotDisturbDate(userId: number, callback: AsyncCallback<DoNotDisturbDate>): void;
+  function getDoNotDisturbDate(userId: int, callback: AsyncCallback<DoNotDisturbDate>): void;
 
   /**
    * Obtains the Do Not Disturb date.
@@ -2139,7 +2179,7 @@ declare namespace notificationManager {
    * Obtains the Do Not Disturb date.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @returns { Promise<DoNotDisturbDate> } Returns the Do Not Disturb date.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -2153,9 +2193,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDoNotDisturbDate(userId: number): Promise<DoNotDisturbDate>;
+  function getDoNotDisturbDate(userId: int): Promise<DoNotDisturbDate>;
 
   /**
    * Obtains whether to support the Do Not Disturb mode.
@@ -2173,7 +2214,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportDoNotDisturbMode(callback: AsyncCallback<boolean>): void;
 
@@ -2190,7 +2232,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportDoNotDisturbMode(): Promise<boolean>;
 
@@ -2207,7 +2250,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void;
 
@@ -2223,7 +2267,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSupportTemplate(templateName: string): Promise<boolean>;
 
@@ -2458,7 +2503,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2497,7 +2543,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnable(enable: boolean): Promise<void>;
 
@@ -2513,7 +2560,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -2527,7 +2575,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @syscap SystemCapability.Notification.Notification
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -2570,7 +2619,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2613,7 +2663,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -2660,7 +2711,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean): Promise<void>;
 
@@ -2703,7 +2755,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -2744,7 +2797,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -2789,7 +2843,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string): Promise<boolean>;
 
@@ -2855,7 +2910,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setSmartReminderEnabled(deviceType: string, enable: boolean): Promise<void>;
 
@@ -2898,7 +2954,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isSmartReminderEnabled(deviceType: string): Promise<boolean>;
 
@@ -2933,7 +2990,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
@@ -2964,7 +3022,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -3272,7 +3331,7 @@ declare namespace notificationManager {
    * Set whether to sync notifications to devices that do not have the app installed.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { boolean } enable - Set enable or not.
    * @param { AsyncCallback<void> } callback - The callback of setSyncNotificationEnabledWithoutApp.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3286,9 +3345,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean, callback: AsyncCallback<void>): void;
+  function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
    * Set whether to sync notifications to devices that do not have the app installed.
@@ -3313,7 +3373,7 @@ declare namespace notificationManager {
    * Set whether to sync notifications to devices that do not have the app installed.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { boolean } enable - Set enable or not.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3327,15 +3387,16 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setSyncNotificationEnabledWithoutApp(userId: number, enable: boolean): Promise<void>;
+  function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean): Promise<void>;
 
   /**
    * Obtains whether to sync notifications to devices that do not have the app installed.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @param { AsyncCallback<boolean> } callback - The callback is used to return whether to sync notifications to devices.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3347,15 +3408,16 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSyncNotificationEnabledWithoutApp(userId: number, callback: AsyncCallback<boolean>): void;
+  function getSyncNotificationEnabledWithoutApp(userId: int, callback: AsyncCallback<boolean>): void;
 
   /**
    * Obtains whether to sync notifications to devices that do not have the app installed.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } userId - The userId.
+   * @param { int } userId - The userId.
    * @returns { Promise<boolean> } Returns whether to sync notifications to devices.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3367,9 +3429,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getSyncNotificationEnabledWithoutApp(userId: number): Promise<boolean>;
+  function getSyncNotificationEnabledWithoutApp(userId: int): Promise<boolean>;
 
   /**
    * Sets the notification badge number. This API uses an asynchronous callback to return the result.
@@ -3407,7 +3470,7 @@ declare namespace notificationManager {
   /**
    * Sets the notification badge number. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } badgeNumber - Notification badge number to set. If badgeNumber is set to 0, badges are cleared;
+   * @param { int } badgeNumber - Notification badge number to set. If badgeNumber is set to 0, badges are cleared;
    *                                 if the value is greater than 99, 99+ is displayed on the badge.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *                                           err is undefined; otherwise, err is an error object.
@@ -3420,9 +3483,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void;
+  function setBadgeNumber(badgeNumber: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the notification badge number. This API uses a promise to return the result.
@@ -3458,7 +3522,7 @@ declare namespace notificationManager {
   /**
    * Sets the notification badge number. This API uses a promise to return the result.
    *
-   * @param { number } badgeNumber - Notification badge number to set. If badgeNumber is set to 0, badges are cleared;
+   * @param { int } badgeNumber - Notification badge number to set. If badgeNumber is set to 0, badges are cleared;
    *                                 if the value is greater than 99, 99+ is displayed on the badge.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3470,9 +3534,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600012 - No memory space.
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setBadgeNumber(badgeNumber: number): Promise<void>;
+  function setBadgeNumber(badgeNumber: int): Promise<void>;
 
   /**
    * Set badge number by bundle.
@@ -3497,7 +3562,7 @@ declare namespace notificationManager {
    * Set badge number by bundle.
    *
    * @param { BundleOption } bundle - Use the bundleOption to carry bundleName and uid of the application.
-   * @param { number } badgeNumber - Badge number.
+   * @param { int } badgeNumber - Badge number.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3511,9 +3576,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: number): Promise<void>;
+  function setBadgeNumberByBundle(bundle: BundleOption, badgeNumber: int): Promise<void>;
 
   /**
    * Subscribe the callback for check notifications.
@@ -3541,7 +3607,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'checkNotification', callback: (checkInfo: NotificationCheckInfo) => NotificationCheckResult): void;
 
@@ -3579,7 +3646,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function on(type: 'checkNotification', checkRequest: NotificationCheckRequest,
     callback: (checkInfo: NotificationCheckInfo) => Promise<NotificationCheckResult>): void;
@@ -3610,7 +3678,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function off(
     type: 'checkNotification',
@@ -3643,7 +3712,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { number } notificationId - The notification id.
+   * @param { int } notificationId - The notification id.
    * @param { ButtonOptions } buttonOptions - The button option.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3661,7 +3730,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function triggerSystemLiveView(bundle: BundleOption, notificationId: number, buttonOptions: ButtonOptions): Promise<void>;
+  function triggerSystemLiveView(bundle: BundleOption, notificationId: int, buttonOptions: ButtonOptions): Promise<void>;
 
   /**
    * Subscribe to system live view notifications
@@ -3723,7 +3792,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @param { number } slotFlags - Indicates the slotFlags.
+   * @param { long } slotFlags - Indicates the slotFlags.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3739,7 +3808,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: number): Promise<void>;
+  function setSlotFlagsByBundle(bundle: BundleOption, slotFlags: long): Promise<void>;
 
   /**
    * Obtains basic configurations of application-level notification channels.
@@ -3764,7 +3833,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } bundle - The bundle option.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<long> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3779,7 +3848,7 @@ declare namespace notificationManager {
    * @since arkts {'1.1':'18', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSlotFlagsByBundle(bundle: BundleOption): Promise<number>;
+  function getSlotFlagsByBundle(bundle: BundleOption): Promise<long>;
 
   /**
    * Obtains a notification setting of the calling application.
@@ -3790,6 +3859,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @since 20
+   * @arkts 1.1&1.2
    */
   function getNotificationSetting(): Promise<NotificationSetting>;
 
@@ -3897,7 +3967,7 @@ declare namespace notificationManager {
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @param { string } key - addition config key.
    * @param { string } value - addition config value.
-   * @returns { Promise<number> } The promise returned by the function.
+   * @returns { Promise<int> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3908,9 +3978,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function setAdditionalConfig(key: string, value: string): Promise<number>;
+  function setAdditionalConfig(key: string, value: string): Promise<int>;
 
   /**
    * Opens the notification settings page of the application, which is displayed in semi-modal mode and can be used to set
@@ -3937,7 +4008,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600018 - the notification settings window is already displayed.
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function openNotificationSettings(context: UIAbilityContext): Promise<void>;
 
@@ -3963,7 +4035,7 @@ declare namespace notificationManager {
    * Get do not disturb profile by id.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { number } id - The id of profile.
+   * @param { long } id - The id of profile.
    * @returns { Promise<DoNotDisturbProfile> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -3976,9 +4048,10 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600019 - The do-not-disturb profile does not exist.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  function getDoNotDisturbProfile(id: number): Promise<DoNotDisturbProfile>;
+  function getDoNotDisturbProfile(id: long): Promise<DoNotDisturbProfile>;
 
   /**
    * Disabling notifications based on the application list.
@@ -4042,7 +4115,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } deviceType - The device.
-   * @param { number } status - The device status.
+   * @param { long } status - The device status.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
@@ -4052,7 +4125,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 18
    */
-  function setTargetDeviceStatus(deviceType: string, status: number): Promise<void>;
+  function setTargetDeviceStatus(deviceType: string, status: long): Promise<void>;
 
   /**
    * Set notification slot synchronization switch.
@@ -4068,7 +4141,8 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setDistributedEnabledBySlot(slot: SlotType, deviceType: string, enabled: boolean): Promise<void>;
 
@@ -4085,7 +4159,8 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function isDistributedEnabledBySlot(slot: SlotType, deviceType: string): Promise<boolean>;
 
@@ -4148,7 +4223,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function setSilentReminderEnabled(bundle: BundleOption, enabled: boolean): Promise<void>;
  
@@ -4168,7 +4242,6 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20
-   * @arkts 1.1&1.2
    */
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
  
@@ -4270,7 +4343,7 @@ declare namespace notificationManager {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    onResponse?: (notificationId: number, buttonOptions: ButtonOptions) => void;
+    onResponse?: (notificationId: int, buttonOptions: ButtonOptions) => void;
   }
 
   /**
@@ -4299,13 +4372,13 @@ declare namespace notificationManager {
      * The notification id.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    notificationId: number;
+    notificationId: int;
 
     /**
      * Label of the notification.
@@ -4335,13 +4408,13 @@ declare namespace notificationManager {
      * UserId of the notification creator.
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    creatorUserId: number;
+    creatorUserId: int;
 
     /**
      * Type of the notification slot.
@@ -4382,13 +4455,13 @@ declare namespace notificationManager {
      * The result code. 0-display, 1-no display
      *
      * @permission ohos.permission.NOTIFICATION_CONTROLLER and ohos.permission.NOTIFICATION_AGENT_CONTROLLER
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since arkts {'1.1':'10', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    code: number;
+    code: int;
 
     /**
      * The result message.
@@ -4443,7 +4516,7 @@ declare namespace notificationManager {
   /**
    * Enumerates the notification slot types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -4589,7 +4662,7 @@ declare namespace notificationManager {
   /**
    * Enumerates the notification content types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform
    * @atomicservice
@@ -4718,7 +4791,7 @@ declare namespace notificationManager {
   /**
    * Enumerates the notification level.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -4773,7 +4846,7 @@ declare namespace notificationManager {
   /**
    * The type of the Do Not Disturb.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -4922,13 +4995,13 @@ declare namespace notificationManager {
     /**
      * The profile id of the Do Not disturb.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Notification.Notification
      * @systemapi
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number;
+    id: long;
 
     /**
      * The profile name of the Do Not disturb.
@@ -4956,7 +5029,7 @@ declare namespace notificationManager {
   /**
    * The remind type of the notification.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -5007,7 +5080,7 @@ declare namespace notificationManager {
   /**
    * Notification source type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'9', '1.2':'20'}
@@ -5048,7 +5121,7 @@ declare namespace notificationManager {
   /**
    * Enum for notification control flag status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -5413,6 +5486,16 @@ declare namespace notificationManager {
    * @arkts 1.1&1.2
    */
   export type NotificationProgress = _NotificationProgress;
+
+  /**
+   * Describes a system live view button with icon.
+   *
+   * @typedef { _NotificationIconButton } NotificationIconButton
+   * @syscap SystemCapability.Notification.Notification
+   * @since 20
+   * @arkts 1.2
+   */
+  export type NotificationIconButton = _NotificationIconButton;
 }
 
 export default notificationManager;
