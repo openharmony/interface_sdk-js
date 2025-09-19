@@ -74,19 +74,19 @@ export declare interface BadgeStyle {
     /**
      * Text size.
      *
-     * @type { ?(number | string) }
+     * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    fontSize?: number | string;
+    fontSize?: number | ResourceStr;
     /**
      * Size of a badge.
      *
-     * @type { ?(number | string) }
+     * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    badgeSize?: number | string;
+    badgeSize?: number | ResourceStr;
     /**
      * Badge color.
      *
@@ -119,11 +119,11 @@ export declare interface BadgeStyle {
     /**
      * Define the font weight of the badge.
      *
-     * @type { ?(number | FontWeight | string) }
+     * @type { ?(number | FontWeight | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    fontWeight?: number | FontWeight | string;
+    fontWeight?: number | FontWeight | ResourceStr;
 }
 /**
  * Provides basic parameters for creating a badge.
