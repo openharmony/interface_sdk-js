@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -95,6 +95,17 @@ declare namespace inputEventClient {
      * @since 11
      */
     mouseEvent: MouseEvent;
+    
+    /**
+     * Whether to use global coordinate to calculate injected mouse event.
+     * 
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2
+     */
+    useGlobalCoordinate? : boolean;
   }
 
   /**
@@ -117,6 +128,17 @@ declare namespace inputEventClient {
      * @arkts 1.1&1.2
      */
     touchEvent: TouchEvent;
+
+    /**
+     * Whether to use global coordinate to calculate injected touch event.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20
+     * @arkts 1.1&1.2	
+     */	
+    useGlobalCoordinate?: boolean;
   }
 
   /**
