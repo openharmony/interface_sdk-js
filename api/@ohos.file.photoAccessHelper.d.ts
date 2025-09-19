@@ -476,7 +476,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_LABEL,
+    ANALYSIS_LABEL = 1,
     /**
      * Analysis of ocr
      *
@@ -485,7 +485,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_OCR,
+    ANALYSIS_OCR = 2,
     /**
      * Analysis of face
      *
@@ -494,7 +494,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_FACE,
+    ANALYSIS_FACE = 3,
     /**
      * Analysis of object
      *
@@ -503,7 +503,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_OBJECT,
+    ANALYSIS_OBJECT = 4,
     /**
      * Analysis of recommendation
      *
@@ -512,7 +512,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_RECOMMENDATION,
+    ANALYSIS_RECOMMENDATION = 5,
     /**
      * Analysis of segmentation
      *
@@ -521,7 +521,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_SEGMENTATION,
+    ANALYSIS_SEGMENTATION = 6,
     /**
      * Analysis of composition
      *
@@ -530,7 +530,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_COMPOSITION,
+    ANALYSIS_COMPOSITION = 7,
     /**
      * Analysis of saliency
      *
@@ -539,7 +539,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_SALIENCY,
+    ANALYSIS_SALIENCY = 8,
     /**
      * Analysis of photo detail address info
      *
@@ -548,7 +548,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'11','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_DETAIL_ADDRESS,
+    ANALYSIS_DETAIL_ADDRESS = 9,
     /**
      * Analysis of human face tag
      *
@@ -557,7 +557,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_HUMAN_FACE_TAG,
+    ANALYSIS_HUMAN_FACE_TAG = 10,
     /**
      * Analysis of head position
      *
@@ -566,7 +566,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_HEAD_POSITION,
+    ANALYSIS_HEAD_POSITION = 11,
     /**
      * Analysis of bone pose
      *
@@ -575,7 +575,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_BONE_POSE,
+    ANALYSIS_BONE_POSE = 12,
     /**
      * Analysis of video label
      *
@@ -584,7 +584,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_VIDEO_LABEL,
+    ANALYSIS_VIDEO_LABEL = 13,
     /**
      * Analysis of highlight
      *
@@ -593,7 +593,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_HIGHLIGHT,
+    ANALYSIS_HIGHLIGHT = 14,
     /**
      * Analysis of multi crop
      *
@@ -602,7 +602,7 @@ declare namespace photoAccessHelper {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ANALYSIS_MULTI_CROP,
+    ANALYSIS_MULTI_CROP = 15,
     /**
      * Analysis of search index
      *
