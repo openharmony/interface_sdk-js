@@ -7636,12 +7636,8 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { Callback<void> } [callback ]- Callback invoked when the close button in the upper right corner of the child window is clicked.
-     *                                      The internal logic of the callback function requires a return value of the Boolean type.
-     *                                      The return value determines whether to continue to close the child window.
-     *                                      The value true means not to close the child window, and false means to continue to close the child window.
-     *                                      If a value is passed in, the corresponding subscription is canceled.
-     *                                      If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     *                                         If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -7717,11 +7713,8 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
-     * @param { Callback<void, Promise<boolean>> } [callback] - Callback used to when the close button in the upper right corner of the window is clicked.
-     *                                                        The internal logic of the callback function requires a return value of the Promise type.
-     *                                                        It does not return any parameter. In the returned Promise function,
-     *                                                        resolve(true) means not to close the window,
-     *                                                        and resolve(false) or reject means to continue to close the window.
+     * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
+     *                                                          If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -10489,8 +10482,8 @@ declare namespace window {
     /**
      * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
-     * @param { Callback<TitleButtonRect> } [callback] - Callback used to return the new rectangle. If a value is passed in, the corresponding subscription is canceled.
-     *                                                 If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
+     *                                                   If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -12056,9 +12049,8 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the main window is closed.
      *
-     * @param { Callback<void> } [callback] - Callback invoked when the close button in the upper right corner of the main window is clicked.
-     *                                      If a value is passed in, the corresponding subscription is canceled.
-     *                                      If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *                                        If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
