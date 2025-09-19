@@ -5687,13 +5687,28 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12
      */
-     getDataAnalysisProgress(analysisType: AnalysisType): Promise<string>;
+    /**
+     * Get analysis progress of the asset.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AnalysisType } [analysisType] - Analysis type
+     * @returns { Promise<string> } Returns analysis progress info into a json string
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *     2. Parameter verification failed.
+     * @throws { BusinessError } 14000011 - Internal system error
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+     getDataAnalysisProgress(analysisType?: AnalysisType): Promise<string>;
     /**
      * Unregisters listening for the specified URI. Multiple callbacks can be registered for a URI for listening.
      * You can use this API to unregister the listening of the specified callbacks or all callbacks.
