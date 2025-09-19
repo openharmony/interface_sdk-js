@@ -49,6 +49,7 @@ import {
   GETINSPECTORTREE as getInspectorTree,
   SENDEVENTBYKEY as sendEventByKey,
 } from '@ohos.arkui.inspector';
+import { sendTouchEvent, sendKeyEvent, sendMouseEvent } from '@ohos.arkui.Test';
 
 export * from '@ohos.animator';
 export * from '@ohos.arkui.component';
@@ -88,4 +89,7 @@ export {
   getInspectorByKey,
   getInspectorTree,
   sendEventByKey,
+  sendTouchEvent,
+  sendKeyEvent,
+  sendMouseEvent,
 };
