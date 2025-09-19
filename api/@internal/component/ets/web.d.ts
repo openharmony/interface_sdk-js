@@ -3621,7 +3621,7 @@ declare class WebContextMenuResult {
    * Executes the redo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   redo(): void;
 
@@ -3629,7 +3629,7 @@ declare class WebContextMenuResult {
    * Executes the undo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   undo(): void;
 
@@ -3641,7 +3641,7 @@ declare class WebContextMenuResult {
    * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   pasteAndMatchStyle(): void;
 }
