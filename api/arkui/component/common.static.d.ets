@@ -6742,38 +6742,38 @@ export declare interface PopupCommonOptions {
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 }
 /**
  * Defines the Tips options.
@@ -7120,38 +7120,38 @@ export declare interface PopupOptions {
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 }
 /**
  * Defines the custom popup options.
@@ -7422,38 +7422,38 @@ export declare interface CustomPopupOptions {
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 }
 
 /**
