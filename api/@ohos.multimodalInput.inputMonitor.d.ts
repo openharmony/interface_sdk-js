@@ -44,7 +44,8 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface TouchEventReceiver {
     /**
@@ -55,7 +56,8 @@ declare namespace inputMonitor {
      * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     (touchEvent: TouchEvent): Boolean;
   }
@@ -599,7 +601,8 @@ declare namespace inputMonitor {
    * @returns { Promise<Array<TouchEvent>> } Returns the result through a promise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @throws { BusinessError } 3800001 - System internal error.
+   * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
    * @since 20
    */
