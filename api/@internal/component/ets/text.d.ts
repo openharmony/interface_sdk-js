@@ -971,6 +971,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @arkts 1.1&1.2
    */
   maxLines(value: number): TextAttribute;
+  /**
+   * Called when the minimum number of lines of text is set.
+   *
+   * @param { Optional<number> } minLines - Set the minimum lines of text.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minLines(minLines: Optional<number>): TextAttribute;
 
   /**
    * Called when the text decoration of the text is set.
