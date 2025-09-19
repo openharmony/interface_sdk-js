@@ -27198,7 +27198,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 17
    */
-  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T;
 
   /**
    * Applies a spherical effect to the component.
