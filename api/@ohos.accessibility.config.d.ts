@@ -333,9 +333,22 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onEnabledAccessibilityExtensionListChange(callback: Callback<void>): void;
 
   /**
    * Register the listener that watches for changes in the installed status of accessibility extensions.
@@ -353,9 +366,22 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'installedAccessibilityListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onInstalledAccessibilityListChange(callback: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
@@ -373,9 +399,22 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offEnabledAccessibilityExtensionListChange(callback?: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the installed status of accessibility extensions.
@@ -393,9 +432,22 @@ declare namespace config {
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed. 
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offInstalledAccessibilityListChange(callback?: Callback<void>): void;
 
   /**
    * Set display magnification state.
@@ -437,23 +489,9 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     */
-    set(value: T): Promise<void>;
-
-    /**
-     * Setting configuration value.
-     *
-     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
      * @since 20 static
      */
-    setReturnsPromise(value: T): Promise<void>;
+    set(value: T): Promise<void>;
 
     /**
      * Setting configuration value.
@@ -471,28 +509,9 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     */
-    set(value: T, callback: AsyncCallback<void>): void;
-
-    /**
-     * Setting configuration value.
-     *
-     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
-     * @param { AsyncCallback<void> } callback
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
      * @since 20 static
      */
-    setWithCallback(value: T, callback: AsyncCallback<void>): void;
-
-    /**
-     * @arkts 1.2
-     */
-    overload set { setReturnsPromise, setWithCallback };
+    set(value: T, callback: AsyncCallback<void>): void;
 
     /**
      * Getting configuration value.
@@ -504,46 +523,21 @@ declare namespace config {
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
+     * @since 20 static
      */
     get(): Promise<T>;
 
     /**
      * Getting configuration value.
      *
-     * @returns { Promise<T> }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
-     * @since 20 static
-     */
-    getReturnsPromise(): Promise<T>;
-
-    /**
-     * Getting configuration value.
-     *
      * @param { AsyncCallback<T> } callback
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
      * @since 9 dynamic
-     */
-    get(callback: AsyncCallback<T>): void;
-
-    /**
-     * Getting configuration value.
-     *
-     * @param { AsyncCallback<T> } callback
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
      * @since 20 static
      */
-    getWithCallback(callback: AsyncCallback<T>): void;
-
-    /**
-     * @arkts 1.2
-     */
-    overload get { getReturnsPromise, getWithCallback };
+    get(callback: AsyncCallback<T>): void;
 
     /**
      * Register the listener to listen for configuration changes.

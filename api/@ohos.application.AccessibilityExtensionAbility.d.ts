@@ -155,8 +155,9 @@ declare class AccessibilityExtensionAbility {
    * Called when extension ability is connected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityConnect
    */
   onConnect(): void;
 
@@ -164,8 +165,9 @@ declare class AccessibilityExtensionAbility {
    * Called when extension ability is disconnected.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityDisconnect
    */
   onDisconnect(): void;
 
@@ -174,8 +176,9 @@ declare class AccessibilityExtensionAbility {
    *
    * @param { AccessibilityEvent } event Indicates an accessibility event.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityEventInfo
    */
   onAccessibilityEvent(event: AccessibilityEvent): void;
 
@@ -185,8 +188,9 @@ declare class AccessibilityExtensionAbility {
    * @param { KeyEvent } keyEvent Indicates the physical key event.
    * @returns { boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead ohos.application.AccessibilityExtensionAbility/AccessibilityExtensionAbility#onAccessibilityKeyEvent
    */
   onKeyEvent(keyEvent: KeyEvent): boolean;
 

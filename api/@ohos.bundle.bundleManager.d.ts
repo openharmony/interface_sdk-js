@@ -3805,7 +3805,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700307 - Dynamic icons cannot take effect due to existing custom themes.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function enableDynamicIcon(bundleName: string, moduleName: string): Promise<void>;
 
@@ -3849,7 +3849,6 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 20 static
    */
   function disableDynamicIcon(bundleName: string): Promise<void>;
 

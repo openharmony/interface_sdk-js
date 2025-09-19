@@ -74,11 +74,11 @@ export declare interface InputCounterOptions {
      * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    thresholdPercentage?: number;
+    thresholdPercentage?: double;
     /**
      * If the current input character count reaches the maximum character count and users want to exceed the
      * normal input, the border will turn red. If this parameter is true, the red border displayed.
@@ -6742,38 +6742,38 @@ export declare interface PopupCommonOptions {
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 }
 /**
  * Defines the Tips options.
@@ -7120,38 +7120,38 @@ export declare interface PopupOptions {
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 }
 /**
  * Defines the custom popup options.
@@ -7422,38 +7422,38 @@ export declare interface CustomPopupOptions {
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 }
 
 /**
@@ -9408,15 +9408,6 @@ export declare interface CommonMethod {
     /**
      * Keyboard input
      *
-     * @param { ((event: KeyEvent) => void) | undefined } event
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default onKeyEvent(event: ((event: KeyEvent) => void) | undefined): this;
-    /**
-     * Keyboard input
-     *
      * @param { Callback<KeyEvent, boolean> | undefined } event - Callback for handling the key event.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9564,16 +9555,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default focusBox(style: FocusBoxStyle | undefined): this;
-    /**
-    * Set container as a focus group with a specific identifier.
-    *
-    * @param { string | undefined } id - focus scope identifier.
-    * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
-    */
-    default focusScopeId(id: string | undefined, isGroup?: boolean): this;
     /**
     * Set container as a focus group with a specific identifier.
     *
@@ -10278,12 +10259,12 @@ export declare interface CommonMethod {
      * This callback is triggered when the drag behavior is stopped within the scope of the component.
      *
      * @param { OnDragEventCallback | undefined } eventCallback - event callback.
-     * @param { DropOptions } [dropOptions] - the drop handling options.
+     * @param { DropOptions } dropOptions - the drop handling options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions?: DropOptions): this;
+    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
     /**
      * This function is called when the drag event is end.
      *
@@ -10312,15 +10293,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default draggable(value: boolean | undefined): this;
-    /**
-     * Set preview of the component for dragging process
-     *
-     * @param { CustomBuilder | DragItemInfo | string | undefined } value - preview of the component for dragging process
-     * @returns { this } return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default dragPreview(value: CustomBuilder | DragItemInfo | string | undefined): this;
     /**
      * Set preview of the component for dragging process
      *
@@ -11216,6 +11188,7 @@ export type FractionStop = [
  * @interface CommonShapeMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface CommonShapeMethod extends CommonMethod {
     /**
@@ -11723,35 +11696,35 @@ export declare interface RectResult {
     /**
      * Horizontal coordinate.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Vertical coordinate.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Content width.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * Content height.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height: number;
+    height: double;
 }
 /**
  * CaretOffset info.
@@ -11847,21 +11820,21 @@ export declare abstract class TextContentControllerBase {
      * Get the lines number of the text content.
      * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
      *
-     * @returns { number } Text content line count
+     * @returns { int } Text content line count
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getTextContentLineCount(): number;
+    getTextContentLineCount(): int;
     /**
      * Add a text.
      *
      * @param { string } text - text value.
      * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
-     * @returns { number } caret index
+     * @returns { int } caret index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+    addText(text: string, textOperationOptions?: TextContentControllerOptions): int;
     /**
      * Delete text in TextRange.
      *

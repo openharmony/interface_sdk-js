@@ -30,7 +30,6 @@ export * from './arkui/component/units';
 export * from './arkui/component/actionSheet';
 export * from './arkui/component/alertDialog';
 export * from './arkui/component/alphabetIndexer';
-export * from './arkui/component/animator';
 export * from './arkui/component/badge';
 export * from './arkui/component/blank';
 export * from './arkui/component/builder';

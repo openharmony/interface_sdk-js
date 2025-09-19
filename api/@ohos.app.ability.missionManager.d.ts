@@ -48,9 +48,22 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(type: 'mission', listener: MissionListener): long;
+
+  /**
+   * Register the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { MissionListener } listener - Indicates the MissionListener to be registered.
+   * @returns { long } Returns the index number of the MissionListener.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 20 static
+   */
+  function onMission(listener: MissionListener): long;
 
   /**
    * Unregister the missionListener to ams.
@@ -67,9 +80,23 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(type: 'mission', listenerId: long, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { long } listenerId - Indicates the listener id to be unregistered.
+   * @param { AsyncCallback<void> } callback - The callback of off.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 22 static
+   */
+  function offMission(listenerId: long, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister the missionListener to ams.
@@ -86,9 +113,23 @@ declare namespace missionManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(type: 'mission', listenerId: long): Promise<void>;
+
+  /**
+   * Unregister the missionListener to ams.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { long } listenerId - Indicates the listener id to be unregistered.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 22 static
+   */
+  function offMission(listenerId: long): Promise<void>;
 
   /**
    * Get the missionInfo with the given missionId.

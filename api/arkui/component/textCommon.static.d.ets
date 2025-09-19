@@ -118,21 +118,21 @@ export declare interface TextRange {
     /**
      * Start offset.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    start?: number;
+    start?: int;
     /**
      * End offset.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default text length
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    end?: number;
+    end?: int;
 }
 /**
  * Defines the inserted text value info.
@@ -145,11 +145,11 @@ export declare interface InsertValue {
     /**
      * The location info where the value will be inserted.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    insertOffset: number;
+    insertOffset: int;
     /**
      * The inserted value.
      *
@@ -253,11 +253,11 @@ export declare interface DeleteValue {
     /**
      * The location info where the value will be deleted.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    deleteOffset: number;
+    deleteOffset: int;
     /**
      * The deleted direction.
      *
@@ -390,11 +390,11 @@ export declare interface PreviewText {
     /**
      * Start offset of the previewText
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    offset: number;
+    offset: int;
     /**
      * Value of the previewText.
      *
@@ -498,21 +498,21 @@ export declare interface LayoutManager {
     /**
      * Get the line count.
      *
-     * @returns { number } The line count value returned to the caller.
+     * @returns { int } The line count value returned to the caller.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getLineCount(): number;
+    getLineCount(): int;
     /**
      * Get the glyph position at coordinate.
      *
-     * @param { number } x - the positionX of typography.
-     * @param { number } y - the positionY of typography.
+     * @param { double } x - the positionX of typography.
+     * @param { double } y - the positionY of typography.
      * @returns { PositionWithAffinity } TextBlob object.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
+    getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
 }
 /**
  * Position and affinity.
@@ -525,11 +525,11 @@ export interface PositionWithAffinity {
     /**
      * Position of text.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    position: number;
+    position: int;
 }
 /**
  * Defines the cursor style

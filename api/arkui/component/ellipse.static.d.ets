@@ -51,6 +51,7 @@ export interface EllipseOptions {
  * @interface EllipseAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
@@ -72,6 +73,7 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
  * @returns { EllipseAttribute } The attribute of the Ellipse.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

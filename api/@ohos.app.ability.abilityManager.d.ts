@@ -207,9 +207,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function on(type: 'abilityForegroundState', observer: AbilityForegroundStateObserver): void;
+
+  /**
+   * Register Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onAbilityForegroundState(observer: AbilityForegroundStateObserver): void;
 
   /**
    * Unregister Ability foreground or background state observer.
@@ -225,9 +238,22 @@ declare namespace abilityManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 20 static
    */
   function off(type: 'abilityForegroundState', observer?: AbilityForegroundStateObserver): void;
+
+  /**
+   * Unregister Ability foreground or background state observer.
+   *
+   * @permission ohos.permission.RUNNING_STATE_OBSERVER
+   * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 16000050 - Connect to system server failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offAbilityForegroundState(observer?: AbilityForegroundStateObserver): void;
 
   /**
    * Updates the configuration by modifying the configuration.

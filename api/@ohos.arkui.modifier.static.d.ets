@@ -414,3 +414,108 @@ export { RadioModifier } from './arkui/RadioModifier';
  * @since 20 static
  */
 export { RatingModifier } from './arkui/RatingModifier';
+
+/**
+ * Export ImageModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { ImageModifier } from './arkui/ImageModifier';
+
+/**
+ * Export ImageAnimatorModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { ImageAnimatorModifier } from './arkui/ImageAnimatorModifier';
+
+/**
+ * Export CalendarPickerModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { CalendarPickerModifier } from './arkui/CalendarPickerModifier';
+
+/**
+ * Export DatePickerModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { DatePickerModifier } from './arkui/DatePickerModifier';
+
+/**
+ * Export TextPickerModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { TextPickerModifier } from './arkui/TextPickerModifier';
+
+/**
+ * Export TimePickerModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { TimePickerModifier } from './arkui/TimePickerModifier';
+
+/**
+ * Export TextTimerModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { TextTimerModifier } from './arkui/TextTimerModifier';
+
+/**
+ * Export CounterModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { CounterModifier } from './arkui/CounterModifier';
+
+/**
+ * Export GaugeModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { GaugeModifier } from './arkui/GaugeModifier';
+
+/**
+ * Export LoadingProgressModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { LoadingProgressModifier } from './arkui/LoadingProgressModifier';
+
+/**
+ * Export PatternLockModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { PatternLockModifier } from './arkui/PatternLockModifier';
+
+/**
+ * Export ProgressModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { ProgressModifier } from './arkui/ProgressModifier';
+
+/**
+ * Export QRCodeModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { QRCodeModifier } from './arkui/QRCodeModifier';
+
+/**
+ * Export TextClockModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { TextClockModifier } from './arkui/TextClockModifier';
+
+/**
+ * Export DataPanelModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 static
+ */
+export { DataPanelModifier } from './arkui/DataPanelModifier';

@@ -381,10 +381,28 @@ declare namespace privacyManager {
    * @throws { BusinessError } 12100003 - The input permissionName does not exist.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
-   * @since 12 dynamic
-   * @since 20 static
+   * @since 12
    */
-  function getPermissionUsedTypeInfos(tokenId?: int, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
+  /**
+   * Obtains the used type of the permission accessed.
+   *
+   * @permission ohos.permission.PERMISSION_USED_STATS
+   * @param { int | null } [tokenId] - Token ID of the application. By default, all token IDs of the device
+   *     are returned.
+   * @param { Permissions } [permissionName] - Name of the permission to query. By default, all permissions
+   *     of the device are returned.
+   * @returns { Promise<Array<PermissionUsedTypeInfo>> } Promise used to return the information obtained.
+   * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+   *     "ohos.permission.PERMISSION_USED_STATS".
+   * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
+   * @throws { BusinessError } 12100001 - Invalid parameter. PermissionName exceeds 256 characters.
+   * @throws { BusinessError } 12100002 - The input tokenId does not exist.
+   * @throws { BusinessError } 12100003 - The input permissionName does not exist.
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @since 20 dynamic&static
+   */
+  function getPermissionUsedTypeInfos(tokenId?: int | null, permissionName?: Permissions): Promise<Array<PermissionUsedTypeInfo>>;
 
   /**
    * Sets the toggle state of permission access records for the current user.

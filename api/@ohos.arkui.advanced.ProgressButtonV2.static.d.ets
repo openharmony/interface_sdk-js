@@ -35,14 +35,14 @@ export declare struct ProgressButtonV2 {
   /**
    * Sets the ProgressButtonV2 progress.
    *
-   * @type { int }
+   * @type { double }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   @Require
   @Param
-  readonly progress: int;
+  readonly progress: double;
   /**
    * Sets the ProgressButtonV2 content.
    *

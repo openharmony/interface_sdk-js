@@ -530,6 +530,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
     if (fullPath.endsWith('.d.ts') && hasEtsFile(fullPath) || fullPath.endsWith('.d.ets') && hasTsFile(fullPath)) {
       newContent = saveLatestJsDoc(fileContent);
       newContent = deleteArktsTag(newContent);
+      newContent = addStaticString(newContent);
       writeFile(outputPath, newContent);
     }
     return;
@@ -543,6 +544,7 @@ function handleNoTagFileInSecondType(sourceFile, outputPath, fullPath) {
   newContent = getFileContent(newContent, outputPath);
   newContent = deleteArktsTag(newContent);
   newContent = deleteUnsportedTag(newContent);
+  newContent = addStaticString(newContent);
   writeFile(outputPath, newContent);
 }
 

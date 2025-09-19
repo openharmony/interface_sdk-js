@@ -35,12 +35,12 @@ export declare struct ProgressButton {
   /**
    * Sets the content when progress.
    *
-   * @type { int }
+   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   @PropRef
-  progress: int;
+  progress: double;
   /**
    * Sets the ProgressButton content.
    *

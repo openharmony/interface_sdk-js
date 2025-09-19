@@ -104,24 +104,19 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): int;
 
   /**
-   * Registers a listener to monitor the ability lifecycle of the application for interoperability.
-   * 
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
+   * Register ability lifecycle callback.
    *
-   * @param { 'interopAbilityLifecycle' } type - Event type.
-   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be registered as the listener.
+   * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
+   * @returns { int } Returns the number code of the callback.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21 dynamic&static
+   * @since 22 static
    */
-  on(type: 'interopAbilityLifecycle', callback: InteropAbilityLifecycleCallback): void;
+  onAbilityLifecycle(callback: AbilityLifecycleCallback): int;
 
   /**
    * Unregister ability lifecycle callback.
@@ -155,7 +150,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { int } callbackId - ID of the listener to unregister.
+   * @param { number } callbackId - ID of the listener to unregister.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
    * err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -165,9 +160,19 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  off(type: 'abilityLifecycle', callbackId: int, callback: AsyncCallback<void>): void;
+  off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters ability lifecycle callback.
+   * 
+   * @param { int } callbackId - ID of the listener to unregister.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the deregistration is successful,
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offAbilityLifecycle(callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister ability lifecycle callback.
@@ -201,7 +206,7 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { 'abilityLifecycle' } type - Event type.
-   * @param { int } callbackId - ID of the listener to unregister.
+   * @param { number } callbackId - ID of the listener to unregister.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
@@ -210,10 +215,25 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 20 static
    */
-  off(type: 'abilityLifecycle', callbackId: int): Promise<void>;
+  off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
 
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses a promise to return the result.
+   * 
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } ThePromise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offAbilityLifecycle(callbackId: int): Promise<void>;
+  
   /**
    * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
    * 
@@ -221,13 +241,12 @@ declare class ApplicationContext extends Context {
    * <br>It can be called only by the main thread.
    * </p>
    *
-   * @param { 'interopAbilityLifecycle' } type - Event type.
    * @param { InteropAbilityLifecycleCallback } [callback] - Callback used to be unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 21 dynamic&static
+   * @since 22 static
    */
-  off(type: 'interopAbilityLifecycle', callback?: InteropAbilityLifecycleCallback): void;
+  offInteropAbilityLifecycle(callback?: InteropAbilityLifecycleCallback): void;
 
   /**
    * Register environment callback.
@@ -245,15 +264,25 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'environment' } type - environment.
    * @param { EnvironmentCallback } callback - The environment callback.
-   * @returns { int } Returns the number code of the callback.
+   * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  on(type: 'environment', callback: EnvironmentCallback): int;
+  on(type: 'environment', callback: EnvironmentCallback): number;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { EnvironmentCallback } callback - The environment callback.
+   * @returns { int } Returns the number code of the callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onEnvironment(callback: EnvironmentCallback): int;
 
   /**
    * Unregister environment callback.
@@ -277,9 +306,19 @@ declare class ApplicationContext extends Context {
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
   off(type: 'environment', callbackId: int, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregister environment callback.
+   * 
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { AsyncCallback<void> } callback - The callback of unregisterEnvironmentCallback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offEnvironment(callbackId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister environment callback.
@@ -296,16 +335,26 @@ declare class ApplicationContext extends Context {
    * Unregister environment callback.
    *
    * @param { 'environment' } type - environment.
-   * @param { int } callbackId - Indicates the number code of the callback.
+   * @param { number } callbackId - Indicates the number code of the callback.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
    * @since 11 dynamic
-   * @since 20 static
    */
-  off(type: 'environment', callbackId: int): Promise<void>;
+  off(type: 'environment', callbackId: number): Promise<void>;
+
+  /**
+   * Unregister environment callback.
+   *
+   * @param { int } callbackId - Indicates the number code of the callback.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offEnvironment(callbackId: int): Promise<void>;
 
   /**
    * Register applicationStateChange callback.
@@ -347,9 +396,18 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void;
+
+  /**
+   * Register applicationStateChange callback.
+   * 
+   * @param { ApplicationStateChangeCallback } callback - The applicationStateChange callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  onApplicationStateChange(callback: ApplicationStateChangeCallback): void;
 
   /**
    * Unregister applicationStateChange callback.
@@ -393,9 +451,18 @@ declare class ApplicationContext extends Context {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   * @since 20 static
    */
   off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void;
+
+  /**
+   * Unregister applicationStateChange callback.
+   *
+   * @param { ApplicationStateChangeCallback } [callback] - The applicationStateChange callback.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offApplicationStateChange(callback?: ApplicationStateChangeCallback): void;
 
   /**
    * Get information about running processes
