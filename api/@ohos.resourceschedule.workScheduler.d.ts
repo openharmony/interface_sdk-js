@@ -270,6 +270,7 @@ declare namespace workScheduler {
    * @StageModelOnly
    * @since 9
    * @deprecated since 10
+   * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
    */
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
 
@@ -336,6 +337,7 @@ declare namespace workScheduler {
    * @StageModelOnly
    * @since 9
    * @deprecated since 10
+   * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 
