@@ -57,13 +57,14 @@ export declare class IndicatorComponentController {
   /**
    * Controlling IndicatorComponent to change to the specified subcomponent.
    *
-   * @param { number } index - The index of item to be redirected.
+   * @param { number | undefined } index - The index of item to be redirected, default value is 0.
+   *      undefined means set to default value.
    * @param { boolean } [useAnimation] - If true, swipe to index item with animation. If false, swipe to index item without animation.
    *      The default value is false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  changeIndex(index: number, useAnimation?: boolean): void;
+  changeIndex(index: number | undefined, useAnimation?: boolean): void;
 }
 
 /**
