@@ -2229,46 +2229,46 @@ declare namespace window {
     /**
      * The scale param of x direction. Default is 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The scale param of y direction. Default is 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The scale param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotX?: number;
+    pivotX?: double;
 
     /**
      * The scale param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotY?: number;
+    pivotY?: double;
   }
 
   /**
@@ -2284,57 +2284,57 @@ declare namespace window {
     /**
      * The rotate degree of x direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The rotate degree of y direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The rotate degree of z direction. Default value is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    z?: number;
+    z?: double;
 
     /**
      * The param of pivot point of x. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotX?: number;
+    pivotX?: double;
 
     /**
      * The param of pivot point of y. Default is 0.5f, Interval is 0.f - 1.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    pivotY?: number;
+    pivotY?: double;
   }
 
   /**
@@ -2350,35 +2350,35 @@ declare namespace window {
     /**
      * The translate pixel param of x direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    x?: number;
+    x?: double;
 
     /**
      * The translate pixel param of y direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    y?: number;
+    y?: double;
 
     /**
      * The translate pixel param of z direction. Default is 0.f
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    z?: number;
+    z?: double;
   }
 
   /**
@@ -9105,7 +9105,7 @@ declare namespace window {
     /**
      * Sets opacity  of window
      *
-     * @param { number } opacity Interval is 0.f-1.f.
+     * @param { double } opacity Interval is 0.f-1.f.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9119,7 +9119,7 @@ declare namespace window {
      * Sets the opacity for this window.
      * This API can be used only when you customize an animation to be played during the display or hiding of a system window.
      *
-     * @param { number } opacity Interval is 0.f-1.f.
+     * @param { double } opacity Interval is 0.f-1.f.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9131,7 +9131,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    opacity(opacity: number): void;
+    opacity(opacity: double): void;
 
     /**
      * Sets scale options of window.
@@ -9341,10 +9341,10 @@ declare namespace window {
     /**
      * Sets shadow.
      *
-     * @param { number } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow.
      * @param { string } color the color of the shadow.
-     * @param { number } offsetX the offset of the shadow on the x-axis.
-     * @param { number } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis.
+     * @param { double } offsetY the offset of the shadow on the y-axis.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -9357,10 +9357,10 @@ declare namespace window {
     /**
      * Sets the shadow for the window borders.
      *
-     * @param { number } radius the radius of the shadow.
+     * @param { double } radius the radius of the shadow.
      * @param { string } color the color of the shadow.
-     * @param { number } offsetX the offset of the shadow on the x-axis.
-     * @param { number } offsetY the offset of the shadow on the y-axis.
+     * @param { double } offsetX the offset of the shadow on the x-axis.
+     * @param { double } offsetY the offset of the shadow on the y-axis.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -9372,7 +9372,7 @@ declare namespace window {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    setShadow(radius: number, color?: string, offsetX?: number, offsetY?: number): void;
+    setShadow(radius: double, color?: string, offsetX?: double, offsetY?: double): void;
 
     /**
      * Sets the blur radius of the shadow on the edges of a child window or floating window.
@@ -10692,9 +10692,12 @@ declare namespace window {
     /**
      * Register the callback of rotation change
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
-     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the rotation change result.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback -
+     *     Callback used to return the rotation change result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -10704,18 +10707,60 @@ declare namespace window {
     on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
 
     /**
+     * Register the callback of rotation change
+     *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } callback -
+     *     Callback used to return the rotation change result.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>):
+      void;
+
+    /**
      * Unregister the callback of rotationChange
      *
-     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange', indicating the window rotation change event.
-     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } callback - Callback used to return the RectChangeOptions.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void> } [callback] -
+     *     Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19
      */
-    off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+    off(type: 'rotationChange',
+      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void;
+
+    /**
+     * Unregister the callback of rotationChange
+     *
+     * @param { 'rotationChange' } type - The value is fixed at 'rotationChange',
+     *     indicating the window rotation change event.
+     * @param { RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined> } [callback] -
+     *     Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 20
+     * @arkts 1.2
+     */
+    off(type: 'rotationChange',
+      callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | undefined>): void;
 
     /**
      * UIExtension in window secure limit change callback on.
@@ -12556,7 +12601,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RotationChangeType {
     /**
@@ -12564,7 +12610,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_WILL_ROTATE = 0,
 
@@ -12573,7 +12620,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     WINDOW_DID_ROTATE = 1
   }
@@ -12584,7 +12632,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum RectType {
     /**
@@ -12592,7 +12641,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATIVE_TO_SCREEN = 0,
     /**
@@ -12600,7 +12650,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     RELATIVE_TO_PARENT_WINDOW = 1
   }
@@ -12656,7 +12707,8 @@ declare namespace window {
    * @interface RotationChangeInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RotationChangeInfo {
     /**
@@ -12665,34 +12717,38 @@ declare namespace window {
      * @type { RotationChangeType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: RotationChangeType;
     /**
      * window orientation
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    orientation: number;
+    orientation: int;
     /**
      * Display id
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayId: number;
+    displayId: long;
     /**
      * Display rect
      *
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     displayRect: Rect;
   }
@@ -12703,7 +12759,8 @@ declare namespace window {
    * @interface RotationChangeResult
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface RotationChangeResult {
     /**
@@ -12712,7 +12769,8 @@ declare namespace window {
      * @type { RectType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     rectType: RectType;
     /**
@@ -12721,7 +12779,8 @@ declare namespace window {
      * @type { Rect }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 19
+     * @since arkts {'1.1':'19', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowRect: Rect;
   }
@@ -12729,23 +12788,15 @@ declare namespace window {
   /**
    * Rotation Change callback
    *
-   * @typedef RotationChangeCallback<T, U>
+   * @typedef {function}
+   * @param { T } info
+   * @returns { U } result
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 19
+   * @since arkts {'1.1':'19', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  interface RotationChangeCallback<T, U> {
-    /**
-     * Defines the rotation change callback
-     *
-     * @param { T } info
-     * @returns { U } result
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19
-     */
-    (info: T): U;
-  }
+  type RotationChangeCallback<T, U> = (info: T) => U;
 }
 
 export default window;
