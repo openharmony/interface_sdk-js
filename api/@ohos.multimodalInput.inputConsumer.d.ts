@@ -154,7 +154,7 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}
+   * @since arkts {'1.1':'16', '1.2':'20'}  
    * @arkts 1.1&1.2
    */
   interface KeyPressedConfig {
@@ -167,6 +167,15 @@ declare namespace inputConsumer {
      * @arkts 1.1&1.2
      */
     key: int;
+    /**	
+     * Key value. One of KEYCODE_VOLUME_UP/KEYCODE_VOLUME_DOWN/KEYCODE_MEDIA_PLAY_PAUSE/
+     * KEYCODE_MEDIA_PREVIOUS/KEYCODE_MEDIA_NEXT.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 21
+     */
+    key: number;
 
     /**
      * Key event type. Currently, this parameter can only be set to 1, indicating key press.
@@ -177,6 +186,15 @@ declare namespace inputConsumer {
      * @arkts 1.1&1.2
      */
     action: int;
+    /**	
+     * Key event type. Setting the value to 1 indicates that the key is pressed,
+     * and setting the value to 2 indicates that the key is pressed and released.
+     *
+     * @type { number }
+     * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
+     * @since 21
+     */
+    action: number;
 
     /**
      * The value true means to report repeated key events, and the value false means the opposite. The default value is true.
