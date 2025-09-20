@@ -136,8 +136,8 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 20
-     * @arkts 1.1&1.2	
-     */	
+     * @arkts 1.1&1.2
+     */
     useGlobalCoordinate?: boolean;
   }
 
