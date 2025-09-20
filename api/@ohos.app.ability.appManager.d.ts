@@ -523,8 +523,6 @@ declare namespace appManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
    * @since 22 static
    */
   function offApplicationStateChange(observerId: int, callback: AsyncCallback<void>): void;
@@ -556,8 +554,6 @@ declare namespace appManager {
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
    * @since 22 static
    */
   function offApplicationStateChange(observerId: int): Promise<void>;
