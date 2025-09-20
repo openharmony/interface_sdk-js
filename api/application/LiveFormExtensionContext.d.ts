@@ -28,7 +28,7 @@ import ExtensionContext from './ExtensionContext';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
@@ -41,7 +41,7 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   setBackgroundImage(res: Resource): Promise<void>;
 }

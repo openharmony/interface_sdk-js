@@ -267,6 +267,7 @@ export declare interface NativeXComponentParameters {
  * @interface XComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface XComponentAttribute extends CommonMethod {
     /**
@@ -386,6 +387,7 @@ export declare interface XComponentParameters {
  * @returns { XComponentAttribute } The attribute of the XComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

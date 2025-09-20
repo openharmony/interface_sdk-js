@@ -810,11 +810,11 @@ export declare interface Font {
   /**
    * font weight.
    *
-   * @type { ?(FontWeight | number | string) }
+   * @type { ?(FontWeight | int | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  weight?: FontWeight | number | string;
+  weight?: FontWeight | int | string;
 
   /**
    * font family.

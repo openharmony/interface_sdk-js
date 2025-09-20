@@ -17,7 +17,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 import { Resource, ResourceStr, ResourceColor, LocalizedMargin } from './arkui/component/units';
 import { PropRef } from './arkui/stateManagement/decorator';
@@ -29,7 +28,7 @@ import { Builder } from './arkui/component/builder';
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export declare enum GridObjectSortComponentType {
@@ -37,14 +36,14 @@ export declare enum GridObjectSortComponentType {
    * The GridObjectSortComponent image text type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   IMAGE_TEXT = 'image_text',
   /**
    * The GridObjectSortComponent text type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   TEXT = 'text'
 }
@@ -53,24 +52,24 @@ export declare enum GridObjectSortComponentType {
  *
  * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface GridObjectSortComponentItem {
   /**
    * id of GridObjectSortComponent item.
    *
-   * @type { number | string }
+   * @type { int | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  id: number | string;
+  id: int | string;
   /**
    * GridObjectSortComponent item text.
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   text: ResourceStr;
   /**
@@ -78,23 +77,23 @@ export interface GridObjectSortComponentItem {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   selected: boolean;
   /**
    * order of GridObjectSortComponentItem, Used for sorting dataList.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  order: number;
+  order: int;
   /**
    * image resource path of the GridObjectSortComponent item.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   url?: ResourceStr;
   /**
@@ -102,7 +101,7 @@ export interface GridObjectSortComponentItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   symbolStyle?: SymbolGlyphModifier;
 }
@@ -111,7 +110,7 @@ export interface GridObjectSortComponentItem {
  *
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 export interface GridObjectSortComponentOptions {
@@ -121,23 +120,23 @@ export interface GridObjectSortComponentOptions {
    * @type { ?GridObjectSortComponentType }
    * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   type?: GridObjectSortComponentType;
   /**
    * The size of the GridObjectSortComponent image.
    *
-   * @type { ?(number | Resource) }
+   * @type { ?(int | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
-  imageSize?: number | Resource;
+  imageSize?: int | Resource;
   /**
    * The title displayed in the unedited state of the  GridObjectSortComponent.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   normalTitle?: ResourceStr;
   /**
@@ -145,7 +144,7 @@ export interface GridObjectSortComponentOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   editTitle?: ResourceStr;
   /**
@@ -153,7 +152,7 @@ export interface GridObjectSortComponentOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   showAreaTitle?: ResourceStr;
   /**
@@ -162,7 +161,7 @@ export interface GridObjectSortComponentOptions {
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
-   * @since 20
+   * @since 20 static
    */
   addAreaTitle?: ResourceStr;
 }
@@ -170,7 +169,7 @@ export interface GridObjectSortComponentOptions {
  * Declare struct GridObjectSortComponent.
  * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  * @noninterop
  */
 @Component
@@ -180,7 +179,7 @@ export declare struct GridObjectSortComponent {
    *
    * @type { GridObjectSortComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   @PropRef
   options: GridObjectSortComponentOptions;
@@ -189,7 +188,7 @@ export declare struct GridObjectSortComponent {
    *
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   dataList: Array<GridObjectSortComponentItem>;
   /**
@@ -197,7 +196,7 @@ export declare struct GridObjectSortComponent {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onSave: (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void;
   /**
@@ -205,7 +204,7 @@ export declare struct GridObjectSortComponent {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20
+   * @since 20 static
    */
   onCancel: () => void;
   /**

@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from 'arkui.Graphics';
+import { DrawContext, Size, Offset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from 'arkui.Graphics';
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
@@ -187,20 +187,20 @@ export declare class RenderNode {
   /**
    * Set frame position of the RenderNode.
    *
-   * @param { Position } position - The position of the RenderNode frame.
+   * @param { NodePosition } position - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  set position(position: Position);
+  set position(position: NodePosition);
 
   /**
    * Get frame position of the RenderNode.
    *
-   * @returns { Position } - The position of the RenderNode frame.
+   * @returns { NodePosition } - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  get position(): Position;
+  get position(): NodePosition;
 
   /**
    * Set frame info of the RenderNode.

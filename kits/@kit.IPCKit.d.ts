@@ -18,7 +18,7 @@
  * @kit IPCKit
  */
 
-/*** if arkts 1.1&1.2 */
+/*** if arkts dynamic&static */
 import rpc from '@ohos.rpc';
 
 export { rpc };

@@ -652,7 +652,4 @@ declare namespace mdns {
   }
 }
 
-/**
- * @since 10 dynamic
- */
 export default mdns;

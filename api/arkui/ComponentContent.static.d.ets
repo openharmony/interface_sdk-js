@@ -24,6 +24,7 @@ import { Content } from 'arkui.Content';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { RecordData } from '../@ohos.base';
+
 /**
  * Defines the base class for ComponentContent.
  *

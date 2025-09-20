@@ -721,17 +721,6 @@ declare interface PasteEvent {
    * @since 12 dynamic
    */
   preventDefault?: Callback<void>;
-
-  /**
-   * Override system paste event.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  preventDefault?: VoidCallback;
 }
 
 /**
@@ -2947,17 +2936,6 @@ declare interface SelectionMenuOptions {
   onDisappear?: Callback<void>;
 
   /**
-   * Callback function when the selection menu disappears.
-   * 
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  onDisappear?: VoidCallback;
-
-  /**
    * Menu type, default value is MenuType.SELECTION_MENU.
    * 
    * @type { ?MenuType }
@@ -3605,18 +3583,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onReady(callback: Callback<void>): RichEditorAttribute;
 
   /**
-   * Called when on ready.
-   *
-   * @param { VoidCallback } callback - The triggered function when rich editor is ready.
-   * @returns { RichEditorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  onReady(callback: VoidCallback): RichEditorAttribute;
-
-  /**
    * Called when the content is selected.
    *
    * @param { function } callback - The triggered function when select text.
@@ -3789,18 +3755,6 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 12 dynamic
    */
   onDeleteComplete(callback: Callback<void>): RichEditorAttribute;
-
-    /**
-   * Notify that the deletion has been completed
-   *
-   * @param { VoidCallback } callback - The triggered function when text content has been deleted.
-   * @returns { RichEditorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  onDeleteComplete(callback: VoidCallback): RichEditorAttribute;
 
   /**
    * Allow replication.
@@ -4216,17 +4170,6 @@ declare interface CutEvent {
    * @since 12 dynamic
    */
   preventDefault?: Callback<void>;
-
-  /**
-   * Prevent system cut event.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  preventDefault?: VoidCallback;
 }
 
 /**
@@ -4248,17 +4191,6 @@ declare interface CopyEvent {
    * @since 12 dynamic
    */
   preventDefault?: Callback<void>;
-
-  /**
-   * Prevent system cut event.
-   *
-   * @type { ?VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 static
-   */
-  preventDefault?: VoidCallback;
 }
 
 /**

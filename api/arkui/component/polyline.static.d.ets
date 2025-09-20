@@ -52,6 +52,7 @@ export declare interface PolylineOptions {
  * @interface PolylineAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 export declare interface PolylineAttribute extends CommonShapeMethod {
     /**
@@ -82,6 +83,7 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
  * @returns { PolylineAttribute } The attribute of the Polyline.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
+ * @noninterop
  */
 @memo
 @ComponentBuilder

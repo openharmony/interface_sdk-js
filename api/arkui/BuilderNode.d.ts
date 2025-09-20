@@ -535,7 +535,7 @@ export class BuilderNode<Args extends Object[]> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   inheritFreezeOptions(enabled: boolean): void;
 

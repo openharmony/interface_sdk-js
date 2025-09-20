@@ -16,9 +16,9 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
+/*** if arkts static */
 export * from './arkui/UserView';
 export * from './arkui/component/animation';
 export * from './arkui/component/customComponent';
@@ -30,7 +30,6 @@ export * from './arkui/component/units';
 export * from './arkui/component/actionSheet';
 export * from './arkui/component/alertDialog';
 export * from './arkui/component/alphabetIndexer';
-export * from './arkui/component/animator';
 export * from './arkui/component/badge';
 export * from './arkui/component/blank';
 export * from './arkui/component/builder';
@@ -154,3 +153,4 @@ export * from './arkui/component/resources';
 export * from './arkui/component/lazyGridLayout';
 export * from './arkui/component/pageTransition';
 export * from './arkui/component/component3d';
+/*** endif */
