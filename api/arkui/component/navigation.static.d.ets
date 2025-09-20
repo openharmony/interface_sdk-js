@@ -50,22 +50,22 @@ export type SystemBarStyle = window.SystemBarStyle;
  */
 export declare interface NavigationCommonTitle {
     /**
-     * Sets the main title.
+     * Sets the main title, default value is "", undefined means set to default value.
      *
-     * @type { string | Resource }
+     * @type { string | Resource | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    main: string | Resource;
+    main: string | Resource | undefined;
 
     /**
-     * Sets the sub title.
+     * Sets the sub title, default value is "", undefined means set to default value.
      *
-     * @type { string | Resource }
+     * @type { string | Resource | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    sub: string | Resource;
+    sub: string | Resource | undefined;
 }
 
 /**
@@ -951,13 +951,13 @@ export declare enum NavigationOperation {
  */
 export declare interface ToolbarItem {
     /**
-     * The value of navigation toolbar item.
+     * The value of navigation toolbar item, default value is "", undefined means set to default value.
      *
-     * @type { ResourceStr }
+     * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    value: ResourceStr;
+    value: ResourceStr | undefined;
 
     /**
      * The icon of navigation toolbar item.

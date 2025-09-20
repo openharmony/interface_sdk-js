@@ -144,12 +144,11 @@ export declare interface DividerStyle {
     /**
      * Define the stroke width of the divider
      *
-     * @type { Length }
-     * @default 0
+     * @type { Length | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    strokeWidth: Length;
+    strokeWidth: Length | undefined;
     /**
      * Define the color of the divider
      *
