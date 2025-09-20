@@ -154,7 +154,7 @@ declare namespace inputConsumer {
    *
    * @typedef KeyPressedConfig
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
-   * @since arkts {'1.1':'16', '1.2':'20'}  
+   * @since arkts {'1.1':'16', '1.2':'20'}
    * @arkts 1.1&1.2
    */
   interface KeyPressedConfig {
