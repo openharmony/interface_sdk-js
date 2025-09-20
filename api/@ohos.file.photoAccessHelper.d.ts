@@ -3119,7 +3119,15 @@ declare namespace photoAccessHelper {
      * @since 20
      * @arkts 1.1&1.2
      */
-    COVER_URI_SOURCE = 'cover_uri_source'
+    COVER_URI_SOURCE = 'cover_uri_source',
+    /**
+     * Album upload status
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    UPLOAD_STATUS = 'upload_status',
   }
 
   /**
@@ -4494,6 +4502,16 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     readonly coverUriSource?: CoverUriSource;
+    /**
+     * Album upload status, true means the albim and its assets will upload to cloud or hdc 
+     *     ,false means the albim and its assets will not upload to cloud or hdc
+     * @type { boolean }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    readonly uploadStatus: boolean;
     /**
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
@@ -9165,6 +9183,48 @@ declare namespace photoAccessHelper {
     static deleteLocalAssetsPermanentlyWithUri(context: Context, assetUris: Array<string>): Promise<void>;
 
     /**
+     * Delete local assets to trash from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { string[] } assetUris - Uris of the assets to be deleted
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
+     *     1. The context is empty; 
+     *     2. Asset uri array size is empty or bigger than 500 .
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1.Database corrupted; 2.The file system is abnormal; 3.The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    static deleteLocalAssetsWithUri(context: Context, assetUris: string[]): Promise<void>;
+
+    /**
+     * Delete cloud assets to trash from the album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { string[] } assetUris - Uris of the assets to be deleted
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes: 
+     *     1. The context is empty; 
+     *     2. Asset uri array size is empty or bigger than 500 .
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    static deleteCloudAssetsWithUri(context: Context, assetUris: string[]): Promise<void>;
+
+    /**
      * Set the AppLink state of this asset.
      *
      * @param { int } hasAppLink - AppLink state of the asset to set.
@@ -9355,6 +9415,29 @@ declare namespace photoAccessHelper {
      * @since 19
      */
     static deleteAlbumsWithUri(context: Context, albumUris: Array<string>): Promise<void>;
+
+    /**
+     * Set albums cloud or hdc upload status
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Hap context information
+     * @param { Album[] } albums - Album array which will to be set cloud or hdc upload status
+     * @param { boolean } allowUpload - True means upload these albums and their assets to cloud or hdc
+     *     , false means do not upload these albums and their assets to cloud or hdc
+     * @returns { Promise<void> } - Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 -  The scenario parameter verification fails. Possible causes: 
+     *     1. The context is empty; 
+     *     2. Album array size is bigger than 500.
+     * @throws { BusinessError } 23800301  - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1.Database corrupted; 2.The file system is abnormal; 3.The IPC request timed out;
+     * @static
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22
+     */
+    static setUploadStatus(context: Context, albums: Album[], allowUpload: boolean): Promise<void>;
 
     /**
      * Obtains the album in the current album change request.
