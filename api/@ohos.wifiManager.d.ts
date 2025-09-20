@@ -586,11 +586,11 @@ declare namespace wifiManager {
   /**
    * Calculate the Wi-Fi signal level based on the Wi-Fi RSSI and frequency band.
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } rssi - Indicates the Wi-Fi RSSI.
-   * @param { number } band - Indicates the Wi-Fi frequency band.
-   * @returns { number } Returns Wi-Fi signal level ranging from 0 to 4.
+   * @param { int } rssi - Indicates the Wi-Fi RSSI.
+   * @param { int } band - Indicates the Wi-Fi frequency band.
+   * @returns { int } Returns Wi-Fi signal level ranging from 0 to 4.
    * @throws {BusinessError} 201 - Permission denied.
-   * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
+   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -598,7 +598,7 @@ declare namespace wifiManager {
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function getSignalLevel(rssi: number, band: number): number;
+  function getSignalLevel(rssi: int, band: int): int;
 
   /**
    * Obtain connection information about the Wi-Fi connection. If does't have the permission of ohos.permission.GET_WIFI_PEERS_MAC, return random bssid.
@@ -2253,7 +2253,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi device address( mac / bssid ) type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -2446,7 +2446,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi detail state.
-   * @enum { number } WifiDetailState
+   * @enum { int } WifiDetailState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -2552,7 +2552,7 @@ declare namespace wifiManager {
 
   /**
    * Wi-Fi Category.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -3376,22 +3376,22 @@ declare namespace wifiManager {
      */
     /**
      * Received signal strength indicator (RSSI)
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
 
     /**
      * Frequency band, 1: 2.4G, 2: 5G
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * Frequency
@@ -3483,7 +3483,7 @@ declare namespace wifiManager {
    */
   /**
    * Describes the wifi security type.
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.Core
    * @atomicservice
    * @since arkts {'1.1':'12', '1.2':'20'}
@@ -3790,22 +3790,22 @@ declare namespace wifiManager {
      */
     /**
      * The RSSI(dBm) of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    rssi: number;
+    rssi: int;
 
     /**
      * The frequency band of a Wi-Fi access point.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * The speed of a Wi-Fi access point.
@@ -3992,12 +3992,12 @@ declare namespace wifiManager {
   interface IpInfo {
     /**
      * The IP address of the Wi-Fi connection
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    ipAddress: number;
+    ipAddress: int;
 
     /**
      * The gateway of the Wi-Fi connection
@@ -4161,13 +4161,13 @@ declare namespace wifiManager {
 
     /**
      * The frequency band of the Wi-Fi hotspot
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi Hide this for inner system use.
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    band: number;
+    band: int;
 
     /**
      * The channel of the Wi-Fi hotspot.
@@ -4397,7 +4397,7 @@ declare namespace wifiManager {
   /**
    * The state of Wi-Fi connection enumeration.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -4532,12 +4532,12 @@ declare namespace wifiManager {
 
     /**
      * Device group capabilities
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since arkts {'1.1':'9', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    groupCapabilities: number;
+    groupCapabilities: int;
   }
 
   /**
@@ -4682,7 +4682,7 @@ declare namespace wifiManager {
   /**
    * P2P connection status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
@@ -4745,7 +4745,7 @@ declare namespace wifiManager {
   /**
    * P2P device status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since arkts {'1.1':'9', '1.2':'20'}
    * @arkts 1.1&1.2
