@@ -16,6 +16,7 @@
 /**
  * @file
  * @kit BasicServicesKit
+ * @arkts 1.1&1.2
  */
 
 /**
@@ -31,7 +32,7 @@
  * @namespace customConfig
  * @syscap SystemCapability.Customization.CustomConfig
  * @atomicservice
- * @since 13
+ * @since arkts {'1.1':'13','1.2':'20'}
  */
 declare namespace customConfig {
   
@@ -48,7 +49,7 @@ declare namespace customConfig {
    * @returns { string } the channelId or empty if not exist.
    * @syscap SystemCapability.Customization.CustomConfig
    * @atomicservice
-   * @since 13
+   * @since arkts {'1.1':'13','1.2':'20'}
    */
   function getChannelId(): string;
 

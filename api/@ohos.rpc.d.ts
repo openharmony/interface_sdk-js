@@ -3262,7 +3262,9 @@ declare namespace rpc {
     ): void;
 
     /**
-     * Obtains the PID of the {@link RemoteProxy} object.
+     * Obtains the PID of the caller.
+     * <p>This API must be called within an IPC context (onRemoteRequest/onRemoteMessagerequest). Any asynchronous
+     * operations (for exaple, using await) are strictly prohibited before calling this API.
      *
      * @returns { int } Return the PID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3272,7 +3274,9 @@ declare namespace rpc {
     getCallingPid(): int;
 
     /**
-     * Obtains the UID of the {@link RemoteProxy} object.
+     * Obtains the UID of the caller.
+     * <p>This API must be called within an IPC context (onRemoteRequest/onRemoteMessagerequest). Any asynchronous
+     * operations (for exaple, using await) are strictly prohibited before calling this API.
      *
      * @returns { int } Return the UID of the {@link RemoteProxy} object.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3657,12 +3661,10 @@ declare namespace rpc {
     static getContextObject(): IRemoteObject;
 
     /**
-     * Obtains the PID of a proxy.
-     * <p>This method is static. The PID is a positive integer during the communication between
-     * the {@link RemoteProxy} object and {@link RemoteObject} object, and resumes to {@code 0}
-     * when the communication ends. If this method is called from the {@link RemoteProxy} object,
-     * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
-     * the PID of the corresponding {@link RemoteProxy} object is returned.
+     * Obtains the PID of the caller.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest); Any asynchronous
+     * operations (for exaple, using await) are strictly prohibited before calling this API.
      *
      * @returns { int } Return the PID of the proxy.
      * @static
@@ -3673,12 +3675,10 @@ declare namespace rpc {
     static getCallingPid(): int;
 
     /**
-     * Obtains the UID of a proxy.
-     * <p>This method is static. The UID is a positive integer during the communication between
-     * the {@link RemoteProxy} object and {@link RemoteObject} object, and resumes to {@code 0}
-     * when the communication ends. If this method is called from the {@link RemoteProxy} object,
-     * {@code 0} is returned; if this method is called from the {@link RemoteObject} object,
-     * the UID of the corresponding {@link RemoteProxy} object is returned.
+     * Obtains the UID of the caller.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest); Any asynchronous
+     * operations (for exaple, using await) are strictly prohibited before calling this API.
      *
      * @returns { int } Return the UID of the proxy.
      * @static
@@ -3689,8 +3689,10 @@ declare namespace rpc {
     static getCallingUid(): int;
 
     /**
-     * Obtains the TOKENID.
-     * <p>This method is static.
+     * Obtains the TokenId of the caller.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest). Any asynchronous operations (for exaple, using await) are
+     * strictly prohibited before calling this API.
      *
      * @returns { long } Return the TOKENID.
      * @static
@@ -3701,8 +3703,10 @@ declare namespace rpc {
     static getCallingTokenId(): long;
 
     /**
-     * Obtains the ID of the device where the peer process resides.
-     * <p>This method is static.
+     * Obtains the device ID of the caller.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest). Any asynchronous operations (for exaple, using await) are
+     * strictly prohibited before calling this API.
      *
      * @returns { string } Return the ID of the device where the peer process resides.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3711,8 +3715,10 @@ declare namespace rpc {
     static getCallingDeviceID(): string;
 
     /**
-     * Obtains the ID of the local device.
-     * <p>This method is static.
+     * Obtains the local device ID.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest). Any asynchronous operations (for exaple, using await) are
+     * strictly prohibited before calling this API.
      *
      * @returns { string } Return the ID of the local device.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3721,8 +3727,10 @@ declare namespace rpc {
     static getLocalDeviceID(): string;
 
     /**
-     * Checks whether a call is made on the same device.
-     * <p>This method is static.
+     * Checks whether the peer process is a process of the local device.
+     * <p>This API is a static method that must be called within an IPC context
+     * (onRemoteRequest/onRemoteMessagerequest). Any asynchronous operations (for exaple, using await) are
+     * strictly prohibited before calling this API.
      *
      * @returns { boolean } Return {@code true} if the call is made on the same device; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
