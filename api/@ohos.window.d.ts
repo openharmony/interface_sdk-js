@@ -2498,7 +2498,8 @@ declare namespace window {
    * @interface Configuration
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Configuration {
     /**
@@ -2513,7 +2514,8 @@ declare namespace window {
      * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     name: string;
 
@@ -2530,7 +2532,8 @@ declare namespace window {
      * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     windowType: WindowType;
 
@@ -2547,7 +2550,8 @@ declare namespace window {
      * @type { ?BaseContext }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ctx?: BaseContext;
 
@@ -2561,12 +2565,13 @@ declare namespace window {
     /**
      * Indicates display ID.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
 
     /**
      * Indicates Parent window id
@@ -2578,12 +2583,13 @@ declare namespace window {
     /**
      * Indicates Parent window id
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    parentId?: number;
+    parentId?: int;
 
     /**
      * Indicates whether enable window decor, only support dialog, The default value is false.
@@ -2591,7 +2597,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     decorEnabled?: boolean;
 
@@ -2601,7 +2608,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     title?: string;
 
@@ -2611,7 +2619,8 @@ declare namespace window {
      * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     zIndex?: int;
 
@@ -2621,7 +2630,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
-     * @since 20
+     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     defaultDensityEnabled?: boolean;
   }
@@ -3098,7 +3108,8 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 17
+   * @since arkts {'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createWindow(config: Configuration, callback: AsyncCallback<Window>): void;
 
@@ -3156,7 +3167,8 @@ declare namespace window {
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 17
+   * @since arkts {'1.1':'17', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function createWindow(config: Configuration): Promise<Window>;
 
@@ -7753,7 +7765,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'subWindowClose', callback: Callback<void>): void;
 
@@ -7774,7 +7787,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     off(type: 'subWindowClose', callback?: Callback<void>): void;
 
@@ -11521,7 +11535,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createSubWindow(name: string): Promise<Window>;
     /**
@@ -11559,7 +11574,8 @@ declare namespace window {
      * @StageModelOnly
      * @crossplatform
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     createSubWindow(name: string, callback: AsyncCallback<Window>): void;
     /**
