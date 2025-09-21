@@ -18,15 +18,13 @@
  * @kit ConnectivityKit
  */
 
-/* 共用部分 */
-/*** if arkts dynamic&static */
+/*** if arkts 1.1&1.2 */
 import a2dp from '@ohos.bluetooth.a2dp';
 import access from '@ohos.bluetooth.access';
 import baseProfile from '@ohos.bluetooth.baseProfile';
 import ble from '@ohos.bluetooth.ble';
 import connection from '@ohos.bluetooth.connection';
 import constant from '@ohos.bluetooth.constant';
-
 import hfp from '@ohos.bluetooth.hfp';
 import hid from '@ohos.bluetooth.hid';
 export {
@@ -34,7 +32,6 @@ export {
 };
 /*** endif */
 
-/* dynamic 独有部分 */
 import common from '@ohos.bluetooth.common';
 import bluetooth from '@ohos.bluetooth';
 import map from '@ohos.bluetooth.map';
