@@ -1093,19 +1093,21 @@ declare namespace window {
     /**
      * Id of display
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    displayId: number;
+    displayId: long;
     /**
      * Region tint of systembar
      *
      * @type { Array<SystemBarRegionTint> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     regionTint: Array<SystemBarRegionTint>;
   }
@@ -3602,7 +3604,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setGestureNavigationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -3618,7 +3621,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setGestureNavigationEnabled(enable: boolean): Promise<void>;
 
@@ -7266,7 +7270,7 @@ declare namespace window {
      * Window displayId change callback on.
      *
      * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
-     * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
+     * @param { Callback<long> } callback - Callback used to notify the Display this window is current showing has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7274,24 +7278,26 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */   
-    on(type: 'displayIdChange', callback: Callback<number>): void;
+    on(type: 'displayIdChange', callback: Callback<long>): void;
 
     /**
      * Window displayId change callback off.
      *
      * @param { 'displayIdChange' } type - The value is fixed at 'displayIdChange', indicating the Display this window is current showing has changed.
-     * @param { Callback<number> } callback - Callback used to notify the Display this window is current showing has changed.
+     * @param { Callback<long> } callback - Callback used to notify the Display this window is current showing has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since arkts {'1.1':'14', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'displayIdChange', callback?: Callback<number>): void;
+    off(type: 'displayIdChange', callback?: Callback<long>): void;
 
     /**
      * Window visibility change callback on.
@@ -7362,7 +7368,7 @@ declare namespace window {
      * System density change callback on.
      *
      * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current has changed.
-     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
@@ -7370,24 +7376,26 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */   
-    on(type: 'systemDensityChange', callback: Callback<number>): void;
+    on(type: 'systemDensityChange', callback: Callback<double>): void;
 
     /**
      * System density change callback off.
      *
      * @param { 'systemDensityChange' } type - The value is fixed at 'systemDensityChange', indicating the system density is current showing has changed.
-     * @param { Callback<number> } callback - Callback used to notify the system density is current has changed.
+     * @param { Callback<double> } callback - Callback used to notify the system density is current has changed.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since arkts {'1.1':'15', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    off(type: 'systemDensityChange', callback?: Callback<number>): void;
+    off(type: 'systemDensityChange', callback?: Callback<double>): void;
 
     /**
      *  Register Callback for window spans multiple screens and displays in full screen mode changed.
