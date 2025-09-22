@@ -12561,6 +12561,17 @@ declare interface AxisEvent extends BaseEvent {
    * @since 21
    */
   getPinchAxisScaleValue(): number;
+
+  /**
+   * Checks whether this event contains a specified axis type.
+   *
+   * @param { AxisType } axisType - Indicates the axis type.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  hasAxis(axisType: AxisType): boolean;
 }
 
 /**
