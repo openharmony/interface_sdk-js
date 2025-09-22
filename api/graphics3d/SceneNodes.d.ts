@@ -24,6 +24,7 @@ import { SceneResource } from './SceneResources';
 /*** if arkts dynamic */
 import { SceneResource, Mesh, Morpher } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
+import { RenderingPipelineType } from './SceneTypes';
 /*** endif */
 import { Position3, Quaternion, Scale3, Color, Vec2, Vec3 } from './SceneTypes';
 import { PostProcessSettings } from './ScenePostProcessSettings';
@@ -488,6 +489,17 @@ export interface Camera extends Node {
    * @since 12 dynamic
    */
   clearColor: Color | null;
+
+  /**
+   * Controls the rendering pipeline. 
+   * Note that if FORWARD_LIGHTWEIGHT pipeline is selected, some features will be unavailable.
+   *
+   * @type { ?RenderingPipelineType }
+   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   */
+  renderingPipeline?: RenderingPipelineType;
 
   /**
    * Casts a ray to a position on the screen and lists what the ray hits.

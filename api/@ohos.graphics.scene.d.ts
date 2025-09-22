@@ -37,7 +37,8 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings } from './gra
  * @since 12 dynamic
  */
 export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3, GeometryType, GeometryDefinition,
-  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry } from './graphics3d/SceneTypes';
+  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry,
+  RenderingPipelineType } from './graphics3d/SceneTypes';
 /**
  * Export scene types
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -81,7 +82,7 @@ export { NodeType, Node, LightType, Light, DirectionalLight, Camera } from './gr
  * @since 12 dynamic
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
-  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext } from './graphics3d/Scene';
+  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters } from './graphics3d/Scene';
 /**
  * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D

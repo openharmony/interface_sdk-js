@@ -27,7 +27,7 @@ import { Position3, Color, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** if arkts dynamic */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
-import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneTypes';
+import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 
 /**
@@ -215,6 +215,25 @@ export interface RenderResourceFactory {
 }
 
 /**
+ * Camera creation parameters. Can be used to define extra options for camera creation.
+ *
+ * @interface CameraParameters
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 21 dynamic
+ */
+export interface CameraParameters {
+  /**
+   * Select the initial rendering pipeline type to use.
+   * 
+   * @type { ?RenderingPipelineType }
+   * @default RenderingPipelineType.FORWARD_LIGHTWEIGHT
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   */
+  renderingPipeline?: RenderingPipelineType;
+}
+
+/**
  * The scene resource factory.
  *
  * @extends RenderResourceFactory
@@ -235,6 +254,17 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    */
   createCamera(params: SceneNodeParameters): Promise<Camera>;
 
+  /**
+   * Create a camera.
+   *
+   * @param { SceneNodeParameters } params - the param of creating a camera
+   * @param { CameraParameters } cameraParams - camera specific extra parameters
+   * @returns { Promise<Camera> } promise a camera
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   */
+  createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise<Camera>;
+  
   /**
    * Create a light.
    *

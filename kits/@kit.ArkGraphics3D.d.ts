@@ -27,7 +27,8 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext } from '@ohos.graphics.scene';
+  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
+  RenderingPipelineType, CameraParameters } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -37,7 +38,8 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight, Camera,
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
-  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext };
+  Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
+  RenderingPipelineType, CameraParameters };
 /*** endif */
 
 /*** if arkts static */

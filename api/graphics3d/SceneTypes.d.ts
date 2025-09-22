@@ -355,6 +355,34 @@ export enum GeometryType {
 }
 
 /**
+ * The enum of rendering pipeline type.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 21 dynamic
+ */
+export enum RenderingPipelineType {
+  /**
+   * Lightweight forward pipeline which renders directly to back buffer.
+   * This pipeline can only do per-pixel effects (e.g. tonemapping) in the shader,
+   * complex effects (e.g. bloom) are not supported.
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   */
+  FORWARD_LIGHTWEIGHT = 0,
+  
+  /**
+   * Forward pipeline for high quality rendering.
+   * Use this for complex visual effects (e.g. bloom).
+   *
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   */
+  FORWARD = 1
+}
+
+/**
  * Define a geometric shape for mesh creation.
  * 
  * @syscap SystemCapability.ArkUi.Graphics3D
