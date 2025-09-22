@@ -45,7 +45,7 @@ declare namespace inputMonitor {
    * @interface TouchEventReceiver
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 7 dynamiconly
+   * @since 7 dynamic
    */
   interface TouchEventReceiver {
     /**
@@ -56,7 +56,7 @@ declare namespace inputMonitor {
      * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
      * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
      * @systemapi hide for inner use
-     * @since 7 dynamiconly
+     * @since 7 dynamic
      */
     (touchEvent: TouchEvent): Boolean;
   }
@@ -100,9 +100,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'touch', receiver: TouchEventReceiver): void;
+
+   /**
+   * Listens for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { TouchEventReceiver } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onTouch(receiver: TouchEventReceiver): void;
 
   /**
    * Enables listening for global mouse events.
@@ -130,9 +144,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'mouse', receiver: Callback<MouseEvent>): void;
+
+  /**
+   * Listens for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onMouse(receiver: Callback<MouseEvent>): void;
 
   /**
    * Enables listening for mouse events. When the mouse pointer moves to the specified rectangular area, a callback is triggered.
@@ -153,7 +181,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'mouse' } type - Event type. This field has a fixed value of mouse.
-   * @param { Array<display.Rect> } rect - Rectangular area where a callback is triggered. One or two rectangular areas can be specified.
+   * @param { display.Rect[] } rect - Rectangular area where a callback is triggered. One or two rectangular areas can be specified.
    * @param { Callback<MouseEvent> } receiver - Callback used to return mouse events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -162,9 +190,24 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
-  function on(type: 'mouse', rect: Array<display.Rect>, receiver: Callback<MouseEvent>): void;
+  function on(type: 'mouse', rect: display.Rect[], receiver: Callback<MouseEvent>): void;
+
+  /**
+   * Listens for mouse input events when the mouse arrow is within the specified rectangular area.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { display.Rect[] } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
+   * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onMouse(rect: display.Rect[], receiver: Callback<MouseEvent>): void;
 
   /**
    * Disables listening for global touch (touchscreen) events.
@@ -194,9 +237,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'touch', receiver?: TouchEventReceiver): void;
+
+   /**
+   * Cancel listening for touch input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { TouchEventReceiver } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offTouch(receiver?: TouchEventReceiver): void;
 
   /**
    * Disables listening for global mouse events.
@@ -226,9 +283,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'mouse', receiver?: Callback<MouseEvent>): void;
+
+  /**
+   * Cancel listening for mouse input events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<MouseEvent> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offMouse(receiver?: Callback<MouseEvent>): void;
 
   /**
    * Enables listening for global touchpad pinch events.
@@ -243,9 +314,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'pinch', receiver: Callback<Pinch>): void;
+
+  /**
+   * Listens for touchPad pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onPinch(receiver: Callback<Pinch>): void;
 
   /**
    * Disables listening for global touchpad pinch events.
@@ -261,9 +346,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'pinch', receiver?: Callback<Pinch>): void;
+
+  /**
+   * Cancel listening for touchPad pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<Pinch> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offPinch(receiver?: Callback<Pinch>): void;
 
   /**
    * Enables listening for global touchpad pinch events.
@@ -279,16 +378,31 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
   function on(type: 'pinch', fingers: number, receiver: Callback<Pinch>): void;
+
+  /**
+   * Listens for touchPad fingers pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - the number of fingers.
+   * @param { Callback<Pinch> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onPinch(fingers: int, receiver: Callback<Pinch>): void;
 
   /**
    * Disables listening for global touchpad pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - Event type. This field has a fixed value of pinch.
-   * @param { int } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
+   * @param { number } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to 2.
    * @param { Callback<Pinch> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -298,16 +412,31 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
-  function off(type: 'pinch', fingers: int, receiver?: Callback<Pinch>): void;
+  function off(type: 'pinch', fingers: number, receiver?: Callback<Pinch>): void;
+
+  /**
+   * Cancel listening for touchPad fingers pinch events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - the number of fingers.
+   * @param { Callback<Pinch> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offPinch(fingers: int, receiver?: Callback<Pinch>): void;
 
   /**
    * Enables listening for rotation events of the touchpad.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - Event type. This field has a fixed value of rotate.
-   * @param { int } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
+   * @param { number } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
    * @param { Callback<Rotate> } receiver - Callback used to return rotation events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -316,16 +445,31 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
-  function on(type: 'rotate', fingers: int, receiver: Callback<Rotate>): void;
+  function on(type: 'rotate', fingers: number, receiver: Callback<Rotate>): void;
+
+  /**
+   * Listens for touchPad fingers rotate events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - the number of fingers.
+   * @param { Callback<Rotate> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onRotate(fingers: int, receiver: Callback<Rotate>): void;
 
   /**
    * Disables listening for rotation events of the touchpad.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - Event type. This field has a fixed value of rotate.
-   * @param { int } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
+   * @param { number } fingers - Number of fingers that trigger a rotation. The value must not be greater than 2.
    * @param { Callback<Rotate> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -335,9 +479,24 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
-  function off(type: 'rotate', fingers: int, receiver?: Callback<Rotate>): void;
+  function off(type: 'rotate', fingers: number, receiver?: Callback<Rotate>): void;
+
+  /**
+   * Cancel listening for touchPad fingers rotate events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - the number of fingers.
+   * @param { Callback<Rotate> }[receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offRotate(fingers: int, receiver?: Callback<Rotate>): void;
 
   /**
    * Enables listening for three-finger swipe events.
@@ -352,9 +511,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'threeFingersSwipe', receiver: Callback<ThreeFingersSwipe>): void;
+
+  /**
+   * Listens for touchPad three fingers swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<ThreeFingersSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onThreeFingersSwipe(receiver: Callback<ThreeFingersSwipe>): void;
 
   /**
    * Disables listening for three-finger swipe events.
@@ -370,9 +543,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'threeFingersSwipe', receiver?: Callback<ThreeFingersSwipe>): void;
+
+  /**
+   * Cancel listening touchPad three fingers swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<ThreeFingersSwipe> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offThreeFingersSwipe(receiver?: Callback<ThreeFingersSwipe>): void;
 
   /**
    * Enables listening for four-finger swipe events.
@@ -387,9 +574,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function on(type: 'fourFingersSwipe', receiver: Callback<FourFingersSwipe>): void;
+
+  /**
+   * Listens for touchPad four fingers swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<FourFingersSwipe> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onFourFingersSwipe(receiver: Callback<FourFingersSwipe>): void;
 
   /**
    * Disables listening for four-finger swipe events.
@@ -405,9 +606,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
-   * @since 20 static
    */
   function off(type: 'fourFingersSwipe', receiver?: Callback<FourFingersSwipe>): void;
+
+  /**
+   * Cancel listening touchPad four finger swipe events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<FourFingersSwipe> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offFourFingersSwipe(receiver?: Callback<FourFingersSwipe>): void;
 
   /**
    * Enables listening for three-finger tap events.
@@ -422,9 +637,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
   function on(type: 'threeFingersTap', receiver: Callback<ThreeFingersTap>): void;
+
+  /**
+   * Listens for touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<ThreeFingersTap> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onThreeFingersTap(receiver: Callback<ThreeFingersTap>): void;
 
   /**
    * Disables listening for three-finger tap events.
@@ -440,9 +669,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
-   * @since 20 static
    */
   function off(type: 'threeFingersTap', receiver?: Callback<ThreeFingersTap>): void;
+
+  /**
+   * Cancel listening touchPad three fingers tap events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<ThreeFingersTap> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offThreeFingersTap(receiver?: Callback<ThreeFingersTap>): void;
 
   /**
    * Enables listening for fingerprint key events.
@@ -457,9 +700,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'fingerprint', receiver: Callback<FingerprintEvent>): void;
+
+  /**
+   * Enables listening for fingerprint key events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<FingerprintEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onFingerprint(receiver: Callback<FingerprintEvent>): void;
 
   /**
    * Cancels listening for fingerprint key events.
@@ -474,9 +731,22 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'fingerprint', receiver?: Callback<FingerprintEvent>): void;
+  /**
+   * Cancels listening for fingerprint key events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<FingerprintEvent> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offFingerprint(receiver?: Callback<FingerprintEvent>): void;
 
   /**
    * Enables listening touchPad swipe inward events.
@@ -490,9 +760,22 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function on(type: 'swipeInward', receiver: Callback<SwipeInward>): void;
+
+  /**
+   * Enables listening touchPad swipe inward events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<SwipeInward> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onSwipeInward(receiver: Callback<SwipeInward>): void;
 
   /**
    * Cancel listening touchPad swipe inward events.
@@ -506,16 +789,29 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
-   * @since 20 static
    */
   function off(type: 'swipeInward', receiver?: Callback<SwipeInward>): void;
+
+  /**
+   * Cancel listening touchPad swipe inward events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<SwipeInward> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - SystemAPI permit error.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offSwipeInward(receiver?: Callback<SwipeInward>): void;
 
   /**
    * Enables listening for touchscreen swipe events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of touchscreenSwipe.
-   * @param { int } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return touchscreen swipe events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -526,16 +822,33 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 20 static
    */
-  function on(type: 'touchscreenSwipe', fingers: int, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenSwipe', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Enables listening touchscreen swipe gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onTouchscreenSwipe(fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening for touchscreen swipe events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of touchscreenSwipe.
-   * @param { int } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -547,16 +860,33 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 20 static
    */
-  function off(type: 'touchscreenSwipe', fingers: int, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenSwipe', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Disables listening touchscreen swipe gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } [receiver] - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offTouchscreenSwipe(fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
   /**
    * Enables listening for touchscreen pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of touchscreenPinch.
-   * @param { int } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return touchscreen pinch events asynchronously.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -567,16 +897,33 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 20 static
    */
-  function on(type: 'touchscreenPinch', fingers: int, receiver: Callback<TouchGestureEvent>): void;
+  function on(type: 'touchscreenPinch', fingers: number, receiver: Callback<TouchGestureEvent>): void;
+
+  /**
+   * Enables listening touchscreen pinch gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onTouchscreenPinch(fingers: int, receiver: Callback<TouchGestureEvent>): void;
 
   /**
    * Disables listening for touchscreen pinch events.
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of touchscreenPinch.
-   * @param { int } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. 
    * If this parameter is not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
@@ -588,9 +935,26 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
-   * @since 20 static
    */
-  function off(type: 'touchscreenPinch', fingers: int, receiver?: Callback<TouchGestureEvent>): void;
+  function off(type: 'touchscreenPinch', fingers: number, receiver?: Callback<TouchGestureEvent>): void;
+
+ /**
+   * Disables listening touchscreen pinch gesture events.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { int } fingers - Number of fingers.
+   * @param { Callback<TouchGestureEvent> } [receiver] - Callback used to receive reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
+   *     3.Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offTouchscreenPinch(fingers: int, receiver?: Callback<TouchGestureEvent>): void;
 
 /**
    * Listens for the press and release events of the specified key, which can be the META_LEFT, META_RIGHT, power, or volume key.
@@ -608,9 +972,25 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 15 dynamic
-   * @since 20 static
    */
   function on(type: 'keyPressed', keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
+
+ /**
+   * Enables listening for release events of specified keys, such as the logo, power, and volume keys.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Array<KeyCode> }  keys - Key list.
+   * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 4100001 - Event listening not supported for the key.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onKeyPressed(keys: Array<KeyCode>, receiver: Callback<KeyEvent>): void;
 
 /**
    * Cancels listening for the press and release events of the specified key, which can be the META_LEFT, META_RIGHT, power, or volume key. 
@@ -627,9 +1007,23 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 15 dynamic
-   * @since 20 static
    */
   function off(type: 'keyPressed', receiver?: Callback<KeyEvent>): void;
+
+  /**
+   * Disables listening for release events of specified keys.
+   *
+   * @permission ohos.permission.INPUT_MONITORING
+   * @param { Callback<KeyEvent> } [receiver] - Callback used to receive the reported data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offKeyPressed(receiver?: Callback<KeyEvent>): void;
 
   /**
    * Queries the most recent touch events, with a maximum of 100 events supported.
@@ -641,10 +1035,9 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 3800001 - System internal error.
-   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 20 dynamic
-   * @since 20 static
+   * @since 20 dynamic&static
    */
   function queryTouchEvents(count: int) : Promise<Array<TouchEvent>>;
 }

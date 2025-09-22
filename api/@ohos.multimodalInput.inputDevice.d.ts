@@ -195,9 +195,19 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
    */
   function on(type: 'change', listener: Callback<DeviceListener>): void;
+
+/**
+   * Starts listening for an input device event.
+   *
+   * @param { Callback<DeviceListener> } listener - Callback for the input device event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 22 static
+   */
+  function onChange(listener: Callback<DeviceListener>): void;
 
   /**
    * Disables listening for device hot swap events.
@@ -210,9 +220,19 @@ declare namespace inputDevice {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
-   * @since 20 static
    */
   function off(type: 'change', listener?: Callback<DeviceListener>): void;
+
+  /**
+   * Stops listening for an input device event.
+   *
+   * @param { Callback<DeviceListener> } [listener] - Callback for the input device event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 22 static
+   */
+  function offChange(listener?: Callback<DeviceListener>): void;
 
   /**
    * Defines the axis range of an input device.

@@ -355,9 +355,31 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12 dynamiconly
+   * @since 12 dynamic
    */
   function off(type: 'cooperation', callback?: AsyncCallback<void>): void;
+  
+  /**
+   * Enables listening for mouse traversal events.
+   *
+   * @param { Callback<CooperationCallbackData> } callback used to receive mouse traversal events.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function onCooperationChange(callback: Callback<CooperationCallbackData>): void;
+
+  /**
+   * Disables listening for mouse traversal events.
+   *
+   * @param { Callback<void> } [callback] callback used to return the result.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 22 static
+   */
+  function offCooperationChange(callback?: Callback<void>): void;
 
 }
 
