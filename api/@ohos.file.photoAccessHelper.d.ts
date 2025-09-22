@@ -11413,7 +11413,6 @@ declare namespace photoAccessHelper {
      * Register callback of download cloud assets task.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { 'downloadProgressChange' } type - Download cloud assets task event type.
      * @param {  Callback<CloudAssetDownloadProgressInfo> } callback - event callback
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -11423,13 +11422,12 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    onDownloadProgressChange(type: 'downloadProgressChange', callback: Callback<CloudAssetDownloadProgressInfo>): void;
+    onDownloadProgressChange(callback: Callback<CloudAssetDownloadProgressInfo>): void;
 
     /**
      * Unregister callback of download cloud assets task.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { 'downloadProgressChange' } type - Download cloud assets task event type.
      * @param {  Callback<CloudAssetDownloadProgressInfo> } [callback] - event callback
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
@@ -11439,7 +11437,7 @@ declare namespace photoAccessHelper {
      * @systemapi
      * @since 22 dynamic&static
      */
-    offDownloadProgressChange(type: 'downloadProgressChange', callback?: Callback<CloudAssetDownloadProgressInfo>): void;
+    offDownloadProgressChange(callback?: Callback<CloudAssetDownloadProgressInfo>): void;
   }
 
   /**
