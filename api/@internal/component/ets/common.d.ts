@@ -765,6 +765,28 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
+ * Define Env Decorator type
+ * @typedef { function } EnvDecorator
+ * @param { string } value - key value input by the user
+ * @returns { PropertyDecorator } Env decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type EnvDecorator = (value: string) => PropertyDecorator;
+
+/**
+ * Defining Env PropertyDecorator.
+ * @type { EnvDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare const Env: EnvDecorator;
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
