@@ -7806,6 +7806,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     preConcat(matrix: Matrix): void;
 
@@ -8566,6 +8567,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     setEmpty(): void;
   }
@@ -8933,6 +8935,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     static contains(rect: common2D.Rect, other: common2D.Rect): boolean;
 
@@ -8970,16 +8973,17 @@ declare namespace drawing {
      * Modifies a 2D rectangular's boundaries by inward offsets.
      *
      * @param { common2D.Rect } rect - The Rect object to adjust.
-     * @param { number } left - Indicates the amount to add from the left boundary.
-     * @param { number } top - Indicates the amount to add from the top boundary.
-     * @param { number } right - Indicates the amount to substract from the right boundary.
-     * @param { number } bottom - Indicates the amount to substract from the bottom boundary.
+     * @param { double } left - Indicates the amount to add from the left boundary.
+     * @param { double } top - Indicates the amount to add from the top boundary.
+     * @param { double } right - Indicates the amount to substract from the right boundary.
+     * @param { double } bottom - Indicates the amount to substract from the bottom boundary.
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
-    static inset(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void;
+    static inset(rect: common2D.Rect, left: double, top: double, right: double, bottom: double): void;
 
     /**
      * Relpace a 2D rectangular object by the intersection of itself and another.
