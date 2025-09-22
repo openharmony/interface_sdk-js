@@ -30,8 +30,8 @@ INTEROP_ETS_LIST = ["api", "arkts", "kits"]
 OUTPUT_PATH = ''
 # 需要排除的文件
 CONFIG_JSON = "interface/sdk-js/compile_ets_ts.json"
-# ets1.2命名
-INTEROP_NAME = "ets1.2interop"
+# static命名
+INTEROP_NAME = "static-interop"
 
 
 def should_exclude(path, config):
@@ -131,10 +131,8 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
-        interop_path_declaration = os.path.join(
-            out_interop_path, "ets1.2interop/declaration")
-        interop_path_bridge = os.path.join(
-            out_interop_path, "ets1.2interop/bridge")
+        interop_path_declaration = os.path.join(out_interop_path, "static-interop/declaration")
+        interop_path_bridge = os.path.join(out_interop_path, "static-interop/bridge")
         os.makedirs(interop_path_declaration, exist_ok=True)
         os.makedirs(interop_path_bridge, exist_ok=True)
         cmd = [node_path, tool_path, config_json_path]
