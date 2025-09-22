@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { JSDoc, JsDocNodeCheckConfigItem } from "../api-check-wrapper";
-import { PermissionValidTokenState } from "./api_check_plugin_enums";
+import { JSDoc, JsDocNodeCheckConfigItem } from '../api-check-wrapper';
+import { PermissionValidTokenState } from './api_check_plugin_enums';
 
 /**
  * 定义与显示窗口相关的配置
@@ -143,4 +143,34 @@ export interface PermissionModule {
 export interface ConfigPermission {
   requestPermissions: Array<{ name: string }>;
   definePermissions: Array<{ name: string }>;
+}
+
+export interface ExtensionAbilities {
+  type: string;
+  metadata: MetaData[];
+}
+
+export interface MetaData {
+  name: string;
+  value: string;
+  resource: string;
+}
+
+export interface ModuleJson {
+  module: Module;
+}
+
+export interface Module {
+  metadata: MetaData[];
+  extensionAbilities: ExtensionAbilities[];
+}
+
+export interface CardForm {
+  type: string;
+  uiSyntax: string;
+  src: string;
+}
+
+export interface CardConfig {
+  forms: CardForm[];
 }

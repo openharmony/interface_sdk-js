@@ -25,7 +25,12 @@ import {
   ProjectConfig,
   SdkConfig,
   SyscapConfig,
-  ApiCheckConfig
+  ApiCheckConfig,
+  MetaData,
+  ExtensionAbilities,
+  ModuleJson,
+  CardConfig,
+  CardForm
 } from './api_check_plugin_typedef';
 import {
   MESSAGE_CONFIG_COLOR_ERROR,
@@ -141,21 +146,22 @@ export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem)
  */
 function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
   let minorVersion: number = 0;
-  if (jsDocs && jsDocs.length > 0) {
-    const jsdoc: JSDoc = jsDocs[0];
-    if (jsdoc.tags && jsdoc.tags.length > 0) {
-      for (let i = 0; i < jsdoc.tags.length; i++) {
-        const tag: JSDocTag = jsdoc.tags[i];
-        if (tag.tag === SINCE_TAG_NAME) {
-          const currentVersion: number = Number.parseInt(tag.name ?? '');
-          if (minorVersion === 0 ||
-            !Number.isNaN(currentVersion) && currentVersion > minorVersion) {
-            minorVersion = currentVersion;
-          }
-          break;
-        }
-      }
+  if (!jsDocs || jsDocs.length === 0) {
+    return minorVersion;
+  }
+  const jsdoc: JSDoc = jsDocs[0];
+  if (!jsdoc.tags || jsdoc.tags.length === 0) {
+    return minorVersion;
+  }
+  for (const tag of jsdoc.tags) {
+    if (tag.tag !== SINCE_TAG_NAME) {
+      continue;
     }
+    const currentVersion: number = Number.parseInt(tag.name ?? '');
+    if (minorVersion === 0 || (!Number.isNaN(currentVersion) && currentVersion > minorVersion)) {
+      minorVersion = currentVersion;
+    }
+    break;
   }
   return minorVersion;
 }
@@ -450,22 +456,15 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
 ): string[] {
   const rightParenthesisItems: string[] = [];
   leftParenthesisItems.forEach((leftParenthesisItem: string) => {
-    if (leftParenthesisItem.includes(designatedChar)) {
-      const rightParenthesis: string[] =
-        getSplitsArrayWithDesignatedCharAndStr(
-          leftParenthesisItem,
-          designatedChar
-        );
-      rightParenthesis.forEach((item: string) => {
-        if (item === '') {
-          rightParenthesisItems.push(designatedChar);
-        } else {
-          rightParenthesisItems.push(item);
-        }
-      });
-    } else {
+    if (!leftParenthesisItem.includes(designatedChar)) {
       rightParenthesisItems.push(leftParenthesisItem);
+      return;
     }
+    const rightParenthesis: string[] = getSplitsArrayWithDesignatedCharAndStr(leftParenthesisItem, designatedChar);
+
+    rightParenthesis.forEach((item: string) => {
+      rightParenthesisItems.push(item === '' ? designatedChar : item);
+    });
   });
   return rightParenthesisItems;
 }
@@ -603,10 +602,10 @@ function getPermissionFromConfig(array: Array<{ name: string }>): string[] {
  * @param { ProjectConfig } projectConfig 配置信息
  */
 export function readCardPageSet(projectConfig: ProjectConfig): void {
-  if (projectConfig.aceModuleJsonPath && fs.existsSync(projectConfig.aceModuleJsonPath)) {
+  if (projectConfig.aceModuleJsonPath && fs.existsSync(projectConfig.aceModuleJsonPath) && projectConfig.projectPath) {
     projectConfig.compileMode = STAGE_COMPILE_MODE;
-    const moduleJson: any = JSON.parse(fs.readFileSync(projectConfig.aceModuleJsonPath).toString());
-    const extensionAbilities: any = moduleJson?.module?.extensionAbilities;
+    const moduleJson: ModuleJson = JSON.parse(fs.readFileSync(projectConfig.aceModuleJsonPath).toString());
+    const extensionAbilities: ExtensionAbilities[] = moduleJson?.module?.extensionAbilities;
     if (extensionAbilities && extensionAbilities.length > 0) {
       setCardPages(extensionAbilities, projectConfig);
     }
@@ -614,47 +613,54 @@ export function readCardPageSet(projectConfig: ProjectConfig): void {
 }
 
 /**
- * 遍历筛选出类型为'form'的extensionAbilities对象，遍历该对象的metadata数组。
+ * 遍历筛选出类型为'form'的拓展，提取其emtadata中的资源信息。
  * 
- * @param { any } extensionAbilities 扩展能力数组，包含应用中定义的各类扩展能力配置对象
- * @param { ProjectConfig } projectConfig 配置信息
+ * @param { ExtensionAbilities[] } extensionAbilities 扩展能力数组
+ * @param { ProjectConfig } projectConfig 项目配置信息
  */
-function setCardPages(extensionAbilities: any, projectConfig: ProjectConfig): void {
-  if (extensionAbilities && extensionAbilities.length > 0) {
-    extensionAbilities.forEach((extensionAbility: any) => {
-      if (extensionAbility.type === 'form' && extensionAbility.metadata) {
-        extensionAbility.metadata.forEach((metadata: any) => {
-          if (metadata.resource) {
-            readCardResource(metadata.resource, projectConfig);
-          }
-        });
-      }
-    });
+function setCardPages(extensionAbilities: ExtensionAbilities[], projectConfig: ProjectConfig): void {
+  if (!extensionAbilities || extensionAbilities.length === 0) {
+    return;
   }
+  extensionAbilities.forEach((extensionAbility) => {
+    if (extensionAbility.type !== 'form' || !extensionAbility.metadata) {
+      return;
+    }
+    extensionAbility.metadata.forEach((metadata) => {
+      if (!metadata.resource) {
+        return;
+      }
+      readCardResource(metadata.resource, projectConfig);
+    });
+  });
 }
 
 /**
- * 读取卡片资源，筛选出类型为 eTS 或 uiSyntax 为 arkts 的卡片配置，更新到cardPageSet中。
+ * 读取卡片资源配置，筛选符合条件的卡片路径并更新到cardPageSet
  * 
- * @param { string } resource 卡片资源标识字符串，格式可能包含`$profile:`前缀（如`$profile:card_config`）
- * @param { ProjectConfig } projectConfig 配置信息
+ * @param { string } resource 卡片资源标识字符串，格式可能包含$profile:前缀
+ * @param { ProjectConfig } projectConfig 项目配置信息
  */
 function readCardResource(resource: string, projectConfig: ProjectConfig): void {
   const cardJsonFileName: string = `${resource.replace(/\$profile\:/, '')}.json`;
   const modulePagePath: string = path.resolve(projectConfig.aceProfilePath, cardJsonFileName);
-  if (fs.existsSync(modulePagePath)) {
-    const cardConfig: any = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
-    if (cardConfig.forms) {
-      cardConfig.forms.forEach((form: any) => {
-        if ((form.type && form.type === 'eTS') || (form.uiSyntax && form.uiSyntax === 'arkts')) {
-          const cardPath = path.resolve(projectConfig.projectPath, '..', form.src);
-          if (cardPath && fs.existsSync(cardPath) && !projectConfig.cardPageSet.includes(cardPath)) {
-            projectConfig.cardPageSet.push(cardPath);
-          }
-        }
-      });
-    }
+  if (!fs.existsSync(modulePagePath)) {
+    return;
   }
+  const CardConfig: CardConfig = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
+  if (!CardConfig.forms) {
+    return;
+  }
+  CardConfig.forms.forEach((form) => {
+    if (!(form.type === 'eTS' || form.uiSyntax === 'arkts')) {
+      return;
+    }
+    const cradPath: string = path.resolve(projectConfig.projectPath, '..', form.src);
+    if (!cradPath || !fs.existsSync(cradPath) || projectConfig.cardPageSet.includes(cradPath)) {
+      return;
+    }
+    projectConfig.cardPageSet.push(cradPath);
+  });
 }
 
 /**
@@ -773,7 +779,7 @@ export function readSyscapInfo(projectConfig: ProjectConfig): void {
     syscaps.push(value);
     allSyscaps = allSyscaps.concat(value);
   });
-  const intersectNoRepeatTwice = (arrs: Array<string[]>) => {
+  const intersectNoRepeatTwice = (arrs: Array<string[]>): string[] => {
     return arrs.reduce(function (prev: string[], cur: string[]) {
       return Array.from(new Set(cur.filter((item: string) => {
         return prev.includes(item);
@@ -797,7 +803,7 @@ export function readSyscapInfo(projectConfig: ProjectConfig): void {
  * @param { string } deviceDir 设备定义配置文件所在的目录路径
  * @param { Map<string, string[]> } deviceInfoMap 用于存储设备类型与对应Syscap数组的映射表
  */
-function collectOhSyscapInfos(deviceType: string, deviceDir: string, deviceInfoMap: Map<string, string[]>) {
+function collectOhSyscapInfos(deviceType: string, deviceDir: string, deviceInfoMap: Map<string, string[]>): void {
   let syscapFilePath: string = '';
   if (deviceType === 'phone') {
     syscapFilePath = path.resolve(deviceDir, 'default.json');
@@ -826,7 +832,7 @@ function collectExternalSyscapInfos(
   externalApiPaths: string[],
   deviceTypes: string[],
   deviceInfoMap: Map<string, string[]>
-) {
+): void {
   const externalDeviceDirs: string[] = [];
   externalApiPaths.forEach((externalApiPath: string) => {
     const externalDeviceDir: string = path.resolve(externalApiPath, './api/device-define');
@@ -835,25 +841,28 @@ function collectExternalSyscapInfos(
     }
   });
   externalDeviceDirs.forEach((externalDeviceDir: string) => {
-    deviceTypes.forEach((deviceType: string) => {
-      let syscapFilePath: string = '';
-      const files: string[] = fs.readdirSync(externalDeviceDir);
-      files.forEach((fileName: string) => {
-        if (fileName.startsWith(deviceType)) {
-          syscapFilePath = path.resolve(externalDeviceDir, fileName);
-          if (fs.existsSync(syscapFilePath)) {
-            const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
-            if (deviceInfoMap.get(deviceType)) {
-              deviceInfoMap.set(deviceType, (deviceInfoMap.get(deviceType) as string[]).concat(content.SysCaps));
-            } else {
-              deviceInfoMap.set(deviceType, content.SysCaps);
-            }
-          }
-        }
-      });
-    });
+    processDeviceTypes(externalDeviceDir, deviceTypes, deviceInfoMap)
   });
 }
+
+function processDeviceTypes(externalDeviceDir: string, deviceTypes: string[], deviceInfoMap: Map<string, string[]>): void {
+  deviceTypes.forEach((deviceType: string) => {
+    const files: string[] = fs.readdirSync(externalDeviceDir);
+    files.forEach((fileName: string) => {
+      if (!fileName.startsWith(deviceType)) {
+        return;
+      }
+      const syscapFilePath: string = path.resolve(externalDeviceDir, fileName);
+      if (!fs.existsSync(syscapFilePath)) {
+        return;
+      }
+      const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
+      const existsingSysCaps: string[] = deviceInfoMap.get(deviceType) || [];
+      deviceInfoMap.set(deviceType, existsingSysCaps.concat(content.SysCaps));
+    })
+  })
+}
+
 
 /**
  * 递归读取目录下所有文件路径
@@ -933,7 +942,7 @@ export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem
  * @param { string } logMessage 日志消息模板，其中{0}会被替换为apiName
  */
 export function pushLog(apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
-  logLevel: DiagnosticCategory, logMessage: string) {
+  logLevel: DiagnosticCategory, logMessage: string): void {
   // 组装文件全路径
   const fileFullPath: string = currentFilePath + `(${currentAddress.line}:${currentAddress.column}).`;
   // 替换api名称
@@ -949,7 +958,7 @@ export function pushLog(apiName: string, currentFilePath: string, currentAddress
  * @param { string } message 日志的具体内容消息
  * @param { DiagnosticCategory } level 日志级别
  */
-function printMessage(fileInfo: string, message: string, level: DiagnosticCategory) {
+function printMessage(fileInfo: string, message: string, level: DiagnosticCategory): void {
   let messageHead: string = MESSAGE_CONFIG_HEADER_WARNING;
   let messageColor: string = MESSAGE_CONFIG_COLOR_WARNING;
   if (level === DiagnosticCategory.ERROR) {
@@ -967,7 +976,7 @@ function printMessage(fileInfo: string, message: string, level: DiagnosticCatego
  * @param { string } modulePath 模块的路径字符串，用于检测是否为SO文件
  * @param { string } currentFilePath 当前模块文件的完整路径，将被添加到原生依赖列表
  */
-export function collectInfo(moduleName: string[], modulePath: string, currentFilePath: string) {
+export function collectInfo(moduleName: string[], modulePath: string, currentFilePath: string): void {
   // 收集so模块依赖
   if (/lib(\S+)\.so/g.test(modulePath) && !globalObject.projectConfig.nativeDependencies.includes(currentFilePath)) {
     globalObject.projectConfig.nativeDependencies.push(currentFilePath);
