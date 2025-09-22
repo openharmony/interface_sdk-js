@@ -24,25 +24,6 @@
  * @param { string } syscap
  * @returns { boolean }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defining syscap function.
- *
- * @param { string } syscap
- * @returns { boolean }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defining syscap function.
- *
- * @param { string } syscap
- * @returns { boolean }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11
+ * @since 22 static
  */
 export declare function canIUse(syscap: string): boolean;
