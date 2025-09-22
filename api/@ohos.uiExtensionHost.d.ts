@@ -119,6 +119,8 @@ declare namespace uiExtensionHost {
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
+    off<T>(type: string, callback?: Callback<T>): void;
+
     /**
      * The properties of the UIExtension window
      *
