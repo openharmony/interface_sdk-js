@@ -1071,6 +1071,26 @@ declare namespace audio {
      */
     NEARLINK = 31,
     /**
+     * Bluetooth device using the spp profile.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    BLUETOOTH_SPP = 33,
+    /**
+     * Nearlink port.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    NEARLINK_PORT = 34,
+    /**
+     * System private device. Applications can ignore this device since the device is private in system.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    SYSTEM_PRIVATE = 200,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -10428,6 +10448,25 @@ declare namespace audio {
      * @useinstead OH_AVScreenCapture in native interface.
      */
     playbackCaptureConfig?: AudioPlaybackCaptureConfig;
+    /**
+     * Perfered input device for this audio capturer. The preferredInputDevice must be an input device, and
+     * the source type in {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_RECONGITION} or
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION}, otherwise this parameter will be ignored.
+     * If the user does not specify a device, the system automatically selects the recording device for
+     * the audio capturer. When the user specifies a prefer device to
+     * create a recongition or transcription recording,
+     * 1) If the prefer device is online, the current audiocapturer may use the preferred device for
+     * recording; if the prefer device goes offline during operation, the system automatically selects
+     * a recording device.
+     * 2) If the prefer device is offline, the system automatically selects a recording device;
+     * if the prefer device comes online during operation, it may switch to the prefer device for recording.
+     * Users can query the device which is in use by {@link AudioCapturer#getCurrentAudioCapturerChangeInfo}.
+     * @type { ?AudioDeviceDescriptor }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**
