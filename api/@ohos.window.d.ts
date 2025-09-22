@@ -33,6 +33,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
+import { ImageFit } from '@ohos.arkui.component';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -12184,6 +12185,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 19 dynamic
+     * @since 20 static
      */
     setImageForRecent(imgResourceId: long, value: ImageFit): Promise<void>;
   }
