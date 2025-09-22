@@ -9842,8 +9842,9 @@ declare namespace audio {
      * 2. {@link getAudioTime} and {@link getAudioTimeSync}.
      * 3. {@link getAudioTimestampInfo} and {@link getAudioTimestampInfoSync}
      * 4. {@link setDefaultOutputDevice}.
-     * Also, if the target is non-PLAYBACK, the audio route and interruption strategy of this renderer will not be
-     * affected by {@link AudioSessionManager}.
+     * Also, if the target is non-PLAYBACK:
+     * 1. The audio route and interruption strategy of this renderer will not be affected by {@link AudioSessionManager}.
+     * 2. {@link DeviceType} will be SYSTEM_PRIVATE.
      * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
      * @param { RenderTarget } target - Render target.
      * @returns { Promise<void> } Promise used to return the result.
