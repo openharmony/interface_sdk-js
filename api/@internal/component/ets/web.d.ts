@@ -25,7 +25,7 @@ import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, Hapt
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
-import { MenuType, EditMenuOptions } from './textCommon';
+import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
 
@@ -11102,7 +11102,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is false.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   enableDataDetector(enable: boolean): WebAttribute;
 
@@ -11112,7 +11112,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { TextDataDetectorConfig } config - The config of text data detector.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 
