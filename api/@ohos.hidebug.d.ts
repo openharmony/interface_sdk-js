@@ -878,11 +878,12 @@ declare namespace hidebug {
   /**
    * Obtains the memory usage of ArkTS objects in the virtual machine.
    *
-   * @returns { bigint } Returns the memory usage of ArkTS objects.
+   * @returns { bigint } Returns the memory usage of ArkTS objects, in KB.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-   * @since 21
+   * @since 21 dynamic
+   * @since 22 static
    */
-  function getAppVMObjectUsed(): bigint;
+  function getAppVMObjectUsedSize(): bigint;
 
   /**
    * Obtains all system GC statistics.
