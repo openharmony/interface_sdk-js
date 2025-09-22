@@ -10884,6 +10884,14 @@ declare namespace media {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
+    /**
+     * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     audioBitrate?: int;
 
     /**
@@ -10913,6 +10921,16 @@ declare namespace media {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
+    /**
+     * Bitrate of the output video, in bit/s. The default bitrate depends on the resolution of the output video.
+     * The default bitrate is 1 Mbit/s for the resolution in the range [240p, 480P],
+     * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     videoBitrate?: int;
 
     /**
@@ -10933,6 +10951,15 @@ declare namespace media {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
+    /**
+     * Width of the output video frame, in px. The value range is [240 - 3840].
+     * The default value is the width of the source video frame.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21
+     * @arkts 1.1&1.2
+     */
     videoFrameWidth?: int;
  
     /**
@@ -10941,6 +10968,15 @@ declare namespace media {
      * @type { ?int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Height of the output video frame, in px. The value range is [240 - 2160].
+     * The default value is the height of the source video frame.
+     * @type { ?int }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21
      * @arkts 1.1&1.2
      */
     videoFrameHeight?: int;
@@ -10998,6 +11034,22 @@ declare namespace media {
      * @type { int }
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
+     */
+    /**
+     * Destination media file descriptor, which specifies the data source. After creating an **AVTranscoder** instance,
+     * you must set both **fdSrc** and **fdDst**.
+     *
+     * **NOTE**
+     * - After the resource handle (FD) is transferred to an **AVTranscoder** instance, do not use the resource handle
+     * to perform other read and write operations, including but not limited to transferring this handle to other
+     * **AVPlayer**, **AVMetadataExtractor**, **AVImageGenerator**, or **AVTranscoder** instance.
+     * Competition occurs when multiple AVTranscoders use the same resource handle to read and write files
+     * at the same time, resulting in errors in obtaining data.
+     * @type { int }
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21
      * @arkts 1.1&1.2
      */
     fdDst: int;
@@ -11136,8 +11188,8 @@ declare namespace media {
      * @param { Callback<int> } callback - Callback invoked when the event is triggered.
      * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     on(type:'progressUpdate', callback: Callback<int>):void;
 
@@ -11174,8 +11226,8 @@ declare namespace media {
      * You are advised to use the default value because only the last registered callback is retained in the current
      * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     off(type:'progressUpdate', callback?: Callback<int>):void;
   }
