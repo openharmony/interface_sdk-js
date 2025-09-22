@@ -791,12 +791,12 @@ export declare interface IObserve {
   /**
    * Rendering component.
    *
-   * @type { number }
+   * @type { int }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  readonly renderingComponent: number;
+  readonly renderingComponent: int;
   /**
    * Rendering component id.
    *
