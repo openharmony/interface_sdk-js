@@ -18,11 +18,11 @@
  * @file
  * @kit ArkUI
  */
-import { Component } from './arkui/component/customComponent';
+import { Component } from '@ohos.arkui.component';
 import { PropRef } from './arkui/stateManagement/decorator';
-import { ResourceColor, ResourceStr, Length } from './arkui/component/units';
-import { Builder } from './arkui/component/builder';
-import { LengthMetrics } from './arkui/Graphics';
+import { ResourceColor, ResourceStr, Length } from '@ohos.arkui.component';
+import { Builder } from '@ohos.arkui.component';
+import { LengthMetrics } from 'arkui.Graphics';
 /**
  * Declare Component ProgressButton
  * @struct { ProgressButton }

@@ -18,10 +18,10 @@
  * @file
  * @kit ArkUI
  */
-import { ResourceStr } from './arkui/component/units';
-import { Component } from './arkui/component/customComponent';
-import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
-import { Builder } from './arkui/component/builder';
+import { ResourceStr } from '@ohos.arkui.component';
+import { Component } from '@ohos.arkui.component';
+import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
+import { Builder } from '@ohos.arkui.component';
 /**
  * Control style of operation element
  *
