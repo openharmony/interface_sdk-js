@@ -625,7 +625,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. Possible causes: 1. The context is invalid because it
      *     does not belong to the application itself; 2. The permission list contains the permission that is not
      *     declared in the module.json file; 3. The permission list is invalid because the permissions in it do not
-     *     belong to the same permission group.
+     *     belong to the same permission group; 4. The permission list contains one or more system_grant permissions.
      * @throws { BusinessError } 12100011 - All permissions in the permission list have been granted.
      * @throws { BusinessError } 12100012 - The permission list contains the permission that has not been revoked by
      *     the user.
