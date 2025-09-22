@@ -1096,6 +1096,54 @@ declare namespace request {
   }
 
   /**
+   * The callback function for the download progress event.
+   *
+   * @typedef { function } DownloadProgressCallback
+   * @param { long } receivedSize - the length of downloaded data, in bytes.
+   * @param { long } totalSize - the length of data expected to be downloaded, in bytes.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 22 dynamic&static
+   */
+  export type DownloadProgressCallback = (receivedSize: long, totalSize: long) => void;
+
+  /**
+   * The callback function for the download complete event.
+   *
+   * @typedef { function } DownloadCompleteCallback
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 22 dynamic&static
+   */
+  export type DownloadCompleteCallback = () => void;
+
+  /**
+   * The callback function for the download pause event.
+   *
+   * @typedef { function } DownloadPauseCallback
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 22 dynamic&static
+   */
+  export type DownloadPauseCallback = () => void;
+
+  /**
+   * The callback function for the download remove event.
+   *
+   * @typedef { function } DownloadRemoveCallback
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 22 dynamic&static
+   */
+  export type DownloadRemoveCallback = () => void;
+
+  /**
+   * The callback function for the download fail event.
+   *
+   * @typedef { function } DownloadFailCallback
+   * @param { int } err - the error code for download task.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 22 dynamic&static
+   */
+  export type DownloadFailCallback = (err: int) => void;
+  
+  /**
    * Download task interface.
    * Implements file downloads.
    *
@@ -1153,9 +1201,17 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'progress', callback: (receivedSize: long, totalSize: long) => void): void;
+
+    /**
+     * Called when the current download session is in process.
+     *
+     * @param { DownloadProgressCallback } callback - The callback function for the download progress event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    onProgress(callback: DownloadProgressCallback): void;
 
     /**
      * Called when the current download session is in process.
@@ -1196,11 +1252,19 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'progress', callback?: (receivedSize: long, totalSize: long) => void): void;
 
     /**
+     * Called when the current download session is in process.
+     *
+     * @param { DownloadProgressCallback } [callback] - The callback function for the download progress event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    offProgress(callback?: DownloadProgressCallback): void;
+
+    /**
      * Called when the current download session complete pause or remove.
      * Subscribes to download events.
      *
@@ -1239,9 +1303,35 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
+
+    /**
+     * Called when the current download session complete.
+     * 
+     * @param { DownloadCompleteCallback } callback - The callback function for the download complete event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    onComplete(callback: DownloadCompleteCallback): void;
+
+	  /**
+     * Called when the current download session pause.
+     *
+     * @param { DownloadPauseCallback } callback - The callback function for the download pause event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    onPause(callback: DownloadPauseCallback): void;
+
+    /**
+     * Called when the current download session remove.
+     *
+     * @param { DownloadRemoveCallback } callback - The callback function for the download remove event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    onRemove(callback: DownloadRemoveCallback): void;
 
     /**
      * Called when the current download session complete pause or remove.
@@ -1282,9 +1372,35 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
+
+    /**
+     * Called when the current download session complete.
+     *
+     * @param { DownloadCompleteCallback } [callback] - The callback function for the download complete event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    offComplete(callback?: DownloadCompleteCallback): void;
+	
+	  /**
+     * Called when the current download session pause.
+     * 
+     * @param { DownloadPauseCallback } [callback] - The callback function for the download pause event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    offPause(callback?: DownloadPauseCallback): void;
+	
+	/**
+     * Called when the current download session remove.
+     *
+     * @param { DownloadRemoveCallback } [callback] - The callback function for the download remove event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    offRemove(callback?: DownloadRemoveCallback): void;
 
     /**
      * Called when the current download session fails.
@@ -1319,12 +1435,20 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'fail', callback: (err: int) => void): void;
 
     /**
      * Called when the current download session fails.
+     *
+     * @param { DownloadFailCallback } callback - The callback function for the download fail event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    onFail(callback: DownloadFailCallback): void;
+
+    /**
+     * Called when the current download session fails.
      * Unsubscribes from download failure events.
      *
      * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
@@ -1356,9 +1480,17 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'fail', callback?: (err: int) => void): void;
+
+    /**
+     * Called when the current download session fails.
+     *
+     * @param { DownloadFailCallback } [callback] - The callback function for the download fail event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 22 static
+     */
+    offFail(callback?: DownloadFailCallback): void;
 
     /**
      * Deletes a download session and the downloaded files.
@@ -2234,6 +2366,27 @@ declare namespace request {
   }
 
   /**
+   * The callback function for the download progress event.
+   * 
+   * @typedef { function } UploadProgressCallback
+   * @param { long } uploadedSize - the length of uploaded data, in bytes
+   * @param { long } totalSize - the length of data expected to be uploaded, in bytes.
+   * @syscap SystemCapability.MiscServices.Upload
+   * @since 22 dynamic&static
+   */
+  export type UploadProgressCallback = (uploadedSize: long, totalSize: long) => void;
+
+  /**
+   * The callback function for the HTTP Response Header event.
+   * 
+   * @typedef { function } UploadHeaderReceiveCallback
+   * @param { Record<string, string> } header - HTTP Response Header returned by the developer server.
+   * @syscap SystemCapability.MiscServices.Upload
+   * @since 22 dynamic&static
+   */
+  export type UploadHeaderReceiveCallback = (header: Record<string, string>) => void;
+
+  /**
    * Upload task interface.
    * Implements file uploads.
    *
@@ -2291,9 +2444,17 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'progress', callback: (uploadedSize: long, totalSize: long) => void): void;
+
+    /**
+     * Called when the current upload session is in process.
+     *
+     * @param { UploadProgressCallback } callback - The callback function for the upload progress event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    onProgress(callback: UploadProgressCallback): void;
 
     /**
      * Called when the current upload session is in process.
@@ -2334,9 +2495,17 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'progress', callback?: (uploadedSize: long, totalSize: long) => void): void;
+
+    /**
+     * Called when the current upload session is in process.
+     *
+     * @param { UploadProgressCallback } [callback] - The callback function for the upload progress event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    offProgress(callback?: UploadProgressCallback): void;
 
     /**
      * Called when the header of the current upload session has been received.
@@ -2371,12 +2540,20 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'headerReceive', callback: (header: object) => void): void;
 
     /**
      * Called when the header of the current upload session has been received.
+     *
+     * @param { UploadHeaderReceiveCallback } callback - The callback function for the HTTP Response Header event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    onHeaderReceive(callback: UploadHeaderReceiveCallback): void;
+
+    /**
+     * Called when the header of the current upload session has been received.
      * Unsubscribes from HTTP response events for the upload task.
      *
      * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
@@ -2408,11 +2585,19 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'headerReceive', callback?: (header: object) => void): void;
 
     /**
+     * Called when the header of the current upload session has been received.
+     *
+     * @param { UploadHeaderReceiveCallback } [callback] - The callback function for the HTTP Response Header event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    offHeaderReceive(callback?: UploadHeaderReceiveCallback): void;
+
+    /**
      * Called when the current upload session complete or fail.
      *
      * @param { 'complete' | 'fail' } type Indicates the upload session event type
@@ -2445,9 +2630,26 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
+
+    /**
+     * Called when the current upload session complete.
+     *
+     * @param { Callback<Array<TaskState>> } callback - The callback function for the upload complete event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    onComplete(callback: Callback<Array<TaskState>>): void;
+
+    /**
+     * Called when the current upload session fail.
+     *
+     * @param { Callback<Array<TaskState>> } callback - The callback function for the upload fail event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    onFail(callback: Callback<Array<TaskState>>): void;
 
     /**
      * Called when the current upload session complete or fail.
@@ -2482,9 +2684,26 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
+
+    /**
+     * Called when the current upload session complete.
+     *
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload complete event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    offComplete(callback?: Callback<Array<TaskState>>): void;
+
+    /**
+     * Called when the current upload session fail.
+     *
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload fail change event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 22 static
+     */
+    offFail(callback?: Callback<Array<TaskState>>): void;
 
     /**
      * Deletes an upload session.
