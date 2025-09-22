@@ -2856,8 +2856,6 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
-     * @type { int }
-     * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2878,8 +2876,6 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
-     * @type { int }
-     * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2900,8 +2896,6 @@ declare namespace rpc {
     /**
      * Indicates the sendRequest API for returning the file descriptor.
      *
-     * @type { int }
-     * @default 16
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2930,7 +2924,6 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @default 4
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2938,8 +2931,6 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @type { int }
-     * @default 8
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3350,6 +3341,15 @@ declare namespace rpc {
     static PING_TRANSACTION: number;
 
     /**
+     * Indicates the message code for a Ping operation.
+     *
+     * @static
+     * @syscap SystemCapability.Communication.IPC.Core
+     * @since 20 static
+     */
+    static get PING_TRANSACTION(): int;
+
+    /**
      * Indicates the message code for a dump operation.
      *
      * @type { number }
@@ -3363,8 +3363,6 @@ declare namespace rpc {
     /**
      * Indicates the message code for a dump operation.
      *
-     * @type { int }
-     * @default 1598311760
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3385,8 +3383,6 @@ declare namespace rpc {
     /**
      * Indicates the message code for a transmission.
      *
-     * @type { int }
-     * @default 1598968902
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3409,8 +3405,6 @@ declare namespace rpc {
      * Indicates the minimum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
-     * @type { int }
-     * @default 0x1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3433,8 +3427,6 @@ declare namespace rpc {
      * Indicates the maximum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
-     * @type { int }
-     * @default 0x00FFFFFF
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3880,8 +3872,6 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
-     * @type { int }
-     * @default 4
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3902,8 +3892,6 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
-     * @type { int }
-     * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3924,8 +3912,6 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
-     * @type { int }
-     * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3946,8 +3932,6 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
-     * @type { int }
-     * @default 2
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
