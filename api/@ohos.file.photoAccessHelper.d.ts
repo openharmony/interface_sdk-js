@@ -6591,6 +6591,27 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     query(sql: string): Promise<ResultSet>;
+
+    /**
+     * This interface is used to obtain the post-cloning URI list.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Array<string> } oldUris - The old uris before cloning.
+     * @returns { Promise<Map<string, string>> } A list of Maps consisting of the corresponding post-clone URIs.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     Possible causes: The size of input parameter exceeds 100 or is 0.
+     * @throws { BusinessError } 23800301 - Internal system error.
+     *     It is recommended to retry and check the logs. Possible causes:
+     *     1. Database corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 21
+     */
+    getAssetsByOldUris(oldUris: Array<string>): Promise<Map<string, string>>;
   }
 
   /**
