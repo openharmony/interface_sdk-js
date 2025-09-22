@@ -19,7 +19,7 @@
  */
 
 import { RenderNode } from 'arkui.RenderNode';
-import { Size, NodePosition, Edges, LengthMetrics, SizeT } from 'arkui.Graphics';
+import { Size, NodePosition, NodeEdges, LengthMetrics, SizeT } from 'arkui.Graphics';
 import { DrawContext } from 'arkui.Graphics';
 import { ComponentContent } from 'arkui.ComponentContent';
 import { BusinessError } from '@ohos.base';
@@ -381,29 +381,29 @@ export declare class FrameNode {
   /**
    * Get the user config border width of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getUserConfigBorderWidth(): Edges<LengthMetrics>;
+  getUserConfigBorderWidth(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config padding of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getUserConfigPadding(): Edges<LengthMetrics>;
+  getUserConfigPadding(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config margin of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  getUserConfigMargin(): Edges<LengthMetrics>;
+  getUserConfigMargin(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config size of the FrameNode.
