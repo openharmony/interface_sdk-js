@@ -175,6 +175,14 @@ export interface GridObjectSortComponentItem {
    * @atomicservice
    * @since 18
    */
+  /**
+   * symbol of the GridObjectSortComponent item.
+   * @type { ?SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
   symbolStyle?: SymbolGlyphModifier;
 }
 
