@@ -18,7 +18,12 @@
  * @kit BasicServicesKit
  */
 
+/*** if arkts dynamic */
 import { Callback } from './@ohos.base';
+/*** endif */
+/*** if arkts static */
+import { Callback, RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * Provides methods for sending and processing in-process events.
@@ -674,12 +679,12 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?(Record<string, Object> | ESObject) }
+     * @type { ?(Record<string, RecordData> | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @since 20 static
      */
-    data?: Record<string, Object> | ESObject;
+    data?: Record<string, RecordData> | ESValue;
   }
 
   /**
@@ -950,12 +955,12 @@ declare namespace emitter {
     /**
      * Data carried by the event.
      *
-     * @type { ?(T | ESObject) }
+     * @type { ?(T | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @since 20 static
      */
-    data?: T | ESObject;
+    data?: T | ESValue;
   }
 }
 

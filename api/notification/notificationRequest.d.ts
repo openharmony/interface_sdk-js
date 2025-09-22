@@ -33,6 +33,7 @@ import type { BundleOption } from './NotificationCommonDef';
 /*** if arkts static */
 import { WantAgent } from '../@ohos.app.ability.wantAgent';
 import { BundleOption } from './NotificationCommonDef';
+import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
@@ -247,21 +248,31 @@ export interface NotificationRequest {
   /**
    * Extended parameter.
    *
-   * @type { ?Record<string, Object> }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @since 20 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 
   /**
    * Extended parameter.
    *
-   * @type { Record<string, Object> }
+   * @type { ?Record<string, Object> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   extendInfo?: Record<string, Object>;
+
+  /**
+   * Extended parameter.
+   *
+   * @type { ?Record<string, RecordData> }
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 20 static
+   */
+  extendInfo?: Record<string, RecordData>;
 
   /**
    * Background color of the notification.
@@ -924,10 +935,10 @@ export interface UnifiedGroupInfo {
   /**
    * Other information is aggregated across applications.
    *
-   * @type { ?object }
+   * @type { ?Record<string, RecordData> }
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 20 static
    */
-  extraInfo?: Record<string, Object>;
+  extraInfo?: Record<string, RecordData>;
 }
