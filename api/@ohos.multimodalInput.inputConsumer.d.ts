@@ -284,7 +284,7 @@ declare namespace inputConsumer {
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
   
-   /**
+  /**
    * Subscribe system keys.
    *
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
