@@ -1883,7 +1883,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string }
      * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 12 dynamic
+     * @since 11 dynamic
      */
     readonly iconFile: string;
 
