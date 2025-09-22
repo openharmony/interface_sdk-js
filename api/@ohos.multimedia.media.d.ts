@@ -11185,11 +11185,22 @@ declare namespace media {
      * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      * This event is triggered by the system during transcoding.
-     * @param { Callback } callback - Callback invoked when the event is triggered.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
      * **progress** is a number that indicates the current transcoding progress.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+
+     * @since 12
+     */
+    /**
+     * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
+     * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     * This event is triggered by the system during transcoding.
+     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
+     * **progress** is a number that indicates the current transcoding progress.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21 dynamic
      */
     on(type:'progressUpdate', callback: Callback<int>):void;
 
@@ -11222,12 +11233,23 @@ declare namespace media {
      * Unsubscribes from transcoding progress updates.
      * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
      * This event can be triggered by both user operations and the system.
-     * @param { Callback } callback - Called that has been registered to listen for progress updates.
+     * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
      * You are advised to use the default value because only the last registered callback is retained in the current
      * callback mechanism.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @since 12 dynamic
-     * @since 20 static
+
+     * @since 12
+     */
+    /**
+     * Unsubscribes from transcoding progress updates.
+     * @param { 'progressUpdate' } type - Event type, which is **'progressUpdate'** in this case.
+     * This event can be triggered by both user operations and the system.
+     * @param { Callback<int> } callback - Called that has been registered to listen for progress updates.
+     * You are advised to use the default value because only the last registered callback is retained in the current
+     * callback mechanism.
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @atomicservice
+     * @since 21 dynamic
      */
     off(type:'progressUpdate', callback?: Callback<int>):void;
   }
