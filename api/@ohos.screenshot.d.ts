@@ -62,9 +62,10 @@ declare namespace screenshot {
 
   /**
    * Screen capture, supporting HDR screenshots when there is HDR content.
+   * If HdrScreenshotOptions is null, save primary display Hdr picture.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { HdrScreenshotOptions } [options] - Screenshot parameters.
+   * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
    * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
    * return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available, only return one SDR PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
@@ -345,6 +346,7 @@ declare namespace screenshot {
      * ID of the screen to be captured.
      *
      * @type { ?number }
+     * @default The ID of current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20
@@ -354,6 +356,7 @@ declare namespace screenshot {
      * The capture action is need notification.
      *
      * @type { ?boolean }
+     * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20
@@ -363,6 +366,7 @@ declare namespace screenshot {
      * The capture action is need take screenshots of all displays on this screen.
      *
      * @type { ?boolean }
+     * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20
