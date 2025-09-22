@@ -1027,14 +1027,14 @@ declare namespace inputMonitor {
 
   /**
    * Queries the most recent touch events, with a maximum of 100 events supported.
-   * The returned touch event contains only the following valid information: actionTime, sourceType, isInject, pressure, tiltX, tiltY.
-   *
+   * The returned touch event contains only the following valid information: actionTime, sourceType,
+   * isInject, pressure, tiltX, tiltY.
+   * 
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } count - Number of touch events to query.
    * @returns { Promise<Array<TouchEvent>> } Returns the result through a promise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 3800001 - System internal error.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 20 dynamic&static

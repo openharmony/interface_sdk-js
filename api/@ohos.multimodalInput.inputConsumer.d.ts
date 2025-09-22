@@ -283,7 +283,7 @@ declare namespace inputConsumer {
    * @since 12 dynamic
    */
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
-  
+
   /**
    * Subscribe system keys.
    *
@@ -360,7 +360,7 @@ declare namespace inputConsumer {
    * @since 14 dynamic
    */
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
-  
+
     /**
    * Listening for hotkey event changes.
    *
@@ -375,7 +375,7 @@ declare namespace inputConsumer {
    * @since 22 static
    */
   function onHotkeyChange(hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
-  
+
   /**
    * Unsubscribes from application shortcut key change events.
    * 
@@ -390,7 +390,7 @@ declare namespace inputConsumer {
    * @since 14 dynamic
    */
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
-  
+
     /**
    * Unsubscribe from hotkey event changes.
    *
@@ -418,7 +418,7 @@ declare namespace inputConsumer {
    * @since 16 dynamic
    */
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
-  
+
    /**
    * Consumed key events. Only the VolumeUp and VolumeDown keys are supported. When the current application process
    * is the focus window's process, a callback will be triggered if the user operates the specified key.
