@@ -252,6 +252,7 @@ declare namespace common2D {
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform
    * @since 20
+   * @arkts 1.1&1.2
    */
   interface Point3d extends Point {
     /**
@@ -266,6 +267,7 @@ declare namespace common2D {
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     z: double;
   }
