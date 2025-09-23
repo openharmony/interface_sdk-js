@@ -23,13 +23,13 @@
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
  */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 /**
  * Export post processing settings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 20 static
  */
-export { ToneMappingType, ToneMappingSettings, PostProcessSettings } from './graphics3d/ScenePostProcessSettings';
+export { ToneMappingType, ToneMappingSettings, PostProcessSettings, VignetteSettings, ColorFringeSettings } from './graphics3d/ScenePostProcessSettings';
 
 /**
  * Export scene types
@@ -45,7 +45,7 @@ export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, 
  * @since 20 static
  */
 export { Vec2, Vec3, Vec4, Color, Rect, Quaternion, Position3, Scale3, GeometryType, GeometryDefinition,
-  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry } from './graphics3d/SceneTypes';
+  PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, RenderingPipelineType } from './graphics3d/SceneTypes';
 
 /**
  * Export scene resources
@@ -102,4 +102,4 @@ export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Sce
  * @since 20 static
  */
 export { SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RaycastResult, RaycastParameters,
-  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext } from './graphics3d/Scene';
+  RenderParameters, RenderResourceFactory, SceneComponent, RenderContext, CameraParameters } from './graphics3d/Scene';
