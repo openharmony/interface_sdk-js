@@ -4284,6 +4284,175 @@ declare namespace http {
      */
     delete(): Promise<void>;
   }
+
+  /**
+   * Types of an HTTP interceptor.
+   * @enum { string }
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export enum InterceptorType {
+    /**
+     * Intercept after the initial HTTP request is assembled.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    INITIAL_REQUEST = 'INITIAL_REQUEST',
+
+    /**
+     * Intercept when we get a redirection responsed and is going to send another request.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    REDIRECTION = 'REDIRECTION',
+
+    /**
+     * Intercept after we checked the HTTP cache.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    CACHE_CHECKED = 'READ_CACHE',
+
+    /**
+     * Intercept when we perform network connection, such as TLS and TCP.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    NETWORK_CONNECT = 'CONNECT_NETWORK',
+
+    /**
+     * Intercept when we get the final HTTP response.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    FINAL_RESPONSE = 'FINAL_RESPONSE',
+  }
+
+
+  /**
+   * The request data.
+   * @interface HttpRequestContext
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export interface HttpRequestContext {
+    /**
+     * The URL of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { string }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    url: string;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { Object }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    header: Object;
+
+    /**
+     * The header of an HTTP request interceptor. It can be modified in an interceptor.
+     * @type { Object }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    body: Object;
+  }
+
+
+  /**
+   * Whether or not to continue process of interceptor chain.
+   * @typedef { boolean }
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export type ChainContinue = boolean;
+
+  /**
+   * Defines an HTTP Interceptor. User can implement this interface to define the handle function.
+   * @interface HttpInterceptor
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export interface HttpInterceptor {
+    /**
+     * The type of this interceptor. It defines when this intercptor would be called.
+     * @type { InterceptorType }
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    interceptorType: InterceptorType;
+
+    /**
+     * Intercept an HTTP process and do changes as disired.
+     * @param { HttpRequestContext } reqContext - the context of the target HTTP request.
+     * @param { HttpResponse } rspContext - the context of the target HTTP response.
+     * @returns { Promise<ChainContinue> } Continue the HTTP process or terminate then return the HTTP response.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>;
+  }
+
+  /**
+   * Defines an HTTP Interceptor chain.
+   * @class HttpInterceptorChain
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  export class HttpInterceptorChain {
+    /**
+     * The method to get the chain of interceptors.
+     * @returns { HttpInterceptor[] } The chain of interceptors.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public getChain(): HttpInterceptor[];
+
+    /**
+     * Add an interceptor chain to the HTTP client.
+     * @param { HttpInterceptor[] } chain - The chain of interceptors.
+     * @returns { boolean } Whether the chain is added successfully.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300802 - Duplicated interceptor type in the chain.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public addChain(chain: HttpInterceptor[]): boolean;
+
+    /**
+     * Attach the chain to the target http request.
+     * Only one chain can be attached to a given request.
+     * @param { HttpRequest } httpRequest - Initiates an HTTP request to a given URL.
+     * @returns { boolean } Whether the interceptor chain is attached successfully.
+     * @throws { BusinessError } 2300801 - Parameter type not supported by the interceptor.
+     * @throws { BusinessError } 2300999 - Internal error.
+     * @syscap SystemCapability.Communication.NetStack
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    public apply(httpRequest: HttpRequest): boolean;
+  }
 }
 
 export default http;
