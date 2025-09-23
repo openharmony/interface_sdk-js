@@ -3431,7 +3431,7 @@ declare namespace window {
   /**
    * Minimize all app windows.
    *
-   * @param { number } id - ID of the display.
+   * @param { long } id - ID of the display.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types;
@@ -3444,7 +3444,7 @@ declare namespace window {
   /**
    * Minimize all app windows.
    *
-   * @param { number } id - ID of the display.
+   * @param { long } id - ID of the display.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -3457,12 +3457,12 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function minimizeAll(id: number, callback: AsyncCallback<void>): void;
+  function minimizeAll(id: long, callback: AsyncCallback<void>): void;
 
   /**
    * Minimize all app windows.
    *
-   * @param { number } id - ID of the display.
+   * @param { long } id - ID of the display.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types;
@@ -3475,7 +3475,7 @@ declare namespace window {
   /**
    * Minimize all app windows.
    *
-   * @param { number } id - ID of the display.
+   * @param { long } id - ID of the display.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
@@ -3488,7 +3488,7 @@ declare namespace window {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  function minimizeAll(id: number): Promise<void>;
+  function minimizeAll(id: long): Promise<void>;
 
   /**
    * Toggle shown state for all app windows. Minimize or restore all app windows.
