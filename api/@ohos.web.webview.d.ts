@@ -3642,6 +3642,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     SUCCESS = 0,
 
@@ -3650,6 +3651,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_UNKNOWN = -1,
 
@@ -3658,6 +3660,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_INVALID_PARAM = -2,
 
@@ -3666,6 +3669,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_CONTROLLER_NOT_INITED = -3,
 
@@ -3675,6 +3679,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_KEY_NOT_MATCH = -4,
 
@@ -3684,6 +3689,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_SIGNIFICANT_CHANGE = -5
   }
@@ -3702,6 +3708,7 @@ declare namespace webview {
      * @type { WebBlanklessErrorCode }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     errCode: WebBlanklessErrorCode;
 
@@ -3714,6 +3721,7 @@ declare namespace webview {
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     similarity: double;
 
@@ -3724,6 +3732,7 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     loadingTime: int;
   }
