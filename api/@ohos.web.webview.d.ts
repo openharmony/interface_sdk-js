@@ -7048,7 +7048,7 @@ declare namespace webview {
      * <br>In this case, the keyboardAvoidMode will be OVERLAYS_CONTENT.
      * When setting zero, web page content can be restored and the keyboardAvoidMode will be the value set by keyboardAvoidMode().
      *
-     * @param { number } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
+     * @param { int } avoidHeight - the height value of the visible viewport avoidance. Unit: vp.
      * <br>The valid interval of avoidHeight is [0, the height of web component].
      * <br>When avoidHeight is out of the valid interval, it takes the boundary value of the interval.
      * @throws { BusinessError } 17100001 - Init error.
@@ -7056,8 +7056,9 @@ declare namespace webview {
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
-    avoidVisibleViewportBottom(avoidHeight: number): void;
+    avoidVisibleViewportBottom(avoidHeight: int): void;
 
     /**
      * Obtains the prediction information about the blankless loading solution and enables the generation of
