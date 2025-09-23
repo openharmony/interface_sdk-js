@@ -18,7 +18,7 @@
  * @file
  * @kit ArkUI
  */
-import { DrawContext, Size, Offset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit } from 'arkui.Graphics';
+import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit } from 'arkui.Graphics';
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
@@ -333,20 +333,20 @@ export declare class RenderNode {
   /**
    * Set shadow offset of the RenderNode.
    *
-   * @param { Offset } offset - the shadow offset of the RenderNode.
+   * @param { NodeOffset } offset - the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  set shadowOffset(offset: Offset);
+  set shadowOffset(offset: NodeOffset);
 
   /**
    * Get shadow offset of the RenderNode.
    *
-   * @returns { Offset } - Returns the shadow offset of the RenderNode.
+   * @returns { NodeOffset } - Returns the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  get shadowOffset(): Offset;
+  get shadowOffset(): NodeOffset;
 
   /**
    * Set label of the RenderNode.

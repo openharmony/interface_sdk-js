@@ -207,11 +207,11 @@ export type Matrix4 = [
 /**
  * Offset info.
  *
- * @typedef { Vector2 } Offset
+ * @typedef { Vector2 } NodeOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export type Offset = Vector2;
+export type NodeOffset = Vector2;
 
 /**
  * Position info.
