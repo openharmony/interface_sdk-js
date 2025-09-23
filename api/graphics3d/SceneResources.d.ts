@@ -125,6 +125,15 @@ export enum SceneResourceType {
    * @since 20 static
    */
   MESH_RESOURCE = 8,
+
+  /**
+   * The resource is an Effect.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  EFFECT = 9
 }
 
 /**
@@ -1040,4 +1049,37 @@ export interface Image extends SceneResource {
    * @since 12 dynamic
    */
   readonly height: int;
+}
+
+/**
+ * Effect resource.
+ * 
+ * @extends SceneResource
+ * @interface Effect
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 21 dynamic
+ * @since 22 static
+ */
+export interface Effect extends SceneResource {
+  /**
+   * Controls whether the effect is enabled or not.
+   * 
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  enabled: boolean;
+
+  /**
+   * The id of the effect.
+   * This is the id that was used to create the effect.
+   * 
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  readonly effectId: string;
 }

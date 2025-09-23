@@ -28,7 +28,7 @@ import { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters } from '@ohos.graphics.scene';
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect } from '@ohos.graphics.scene';
 
 export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSettings,
   Vec2, Vec3, Vec4, Color, Rect, Quaternion, Aabb, Position3, Rotation3, Scale3,
@@ -39,7 +39,7 @@ export { ToneMappingType, ToneMappingSettings, PostProcessSettings, BloomSetting
   SceneResourceParameters, SceneNodeParameters, SceneResourceFactory, Scene, RenderParameters,
   RaycastResult, RaycastParameters, CullMode, Blend, RenderSort, MaterialProperty, MetallicRoughnessMaterial,
   Morpher, Sampler, SamplerFilter, SamplerAddressMode, RenderResourceFactory, SceneComponent, RenderContext,
-  RenderingPipelineType, CameraParameters };
+  RenderingPipelineType, CameraParameters, EffectParameters, Effect };
 /*** endif */
 
 /*** if arkts static */

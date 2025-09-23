@@ -25,7 +25,7 @@ import { Camera, LightType, Light, Node, NodeType } from './SceneNodes';
 import { Position3, Color, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
 /*** if arkts dynamic */
-import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource } from './SceneResources';
+import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
 import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
 /*** endif */
@@ -234,6 +234,26 @@ export interface CameraParameters {
 }
 
 /**
+ * The parameters for effect
+ * 
+ * @interface EffectParameters
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 21 dynamic
+ * @since 22 static
+ */
+export interface EffectParameters {
+  /**
+   * Id of the effects to create.
+   * 
+   * @type { string }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 21 static
+   */
+  effectId: string;
+}
+
+/**
  * The scene resource factory.
  *
  * @extends RenderResourceFactory
@@ -318,6 +338,17 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @since 18 dynamic
    */
   createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise<Geometry>;
+
+  /**
+   * Create an effect.
+   * 
+   * @param { EffectParameters } params - the params of creating an effect.
+   * @returns { Promise<Effect> } promise and effect.
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  createEffect(params: EffectParameters): Promise<Effect>;
 }
 
 /**

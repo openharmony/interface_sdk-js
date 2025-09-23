@@ -22,7 +22,7 @@
 import { SceneResource } from './SceneResources';
 /*** endif */
 /*** if arkts dynamic */
-import { SceneResource, Mesh, Morpher } from './SceneResources';
+import { SceneResource, Mesh, Morpher, Effect } from './SceneResources';
 import { RaycastParameters, RaycastResult } from './Scene';
 import { RenderingPipelineType } from './SceneTypes';
 /*** endif */
@@ -101,7 +101,17 @@ export enum NodeType {
    * @since 12 dynamic
    * @since 20 static
    */
-  LIGHT = 4
+  LIGHT = 4,
+
+  /** 
+   * The node is of custom type.
+   * Usually this means that the node is of a type defined in an extension plugin.
+   * 
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  CUSTOM = 255
 }
 
 /**
@@ -479,6 +489,17 @@ export interface Camera extends Node {
    * @since 20 static
    */
   postProcess: PostProcessSettings | null;
+
+  /**
+   * The effects to apply on the camera output.
+   * 
+   * @type { Container<Effect> }
+   * @readonly
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 21 dynamic
+   * @since 22 static
+   */
+  readonly effects: Container<Effect>;
 
   /**
    * Background clear color (environment background overrides this color,
