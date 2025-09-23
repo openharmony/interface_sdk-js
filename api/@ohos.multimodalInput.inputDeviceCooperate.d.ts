@@ -337,10 +337,8 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12 dynamiconly
+   * @since 12
    */
-  function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
-
   /**
    * Obtains the status of the mouse traversal switch.
    *
@@ -351,7 +349,7 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 staticonly
+   * @since 20 dynamic&static
    */
   function getState(deviceDescriptor: string, callback: AsyncCallback<TraversalSwitchStatus>): void;
 
@@ -380,22 +378,20 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12 dynamiconly
+   * @since 12
    */
-  function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
-
- /**
-  * Obtains the status of the mouse traversal switch.
-  *
-  * @param { string } deviceDescriptor Descriptor of the target network for mouse traversal.
-  * @returns { Promise<TraversalSwitchStatus> } A promise used by returning state
-  * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-  * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-  * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-  * @systemapi hide for inner use
-  * @since 20 staticonly
-  */
+  /**
+   * Obtains the status of the mouse traversal switch.
+   *
+   * @param { string } deviceDescriptor Descriptor of the target network for mouse traversal.
+   * @returns { Promise<TraversalSwitchStatus> } A promise used by returning state
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 20 dynamic&static
+   */
   function getState(deviceDescriptor: string): Promise<TraversalSwitchStatus>;
 
   /**
@@ -419,9 +415,21 @@ declare namespace inputDeviceCooperate {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 12 dynamic
+   * @since 12
    */
-  function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
+  /**
+   * Enables listening for mouse traversal events.
+   *
+   * @param { 'cooperation' } type Registration type.
+   * @param { AsyncCallback<CooperationCallbackData> } callback Asynchronous callback used to receive mouse traversal events.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.Cooperator
+   * @systemapi hide for inner use
+   * @since 20 dynamic
+   */
+  function on(type: 'cooperation', callback: AsyncCallback<CooperationCallbackData>): void;
 
   /**
    * Disables listening for screen hopping status change events.
