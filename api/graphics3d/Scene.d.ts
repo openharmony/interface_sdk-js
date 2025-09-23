@@ -239,7 +239,6 @@ export interface CameraParameters {
  * @interface EffectParameters
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
- * @since 22 static
  */
 export interface EffectParameters {
   /**
@@ -248,7 +247,6 @@ export interface EffectParameters {
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 21 static
    */
   effectId: string;
 }
@@ -346,7 +344,6 @@ export interface SceneResourceFactory extends RenderResourceFactory {
    * @returns { Promise<Effect> } promise and effect.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   createEffect(params: EffectParameters): Promise<Effect>;
 }
