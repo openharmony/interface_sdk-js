@@ -7598,16 +7598,13 @@ declare namespace window {
      * It is not triggered when the child window is closed in other ways.
      *
      * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the child window is clicked.
-     *                                      The internal logic of the callback function requires a return value of the Boolean type.
-     *                                      The return value determines whether to continue to close the child window.
-     *                                      The value true means not to close the child window, and false means to continue to close the child window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
+     *    The internal logic of the callback function requires a return value of the Boolean type.
+     *    The return value determines whether to continue to close the child window.
+     *    The value true means not to close the child window, and false means to continue to close the child window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     onSubWindowClose(callback: Callback<void>): void;
@@ -7637,14 +7634,11 @@ declare namespace window {
      * Unsubscribes from the event indicating that the child window is closed.
      *
      * @param { Callback<void> } [callback ] - Unregister the callback function.
-     *                                         If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     offSubWindowClose(callback?: Callback<void>): void;
@@ -7676,16 +7670,13 @@ declare namespace window {
      * It is not triggered when the window is closed in other ways.
      *
      * @param { Callback<void, Promise<boolean>> } callback - Callback used to when the close button in the upper right corner of the window is clicked.
-     *                                                        The internal logic of the callback function requires a return value of the Promise type.
-     *                                                        In the returned Promise function, resolve(true) means not to close the window,
-     *                                                        and resolve(false) or reject means to continue to close the window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
+     *    The internal logic of the callback function requires a return value of the Promise type.
+     *    In the returned Promise function, resolve(true) means not to close the window,
+     *    and resolve(false) or reject means to continue to close the window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     onWindowWillClose(callback: Callback<void, Promise<boolean>>): void;
@@ -7714,14 +7705,11 @@ declare namespace window {
      * Unsubscribes from the event indicating that the main window or child window will be closed.
      *
      * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
-     *                                                          If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
-     *                                                                  2. Parameter verification failed.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     offWindowWillClose(callback?: Callback<void, Promise<boolean>>): void;
@@ -10439,13 +10427,9 @@ declare namespace window {
      * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
      * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     onWindowTitleButtonRectChange(callback: Callback<TitleButtonRect>): void;
@@ -10484,12 +10468,9 @@ declare namespace window {
      *
      * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
      *                                                   If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
-     *                                                                  2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 22 static
      */
     offWindowTitleButtonRectChange(callback?: Callback<TitleButtonRect>): void;
@@ -12012,16 +11993,12 @@ declare namespace window {
      * This event is triggered when the close button in the three-button navigation bar of the main window is clicked.
      *
      * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
-     *                                      The return value determines whether to continue to close the main window.
-     *                                      The value true means not to close the main window, and false means to continue to close the main window.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
+     *    The return value determines whether to continue to close the main window.
+     *    The value true means not to close the main window, and false means to continue to close the main window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @atomicservice
      * @since 22 static
      */
     onWindowStageClose(callback: Callback<void>): void;
@@ -12050,15 +12027,11 @@ declare namespace window {
      * Unsubscribes from the event indicating that the main window is closed.
      *
      * @param { Callback<void> } [callback] - Unregister the callback function.
-     *                                        If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @atomicservice
      * @since 22 static
      */
     offWindowStageClose(callback?: Callback<void>): void;
