@@ -4344,6 +4344,11 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700002 - The specified moduleName is not found.
    * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
+   *   1. The array length exceeds 1024;
+   *   2. The array contains an empty item;
+   *   3. An item exceeds 512 characters;
+   *   4. The array contains wildcard or general.object.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 22 dynamic&static
