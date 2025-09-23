@@ -7601,7 +7601,8 @@ declare namespace window {
      *    The internal logic of the callback function requires a return value of the Boolean type.
      *    The return value determines whether to continue to close the child window.
      *    The value true means not to close the child window, and false means to continue to close the child window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -7635,7 +7636,8 @@ declare namespace window {
      *
      * @param { Callback<void> } [callback ] - Unregister the callback function.
      *    If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -7673,7 +7675,8 @@ declare namespace window {
      *    The internal logic of the callback function requires a return value of the Promise type.
      *    In the returned Promise function, resolve(true) means not to close the window,
      *    and resolve(false) or reject means to continue to close the window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -7706,7 +7709,8 @@ declare namespace window {
      *
      * @param { Callback<void, Promise<boolean>> } [callback] - Unregister the callback function.
      *    If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
@@ -10427,7 +10431,8 @@ declare namespace window {
      * Subscribes to the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
      * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -10468,7 +10473,8 @@ declare namespace window {
      *
      * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
      *                                                   If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 static
@@ -11995,7 +12001,8 @@ declare namespace window {
      * @param { Callback<void> } callback - Callback invoked when the close button in the upper right corner of the main window is clicked.
      *    The return value determines whether to continue to close the main window.
      *    The value true means not to close the main window, and false means to continue to close the main window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -12028,7 +12035,8 @@ declare namespace window {
      *
      * @param { Callback<void> } [callback] - Unregister the callback function.
      *    If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
