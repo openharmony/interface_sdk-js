@@ -109,7 +109,6 @@ export enum NodeType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   CUSTOM = 255
 }
@@ -497,7 +496,6 @@ export interface Camera extends Node {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   readonly effects: Container<Effect>;
 
