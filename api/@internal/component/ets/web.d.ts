@@ -3686,7 +3686,7 @@ declare class WebContextMenuResult {
    * Executes the redo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   redo(): void;
 
@@ -3694,7 +3694,7 @@ declare class WebContextMenuResult {
    * Executes the undo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   undo(): void;
 
@@ -3706,7 +3706,7 @@ declare class WebContextMenuResult {
    * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   pasteAndMatchStyle(): void;
 }
@@ -11148,7 +11148,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is FocusMode.DEFAULT.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   gestureFocusMode(mode: GestureFocusMode): WebAttribute;
 
@@ -11438,7 +11438,7 @@ declare interface EmbedOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20
+ * @since 20 dynamic&static
  */
 declare enum GestureFocusMode {
   /**
@@ -11446,7 +11446,7 @@ declare enum GestureFocusMode {
    * will cause the web component to acquire focus on touch down.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   DEFAULT = 0,
 
@@ -11455,7 +11455,7 @@ declare enum GestureFocusMode {
    * while gestures such as scrolling, zooming, etc., do not request focus.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   GESTURE_TAP_AND_LONG_PRESS = 1
 }
