@@ -3444,6 +3444,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
+   * @since 20 static
    */
   function getSingleSensor(type: SensorId, callback: AsyncCallback<Sensor>): void;
 
@@ -3469,6 +3470,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
+   * @since 20 static
    */
   function getSingleSensor(type: SensorId): Promise<Sensor>;
 
@@ -3483,6 +3485,7 @@ declare namespace sensor {
    * @throws { BusinessError } 14500102 - The sensor is not supported by the device.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
+   * @since 20 static
    */
   function getSingleSensorSync(type: SensorId): Sensor;
 
@@ -3529,6 +3532,7 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 12 dynamic
+   * @since 20 static
    */
   function getSensorListSync(): Array<Sensor>;
 
@@ -3618,31 +3622,35 @@ declare namespace sensor {
    * @typedef LocationOptions
    * @syscap SystemCapability.Sensors.Sensor
    * @since 8 dynamic
+   * @since 20 static
    */
   interface LocationOptions {
     /**
      * Specifies the latitude of the point.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
+     * @since 20 static
      */
-    latitude: number;
+    latitude: double;
 
     /**
      * Specifies the longitude of the point.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
+     * @since 20 static
      */
-    longitude: number;
+    longitude: double;
 
     /**
      * Specifies the altitude of the point.
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
+     * @since 20 static
      */
-    altitude: number;
+    altitude: double;
   }
 
   /**
@@ -3674,7 +3682,7 @@ declare namespace sensor {
   /**
    * Obtains the geomagnetic field at a specific location on the Earth.
    * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
+   * @param { long } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
    * @param { AsyncCallback<GeomagneticResponse> } callback - callback geomagnetic field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3683,13 +3691,14 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number, callback: AsyncCallback<GeomagneticResponse>): void;
+  function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>): void;
 
   /**
    * Obtains the geomagnetic field at a specific location on the Earth.
    * @param { LocationOptions } locationOptions - LocationOptions Indicates geographic location, {@code LocationOptions}.
-   * @param { number } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
+   * @param { long } timeMillis - timeMillis Indicates the time at which the magnetic declination is to be obtained, 
    * in milliseconds since the Unix epoch.
    * @returns { Promise<GeomagneticResponse> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -3698,8 +3707,9 @@ declare namespace sensor {
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: number): Promise<GeomagneticResponse>;
+  function getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long): Promise<GeomagneticResponse>;
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
@@ -3727,31 +3737,33 @@ declare namespace sensor {
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
-   * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @param { AsyncCallback<number> } callback - callback device altitude.
+   * @param { double } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
+   * @param { double } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+   * @param { AsyncCallback<double> } callback - callback device altitude.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getDeviceAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallback<number>): void;
+  function getDeviceAltitude(seaPressure: double, currentPressure: double, callback: AsyncCallback<double>): void;
 
   /**
    * Obtains the altitude at which the device is located based on the current atmospheric pressure.
-   * @param { number } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
-   * @param { number } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
-   * @returns { Promise<number> } Promise used to return the result.
+   * @param { double } seaPressure - seaPressure Indicates the sea level pressure, in hPa.
+   * @param { double } currentPressure - currentPressure Indicates the atmospheric pressure measured by the barometer, in hPa.
+   * @returns { Promise<double> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getDeviceAltitude(seaPressure: number, currentPressure: number): Promise<number>;
+  function getDeviceAltitude(seaPressure: double, currentPressure: double): Promise<double>;
 
   /**
    * Computes the geomagnetic inclination angle in radians from the inclination matrix.
@@ -3777,29 +3789,31 @@ declare namespace sensor {
 
   /**
    * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
-   * @param { AsyncCallback<number> } callback - callback inclination in radians.
+   * @param { Array<double> } inclinationMatrix - Indicates the inclination matrix.
+   * @param { AsyncCallback<double> } callback - callback inclination in radians.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getInclination(inclinationMatrix: Array<number>, callback: AsyncCallback<number>): void;
+  function getInclination(inclinationMatrix: Array<double>, callback: AsyncCallback<double>): void;
 
   /**
    * Computes the geomagnetic inclination in radians from the inclination matrix.
-   * @param { Array<number> } inclinationMatrix - Indicates the inclination matrix.
-   * @returns { Promise<number> } Promise used to return the result.
+   * @param { Array<double> } inclinationMatrix - Indicates the inclination matrix.
+   * @returns { Promise<double> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getInclination(inclinationMatrix: Array<number>): Promise<number>;
+  function getInclination(inclinationMatrix: Array<double>): Promise<double>;
 
   /**
    * Get the angle change between two rotation matrices.
@@ -3828,32 +3842,34 @@ declare namespace sensor {
 
   /**
    * Get the angle variation between two rotation matrices.
-   * @param { Array<number> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
-   * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
-   * @param { AsyncCallback<Array<number>> } callback - callback angle variation.
+   * @param { Array<double> } currentRotationMatrix - currentRotationMatrix Indicates the current rotation matrix.
+   * @param { Array<double> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
+   * @param { AsyncCallback<Array<double>> } callback - callback angle variation.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getAngleVariation(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>,
-    callback: AsyncCallback<Array<number>>): void;
+  function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>,
+    callback: AsyncCallback<Array<double>>): void;
 
   /**
    * Get the angle variation between two rotation matrices.
-   * @param { Array<number> } currentRotationMatrix -  Indicates the current rotation matrix.
-   * @param { Array<number> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
-   * @returns { Promise<Array<number>> } Promise used to return the result.
+   * @param { Array<double> } currentRotationMatrix -  Indicates the current rotation matrix.
+   * @param { Array<double> } preRotationMatrix - preRotationMatrix Indicates the current rotation matrix.
+   * @returns { Promise<Array<double>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getAngleVariation(currentRotationMatrix: Array<number>, preRotationMatrix: Array<number>): Promise<Array<number>>;
+  function getAngleVariation(currentRotationMatrix: Array<double>, preRotationMatrix: Array<double>): Promise<Array<double>>;
 
   /**
    * Convert rotation vector to rotation matrix.
@@ -3957,32 +3973,34 @@ declare namespace sensor {
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
+   * @param { Array<double> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @param { AsyncCallback<Array<number>> } callback - callback rotation matrix.
+   * @param { AsyncCallback<Array<double>> } callback - callback rotation matrix.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function transformRotationMatrix(inRotationVector: Array<number>, coordinates: CoordinatesOptions,
-    callback: AsyncCallback<Array<number>>): void;
+  function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions,
+    callback: AsyncCallback<Array<double>>): void;
 
   /**
    * Rotate the provided rotation matrix so that it can be represented in a different way coordinate System.
-   * @param { Array<number> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
+   * @param { Array<double> } inRotationVector - inRotationVector Indicates the rotation matrix to be transformed.
    * @param { CoordinatesOptions } coordinates - coordinates Indicates coordinate system guidance, {@code CoordinatesOptions}.
-   * @returns { Promise<Array<number>> } Promise used to return the result.
+   * @returns { Promise<Array<double>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function transformRotationMatrix(inRotationVector: Array<number>, coordinates: CoordinatesOptions): Promise<Array<number>>;
+  function transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions): Promise<Array<double>>;
 
   /**
    * convert a rotation vector to a normalized quaternion.
@@ -4008,29 +4026,31 @@ declare namespace sensor {
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
-   * @param { AsyncCallback<Array<number>> } callback - callback a normalized quaternion.
+   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
+   * @param { AsyncCallback<Array<double>> } callback - callback a normalized quaternion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getQuaternion(rotationVector: Array<number>, callback: AsyncCallback<Array<number>>): void;
+  function getQuaternion(rotationVector: Array<double>, callback: AsyncCallback<Array<double>>): void;
 
   /**
    * convert a rotation vector to a normalized quaternion.
-   * @param { Array<number> } rotationVector - rotationVector Indicates the rotation vector.
-   * @returns { Promise<Array<number>> } Promise used to return the result.
+   * @param { Array<double> } rotationVector - rotationVector Indicates the rotation vector.
+   * @returns { Promise<Array<double>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 14500101 - Service exception. Possible causes: 1. Sensor hdf service exception;
    * <br> 2. Sensor service ipc exception;3. Sensor data channel exception.
    * @syscap SystemCapability.Sensors.Sensor
    * @since 9 dynamic
+   * @since 20 static
    */
-  function getQuaternion(rotationVector: Array<number>): Promise<Array<number>>;
+  function getQuaternion(rotationVector: Array<double>): Promise<Array<double>>;
 
   /**
    * Computes the device's orientation based on the rotation matrix.
