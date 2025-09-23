@@ -800,6 +800,23 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   alt(value: string | Resource | PixelMap): ImageAttribute;
 
   /**
+   * Sets the placeholder image displayed during loading.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
+   * </p>
+   *
+   * @param { ResourceStr | PixelMap | ImageAlt } src - Placeholder image displayed during loading.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+
+  alt(src: ResourceStr | PixelMap | ImageAlt): ImageAttribute;
+  /**
    * match Text Direction
    *
    * @param { boolean } value
@@ -2284,4 +2301,39 @@ declare interface ResizableOptions {
    * @since 12
    */
   lattice?: DrawingLattice;
+}
+/**
+ * Set the placeholder image.
+ *
+ * @interface ImageAlt
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 22
+ */
+declare interface ImageAlt {
+  /**
+   * Set the placeholder image during the loading process.
+   *
+   * @type { ?(ResourceStr | PixelMap) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  placeholder?: ResourceStr | PixelMap;
+
+  /**
+   * Set the placeholder image when loading fails .
+   *
+   * @type { ?(ResourceStr | PixelMap) }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22
+   */
+  error?: ResourceStr | PixelMap;
 }
