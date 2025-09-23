@@ -19,12 +19,12 @@
  */
 
 /*** if arkts 1.1 */
-import image from '../@ohos.multimedia.image';
 import AbilityConstant from '../@ohos.app.ability.AbilityConstant';
 import contextConstant from '../@ohos.app.ability.contextConstant';
 import type UIServiceProxy from './UIServiceProxy';
 import type UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
 /*** endif */
+import image from '../@ohos.multimedia.image';
 import { AbilityInfo } from '../bundleManager/AbilityInfo';
 import { AbilityResult } from '../ability/abilityResult';
 import { AsyncCallback } from '../@ohos.base';
@@ -5012,6 +5012,22 @@ declare class UIAbilityContext extends Context {
    * @since 22 dynamic&static
    */
   restartApp(want: Want): Promise<void>;
+
+  /**
+   * Set the main window icon for the current UIAbility.
+   *
+   * @param { image.PixelMap } windowIcon - The icon of ability main window.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @throws { BusinessError } 16000135 - The main window of this ability not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 22
+   * @arkts 1.1&1.2
+   */
+  setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
 }
 
 export default UIAbilityContext;
