@@ -421,13 +421,13 @@ interface FormCallbackInfo {
   idString: string;
 
   /**
-  * Indicates whether the form is locked.
-  *
-  * @type { boolean }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @systemapi
-  * @since 22
-  */
+   * Indicates whether the form is locked.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @since 22
+   */
   isLocked: boolean;
 }
 /**
