@@ -19,6 +19,9 @@
  */
 
 import { AsyncCallback } from "./@ohos.base";
+/*** if arkts static */
+import { Callback } from "./@ohos.base";
+/*** endif */
 
 /**
  * The inputDeviceCooperate module implements screen hopping for two or more networked devices to share the keyboard and mouse for collaborative operations.
