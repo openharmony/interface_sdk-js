@@ -11122,7 +11122,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<void> } callback the triggered function when the web page is activated for window.open called by other web component.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   onActivateContent(callback: Callback<void>): WebAttribute;
 
