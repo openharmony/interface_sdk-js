@@ -462,9 +462,9 @@ function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
-function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+function copyDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy directory.
@@ -504,9 +504,10 @@ function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<v
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
-function copyDir(src: string, dest: string, mode: int, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+function copyDirWithConflictFiles(src: string, dest: string, mode: int,
+  callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Copy directory with sync interface.
@@ -1684,9 +1685,9 @@ function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
-function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+function moveDirWithConflictFiles(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory.
@@ -1727,9 +1728,10 @@ function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<v
  * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - Return the callback function.
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
-function moveDir(src: string, dest: string, mode: int, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
+function moveDirWithConflictFiles(src: string, dest: string, mode: int,
+  callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
  * Move directory with sync interface.
@@ -4630,7 +4632,7 @@ export interface Filter {
  *
  * @interface ConflictFiles
  * @syscap SystemCapability.FileManagement.File.FileIO
- * @since 20 static
+ * @since 22 static
  */
 export interface ConflictFiles {
 
@@ -4639,7 +4641,7 @@ export interface ConflictFiles {
    * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   srcFile: string;
 
@@ -4648,7 +4650,7 @@ export interface ConflictFiles {
    * 
    * @type { string }
    * @syscap SystemCapability.FileManagement.File.FileIO
-   * @since 20 static
+   * @since 22 static
    */
   destFile: string;
 }
