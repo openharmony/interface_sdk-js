@@ -61,7 +61,7 @@ declare namespace missionManager {
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 20 static
+   * @since 22 static
    */
   function onMission(listener: MissionListener): long;
 

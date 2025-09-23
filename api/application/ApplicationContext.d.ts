@@ -96,7 +96,7 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'abilityLifecycle' } type - Event type.
    * @param { AbilityLifecycleCallback } callback - Callback used to return the ID of the registered listener.
-   * @returns { int } Returns the number code of the callback.
+   * @returns { number } Returns the number code of the callback.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -105,7 +105,7 @@ declare class ApplicationContext extends Context {
    * @atomicservice
    * @since 11 dynamic
    */
-  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): int;
+  on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number;
 
   /**
    * Register ability lifecycle callback.
@@ -233,7 +233,7 @@ declare class ApplicationContext extends Context {
    * @since 22 static
    */
   offAbilityLifecycle(callbackId: int): Promise<void>;
-  
+
   /**
    * Unregisters the listener that monitors the ability lifecycle of the application for interoperability.
    * 
@@ -241,7 +241,7 @@ declare class ApplicationContext extends Context {
    * <br>It can be called only by the main thread.
    * </p>
    *
-   * @param { InteropAbilityLifecycleCallback } [callback] - Callback used to be unregistered.
+   * @param { InteropAbilityLifecycleCallback } callback - Callback used to be unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22 static
