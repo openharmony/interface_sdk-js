@@ -621,7 +621,7 @@ declare namespace appManager {
    * @systemapi
    * @since 21
    */
-  interface AppStateFilter {
+  export interface AppStateFilter {
     /**
     * Bundle type filter flags, bitwise OR combination of {@link FilterBundleType}.
     * If unset, all bundle types are monitored.
