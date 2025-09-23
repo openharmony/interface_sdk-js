@@ -1674,6 +1674,18 @@ declare class ImageAttachment {
      * @since 15
      */
     readonly colorFilter?: ColorFilterType;
+
+    /**
+     * Gets the svg support state.
+     *
+     * @type { ?boolean } - If color filter support svg.
+     * @readonly
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    readonly supportSvg2?: boolean;
 }
 
 /**
@@ -1763,6 +1775,18 @@ declare interface ResourceImageAttachmentOptions {
      * @since 15
      */
     syncLoad?: boolean;
+
+    /**
+     * Sets the range of SVG parsing capabilities supported through enable switch.
+     * The default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    supportSvg2?: boolean;
 }
 
 /**
