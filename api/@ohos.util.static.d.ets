@@ -19,6 +19,8 @@
  * @kit ArkTS
  */
 
+import { RecordData } from '@ohos.base';
+
 /**
  * The util module provides common utility functions,
  * such as TextEncoder and TextDecoder for string encoding and decoding,
@@ -32,14 +34,6 @@
  * @since 20 static
  */
 declare namespace util {
-  /**
-   * RecordData is used for input parameter obj of the getHash function
-   *
-   * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> }
-   * @syscap SystemCapability.Utils.Lang
-   * @since 20 static
-   */
-  type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
 
   /**
    * %s: String will be used to convert all values except BigInt, Object and -0. BigInt values will be represented
