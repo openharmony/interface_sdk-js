@@ -47,20 +47,6 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 7 dynamic
    */
-  interface TouchEventReceiver {
-    /**
-     * Callback used to receive touch input events.
-     *
-     * @param { TouchEvent } touchEvent - the reported touch event.
-     * @returns { Boolean } Result indicating whether the touch event will be dispatched to the window. 
-     * The value true indicates that the touch event will be dispatched to the window, and the value false indicates the opposite.
-     * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-     * @systemapi hide for inner use
-     * @since 7 dynamic
-     */
-    (touchEvent: TouchEvent): Boolean;
-  }
-
   /**
    * Callback used to receive touch input events. If **true** is returned, the touch input is consumed,
    * and the system performs the closing operation.
@@ -70,7 +56,7 @@ declare namespace inputMonitor {
    * @returns { boolean } Returns true indicates the touch input is consumed, the value false indicates opposite.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
-   * @since 20 staticonly
+   * @since 20 dynamic&static
    */
   type TouchEventReceiver = (touchEvent: TouchEvent) => boolean;
 
@@ -197,7 +183,7 @@ declare namespace inputMonitor {
    * Listens for mouse input events when the mouse arrow is within the specified rectangular area.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Array<display.Rect> } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
+   * @param { display.Rect[] } rect - A specified rectangular area that can trigger a callback, with a maximum of two.
    * @param { Callback<MouseEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -207,7 +193,7 @@ declare namespace inputMonitor {
    * @systemapi hide for inner use
    * @since 22 static
    */
-  function onMouse(rect: Array<display.Rect>, receiver: Callback<MouseEvent>): void;
+  function onMouse(rect: display.Rect[], receiver: Callback<MouseEvent>): void;
 
   /**
    * Disables listening for global touch (touchscreen) events.
