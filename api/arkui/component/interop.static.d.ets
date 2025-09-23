@@ -111,8 +111,32 @@ export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArr
  * Transfer compatible Builder
  * 
  * @param { T } builder - the source builder
- * @returns { ESValue } the comaptible builder
+ * @returns { ESValue } the compatible builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
 export declare function transferCompatibleBuilder<T extends Function>(@Builder builder: T): ESValue;
+
+/**
+ * Defines the source builder for updating compatible builder.
+ *
+ * @typedef { function } CompatibleUpdatableBuilder<T>
+ * @param { T } arg - the argument of the source builder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+@Builder
+export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
+ 
+/**
+ * Transfer compatible and updatable Builder
+ * 
+ * @param { CompatibleUpdatableBuilder<T> } builder - the source builder
+ * @returns { ESValue } the compatible builder
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20
+ */
+export declare function transferCompatibleUpdatableBuilder<T extends Object>(
+    builder: CompatibleUpdatableBuilder<T>
+): ESValue;
+ 
