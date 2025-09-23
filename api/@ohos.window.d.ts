@@ -10472,7 +10472,7 @@ declare namespace window {
      * Unsubscribes from the change event of the rectangle that holds the minimize, maximize, and close buttons on the title bar of the window.
      *
      * @param { Callback<TitleButtonRect> } [callback] - Unregister the callback function.
-     *                                                   If not provided, all callbacks for the given event type will be removed.
+     *    If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *    Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
