@@ -2000,6 +2000,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2033,6 +2034,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2066,6 +2068,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2099,6 +2102,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 21
+     * @arkts 1.1&1.2
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2948,6 +2952,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -3025,6 +3030,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     auth(
       challenge: Uint8Array,
@@ -3131,6 +3137,7 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
      * @since 20
+     * @arkts 1.1&1.2
      */
     authUser(
       userId: int,
@@ -5667,7 +5674,8 @@ declare namespace osAccount {
    * @enum { int } Module
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
-   * @since 8
+   * @since arkts {'1.1':'8', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum Module {
     /**
@@ -5675,7 +5683,8 @@ declare namespace osAccount {
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     FACE_AUTH = 1
   }
