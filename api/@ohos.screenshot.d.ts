@@ -27,7 +27,8 @@ import image from './@ohos.multimedia.image';
  * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
- * @since 12
+ * @since arkts {'1.1':'12', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 declare namespace screenshot {
   /**
@@ -233,7 +234,8 @@ declare namespace screenshot {
    * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
+   * @since arkts {'1.1':'7', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   interface Size {
     /**
@@ -242,7 +244,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     width: long;
 
@@ -252,7 +255,8 @@ declare namespace screenshot {
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 7
+     * @since arkts {'1.1':'7', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     height: long;
   }
