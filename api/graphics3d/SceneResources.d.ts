@@ -131,7 +131,6 @@ export enum SceneResourceType {
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   EFFECT = 9
 }
@@ -1058,7 +1057,6 @@ export interface Image extends SceneResource {
  * @interface Effect
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 21 dynamic
- * @since 22 static
  */
 export interface Effect extends SceneResource {
   /**
@@ -1067,7 +1065,6 @@ export interface Effect extends SceneResource {
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   enabled: boolean;
 
@@ -1079,7 +1076,6 @@ export interface Effect extends SceneResource {
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
-   * @since 22 static
    */
   readonly effectId: string;
 }
