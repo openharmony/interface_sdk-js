@@ -98,7 +98,7 @@ declare namespace inputDeviceCooperate {
    * @interface TraversalSwitchStatus
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 staticonly
+   * @since 20 dynamic&static
    */
   interface TraversalSwitchStatus {
     /**
@@ -107,7 +107,7 @@ declare namespace inputDeviceCooperate {
      * @type { boolean }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 staticonly
+     * @since 20 dynamic&static
      */
     state: boolean;
   }
@@ -118,7 +118,7 @@ declare namespace inputDeviceCooperate {
    * @interface CooperationCallbackData
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
-   * @since 20 staticonly
+   * @since 20 dynamic&static
    */
   interface CooperationCallbackData {
     /**
@@ -127,7 +127,7 @@ declare namespace inputDeviceCooperate {
      * @type { string }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 staticonly
+     * @since 20 dynamic&static
      */
     deviceDescriptor: string;
 
@@ -137,7 +137,7 @@ declare namespace inputDeviceCooperate {
      * @type { EventMsg }
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
-     * @since 20 staticonly
+     * @since 20 dynamic&static
      */
     eventMsg: EventMsg;
   }
