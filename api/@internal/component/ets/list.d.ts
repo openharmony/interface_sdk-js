@@ -1145,6 +1145,35 @@ interface ListOptions {
 }
 
 /**
+ * Declare the speed scroll snap animation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22
+ */
+declare enum ScrollSnapAnimationSpeed {
+  /**
+   * The speed of scroll snap animation is normal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  NORMAL = 0,
+  /**
+   * The speed of scroll snap animation slow.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  SLOW = 1,
+}
+/**
  * The list interface is extended.
  *
  * @interface ListInterface
@@ -2160,6 +2189,19 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @since 20
    */
   syncLoad(enable: boolean): ListAttribute;
+
+  /**
+   * Sets the speed of scroll snap animation.
+   *
+   * @param { ScrollSnapAnimationSpeed } speed - Speed of scroll snap animation.
+   *     <br>Default value: <em>ScrollSnapAnimationSpeed.NORMAL</em>
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
    * Called when the offset and status callback of the slide are set.
