@@ -62,6 +62,16 @@ declare namespace userAuth {
   const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
 
   /**
+   * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
+   *
+   * @constant
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  const PERMANENT_LOCKOUT_DURATION: int = 0x7fffffff;
+
+  /**
    * Enum for authentication result.
    *
    * @enum { number }
@@ -1140,6 +1150,67 @@ declare namespace userAuth {
    * @since 22 static
    */
   function getEnrolledState(authType: UserAuthType): EnrolledState;
+
+  /**
+   * Authentication lock State.
+   *
+   * @typedef AuthLockState
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  interface AuthLockState {
+    /**
+     * Indicates that the authenticator has been locked or not, true if locked.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    isLocked: boolean;
+
+    /**
+     * The remaining attempts if the authentication has not been locked.
+     *
+     * @type { int }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    remainingAuthAttempts: int;
+
+    /**
+     * The remaining lockout duration if the authentication has been locked.
+     * It would be PERMANENT_LOCKOUT_DURATION if permanently locked and requires PIN authentication to unlock.
+     *
+     * @type { int }
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    lockoutDuration: int;
+  }
+
+  /**
+   * Obtains the lock state of specified authentication type.
+   *
+   * @permission ohos.permission.ACCESS_BIOMETRIC
+   * @param { UserAuthType } authType - Authentication type.
+   * @returns { Promise<AuthLockState } AuthLockState - Returns the lock state of the specified authType,
+   *     which contains lock state,
+   *     remaining attempts if the authentication has not been locked,
+   *     or remaining lockout duration if the authentication has been locked.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @throws { BusinessError } 12500005 - The authentication type is not supported.
+   * @throws { BusinessError } 12500008 - The parameter is out of range.
+   * @throws { BusinessError } 12500010 - The type of credential has not been enrolled.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @atomicservice
+   * @since 22 dynamic&static
+   */
+  function getAuthLockState(authType: UserAuthType): Promise<AuthLockState>;
 
   /**
    * Get Authentication instance.
