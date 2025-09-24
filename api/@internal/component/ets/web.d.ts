@@ -25,7 +25,7 @@ import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, Hapt
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
-import { MenuType, EditMenuOptions } from './textCommon';
+import { MenuType, EditMenuOptions, TextDataDetectorConfig } from './textCommon';
 import { CopyOptions, NestedScrollMode } from './enums';
 /*** endif */
 
@@ -1043,6 +1043,35 @@ declare enum WebDarkMode {
    * @arkts 1.1&1.2
    */
   Auto = 2
+}
+
+
+/**
+ * Enum type supplied to {@link rotateRenderEffect} for setting the effect of rotation.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 21
+ * @arkts 1.1&1.2
+ */
+declare enum WebRotateEffect {
+  /**
+   * The content area is drawn in top-left of the node.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  TOPLEFT_EFFECT = 0,
+
+  /**
+   * Scale the content area to cover the node.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  RESIZE_COVER_EFFECT = 1
 }
 
 /**
@@ -2794,6 +2823,61 @@ declare enum ContextMenuMediaType {
 }
 
 /**
+ * Defines the context menu media type, related to {@link onContextMenuShow} method.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22
+ * @arkts dynamic&static
+ */
+declare enum ContextMenuDataMediaType {
+  /**
+   * Not a special node or other media types.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  NONE = 0,
+
+  /**
+   * Image.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  IMAGE = 1,
+
+  /**
+   * Video.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  VIDEO = 2,
+
+  /**
+   * Audio.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  AUDIO = 3,
+
+  /**
+   * Canvas.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  CANVAS = 4
+}
+
+/**
  * Defines the context menu input field type, related to {@link onContextMenuShow} method.
  *
  * @enum { number }
@@ -3480,6 +3564,16 @@ declare class WebContextMenuParam {
    * @arkts 1.1&1.2
    */
   getPreviewHeight(): int;
+
+  /**
+   * Returns the type of context node.
+   *
+   * @returns { ContextMenuDataMediaType } Returns the type of context node.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  getContextMenuMediaType(): ContextMenuDataMediaType;
 }
 
 /**
@@ -3621,7 +3715,7 @@ declare class WebContextMenuResult {
    * Executes the redo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   redo(): void;
 
@@ -3629,7 +3723,7 @@ declare class WebContextMenuResult {
    * Executes the undo operation related to this context menu.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   undo(): void;
 
@@ -3641,7 +3735,7 @@ declare class WebContextMenuResult {
    * </p>
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   pasteAndMatchStyle(): void;
 }
@@ -7543,7 +7637,15 @@ declare enum WebKeyboardAvoidMode {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  OVERLAYS_CONTENT = 2
+  OVERLAYS_CONTENT = 2,
+
+  /**
+   * When the soft keyboard avoid, follow the avoid result of UIContext.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  RETURN_TO_UICONTEXT = 3
 }
 
 /**
@@ -8072,6 +8174,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @arkts 1.1&1.2
    */
   zoomAccess(zoomAccess: boolean): WebAttribute;
+
+  /**
+   * Set up the effect of web roation
+   *
+   * @param { WebRotateEffect } effect - The effect of roation.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  rotateRenderEffect(effect: WebRotateEffect): WebAttribute;
 
   /**
    * Sets whether to allow access to geographical locations.
@@ -11037,7 +11150,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is false.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   enableDataDetector(enable: boolean): WebAttribute;
 
@@ -11047,7 +11160,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { TextDataDetectorConfig } config - The config of text data detector.
    * @returns { WebAttribute } The attribute of the web.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   dataDetectorConfig(config: TextDataDetectorConfig): WebAttribute;
 
@@ -11083,7 +11196,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *    The default value is FocusMode.DEFAULT.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   gestureFocusMode(mode: GestureFocusMode): WebAttribute;
 
@@ -11373,7 +11486,7 @@ declare interface EmbedOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 20
+ * @since 20 dynamic&static
  */
 declare enum GestureFocusMode {
   /**
@@ -11381,7 +11494,7 @@ declare enum GestureFocusMode {
    * will cause the web component to acquire focus on touch down.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   DEFAULT = 0,
 
@@ -11390,7 +11503,7 @@ declare enum GestureFocusMode {
    * while gestures such as scrolling, zooming, etc., do not request focus.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   GESTURE_TAP_AND_LONG_PRESS = 1
 }

@@ -48,5 +48,40 @@ declare class LiveFormExtensionContext extends ExtensionContext {
    * @since 20
    */
   startAbilityByLiveForm(want: Want): Promise<void>;
+
+  /**
+  * Connect a service extension ability.The destination of the connection must be a service extension.
+  * You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
+  * service extension when the Service extension is connected.
+  * @param { Want } want - Indicates the service extension to connect.
+  * @param { ConnectOptions } connection - Indicates the callback of connection.
+  * @returns { number } Returns the connection id.
+  * @throws { BusinessError } 202 - Permission verification failed,
+  *     application which is not a system application uses system API.
+  * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+  * @throws { BusinessError } 16501000 - An internal functional error occurred.
+  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @syscap SystemCapability.Ability.Form
+  * @systemapi
+  * @stagemodelonly
+  * @since 22
+  */
+  public connectServiceExtensionAbility(want: Want, connection: ConnectOptions): number;
+
+  /**
+  * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
+  *
+  * @param { number } connectionId - the connection id returned from connectServiceExtensionAbility api.
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 202 - Permission verification failed, 
+  *     application which is not a system application uses system API.
+  * @throws { BusinessError } 16501000 - An internal functional error occurred.
+  * @throws { BusinessError } 16501011 - The form can not support this operation
+  * @syscap SystemCapability.Ability.Form
+  * @systemapi
+  * @stagemodelonly
+  * @since 22
+  */
+  public disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
 }
 export default LiveFormExtensionContext;

@@ -765,6 +765,28 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
+ * Define Env Decorator type
+ * @typedef { function } EnvDecorator
+ * @param { string } value - key value input by the user
+ * @returns { PropertyDecorator } Env decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare type EnvDecorator = (value: string) => PropertyDecorator;
+
+/**
+ * Defining Env PropertyDecorator.
+ * @type { EnvDecorator }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform
+ * @atomicservice
+ * @since 22 dynamic
+ */
+declare const Env: EnvDecorator;
+
+/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12539,6 +12561,17 @@ declare interface AxisEvent extends BaseEvent {
    * @since 21
    */
   getPinchAxisScaleValue(): number;
+
+  /**
+   * Checks whether this event contains a specified axis type.
+   *
+   * @param { AxisType } axisType - Indicates the axis type.
+   * @returns { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  hasAxis(axisType: AxisType): boolean;
 }
 
 /**
@@ -25742,7 +25775,17 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 12
    */
-  allowDrop(value: Array<UniformDataType> | null): T;
+  /**
+   * Allowed drop uniformData type for this node.
+   *
+   * @param { Array<UniformDataType> | null | Array<string> } value - the uniformData type for this node.
+   * @returns { T } property value of type T.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
   /**
    * Enable the selectable area can be dragged.
@@ -27185,6 +27228,24 @@ declare class CommonMethod<T> {
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
+  /**
+   * Trigger a visible area change event.
+   *
+   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible area to the component's total area.
+   * The value range of the threshold is [0.0, 1.0].
+   * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component.
+   * @param { boolean } measureFromViewport - When this parameter is set to true, the parts of the component
+   *      that exceed the parent component's area wil also be included in the visible area calculation. However, this
+   *      only applies if the parent component does not explicitly set the clip property to true. If the parent
+   *      component sets clip to ture, regardless of the value of this parameter, the parts that exceed the parent
+   *      component's area will still be treated as invisible in the visible area calculation.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T;
 
   /**
    * Set or reset the callback which is triggered when the visibleArea of component changed.
@@ -27198,7 +27259,7 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 17
    */
-  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): void;
+  onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T;
 
   /**
    * Applies a spherical effect to the component.
@@ -32576,6 +32637,22 @@ declare interface VisibleAreaEventOptions {
    * @since 12
    */
   expectedUpdateInterval?: number;
+
+  /**
+   * When this parameter is set to true, the parts of the component that exceed the parent component's area will also
+   * be included in the visible area calculation. However, this only applies if the parent component does not
+   * explicitly set the clip property to true. If the parent component sets clip to true, regardless of the value
+   * of this parameter, the parts that exceed the parent component's area will still be treated as invisible in the
+   * visible area calculation.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 21
+   */
+  measureFromViewport?: boolean;
 }
 
 /**

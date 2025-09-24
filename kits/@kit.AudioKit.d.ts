@@ -29,6 +29,8 @@ export { audio, audioHaptic, systemSoundManager, AVVolumePanel, AVVolumePanelPar
 
 /*** if arkts 1.2 */
 import audio from '@ohos.multimedia.audio';
+import audioHaptic from '@ohos.multimedia.audioHaptic';
+import systemSoundManager from '@ohos.multimedia.systemSoundManager';
 
-export { audio };
+export { audio, audioHaptic, systemSoundManager };
 /*** endif */

@@ -4567,6 +4567,17 @@ export class UIContext {
    * @since 21
    */
   static setResourceManagerCacheMaxCountForHSP(count: number): void;
+
+  /**
+   * Get id of the UI instance.
+   *
+   * @returns { number } Returns id of the UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  getId(): number;
 }
 
 /**

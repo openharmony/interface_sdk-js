@@ -356,7 +356,8 @@ declare class UIAbility extends Ability {
    * @type { Callee }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   callee: Callee;
 

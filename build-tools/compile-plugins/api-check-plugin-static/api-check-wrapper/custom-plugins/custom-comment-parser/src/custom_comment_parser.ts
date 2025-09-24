@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { JSDoc, JSDocTag } from "../../../utils/api_check_wrapper_typedef";
+import { JSDoc, JSDocTag } from '../../../utils/api_check_wrapper_typedef';
 
 /**
  * 解析JSDoc字符串
@@ -91,23 +91,33 @@ function collectJSDocTag(jsDocTagContent: string): JSDocTag | undefined {
     tag: '',
     name: '',
     description: '',
-    comment: ''
+    comment: '',
+  };
+  if (!tagMatch || !tagMatch[0]) {
+    return undefined;
   }
-  if (tagMatch && tagMatch[0]) {
-    jsDocTag.tag = tagMatch[0];
-    content = content.replace(tagMatch[0], '').trim();
-    if (/\S+/g.test(content)) {
-      jsDocTag.comment = content;
-      const tagNameMatch: RegExpMatchArray | null = content.match(/\S+/);
-      if (tagNameMatch && tagNameMatch[0]) {
-        jsDocTag.name = tagNameMatch[0];
-        content = content.replace(tagNameMatch[0], '').trim();
-        if (/\S+/g.test(content)) {
-          jsDocTag.description = content;
-        }
-      }
-    }
+  jsDocTag.tag = tagMatch[0];
+  content = content.replace(tagMatch[0], '').trim();
+
+  if (!/\S+/g.test(content)) {
     return jsDocTag;
   }
-  return undefined;
+
+  jsDocTag.comment = content;
+  const tagNameMatch: RegExpMatchArray | null = content.match(/\S+/);
+
+  if (!tagNameMatch || !tagNameMatch[0]) {
+    return jsDocTag;
+  }
+
+  jsDocTag.name = tagNameMatch[0];
+  content = content.replace(tagNameMatch[0], '').trim();
+
+  if (!/\S+/g.test(content)) {
+    return jsDocTag;
+  }
+
+  jsDocTag.description = content;
+
+  return jsDocTag;
 }

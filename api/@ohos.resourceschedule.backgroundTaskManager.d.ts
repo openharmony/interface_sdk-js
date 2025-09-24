@@ -49,20 +49,20 @@ declare namespace backgroundTaskManager {
     /**
      * Modes of continuous task.
      *
-     * @type { ContinuousTaskMode[] }
+     * @type { BackgroundTaskMode[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    continuousTaskModes: ContinuousTaskMode[];
+    backgroundTaskModes: BackgroundTaskMode[];
 
     /**
      * Submodes of continuous task.
      *
-     * @type { ContinuousTaskSubmode[] }
+     * @type { BackgroundTaskSubmode[] }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    continuousTaskSubmodes: ContinuousTaskSubmode[];
+    backgroundTaskSubmodes: BackgroundTaskSubmode[];
 
     /**
      * Indicates which ability to start when user click the notification bar.
@@ -1138,7 +1138,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 21
    */
-  export enum ContinuousTaskMode {
+  export enum BackgroundTaskMode {
     /**
      * data transfer mode
      *
@@ -1148,12 +1148,28 @@ declare namespace backgroundTaskManager {
     MODE_DATA_TRANSFER = 1,
 
     /**
+     * audio playback mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_AUDIO_PLAYBACK = 2,
+
+    /**
+     * audio recording mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_AUDIO_RECORDING = 3,
+
+    /**
      * share location mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    MODE_SHARE_POSITION = 4,
+    MODE_LOCATION = 4,
 
     /**
      * bluetooth interaction mode
@@ -1161,7 +1177,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
-    MODE_ALLOW_BLUETOOTH_AWARE = 5,
+    MODE_BLUETOOTH_INTERACTION = 5,
 
     /**
      * multi-device connection mode
@@ -1181,6 +1197,14 @@ declare namespace backgroundTaskManager {
     MODE_ALLOW_WIFI_AWARE = 7,
 
     /**
+     * Voice over Internet Phone mode
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @since 21
+     */
+    MODE_VOIP = 8,
+
+    /**
      * background continuous calculate mode, for example 3D render.
      * only supported in particular device
      *
@@ -1188,14 +1212,6 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     MODE_TASK_KEEPING = 9,
-
-    /**
-     * 'av playback and record' mode, for example audio playback, audio recording.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    MODE_AV_PLAYBACK_AND_RECORD = 10,
   }
 
   /**
@@ -1205,9 +1221,9 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 21
    */
-  export enum ContinuousTaskSubmode {
+  export enum BackgroundTaskSubmode {
     /**
-     * submode of 'MODE_ALLOW_BLUETOOTH_AWARE'.
+     * submode of 'MODE_BLUETOOTH_INTERACTION'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
@@ -1229,46 +1245,6 @@ declare namespace backgroundTaskManager {
      * @since 21
      */
     SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SUBMODE_AUDIO_PLAYBACK_NORMAL_NOTIFICATION = 4,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SUBMODE_AVSESSION_AUDIO_PLAYBACK = 5,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SUBMODE_AUDIO_RECORD_NORMAL_NOTIFICATION = 6,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SUBMODE_SCREEN_RECORD_NORMAL_NOTIFICATION = 7,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21
-     */
-    SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
   }
 
   /**

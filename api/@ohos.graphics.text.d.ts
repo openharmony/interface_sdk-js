@@ -47,6 +47,31 @@ import { Resource } from './global/resource';
  * @since 12 dynamic
  * @since 20 static
  */
+/**
+ * The Text module provides a set of APIs for text layout and font management.
+ * It aims to deliver high-quality typesetting through features like character-to-glyph
+ * conversion, kerning, line breaking, alignment, and text measurement. Additionally,
+ * it provides font management capabilities, including font registration, font descriptors,
+ * and font collection management.
+ *
+ * This module provides the following classes for creating complex text paragraphs:
+ *
+ * TextStyle: defines the font type, size, spacing, and other text properties.
+ * FontCollection: manages a collection of different fonts.
+ * FontDescriptor: provides information about font descriptors.
+ * ParagraphStyle: controls line break and word break strategies for the entire paragraph.
+ * ParagraphBuilder: used to create different paragraph objects.
+ * Paragraph: created by calling build() of the ParagraphBuilder class.
+ * LineTypeset: created by calling buildLineTypeset() of the ParagraphBuilder class.
+ * TextLine: paragraph text on a line-by-line basis, obtained by calling getTextLines() of the Paragraph class.
+ * Run: text typesetting unit, obtained by calling getGlyphRuns() of the TextLine class.
+ *
+ * @namespace text
+ * @syscap SystemCapability.Graphics.Drawing
+ * @form
+ * @since 22
+ * @arkts 1.1&1.2
+ */
 declare namespace text {
 
   /**
@@ -1121,6 +1146,13 @@ declare namespace text {
    * @since 12 dynamic
    * @since 20 static
    */
+  /**
+   * Implements a collection of fonts.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @form
+   * @since 22
+   * @arkts 1.1&1.2
+   */
   class FontCollection {
     /**
      * Get global FontCollection instance of the application.
@@ -1130,6 +1162,17 @@ declare namespace text {
      * @since 20 static
      */
     static getGlobalInstance(): FontCollection;
+
+    /**
+     * Get local FontCollection instance of the application.
+     * @returns { FontCollection } The FontCollection object.
+     * @static
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    static getLocalInstance(): FontCollection;
 
     /**
      * Loads a custom font. This API returns the result synchronously.
@@ -1142,6 +1185,18 @@ declare namespace text {
      * @since 12 dynamic
      * @since 20 static
      */
+    /**
+     * Loads a custom font. This API returns the result synchronously.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are .ttf and .otf.
+     * @param { string } name - the font name.
+     * @param { string | Resource } path - Path of the font file to import. The value must be
+     * **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     loadFontSync(name: string, path: string | Resource): void;
 
     /**
@@ -1153,10 +1208,25 @@ declare namespace text {
      * The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 18 dynamic
      * @since 20 static
+     */
+    /**
+     * Loads a custom font. This API uses a promise to return the result.
+     * In this API, name specifies the alias of the font, and the custom font effect can be displayed only when
+     * the value of name is set in fontFamilies in TextStyle. The supported font file formats are ttf and otf.
+     * @param { string } name - Name of the font. Any string is acceptable.
+     * @param { string | Resource } path - Path of the font file to load.
+     * The value must be **file://**absolute path of the font file or **rawfile/**directory or file name.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1172,6 +1242,21 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20 dynamic
+     */
+    /**
+     * Unloads a custom font synchronously. This API returns the result synchronously.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
      */
     unloadFontSync(name: string): void;
 
@@ -1189,6 +1274,22 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 20 dynamic
      */
+    /**
+     * Unloads a custom font. This API uses a promise to return the result.
+     * After unloading a font alias through this API, the corresponding custom font will no longer be available.
+     * All typography using the font alias should be destroyed and re-created.
+     * - Unloading a non-existent font alias has no effect and will **not** throw an error.
+     * - This operation only affects subsequent font usages.
+     * unload a font that is currently in used may lead to text rendering anomalies,
+     * including garbled characters or missing glyphs.
+     * @param { string } name - The alias of the font to unload.
+     * This must exactly match the name used when loading the font through.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
+     */
     unloadFont(name: string): Promise<void>;
 
     /**
@@ -1198,6 +1299,15 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      * @since 20 static
+     */
+    /**
+     * Clear font caches.
+     * The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
+     * You are not advised to clear it unless otherwise required.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @form
+     * @since 22
+     * @arkts 1.1&1.2
      */
      clearCaches(): void;
   }

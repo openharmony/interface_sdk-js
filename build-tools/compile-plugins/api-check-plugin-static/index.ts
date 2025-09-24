@@ -36,8 +36,8 @@ export function apiCheckPlugin(): Plugins {
   return {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
-    clean() {
-      console.info("[API_CHECK_PLUGIN] CLEAN");
+    clean(): void {
+      console.info('[API_CHECK_PLUGIN] CLEAN');
       WrapperApi.arktsGlobal.clearContext();
     }
   };

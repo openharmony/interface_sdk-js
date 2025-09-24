@@ -633,6 +633,57 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   lineSpacing(value: LengthMetrics): TextAttribute;
 
   /**
+   * Set the minimum line height
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is set to undefined, this property does not limit the text line height.
+   * </p>
+   *
+   * @param { LengthMetrics | undefined } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minLineHeight(value: LengthMetrics | undefined): TextAttribute;
+
+  /**
+   * Set the maximum line height
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is set to undefined, this property does not limit the text line height.
+   * </p>
+   *
+   * @param { LengthMetrics | undefined } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  maxLineHeight(value: LengthMetrics | undefined): TextAttribute;
+
+  /**
+   * Set the line height multiple value of text.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>If the value is set to undefined, this property is set to 0 and has no effect.
+   * </p>
+   *
+   * @param { number | undefined } value
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  lineHeightMultiple(value: number | undefined): TextAttribute;
+
+  /**
    * Set font line spacing with options.
    *
    * @param { LengthMetrics } value
@@ -927,6 +978,18 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 11
    */
   maxLines(value: number): TextAttribute;
+  /**
+   * Called when the minimum number of lines of text is set.
+   *
+   * @param { Optional<number> } minLines - Set the minimum lines of text.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  minLines(minLines: Optional<number>): TextAttribute;
 
   /**
    * Called when the text decoration of the text is set.

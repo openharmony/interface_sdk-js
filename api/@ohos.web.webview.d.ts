@@ -3761,6 +3761,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     SUCCESS = 0,
 
@@ -3769,6 +3770,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_UNKNOWN = -1,
 
@@ -3777,6 +3779,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_INVALID_PARAM = -2,
 
@@ -3785,6 +3788,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_CONTROLLER_NOT_INITED = -3,
 
@@ -3794,6 +3798,7 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_KEY_NOT_MATCH = -4,
 
@@ -3803,10 +3808,33 @@ declare namespace webview {
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     ERR_SIGNIFICANT_CHANGE = -5
   }
+
+  /**
+  * Indicates the keyboard behavior mode of the web component, default value is DEFAULT.
+  * @enum {int}
+  * @syscap SystemCapability.Web.Webview.Core
+  * @since 22 dynamic&static
+  */
+   enum WebSoftKeyboardBehaviorMode {
+    /**
+     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue or blur/focus state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22  dynamic&static
+     */
+    DEFAULT = 0,
  
+    /**
+     * Soft keyboard will not be hidden or shown automatically when web comes into pause/continue state
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic&static
+     */
+    DISABLE_AUTO_KEYBOARD_ON_ACTIVE = 1
+  }
+
   /**
    * Defines the blankless information.
    *
@@ -3821,6 +3849,7 @@ declare namespace webview {
      * @type { WebBlanklessErrorCode }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     errCode: WebBlanklessErrorCode;
 
@@ -3833,6 +3862,7 @@ declare namespace webview {
      * @type { double }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     similarity: double;
 
@@ -3843,6 +3873,7 @@ declare namespace webview {
      * @type { int }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     loadingTime: int;
   }
@@ -5755,7 +5786,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertificate(): Promise<Array<cert.X509Cert>>;
 
@@ -5778,7 +5810,8 @@ declare namespace webview {
      *                           The WebviewController must be associated with a web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 11
+     * @since arkts {'1.1':'11', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
@@ -6506,7 +6539,7 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
      *    Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
      *    The unit is second. Default value is 300s.
      *    The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6530,17 +6563,18 @@ declare namespace webview {
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the request.
      * @param { string } [cacheKey] - The key for memory cache. Default value is the url of the request.
      *     Only support number and letters.
-     * @param { number } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
+     * @param { int } [cacheValidTime] - The valid time of the cache for request, ranges greater than 0.
      *     The unit is second. Default value is 300s.
      *     The value of cacheValidTime must between 1 and 2147483647.
      * @throws { BusinessError } 17100002 - URL error. The webpage corresponding to the URL is invalid, or the URL
      *     length exceeds 2*1024*1024.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
-     * @since 22
+     * @since arkts {'1.1':'22', '1.2':'22'}
+     * @arkts 1.1&1.2
      */
     static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string,
-      cacheValidTime?: number): void;
+      cacheValidTime?: int): void;
 
     /**
     * Clears the cache of prefetched resources based on the specified cache key list.
@@ -7248,6 +7282,18 @@ declare namespace webview {
      * @arkts 1.1&1.2
      */
     static setSocketIdleTimeout(timeout: int): void;
+    
+    /**
+     * Set the WebSoftKeyboardBehaviorMode to decide whether the keyboard will be shown/hidden automatically
+     * in particular situation, for example, when web is inactive or active.
+     * 
+     * @param { WebSoftKeyboardBehaviorMode } mode - The WebSoftKeyboardBehaviorMode of this web.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 dynamic&static
+     */
+    setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void;
   }
 
   /**

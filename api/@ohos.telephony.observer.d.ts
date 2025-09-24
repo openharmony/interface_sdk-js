@@ -116,6 +116,16 @@ declare namespace observer {
   type SimState = sim.SimState;
 
   /**
+   * Indicates the states of tel call.
+   *
+   * @typedef { call.TelCallState }
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 21
+   * @arkts 1.1&1.2
+   */
+  type TelCallState = call.TelCallState;
+
+  /**
    * Callback when the network state corresponding to the default sim card is updated.
    *
    * @permission ohos.permission.GET_NETWORK_INFO

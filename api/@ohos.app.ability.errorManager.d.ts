@@ -455,6 +455,8 @@ declare namespace errorManager {
   /**
    * Set the default exception handler, This function will be excuted right after the callback function registered
    * through errorManger.on is executed. You can use it to implement chain calls instead of errorManager.on.
+   * If the interface parameters are empty, subsequently registered processors will be unable to establish
+   * associations with previously registered processors, and vice versa.thereby interrupting the chain of calls.
    * This API must be called in the main thread.
    *
    * @param { ErrorHandler } [defaultHandler] - the default error handler.

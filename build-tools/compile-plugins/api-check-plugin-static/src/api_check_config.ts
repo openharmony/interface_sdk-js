@@ -56,6 +56,7 @@ import {
 } from '../utils/api_check_plugin_utils';
 import {
   ApiCheckWrapperServiceHost,
+  FileCheckModuleInfo,
   CurrentAddress,
   DiagnosticCategory,
   JsDocNodeCheckConfig,
@@ -122,7 +123,7 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
       checkConfigArray.push(getJsDocNodeCheckConfigItem([CROSSPLATFORM_TAG_CHECK_NAME],
         CROSSPLATFORM_TAG_CHECK_ERROR, logType, true));
     }
-    if (globalObject.projectConfig.compileMode == STAGE_COMPILE_MODE) {
+    if (globalObject.projectConfig.compileMode === STAGE_COMPILE_MODE) {
       checkConfigArray.push(getJsDocNodeCheckConfigItem([FA_TAG_CHECK_NAME, FA_TAG_HUMP_CHECK_NAME],
         FA_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, false));
     } else if (globalObject.projectConfig.compileMode !== '') {
@@ -153,20 +154,20 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
  */
 export function getApiCheckWrapperServiceHost(): ApiCheckWrapperServiceHost {
   return {
-    getJsDocNodeCheckedConfig: (currentFileName: string, symbolSourceFilePath: string) => {
+    getJsDocNodeCheckedConfig: (currentFileName: string, symbolSourceFilePath: string): JsDocNodeCheckConfig => {
       return getJsDocNodeCheckConfig(currentFileName, symbolSourceFilePath);
     },
-    getFileCheckedModuleInfo: (containFilePath: string) => {
+    getFileCheckedModuleInfo: (containFilePath: string): FileCheckModuleInfo => {
       return {
         fileNeedCheck: true,
         currentFileName: containFilePath
       };
     },
     pushLogInfo: (apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
-      logLevel: DiagnosticCategory, logMessage: string) => {
+      logLevel: DiagnosticCategory, logMessage: string): void => {
       return pushLog(apiName, currentFilePath, currentAddress, logLevel, logMessage);
     },
-    collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string) => {
+    collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string): void => {
       collectInfo(moduleName, modulePath, currentFilePath);
     }
   };
