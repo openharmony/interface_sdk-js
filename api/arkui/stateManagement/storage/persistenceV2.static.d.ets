@@ -80,12 +80,12 @@ export declare interface ConnectOptions<T extends object> {
  *
  * @typedef { function } PersistenceErrorCallback
  * @param { string } key persisted key when error
- * @param { 'quota' | 'serialization' | 'unknown' } reason reason type when error
+ * @param { string } reason reason type when error, possible values are 'quota', 'serialization', 'unknown'
  * @param { string } message more message when error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  */
-export declare type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void;
+export declare type PersistenceErrorCallback = (key: string, reason: string, message: string) => void;
 
 /**
  * Defines Serializable object
