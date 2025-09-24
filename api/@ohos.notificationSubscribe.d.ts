@@ -529,22 +529,22 @@ declare namespace notificationSubscribe {
      /**
       * action operation type
       *
-      * @type { ?number }
+      * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 20 dynamic&static
       */
-     operationType?: number;
+     operationType?: int;
 
      /**
       * action button index
       *
-      * @type { ?number }
+      * @type { ?int }
       * @syscap SystemCapability.Notification.Notification
       * @systemapi
       * @since 20 dynamic&static
       */
-     buttonIndex?: number;
+     buttonIndex?: int;
    }
 
   /**
