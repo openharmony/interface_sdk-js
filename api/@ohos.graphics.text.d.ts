@@ -2363,7 +2363,7 @@ declare namespace text {
    * as its parameters.
    *
    * @typedef { function } CaretOffsetsCallback
-   * @param { int } offset - Offset of each character in a text line. The value is a floating point number.
+   * @param { double } offset - Offset of each character in a text line. The value is a floating point number.
    * @param { int } index - Index of each character in a text line. The value is an integer.
    * @param { boolean } leadingEdge - Whether the cursor is located at the front of the character. The value true means
    * that the cursor is located at the front of the character, that is, the offset does not contain the character
@@ -2376,7 +2376,7 @@ declare namespace text {
    * @since 18 dynamic
    * @since 20 static
    */
-  type CaretOffsetsCallback = (offset: int, index: int, leadingEdge: boolean) => boolean;
+  type CaretOffsetsCallback = (offset: double, index: int, leadingEdge: boolean) => boolean;
 
   /**
    * Implements a carrier that describes the basic text line structure of a paragraph.
