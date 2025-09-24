@@ -504,16 +504,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     default mode(value: NavDestinationMode | undefined): this;
 
     /**
-     * Set back button icon.
-     *
-     * @param { ResourceStr | PixelMap | SymbolGlyphModifier | undefined } value - Indicates icon of back button.
-     * @returns { NavDestinationAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier | undefined): this;
-
-    /**
      * Set back button icon and accessibility broadcast content.
      *
      * @param { ResourceStr | PixelMap | SymbolGlyphModifier | undefined } icon - Indicates icon of back button.
@@ -523,16 +513,6 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @since 20 static
      */
     default backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
-
-    /**
-     * NavDestination title bar's menus
-     *
-     * @param { Array<NavigationMenuItem> | CustomBuilder | undefined } value
-     * @returns { NavDestinationAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
 
     /**
      * NavDestination title bar's menus
