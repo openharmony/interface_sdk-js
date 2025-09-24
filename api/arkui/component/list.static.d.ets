@@ -153,7 +153,15 @@ export declare enum StickyStyle {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Footer = 2
+    Footer = 2,
+    /**
+     * In the <em>ListItemGroup</em> component, the header is pinned to the top,
+     * and the footer is pinned to the bottom.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20
+     */
+    BOTH = 3
 }
 /**
  * Declare edge effect of chain animation.
