@@ -628,8 +628,6 @@ function processInteropUI(inputPath, exportFlag, outputPath = '') {
     };
   };
   const res = ts.transform(sourceFiles, [createTransformer]);
-
-  writeAnnotationFile(inputPath, outputPath);
   return res;
 }
 
@@ -691,141 +689,463 @@ function writeAnnotationFile(inputPath, outputPath) {
 
 const ANNOTATION_FILENAME = '@ohos.arkui.GlobalAnnotation.d.ets';
 
-const ANNOTATION = `
+const ANNOTATION = `'use static'
+/*
+ * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @file
+ * @kit ArkUI
+ */
+
+/**
+ * Defining State annotation
+ * State variable that holds the state property and is used to render the owning custom component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface State {};
 
+/**
+ * Defining Prop annotation
+ * Prop is an annotation which is mutable, and its changes will not be synchronized to the parent component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Prop {};
 
+/**
+ * Defining Link annotation
+ * Link decorated variable creates two-way synchronization with a variable of its parent component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Link {};
 
+/**
+ * Defining Observed annotation
+ * Observed is used to decorate a class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Observed {};
 
+/**
+ * Defining Track annotation
+ * Track is a decorator used to decorate properties of class objects.
+ * Any changes to the properties decorated by Track will trigger only updates to the UI associated with those properties.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Track {};
 
+/**
+ * Defining ObjectLink annotation
+ * ObjectLink is used to observe property changes in nested class objects.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface ObjectLink {};
 
+/**
+ * Defining StorageProp annotation
+ * StorageProp a one-way data synchronization is established from the attribute with the given key in AppStorage to the variable.
+ * A local change can be made, but it will not be synchronized to AppStorage.
+ * An update to the attribute with the given key in AppStorage will overwrite local changes.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface StorageProp {
+  /**
+   * The give property in AppStorage.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   property: string;
 };
 
+/**
+ * Defining StorageLink annotation
+ * StorageLink is used to create a two-way data synchronization between the variable
+ * it decorates and the attribute with the given key in AppStorage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface StorageLink {
+  /**
+   * The give property in AppStorage.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   property: string;
 };
 
+/**
+ * Defining LocalStorageProp annotation
+ * LocalStorageProp is a one-way data synchronization is established from the attribute with the given key in
+ * LocalStorage to the variable. This means that, local changes
+ * (if any) will not be synchronized to LocalStorage, and an update to the attribute with the given key in LocalStorage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStorageProp {
+  /**
+   * The give property in LocalStorage.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   property: string;
 };
 
+/**
+ * Defining LocalStorageLink annotation
+ * LocalStorageLink is used to create a two-way data synchronization with the attribute
+ * in LocalStorage.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface LocalStorageLink {
+  /**
+   * The give property in LocalStorage.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   property: string;
 };
 
+/**
+ * Defining Provide annotation
+ * Provide is used for two-way data synchronization with descendant components when
+ * state data needs to be transferred between multiple levels. An @Provide decorated state
+ * variable exists in the ancestor component and is said to be "provided" to descendent components.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Provide {
+  /**
+   * The alias name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   alias: string = "";
+  /**
+   * allowOverride is used to override an existing @Provide decorated variable.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   allowOverride: boolean = false;
 };
 
+/**
+ * Defining Consume annotation
+ * Consume is used to access the provided state variable for a descendent component
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Consume {
+  /**
+   * The alias name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   alias: string = "";
 };
 
+/**
+ * Defining Watch annotation
+ * Watch is used to listen for state variables.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Watch {
+  /**
+   * The callback function name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   callback: string;
 };
 
+/**
+ * Defining Require annotation
+ * Require is a decorator for declaring that parameters - regular variables.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Require {};
 
+/**
+ * Defining Local annotation
+ * Local is the internal state of a component, which enables the variables in the
+ * custom component to observe changes.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Local {};
 
+/**
+ * Defining Param annotation
+ * Param indicates the state passed in from the external, ensuring that
+ * data can be synchronized between the parent and child components.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Param {};
 
+/**
+ * Defining Once annotation
+ * Once annotation accepts values passed in only during variable initialization
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Once {};
 
+/**
+ * Defining Event annotation
+ * Event is used to decorate the callback method is a standard, indicating that the
+ * child component needs to pass in the callback for updating the data source.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Event {};
 
+/**
+ * Defining Provider annotation
+ * Provider is used for two-way data synchronization with descendant components when
+ * state data needs to be transferred between multiple levels. An @Provider decorated state
+ * variable exists in the ancestor component and is said to be "provider" to descendent components.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Provider {
+  /**
+   * The alias name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   alias: string = "";
 };
 
+/**
+ * Defining Consumer annotation
+ * Consumer is used to access the provided state variable for a descendent component
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Consumer {
+  /**
+   * The alias name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   alias: string = "";
 };
 
+/**
+ * Defining Monitor annotation
+ * Monitor provides the capability of listening for state variables of V2.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Monitor {
+  /**
+   * Listened property name.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   path: string[];
 };
 
+/**
+ * Defining Computed annotation
+ * Computed is a method decorator that decorates the getter method.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Computed {};
 
+/**
+ * Defining ObservedV2 annotation
+ * ObservedV2 is used to decorate with class.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface ObservedV2 {};
 
+/**
+ * Defining Trace annotation
+ * Trace is used to directly observe the property changes of nested objects
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Trace {};
 
+/**
+ * Defines Builder Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface Builder {}
 
+/**
+ * Defines BuilderParam Annotation.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface BuilderParam {}
 
+/**
+ * Defining AnimatableExtend annotation
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export declare @interface AnimatableExtend {}
 
-@Retention({policy: "SOURCE"})
-export declare @interface Styles {}
-
-@Retention({policy: "SOURCE"})
-export declare @interface Extend {
-  extend: Any
-}
-
-@Retention({policy: "SOURCE"})
-export declare @interface Type {
-  type: Any
-}
-
+/**
+ * Defining Reusable Annotation that is used to decorate @Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface Reusable {}
 
+/**
+ * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface ReusableV2 {}
 
+/**
+ * Defines Entry Annotation.
+ *
+ * Entry is an Annotation and it supports parameters.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface Entry {
+  /**
+   * Named route name.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   routeName: string = "";
+
+  /**
+   * Name of the function which returns LocalStorage instance.
+   *
+   * @type { string }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   storage: string = "";
+
+  /**
+   * Determines whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 20 static
+   */
   useSharedStorage: boolean = false;
 }
 
+/**
+ * Defining Component Annotation
+ *
+ * Component is an Annotation to define a custom component using state management V1.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface Component {}
 
+/**
+ * Defining ComponentV2 Annotation
+ *
+ * ComponentV2 is an Annotation to define a custom component using state management V2.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface ComponentV2 {}
 
+/**
+ * Defining CustomDialog Annotation
+ *
+ * CustomDialog is an Annotation to define a custom dialog.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
 @Retention({policy: "SOURCE"})
 export @interface CustomDialog {}
 `;
@@ -1233,7 +1553,11 @@ function start() {
       const outputPath = opts.output;
       const inputDir = opts.input;
       const exportFlag = opts.export === 'true';
-      processInteropUI(inputDir, exportFlag);
+      if (exportFlag) {
+        writeAnnotationFile(inputDir, outputPath);
+      } else {
+        processInteropUI(inputDir, exportFlag);
+      }
     });
   program.parse(process.argv);
 }

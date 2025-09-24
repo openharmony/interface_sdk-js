@@ -91,9 +91,10 @@ def main():
         process_interop(options, "/ohos_dynamic_two/component", "/ohos_dynamic_two/component", "true")
         process_global_import(options, "/ohos_dynamic_two/api", "/ohos_dynamic_two/api", "false")
     else:
-        process_interop(options, "/static-interop/declaration/api", "/static-interop/declaration/api", "false")
+        process_global_import(options, "/dynamic-interop/api", "/dynamic-interop/api", "true")
         delete_path = os.path.join(os.path.abspath(options.intermediates_output), "dynamic-interop", "component")
         delete_directory(delete_path)
+        process_interop(options, "/static-interop/declaration/api", "/static-interop/declaration/api", "false")
 
 
 if __name__ == '__main__':
