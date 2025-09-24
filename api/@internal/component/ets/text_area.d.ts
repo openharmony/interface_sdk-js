@@ -1738,6 +1738,27 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   contentType(contentType: ContentType): TextAreaAttribute;
 
   /**
+   * Enable selected data detector.
+   *
+   * @param { boolean | undefined } enable - whether to enable the selected data detector.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  enableSelectedDataDetector(enable: boolean | undefined): TextAreaAttribute
+  /**
+   * Config selected data detector.
+   *
+   * @param { SelectDataDetectorConfig | undefined } config - Set the config of selected data detector.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  selectedDataDetectorConfig(config: SelectDataDetectorConfig | undefined): TextAreaAttribute
+
+  /**
    * Set font feature.
    *
    * @param { string } value - The fontFeature.
