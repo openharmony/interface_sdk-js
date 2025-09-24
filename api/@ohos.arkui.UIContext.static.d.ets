@@ -3236,6 +3236,15 @@ export declare class UIContext {
    * @since 20 static
    */
   static getFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Get id of the UI instance.
+   *
+   * @returns { int } Returns id of the UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  getId(): int;
 }
 
 /**
