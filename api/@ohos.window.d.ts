@@ -11055,6 +11055,7 @@ declare namespace window {
      * @since 20
      */
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
+    
   }
 
   /**
