@@ -4017,7 +4017,7 @@ declare namespace window {
    * @param { Array<number> } windowId - List of main window IDs to be obtained.
    * @param { WindowSnapshotConfiguration } config - Configuration for getting windows' snapshot.
    * @returns { Promise<Array<image.PixelMap | undefined>> } The list of snapshot PixelMaps,
-   *     arranged in the order of the provided window ID array. If window id is valid but cannot be found in windowId list, return undefined.
+   *     arranged in the order of the provided window ID array. If window not found or not main window, will return undefined.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
