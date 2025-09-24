@@ -7608,7 +7608,15 @@ declare enum WebKeyboardAvoidMode {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  OVERLAYS_CONTENT = 2
+  OVERLAYS_CONTENT = 2,
+
+  /**
+   * When the soft keyboard avoid, follow the avoid result of UIContext.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  RETURN_TO_UICONTEXT = 3
 }
 
 /**
