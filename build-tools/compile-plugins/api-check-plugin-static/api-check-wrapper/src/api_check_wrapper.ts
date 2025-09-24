@@ -25,7 +25,7 @@ import {
   CurrentAddress,
   LegacyStructMap
 } from '../utils/api_check_wrapper_typedef';
-import { SINCE_TAG_NAME } from "../../utils/api_check_plugin_define";
+import { SINCE_TAG_NAME } from '../../utils/api_check_plugin_define';
 import { parseJSDoc } from '../custom-plugins/custom-comment-parser';
 import { globalObject } from '../../index';
 import path from 'path';
@@ -45,7 +45,7 @@ export class ApiCheckWrapper {
   constructor(apiCheckHost: ApiCheckWrapperServiceHost) {
     this.apiCheckHost = apiCheckHost;
   }
-  setFileName(fileName: string) {
+  setFileName(fileName: string): void {
     this.fileName = fileName;
   }
 
@@ -62,9 +62,9 @@ export class ApiCheckWrapper {
  * @param { ApiCheckWrapperServiceHost } apiCheckHost host对象，提供检查配置和工具方法
  * @param { number | undefined } peer 上下文标识
  */
-export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: number | undefined):void {
+export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: number | undefined): void {
   const contextPtr = arkts.arktsGlobal.compilerContext?.peer ?? peer;
-  if (contextPtr == null || contextPtr == undefined) {
+  if (contextPtr === null || contextPtr === undefined) {
     return;
   }
 
@@ -174,7 +174,7 @@ function visitNextProgramInQueue(
  * 
  * @param { arkts.AstNode } node 需要检查的标识符AST节点
  */
-export function checkIdentifier(node: arkts.AstNode) {
+export function checkIdentifier(node: arkts.AstNode): void {
   // 获取校验节点的声明节点
   const decl = arkts.getDecl(node);
 
@@ -208,12 +208,13 @@ export function checkIdentifier(node: arkts.AstNode) {
  * @param { number } line 节点所在的行号
  * @param { number } col 节点所在的列号
  */
-function confirmNodeChecked(nodeName: string, line: number, col: number) {
+function confirmNodeChecked(nodeName: string, line: number, col: number): boolean {
   const nodeKey = `${curApiCheckWrapper.fileName}_${nodeName}_${line}_${col}`;
   if (checkedNode.has(nodeKey) && checkedNode.get(nodeKey) !== undefined) {
     return true;
   } else {
     checkedNode.set(nodeKey, nodeName);
+    return false;
   }
 }
 

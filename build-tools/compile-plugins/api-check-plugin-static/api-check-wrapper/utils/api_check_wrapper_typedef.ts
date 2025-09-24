@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { DiagnosticCategory } from "./api_check_wrapper_enums";
+import { DiagnosticCategory } from './api_check_wrapper_enums';
 import * as arkts from '@koalaui/libarkts';
 
 /**
