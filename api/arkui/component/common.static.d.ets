@@ -4912,6 +4912,14 @@ export type Summary = unifiedDataChannel.Summary;
  */
 export type UniformDataType = uniformTypeDescriptor.UniformDataType;
 /**
+ * Import the GetDataParams type object for ui component.
+ *
+ * @typedef { unifiedDataChannel.GetDataParams } GetDataParams
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export type DataSyncOptions = unifiedDataChannel.GetDataParams;
+/**
  * Enum for Drag Result.
  *
  * @enum { number }
@@ -5373,6 +5381,19 @@ export declare interface DragEvent {
      * @since 20
      */
     executeDropAnimation(customDropAnimation: Callback<void>): void;
+
+    /**
+     * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
+     * Only can be used in onDrop event processing.
+     *
+     * @param { DataSyncOptions } options - the data sync options.
+     * @returns { string | undefined } The data key returned by system, which can be used as the identify of the request.
+     * @throws { BusinessError } 401 - Parameter error.
+     * @throws { BusinessError } 190003 - Operation not allowed for current phase.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    startDataLoading(options: DataSyncOptions): string | undefined;
 
     /**
      * Enable the internal drop animation, which is only avaiable for system applications.
