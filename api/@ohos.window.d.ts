@@ -7052,8 +7052,7 @@ declare namespace window {
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts 11
      */
     /**
      * Unregister the callback of avoidAreaChange
@@ -7076,7 +7075,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since arkts {'1.1':'20', '1.2':'20'}
+     * @since 20
      * @arkts 1.1&1.2
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaOptions>): void;
