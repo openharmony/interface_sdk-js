@@ -174,7 +174,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21
      */
-    key: number;
+    key: int;
 
     /**
      * Key event type. Currently, this parameter can only be set to 1, indicating key press.
@@ -192,7 +192,7 @@ declare namespace inputConsumer {
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 21
      */
-    action: number;
+    action: int;
 
     /**
      * The value true means to report repeated key events, and the value false means the opposite. The default value is true.
