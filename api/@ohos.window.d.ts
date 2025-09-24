@@ -1035,7 +1035,8 @@ declare namespace window {
      * @type { WindowType }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     type: WindowType;
 
@@ -1045,7 +1046,8 @@ declare namespace window {
      * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     isEnable?: boolean;
 
@@ -1055,7 +1057,8 @@ declare namespace window {
      * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     region?: Rect;
 
@@ -1065,7 +1068,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     backgroundColor?: string;
 
@@ -1075,7 +1079,8 @@ declare namespace window {
      * @type { ?string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 8
+     * @since arkts {'1.1':'8', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     contentColor?: string;
   }
@@ -1942,7 +1947,7 @@ declare namespace window {
     /**
      * Brightness value of window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
@@ -2036,31 +2041,31 @@ declare namespace window {
     /**
      * Window id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 9
      */
     /**
      * Window id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    id: number;
+    id: int;
 
     /**
      * display id.
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    displayId?: number;
+    displayId?: long;
 
     /**
      * window name.
@@ -6982,8 +6987,7 @@ declare namespace window {
      *                                                                   2. Incorrect parameter types; 
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Register the callback of avoidAreaChange
@@ -6995,8 +6999,7 @@ declare namespace window {
      *                                                                   3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since arkts {'1.1':'11', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 11
      */
     /**
      * Register the callback of avoidAreaChange
@@ -7034,8 +7037,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 
      *                                                                   2. Parameter verification failed.  
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since arkts 9
      */
     /**
      * Unregister the callback of avoidAreaChange
@@ -7479,8 +7481,7 @@ declare namespace window {
      *                                                                  2. Incorrect parameter types; 
      *                                                                  3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Register the callback of screenshot, only the focused window called back
@@ -7505,8 +7506,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types; 
      *                                                                  2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9
      */
     /**
      * Unregister the callback of screenshot
