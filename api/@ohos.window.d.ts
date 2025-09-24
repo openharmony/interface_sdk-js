@@ -1659,7 +1659,7 @@ declare namespace window {
     /**
      * Indicates target window id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi
      * @since 12
@@ -1667,11 +1667,11 @@ declare namespace window {
     /**
      * Indicates target window id.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @since 18
      */
-    windowId: number;
+    windowId: int;
 
     /**
      * The window status of an application.
@@ -1729,35 +1729,35 @@ declare namespace window {
     /**
      * System density
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    systemDensity: number;
+    systemDensity: double;
 
     /**
      * Default density
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    defaultDensity: number;
+    defaultDensity: double;
 
     /**
      * Custom density
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since arkts {'1.1':'15', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    customDensity: number;
+    customDensity: double;
   }
 
   /**
@@ -1939,7 +1939,7 @@ declare namespace window {
     /**
      * Brightness value of window.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @since 10
@@ -1954,7 +1954,7 @@ declare namespace window {
      * @since arkts {'1.1':'11', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    brightness: number;
+    brightness: double;
 
     /**
      * The dimbehind value of window.
@@ -3761,7 +3761,7 @@ declare namespace window {
   /**
    * gets snapshot of window
    *
-   * @param { number } windowId - Indicates target window id.
+   * @param { int } windowId - Indicates target window id.
    * @returns { Promise<image.PixelMap> } - Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3773,24 +3773,28 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 12
    */
-  function getSnapshot(windowId: number): Promise<image.PixelMap>;
+  function getSnapshot(windowId: int): Promise<image.PixelMap>;
 
   /**
    * Get windows by coordinate.
    *
-   * @param { number } displayId - Indicate the id of display.
-   * @param { number } windowNumber - Indicate the Number of query windows.
-   * @param { number } x - Indicate the X-coordinate of the window.
-   * @param { number } y - Indicate the Y-coordinate of the window.
+   * @param { long } displayId - Indicate the id of display.
+   * @param { int } [windowNumber] - Indicate the Number of query windows. If the value is less than or equal to 0,
+   *    the function returns all visible windows at the target coordinate in the display. Default Value: 0.
+   * @param { int } [x] - Indicate the X-coordinate of the window. If the value is less than or equal to 0,
+   *    the function returns all visible windows in the display. Default Value: -1.
+   * @param { int } [y] - Indicate the Y-coordinate of the window. If the value is less than or equal to 0,
+   *    the function returns all visible windows in the display. Default Value: -1.
    * @returns { Promise<Array<Window>> } Promise used to return the window.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *    capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 14
    */
-  function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number):
+  function getWindowsByCoordinate(displayId: long, windowNumber?: int, x?: int, y?: int):
       Promise<Array<Window>>;
 
   /**
@@ -3811,7 +3815,7 @@ declare namespace window {
   /**
    * Get Layout info of all windows on the selected display.
    *
-   * @param { number } displayId - Indicate the id of display.
+   * @param { long } displayId - Indicate the id of display.
    * @returns { Promise<Array<WindowLayoutInfo>> } Promise used to return the WindowLayoutInfo.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
    *                                                                  2. Incorrect parameter types; 
@@ -3822,14 +3826,14 @@ declare namespace window {
    * @atomicservice
    * @since 19
    */
-  function getAllWindowLayoutInfo(displayId: number): Promise<Array<WindowLayoutInfo>>;
+  function getAllWindowLayoutInfo(displayId: long): Promise<Array<WindowLayoutInfo>>;
 
   /**
    * List the window modes of the foreground window on the specified display.
    *
-   * @param { number } [displayId] - Indicate the id of display.
+   * @param { long } [displayId] - Indicate the id of display.
    *     Not passing or passing a value of null or undefined indicates querying all screens.
-   * @returns { Promise<number> } Promise used to return the window modes.
+   * @returns { Promise<int> } Promise used to return the window modes.
    * @throws { BusinessError } 801 - Capability not supported. function getGlobalWindowMode can not work correctly due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -3837,12 +3841,12 @@ declare namespace window {
    * @atomicservice
    * @since 20
    */
-  function getGlobalWindowMode(displayId?: number): Promise<number>;
+  function getGlobalWindowMode(displayId?: long): Promise<int>;
 
   /**
    * Get the name of the top navigation destination.
    *
-   * @param { number } windowId - Indicates target window id.
+   * @param { int } windowId - Indicates target window id.
    * @returns { Promise<string> } The name of the top navigation destination.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -3853,7 +3857,7 @@ declare namespace window {
    * @systemapi Hide this for inner system use.
    * @since 20
    */
-  function getTopNavDestinationName(windowId: number): Promise<string>;
+  function getTopNavDestinationName(windowId: int): Promise<string>;
 
   /**
    * Set or remove the watermark image for all windows of the application.
@@ -8392,7 +8396,7 @@ declare namespace window {
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8404,7 +8408,7 @@ declare namespace window {
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8417,7 +8421,7 @@ declare namespace window {
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8428,12 +8432,12 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    setWindowBrightness(brightness: number): Promise<void>;
+    setWindowBrightness(brightness: double): Promise<void>;
 
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8445,7 +8449,7 @@ declare namespace window {
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8458,7 +8462,7 @@ declare namespace window {
     /**
      * Sets the brightness of window.
      *
-     * @param { number } brightness the specified brightness value.
+     * @param { double } brightness the specified brightness value.
      * @param { AsyncCallback<void> } callback Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -8469,7 +8473,7 @@ declare namespace window {
      * @atomicservice
      * @since 11
      */
-    setWindowBrightness(brightness: number, callback: AsyncCallback<void>): void;
+    setWindowBrightness(brightness: double, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the dimBehind of window.
@@ -10591,7 +10595,7 @@ declare namespace window {
     /**
      *  Set the window mask of window
      *
-     * @param { Array<Array<number>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
+     * @param { Array<Array<long>> } windowMask - The mask of window. The value of the array is 0 and 1, the other number is illegal value.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types.
@@ -10603,7 +10607,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-     setWindowMask(windowMask: Array<Array<number>>): Promise<void>;
+     setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
 
     /**
      * Register the callback of windowRectChange
@@ -10803,7 +10807,7 @@ declare namespace window {
     /**
      * Set gray scale of window.
      *
-     * @param { number } grayScale - The value of gray scale.
+     * @param { double } grayScale - The value of gray scale.
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
      *                                                                  2. Incorrect parameter types; 
@@ -10815,7 +10819,7 @@ declare namespace window {
      * @atomicservice
      * @since 12
      */
-    setWindowGrayScale(grayScale: number): Promise<void>;
+    setWindowGrayScale(grayScale: double): Promise<void>;
 
     /**
      * Set whether to enable immersive mode.
@@ -12220,7 +12224,7 @@ declare namespace window {
     /**
      * Sets the custom density of ability.
      *
-     * @param { number } density - the specified custom density value.
+     * @param { double } density - the specified custom density value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -12231,12 +12235,12 @@ declare namespace window {
      * @atomicservice
      * @since 15
      */
-    setCustomDensity(density: number): void;
+    setCustomDensity(density: double): void;
 
     /**
      * Sets the custom density of ability.
      *
-     * @param { number } density - the specified custom density value.
+     * @param { double } density - the specified custom density value.
      * @param { boolean } [applyToSubWindow] - whether to apply the custom density to already created subwindows.
      *     The default value is false.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -12246,7 +12250,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 20
      */
-    setCustomDensity(density: number, applyToSubWindow?: boolean): void;
+    setCustomDensity(density: double, applyToSubWindow?: boolean): void;
 
     /**
      * Allows the application to control the time when the launch page disappears.
