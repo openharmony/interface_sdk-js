@@ -73,12 +73,12 @@ export interface MarqueeOptions {
      * <br>Regardless of the value, the marquee scrolls only once on an ArkTS widget.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    loop?: number;
+    loop?: int;
     /**
      * Set text to scroll from the beginning or backward.
      *
