@@ -553,8 +553,8 @@ declare namespace dataSharePredicates {
      * Construct a query object to specify the number of results and the starting position.
      * Currently only used for RDB and KVDB(schema).
      *
-     * @param { number } total - Represents the specified number of results.
-     * @param { number } offset - Indicates the starting position.
+     * @param { int } total - Represents the specified number of results.
+     * @param { int } offset - Indicates the starting position.
      * @returns { DataSharePredicates } Returns the query object.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
@@ -562,7 +562,7 @@ declare namespace dataSharePredicates {
      * @atomicservice
      * @since 20 dynamic&static
      */
-    limit(total: number, offset: number): DataSharePredicates;
+    limit(total: int, offset: int): DataSharePredicates;
 
     /**
      * Configure {@code DataSharePredicates} to group query results by specified columns.

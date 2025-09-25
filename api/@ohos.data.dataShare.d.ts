@@ -69,7 +69,7 @@ declare namespace dataShare {
     /**
      * Specifies the time to wait for connecting extension, in seconds.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @default 2
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
@@ -77,7 +77,7 @@ declare namespace dataShare {
      * @since 18 dynamic
      * @since 20 static
      */
-    waitTime?: number;
+    waitTime?: int;
   }
 
   /**
@@ -523,14 +523,14 @@ declare namespace dataShare {
     /**
      * Specifies the operation result.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
      * @since 20 static
      */
-    result: number;
+    result: int;
   }
 
   /**
@@ -578,7 +578,7 @@ declare namespace dataShare {
  /**
   * Enumerates the data change types.
   *
-  * @enum { number }
+  * @enum { int }
   * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
   * @stagemodelonly
   * @since 20 dynamic&static
@@ -637,7 +637,7 @@ declare namespace dataShare {
   /**
    * Enumerates the subscription types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @systemapi
    * @stagemodelonly
@@ -1054,7 +1054,7 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
-     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { int } version - Indicates the version of data to publish, larger is newer.
      * @param { AsyncCallback<Array<OperationResult>> } callback
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
@@ -1070,7 +1070,7 @@ declare namespace dataShare {
     publish(
       data: Array<PublishedItem>,
       bundleName: string,
-      version: number,
+      version: int,
       callback: AsyncCallback<Array<OperationResult>>
     ): void;
 
@@ -1131,7 +1131,7 @@ declare namespace dataShare {
      *
      * @param { Array<PublishedItem> } data - Indicates the data to publish.
      * @param { string } bundleName - Indicates the bundleName of data to publish.
-     * @param { number } version - Indicates the version of data to publish, larger is newer.
+     * @param { int } version - Indicates the version of data to publish, larger is newer.
      * @returns { Promise<Array<OperationResult>> }
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
@@ -1144,7 +1144,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    publish(data: Array<PublishedItem>, bundleName: string, version?: number): Promise<Array<OperationResult>>;
+    publish(data: Array<PublishedItem>, bundleName: string, version?: int): Promise<Array<OperationResult>>;
 
     /**
      * Registers a one-time observer to observe data specified by the given uri and template.
@@ -1226,7 +1226,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
-     * @param { AsyncCallback<number> } callback - {number}: the index of the inserted data record.
+     * @param { AsyncCallback<int> } callback - {int}: the index of the inserted data record.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1237,7 +1237,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    insert(uri: string, value: ValuesBucket, callback: AsyncCallback<number>): void;
+    insert(uri: string, value: ValuesBucket, callback: AsyncCallback<int>): void;
 
     /**
      * Inserts a single data record into the database.
@@ -1259,7 +1259,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { ValuesBucket } value - Indicates the data record to insert. If this parameter is null,
      * a blank row will be inserted.
-     * @returns { Promise<number> } {number}: the index of the inserted data record.
+     * @returns { Promise<int> } {int}: the index of the inserted data record.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1270,7 +1270,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    insert(uri: string, value: ValuesBucket): Promise<number>;
+    insert(uri: string, value: ValuesBucket): Promise<int>;
 
     /**
      * Deletes one or more data records from the database.
@@ -1292,7 +1292,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records deleted.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records deleted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1303,7 +1303,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<number>): void;
+    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<int>): void;
 
     /**
      * Deletes one or more data records from the database.
@@ -1325,7 +1325,7 @@ declare namespace dataShare {
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
-     * @returns { Promise<number> } {number}: the number of data records deleted.
+     * @returns { Promise<int> } {int}: the number of data records deleted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1336,7 +1336,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<number>;
+    delete(uri: string, predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
 
     /**
      * Queries data in the database.
@@ -1443,7 +1443,7 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records updated.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records updated.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1458,7 +1458,7 @@ declare namespace dataShare {
       uri: string,
       predicates: dataSharePredicates.DataSharePredicates,
       value: ValuesBucket,
-      callback: AsyncCallback<number>
+      callback: AsyncCallback<int>
     ): void;
 
     /**
@@ -1483,7 +1483,7 @@ declare namespace dataShare {
      * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria.
      * You should define the processing logic when this parameter is null.
      * @param { ValuesBucket } value - Indicates the data to update. This parameter can be null.
-     * @returns { Promise<number> } {number}: the number of data records updated.
+     * @returns { Promise<int> } {int}: the number of data records updated.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1494,13 +1494,13 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<number>;
+    update(uri: string, predicates: dataSharePredicates.DataSharePredicates, value: ValuesBucket): Promise<int>;
 
     /**
      * Updates data records in the database.
      *
      * @param { Record<string, Array<UpdateOperation>> } operations - Indicates the data to update.
-     * @returns {Promise<Record<string, Array<number>>>} {Record<string, Array<number>>}: The result set of batch operations.
+     * @returns {Promise<Record<string, Array<int>>>} {Record<string, Array<int>>}: The result set of batch operations.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700000 - Inner error. Possible causes: 1.The internal status is abnormal;
@@ -1512,7 +1512,7 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 12 dynamic
      */
-    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<number>>>;
+    batchUpdate(operations: Record<string, Array<UpdateOperation>>): Promise<Record<string, Array<int>>>;
 
     /**
      * Inserts multiple data records into the database.
@@ -1532,7 +1532,7 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
-     * @param { AsyncCallback<number> } callback - {number}: the number of data records inserted.
+     * @param { AsyncCallback<int> } callback - {int}: the number of data records inserted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1543,7 +1543,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
+    batchInsert(uri: string, values: Array<ValuesBucket>, callback: AsyncCallback<int>): void;
 
     /**
      * Inserts multiple data records into the database.
@@ -1563,7 +1563,7 @@ declare namespace dataShare {
      *
      * @param { string } uri - Indicates the path of the data to operate.
      * @param { Array<ValuesBucket> } values - Indicates the data records to insert.
-     * @returns { Promise<number> } {number}: the number of data records inserted.
+     * @returns { Promise<int> } {int}: the number of data records inserted.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are left unspecified;
      *         2. Incorrect parameters types.
      * @throws { BusinessError } 15700013 - The DataShareHelper instance is already closed.
@@ -1574,7 +1574,7 @@ declare namespace dataShare {
      * @since 12 dynamic
      * @since 20 static
      */
-    batchInsert(uri: string, values: Array<ValuesBucket>): Promise<number>;
+    batchInsert(uri: string, values: Array<ValuesBucket>): Promise<int>;
 
     /**
      * Converts the given {@code uri} that refers to the DataShare into a normalized {@link ohos.utils.net.Uri}.
@@ -1904,7 +1904,7 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy operation error codes.
    *
-   * @enum { number } DataProxyErrorCode
+   * @enum { int } DataProxyErrorCode
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20 dynamic
@@ -2032,7 +2032,7 @@ declare namespace dataShare {
   /**
    * Enumeration of data proxy types.
    *
-   * @enum { number } DataProxyType
+   * @enum { int } DataProxyType
    * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
    * @stagemodelonly
    * @since 20 dynamic
