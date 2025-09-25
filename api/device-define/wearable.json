@@ -190,6 +190,11 @@
     "SystemCapability.ResourceSchedule.SystemLoad",
     "SystemCapability.ArkUI.ArkUI.Lite",
     "SystemCapability.Communication.IPC.Core",
-    "SystemCapability.Tee.TeeClient"
+    "SystemCapability.Tee.TeeClient",
+    "SystemCapability.Base",
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Multimedia.Media.Core",
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Security.CertificateManager"
   ]
 }
