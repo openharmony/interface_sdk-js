@@ -1426,6 +1426,195 @@ declare interface WindowFilter {
 }
 
 /**
+ * Enumerates the window change types that can be listened on.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 22
+ */
+declare enum WindowChangeType {
+  /**
+   * Undefined type, this value cannot be used as a parameter.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  WINDOW_UNDEFINED = 0,
+  /**
+   * A window is added.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  WINDOW_ADDED = 1,
+  /**
+   * A window is removed.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  WINDOW_REMOVED = 2,
+  /**
+   * The bounds of a window is changed.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  WINDOW_BOUNDS_CHANGED = 3,
+}
+
+/**
+ * Enumerates the component event types that can be listened on.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 22
+ */
+declare enum ComponentEventType {
+  /**
+   * Undefined type, this value cannot be used as a parameter.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_UNDEFINED = 0,
+  /**
+   * A component is clicked.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_CLICKED = 1,
+  /**
+   * A component is longclicked.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_LONG_CLICKED = 2,
+  /**
+   * A component starts scrolling.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_SCROLL_START = 3,
+  /**
+   * A component ends scrolling.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_SCROLL_END = 4,
+  /**
+   * The text content of a component is changed.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_TEXT_CHANGED = 5,
+  /**
+   * The mouse hoveringly enter a component.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_HOVER_ENTER = 6,
+  /**
+   * The mouse hoveringly exit a component.
+   * 
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  COMPONENT_HOVER_EXIT = 7,
+}
+/**
+ * Additional listening options of window change.
+ * 
+ * @typedef WindowChangeOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 22
+ * @test
+ */
+declare interface WindowChangeOptions {
+  /**
+   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500 to prevent listening failures casued by event notification delay, default is 10000.
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  timeout?: number;
+  /**
+   * Bundlename of the listening window, default to listen on all application windows.
+   * @type { ?string }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  bundleName?: string;
+}
+
+/**
+ * Additional listening options of component event.
+ * 
+ * @typedef ComponentEventOptions
+ * @syscap SystemCapability.Test.UiTest
+ * @atomicservice
+ * @since 22
+ * @test
+ */
+declare interface ComponentEventOptions {
+  /**
+   * Listening timeout in milliseconds, it is recommended that the value of timeout be greater than 500 to prevent listening failures casued by event notification delay, default is 10000.
+   * @type { ?number }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  timeout?: number;
+  /**
+   * The attribute requirements of target compoinent to be listened on, default to listen on all components in screen.
+   * @type { ?On }
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  on?: On;
+}
+
+/**
  * Represents the information of an UI element, can be a component or window.
  * 
  * @typedef UIElementInfo
@@ -1501,6 +1690,56 @@ declare interface UIElementInfo {
    * @arkts 1.1&1.2
    */
   readonly text: string;
+  /**
+   * The window change type, set it as {@link WindowChangeType.WINDOW_UNDEFINED} if this is not a window change event.
+   * @type { ?WindowChangeType }
+   * @readonly
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  readonly windowChangeType?: WindowChangeType;
+  /**
+   * The component event type, set it as {@link ComponentEventType.COMPONENT_UNDEFINED} if this is not a component event.
+   * @type { ?ComponentEventType }
+   * @readonly
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  readonly componentEventType?: ComponentEventType;
+  /**
+   * The windowId of the host application.
+   * @type { ?number }
+   * @readonly
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  readonly windowId?: number;
+  /**
+   * The id of the component, set it as an empty string if it's a window.
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  readonly componentId?: string;
+  /**
+   * The rect of the component, set all attributes of rect to -1 if it's a window.
+   * @type { ?Rect }
+   * @readonly
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  readonly componentRect?: Rect;
 }
 
 /**
@@ -1569,6 +1808,38 @@ declare interface UIEventObserver {
    * @arkts 1.1&1.2
    */
   once(type: 'dialogShow', callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen on window change once, additional listening options can be set.
+   * 
+   * @param { 'windowChange' } type - 'windowChange'.
+   * @param { WindowChangeType } windowChangeType - Window change type to be listened on.
+   * @param { WindowChangeOptions } options - Additional listening options of window change.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  once(type: 'windowChange', windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback<UIElementInfo>): void;
+
+  /**
+   * Listen on component event once, additional listening options can be set.
+   * 
+   * @param { 'componentEventOccur' } type - 'componentEventOccur'.
+   * @param { ComponentEventType } componentEventType - Component event type to be listened on.
+   * @param { ComponentEventOptions } options - Additional listening options of component event.
+   * @param { Callback<UIElementInfo> } callback - function, returns the monitored UIElementInfo.
+   * @throws { BusinessError } 17000005 - This operation is not supported.
+   * @throws { BusinessError } 17000007 - Parameter verification failed.
+   * @syscap SystemCapability.Test.UiTest
+   * @atomicservice
+   * @since 22
+   * @test
+   */
+  once(type: 'componentEventOccur', componentEventType: ComponentEventType, options: ComponentEventOptions, callback: Callback<UIElementInfo>): void;
 }
 
 /**
@@ -5591,5 +5862,9 @@ export {
   UIElementInfo,
   UIEventObserver,
   TouchPadSwipeOptions,
-  InputTextMode
+  InputTextMode,
+  WindowChangeType,
+  ComponentEventType,
+  WindowChangeOptions,
+  ComponentEventOptions
 };
