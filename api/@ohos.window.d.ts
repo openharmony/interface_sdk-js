@@ -4026,7 +4026,7 @@ declare namespace window {
    * @arkts 1.1&1.2
    */
   function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration):
-      Promise<Array<image.PixelMap | undefined>>;
+    Promise<Array<image.PixelMap | undefined>>;
 
   /**
    * Display orientation
