@@ -12477,8 +12477,8 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since arkts {'1.1':'14', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 14 dynamic
+   * @since 20 static
    */
   interface ExtensionWindowConfig {
     /**
@@ -12488,8 +12488,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since arkts {'1.1':'14', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowName: string;
 
@@ -12500,7 +12500,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowAttribute: ExtensionWindowAttribute;
 
@@ -12511,7 +12512,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     windowRect: Rect;
 
@@ -12522,7 +12524,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     subWindowOptions?: SubWindowOptions;
 
@@ -12533,7 +12536,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 14
+     * @since 14 dynamic
+     * @since 20 static
      */
     systemWindowOptions?: SystemWindowOptions;
   }
