@@ -3359,8 +3359,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @atomicservice
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   interface CreateOptions {
     /**
@@ -3386,8 +3385,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     title?: string;
     /**
@@ -5271,8 +5269,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback<string>): void;
     /**
@@ -5325,8 +5322,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback<string>): void;
     /**
@@ -5382,8 +5378,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform
      * @atomicservice
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise<string>;
     /**
