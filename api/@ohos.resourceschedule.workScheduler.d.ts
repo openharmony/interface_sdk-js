@@ -182,6 +182,15 @@ declare namespace workScheduler {
      * @since 9
      */
     parameters?: Record<string, number | string | boolean>;
+    /**
+     * From now on, the earliest time work can be triggered.
+     *
+     * @type { ?number }
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @StageModelOnly
+     * @since 22
+     */
+    earliestStartTime?: number;
   }
 
   /**
