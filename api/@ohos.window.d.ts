@@ -781,6 +781,30 @@ declare namespace window {
   }
 
   /**
+   * Describes the pixel unit
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 22 dynamic&static
+   */
+  enum PixelUnit {
+    /**
+     * Physical pixel unit of the screen.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    PX = 0,
+    /**
+     * Pixel unit specific to the screen density.
+     * Pixels in this unit are converted into physical pixels of the screen based on the screen pixel density.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    VP = 1,
+  }
+
+  /**
    * Properties of status bar and navigation bar, it couldn't update automatically
    *
    * @interface SystemBarProperties
@@ -2732,6 +2756,15 @@ declare namespace window {
      * @arkts 1.1&1.2
      */
     minHeight?: int;
+
+    /**
+     * The unit of window limits.
+     *
+     * @type { ?PixelUnit }
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    pixelUnit?: PixelUnit;
   }
 
   /**
@@ -9922,7 +9955,7 @@ declare namespace window {
     hideNonSystemFloatingWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -9931,7 +9964,7 @@ declare namespace window {
      * @since 11
      */
     /**
-     * Get the window limits of current window.
+     * Get the window limits of current window measrued in px.
      *
      * @returns { WindowLimits } - The limits of window.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -9941,6 +9974,17 @@ declare namespace window {
      * @since 12
      */
     getWindowLimits(): WindowLimits;
+
+    /**
+     * Get the window limits of current window measrued in vp.
+     *
+     * @returns { WindowLimits } - The limits of window.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 dynamic&static
+     */
+    getWindowLimitsVP(): WindowLimits;
 
     /**
      * Set the window limits of a window.
