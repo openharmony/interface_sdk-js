@@ -119,8 +119,6 @@ declare namespace uiExtensionHost {
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
-    off<T>(type: string, callback?: Callback<T>): void;
-
     /**
      * The properties of the UIExtension window
      *
@@ -128,6 +126,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
+     * @since 20 static
      */
     properties: UIExtensionHostWindowProxyProperties;
 
@@ -229,6 +228,7 @@ declare namespace uiExtensionHost {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 11 dynamic
+   * @since 20 static
    */
   interface UIExtensionHostWindowProxyProperties {
     /**
@@ -238,6 +238,7 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
+     * @since 20 static
      */
     uiExtensionHostWindowProxyRect: window.Rect;
   }
