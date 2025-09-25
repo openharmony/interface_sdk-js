@@ -4411,6 +4411,17 @@ declare namespace bundleManager {
   function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
 
   /**
+   * Get the bundle path of the specified plugin.
+   *
+   * @param { string } pluginBundleName - Indicates the plugin bundle name.
+   * @returns { string } Returns the bundle path of specified plugin.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @since 22 dynamic&static
+   */
+  function getPluginBundlePathForSelf(pluginBundleName: string): string;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
