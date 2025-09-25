@@ -7369,7 +7369,8 @@ declare namespace window {
      *
      * @param { 'occlusionStateChanged' } type - The event of occlusion state changed.
      * @param { Callback<OcclusionState> } callback - Callback used to return the result of occlusion state.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7381,7 +7382,8 @@ declare namespace window {
      * Register the callback for occlusion state changed.
      *
      * @param { Callback<OcclusionState> } callback - Callback used to return the result of occlusion state.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7394,8 +7396,9 @@ declare namespace window {
      *
      * @param { 'occlusionStateChanged' } type - The event of occlusion state changed.
      * @param { Callback<OcclusionState> } [callback] - Callback used to return the result of occlusion state.
-     *    If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -7407,8 +7410,9 @@ declare namespace window {
      * Unregister the callback for occlusion state changed.
      *
      * @param { Callback<OcclusionState> } [callback] - Callback used to return the result of occlusion state.
-     *    If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -12678,7 +12682,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
-    PARTIALLY_OCCLUSION = 1,
+    PARTIAL_OCCLUSION = 1,
 
     /**
      * Window totally occlusion.
@@ -12686,7 +12690,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic&static
      */
-    TOTALLY_OCCLUSION = 2
+    TOTAL_OCCLUSION = 2
   }
 
   /**
