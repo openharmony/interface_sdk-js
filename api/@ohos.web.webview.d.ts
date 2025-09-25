@@ -3726,14 +3726,14 @@ declare namespace webview {
    *
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
   enum ControllerAttachState {
     /**
      * Indicates webviewController is not attached a web component.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     UNATTACHED = 0,
 
@@ -3741,7 +3741,7 @@ declare namespace webview {
      * Indicates webviewController is attached a web component.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     ATTACHED = 1
   }
@@ -7007,7 +7007,7 @@ declare namespace webview {
      * Get whether webviewController is attached to a web component.
      * @returns { ControllerAttachState } the attach state of controller
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     getAttachState(): ControllerAttachState;
 
@@ -7031,16 +7031,33 @@ declare namespace webview {
      */
     off(type: 'controllerAttachStateChange', callback?: Callback<ControllerAttachState>): void;
 
+    /**
+     * Register the callback for controller attach state change.
+     *
+     * @param { Callback<ControllerAttachState> } callback Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    onControllerAttachStateChange(callback: Callback<ControllerAttachState>): void;
+
+    /**
+     * Unregister the callback for controller attach state change.
+     *
+     * @param { Callback<ControllerAttachState> } [callback] Callback used to return the controller attach state.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 22 static
+     */
+    offControllerAttachStateChange(callback?: Callback<ControllerAttachState>): void;
 
     /**
      * Wait for the controller to attach a web component until timeout.
      *
-     * @param { number } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
+     * @param { int } timeout - the wait timeout, if timeout reach, promise will return, the unit is millisecond.
      * @returns { Promise<ControllerAttachState> } Promise used to return the state of attach.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
-    waitForAttached(timeout: number): Promise<ControllerAttachState>;
+    waitForAttached(timeout: int): Promise<ControllerAttachState>;
 
     /**
      * Enables debugging of web contents.
