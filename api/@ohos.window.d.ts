@@ -5943,7 +5943,7 @@ declare namespace window {
     /**
      * Get the avoid area, regardless of whether the area of this type is currently visible.
      *
-     * @param { AvoidAreaType } type - Type of the area
+     * @param { AvoidAreaType } type - Type of the area.
      * @returns { AvoidArea } Area where the window cannot be displayed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
