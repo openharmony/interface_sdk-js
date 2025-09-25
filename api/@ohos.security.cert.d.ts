@@ -6501,7 +6501,17 @@ declare namespace cert {
      * @since arkts {'1.1':'18','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    SIGNED_DATA = 0
+    SIGNED_DATA = 0,
+
+    /**
+     * Enveloped data.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    ENVELOPED_DATA = 1,
   }
 
   /**
@@ -6609,6 +6619,37 @@ declare namespace cert {
   }
 
   /**
+   * Enum for CMS RSA signature padding.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  enum CmsRsaSignaturePadding {
+    /**
+     * PKCS1 padding.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    PKCS1_PADDING = 0,
+
+    /**
+     * PKCS1 PSS padding.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    PKCS1_PSS_PADDING = 1
+  }
+
+  /**
    * Configuration options for CMS signer.
    *
    * @typedef CmsSignerConfig
@@ -6630,6 +6671,21 @@ declare namespace cert {
      * @arkts 1.1&1.2
      */
     mdName: string;
+
+    /**
+     * The RSA signature padding.
+     *
+     * If the type of signer private key is not RSA, will ignore this parameter. If set to
+     * CmsRsaSignaturePadding.PKCS1_PSS_PADDING, the mdName must be "SHA256", "SHA384" or "SHA512".
+     *
+     * @type { ?CmsRsaSignaturePadding }
+     * @default CmsRsaSignaturePadding.PKCS1_PADDING
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    rsaSignaturePadding?: CmsRsaSignaturePadding;
 
     /**
      * Whether to add the certificate.
@@ -6669,6 +6725,208 @@ declare namespace cert {
      * @arkts 1.1&1.2
      */
     addSmimeCapAttr?: boolean;
+  }
+
+  /**
+   * Enum for CMS recipient digest algorithm.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  enum CmsKeyAgreeRecipientDigestAlgorithm {
+    /**
+     * SHA256.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    SHA256 = 0,
+
+    /**
+     * SHA384.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    SHA384 = 1,
+
+    /**
+     * SHA512.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    SHA512 = 2,
+  }
+
+  /**
+   * The encryption algorithm of CMS enveloped.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  enum CmsRecipientEncryptionAlgorithm {
+    /**
+     * AES-128-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_128_CBC = 0,
+
+    /**
+     * AES-192-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_192_CBC = 1,
+
+    /**
+     * AES-256-CBC.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_256_CBC = 2,
+
+    /**
+     * AES-128-GCM.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_128_GCM = 3,
+
+    /**
+     * AES-192-GCM.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_192_GCM = 4,
+
+    /**
+     * AES-256-GCM.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    AES_256_GCM = 5,
+  }
+
+  /**
+   * The key trans recipient info of CMS enveloped data.
+   *
+   * @typedef CmsKeyTransRecipientInfo
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsKeyTransRecipientInfo {
+    /**
+     * The certificate.
+     *
+     * @type { X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    cert: X509Cert;
+  }
+
+  /**
+   * The key agree recipient info of CMS enveloped data.
+   *
+   * @typedef CmsKeyAgreeRecipientInfo
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsKeyAgreeRecipientInfo {
+    /**
+     * The certificate.
+     *
+     * @type { X509Cert }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    cert: X509Cert;
+
+    /**
+     * The digest algorithm for kdf.
+     *
+     * @type { ?CmsKeyAgreeRecipientDigestAlgorithm }
+     * @default CmsKeyAgreeRecipientDigestAlgorithm.SHA256
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    digestAlgorithm?: CmsKeyAgreeRecipientDigestAlgorithm;
+  }
+
+  /**
+   * The recipient info of CMS enveloped data.
+   *
+   * At least one recipient should be set.
+   *
+   * @typedef CmsRecipientInfo
+   * @syscap SystemCapability.Security.Cert
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  interface CmsRecipientInfo {
+    /**
+     * The key trans recipient info.
+     *
+     * @type { ?CmsKeyTransRecipientInfo }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    keyTransInfo?: CmsKeyTransRecipientInfo;
+    /**
+     * The key agree recipient info.
+     *
+     * @type { ?CmsKeyAgreeRecipientInfo }
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    keyAgreeInfo?: CmsKeyAgreeRecipientInfo;
   }
 
   /**
@@ -6776,6 +7034,48 @@ declare namespace cert {
     addCert(cert: X509Cert): void;
 
     /**
+     * Used to encrypt the content data for the CMS of the ENVELOPED_DATA content type.
+     *
+     * This method should be called immediately after creating a CmsGenerator of type ENVELOPED_DATA. If this method is
+     * not called, CmsRecipientEncryptionAlgorithm.AES_256_GCM will be used as the default algorithm.
+     *
+     * @param { CmsRecipientEncryptionAlgorithm } algorithm the encryption algorithm for CMS enveloped data.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The type of algorithm is invalid or not supported.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    setRecipientEncryptionAlgorithm(algorithm: CmsRecipientEncryptionAlgorithm): void;
+
+    /**
+     * Used to add the recipient info for the CMS of the ENVELOPED_DATA content type.
+     *
+     * At least one recipient should be set.
+     *
+     * @param { CmsRecipientInfo } recipientInfo - the recipient info.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19020003 - parameter check failed. Possible causes:
+     *     <br>1. The type of recipient certificate is invalid or not supported;
+     *     <br>2. The digestAlgorithm of CmsKeyAgreeRecipientInfo is invalid or not supported;
+     *     <br>3. The recipientInfo does not have any recipient info.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    addRecipientInfo(recipientInfo: CmsRecipientInfo): Promise<void>;
+
+    /**
      * Used to obtain the CMS final data, such as CMS signed data or CMS enveloped data.
      *
      * @param { Uint8Array } data - the content data for CMS operation.
@@ -6814,6 +7114,24 @@ declare namespace cert {
      * @arkts 1.1&1.2
      */
     doFinalSync(data: Uint8Array, options?: CmsGeneratorOptions): Uint8Array | string;
+
+    /**
+     * Used to get the encrypted content data for the CMS of the ENVELOPED_DATA content type.
+     *
+     * If you created a CmsGenerator of type ENVELOPED_DATA and used the detached option to generate CMS enveloped data,
+     * you should use this method to get the encrypted content data.
+     *
+     * @returns { Promise<Uint8Array> } the encrypted content data.
+     * @throws { BusinessError } 19020001 - memory malloc failed.
+     * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
+     *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
+     * @throws { BusinessError } 19030001 - crypto operation error.
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    getEncryptedContentData(): Promise<Uint8Array>;
   }
 
   /**
