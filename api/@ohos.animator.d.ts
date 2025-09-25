@@ -816,6 +816,8 @@ export default class Animator {
    * @crossplatform
    * @atomicservice
    * @since 18
+   * @deprecated since 22
+   * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }

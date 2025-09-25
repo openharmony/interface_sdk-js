@@ -28,6 +28,7 @@ import { Curve,AnimationStatus, FillMode,PlayMode} from './enums'
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
  */
 declare class SpringProp {
   /**
@@ -40,6 +41,7 @@ declare class SpringProp {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   constructor(mass: number, stiffness: number, damping: number);
 }
@@ -51,6 +53,7 @@ declare class SpringProp {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
  */
 declare class SpringMotion {
   /**
@@ -64,6 +67,7 @@ declare class SpringMotion {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   constructor(start: number, end: number, velocity: number, prop: SpringProp);
 }
@@ -75,6 +79,7 @@ declare class SpringMotion {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
  */
 declare class FrictionMotion {
   /**
@@ -87,6 +92,7 @@ declare class FrictionMotion {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   constructor(friction: number, position: number, velocity: number);
 }
@@ -98,6 +104,7 @@ declare class FrictionMotion {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
  */
 declare class ScrollMotion {
   /**
@@ -112,6 +119,7 @@ declare class ScrollMotion {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   constructor(position: number, velocity: number, min: number, max: number, prop: SpringProp);
 }
@@ -124,6 +132,8 @@ declare class ScrollMotion {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
  */
 interface AnimatorInterface {
   /**
@@ -135,6 +145,7 @@ interface AnimatorInterface {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   (value: string): AnimatorAttribute;
 }
@@ -147,6 +158,8 @@ interface AnimatorInterface {
  * @systemapi
  * @since arkts {'1.1':'7','1.2':'20'}
  * @arkts 1.1&1.2
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
  */
 declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
   /**
@@ -158,6 +171,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   state(value: AnimationStatus): AnimatorAttribute;
 
@@ -170,6 +184,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   duration(value: number): AnimatorAttribute;
 
@@ -182,6 +197,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   curve(value: Curve): AnimatorAttribute;
 
@@ -194,6 +210,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   delay(value: number): AnimatorAttribute;
 
@@ -206,6 +223,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   fillMode(value: FillMode): AnimatorAttribute;
 
@@ -218,6 +236,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   iterations(value: number): AnimatorAttribute;
 
@@ -230,6 +249,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   playMode(value: PlayMode): AnimatorAttribute;
 
@@ -242,6 +262,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   motion(value: SpringMotion | FrictionMotion | ScrollMotion): AnimatorAttribute;
 
@@ -254,6 +275,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onStart(event: () => void): AnimatorAttribute;
 
@@ -266,6 +288,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onPause(event: () => void): AnimatorAttribute;
 
@@ -278,6 +301,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onRepeat(event: () => void): AnimatorAttribute;
 
@@ -290,6 +314,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onCancel(event: () => void): AnimatorAttribute;
 
@@ -302,6 +327,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onFinish(event: () => void): AnimatorAttribute;
 
@@ -314,6 +340,7 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
    * @systemapi
    * @since arkts {'1.1':'7','1.2':'20'}
    * @arkts 1.1&1.2
+   * @deprecated since 22
    */
   onFrame(event: (value: number) => void): AnimatorAttribute;
 }
@@ -324,6 +351,8 @@ declare class AnimatorAttribute extends CommonMethod<AnimatorAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
  */
 declare const Animator: AnimatorInterface;
 
@@ -333,5 +362,7 @@ declare const Animator: AnimatorInterface;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 9
+ * @deprecated since 22
+ * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
  */
 declare const AnimatorInstance: AnimatorAttribute;
