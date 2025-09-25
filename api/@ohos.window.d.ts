@@ -11065,7 +11065,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 22
      */
-    isInFreeWindowMode(): Promise<boolean>;
+    isInFreeWindowMode(): boolean;
  
     /**
      * free window mode change callback on.
