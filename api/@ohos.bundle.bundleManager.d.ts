@@ -4388,6 +4388,29 @@ declare namespace bundleManager {
   function getAppCloneIdentityBySandboxDataDir(sandboxDataDir: string): AppCloneIdentity;
 
   /**
+   * Set the file types for a specific ability.
+   *
+   * @permission ohos.permission.MANAGE_SELF_SKILLS
+   * @param { string } moduleName - Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @param { Array<string> } fileTypes - Indicates the file types to associate with the ability.
+   *     Each item must be a Uniform Type Descriptor.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not found.
+   * @throws { BusinessError } 17700003 - The specified abilityName is not found.
+   * @throws { BusinessError } 17700351 - Invalid fileTypes. Possible causes:
+   *     1. The array length exceeds 1024;
+   *     2. The array contains an empty item;
+   *     3. An item exceeds 512 characters;
+   *     4. The array contains wildcard or general.object.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  function setAbilityFileTypesForSelf(moduleName: string, abilityName: string, fileTypes: Array<string>): void;
+
+  /**
    * Obtains configuration information about an application.
    *
    * @typedef { _ApplicationInfo }
