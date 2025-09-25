@@ -601,7 +601,8 @@ declare namespace window {
    * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
+   * @since 9 dynamic
+   * @since 20 static
    */
   enum WindowLayoutMode {
     /**
@@ -609,7 +610,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WINDOW_LAYOUT_MODE_CASCADE,
     /**
@@ -617,7 +619,8 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     WINDOW_LAYOUT_MODE_TILE
   }
@@ -3559,7 +3562,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function setWindowLayoutMode(mode: WindowLayoutMode, callback: AsyncCallback<void>): void;
 
@@ -3588,7 +3592,8 @@ declare namespace window {
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 12
+   * @since 12 dynamic
+   * @since 22 static
    */
   function setWindowLayoutMode(mode: WindowLayoutMode): Promise<void>;
 
@@ -5385,77 +5390,151 @@ declare namespace window {
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    moveWindowToAsync(x: number, y: number): Promise<void>;
+    /**
+     * Move window to the position.
+     *
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    moveWindowToAsync(x: int, y: int): Promise<void>;
 
     /**
      * Move window to the position.
      *
      * @param { number } x - Indicate the X-coordinate of the window.
      * @param { number } y - Indicate the Y-coordinate of the window.
-     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
+     *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
-    moveWindowToAsync(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
+    /**
+     * Move window to the position.
+     *
+     * @param { int } x - Indicate the X-coordinate of the window.
+     * @param { int } y - Indicate the Y-coordinate of the window.
+     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
+     *     If not provided, the window stays on the current display.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    moveWindowToAsync(x: int, y: int, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
      * Move window to the position relative to current screen.
-     * 
+     *
      * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
      * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 13
+     * @since 13 dynamic
      */
-    moveWindowToGlobal(x: number, y: number): Promise<void>;
+    /**
+     * Move window to the position relative to current screen.
+     *
+     * @param { int } x - Indicate the X-coordinate of the window relative to current screen.
+     * @param { int } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    moveWindowToGlobal(x: int, y: int): Promise<void>;
 
     /**
      * Move window to the position relative to current screen.
-     * 
+     *
      * @param { number } x - Indicate the X-coordinate of the window relative to current screen.
      * @param { number } y - Indicate the Y-coordinate of the window relative to current screen.
-     * @param { ?MoveConfiguration } moveConfiguration - Indicate the window move configuration.
+     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
+     *     If not provided, the window stays on the current display.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
      */
-    moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise<void>;
+    /**
+     * Move window to the position relative to current screen.
+     *
+     * @param { int } x - Indicate the X-coordinate of the window relative to current screen.
+     * @param { int } y - Indicate the Y-coordinate of the window relative to current screen.
+     * @param { MoveConfiguration } [moveConfiguration] - Indicate the window move configuration.
+     *     If not provided, the window stays on the current display.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    moveWindowToGlobal(x: int, y: int, moveConfiguration?: MoveConfiguration): Promise<void>;
 
     /**
      * Move window to the position relative to the main screen.
@@ -5601,18 +5680,35 @@ declare namespace window {
      * @param { number } width - Indicates the width of the window. The width should be greater than 0.
      * @param { number } height - Indicates the height of the window. The height should be greater than 0.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    resizeAsync(width: number, height: number): Promise<void>;
+    /**
+     * Set the size of a window.
+     *
+     * @param { int } width - Indicates the width of the window. The width should be greater than 0.
+     * @param { int } height - Indicates the height of the window. The height should be greater than 0.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300010 - The operation in the current window status is invalid.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    resizeAsync(width: int, height: int): Promise<void>;
 
     /**
      * Set whether to follow parent window layout. Only sub windows and dialogs are available.
@@ -5629,7 +5725,8 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @atomicservice
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
     setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>;
 
@@ -5711,7 +5808,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setWindowMode(mode: WindowMode): Promise<void>;
 
@@ -5742,7 +5840,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setWindowMode(mode: WindowMode, callback: AsyncCallback<void>): void;
 
@@ -9027,7 +9126,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     setForbidSplitMove(isForbidSplitMove: boolean, callback: AsyncCallback<void>): void;
 
@@ -9043,7 +9143,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 22 static
      */
     setForbidSplitMove(isForbidSplitMove: boolean): Promise<void>;
 
@@ -9496,9 +9597,10 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 
-     *                                                                  2. Incorrect parameter types; 
-     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9509,25 +9611,38 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    setAspectRatio(ratio: number, callback: AsyncCallback<void>): void;
+    /**
+     * Sets the aspect ratio of window
+     *
+     * @param { double } ratio - The aspect ratio of window except decoration
+     * @param { AsyncCallback<void> } callback - The callback of setAspectRatio.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    setAspectRatio(ratio: double, callback: AsyncCallback<void>): void;
 
     /**
      * Sets the aspect ratio of window
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -9538,16 +9653,28 @@ declare namespace window {
      *
      * @param { number } ratio - The aspect ratio of window except decoration
      * @returns { Promise<void> } - The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *                                                                  2. Incorrect parameter types;
-     *                                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible cause:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
      */
-    setAspectRatio(ratio: number): Promise<void>;
+    /**
+     * Sets the aspect ratio of window
+     *
+     * @param { double } ratio - The aspect ratio of window except decoration
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @atomicservice
+     * @since 22 dynamic&static
+     */
+    setAspectRatio(ratio: double): Promise<void>;
 
     /**
      * Sets the aspect ratio of window.
@@ -9588,7 +9715,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     resetAspectRatio(callback: AsyncCallback<void>): void;
 
@@ -9609,7 +9737,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     resetAspectRatio(): Promise<void>;
 
@@ -9860,7 +9989,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -9876,7 +10006,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 14
+     * @since 14 dynamic
+     * @since 22 static
      */
     setResizeByDragEnabled(enable: boolean): Promise<void>;
 
@@ -9935,7 +10066,8 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     getWindowLimits(): WindowLimits;
 
@@ -9968,7 +10100,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 12
+     * @since 12 dynamic
+     * @since 22 static
      */
     setWindowLimits(windowLimits: WindowLimits): Promise<WindowLimits>;
 
@@ -9987,7 +10120,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 15
+     * @since 15 dynamic
+     * @since 22 static
      */
     setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise<WindowLimits>;
 
@@ -10477,7 +10611,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 20
+     * @since 20 dynamic
+     * @since 22 static
      */
     enableDrag(enable: boolean): Promise<void>;
 
@@ -10943,7 +11078,8 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 17
+     * @since 17 dynamic
+     * @since 22 static
      */
     setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>;
 
