@@ -134,7 +134,7 @@ export declare interface ColumnAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Column(
-    options?: ColumnOptions | ColumnOptions | ColumnOptionsV2, 
+    options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
     @memo
     content_?: () => void,
 ): ColumnAttribute

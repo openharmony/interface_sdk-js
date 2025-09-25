@@ -128,7 +128,7 @@ export declare interface RowAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Row(
-    options?: RowOptions | RowOptions | RowOptionsV2, 
+    options?: RowOptions | RowOptions | RowOptionsV2,
     @memo
     content_?: () => void,
 ): RowAttribute
