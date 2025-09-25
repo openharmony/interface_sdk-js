@@ -73,17 +73,17 @@ export declare interface QRCodeAttribute extends CommonMethod {
 /**
  * Defines the QRCode component.
  *
- * @param { string } value - qrcode string.
+ * @param { ResourceStr } value - qrcode string.
  * @param { function } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
+ * @since 22 static
  * @noninterop
  */
 @memo
 @ComponentBuilder
 export declare function QRCode(
-    value: string, 
+    value: ResourceStr, 
     @memo
     content_?: () => void
 ): QRCodeAttribute;
