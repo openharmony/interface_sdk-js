@@ -69,7 +69,7 @@ import { Resource } from './global/resource';
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
  * @form
- * @since 22 dynamic
+ * @since 22 dynamic&static
  */
 declare namespace text {
 
@@ -1142,7 +1142,7 @@ declare namespace text {
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
    * @form
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   class FontCollection {
     /**
@@ -1160,7 +1160,7 @@ declare namespace text {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     static getLocalInstance(): FontCollection;
 
@@ -1184,7 +1184,7 @@ declare namespace text {
      * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     loadFontSync(name: string, path: string | Resource): void;
 
@@ -1214,7 +1214,7 @@ declare namespace text {
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1243,7 +1243,7 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     unloadFontSync(name: string): void;
 
@@ -1274,7 +1274,7 @@ declare namespace text {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
     unloadFont(name: string): Promise<void>;
 
@@ -1292,7 +1292,7 @@ declare namespace text {
      * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic
+     * @since 22 dynamic&static
      */
      clearCaches(): void;
   }
