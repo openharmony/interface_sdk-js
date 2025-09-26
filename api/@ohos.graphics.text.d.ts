@@ -70,7 +70,7 @@ import { Resource } from './global/resource';
  * @syscap SystemCapability.Graphics.Drawing
  * @form
  * @since 22
- * @arkts 1.1&1.2
+ * @arkts 1.1
  */
 declare namespace text {
 
@@ -1151,7 +1151,7 @@ declare namespace text {
    * @syscap SystemCapability.Graphics.Drawing
    * @form
    * @since 22
-   * @arkts 1.1&1.2
+   * @arkts 1.1
    */
   class FontCollection {
     /**
@@ -1170,7 +1170,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     static getLocalInstance(): FontCollection;
 
@@ -1195,7 +1195,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     loadFontSync(name: string, path: string | Resource): void;
 
@@ -1226,7 +1226,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1256,7 +1256,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     unloadFontSync(name: string): void;
 
@@ -1288,7 +1288,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     unloadFont(name: string): Promise<void>;
 
@@ -1307,7 +1307,7 @@ declare namespace text {
      * @syscap SystemCapability.Graphics.Drawing
      * @form
      * @since 22
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
      clearCaches(): void;
   }
