@@ -455,6 +455,7 @@ action("build_static_sdk_interop") {
 # 运行处理static-interop工具所需要的依赖
 group("build_ohos_ets") {
   external_deps = [
+    ohos_ets_dependency_analyzer_deps,
     ohos_ets_build_system_deps,
     ohos_ets_stdlib_deps,
     ohos_ets_koala_wrapper_deps
