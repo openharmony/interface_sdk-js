@@ -425,20 +425,16 @@ function collectNewTypes(type) {
  * @returns 
  */
 function duplicateRemoval(newTypesArr) {
-  let newTypes2 = [];
-  let hasNumberKeyWorld = false;
+  let newTypesNodeArr = [];
+  let newTypesTextArr = [];
   newTypesArr.forEach(type => {
-    if (type.kind === ts.SyntaxKind.NumberKeyword) {
-      if (!hasNumberKeyWorld) {
-        newTypes2.push(type);
-        hasNumberKeyWorld = true;
-      }
-    } else {
-      newTypes2.push(type);
+    if (!newTypesTextArr.includes(type.getText())) {
+      newTypesNodeArr.push(type);
+      newTypesTextArr.push(type.getText());
     }
   });
 
-  return newTypes2;
+  return newTypesArr;
 }
 
 /**
