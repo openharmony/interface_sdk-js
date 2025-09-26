@@ -361,6 +361,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 20 static
    */
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
@@ -376,6 +377,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
+   * @since 20 static
    */
   function setTimezone(timezone: string): Promise<void>;
 
@@ -458,6 +460,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 14 dynamic
+   * @since 20 static
    */
   function updateNtpTime(): Promise<void>;
 
@@ -470,6 +473,7 @@ declare namespace systemDateTime {
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 14 dynamic
+   * @since 20 static
    */
   function getNtpTime(): long;
 
