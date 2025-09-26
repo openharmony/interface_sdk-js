@@ -69,8 +69,7 @@ import { Resource } from './global/resource';
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
  * @form
- * @since 22
- * @arkts 1.1
+ * @since 22 dynamic
  */
 declare namespace text {
 
@@ -796,23 +795,20 @@ declare namespace text {
    * Enumerates line height scaling type.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 21
-   * @arkts 1.1
+   * @since 21 dynamic
    */
   enum LineHeightStyle {
     /**
      * Use the font size as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     FONT_SIZE = 0,
 
     /**
      * Use the text height after shaping as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     FONT_HEIGHT = 1
   }
@@ -994,8 +990,7 @@ declare namespace text {
      * Maximum line height. The value is a double number.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     lineHeightMaximum?: double;
 
@@ -1003,8 +998,7 @@ declare namespace text {
      * Minimum line height. The value is a double number.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     lineHeightMinimum?: double;
 
@@ -1012,8 +1006,7 @@ declare namespace text {
      * Line height scaling base style. The default value is FONT_SIZE.
      * @type { ?LineHeightStyle } Line height scaling style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     lineHeightStyle?: LineHeightStyle;
 
@@ -1134,8 +1127,7 @@ declare namespace text {
      * Font width. The default value is NORMAL.
      * @type {  ?FontWidth  } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     fontWidth?: FontWidth;
   }
@@ -1150,8 +1142,7 @@ declare namespace text {
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
    * @form
-   * @since 22
-   * @arkts 1.1
+   * @since 22 dynamic
    */
   class FontCollection {
     /**
@@ -1169,8 +1160,7 @@ declare namespace text {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
     static getLocalInstance(): FontCollection;
 
@@ -1194,8 +1184,7 @@ declare namespace text {
      * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
     loadFontSync(name: string, path: string | Resource): void;
 
@@ -1225,8 +1214,7 @@ declare namespace text {
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1255,8 +1243,7 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
     unloadFontSync(name: string): void;
 
@@ -1287,8 +1274,7 @@ declare namespace text {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
     unloadFont(name: string): Promise<void>;
 
@@ -1306,8 +1292,7 @@ declare namespace text {
      * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1
+     * @since 22 dynamic
      */
      clearCaches(): void;
   }
@@ -1547,8 +1532,7 @@ declare namespace text {
      * Line spacing. The value is a double number.
      * @type { ?double } It is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1
+     * @since 21 dynamic
      */
     lineSpacing?: double;
   }
