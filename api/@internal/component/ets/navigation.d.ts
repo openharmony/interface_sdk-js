@@ -3457,7 +3457,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @atomicservice
    * @since 21
    */
-  enableShowHideWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+  enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
 }
 
 /**
