@@ -35,6 +35,7 @@ declare namespace application {
   /**
    * Indicates the app preload type.
    * 
+   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
@@ -44,7 +45,6 @@ declare namespace application {
   /**
    * Indicates no preloading has occurred or preload data has been cleared.
    * 
-   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
@@ -79,6 +79,7 @@ declare namespace application {
    */
    TYPE_CREATE_WINDOW_STAGE = 3
   }
+
   /**
    * Create a module context
    *
@@ -224,7 +225,7 @@ declare namespace application {
    export function exitMasterProcessRole(): Promise<void>
 
   /**
-   * Obtains the preload type of the current process
+   * Obtains the preload type of the current process.
    * 
    * Note: The preload type data is cleared after the first `AbilityStage.onCreate()` finishes.
    * Subsequent calls will return `UNSPECIFIED`.
