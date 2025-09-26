@@ -51,7 +51,7 @@ declare namespace application {
      * @arkts 1.1&1.2
      */
     UNSPECIFIED = 0,
-  
+
     /**
      * Indicates the preloading will be completed after the process creation is finished.
      *
@@ -61,7 +61,7 @@ declare namespace application {
      * @arkts 1.1&1.2
      */
     TYPE_CREATE_PROCESS = 1,
-  
+
     /**
      * Indicates that the preloading will be completed after the ability stage creation is finished.
      *
@@ -71,7 +71,7 @@ declare namespace application {
      * @arkts 1.1&1.2
      */
     TYPE_CREATE_ABILITY_STAGE = 2,
-  
+
     /**
      * Indicates that the preloading will be completed after the window stage creation is finished.
      *
