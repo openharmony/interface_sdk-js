@@ -356,6 +356,8 @@ declare class Animator {
      * <br> 3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
+     * @deprecated since 22
+     * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
      */
     static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }
