@@ -552,6 +552,26 @@ declare namespace distributedDeviceManager {
   }
 
   /**
+   * Bind target result.
+   * @interface BindTargetResult
+   * @syscap SystemCapability.DistributedHardware.DeviceManager
+   * @since 10 dynamic
+   * @since 20 static
+   */
+  interface BindTargetResult {
+    /**
+     * Device identifier. The actual value is udid-hash confused with appid and salt value based on sha256.
+     * This id remains unchanged after application installation. If the application is uninstalled and reinstalled,
+     * the obtained ID will change.
+     * @type { string }
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10 dynamic
+     * @since 20 static
+     */
+    deviceId: string;
+  }
+
+  /**
    * Device icon information filter options.
    * @interface DeviceIconInfoFilterOptions
    * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -779,6 +799,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
     getAvailableDeviceListSync(): Array<DeviceBasicInfo>;
 
@@ -792,6 +813,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
     getAvailableDeviceList(callback: AsyncCallback<Array<DeviceBasicInfo>>): void;
 
@@ -804,6 +826,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
     getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>;
 
@@ -927,7 +950,38 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
-    startDiscovering(discoverParam: { [key: string]: Object; }, filterOptions?: { [key: string]: Object; }): void;
+    /**
+     * Start to discover nearby devices.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { Record<string, Object> } discoverParam - Identifies the type of target discovered:
+     *       discoverTargetType : 1     - Discovery target as a device by default, the value is 1.
+     * @param { Record<string, Object> } filterOptions - FilterOptions to filter discovery device.
+     * The type of filterOptions is map. The map are as follows:
+     *       availableStatus: 0-1       - Discover devices only are credible, The value is 0 indicates device isn't credible;
+     *                                      0: Devices are offline, client need to bind the device by calling bindTarget() and then connect to it.
+     *                                      1: Devices already online, client can make connection.
+     *       discoverDistance: 0-100    - Discover devices within a certain distance from the local, the unit is cm.
+     *       authenticationStatus: 0-1  - Discover devices based on different authentication status:
+     *                                      0: Devices not authenticated.
+                                            1: Devices already authenticated.
+     *                                The value is 1 indicates device is trust.
+     *       authorizationType: 0-2     - Discover devices based on different authorization type:
+     *                                      0: Devices authenticated based on temporary negotiated session key.
+     *                                      1: Devices authenticated based on the same account credential key.
+     *                                      2: Devices authenticated based on different account credential keys.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 11600104 - Discovery unavailable.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10 dynamic
+     * @since 20 static
+     */
+    startDiscovering(discoverParam: Record<string, Object>, filterOptions?: Record<string, Object>): void;
 
     /**
      * Stop discovering nearby devices.
@@ -937,6 +991,7 @@ declare namespace distributedDeviceManager {
      * @throws { BusinessError } 11600101 - Failed to execute the function.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
+     * @since 20 static
      */
     stopDiscovering(): void;
 
@@ -965,7 +1020,33 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
-    bindTarget(deviceId: string, bindParam: { [key: string]: Object; }, callback: AsyncCallback<{deviceId: string;}>): void;
+    /**
+     * Bind the specified target.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { string } deviceId - id of device to bind.
+     * @param { Record<String, Object> } bindParam - parameters of device to bind, The parameter type is map,such as:
+     *      "bindType" : 1,           - This value is type of bind, the values are as follows:
+     *                                  1 - The bind type is pin code .
+
+     *      "targetPkgName" : "xxxx", - The package name of binding target.
+     *      "appName" : "xxxx",       - The app name that try to bind the target.
+     *      "appOperation" : "xxxx"   - The reason why the app want to bind the target package.
+     *      "customDescription" : "xxxx" - The detail description of the operation.
+     * @param { AsyncCallback<BindTargetResult> } callback - indicates the callback to be invoked upon bindDevice.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                                  1. Mandatory parameters are left unspecified;
+     *                                                  2. Incorrect parameter type;
+     *                                                  3. Parameter verification failed;
+     *                                                  4. The size of specified deviceId is greater than 255.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 11600101 - Failed to execute the function.
+     * @throws { BusinessError } 11600103 - Authentication unavailable.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @since 10 dynamic
+     * @since 20 static
+     */
+    bindTarget(deviceId: string, bindParam: Record<string, Object>, callback: AsyncCallback<BindTargetResult>): void;
 
     /**
      * Unbind the specified target.
