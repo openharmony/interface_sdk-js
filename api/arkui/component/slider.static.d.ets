@@ -20,10 +20,7 @@
 import { CommonMethod, CommonConfiguration, ContentModifier, Optional, Bindable } from './common';
 import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
-import { CircleAttribute } from './circle';
-import { RectAttribute } from './rect';
-import { PathAttribute } from './path';
-import { EllipseAttribute } from './ellipse';
+import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import { LinearGradient } from './dataPanel';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
@@ -304,11 +301,11 @@ export declare interface SliderBlockStyle {
     /**
      * Custom shape of the slider.
      *
-     * @type { ?(CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute) }
+     * @type { ?(CircleShape | EllipseShape | PathShape | RectShape) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    shape?: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute;
+    shape?: CircleShape | EllipseShape | PathShape | RectShape;
 }
 /**
  * Defines the callback type used in SliderConfiguration.
