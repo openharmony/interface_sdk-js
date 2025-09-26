@@ -72,18 +72,15 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
 /**
  * Defines the PageMapBuilder Type.
  *
- * @typedef { @Builder ((name: string, param: Object | null | undefined) => void) } PageMapBuilder
+ * @typedef { function }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
  * @since 20 static
  */
-export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void)
+export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
 
 /**
  * Defining wrapBuilder function.
- * @param { function } builder
+ * @param { T } builder
  * @returns { WrappedBuilder<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
@@ -98,14 +95,16 @@ export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 export declare class WrappedBuilder<T> {
 
   /**
-   * @type { function }
+   * Builder function.
+   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
   @Builder public builder: T;
 
   /**
-   * @param { function } builder
+   * Initialize builder.
+   * @param { T } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
