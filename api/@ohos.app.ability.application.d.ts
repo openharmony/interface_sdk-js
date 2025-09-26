@@ -42,41 +42,40 @@ declare namespace application {
    * @arkts 1.1&1.2 
    */
   export enum AppPreloadType {
-  /**
-   * Indicates no preloading has occurred or preload data has been cleared.
-   * 
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2 
-   */
-   UNSPECIFIED = 0,
-  /**
-   * Indicates the preloading will be completed after the process creation is finished.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2 
-   */
-   TYPE_CREATE_PROCESS = 1,
-  /**
-   * Indicates that the preloading will be completed after the ability stage creation is finished.
-   * 
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2 
-   */
-   TYPE_CREATE_ABILITY_STAGE = 2,
-  /**
-   * Indicates that the preloading will be completed after the window stage creation is finished.
-   * 
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 22
-   * @arkts 1.1&1.2 
-   */
-   TYPE_CREATE_WINDOW_STAGE = 3
+    /**
+     * Indicates no preloading has occurred or preload data has been cleared.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2 
+     */
+    UNSPECIFIED = 0,
+    /**
+     * Indicates the preloading will be completed after the process creation is finished.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2 
+     */
+    TYPE_CREATE_PROCESS = 1,
+    /**
+     * Indicates that the preloading will be completed after the ability stage creation is finished.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2 
+     */
+    TYPE_CREATE_ABILITY_STAGE = 2,
+    /**
+     * Indicates that the preloading will be completed after the window stage creation is finished.
+     * 
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 22
+     * @arkts 1.1&1.2 
+     */
+    TYPE_CREATE_WINDOW_STAGE = 3
   }
 
   /**
@@ -228,7 +227,6 @@ declare namespace application {
    * 
    * Note: The preload type data is cleared after the first `AbilityStage.onCreate()` finishes.
    * Subsequent calls will return `UNSPECIFIED`.
-   * 
    * @returns { AppPreloadType } The preload type of the process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
