@@ -116,8 +116,8 @@ import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, Mu
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
-  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MeasureUtils, FrameCallback,
-  OverlayManagerOptions, TargetInfo, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType, TextMenuController
+  PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
+  MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -277,8 +277,8 @@ export {
   IconOptions, ChipItemLabelOptions, ChipGroupItemOptions, ChipItemStyle, ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup,
   Colors, CustomColors, Theme, ThemeControl, CustomTheme, ChipSymbolGlyphOptions,
   ExtraRegionPosition, ExpandedRegionLayoutOptions, HoverModeRegionLayoutOptions, FoldedRegionLayoutOptions, PresetSplitRatio, FoldSplitContainer,
-  HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, uiExtension, FullScreenLaunchComponent, MeasureUtils,
-  typeNode,
+  HoverModeStatus, OnHoverStatusChangeHandler, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
+  uiExtension, FullScreenLaunchComponent, MeasureUtils, typeNode,
   CommonModifier, ColumnModifier, ColumnSplitModifier, RowModifier, RowSplitModifier, SideBarContainerModifier,
   BlankModifier, DividerModifier, GridColModifier, GridRowModifier, NavDestinationModifier, NavigatorModifier,
   StackModifier, NavigationModifier, NavRouterModifier, StepperItemModifier, TabsModifier, GridModifier,
@@ -292,7 +292,7 @@ export {
   PolygonModifier, PolylineModifier, RectModifier, ShapeModifier, AlphabetIndexerModifier, FormComponentModifier,
   HyperlinkModifier, MenuModifier, MenuItemModifier, PanelModifier, SymbolGlyphModifier, AttributeUpdater, SymbolSpanModifier,
   ContainerSpanModifier, PixelMapDrawableDescriptor, AnimationOptions, AnimatedDrawableDescriptor,
-  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher, MarqueeDynamicSyncScene, MarqueeDynamicSyncSceneType,
+  IDataSourcePrefetching, IPrefetcher, BasicPrefetcher,
   SegmentButtonTextItem, SegmentButtonIconItem, SegmentButtonIconTextItem, DimensionNoPercentage,
   CommonSegmentButtonOptions, ItemRestriction, SegmentButtonItemTuple, SegmentButtonItemArray,
   SegmentButtonItemOptionsConstructorOptions, SegmentButtonItemOptions, BorderRadiusMode, DownloadFileButton,

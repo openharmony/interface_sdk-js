@@ -3108,7 +3108,7 @@ export class FocusController {
    * @atomicservice
    * @since 20 dynamic
    */
-  isActive(): boolean
+  isActive(): boolean;
 
   /**
   * Set whether to enable autofocus transfer.
