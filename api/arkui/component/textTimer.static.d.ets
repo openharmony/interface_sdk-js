@@ -225,15 +225,6 @@ export declare interface TextTimerAttribute extends CommonMethod {
      */
     default fontWeight(value: number | FontWeight | ResourceStr | undefined): this;
     /**
-     * Called when the fontWeight is set
-     *
-     * @param { number | FontWeight | string | undefined } value
-     * @returns { TextTimerAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
-    /**
      * Sets the font family.
      *
      * @param { ResourceStr | undefined } value - Font family. Default font: 'HarmonyOS Sans'

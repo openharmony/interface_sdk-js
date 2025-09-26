@@ -663,7 +663,7 @@ declare namespace sim {
    * The MSISDN is recorded in the EFMSISDN file of the SIM card.
    *
    * @permission ohos.permission.GET_PHONE_NUMBERS
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the MSISDN; returns an empty string if no SIM card is inserted or
    * no MSISDN is recorded in the EFMSISDN file.
@@ -679,15 +679,16 @@ declare namespace sim {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
+   * @since 20 static   
    */
-  function getSimTelephoneNumber(slotId: number): Promise<string>;
+  function getSimTelephoneNumber(slotId: int): Promise<string>;
 
   /**
    * Obtains the Group Identifier Level 1 (GID1) of the SIM card in a specified slot.
    * The GID1 is recorded in the EFGID1 file of the SIM card.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the GID1;
    * Returns an empty string if no SIM card is inserted or no GID1 in the SIM card.
@@ -705,7 +706,7 @@ declare namespace sim {
    * @since 7 dynamic
    * @since 20 static
    */
-  function getSimGid1(slotId: number, callback: AsyncCallback<string>): void;
+  function getSimGid1(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
    * Obtains the Group Identifier Level 1 (GID1) of the SIM card in a specified slot.
@@ -2297,7 +2298,7 @@ declare namespace sim {
    * Performs SIM card authentication.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { number } slotId - Sim slot id.
+   * @param { int } slotId - Sim slot id.
    * @param { AuthType } authType - The authentication type.
    * @param { string } authData - Ser password or other authentication information.
    * @returns { Promise<SimAuthenticationResponse> } A string the response of authentication.This value will be null in
@@ -2314,11 +2315,12 @@ declare namespace sim {
    * @throws { BusinessError } 8300004 - No SIM card.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @throws { BusinessError } 8301002 - An error occurred when operating the SIM card.
-   * @syscap SystemCapability.Telephony.CoreService.
+   * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
+   * @since 20 static   
    */
-  function getSimAuthentication(slotId: number, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>;
+  function getSimAuthentication(slotId: int, authType: AuthType, authData: string): Promise<SimAuthenticationResponse>;
 
   /**
    * Defines the carrier configuration.
@@ -2512,13 +2514,13 @@ declare namespace sim {
     /**
      * Indicates the record number.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
      * @since 20 static
      */
-    recordNumber?: number;
+    recordNumber?: int;
 
     /**
      * Indicates the PIN 2.
@@ -2844,7 +2846,7 @@ declare namespace sim {
   /**
    * Indicates the contact types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2875,7 +2877,7 @@ declare namespace sim {
   /**
    * Indicates the personalized lock types.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3198,7 +3200,7 @@ declare namespace sim {
   /**
    * Indicates the Dsds Mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3270,7 +3272,7 @@ declare namespace sim {
   /**
    * Indicates the Authentication type
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -3310,24 +3312,24 @@ declare namespace sim {
     /**
      * Status word 1 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      * @since 20 static
      */
-    simStatusWord1: number;
+    simStatusWord1: int;
   
     /**
      * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      * @since 20 static
      */
-    simStatusWord2: number;
+    simStatusWord2: int;
 
     /**
      * Indicates the response of authentication.

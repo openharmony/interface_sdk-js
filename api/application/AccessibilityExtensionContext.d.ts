@@ -21,12 +21,12 @@
 import type { AsyncCallback, BusinessError, Callback } from '../@ohos.base';
 import ExtensionContext from './ExtensionContext';
 import type accessibility from '../@ohos.accessibility';
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 
-/*** if arkts 1.1 */
+/*** if arkts dynamic */
 import { AccessibilityAction } from '../@ohos.accessibility';
 /*** endif */
 
@@ -35,8 +35,8 @@ import { AccessibilityAction } from '../@ohos.accessibility';
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
@@ -49,7 +49,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
@@ -64,7 +64,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   setTargetBundleName(targetNames: Array<string>): Promise<void>;
@@ -80,8 +80,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus: boolean, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -96,8 +97,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(isAccessibilityFocus?: boolean): Promise<AccessibilityElement>;
 
@@ -110,8 +112,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityFocusedElement
    */
   getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -126,8 +129,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId: number, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -142,8 +146,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(windowId?: number): Promise<AccessibilityElement>;
 
@@ -156,8 +161,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getRootInActiveWindow
    */
   getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -172,8 +178,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId: number, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -188,8 +195,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(displayId?: number): Promise<Array<AccessibilityElement>>;
 
@@ -202,8 +210,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#getAccessibilityWindowsSync
    */
   getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -218,7 +227,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#injectGestureSync
    */
@@ -235,7 +244,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead AccessibilityExtensionContext/AccessibilityExtensionContext#injectGestureSync
    */
@@ -251,7 +260,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 10
+   * @since 10 dynamic
    * @deprecated since 12
    */
   injectGestureSync(gesturePath: GesturePath): void;
@@ -268,8 +277,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   startAbility(want: Want): Promise<void>;
 
@@ -286,8 +295,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
@@ -303,8 +312,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 - No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
@@ -316,7 +325,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   holdRunningLockSync(): void;
 
@@ -328,7 +337,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   unholdRunningLockSync(): void;
 
@@ -342,7 +351,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   on(type: 'preDisconnect', callback: Callback<void>): void;
 
@@ -356,7 +365,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   off(type: 'preDisconnect', callback?: Callback<void>): void;
 
@@ -368,7 +377,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   notifyDisconnect(): void;
 
@@ -383,7 +392,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   getAccessibilityFocusedElement(): Promise<AccessibilityElement>;
 
@@ -399,7 +408,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
@@ -414,7 +423,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
 }
@@ -426,8 +435,8 @@ export default AccessibilityExtensionContext;
  *
  * @typedef AccessibilityElement
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export declare interface AccessibilityElement {
   /**
@@ -435,7 +444,7 @@ export declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<Array<T>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
@@ -444,7 +453,7 @@ export declare interface AccessibilityElement {
    * Get a list of attribute names.
    * @returns { Promise<Array<T>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeNames<T extends keyof ElementAttributeValues>(): Promise<Array<T>>;
@@ -460,7 +469,7 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(
@@ -479,7 +488,7 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300004 - This property does not exist.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
    */
   attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
@@ -489,8 +498,9 @@ export declare interface AccessibilityElement {
    *
    * @param { AsyncCallback<Array<string>> } callback Indicates the listener.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(callback: AsyncCallback<Array<string>>): void;
 
@@ -499,8 +509,9 @@ export declare interface AccessibilityElement {
    *
    * @returns { Promise<Array<string>> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#supportedActionNames
    */
   actionNames(): Promise<Array<string>>;
 
@@ -516,8 +527,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
 
@@ -533,8 +545,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, parameters?: object): Promise<void>;
 
@@ -549,8 +562,9 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#executeAction
    */
   performAction(actionName: string, callback: AsyncCallback<void>): void;
 
@@ -560,8 +574,8 @@ export declare interface AccessibilityElement {
    * @param { AsyncCallback<int> } callback Indicates the listener. 
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getCursorPosition(callback: AsyncCallback<int>): void;
 
@@ -571,8 +585,8 @@ export declare interface AccessibilityElement {
    * @returns { Promise<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   getCursorPosition(): Promise<int>;
 
@@ -588,8 +602,8 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300003 -  No accessibility permission to perform the operation.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   enableScreenCurtain(isEnable: boolean): void;
 
@@ -604,8 +618,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
@@ -620,8 +635,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByContent
    */
   findElement(type: 'content', condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -636,7 +652,7 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType, callback: AsyncCallback<AccessibilityElement>): void;
@@ -652,7 +668,7 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamic
    * @deprecated since 12
    */
   findElement(type: 'focusType', condition: FocusType): Promise<AccessibilityElement>;
@@ -668,8 +684,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection, callback: AsyncCallback<AccessibilityElement>): void;
 
@@ -684,8 +701,9 @@ export declare interface AccessibilityElement {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 9
+   * @since 9 dynamiconly
    * @deprecated since 12
+   * @useinstead AccessibilityExtensionContext/AccessibilityElement#findElementByFocusDirection
    */
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 
@@ -701,10 +719,21 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   findElement(type: 'textType', condition: string): Promise<Array<AccessibilityElement>>;
+
+  /**
+   * Find elements that match the condition.
+   *
+   * @param { string } condition Indicates the specific content to be queried.
+   * @returns { Promise<Array<AccessibilityElement>> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  findElementByTextType(condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
    * Find elements that match the condition.
@@ -718,10 +747,21 @@ export declare interface AccessibilityElement {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   findElement(type: 'elementId', condition: long): Promise<AccessibilityElement>;
+
+  /**
+   * Find elements that match the condition.
+   *
+   * @param { long } condition Indicates the specific content to be queried.
+   * @returns { Promise<AccessibilityElement> }
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  findElementByElementId(condition: long): Promise<AccessibilityElement>;
 
   /**
    * Indicates accessibility focus state.
@@ -729,7 +769,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityFocused?: boolean;
 
@@ -739,7 +779,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   bundleName?: string;
 
@@ -749,7 +789,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   checkable?: boolean;
 
@@ -759,7 +799,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   checked?: boolean;
 
@@ -769,7 +809,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   clickable?: boolean;
 
@@ -779,7 +819,7 @@ export declare interface AccessibilityElement {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   componentId?: long;
 
@@ -789,7 +829,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   componentType?: string;
 
@@ -799,7 +839,7 @@ export declare interface AccessibilityElement {
    * @type { ?Array<string> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   contents?: Array<string>;
 
@@ -809,7 +849,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   currentIndex?: int;
 
@@ -819,7 +859,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   description?: string;
 
@@ -829,7 +869,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   editable?: boolean;
 
@@ -839,7 +879,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   endIndex?: int;
 
@@ -849,7 +889,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   error?: string;
 
@@ -859,7 +899,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   focusable?: boolean;
 
@@ -869,7 +909,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   hintText?: string;
 
@@ -879,7 +919,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   inputType?: int;
 
@@ -889,7 +929,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   inspectorKey?: string;
 
@@ -899,7 +939,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isActive?: boolean;
 
@@ -909,7 +949,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isEnable?: boolean;
 
@@ -919,7 +959,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isHint?: boolean;
 
@@ -929,7 +969,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isFocused?: boolean;
 
@@ -939,7 +979,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isPassword?: boolean;
 
@@ -949,7 +989,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   isVisible?: boolean;
 
@@ -959,7 +999,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   itemCount?: int;
 
@@ -969,7 +1009,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   lastContent?: string;
 
@@ -979,7 +1019,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   layer?: int;
 
@@ -989,7 +1029,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   longClickable?: boolean;
 
@@ -999,7 +1039,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   pageId?: int;
 
@@ -1009,7 +1049,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   pluralLineSupported?: boolean;
 
@@ -1019,7 +1059,7 @@ export declare interface AccessibilityElement {
    * @type { ?Rect }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   rect?: Rect;
 
@@ -1029,7 +1069,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   resourceName?: string;
 
@@ -1039,7 +1079,7 @@ export declare interface AccessibilityElement {
    * @type { ?Rect }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   screenRect?: Rect;
 
@@ -1049,7 +1089,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   scrollable?: boolean;
 
@@ -1059,7 +1099,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   selected?: boolean;
 
@@ -1069,7 +1109,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   startIndex?: int;
 
@@ -1079,7 +1119,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   text?: string;
 
@@ -1089,7 +1129,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   textLengthLimit?: int;
 
@@ -1099,7 +1139,7 @@ export declare interface AccessibilityElement {
    * @type { ?accessibility.TextMoveUnit }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   textMoveUnit?: accessibility.TextMoveUnit;
 
@@ -1109,7 +1149,7 @@ export declare interface AccessibilityElement {
    * @type { ?AccessibilityAction }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   triggerAction?: AccessibilityAction;
 
@@ -1119,7 +1159,7 @@ export declare interface AccessibilityElement {
    * @type { ?WindowType }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   type?: WindowType;
 
@@ -1129,7 +1169,7 @@ export declare interface AccessibilityElement {
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   valueMax?: double;
 
@@ -1139,7 +1179,7 @@ export declare interface AccessibilityElement {
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   valueMin?: double;
 
@@ -1149,7 +1189,7 @@ export declare interface AccessibilityElement {
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   valueNow?: double;
 
@@ -1159,7 +1199,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   windowId?: int;
 
@@ -1169,7 +1209,7 @@ export declare interface AccessibilityElement {
    * @type { ?double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   offset?: double;
 
@@ -1179,7 +1219,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   textType?: string;
 
@@ -1189,7 +1229,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText?: string;
 
@@ -1199,7 +1239,7 @@ export declare interface AccessibilityElement {
    * @type { ?Rect }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   hotArea?: Rect;
 
@@ -1209,7 +1249,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   customComponentType?: string;
 
@@ -1219,7 +1259,7 @@ export declare interface AccessibilityElement {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityNextFocusId?: long;
 
@@ -1229,7 +1269,7 @@ export declare interface AccessibilityElement {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityPreviousFocusId?: long;
 
@@ -1239,7 +1279,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   extraInfo?: string;
 
@@ -1249,7 +1289,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityScrollable?: boolean;
 
@@ -1259,7 +1299,7 @@ export declare interface AccessibilityElement {
    * @type { ?Array<string> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   supportedActionNames?: Array<string>;
 
@@ -1269,7 +1309,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityGroup?: boolean;
 
@@ -1279,7 +1319,7 @@ export declare interface AccessibilityElement {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel?: string;
 
@@ -1289,7 +1329,7 @@ export declare interface AccessibilityElement {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   navDestinationId?: long;
 
@@ -1299,7 +1339,7 @@ export declare interface AccessibilityElement {
    * @type { ?AccessibilityGrid }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   currentItem?: AccessibilityGrid;
 
@@ -1309,7 +1349,7 @@ export declare interface AccessibilityElement {
    * @type { ?AccessibilitySpan[] }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   spans?: AccessibilitySpan[];
 
@@ -1319,7 +1359,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityVisible?: boolean;
 
@@ -1329,7 +1369,7 @@ export declare interface AccessibilityElement {
    * @type { ?int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   mainWindowId?: int;
 
@@ -1339,7 +1379,7 @@ export declare interface AccessibilityElement {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   clip?: boolean;
 
@@ -1349,7 +1389,7 @@ export declare interface AccessibilityElement {
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   parentId?: long;
 
@@ -1359,7 +1399,7 @@ export declare interface AccessibilityElement {
    * @type { ?Array<long> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   childrenIds?: Array<long>;
 
@@ -1375,7 +1415,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300005 - This action is not supported.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   executeAction(action: AccessibilityAction, parameters?: Parameter): Promise<void>;
 
@@ -1388,7 +1428,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   getParent(): Promise<AccessibilityElement>;
 
@@ -1401,7 +1441,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   getChildren(): Promise<Array<AccessibilityElement>>;
 
@@ -1414,7 +1454,7 @@ export declare interface AccessibilityElement {
  * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
   getRoot(): Promise<AccessibilityElement>;
 
@@ -1429,7 +1469,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   findElementByContent(condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -1444,7 +1484,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   findElementByFocusDirection(condition: FocusDirection): Promise<AccessibilityElement>;
 
@@ -1459,7 +1499,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   findElementsByAccessibilityHintText(condition: string): Promise<Array<AccessibilityElement>>;
 
@@ -1474,7 +1514,7 @@ export declare interface AccessibilityElement {
    * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   findElementById(condition: long): Promise<AccessibilityElement>;
 }
@@ -1485,7 +1525,7 @@ export declare interface AccessibilityElement {
  * @typedef AccessibilityGrid
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 interface AccessibilityGrid {
   /**
@@ -1494,7 +1534,7 @@ interface AccessibilityGrid {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   rowIndex: int;
   /**
@@ -1503,7 +1543,7 @@ interface AccessibilityGrid {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   columnIndex: int;
 }
@@ -1514,7 +1554,7 @@ interface AccessibilityGrid {
  * @typedef AccessibilitySpan
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 interface AccessibilitySpan {
   /**
@@ -1523,7 +1563,7 @@ interface AccessibilitySpan {
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   spanId: int;
   /**
@@ -1532,7 +1572,7 @@ interface AccessibilitySpan {
    * @type { string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   spanText: string;
   /**
@@ -1541,7 +1581,7 @@ interface AccessibilitySpan {
    * @type { string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityText: string;
   /**
@@ -1550,7 +1590,7 @@ interface AccessibilitySpan {
    * @type { string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityDescription: string;
   /**
@@ -1559,7 +1599,7 @@ interface AccessibilitySpan {
    * @type { string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   accessibilityLevel: string;
 }
@@ -1569,7 +1609,7 @@ interface AccessibilitySpan {
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since 20
+ * @since 20 dynamic
  */
 export declare class Parameter {
   /**
@@ -1578,7 +1618,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   setText?: string;
   /**
@@ -1587,7 +1627,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   selectTextBegin?: string;
   /**
@@ -1596,7 +1636,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   selectTextEnd?: string;
   /**
@@ -1605,7 +1645,7 @@ export declare class Parameter {
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   selectTextInForWard?: boolean;
   /**
@@ -1614,7 +1654,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   offset?: string;
   /**
@@ -1623,7 +1663,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   spanId?: string;
   /**
@@ -1632,7 +1672,7 @@ export declare class Parameter {
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   scrollType?: string;
 }
@@ -1648,8 +1688,8 @@ export declare class Parameter {
  *
  * @typedef ElementAttributeValues
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'11', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 11 dynamic
+ * @since 20 static
  */
 export interface ElementAttributeValues {
   /**
@@ -1657,8 +1697,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   accessibilityFocused: boolean;
   /**
@@ -1666,8 +1706,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   bundleName: string;
   /**
@@ -1675,8 +1715,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   checkable: boolean;
   /**
@@ -1684,8 +1724,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   checked: boolean;
   /**
@@ -1693,8 +1733,8 @@ export interface ElementAttributeValues {
    *
    * @type {Array<AccessibilityElement>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   children: Array<AccessibilityElement>;
   /**
@@ -1702,8 +1742,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   clickable: boolean;
   /**
@@ -1711,8 +1751,8 @@ export interface ElementAttributeValues {
    *
    * @type {long}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   componentId: long;
   /**
@@ -1720,8 +1760,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   componentType: string;
   /**
@@ -1729,8 +1769,8 @@ export interface ElementAttributeValues {
    *
    * @type {Array<string>}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   contents: Array<string>;
   /**
@@ -1738,8 +1778,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   currentIndex: int;
   /**
@@ -1747,8 +1787,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   description: string;
   /**
@@ -1756,8 +1796,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   editable: boolean;
   /**
@@ -1765,8 +1805,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   endIndex: int;
   /**
@@ -1774,8 +1814,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   error: string;
   /**
@@ -1783,8 +1823,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   focusable: boolean;
   /**
@@ -1792,8 +1832,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   hintText: string;
   /**
@@ -1801,8 +1841,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   inputType: int;
   /**
@@ -1810,8 +1850,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   inspectorKey: string;
   /**
@@ -1819,8 +1859,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isActive: boolean;
   /**
@@ -1828,8 +1868,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isEnable: boolean;
   /**
@@ -1837,8 +1877,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isHint: boolean;
   /**
@@ -1846,8 +1886,8 @@ export interface ElementAttributeValues {
    * 
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isFocused: boolean;
   /**
@@ -1855,8 +1895,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isPassword: boolean;
   /**
@@ -1864,8 +1904,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   isVisible: boolean;
   /**
@@ -1873,8 +1913,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   itemCount: int;
   /**
@@ -1882,8 +1922,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   lastContent: string;
   /**
@@ -1891,8 +1931,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   layer: int;
   /**
@@ -1900,8 +1940,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   longClickable: boolean;
   /**
@@ -1909,8 +1949,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   pageId: int;
   /**
@@ -1918,8 +1958,8 @@ export interface ElementAttributeValues {
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   parent: AccessibilityElement;
   /**
@@ -1927,8 +1967,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   pluralLineSupported: boolean;
   /**
@@ -1936,8 +1976,8 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   rect: Rect;
   /**
@@ -1945,8 +1985,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   resourceName: string;
   /**
@@ -1954,8 +1994,8 @@ export interface ElementAttributeValues {
    *
    * @type {AccessibilityElement}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   rootElement: AccessibilityElement;
   /**
@@ -1963,8 +2003,8 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   screenRect: Rect;
   /**
@@ -1972,8 +2012,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   scrollable: boolean;
   /**
@@ -1981,8 +2021,8 @@ export interface ElementAttributeValues {
    *
    * @type {boolean}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   selected: boolean;
   /**
@@ -1990,8 +2030,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   startIndex: int;
   /**
@@ -1999,8 +2039,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   text: string;
   /**
@@ -2008,8 +2048,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   textLengthLimit: int;
   /**
@@ -2017,8 +2057,8 @@ export interface ElementAttributeValues {
    *
    * @type {accessibility.TextMoveUnit}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   textMoveUnit: accessibility.TextMoveUnit;
   /**
@@ -2026,8 +2066,8 @@ export interface ElementAttributeValues {
    *
    * @type {accessibility.Action}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   triggerAction: accessibility.Action;
   /**
@@ -2035,8 +2075,8 @@ export interface ElementAttributeValues {
    *
    * @type {WindowType}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   type: WindowType;
   /**
@@ -2044,8 +2084,8 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   valueMax: double;
   /**
@@ -2053,8 +2093,8 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   valueMin: double;
   /**
@@ -2062,8 +2102,8 @@ export interface ElementAttributeValues {
    * 
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   valueNow: double;
   /**
@@ -2071,8 +2111,8 @@ export interface ElementAttributeValues {
    *
    * @type {int}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   windowId: int;
   /**
@@ -2080,8 +2120,8 @@ export interface ElementAttributeValues {
    *
    * @type {double}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   offset: double;
   /**
@@ -2089,8 +2129,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   textType: string;
   /**
@@ -2098,8 +2138,8 @@ export interface ElementAttributeValues {
    *
    * @type {string}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   accessibilityText: string;
   /**
@@ -2107,16 +2147,16 @@ export interface ElementAttributeValues {
    *
    * @type {Rect}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   hotArea: Rect;
   /**
    * Indicates the component next accessibility focus id.
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   accessibilityNextFocusId?: long;
   /**
@@ -2124,16 +2164,16 @@ export interface ElementAttributeValues {
    *
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   customComponentType?: string;
   /**
    * Indicates the extra info of the element.
    * @type { ?string }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   extraInfo?: string;
   /**
@@ -2141,8 +2181,8 @@ export interface ElementAttributeValues {
    *
    * @type { ?long }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   accessibilityPreviousFocusId?: long;
   /**
@@ -2150,8 +2190,8 @@ export interface ElementAttributeValues {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'18', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 18 dynamic
+   * @since 20 static
    */
   accessibilityScrollable?: boolean;
 }
@@ -2161,8 +2201,8 @@ export interface ElementAttributeValues {
  *
  * @typedef {'up' | 'down' | 'left' | 'right' | 'forward' | 'backward'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
@@ -2171,8 +2211,8 @@ export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'bac
  *
  * @typedef {'accessibility' | 'normal'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export type FocusType = 'accessibility' | 'normal';
 
@@ -2181,8 +2221,8 @@ export type FocusType = 'accessibility' | 'normal';
  *
  * @typedef {'application' | 'system'}
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export type WindowType = 'application' | 'system';
 
@@ -2191,8 +2231,8 @@ export type WindowType = 'application' | 'system';
  *
  * @typedef Rect
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 export interface Rect {
   /**
@@ -2200,8 +2240,8 @@ export interface Rect {
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   left: int;
   /**
@@ -2209,8 +2249,8 @@ export interface Rect {
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   top: int;
   /**
@@ -2218,8 +2258,8 @@ export interface Rect {
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   width: int;
   /**
@@ -2227,8 +2267,8 @@ export interface Rect {
    *
    * @type { int }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   height: int;
 }

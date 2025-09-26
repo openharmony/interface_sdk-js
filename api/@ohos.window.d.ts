@@ -33,6 +33,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { UIContext } from '@ohos.arkui.UIContext';
 import { ColorMetrics } from '@ohos.arkui.node';
+import { ImageFit } from '@ohos.arkui.component';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -75,6 +76,7 @@ type Callback<T, V = void> = (data: T) => V;
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
 declare type WindowAnimationCurveParam = Array<number>;
 
@@ -4540,6 +4542,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   enum WindowAnimationCurve {
     /**
@@ -4548,6 +4551,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     LINEAR = 0,
 
@@ -4557,6 +4561,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     INTERPOLATION_SPRING = 1,
   }
@@ -4568,6 +4573,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   interface WindowAnimationConfig {
     /**
@@ -4577,18 +4583,20 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     curve: WindowAnimationCurve;
 
     /**
      * Duration of the animation
      *
-     * @type { ?number }
+     * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    duration?: number;
+    duration?: long;
 
     /**
      * Param of animation curve
@@ -4597,6 +4605,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     param?: WindowAnimationCurveParam;
   }
@@ -4608,6 +4617,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 20 dynamic
+   * @since 22 static
    */
   interface TransitionAnimation {
     /**
@@ -4617,17 +4627,19 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
     config: WindowAnimationConfig;
     /**
      * The opacity of window
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
+     * @since 22 static
      */
-    opacity?: number;
+    opacity?: double;
   }
 
   /**
@@ -12184,6 +12196,7 @@ declare namespace window {
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
      * @since 19 dynamic
+     * @since 20 static
      */
     setImageForRecent(imgResourceId: long, value: ImageFit): Promise<void>;
   }

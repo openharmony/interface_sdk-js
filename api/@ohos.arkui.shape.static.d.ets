@@ -106,7 +106,7 @@ export interface PathShapeOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-declare class CommonShapeMethod<T> {
+export declare class CommonShapeMethod<T> {
     /**
      * Sets coordinate offset relative to the layout completion position.
      *
@@ -142,7 +142,7 @@ declare class CommonShapeMethod<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-declare class BaseShape<T> extends CommonShapeMethod<T> {
+export declare class BaseShape<T> extends CommonShapeMethod<T> {
     /**
      * Sets the width of the shape.
      *

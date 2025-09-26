@@ -41,7 +41,7 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export interface AbstractProperty<T> {
+export declare interface AbstractProperty<T> {
   /**
    * Returns the name of the referenced property
    *
@@ -49,7 +49,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  info(): string { return ""; };
+  default info(): string;
 
   /**
    * Reads value of the referenced AppStorage/LocalStorage property.
@@ -67,7 +67,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  set(newValue: T): void {};
+  default set(newValue: T): void;
   /**
    * Register callback function to be called on value change of the referenced property
    * calling with value undefined clear the callback.
@@ -76,7 +76,7 @@ export interface AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  onChange(onChangeFunc: OnChangeType<T> | undefined): void {};
+  default onChange(onChangeFunc: OnChangeType<T> | undefined): void;
 }
 
 /**
@@ -96,7 +96,7 @@ export interface AbstractProperty<T> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20 static
  */
-export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
   /**
    * An app needs to call this function before the instance of SubscribedAbstractProperty
    * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
@@ -106,7 +106,7 @@ export interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  aboutToBeDeleted(): void {};
+  default aboutToBeDeleted(): void;
 }
 
 /**

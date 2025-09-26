@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { memo, ComponentBuilder } from './arkui/stateManagement/runtime'
@@ -26,7 +25,7 @@ import { memo, ComponentBuilder } from './arkui/stateManagement/runtime'
 *
 * @interface ParallelOption
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20
+* @since 20 static
 */
 export interface ParallelOption {
 	/**
@@ -34,7 +33,7 @@ export interface ParallelOption {
 	*
 	* @type { ?boolean }
 	* @syscap SystemCapability.ArkUI.ArkUI.Full
-	* @since 20
+	* @since 20 static
 	*/
 	enable?: boolean,
 }
@@ -44,7 +43,7 @@ export interface ParallelOption {
 *
 * @interface UIParallelAttribute
 * @syscap SystemCapability.ArkUI.ArkUI.Full
-* @since 20
+* @since 20 static
 */
 export interface UIParallelAttribute {
 }
@@ -56,7 +55,7 @@ export interface UIParallelAttribute {
  * @param { () => void } [content_] - tail closure for ParallelizeUI
  * @returns { UIParallelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20
+ * @since 20 static
  */
 @ComponentBuilder
 export declare function ParallelizeUI(

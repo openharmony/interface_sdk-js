@@ -107,12 +107,12 @@ export declare interface SpanAttribute extends BaseSpan {
     /**
      * Called when the font size is set.
      *
-     * @param { number | string | Resource | undefined } value
+     * @param { double | string | Resource | undefined } value
      * @returns { SpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the font style of a font is set.
      *
@@ -125,12 +125,12 @@ export declare interface SpanAttribute extends BaseSpan {
     /**
     * Called when the font weight is set.
     *
-    * @param { number | FontWeight | string | undefined } value
+    * @param { int | FontWeight | string | undefined } value
     * @returns { SpanAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20 static
     */
-    default fontWeight(value: number | FontWeight | string | undefined): this;
+    default fontWeight(value: int | FontWeight | string | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -152,12 +152,12 @@ export declare interface SpanAttribute extends BaseSpan {
     /**
     * Called when the distance between text fonts is set.
     *
-    * @param { number | string | undefined } value
+    * @param { double | string | undefined } value
     * @returns { SpanAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @since 20 static
     */
-    default letterSpacing(value: number | string | undefined): this;
+    default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
      *

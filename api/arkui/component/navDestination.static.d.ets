@@ -23,7 +23,7 @@ import window from '../../@ohos.window';
 import { Resource } from '../../global/resource';
 import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from './common';
 import { CustomBuilder } from './builder';
-import { Length, ResourceStr } from './units';
+import { Length, ResourceStr, VoidCallback } from './units';
 import { TitleHeight, Curve } from './enums';
 import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem,
     NavigationMenuOptions, NavigationOperation, SystemBarStyle } from './navigation';
@@ -359,11 +359,11 @@ export declare interface NavDestinationTransition {
     /**
      * This method is called after the transition ends to notify whether the transition was successful.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onTransitionEnd?: Callback<void>;
+    onTransitionEnd?: VoidCallback;
 
     /**
      * Define the limit duration of the transition animation.
@@ -395,11 +395,11 @@ export declare interface NavDestinationTransition {
     /**
      * Configure the custom transition event.
      *
-     * @type { Callback<void> }
+     * @type { VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    event: Callback<void>;
+    event: VoidCallback;
 }
 
 /**
@@ -580,42 +580,42 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     /**
      * Invoked before the navDestination is appeared.
      *
-     * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is appeared.
+     * @param { VoidCallback | undefined } callback - Indicates callback before the navDestination is appeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onWillAppear(callback: Callback<void> | undefined): this;
+    default onWillAppear(callback: VoidCallback | undefined): this;
 
     /**
      * Invoked before the navDestination is disappeared.
      *
-     * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is disappeared.
+     * @param { VoidCallback | undefined } callback - Indicates callback before the navDestination is disappeared.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onWillDisappear(callback: Callback<void> | undefined): this;
+    default onWillDisappear(callback: VoidCallback | undefined): this;
 
     /**
      * Invoked before the navDestination is displayed.
      *
-     * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is displayed.
+     * @param { VoidCallback | undefined } callback - Indicates callback before the navDestination is displayed.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onWillShow(callback: Callback<void> | undefined): this;
+    default onWillShow(callback: VoidCallback | undefined): this;
 
     /**
      * Invoked before the navDestination is hidden.
      *
-     * @param { Callback<void> | undefined } callback - Indicates callback before the navDestination is hidden.
+     * @param { VoidCallback | undefined } callback - Indicates callback before the navDestination is hidden.
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onWillHide(callback: Callback<void> | undefined): this;
+    default onWillHide(callback: VoidCallback | undefined): this;
 
     /**
      * Set navDestination content expand types and edges.

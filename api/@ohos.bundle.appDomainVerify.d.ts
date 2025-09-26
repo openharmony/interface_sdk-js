@@ -13,7 +13,7 @@
  * @syscap SystemCapability.BundleManager.AppDomainVerify
  * @systemapi
  * @stagemodelonly
- * @since 13
+ * @since 13 dynamic
  */
 declare namespace appDomainVerify {
 
@@ -30,7 +30,7 @@ declare namespace appDomainVerify {
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
    */
   function queryAssociatedDomains(bundleName: string): string[];
 
@@ -46,7 +46,7 @@ declare namespace appDomainVerify {
    * @syscap SystemCapability.BundleManager.AppDomainVerify
    * @systemapi
    * @stagemodelonly
-   * @since 13
+   * @since 13 dynamic
    */
   function queryAssociatedBundleNames(domain: string): string[];
 }

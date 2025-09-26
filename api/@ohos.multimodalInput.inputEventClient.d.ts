@@ -27,6 +27,7 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use
  * @since 8 dynamic
+ * @since 20 static
  */
 declare namespace inputEventClient {
   /**
@@ -36,6 +37,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 8 dynamic
+   * @since 20 static
    */
   interface KeyEvent {
     /**
@@ -45,26 +47,29 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
+     * @since 20 static
      */
     isPressed: boolean;
 
     /**
      * Keycode value. Currently, only the KEYCODE_BACK key is supported.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
+     * @since 20 static
      */
-    keyCode: number;
+    keyCode: int;
 
     /**
      * Duration for pressing a key, in μs.
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
+     * @since 20 static
      */
-    keyDownDuration: number;
+    keyDownDuration: int;
 
     /**
      * Whether the key event can be intercepted. 
@@ -73,6 +78,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 8 dynamic
+     * @since 20 static
      */
     isIntercepted: boolean;
   }
@@ -84,6 +90,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   interface MouseEventData {
     /**
@@ -93,6 +100,7 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
+     * @since 20 static
      */
     mouseEvent: MouseEvent;
   }
@@ -126,6 +134,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
+   * @since 20 static
    */
   interface KeyEventData {
     /**
@@ -135,8 +144,29 @@ declare namespace inputEventClient {
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
      * @since 11 dynamic
+     * @since 20 static
      */
     keyEvent: KeyEvent;
+  }
+
+  /**
+   * Defines info of key that user want to inject.
+   *
+   * @interface KeyEventInfo
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 20 staticonly
+   */
+  interface KeyEventInfo {
+    /**
+     * Inject key event.
+     *
+     * @type { KeyEvent }
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @since 20 staticonly
+     */
+    KeyEvent: KeyEvent;
   }
 
   /**
@@ -162,6 +192,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
@@ -188,7 +219,20 @@ declare namespace inputEventClient {
    * @systemapi hide for inner use
    * @since 12 dynamic
    */
-  function injectEvent({ KeyEvent: KeyEvent }): void;
+  /**
+   * Injects keys (including single keys and combination keys).
+   *
+   * @permission ohos.permission.INJECT_INPUT_EVENT
+   * @param { KeyEventInfo } KeyEvent - Key event to inject.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+   * @systemapi hide for inner use
+   * @since 20 dynamic&static
+   */
+  function injectEvent(keyEvent: KeyEventInfo): void;
 
   /**
    * Injects a mouse/touchpad event.
@@ -213,6 +257,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function injectMouseEvent(mouseEvent: MouseEventData): void;
 
@@ -239,6 +284,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
@@ -254,6 +300,7 @@ declare namespace inputEventClient {
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
+   * @since 20 static
    */
    function permitInjection(result: boolean): void;
 }

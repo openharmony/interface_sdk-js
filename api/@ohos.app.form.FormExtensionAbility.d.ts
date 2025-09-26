@@ -337,7 +337,7 @@ declare class FormExtensionAbility {
    * @atomicservice
    * @since 20 static
    */
-    onAcquireFormState?: OnAcquireFormStateFn;
+  onAcquireFormState?: OnAcquireFormStateFn;
 
   /**
    * Called when the system shares the form.
@@ -434,6 +434,7 @@ declare class FormExtensionAbility {
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
+   * @atomicservice
    * @since 20 dynamic&static
    */
   onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void;

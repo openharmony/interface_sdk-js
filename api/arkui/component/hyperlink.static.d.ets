@@ -34,12 +34,12 @@ export declare interface HyperlinkAttribute extends CommonMethod {
     /**
      * Set Color
      *
-     * @param { Color | number | string | Resource } value
+     * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default color(value: Color | number | string | Resource | undefined): this;
+    default color(value: Color | int | string | Resource | undefined): this;
     /**
      * Sets the attribute modifier.
      *

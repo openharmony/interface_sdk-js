@@ -477,7 +477,6 @@ declare namespace connection {
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
-   * @since 20 static
    */
   function getRemoteDeviceName(deviceId: string): string;
 
@@ -498,7 +497,7 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @atomicservice
    * @since 16 dynamic
-   * @since 20 static
+   * @since 22 static
    */
   function getRemoteDeviceName(deviceId: string, alias?: boolean): string;
 

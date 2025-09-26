@@ -29,17 +29,17 @@ import formInfo from './@ohos.app.form.formInfo';
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 export interface LiveFormInfo {
   /**
-   * The form id.
+   * The form id of the live form.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   formId: string;
 
@@ -50,7 +50,7 @@ export interface LiveFormInfo {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   rect: formInfo.Rect;
 
@@ -61,7 +61,7 @@ export interface LiveFormInfo {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   borderRadius: number;
 }
@@ -73,7 +73,7 @@ export interface LiveFormInfo {
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
- * @since 20
+ * @since 20 dynamic
  */
 declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
@@ -83,7 +83,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   context: LiveFormExtensionContext;
 
@@ -95,7 +95,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void;
 
@@ -106,7 +106,7 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
-   * @since 20
+   * @since 20 dynamic
    */
   onLiveFormDestroy(liveFormInfo: LiveFormInfo): void;
 }

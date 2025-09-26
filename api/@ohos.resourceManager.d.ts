@@ -2432,7 +2432,6 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     getStringSync(resId: long): string;
 
@@ -2607,7 +2606,6 @@ declare namespace resourceManager {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     getStringByNameSync(resName: string): string;
 
@@ -2999,7 +2997,7 @@ declare namespace resourceManager {
      * @syscap SystemCapability.Global.ResourceManager
      * @crossplatform
      * @atomicservice
-     * @since 11 dynamic
+     * @since 11 dynamiconly
      * @deprecated since 12
      */
     release();

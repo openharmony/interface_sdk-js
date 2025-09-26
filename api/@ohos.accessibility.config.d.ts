@@ -27,8 +27,8 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  * @namespace config
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
- * @since arkts {'1.1':'9', '1.2':'20'}
- * @arkts 1.1&1.2
+ * @since 9 dynamic
+ * @since 20 static
  */
 declare namespace config {
   /**
@@ -36,8 +36,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const daltonizationState: Config<boolean>;
   /**
@@ -45,8 +45,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   const audioMono: Config<boolean>;
   /**
@@ -55,8 +55,8 @@ declare namespace config {
    * @type { Config<double> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'10', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 10 dynamic
+   * @since 20 static
    */
   const audioBalance: Config<double>;
   /**
@@ -65,8 +65,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let highContrastText: Config<boolean>;
   /**
@@ -75,8 +75,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let invertColor: Config<boolean>;
   /**
@@ -85,8 +85,8 @@ declare namespace config {
    * @type { Config<DaltonizationColorFilter> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let daltonizationColorFilter: Config<DaltonizationColorFilter>;
   /**
@@ -95,8 +95,8 @@ declare namespace config {
    * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let contentTimeout: Config<int>;
   /**
@@ -105,8 +105,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let animationOff: Config<boolean>;
   /**
@@ -115,8 +115,8 @@ declare namespace config {
    * @type { Config<double> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let brightnessDiscount: Config<double>;
   /**
@@ -125,8 +125,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let mouseKey: Config<boolean>;
   /**
@@ -135,8 +135,8 @@ declare namespace config {
    * @type { Config<int> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let mouseAutoClick: Config<int>;
   /**
@@ -145,8 +145,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let shortkey: Config<boolean>;
   /**
@@ -155,8 +155,8 @@ declare namespace config {
    * @type { Config<string> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let shortkeyTarget: Config<string>;
   /**
@@ -164,8 +164,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const shortkeyMultiTargets: Config<Array<string>>;
   /**
@@ -174,8 +174,8 @@ declare namespace config {
    * @type { Config<boolean> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let captions: Config<boolean>;
   /**
@@ -184,8 +184,8 @@ declare namespace config {
    * @type { Config<accessibility.CaptionsStyle> }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   let captionsStyle: Config<accessibility.CaptionsStyle>;
   /**
@@ -193,8 +193,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const clickResponseTime: Config<ClickResponseTime>;
   /**
@@ -202,8 +202,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const ignoreRepeatClick: Config<boolean>;
   /**
@@ -211,8 +211,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   const repeatClickInterval: Config<RepeatClickInterval>;
   /**
@@ -220,8 +220,8 @@ declare namespace config {
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
+   * @since 20 static
    */
   const screenMagnification: Config<boolean>;
 
@@ -243,8 +243,8 @@ declare namespace config {
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function enableAbility(name: string, capability: Array<accessibility.Capability>): Promise<void>;
 
@@ -266,8 +266,8 @@ declare namespace config {
    * @throws { BusinessError } 9300002 - Target ability already enabled.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function enableAbility(
     name: string,
@@ -291,8 +291,8 @@ declare namespace config {
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function disableAbility(name: string): Promise<void>;
 
@@ -312,8 +312,8 @@ declare namespace config {
    * @throws { BusinessError } 9300001 - Invalid bundle name or ability name.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   function disableAbility(name: string, callback: AsyncCallback<void>): void;
 
@@ -332,10 +332,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
    */
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onEnabledAccessibilityExtensionListChange(callback: Callback<void>): void;
 
   /**
    * Register the listener that watches for changes in the installed status of accessibility extensions.
@@ -352,10 +365,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function on(type: 'installedAccessibilityListChange', callback: Callback<void>): void;
+
+  /**
+   * Register the listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } callback Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function onInstalledAccessibilityListChange(callback: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the enabled status of accessibility extensions.
@@ -372,10 +398,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
    */
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the enabled status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offEnabledAccessibilityExtensionListChange(callback?: Callback<void>): void;
 
   /**
    * Unregister listener that watches for changes in the installed status of accessibility extensions.
@@ -392,10 +431,23 @@ declare namespace config {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'12', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 12 dynamic
    */
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
+
+  /**
+   * Unregister listener that watches for changes in the installed status of accessibility extensions.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<void> } [callback] Indicates the listener.
+   * @throws { BusinessError } 201 - Permission verification failed. 
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @since 22 static
+   */
+  function offInstalledAccessibilityListChange(callback?: Callback<void>): void;
 
   /**
    * Set display magnification state.
@@ -407,7 +459,7 @@ declare namespace config {
    * @throws { BusinessError } 9300007 - Trigger magnification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function setMagnificationState(state: boolean): void;
 
@@ -417,8 +469,8 @@ declare namespace config {
    * @typedef Config<T>
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   interface Config<T> {
     /**
@@ -436,25 +488,10 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     set(value: T): Promise<void>;
-
-    /**
-     * Setting configuration value.
-     *
-     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
-     * @since 20
-     * @arkts 1.2
-     */
-    setReturnsPromise(value: T): Promise<void>;
 
     /**
      * Setting configuration value.
@@ -471,30 +508,10 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     set(value: T, callback: AsyncCallback<void>): void;
-
-    /**
-     * Setting configuration value.
-     *
-     * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
-     * @param { T } value Indicates the value.
-     * @param { AsyncCallback<void> } callback
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
-     * @since 20
-     * @arkts 1.2
-     */
-    setWithCallback(value: T, callback: AsyncCallback<void>): void;
-
-    /**
-     * @arkts 1.2
-     */
-    overload set { setReturnsPromise, setWithCallback };
 
     /**
      * Getting configuration value.
@@ -505,49 +522,22 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     get(): Promise<T>;
 
     /**
      * Getting configuration value.
      *
-     * @returns { Promise<T> }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
-     * @since 20
-     * @arkts 1.2
-     */
-    getReturnsPromise(): Promise<T>;
-
-    /**
-     * Getting configuration value.
-     *
      * @param { AsyncCallback<T> } callback
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since 9
+     * @since 9 dynamic
+     * @since 20 static
      */
     get(callback: AsyncCallback<T>): void;
-
-    /**
-     * Getting configuration value.
-     *
-     * @param { AsyncCallback<T> } callback
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.BarrierFree.Accessibility.Core
-     * @systemapi
-     * @since 20
-     * @arkts 1.2
-     */
-    getWithCallback(callback: AsyncCallback<T>): void;
-
-    /**
-     * @arkts 1.2
-     */
-    overload get { getReturnsPromise, getWithCallback };
 
     /**
      * Register the listener to listen for configuration changes.
@@ -563,8 +553,8 @@ declare namespace config {
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     on(callback: Callback<T>): void;
 
@@ -578,8 +568,8 @@ declare namespace config {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @systemapi
-     * @since arkts {'1.1':'9', '1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 9 dynamic
+     * @since 20 static
      */
     off(callback?: Callback<T>): void;
   }
@@ -590,8 +580,8 @@ declare namespace config {
    * @typedef {'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'9', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 9 dynamic
+   * @since 20 static
    */
   type DaltonizationColorFilter = 'Normal' | 'Protanomaly' | 'Deuteranomaly' | 'Tritanomaly';
 
@@ -601,8 +591,8 @@ declare namespace config {
    * @typedef {'Short' | 'Medium' | 'Long'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
@@ -612,8 +602,8 @@ declare namespace config {
    * @typedef {'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest'}
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
-   * @since arkts {'1.1':'11', '1.2':'20'}
-   * @arkts 1.1&1.2
+   * @since 11 dynamic
+   * @since 20 static
    */
   type RepeatClickInterval = 'Shortest' | 'Short' | 'Medium' | 'Long' | 'Longest';
 }

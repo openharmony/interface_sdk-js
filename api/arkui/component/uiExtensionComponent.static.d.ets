@@ -193,58 +193,46 @@ export declare interface UIExtensionProxy {
      * Register the listener that watches for async data receiver callback being registered by UIExtensionAbility.
      * AnonyMous Object Rectification
      *
-     * @param { 'asyncReceiverRegister' } type - Indicates the type of event.
      * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
-    onAsyncReceiverRegister(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
+    onAsyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
     /**
      * Register the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
      * AnonyMous Object Rectification
      *
-     * @param { 'syncReceiverRegister' } type - Indicates the type of event.
      * @param { Callback<UIExtensionProxy> } callback - Callback of the listened event.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
-    onSyncReceiverRegister(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
+    onSyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
     /**
      * Deregisters the listener that watches for async data receiver callback being registered by UIExtensionAbility.
      * AnonyMous Object Rectification
      *
-     * @param { 'asyncReceiverRegister' } type - Type of the listened event.
      * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
-    offAsyncReceiverRegister(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
+    offAsyncReceiverRegister(callback?: Callback<UIExtensionProxy>): void;
     /**
      * Deregisters the listener that watches for sync data receiver callback being registered by UIExtensionAbility.
      * AnonyMous Object Rectification
      *
-     * @param { 'syncReceiverRegister' } type - Type of the listened event.
      * @param { Callback<UIExtensionProxy> } [callback] - Callback of the listened event.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 20 static
+     * @since 22 static
      */
-    offSyncReceiverRegister(type: 'syncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
-    /**
-     * @since 20 static
-     */
-    overload on { onAsyncReceiverRegister, onSyncReceiverRegister }
-    /**
-     * @since 20 static
-     */
-    overload off { offAsyncReceiverRegister, offSyncReceiverRegister }
+    offSyncReceiverRegister(callback?: Callback<UIExtensionProxy>): void;
 }
 
 /**

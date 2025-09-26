@@ -1172,7 +1172,8 @@ declare namespace display {
      */
     FOLD_STATUS_FOLDED = 2,
     /**
-     * Fold Status Half Folded, somehow between fully open and completely closed. For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
+     * Fold Status Half Folded, somehow between fully open and completely closed.
+	 * For dual-fold axis devices, the first fold axis is half-folded, and the second fold axis is folded.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 10
@@ -1567,15 +1568,15 @@ declare namespace display {
     LANDSCAPE_INVERTED = 3
   }
 
-    /**
-     * Indicate the source mode of the display
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 19 dynamic
-     * @since 20 static
-     */
+  /**
+   * Indicate the source mode of the display
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 19 dynamic
+   * @since 20 static
+   */
   enum DisplaySourceMode {
     /**
      * Indicate that the display is not in use.
@@ -2375,7 +2376,7 @@ declare namespace display {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
      * @atomicservice
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     yDPI: double;
 

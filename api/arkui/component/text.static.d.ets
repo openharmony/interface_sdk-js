@@ -84,12 +84,12 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If fontSize is of the number type, the unit fp is used.
      * </p>
      *
-     * @param { number | string | Resource } value - Default value is 16fp.The default value on wearable devices is 15fp.
+     * @param { double | string | Resource } value - Default value is 16fp.The default value on wearable devices is 15fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontSize(value: number | string | Resource | undefined): this;
+    default fontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the minimum font size of the font is set.
      *
@@ -105,12 +105,12 @@ export declare interface TextAttribute extends CommonMethod {
      * and the adaptive font size is applied to parts where the font size is not set.
      * </p>
      *
-     * @param { number | string | Resource } value - The unit is fp.
+     * @param { double | string | Resource } value - The unit is fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontSize(value: number | string | Resource | undefined): this;
+    default minFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the maximum font size of the font is set.
      *
@@ -126,12 +126,12 @@ export declare interface TextAttribute extends CommonMethod {
      * and the adaptive font size is applied to parts where the font size is not set.
      * </p>
      *
-     * @param { number | string | Resource } value - The unit is fp.
+     * @param { double | string | Resource } value - The unit is fp.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontSize(value: number | string | Resource | undefined): this;
+    default maxFontSize(value: double | string | Resource | undefined): this;
     /**
      * Called when the minimum font scale of the font is set.
      * Value range: [0, 1]
@@ -142,12 +142,12 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource } scale
+     * @param { double | Resource } scale
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default minFontScale(scale: number | Resource | undefined): this;
+    default minFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the maximum font scale of the font is set.
      * Value range: [1, +∞)
@@ -157,12 +157,12 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>Abnormal values are ineffective by default.
      * </p>
      *
-     * @param { number | Resource  } scale
+     * @param { double | Resource  } scale
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxFontScale(scale: number | Resource | undefined): this;
+    default maxFontScale(scale: double | Resource | undefined): this;
     /**
      * Called when the font style of a font is set.
      *
@@ -175,13 +175,13 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the font weight is set.
      *
-     * @param { number | FontWeight | string } weight
+     * @param { int | FontWeight | string } weight
      * @param { FontSettingOptions } options - font setting options.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default fontWeight(weight: number | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
+    default fontWeight(weight: int | FontWeight | string | undefined, options?: FontSettingOptions | undefined): this;
     /**
      * Set font line spacing.
      *
@@ -225,12 +225,12 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
      * </p>
      *
-     * @param { number | string | Resource } value
+     * @param { double | string | Resource } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default lineHeight(value: number | string | Resource | undefined): this;
+    default lineHeight(value: double | string | Resource | undefined): this;
     /**
      * Called when the overflow mode of the font is set.
      *
@@ -281,12 +281,12 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If there is extra text, you can use textOverflow to specify how it is displayed.
      * </p>
      *
-     * @param { number } value
+     * @param { int } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default maxLines(value: number | undefined): this;
+    default maxLines(value: int | undefined): this;
     /**
      * Called when the text decoration of the text is set.
      *
@@ -303,12 +303,12 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the distance between text fonts is set.
      *
-     * @param { number | string } value
+     * @param { double | string } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default letterSpacing(value: number | string | undefined): this;
+    default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
      *
@@ -321,12 +321,12 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Called when the baseline offset is set.
      *
-     * @param { number | string } value
+     * @param { double | string } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default baselineOffset(value: number | string | undefined): this;
+    default baselineOffset(value: double | string | undefined): this;
     /**
      * Allow replication.
      *
@@ -462,13 +462,13 @@ export declare interface TextAttribute extends CommonMethod {
      * <br>If clipping is disabled, the text selection outside of the parent component takes effect.
      * </p>
      *
-     * @param { number } selectionStart - The start position of the selected text.Default value is -1.
-     * @param { number } selectionEnd - The end position of the selected text.Default value is -1.
+     * @param { int } selectionStart - The start position of the selected text.Default value is -1.
+     * @param { int } selectionEnd - The end position of the selected text.Default value is -1.
      * @returns { TextAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default selection(selectionStart: number | undefined, selectionEnd: number | undefined): this;
+    default selection(selectionStart: int | undefined, selectionEnd: int | undefined): this;
     /**
      * Set the caret color for the selected text.
      *
@@ -581,7 +581,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onTextSelectionChange(callback: ((selectionStart: number, selectionEnd: number) => void) | undefined): this;
+    default onTextSelectionChange(callback: ((selectionStart: int, selectionEnd: int) => void) | undefined): this;
     /**
      * Set font feature.
      *
@@ -870,19 +870,19 @@ export declare interface TextMarqueeOptions {
     /**
      * The step size of the marquee.
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    step?: number;
+    step?: double;
     /**
      * The rounds of the marquee.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    loop?: number;
+    loop?: int;
     /**
      * The running direction of the marquee.
      *
@@ -894,11 +894,11 @@ export declare interface TextMarqueeOptions {
     /**
      * The waiting time between each round of the marquee.
      *
-     * @type { ?number }
+     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    delay?: number;
+    delay?: int;
     /**
      * Set whether the text is faded out.
      *

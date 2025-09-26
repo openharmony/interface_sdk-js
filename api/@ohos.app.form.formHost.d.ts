@@ -29,7 +29,7 @@ import formInfo from './@ohos.app.form.formInfo';
  * @namespace formHost
  * @syscap SystemCapability.Ability.Form
  * @systemapi
- * @since 9
+ * @since 9 dynamic
  */
 declare namespace formHost {
   /**
@@ -49,7 +49,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function addForm(want: Want): Promise<formInfo.RunningFormInfo>;
 
@@ -72,7 +72,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -95,7 +95,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function deleteForm(formId: string): Promise<void>;
 
@@ -119,7 +119,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -144,7 +144,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
@@ -169,7 +169,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
@@ -194,7 +194,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -219,7 +219,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function requestForm(formId: string): Promise<void>;
 
@@ -245,7 +245,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function requestFormWithParams(formId: string, wantParams?: Record<string, Object>): Promise<void>;
 
@@ -266,7 +266,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
@@ -287,7 +287,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function castToNormalForm(formId: string): Promise<void>;
 
@@ -308,7 +308,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -329,7 +329,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -350,7 +350,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -371,7 +371,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
@@ -393,7 +393,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -415,7 +415,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -438,7 +438,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -461,7 +461,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
@@ -475,7 +475,7 @@ declare namespace formHost {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function isSystemReady(callback: AsyncCallback<void>): void;
 
@@ -487,7 +487,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function isSystemReady(): Promise<void>;
 
@@ -505,7 +505,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -521,7 +521,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
@@ -541,7 +541,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
@@ -562,7 +562,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getFormsInfo(
     bundleName: string,
@@ -587,7 +587,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
@@ -607,7 +607,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12
+   * @since 12 dynamic
    */
   function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
@@ -628,7 +628,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<int>): void;
 
@@ -648,7 +648,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function deleteInvalidForms(formIds: Array<string>): Promise<int>;
 
@@ -669,7 +669,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
@@ -690,7 +690,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
@@ -705,7 +705,7 @@ declare namespace formHost {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function on(type: 'formUninstall', callback: Callback<string>): void;
 
@@ -720,7 +720,7 @@ declare namespace formHost {
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function off(type: 'formUninstall', callback?: Callback<string>): void;
 
@@ -733,7 +733,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function on(type: 'formOverflow', callback: Callback<formInfo.OverflowRequest>): void;
 
@@ -746,7 +746,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function off(type: 'formOverflow', callback?: Callback<formInfo.OverflowRequest>): void;
 
@@ -760,7 +760,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function on(type: 'changeSceneAnimationState',
     callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
@@ -775,7 +775,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function off(type: 'changeSceneAnimationState',
     callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
@@ -789,7 +789,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
  
@@ -802,7 +802,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 20
+   * @since 20 dynamic
    */
   function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
 
@@ -824,7 +824,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
@@ -846,7 +846,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
@@ -868,7 +868,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsEnableUpdate(
     formIds: Array<string>,
@@ -894,7 +894,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 
@@ -915,7 +915,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -936,7 +936,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function shareForm(formId: string, deviceId: string): Promise<void>;
 
@@ -956,7 +956,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsPrivacyProtected(
     formIds: Array<string>,
@@ -980,7 +980,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 9
+   * @since 9 dynamic
    */
   function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 
@@ -1020,7 +1020,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
@@ -1060,7 +1060,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
-   * @since 11
+   * @since 11 dynamic
    */
   function acquireFormData(formId: string): Promise<Record<string, Object>>;
 
@@ -1083,7 +1083,7 @@ declare namespace formHost {
    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 11
+   * @since 11 dynamic
    */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
 
@@ -1106,7 +1106,7 @@ declare namespace formHost {
     * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
     * @syscap SystemCapability.Ability.Form
     * @systemapi
-    * @since 11
+    * @since 11 dynamic
     */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
 
@@ -1126,7 +1126,7 @@ declare namespace formHost {
     * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
     * @syscap SystemCapability.Ability.Form
     * @systemapi
-    * @since 11
+    * @since 11 dynamic
     */
   function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1146,7 +1146,7 @@ declare namespace formHost {
     * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
     * @syscap SystemCapability.Ability.Form
     * @systemapi
-    * @since 11
+    * @since 11 dynamic
     */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
 
@@ -1167,7 +1167,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function setPublishFormResult(formId: string, result: formInfo.PublishFormResult): void;
 
@@ -1187,7 +1187,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function setFormsRecyclable(formIds: Array<string>): Promise<void>;
 
@@ -1207,7 +1207,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1227,7 +1227,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function recycleForms(formIds: Array<string>): Promise<void>;
 
@@ -1247,7 +1247,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function recoverForms(formIds: Array<string>): Promise<void>;
 
@@ -1267,7 +1267,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @since 11 dynamic
    */
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1289,7 +1289,7 @@ declare namespace formHost {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 12
+   * @since 12 dynamic
    */
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 }

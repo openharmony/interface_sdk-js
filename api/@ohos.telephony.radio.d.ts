@@ -176,13 +176,21 @@ declare namespace radio {
    * Obtains radio access technology (RAT) of the registered network.
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { int } slotId - Indicates the card slot index number,
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { NetworkRadioTech } Returns the RAT of PS domain and CS domain of registered network.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 18 dynamic
+   * @since 20 static   
    */
-  function getRadioTechSync(slotId: number): NetworkRadioTech;
+  function getRadioTechSync(slotId: int): NetworkRadioTech;
 
   /**
    * Obtains the network state of the registered network.
@@ -1070,7 +1078,7 @@ declare namespace radio {
    * Turn on the radio service.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of turnOnRadio.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1084,14 +1092,15 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 20 static   
    */
-  function turnOnRadio(slotId: number, callback: AsyncCallback<void>): void;
+  function turnOnRadio(slotId: int, callback: AsyncCallback<void>): void;
 
   /**
    * Turn on the radio service.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { number } slotId - Indicates the card slot index number,
+   * @param { int } slotId - Indicates the card slot index number,
    * ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the turnOnRadio.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1105,8 +1114,9 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 20 static   
    */
-  function turnOnRadio(slotId?: number): Promise<void>;
+  function turnOnRadio(slotId?: int): Promise<void>;
 
   /**
    * Turn on the radio service.
@@ -1124,6 +1134,7 @@ declare namespace radio {
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
+   * @since 20 static    
    */
   function turnOnRadio(callback: AsyncCallback<void>): void;
 
@@ -1695,7 +1706,7 @@ declare namespace radio {
   /**
    * Indicates the preferred network.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2414,6 +2425,7 @@ declare namespace radio {
      * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
+     * @since 20 static     
      */
     isCaActive: boolean;
 
@@ -2480,7 +2492,7 @@ declare namespace radio {
   /**
    * Describes the nsa state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 20 static
@@ -2771,12 +2783,13 @@ declare namespace radio {
     /**
      * Indicates the cell global identification.
      *
-     * @type { number }
+     * @type { long }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
+     * @since 20 static     
      */
-    cgi: number;
+    cgi: long;
 
     /**
      * Indicates the physical cell identification.
@@ -3142,7 +3155,7 @@ declare namespace radio {
   /**
    * Obtains the option mode of NR.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3281,7 +3294,7 @@ declare namespace radio {
   /**
    * Obtains network information status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -3388,7 +3401,7 @@ declare namespace radio {
   /**
    * Obtains the network selection mode.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 20 static
@@ -3591,7 +3604,7 @@ declare namespace radio {
   /**
    * Enum for network capability type.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3622,7 +3635,7 @@ declare namespace radio {
   /**
    * Enum for network capability state.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic

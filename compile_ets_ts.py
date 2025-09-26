@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os
+import stat
 import subprocess
 import sys
 import argparse
@@ -29,8 +30,8 @@ INTEROP_ETS_LIST = ["api", "arkts", "kits"]
 OUTPUT_PATH = ''
 # 需要排除的文件
 CONFIG_JSON = "interface/sdk-js/compile_ets_ts.json"
-# ets1.2命名
-INTEROP_NAME = "ets1.2interop"
+# static命名
+INTEROP_NAME = "static-interop"
 
 
 def should_exclude(path, config):
@@ -50,31 +51,34 @@ def should_exclude(path, config):
     return False
 
 
-def walk_with_exclusions(root_dir, file_folder_dir, config_path = CONFIG_JSON):
+def walk_with_exclusions(root_dir, file_folder_dir, config_path=CONFIG_JSON):
     config = {}
     with open(os.path.join(root_dir, config_path), 'r') as f:
         config = json.load(f)
     for root, dirs, files in os.walk(file_folder_dir):
         # 从dirs列表中移除要排除的目录
-        dirs[:] = [d for d in dirs if not should_exclude(os.path.join(root, d), config)]
+        dirs[:] = [d for d in dirs if not should_exclude(
+            os.path.join(root, d), config)]
         # 过滤文件
-        filtered_files = [f for f in files if not should_exclude(os.path.join(root, f), config)]
+        filtered_files = [f for f in files if not should_exclude(
+            os.path.join(root, f), config)]
         yield root, dirs, filtered_files
 
 
 # 生成工具运行所需要的json文件
 def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path):
     global OUTPUT_PATH
-    OUTPUT_PATH = os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "dependence-json/ets_tool_config_json.json"))
+    OUTPUT_PATH = os.path.abspath(os.path.join(
+        out_interop_path, INTEROP_NAME, "dependence-json/ets_tool_config_json.json"))
     all_files = []
     for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, tool_dir):
         cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
         if len(cont_folder) != 0:
             if cont_folder[0] in INTEROP_ETS_LIST:
-                files = [os.path.join(dirpath, file) 
+                files = [os.path.join(dirpath, file)
                          for file in filenames]
                 all_files.extend(files)
-        else :
+        else:
             continue
     config = {
         # 需要处理的API声明文件
@@ -103,11 +107,13 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         # declgenBridgeCodePath是输出的ts产物
         "declgenBridgeCodePath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "bridge"))),
     }
-    
+
     try:
         out_path_dir = Path(OUTPUT_PATH).resolve()
         Path(out_path_dir).parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path_dir, 'w', encoding="utf-8") as f:
+        flags = os.O_WRONLY | os.O_CREAT
+        mode = stat.S_IWUSR | stat.S_IRUSR
+        with os.fdopen(os.open(out_path_dir, flags, mode), 'w', encoding="utf-8") as f:
             json.dump(config, f, indent=2, ensure_ascii=False)
         return str(out_path_dir)
     except Exception as e:
@@ -119,17 +125,19 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     # PANDA的依赖路径
     panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
-    tool_path = os.path.join(tool_dir, "build-tools/driver/build-system/dist/entry.js")
+    tool_path = os.path.join(
+        tool_dir, "build-tools/driver/build-system/dist/entry.js")
     node_path = os.path.abspath(node_path)
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
-        interop_path_declaration = os.path.join(out_interop_path, "ets1.2interop/declaration")
-        interop_path_bridge = os.path.join(out_interop_path, "ets1.2interop/bridge")
+        interop_path_declaration = os.path.join(out_interop_path, "static-interop/declaration")
+        interop_path_bridge = os.path.join(out_interop_path, "static-interop/bridge")
         os.makedirs(interop_path_declaration, exist_ok=True)
         os.makedirs(interop_path_bridge, exist_ok=True)
         cmd = [node_path, tool_path, config_json_path]
-        result = subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
+        result = subprocess.run(cmd, env=env, check=True,
+                                cwd=tool_dir, text=True, capture_output=True)
         with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
             f.write("=== Output from interop1.2 tool ===\n")
             f.write(result.stdout)
@@ -138,7 +146,8 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
         print(f"run_compile_ets_ts error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
     except Exception as e:
-        subprocess.run(cmd, env=env, check=True, cwd=tool_dir, text=True, capture_output=True)
+        subprocess.run(cmd, env=env, check=True, cwd=tool_dir,
+                       text=True, capture_output=True)
         print(f"run_compile_ets_ts: {str(e)}")
 
 
@@ -152,8 +161,10 @@ def run_compile_ets_ts_main():
     options = parser.parse_args()
     options.tool_dir = os.path.abspath(options.tool_dir)
     out_interop_path = os.path.abspath(options.output_interop_sdk)
-    config_json = build_ets_tool_config(options.root_build_dir, options.tool_dir, os.path.abspath(options.output_interface_sdk), out_interop_path)
-    run_compile_ets_ts(options.tool_dir, options.node_path, config_json, out_interop_path)
+    config_json = build_ets_tool_config(options.root_build_dir, options.tool_dir, os.path.abspath(
+        options.output_interface_sdk), out_interop_path)
+    run_compile_ets_ts(options.tool_dir, options.node_path,
+                       config_json, out_interop_path)
 
 
 if __name__ == "__main__":

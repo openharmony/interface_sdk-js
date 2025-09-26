@@ -31,7 +31,7 @@ export {
   InputMethodListDialog, PatternOptions, Pattern, PanelInfo, PanelType, PanelFlag
 };
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import inputMethod from '@ohos.inputMethod';
 import InputMethodSubtype from '@ohos.InputMethodSubtype';
 import { PanelInfo, PanelType, PanelFlag } from '@ohos.inputMethod.Panel';

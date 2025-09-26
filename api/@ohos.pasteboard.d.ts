@@ -146,6 +146,14 @@ declare namespace pasteboard {
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
 
   /**
+   * Indicates the callback for pasteboard content changes.
+   * @typedef { function } UpdateCallback
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @since 22 dynamic&static
+   */
+  type UpdateCallback = () => void;
+
+  /**
    * Creates a PasteData object for PasteData#MIMETYPE_TEXT_HTML.
    * @param { string } htmlText - To save the Html text content.
    * @returns { PasteData } Containing the contents of the clipboard content object.
@@ -1383,7 +1391,6 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 20 static
      */
     on(type: 'update', callback: () => void): void;
 
@@ -1396,9 +1403,26 @@ declare namespace pasteboard {
      *    2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamic
-     * @since 20 static
      */
     off(type: 'update', callback?: () => void): void;
+
+    /**
+     * Add a callback invoked when pasteboard content changes.
+     * @param { UpdateCallback } callback - the callback to add.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    onUpdate(callback: UpdateCallback): void;
+
+    /**
+     * Remove a callback invoked when pasteboard content changes.
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
+     *     that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     *     will be cleared.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 static
+     */
+    offUpdate(callback?: UpdateCallback): void;
 
     /**
      * Checks whether the data is remote.

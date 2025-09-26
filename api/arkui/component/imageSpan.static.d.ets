@@ -120,77 +120,77 @@ export declare interface ImageLoadResult {
     /**
      * The width of the image source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * The height of the image source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height: number;
+    height: double;
     /**
      * The width of the component source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentWidth: number;
+    componentWidth: double;
     /**
      * The height of the component source.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    componentHeight: number;
+    componentHeight: double;
     /**
      * The value of the status of the image being loaded successfully.
      * If the returned status value is 0, the image data is successfully loaded.
      * If the returned status value is 1, the image is successfully decoded.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    loadingStatus: number;
+    loadingStatus: double;
     /**
      * The width of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentWidth: number;
+    contentWidth: double;
     /**
      * The height of the picture that is actually drawn.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentHeight: number;
+    contentHeight: double;
     /**
      * The offset between image content and image component on the X-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentOffsetX: number;
+    contentOffsetX: double;
     /**
      * The offset between image content and image component on the Y-axis.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    contentOffsetY: number;
+    contentOffsetY: double;
 }
 
 /**
