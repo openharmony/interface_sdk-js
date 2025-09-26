@@ -53,7 +53,6 @@ declare namespace application {
    UNSPECIFIED = 0,
   /**
    * Indicates the preloading will be completed after the process creation is finished.
-   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
