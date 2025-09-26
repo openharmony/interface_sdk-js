@@ -33,9 +33,8 @@ import Context from './application/Context';
  */
 declare namespace application {
   /**
-   * Indicates the app prelpad type.
+   * Indicates the app preload type.
    * 
-   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
@@ -53,8 +52,7 @@ declare namespace application {
    */
    UNSPECIFIED = 0,
   /**
-   * Indicates no preloading has occurred or preload data has been cleared.
-   * 
+   * Indicates the preloading will be completed after the process creation is finished.
    * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -65,7 +63,6 @@ declare namespace application {
   /**
    * Indicates that the preloading will be completed after the ability stage creation is finished.
    * 
-   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
@@ -75,13 +72,12 @@ declare namespace application {
   /**
    * Indicates that the preloading will be completed after the window stage creation is finished.
    * 
-   * @enum { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
    * @arkts 1.1&1.2 
    */
-   TYPE_CREATE_WINDOW_STAGE = 3,
+   TYPE_CREATE_WINDOW_STAGE = 3
   }
   /**
    * Create a module context
@@ -228,18 +224,18 @@ declare namespace application {
    export function exitMasterProcessRole(): Promise<void>
 
   /**
-   * Obtains the prelod type of the current process
+   * Obtains the preload type of the current process
    * 
    * Note: The preload type data is cleared after the first `AbilityStage.onCreate()` finishes.
    * Subsequent calls will return `UNSPECIFIED`.
    * 
-   * @returns { AppPreloadType } The prelod type of the process.
+   * @returns { AppPreloadType } The preload type of the process.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 22
    * @arkts 1.1&1.2 
    */
-  export function getAppPreloadType(insertToHead: boolean): Promise<void>;
+  export function getAppPreloadType(): AppPreloadType;
 }
 
 export default application;
