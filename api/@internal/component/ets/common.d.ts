@@ -31628,7 +31628,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onWillStartDragging(handler: VoidCallback): T;
 
@@ -31654,7 +31654,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onDidStopDragging(handler: OnDidStopDraggingCallback): T;
 
@@ -31667,7 +31667,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onWillStartFling(handler: VoidCallback): T;
 
@@ -31680,7 +31680,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 21
    */
   onDidStopFling(handler: VoidCallback): T;
 
@@ -31857,7 +31857,7 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 21
  */
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
