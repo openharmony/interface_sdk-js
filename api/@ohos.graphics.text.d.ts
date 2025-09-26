@@ -772,14 +772,14 @@ declare namespace text {
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
    * @since 21
-   * @arkts 1.1&1.2
+   * @arkts 1.1
    */
   enum LineHeightStyle {
     /**
      * Use the font size as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     FONT_SIZE = 0,
 
@@ -787,7 +787,7 @@ declare namespace text {
      * Use the text height after shaping as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     FONT_HEIGHT = 1
   }
@@ -970,7 +970,7 @@ declare namespace text {
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     lineHeightMaximum?: double;
 
@@ -979,7 +979,7 @@ declare namespace text {
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     lineHeightMinimum?: double;
 
@@ -988,7 +988,7 @@ declare namespace text {
      * @type { ?LineHeightStyle } Line height scaling style.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     lineHeightStyle?: LineHeightStyle;
 
@@ -1110,7 +1110,7 @@ declare namespace text {
      * @type {  ?FontWidth  } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     fontWidth?: FontWidth;
   }
@@ -1438,7 +1438,7 @@ declare namespace text {
      * @type { ?double } It is double type data
      * @syscap SystemCapability.Graphics.Drawing
      * @since 21
-     * @arkts 1.1&1.2
+     * @arkts 1.1
      */
     lineSpacing?: double;
   }
