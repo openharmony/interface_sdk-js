@@ -769,6 +769,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @typedef { function } EnvDecorator
  * @param { string } value - key value input by the user
  * @returns { PropertyDecorator } Env decorator
+ * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
