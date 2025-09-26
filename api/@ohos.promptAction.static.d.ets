@@ -18,7 +18,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses } from './arkui/component/units';
+import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses, VoidCallback } from './arkui/component/units';
 import { AsyncCallback, Callback } from './@ohos.base';
 import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './arkui/component/common';
 import { CustomBuilder } from './arkui/component/builder';
@@ -753,35 +753,35 @@ declare namespace promptAction {
         /**
          * Callback function when the dialog appears.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20
          */
-        onDidAppear?: Callback<void>;
+        onDidAppear?: VoidCallback;
         /**
          * Callback function when the dialog disappears.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20
          */
-        onDidDisappear?: Callback<void>;
+        onDidDisappear?: VoidCallback;
         /**
          * Callback function before the dialog openAnimation starts.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20
          */
-        onWillAppear?: Callback<void>;
+        onWillAppear?: VoidCallback;
         /**
          * Callback function before the dialog closeAnimation starts.
          *
-         * @type { ?Callback<void> }
+         * @type { ?VoidCallback }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20
          */
-        onWillDisappear?: Callback<void>;
+        onWillDisappear?: VoidCallback;
         /**
          * Defines the customDialog's keyboard avoid mode
          *

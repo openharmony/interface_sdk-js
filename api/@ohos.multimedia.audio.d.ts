@@ -1071,6 +1071,26 @@ declare namespace audio {
      */
     NEARLINK = 31,
     /**
+     * Bluetooth device using the spp profile.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    BLUETOOTH_SPP = 33,
+    /**
+     * Nearlink port.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    NEARLINK_PORT = 34,
+    /**
+     * System private device. Applications can ignore this device since the device is private in system.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 22 dynamic&static
+     */
+    SYSTEM_PRIVATE = 200,
+    /**
      * Default device type.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9
@@ -9842,8 +9862,9 @@ declare namespace audio {
      * 2. {@link getAudioTime} and {@link getAudioTimeSync}.
      * 3. {@link getAudioTimestampInfo} and {@link getAudioTimestampInfoSync}
      * 4. {@link setDefaultOutputDevice}.
-     * Also, if the target is non-PLAYBACK, the audio route and interruption strategy of this renderer will not be
-     * affected by {@link AudioSessionManager}.
+     * Also, if the target is non-PLAYBACK:
+     * 1. The audio route and interruption strategy of this renderer will not be affected by {@link AudioSessionManager}.
+     * 2. {@link DeviceType} will be SYSTEM_PRIVATE.
      * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
      * @param { RenderTarget } target - Render target.
      * @returns { Promise<void> } Promise used to return the result.
@@ -10428,6 +10449,25 @@ declare namespace audio {
      * @useinstead OH_AVScreenCapture in native interface.
      */
     playbackCaptureConfig?: AudioPlaybackCaptureConfig;
+    /**
+     * Perfered input device for this audio capturer. The preferredInputDevice must be an input device, and
+     * the source type in {@link captureInfo} must be {@link SourceType#SOURCE_TYPE_RECONGITION} or
+     * {@link SourceType#SOURCE_TYPE_VOICE_TRANSCRIPTION}, otherwise this parameter will be ignored.
+     * If the user does not specify a device, the system automatically selects the recording device for
+     * the audio capturer. When the user specifies a prefer device to
+     * create a recongition or transcription recording,
+     * 1) If the prefer device is online, the current audiocapturer may use the preferred device for
+     * recording; if the prefer device goes offline during operation, the system automatically selects
+     * a recording device.
+     * 2) If the prefer device is offline, the system automatically selects a recording device;
+     * if the prefer device comes online during operation, it may switch to the prefer device for recording.
+     * Users can query the device which is in use by {@link AudioCapturer#getCurrentAudioCapturerChangeInfo}.
+     * @type { ?AudioDeviceDescriptor }
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**

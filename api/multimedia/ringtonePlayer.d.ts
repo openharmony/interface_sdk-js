@@ -27,23 +27,26 @@ import type media from '../@ohos.multimedia.media';
  * @typedef RingtoneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RingtoneOptions {
   /**
    * Ringtone volume.
-   * @type { number }
+   * @type { double }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  volume: number;
+  volume: double;
   /**
    * Loop value.
    * @type { boolean }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   loop: boolean;
 }
@@ -53,7 +56,8 @@ export interface RingtoneOptions {
  * @typedef RingtonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
- * @since 10
+ * @since arkts {'1.1':'10','1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export interface RingtonePlayer {
   /**
@@ -61,7 +65,8 @@ export interface RingtonePlayer {
    * @type { media.AVPlayerState }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly state: media.AVPlayerState;
 
@@ -70,7 +75,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<string> } callback - Callback used to return the title.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getTitle(callback: AsyncCallback<string>): void;
   /**
@@ -78,7 +84,8 @@ export interface RingtonePlayer {
    * @returns { Promise<string> } Promise used to return the title.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getTitle(): Promise<string>;
 
@@ -87,7 +94,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<audio.AudioRendererInfo> } callback - Callback used to return AudioRendererInfo value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getAudioRendererInfo(callback: AsyncCallback<audio.AudioRendererInfo>): void;
   /**
@@ -95,7 +103,8 @@ export interface RingtonePlayer {
    * @returns { Promise<audio.AudioRendererInfo> } Promise used to return AudioRendererInfo value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   getAudioRendererInfo(): Promise<audio.AudioRendererInfo>;
 
@@ -105,7 +114,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<void> } callback - Callback used to return configuration result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   configure(options: RingtoneOptions, callback: AsyncCallback<void>): void;
   /**
@@ -114,7 +124,8 @@ export interface RingtonePlayer {
    * @returns { Promise<void> } Promise used to return configuration result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   configure(options: RingtoneOptions): Promise<void>;
 
@@ -123,7 +134,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<void> } callback - Callback used to return the starting result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start(callback: AsyncCallback<void>): void;
   /**
@@ -131,7 +143,8 @@ export interface RingtonePlayer {
    * @returns { Promise<void> } Promise used to return the starting result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   start(): Promise<void>;
 
@@ -140,7 +153,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<void> } callback - Callback used to return the stopping result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stop(callback: AsyncCallback<void>): void;
   /**
@@ -148,7 +162,8 @@ export interface RingtonePlayer {
    * @returns { Promise<void> } Promise used to return the stopping result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   stop(): Promise<void>;
 
@@ -157,7 +172,8 @@ export interface RingtonePlayer {
    * @param { AsyncCallback<void> } callback - Callback used to return the releasing result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(callback: AsyncCallback<void>): void;
   /**
@@ -165,7 +181,8 @@ export interface RingtonePlayer {
    * @returns { Promise<void> } Promise used to return the releasing result.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   release(): Promise<void>;
 
@@ -180,7 +197,8 @@ export interface RingtonePlayer {
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 
@@ -193,7 +211,8 @@ export interface RingtonePlayer {
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 10
+   * @since arkts {'1.1':'10','1.2':'20'}
+   * @arkts 1.1&1.2
    */
   off(type: 'audioInterrupt'): void
 }

@@ -144,6 +144,18 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
   /**
+   * Sets the range of SVG parsing capabilities supported through enable switch.
+   *
+   * @param { Optional<boolean> } enable - Enable color filter support svg or not, the default value is false.
+   * @returns { ImageSpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  supportSvg2(enable: Optional<boolean>): ImageSpanAttribute;
+
+  /**
    * Sets a callback which is triggered when an exception occurs during image loading.
    * The field of "message" returned in the callback carries the detailed information of failed image loading.
    *

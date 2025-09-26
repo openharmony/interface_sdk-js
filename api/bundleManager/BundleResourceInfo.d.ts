@@ -18,9 +18,7 @@
  * @kit AbilityKit
  */
 
-/*** if arkts 1.1 */
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
-/*** endif */
 
 /**
  * Obtains resource information about a bundle
@@ -78,6 +76,18 @@ export interface BundleResourceInfo {
    * @since 12
    */
   readonly drawableDescriptor: DrawableDescriptor;
+
+  /**
+   * Indicates the drawable descriptor of this bundle icon
+   *
+   * @type { DrawableDescriptor | null }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 20
+   * @arkts 1.2
+   */
+  readonly drawableDescriptor: DrawableDescriptor | null;
 
   /**
    * Indicates the index of the bundle

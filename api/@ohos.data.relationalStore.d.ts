@@ -229,13 +229,13 @@ declare namespace relationalStore {
   /**
    * Indicates possible value types
    *
-   * @typedef { null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
+   * @typedef { null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint } ValueType
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
+  type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint;
 
   /**
    * Values in buckets are stored in key-value pairs
@@ -1669,10 +1669,11 @@ declare namespace relationalStore {
   /**
    * Describes the conflict resolutions to insert data into the table.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   enum ConflictResolution {
     /**
@@ -1725,7 +1726,8 @@ declare namespace relationalStore {
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 10
+     * @since arkts {'1.1':'10', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     ON_CONFLICT_REPLACE = 5
   }
@@ -3149,7 +3151,7 @@ declare namespace relationalStore {
      * The column name is passed as an input parameter.
      *
      * @param { string } columnName - Indicates the name of the specified column in the result set.
-     * @returns { number } The index of the specified column.
+     * @returns { int } The index of the specified column.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -3177,7 +3179,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getColumnIndex(columnName: string): number;
+    getColumnIndex(columnName: string): int;
 
     /**
      * Obtains the column name based on the specified column index.
@@ -3573,7 +3575,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     goToNextRow(): boolean;
 
@@ -3721,7 +3724,7 @@ declare namespace relationalStore {
      * The implementation class determines whether to throw an exception if the value of the specified column
      * in the current row is null or the specified column is not of the string type.
      *
-     * @param { number } columnIndex - Indicates the specified column index, which starts from 0.
+     * @param { int } columnIndex - Indicates the specified column index, which starts from 0.
      * @returns { string } The value of the specified column as a string.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3750,7 +3753,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    getString(columnIndex: number): string;
+    getString(columnIndex: int): string;
 
     /**
      * Obtains the value of the specified column in the current row as long.
@@ -4326,7 +4329,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     close(): void;
   }
@@ -4596,7 +4600,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { ValuesBucket } values - Indicates the row of data {@link ValuesBucket} to be inserted into the table.
      * @param { ConflictResolution } conflict - Indicates the {@link ConflictResolution} to insert data into the table.
-     * @returns { Promise<number> } The row ID if the operation is successful. return -1 otherwise.
+     * @returns { Promise<long> } The row ID if the operation is successful. return -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
@@ -4621,9 +4625,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
-    insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<number>;
+    insert(table: string, values: ValuesBucket, conflict: ConflictResolution): Promise<long>;
 
     /**
      * Inserts a row of data into the target table with sync interface.
@@ -4798,7 +4803,7 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the target table.
      * @param { Array<ValuesBucket> } values -
      * Indicates the rows of data {@link ValuesBucket} to be inserted into the table.
-     * @returns { Promise<number> } The number of values that were inserted if the operation is successful.
+     * @returns { Promise<long> } The number of values that were inserted if the operation is successful.
      * returns -1 otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4827,7 +4832,7 @@ declare namespace relationalStore {
      * @since arkts {'1.1':'12', '1.2':'20'}
      * @arkts 1.1&1.2
      */
-    batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
+    batchInsert(table: string, values: Array<ValuesBucket>): Promise<long>;
 
     /**
      * Inserts a batch of data into the target table.
@@ -6071,7 +6076,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
@@ -6732,7 +6738,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 14800034 - SQLite: Library used incorrectly.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @since 12
+     * @since arkts {'1.1':'12', '1.2':'20'}
+     * @arkts 1.1&1.2
      */
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
@@ -8339,6 +8346,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
      * @since 20
+     * @arkts 1.1&1.2
      */
     close(): Promise<void>;
 
@@ -9521,7 +9529,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14801002 - Invalid data group ID.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
-   * @since 12
+   * @since arkts {'1.1':'12', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function deleteRdbStore(context: Context, config: StoreConfig): Promise<void>;
 

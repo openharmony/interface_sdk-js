@@ -10756,3 +10756,42 @@ declare enum AnimationPropertyType {
    */
   OPACITY = 3,
 }
+
+/**
+ * Define the axis type of axis event.
+ *
+ * @enum {number}
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice
+ * @since 21
+ */
+declare enum AxisType {
+  /**
+   * Indicates the vertical scoll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
+   * the status of the vertical scoll axis changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  VERTICAL_AXIS = 0,
+
+  /**
+   * Indicates the horizontal scoll axis. When you make certain gestures on the touchpad,
+   * the status of the horizontal scroll axis changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  HORIZONTAL_AXIS = 1,
+
+  /**
+   * Indicates the pinch axis, which is used to describe a pinch gesture on the touchpad.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice
+   * @since 21
+   */
+  PINCH_AXIS = 2,
+}

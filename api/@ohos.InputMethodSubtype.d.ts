@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,7 +23,8 @@
  *
  * @interface InputMethodSubtype
  * @syscap SystemCapability.MiscServices.InputMethodFramework
- * @since 9
+ * @since arkts {'1.1':'9', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
 export default interface InputMethodSubtype {
   /**
@@ -32,19 +33,21 @@ export default interface InputMethodSubtype {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly label?: string;
 
   /**
    * The label id of input method subtype.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly labelId?: number;
+  readonly labelId?: double;
 
   /**
    * The name of input method.
@@ -52,7 +55,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly name: string;
 
@@ -62,7 +66,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly id: string;
 
@@ -72,7 +77,8 @@ export default interface InputMethodSubtype {
    * @type { ?('upper' | 'lower') }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly mode?: 'upper' | 'lower';
 
@@ -82,7 +88,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly locale: string;
 
@@ -92,7 +99,8 @@ export default interface InputMethodSubtype {
    * @type { string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly language: string;
 
@@ -102,19 +110,21 @@ export default interface InputMethodSubtype {
    * @type { ?string }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   readonly icon?: string;
 
   /**
    * The icon id of input method subtype.
    *
-   * @type { ?number }
+   * @type { ?double }
    * @readonly
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 9
+   * @since arkts {'1.1':'9', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  readonly iconId?: number;
+  readonly iconId?: double;
 
   /**
    * The extra info of input method subtype.
@@ -128,7 +138,8 @@ export default interface InputMethodSubtype {
    *
    * @type { ?object }
    * @syscap SystemCapability.MiscServices.InputMethodFramework
-   * @since 10
+   * @since arkts {'1.1':'10', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   extra?: object;
 }

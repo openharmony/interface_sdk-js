@@ -207,6 +207,17 @@ export interface WantAgentInfo {
    * @arkts 1.1&1.2
    */
   extraInfos?: Record<string, Object>;
+
+  /**
+   * Indicates the target user upon whom the WantAgent takes effect.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 22 dynamic&static
+   */
+  userId?: int;
 }
 
 /**
