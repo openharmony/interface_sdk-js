@@ -1121,11 +1121,12 @@ export declare interface IStateMgmtFactory {
    * 
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when monitor triggers
+   * @param { ExtendableComponent } [owningView] - custom component
    * @returns { IMonitorDecoratedVariable } Monitor variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
+   * @since 22 static
    */
-  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback): IMonitorDecoratedVariable;
+  makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owningView?: ExtendableComponent): IMonitorDecoratedVariable;
 }
 
 
@@ -1267,6 +1268,15 @@ export declare interface IComputedDecoratedVariable<T> {
      * @since 20 static
      */
     get(): T;
+
+    /**
+     * Set owner for the computed variable. Used to detect component freezing.
+     *
+     * @param { ExtendableComponent } owningView - customComponent
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    setOwner(owningView: ExtendableComponent): void;
 }
 
 /**
