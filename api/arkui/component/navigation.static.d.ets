@@ -291,47 +291,84 @@ export declare class NavPathInfo {
     /**
      * The name of NavDestination.
      *
-     * @type { string }
+     * @returns { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    name: string;
+    get name(): string;
+
+    /**
+     * Set the name of NavDestination.
+     *
+     * @param { string }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    set name(name: string);
 
     /**
      * The detailed parameter of the NavDestination.
      *
-     * @type { ?(Object | null | undefined) }
+     * @returns { Object | null | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    param?: Object | null | undefined;
+    get param(): Object | null | undefined;
+
+    /**
+     * Set the detailed parameter of the NavDestination, default value is undefined,
+     *      null is also a meaningful input parameter.
+     *
+     * @param { Object | null | undefined }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    set param(param: Object | null | undefined);
 
     /**
      * The callback when next page returns.
      *
-     * @type { ?Callback<PopInfo> }
+     * @returns { Callback<PopInfo> | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onPop?: Callback<PopInfo>;
+    get onPop(): Callback<PopInfo> | undefined;
+
+    /**
+     * Set the callback when next page returns, the default value is nullptr, undefined means set to default value.
+     *
+     * @param { Callback<PopInfo> | undefined }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    set onPop(onPop: Callback<PopInfo> | undefined);
 
     /**
      * Indicates whether it is an entry destination.
      *
-     * @type { ?boolean }
+     * @returns { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    isEntry?: boolean;
+    get isEntry(): boolean | undefined;
+
+    /**
+     * Set whether it is an entry destination, the default value is false, undefined means set to default value.
+     *
+     * @param { boolean | undefined }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    set isEntry(isEntry: boolean | undefined);
 
     /**
      * The unique id of NavDestination.
      *
-     * @type { ?string }
+     * @returns { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    navDestinationId?: string;
+    get navDestinationId(): string | undefined;
 }
 
 /**
