@@ -138,4 +138,23 @@ export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
 export declare function transferCompatibleUpdatableBuilder<T extends Object>(
     builder: CompatibleUpdatableBuilder<T>
 ): ESValue;
- 
+
+/**
+ * Enable compatible ObservedV2 for Dynamic
+ * 
+ * @param { T } value - the source value
+ * @returns { T } the result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 staticonly
+ */
+export declare function enableCompatibleObservedV2ForDynamic<T>(value: T): T;
+
+/**
+ * Enable compatible ObservedV2 for Static
+ * 
+ * @param { T } value - the source value
+ * @returns { T } the result
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 22 staticonly
+ */
+export declare function enableCompatibleObservedV2ForStatic<T>(value: T): T;
