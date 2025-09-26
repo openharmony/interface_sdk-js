@@ -31,9 +31,15 @@ import { ConnectOptions } from '../ability/connectOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 14
+ * @since arkts {'1.1':'14', '1.2':'20'}
+ * @arkts 1.1&1.2
  */
+/*** if arkts 1.1 */
 export default class UIServiceExtensionContext extends ExtensionContext {
+/*** endif */
+/*** if arkts 1.2 */
+declare class UIServiceExtensionContext extends ExtensionContext {
+/*** endif */
   /**
    * UI service extension uses this method to start a specific ability.If the caller application is in foreground,
    * you can use this method to start ability; If the caller application is in the background,
@@ -67,7 +73,8 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -78,7 +85,8 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
 
@@ -98,7 +106,8 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startAbilityByType(type: string, wantParam: Record<string, Object>,
     abilityStartCallback: AbilityStartCallback): Promise<void>;
@@ -115,7 +124,7 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - Indicates the service extension to connect.
    * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { number } Returns the connection id.
+   * @returns { long } Returns the connection id.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -133,14 +142,15 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  connectServiceExtensionAbility(want: Want, options: ConnectOptions): number;
+  connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
    * Disconnect an ability from a service extension, in contrast to {@link connectServiceExtensionAbility}.
    *
-   * @param { number } connectionId - the connection id returned from connectServiceExtensionAbility api.
+   * @param { long } connectionId - the connection id returned from connectServiceExtensionAbility api.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -149,7 +159,12 @@ export default class UIServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
-  disconnectServiceExtensionAbility(connectionId: number): Promise<void>;
+  disconnectServiceExtensionAbility(connectionId: long): Promise<void>;
 }
+
+/*** if arkts 1.2 */
+export default UIServiceExtensionContext;
+/*** endif */

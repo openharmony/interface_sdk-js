@@ -41,7 +41,10 @@ import { Caller } from '../@ohos.app.ability.UIAbility';
 import type AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import type AbilityStartCallback from './AbilityStartCallback';
-
+/*** if arkts 1.2 */
+import UIServiceProxy from './UIServiceProxy';
+import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallback';
+/*** endif */
 /**
  * The context of an ability. It allows access to ability-specific resources.
  *
@@ -4758,7 +4761,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   startUIServiceExtensionAbility(want: Want): Promise<void>;
 
@@ -4787,7 +4791,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>;
 
@@ -4803,7 +4808,8 @@ declare class UIAbilityContext extends Context {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 14
+   * @since arkts {'1.1':'14', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
