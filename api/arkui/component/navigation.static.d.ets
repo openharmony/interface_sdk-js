@@ -1342,16 +1342,6 @@ export declare interface NavigationAttribute extends CommonMethod {
     default mode(value: NavigationMode | undefined): this;
 
     /**
-     * Sets the back button icon.
-     *
-     * @param { string | PixelMap | Resource | SymbolGlyphModifier | undefined } value
-     * @returns { NavigationAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier | undefined): this;
-
-    /**
      * Sets the back button icon and accessibility broadcast content.
      *
      * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
@@ -1424,16 +1414,6 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @since 20 static
      */
     default titleMode(value: NavigationTitleMode | undefined): this;
-
-    /**
-     * Navigation title bar's menus
-     *
-     * @param { Array<NavigationMenuItem> | CustomBuilder | undefined } value
-     * @returns { NavigationAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default menus(value: Array<NavigationMenuItem> | CustomBuilder | undefined): this;
 
     /**
      * Navigation title bar's menus
