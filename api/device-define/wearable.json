@@ -189,6 +189,11 @@
     "SystemCapability.Location.Location.Gnss",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
-    "SystemCapability.FileManagement.File.FileIO"
+    "SystemCapability.FileManagement.File.FileIO",
+    "SystemCapability.Base",
+    "SystemCapability.Startup.SystemInfo",
+    "SystemCapability.Multimedia.Media.Core",
+    "SystemCapability.Communication.SoftBus.Core",
+    "SystemCapability.Security.CertificateManager"
   ]
 }
