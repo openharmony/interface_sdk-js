@@ -93,7 +93,7 @@ export declare interface StackAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Stack(
-    options?: StackOptions, 
+    options?: StackOptions,
     @memo
     content_?: () => void,
 ): StackAttribute
