@@ -338,6 +338,14 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     BURST = 4,
+    /**
+     * Spatial 3DGS Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    SPATIAL_3DGS = 7,
   }
 
   /**
