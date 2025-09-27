@@ -550,8 +550,6 @@ declare namespace appManager {
    * @param { int } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 22 static
@@ -1457,7 +1455,7 @@ declare namespace appManager {
   function killProcessesInBatch(pids: Array<int>): Promise<void>;
 
   /**
-   * The ability or extension state data.
+   * The ability state data.
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -205,7 +205,6 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
  *
  * @enum { string }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamiconly
