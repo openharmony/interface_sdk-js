@@ -39,22 +39,22 @@ declare class AppStateData {
   /**
    * The uid.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 20 static
    */
-  uid: number;
+  uid: int;
 
   /**
    * The application state.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic
    * @since 20 static
    */
-  state: number;
+  state: int;
 
   /**
    * Indicates whether the application has splitted screens.

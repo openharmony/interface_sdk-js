@@ -111,13 +111,13 @@ export interface WantAgentInfo {
   /**
    * Request code defined by the user.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
    * @since 20 static
    */
-  requestCode: number;
+  requestCode: int;
 
   /**
    * An array of flags for using the WantAgent.
@@ -255,12 +255,12 @@ export interface LocalWantAgentInfo {
   /**
    * Request code defined by the user.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
    */
-  requestCode: number;
+  requestCode: int;
 }
 
