@@ -5939,7 +5939,20 @@ declare namespace cert {
      * @since arkts {'1.1':'12','1.2':'20'}
      * @arkts 1.1&1.2
      */
-    REVOCATION_CHECK_OPTION_FALLBACK_LOCAL
+    REVOCATION_CHECK_OPTION_FALLBACK_LOCAL,
+
+    /**
+     * When performing online OCSL or online CRL verification of certificate revocation status, it will also attempt to
+     * perform online revocation status checks on intermediate CA certificates. The OCSP address will be obtained from
+     * the AIA extension of the intermediate CA certificate, and the CRL address will be obtained from the CDP
+     * extension. If the address does not exist, it will be skipped.
+     *
+     * @syscap SystemCapability.Security.Cert
+     * @crossplatform
+     * @atomicservice
+     * @since 22
+     */
+    REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5
   }
 
   /**
