@@ -9080,6 +9080,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImageProperties(records: Record<PropertyKey, string|null>): Promise<void>;
 
     /**
+     * Modify the value of properties in an image with the specified keys. The method is more efficient than
+     * modifyImageProperties, as it completes batch data modifications in memory with a single write operation
+     * to the file.
+     *
+     * @param { Record<PropertyKey, string|null> } records - Property Records whose values are to be modified,
+     *     when the value is set to null the tag will be removed.
+     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
+     *     an error message is returned.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
+     *     or the property value is invalid.
+     * @throws { BusinessError } 7700304 - Failed to write image properties to the file.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @since 22 dynamic&static
+     */
+    modifyImagePropertiesEnhanced(records: Record<PropertyKey, string | null>): Promise<void>;
+
+    /**
      * Update the data in the incremental ImageSource.
      *
      * @param { ArrayBuffer } buf The data to be updated.
