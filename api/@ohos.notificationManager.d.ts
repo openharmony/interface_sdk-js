@@ -4123,7 +4123,8 @@ declare namespace notificationManager {
    * <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
-   * @since 18
+   * @since arkts {'1.1':'18', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   function setTargetDeviceStatus(deviceType: string, status: long): Promise<void>;
 
