@@ -4025,8 +4025,8 @@ declare namespace window {
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
    * @param { Array<number> } windowId - List of main window IDs to be obtained.
    * @param { WindowSnapshotConfiguration } config - Configuration for getting windows' snapshot.
-   * @returns { Promise<Array<image.PixelMap>> } The list of snapshot PixelMaps,
-   *     arranged in the order of the provided window ID array.
+   * @returns { Promise<Array<image.PixelMap | undefined>> } The list of snapshot PixelMaps,
+   *     arranged in the order of the provided window ID array. If window not found or not main window, will return undefined.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -4034,7 +4034,8 @@ declare namespace window {
    * @since 21
    * @arkts 1.1&1.2
    */
-  function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration): Promise<Array<image.PixelMap>>;
+  function getMainWindowSnapshot(windowId: Array<number>, config: WindowSnapshotConfiguration):
+    Promise<Array<image.PixelMap | undefined>>;
 
   /**
    * Display orientation
