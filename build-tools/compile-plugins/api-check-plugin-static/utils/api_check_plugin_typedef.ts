@@ -77,6 +77,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   runtimeOS: string;
   dependentModuleList: DependentModuleConfig[];
   entryFiles: string[];
+  getHvigorConsoleLogger: Function;
 }
 
 export interface ApiCheckConfig {
@@ -173,4 +174,10 @@ export interface CardForm {
 
 export interface CardConfig {
   forms: CardForm[];
+}
+
+export interface Logger {
+  printInfo(message: string): void;
+  printWarn(message: string): void;
+  printDebug(message: string): void;
 }
