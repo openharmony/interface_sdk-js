@@ -639,7 +639,7 @@ declare namespace media {
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice
-   * @since 21
+   * @since 21 dynamic
    */
   function createAVTranscoder(): Promise<AVTranscoder>;
 
@@ -3628,8 +3628,7 @@ declare namespace media {
      * It reports a **MediaKeySystemInfo** array.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -5927,7 +5926,8 @@ declare namespace media {
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
+     * @since 12 dynamic
+     * @since 20 static
      * @example
      * import { BusinessError } from '@kit.BasicServicesKit';
      *
@@ -5960,7 +5960,6 @@ declare namespace media {
      *     console.info('Succeeded in preparing');
      *   }
      * })
-     * @arkts 1.1&1.2
      */
     prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void;
 
@@ -8724,15 +8723,15 @@ declare namespace media {
      * A video container format type mp4.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * A video container format type mp4.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic&static
      */
     CFT_MPEG_4 = 'mp4',
 
@@ -10275,15 +10274,15 @@ declare namespace media {
      * H.264 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * H.264 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic&static
      */
     VIDEO_AVC = 'video/avc',
     /**
@@ -10379,15 +10378,15 @@ declare namespace media {
      * H.265 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
-     * @since arkts {'1.1':'12','1.2':'20'}
-     * @arkts 1.1&1.2
+     * @since 12 dynamic
+     * @since 20 static
      */
     /**
      * H.265 codec MIME type.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform
      * @atomicservice
-     * @since 21
+     * @since 21 dynamic&static
      */
     VIDEO_HEVC = 'video/hevc',
     /**
