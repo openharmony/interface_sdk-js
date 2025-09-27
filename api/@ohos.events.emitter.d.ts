@@ -831,7 +831,6 @@ declare namespace emitter {
      *
      * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
      * @since 11
      */
     /**
