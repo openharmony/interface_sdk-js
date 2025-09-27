@@ -1630,7 +1630,7 @@ export interface OverlayManagerOptions {
    */
   renderRootOverlay?: boolean;
 
-/**
+  /**
    * Set whether support backPressed event or not.
    *
    * @type { ?boolean }
