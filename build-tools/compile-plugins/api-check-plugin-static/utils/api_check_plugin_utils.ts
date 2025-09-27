@@ -30,7 +30,8 @@ import {
   ExtensionAbilities,
   ModuleJson,
   CardConfig,
-  CardForm
+  CardForm,
+  Logger
 } from './api_check_plugin_typedef';
 import {
   MESSAGE_CONFIG_COLOR_ERROR,
@@ -534,7 +535,8 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     sdkConfigPaths: '',
     initApiCheckTag: true,
     dependentModuleList: [],
-    entryFiles: []
+    entryFiles: [],
+    getHvigorConsoleLogger: () => {}
   };
 }
 
@@ -944,7 +946,7 @@ export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem
 export function pushLog(apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
   logLevel: DiagnosticCategory, logMessage: string): void {
   // 组装文件全路径
-  const fileFullPath: string = currentFilePath + `(${currentAddress.line}:${currentAddress.column}).`;
+  const fileFullPath: string = `${currentFilePath}:${currentAddress.line}:${currentAddress.column}).`;
   // 替换api名称
   logMessage = logMessage.replace('{0}', apiName);
   // 打印日志信息
@@ -959,14 +961,13 @@ export function pushLog(apiName: string, currentFilePath: string, currentAddress
  * @param { DiagnosticCategory } level 日志级别
  */
 function printMessage(fileInfo: string, message: string, level: DiagnosticCategory): void {
-  let messageHead: string = MESSAGE_CONFIG_HEADER_WARNING;
-  let messageColor: string = MESSAGE_CONFIG_COLOR_WARNING;
-  if (level === DiagnosticCategory.ERROR) {
-    messageHead = MESSAGE_CONFIG_HEADER_ERROR;
-    messageColor = MESSAGE_CONFIG_COLOR_ERROR;
+  const logger: Logger = globalObject.projectConfig.getHvigorConsoleLogger();
+  // 当前只涉及WARNING的告警
+  if (level === DiagnosticCategory.WARNING) {
+    logger.printWarn(
+      `${MESSAGE_CONFIG_HEADER_WARNING}${fileInfo}\n ${message}\n`
+    );
   }
-  // TODO: 待工具链日志输出方式确认后同步适配
-  console.info(`%c${messageHead}${fileInfo}\n ${message}`, messageColor);
 }
 
 /**
