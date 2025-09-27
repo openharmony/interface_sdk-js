@@ -11211,6 +11211,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @arkts 1.1&1.2
    */
   forceEnableZoom(enable: boolean): WebAttribute;
+
+  /**
+   * Set whether to enable the back-to-top feature for web component when the status bar is touched.
+   *
+   * @param { boolean } backToTop {@code true} means enable the back-to-top feature,
+   *     when the status bar is touched. {@code false} otherwise. The default value is true.
+   *     True when passing in undefined and null.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  backToTop(backToTop: boolean): WebAttribute;
 }
 
 /**
