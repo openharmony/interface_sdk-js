@@ -338,7 +338,7 @@ export declare enum BorderStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  Dotted = 0,
+  Dotted = 2,
 
   /**
    * Shows as a series of short square dashed lines.
@@ -354,7 +354,7 @@ export declare enum BorderStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  Solid = 2
+  Solid = 0
 }
 
 /**
