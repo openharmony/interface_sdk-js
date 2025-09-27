@@ -18,21 +18,12 @@
  * @kit ArkUI
  */
 import Want from '../../@ohos.app.ability.Want';
-import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
+import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContent } from '../ComponentContent';
 import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
-
-/**
- * Defines RecordData.
- * 
- * @typedef { undefined | null | Object | Record<string, RecordData> | Array<RecordData> } RecordData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 20 static
- */
-export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
+import { VoidCallback } from './units';
 
 /**
  * Enumeration of different types of DpiFollowStrategy.
@@ -290,13 +281,13 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
     /**
      * Callback called when the UIExtensionAbility draw the first frame.
-     * @param { Callback<void> | undefined } callback
+     * @param { VoidCallback | undefined } callback
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 20 static
      */
-    onDrawReady(callback: Callback<void> | undefined): this;
+    onDrawReady(callback: VoidCallback | undefined): this;
 
     /**
      * Set the attribute modifier of UIExtensionComponent Component.
