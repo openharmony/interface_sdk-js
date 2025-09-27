@@ -11057,13 +11057,13 @@ declare namespace window {
     setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise<KeyFramePolicy>;
   
     /**
-     * Checks whether in free window mode.
+     * Check if the current device is in free window mode.
      *
-     * @returns { boolean } - whether in free window mode.
+     * @returns { boolean } - if the current device is in free window mode.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 22
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static & dynamic
      */
     isInFreeWindowMode(): boolean;
  
@@ -11071,12 +11071,11 @@ declare namespace window {
      * free window mode change callback on.
      * 
      * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange', indicating the free window mode change.
-     * @param { Callback<boolean> } callback Callback used to return the result whether the window in free window mode. 
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device is in free window mode. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 dynamic
      */
     on(type: 'freeWindowModeChange', callback: Callback<boolean>): void;
  
@@ -11084,14 +11083,37 @@ declare namespace window {
      * free window mode change callback off.
      *
      * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange', indicating the free window mode change.
-     * @param { Callback<boolean> } callback Callback used to return the result whether the window is free window mode.
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device is in free window mode. 
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 22
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 dynamic
      */
     off(type: 'freeWindowModeChange', callback?: Callback<boolean>): void;
+
+    /**
+     * free window mode change callback on.
+     * 
+     * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange', indicating the free window mode change.
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device is in free window mode. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onFreeWindowModeChange(callback: Callback<boolean>): void;
+ 
+    /**
+     * free window mode change callback off.
+     *
+     * @param { 'freeWindowModeChange' } type The value is fixed at 'freeWindowModeChange', indicating the free window mode change.
+     * @param { Callback<boolean> } callback Callback used to return the result if the current device is in free window mode. 
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offFreeWindowModeChange(callback?: Callback<boolean>): void;
   }
 
   /**
