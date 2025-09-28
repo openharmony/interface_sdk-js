@@ -780,9 +780,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
      */
     header?: Object;
+    /**
+     * Adds an HTTP or HTTPS header to be included with the download request.
+     *
+     * @type { ?Record<string, string> }
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 20 static
+     */
+    header?: Record<string, string>;
     /**
      * Allows download under a metered connection.
      *
@@ -2174,9 +2181,16 @@ declare namespace request {
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform
      * @since 10 dynamic
-     * @since 20 static
      */
     header: Object;
+    /**
+     * Adds an HTTP or HTTPS header to be included with the upload request.
+     *
+     * @type { Record<string, string> }
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 20 static
+     */
+    header: Record<string, string>;
     /**
      * Request method: POST, PUT. The default POST.
      *
@@ -3169,9 +3183,16 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
        */
       extras?: object;
+      /**
+       * The extras for the file information.
+       *
+       * @type { ?Record<string, string> }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20 static
+       */
+      extras?: Record<string, string>;
     }
 
     /**
@@ -3550,9 +3571,18 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
        */
       headers?: object;
+      /**
+       * The HTTP headers.
+       * For upload request, the `Content-Type` is forced to `multipart/form-data`.
+       * For download request, the default `Content-Type` is `application/json`.
+       *
+       * @type { ?Record<string, string> }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20 static
+       */
+      headers?: Record<string, string>;
       /**
        * The arguments, it can be any text, uses json usually.
        * For download, it can be raw string, the default is empty string.
@@ -3917,9 +3947,16 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
        */
       extras?: object;
+      /**
+       * The extras for the configuration.
+       *
+       * @type { ?Record<string, string> }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20 static
+       */
+      extras?: Record<string, string>;
       /**
        * Use a single request to upload multiple files.
        * If true, use the form format to merge multiple files into one request.
@@ -4261,9 +4298,22 @@ declare namespace request {
        * @crossplatform
        * @atomicservice
        * @since 11 dynamic
-       * @since 20 static
        */
       readonly extras?: object;
+      /**
+       * The extras for an interaction.
+       * Such as headers and body of response from server.
+       * But when the Content-Disposition header responded,
+       * <br>the body will be into the uri of its attachment only, the body here is empty.
+       * {"headers": {"key": v}, "body": "contents"}.
+       * The "body" field is not supported in cross-platform scenarios.
+       *
+       * @type { ?Record<string, string> }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20 static
+       */
+      readonly extras?: Record<string, string>;
     }
 
     /**
@@ -4934,9 +4984,18 @@ declare namespace request {
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @since 11 dynamic
-       * @since 20 static
        */
       readonly extras?: object;
+      /**
+       * The extras of a task.
+       * For frontend, nothing now.
+       *
+       * @type { ?Record<string, string> }
+       * @readonly
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 20 static
+       */
+      readonly extras?: Record<string, string>;
     }
 
     /**
