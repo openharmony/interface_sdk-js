@@ -30,8 +30,9 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20
+ * @arkts 1.1&1.2
  */
-export default class AppServiceExtensionContext extends ExtensionContext {
+declare class AppServiceExtensionContext extends ExtensionContext {
   /**
   * Connects the current ability to a service extension ability.
    * If the target service extension ability is invisible,
@@ -52,6 +53,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number;
 
@@ -65,6 +67,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   disconnectServiceExtensionAbility(connection: number): Promise<void>;
 
@@ -102,6 +105,7 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   startAbility(want: Want, options?: StartOptions): Promise<void>;
 
@@ -115,6 +119,8 @@ export default class AppServiceExtensionContext extends ExtensionContext {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   terminateSelf(): Promise<void>;
 }
+export default AppServiceExtensionContext;

@@ -19,9 +19,9 @@
  */
 
 import UIAbility from './@ohos.app.ability.UIAbility';
-import dataAbility from './@ohos.data.dataAbility';
 import window from './@ohos.window';
 
+/*** if arkts 1.1 */
 /**
  * The ability lifecycle callback.
  *
@@ -47,6 +47,22 @@ import window from './@ohos.window';
  * @since 11
  */
 export default class AbilityLifecycleCallback {
+/*** endif */
+
+/*** if arkts 1.2 */
+/**
+ * The ability lifecycle callback.
+ *
+ * @typedef AbilityLifecycleCallback
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @StageModelOnly
+ * @crossplatform
+ * @atomicservice
+ * @since 20
+ * @arkts 1.2
+ */
+declare interface AbilityLifecycleCallback {
+/*** endif */
   /**
    * Called back when an ability is started for initialization.
    *
@@ -72,7 +88,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityCreate(ability: UIAbility): void;
 
@@ -115,7 +132,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -223,7 +241,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void;
 
@@ -264,7 +283,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityDestroy(ability: UIAbility): void;
 
@@ -304,7 +324,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityForeground(ability: UIAbility): void;
 
@@ -344,7 +365,8 @@ export default class AbilityLifecycleCallback {
    * @StageModelOnly
    * @crossplatform
    * @atomicservice
-   * @since 11
+   * @since arkts {'1.1':'11', '1.2':'20'}
+   * @arkts 1.1&1.2
    */
   onAbilityBackground(ability: UIAbility): void;
 
@@ -435,3 +457,7 @@ export default class AbilityLifecycleCallback {
    */
   onAbilitySaveState?(ability: UIAbility): void;
 }
+
+/*** if arkts 1.2 */
+export default AbilityLifecycleCallback;
+/*** endif */

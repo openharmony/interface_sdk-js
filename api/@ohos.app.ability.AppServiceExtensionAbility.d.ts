@@ -30,8 +30,9 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 20
+ * @arkts 1.1&1.2
  */
-export default class AppServiceExtensionAbility extends ExtensionAbility {
+declare class AppServiceExtensionAbility extends ExtensionAbility {
   /**
    * Indicates app service extension ability context.
    *
@@ -39,6 +40,7 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   context: AppServiceExtensionContext;
 
@@ -49,6 +51,7 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onCreate(want: Want): void;
 
@@ -58,6 +61,7 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onDestroy(): void;
 
@@ -70,6 +74,7 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onRequest(want: Want, startId: number): void;
 
@@ -81,6 +86,7 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onConnect(want: Want): rpc.RemoteObject;
 
@@ -91,6 +97,8 @@ export default class AppServiceExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20
+   * @arkts 1.1&1.2
    */
   onDisconnect(want: Want): void;
 }
+export default AppServiceExtensionAbility;
