@@ -4833,7 +4833,7 @@ declare namespace wifiManager {
    * @throws {BusinessError} 2501001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
-   * @since 20
+   * @since 21
    * @arkts 1.1&1.2
    */
   function startWifiDetection(): void;
