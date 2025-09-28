@@ -97,6 +97,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @returns { boolean } Whether the modes of continuous task are supported.
      * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21
      */
