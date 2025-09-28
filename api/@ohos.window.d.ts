@@ -11936,7 +11936,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     /**
@@ -11950,7 +11950,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -11965,7 +11965,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -11996,7 +11996,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @since 9
      */
     /**
@@ -12009,7 +12009,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @crossplatform
      * @since 10
      */
@@ -12025,7 +12025,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @stagemodelonly
+     * @StageModelOnly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
