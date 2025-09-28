@@ -31,13 +31,14 @@ import {
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
 
 import {
-  UiComponent, UiDriver, BY, By
+  UiComponent, UiDriver, BY, By, WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
 } from '@ohos.UiTest';
 export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
-  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest,
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
 };
 
 /*** if arkts 1.2 */
