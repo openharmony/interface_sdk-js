@@ -2856,6 +2856,7 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
+     * @returns { int } Return vaule indicating synchronous call.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2874,8 +2875,9 @@ declare namespace rpc {
     static TF_ASYNC: int;
 
     /**
-     * Indicates synchronous call.
+     * Indicates asynchronous call.
      *
+     * @returns { int } Return vaule indicating asynchronous call.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2896,6 +2898,7 @@ declare namespace rpc {
     /**
      * Indicates the sendRequest API for returning the file descriptor.
      *
+     * @returns { int } Return vaule indicating the sendRequest API for returning the file descriptor.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -2924,13 +2927,7 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @static
-     * @syscap SystemCapability.Communication.IPC.Core
-     * @since 7
-     */
-    /**
-     * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
-     *
+     * @returns { int } Return vaule indicating the wait time for RPC, in seconds. It is NOT used in IPC case.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3343,6 +3340,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a Ping operation.
      *
+     * @returns { int } Return vaule indicating the message code for a Ping operation.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3363,6 +3361,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a dump operation.
      *
+     * @returns { int } Return vaule indicating the message code for a dump operation.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3383,6 +3382,7 @@ declare namespace rpc {
     /**
      * Indicates the message code for a transmission.
      *
+     * @returns { int } Return vaule indicating the message code for a transmission.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3405,6 +3405,7 @@ declare namespace rpc {
      * Indicates the minimum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
+     * @returns { int } Return vaule indicating the minimum value of a valid message code.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3427,6 +3428,7 @@ declare namespace rpc {
      * Indicates the maximum value of a valid message code.
      * <p>This constant is used to check the validity of an operation.
      *
+     * @returns { int } Return vaule indicating the maximum value of a valid message code.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3872,6 +3874,7 @@ declare namespace rpc {
     /**
      * The mapped memory is executable.
      *
+     * @returns { int } Return vaule indicating the mapped memory is executable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3890,8 +3893,9 @@ declare namespace rpc {
     static PROT_NONE: number;
 
     /**
-     * The mapped memory is executable.
+     * The mapped memory is inaccessible.
      *
+     * @returns { int } Return vaule indicating the mapped memory is inaccessible.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3910,8 +3914,9 @@ declare namespace rpc {
     static PROT_READ: number;
 
     /**
-     * The mapped memory is executable.
+     * The mapped memory is readable.
      *
+     * @returns { int } Return vaule indicating the mapped memory is readable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
@@ -3930,8 +3935,9 @@ declare namespace rpc {
     static PROT_WRITE: number;
 
     /**
-     * The mapped memory is executable.
+     * The mapped memory is writable.
      *
+     * @returns { int } Return vaule indicating the mapped memory is writable.
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 20 static
