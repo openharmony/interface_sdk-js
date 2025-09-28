@@ -6050,6 +6050,22 @@ declare namespace window {
     getWindowAvoidArea(type: AvoidAreaType): AvoidArea;
 
     /**
+     * Get the avoid area, regardless of whether the area of this type is currently visible.
+     *
+     * @param { AvoidAreaType } type - Type of the area.
+     * @returns { AvoidArea } Area where the window cannot be displayed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: 1. Parameter verification failed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22
+     * @arkts 1.1&1.2
+     */
+    getWindowAvoidAreaIgnoringVisibility(type: AvoidAreaType): AvoidArea;
+
+    /**
      * Set whether system window type could obtain avoid area.
      *
      * @param { boolean } enabled - If true, the system window type can obtain avoid area. If false, the avoid area obtained by the system window type will always be empty.
