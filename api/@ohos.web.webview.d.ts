@@ -7239,7 +7239,7 @@ declare namespace webview {
      * @param { WebDestroyMode } mode web destroy mode, default NORMAL_MODE.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     static setWebDestroyMode(mode: WebDestroyMode): void;
 
@@ -10317,21 +10317,21 @@ declare namespace webview {
    * Enum type supplied to {@link SetWebDestroyMode} for indicating the web component destroy mode.
    * @enum { number }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
+   * @since 20 dynamic&static
    */
-  enum WebDestroyMode {  
+  enum WebDestroyMode {
     /**
      * The normal destroy mode, when the web component triggers destroy,
      * the resources will be released at the appropriate time.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     NORMAL_MODE = 0,
 
     /**
      * The fast destroy mode, when the web component triggers destroy, the resources will be immediately released.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 20
+     * @since 20 dynamic&static
      */
     FAST_MODE = 1
   }
