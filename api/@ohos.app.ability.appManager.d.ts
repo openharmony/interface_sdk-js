@@ -1455,7 +1455,7 @@ declare namespace appManager {
   function killProcessesInBatch(pids: Array<int>): Promise<void>;
 
   /**
-   * The ability state data.
+   * The ability or extension state data.
    *
    * @typedef { _AbilityStateData.default }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1464,7 +1464,7 @@ declare namespace appManager {
   export type AbilityStateData = _AbilityStateData.default;
 
   /**
-   * The ability or extension state data.
+   * The ability state data.
    *
    * @typedef { _AbilityStateData }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
