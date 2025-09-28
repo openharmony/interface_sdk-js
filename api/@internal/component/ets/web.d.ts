@@ -2177,7 +2177,7 @@ declare class SslErrorHandler {
    *                                 error page is enabled, the default error page will be shown instead.
    *                                 The default value is false.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   handleCancel(abortLoading: boolean): void;
 }
@@ -8282,6 +8282,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 11
    */
   /**
+   * Triggered at the end of web page loading.
    * This callback is only invoked for the main frame and not for subframes.
    *
    * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
@@ -10254,25 +10255,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Sets the web layout mode.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * Currently, only two web layout modes are supported: WebLayoutMode.NONE and WebLayoutMode.FIT_CONTENT.
-   * The following restrictions apply with the usage of WebLayoutMode.FIT_CONTENT:
-   * - If the Web component is wider or longer than 7680 px, specify the RenderMode.SYNC_RENDER mode
-   *   when creating the Web component; otherwise, the screen may be blank.
-   * - After the Web component is created, dynamic switching of the layoutMode is not supported.
-   * - The width and height of a Web component cannot exceed 500,000 px when the RenderMode.SYNC_RENDER mode is specified,
-   *   and cannot exceed 7680 px when the RenderMode.ASYNC_RENDER mode is specified.
-   * - Frequent changes to the page width and height will trigger a re-layout of the Web component,
-   *   which can affect the user experience.
-   * - Waterfall web pages are not supported (drop down to the bottom to load more).
-   * - Only height adaptation is supported(VH units are not supported). Width adaptation is not supported.
-   * - Because the height is adaptive to the web page height,
-   *   the component height cannot be changed by modifying the component height attribute.
-   * </p>
-   *
-   * @param { WebLayoutMode } mode - The web layout mode, follow the system or adaptive layout.
-   *    The default value is WebLayoutMode.NONE.
+   * @param { WebLayoutMode } mode - The web layout mode, which can be {@link WebLayoutMode}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
