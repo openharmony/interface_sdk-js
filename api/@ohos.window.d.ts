@@ -7078,9 +7078,17 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'touchOutside', callback: Callback<void>): void;
+
+    /**
+     * Subscribes to the touch event outside this window.
+     *
+     * @param { Callback<void> } callback - Callback used to return the click event outside this window.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onTouchOutside(callback: Callback<void>): void;
 
     /**
      * Unsubscribes from the touch event outside this window.
@@ -7092,9 +7100,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'touchOutside', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the touch event outside this window.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offTouchOutside(callback?: Callback<void>): void;
 
     /**
      * Window displayId change callback on.
@@ -7278,9 +7295,24 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'noInteractionDetected', timeout: long, callback: Callback<void>): void;
+
+    /**
+     * Subscribes to non-interaction events in a window within the specified period.
+     *     Interaction events include physical keyboard input events and screen touch/click events,
+     *     but not soft keyboard input events.
+     *
+     * @param { long } timeout - The timeout(in seconds) of no interaction detection.
+     * @param { Callback<void> } callback - Callback used to notify the window has no interaction for a long time.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    onNoInteractionDetected(timeout: long, callback: Callback<void>): void;
 
     /**
      * Unsubscribes from non-interaction events in a window within the specified period.
@@ -7299,6 +7331,22 @@ declare namespace window {
      * @since 20 static
      */
     off(type: 'noInteractionDetected', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from non-interaction events in a window within the specified period.
+     *     Interaction events include physical keyboard input events and screen touch/click events,
+     *     but not soft keyboard input events.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 22 static
+     */
+    offNoInteractionDetected(callback?: Callback<void>): void;
 
     /**
      * Register the callback of screenshot, only the focused window called back
@@ -7396,9 +7444,19 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'dialogTargetTouch', callback: Callback<void>): void;
+
+    /**
+     * Subscribes to click or touch events in a window covered by a modal window.
+     *     This API takes effect only when it is called by a modal window.
+     *
+     * @param { Callback<void> } callback
+     *     - Callback invoked when the click event occurs in the target window of the modal window mode.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    onDialogTargetTouch(callback: Callback<void>): void;
 
     /**
      * Unregister the callback of dialogTargetTouch
@@ -7422,9 +7480,18 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'dialogTargetTouch', callback?: Callback<void>): void;
+
+    /**
+     * Unsubscribes from the touch event of the target window in the modal window mode.
+     *
+     * @param { Callback<void> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @since 22 static
+     */
+    offDialogTargetTouch(callback?: Callback<void>): void;
 
     /**
      * Register the callback of windowEvent
