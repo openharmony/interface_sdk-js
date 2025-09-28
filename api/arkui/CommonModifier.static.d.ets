@@ -20,7 +20,7 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier, CommonAttribute } from './component/common';
+import { AttributeModifier, CommonAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines Common Modifier

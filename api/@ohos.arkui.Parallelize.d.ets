@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { ComponentBuilder } from './arkui/stateManagement/runtime'
-import { CustomBuilder } from './arkui/component/builder';
+import { ComponentBuilder } from '@ohos.arkui.stateManagement'
+import { CustomBuilder } from '@ohos.arkui.component';
 
 /**
 * Describe the options for the ParallelizeUI.

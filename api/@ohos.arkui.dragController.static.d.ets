@@ -17,10 +17,10 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve } from './arkui/component/common';
-import { CustomBuilder } from './arkui/component/builder';
-import { TouchPoint, ResourceColor } from './arkui/component/units';
-import { Curve } from './arkui/component/enums';
+import { DragEvent, DragPreviewOptions, DragItemInfo, ICurve } from '@ohos.arkui.component';
+import { CustomBuilder } from '@ohos.arkui.component';
+import { TouchPoint, ResourceColor } from '@ohos.arkui.component';
+import { Curve } from '@ohos.arkui.component';
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 

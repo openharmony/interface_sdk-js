@@ -20,11 +20,11 @@
  * @arkts 1.2
  */
 
-import { UIContext } from '../@ohos.arkui.UIContext';
-import { FrameNode } from './FrameNode';
-import { Size } from './Graphics';
-import { TouchEvent, MouseEvent, AxisEvent } from './component/common';
-import { WrappedBuilder, CustomBuilder, CustomBuilderT } from './component/builder';
+import { UIContext } from '@ohos.arkui.UIContext';
+import { FrameNode } from 'arkui.FrameNode';
+import { Size } from 'arkui.Graphics';
+import { TouchEvent, MouseEvent, AxisEvent } from '@ohos.arkui.component';
+import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 
 /**
  * Render type of the node using for indicating that

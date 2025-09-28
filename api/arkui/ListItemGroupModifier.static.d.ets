@@ -20,8 +20,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { ListItemGroupAttribute } from './component/listItemGroup';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ListItemGroupAttribute } from '@ohos.arkui.component';
 
 
 /**

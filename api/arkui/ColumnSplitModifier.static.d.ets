@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { ColumnSplitAttribute } from './component/columnSplit';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ColumnSplitAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines ColumnSplit Modifier

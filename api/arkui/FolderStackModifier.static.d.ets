@@ -19,8 +19,8 @@
  * @arkts 1.2
  */
 
-import { AttributeModifier } from './component/common';
-import { FolderStackAttribute } from './component/folderStack';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { FolderStackAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines FolderStack Modifier

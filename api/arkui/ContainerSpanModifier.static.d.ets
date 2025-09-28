@@ -22,8 +22,8 @@
 
 
 
-import { AttributeModifier } from './component/common';
-import { ContainerSpanAttribute } from './component/containerSpan';
+import { AttributeModifier } from '@ohos.arkui.component';
+import { ContainerSpanAttribute } from '@ohos.arkui.component';
 
 /**
  * Defines ContainerSpan Modifier

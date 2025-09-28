@@ -19,8 +19,8 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from './Graphics';
-import { BorderStyle } from './component/enums';
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from 'arkui.Graphics';
+import { BorderStyle } from '@ohos.arkui.component';
 
 /**
  * Defines RenderNode. Contains node tree operations and render property operations on node.

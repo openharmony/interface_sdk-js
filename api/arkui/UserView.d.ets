@@ -18,7 +18,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { __memo_context_type, __memo_id_type, memo } from './stateManagement/runtime';
+import { __memo_context_type, __memo_id_type, memo } from '@ohos.arkui.stateManagement';
 
 export type UserViewBuilder = (__memo_context: __memo_context_type, __memo_id: __memo_id_type) => void;
 

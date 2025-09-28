@@ -150,7 +150,7 @@ export { ButtonModifier } from './arkui/ButtonModifier';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 20
  */
-export { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
+export { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
 
 
 /**
