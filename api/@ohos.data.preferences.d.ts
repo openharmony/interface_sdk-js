@@ -117,7 +117,7 @@ declare namespace preferences {
    * @since arkts {'1.1':'12', '1.2':'20'}
    * @arkts 1.1&1.2
    */
-  const MAX_KEY_LENGTH: number;
+  const MAX_KEY_LENGTH: int;
 
   /**
    * Indicates the maximum length of a string (8192 characters).
