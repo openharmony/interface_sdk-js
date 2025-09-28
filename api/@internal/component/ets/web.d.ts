@@ -21,7 +21,7 @@
 /*** if arkts 1.2 */
 import webview from '../../@ohos.web.webview';
 import image from '../../@ohos.multimedia.image';
-import { CommonMethod, Callback, TouchEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
+import { CommonMethod, Callback, TouchEvent, MouseEvent, NestedScrollOptions, KeyEvent, HapticFeedbackMode } from './common';
 import { CustomBuilder } from './builder'
 import { Resource } from '../../global/resource';
 import { Position, ResourceStr } from './units';
@@ -1455,6 +1455,7 @@ type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
  * @param { NativeEmbedMouseInfo } event - callback information of mouse event in native embed area.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
 
@@ -4867,6 +4868,7 @@ declare class EventResult {
    *    Default value: true.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   setMouseEventResult(result: boolean, stopPropagation?: boolean): void;
 }
@@ -5744,6 +5746,7 @@ declare interface NativeEmbedTouchInfo {
  * @typedef NativeEmbedMouseInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare interface NativeEmbedMouseInfo {
   /**
@@ -5752,6 +5755,7 @@ declare interface NativeEmbedMouseInfo {
    * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   embedId?: string;
 
@@ -5761,6 +5765,7 @@ declare interface NativeEmbedMouseInfo {
    * @type { ?MouseEvent }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   mouseEvent?: MouseEvent;
 
@@ -5770,6 +5775,7 @@ declare interface NativeEmbedMouseInfo {
    * @type { ?EventResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   result?: EventResult;
 }
@@ -7719,6 +7725,7 @@ declare enum WebResponseType {
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20
+ * @arkts 1.1&1.2
  */
 declare enum WebBypassVsyncCondition {
   /**
@@ -7726,6 +7733,7 @@ declare enum WebBypassVsyncCondition {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   NONE = 0,
 
@@ -7734,6 +7742,7 @@ declare enum WebBypassVsyncCondition {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   SCROLLBY_FROM_ZERO_OFFSET = 1
 }
@@ -10980,6 +10989,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   onNativeEmbedMouseEvent(callback: MouseInfoCallback): WebAttribute;
 
@@ -11335,6 +11345,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   bypassVsyncCondition(condition: WebBypassVsyncCondition): WebAttribute;
 
@@ -11662,6 +11673,7 @@ declare interface EmbedOptions {
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
   supportCssDisplayChange?: boolean;
 }
