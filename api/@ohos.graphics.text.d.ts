@@ -1160,7 +1160,7 @@ declare namespace text {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22 dynamic&static
+     * @since 22 dynamic
      */
     static getLocalInstance(): FontCollection;
 
