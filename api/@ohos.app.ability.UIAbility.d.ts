@@ -199,9 +199,9 @@ export interface Caller {
   off(type: 'release'): void;
 
   /**
-   * Unregisters all death listener notification callback.
+   * Unregister death listener notification callback.
    *
-   * @param { OnReleaseCallback } callback - Callback used to return the result.
+   * @param { OnReleaseCallback } callback - Unregister a callback function for listening for notifications.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 22 static
@@ -209,7 +209,7 @@ export interface Caller {
   offRelease(callback: OnReleaseCallback): void;
 
   /**
-   * Unregisters all death listener notification callback.
+   * Unregister death listener notification callback.
    * 
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -614,7 +614,7 @@ declare class UIAbility extends Ability {
   onForeground(): void;
 
   /**
-   * Called back when the state of an ability changes to foreground.
+   * Called back when the state of an ability will changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -624,7 +624,7 @@ declare class UIAbility extends Ability {
   onWillForeground(): void;
 
   /**
-   * Called back when the state of an ability changes to foreground.
+   * Called back when the state of an ability changed to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -663,7 +663,7 @@ declare class UIAbility extends Ability {
   onBackground(): void;
 
   /**
-   * Called back when the state of an ability changes to background.
+   * Called back when the state of an ability will changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -673,7 +673,7 @@ declare class UIAbility extends Ability {
   onWillBackground(): void;
 
   /**
-   * Called back when the state of an ability changes to background.
+   * Called back when the state of an ability changed to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
