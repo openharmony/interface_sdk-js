@@ -11407,6 +11407,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic&static
    */
   blankScreenDetectionConfig(detectConfig: BlankScreenDetectionConfig): WebAttribute;
+
+  /**
+   * Sets whether the Web supports zooming using Ctrl.
+   *
+   * @param { boolean } zoomControlAccess - {@code true} means the Web supports zooming using Ctrl,
+   *    {@code false} otherwise.
+   *    The default value is true.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22
+   * @arkts dynamic&static
+   */
+  zoomControlAccess(zoomControlAccess: boolean): WebAttribute;
 }
 
 /**
