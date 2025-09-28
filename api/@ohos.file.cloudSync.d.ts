@@ -1135,6 +1135,7 @@ declare namespace cloudSync {
      *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
      cleanFileCache(uri: string): void;
   }
@@ -1144,42 +1145,49 @@ declare namespace cloudSync {
    * @enum { int }
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
    enum FileState {
     /**
      * Indicates the initial state after a file is downloaded from the cloud to the local host.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     INITIAL_AFTER_DOWNLOAD = 0,
     /**
      * Indicates that the file is uploading now.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOADING = 1,
     /**
      * Indicates that the file sync task stopped.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     STOPPED = 2,
     /**
      * Indicates that the file is waiting for upload.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     TO_BE_UPLOADED = 3,
     /**
      * Indicates that the file has been already uploaded successfully.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOAD_SUCCESS = 4,
     /**
      * Indicates that the file upload failure
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20
+     * @arkts 1.1&1.2
      */
     UPLOAD_FAILURE = 5
   }
@@ -1297,6 +1305,7 @@ declare namespace cloudSync {
    *     <br>2.System error, such as a null pointer, insufficient memory or a JS engine exception.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
    * @since 20
+   * @arkts 1.1&1.2
    */
    function getCoreFileSyncState(uri: string): FileState;
   /**
