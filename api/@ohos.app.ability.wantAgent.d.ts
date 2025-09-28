@@ -309,7 +309,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
@@ -542,7 +542,7 @@ declare namespace wantAgent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 20 dynamic&static
+   * @since 20 dynamic
    */
   function isLocalWantAgent(agent: WantAgent): boolean;
 
