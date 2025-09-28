@@ -2845,13 +2845,13 @@ declare namespace rpc {
     /**
      * Indicates synchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 0
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static TF_SYNC: int;
+    static TF_SYNC: number;
 
     /**
      * Indicates synchronous call.
@@ -2866,13 +2866,13 @@ declare namespace rpc {
     /**
      * Indicates asynchronous call.
      *
-     * @type { int }
+     * @type { number }
      * @default 1
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static TF_ASYNC: int;
+    static TF_ASYNC: number;
 
     /**
      * Indicates asynchronous call.
@@ -2916,13 +2916,13 @@ declare namespace rpc {
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
-     * @type { int }
+     * @type { number }
      * @default 8
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
      */
-    static TF_WAIT_TIME: int;
+    static TF_WAIT_TIME: number;
 
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
