@@ -20,7 +20,7 @@
  */
 
 import { RenderNode } from 'arkui.RenderNode';
-import { Size, Position, Edges, LengthMetrics, SizeT } from 'arkui.Graphics';
+import { Size, NodePosition, NodeEdges, LengthMetrics, SizeT } from 'arkui.Graphics';
 import { DrawContext } from 'arkui.Graphics';
 import { ComponentContent } from 'arkui.ComponentContent';
 import { BusinessError } from '../@ohos.base';
@@ -335,11 +335,11 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to window.
    *
-   * @returns { Position } - Returns position of the node relative to window.
+   * @returns { NodePosition } - Returns position of the node relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToWindow(): Position;
+  getPositionToWindow(): NodePosition;
 
   /**
    * Get if the FrameNode is disposed.
@@ -353,11 +353,11 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to its parent.
    *
-   * @returns { Position } - Returns position of the node relative to its parent.
+   * @returns { NodePosition } - Returns position of the node relative to its parent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToParent(): Position;
+  getPositionToParent(): NodePosition;
 
   /**
    * Get the size of the FrameNode after measure, with unit PX.
@@ -371,38 +371,38 @@ export declare class FrameNode {
   /**
    * Get the offset to the parent of the FrameNode after layout, with unit PX.
    *
-   * @returns { Position } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
+   * @returns { NodePosition } - Returns the offset to the parent of the FrameNode after layout, with unit PX.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getLayoutPosition(): Position;
+  getLayoutPosition(): NodePosition;
 
   /**
    * Get the user config border width of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config border width of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config border width of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigBorderWidth(): Edges<LengthMetrics>;
+  getUserConfigBorderWidth(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config padding of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config padding of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config padding of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigPadding(): Edges<LengthMetrics>;
+  getUserConfigPadding(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config margin of the FrameNode.
    *
-   * @returns { Edges<LengthMetrics> } - Returns the user config margin of the FrameNode.
+   * @returns { NodeEdges<LengthMetrics> } - Returns the user config margin of the FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getUserConfigMargin(): Edges<LengthMetrics>;
+  getUserConfigMargin(): NodeEdges<LengthMetrics>;
 
   /**
    * Get the user config size of the FrameNode.
@@ -541,11 +541,11 @@ export declare class FrameNode {
    * Method to assign a position to the FrameNode and each of its children. Use this method to override the
    * default layout method.
    *
-   * @param { Position } position - The position of the node, will be used when executed layout method.
+   * @param { NodePosition } position - The position of the node, will be used when executed layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  onLayout(position: Position): void;
+  onLayout(position: NodePosition): void;
 
   /**
    * Set the size of the FrameNode after measure, with unit PX.
@@ -559,11 +559,11 @@ export declare class FrameNode {
   /**
    * Set the position to the parent of the FrameNode after layout, with unit PX.
    *
-   * @param { Position } position - The position to the parent of the FrameNode after layout.
+   * @param { NodePosition } position - The position to the parent of the FrameNode after layout.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  setLayoutPosition(position: Position): void;
+  setLayoutPosition(position: NodePosition): void;
 
   /**
    * This is called to find out how big the FrameNode should be. The parent node supplies constraint information. The
@@ -580,11 +580,11 @@ export declare class FrameNode {
    * the position of the frameNode, and the actual layout work of FrameNode is performed in onLayout or the default
    * layout method.
    *
-   * @param { Position } position - The position of the node, will be used when executed the layout method.
+   * @param { NodePosition } position - The position of the node, will be used when executed the layout method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  layout(position: Position): void;
+  layout(position: NodePosition): void;
 
   /**
    * Mark the frame node as need layout.
@@ -605,47 +605,47 @@ export declare class FrameNode {
   /**
    * Get the position of the node relative to screen.
    *
-   * @returns { Position } - Returns position of the node relative to screen.
+   * @returns { NodePosition } - Returns position of the node relative to screen.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToScreen(): Position;
+  getPositionToScreen(): NodePosition;
 
   /**
    * Get the position of the node relative to unified display, in vp.
    *
-   * @returns { Position } - Returns position of the node relative to unified display, in vp.
+   * @returns { NodePosition } - Returns position of the node relative to unified display, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getGlobalPositionOnDisplay(): Position;
+  getGlobalPositionOnDisplay(): NodePosition;
 
   /**
    * Get the position of the node relative to window with transform.
    *
-   * @returns { Position } - Returns position of the node relative to window with transform.
+   * @returns { NodePosition } - Returns position of the node relative to window with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToWindowWithTransform(): Position;
+  getPositionToWindowWithTransform(): NodePosition;
 
   /**
    * Get the position of the node relative to its parent with transform.
    *
-   * @returns { Position } - Returns position of the node relative to its parent with transform.
+   * @returns { NodePosition } - Returns position of the node relative to its parent with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToParentWithTransform(): Position;
+  getPositionToParentWithTransform(): NodePosition;
 
   /**
    * Get the position of the node relative to screen with transform.
    *
-   * @returns { Position } - Returns position of the node relative to screen with transform.
+   * @returns { NodePosition } - Returns position of the node relative to screen with transform.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  getPositionToScreenWithTransform(): Position;
+  getPositionToScreenWithTransform(): NodePosition;
 
   /**
    * Detach from parent and dispose all child recursively.

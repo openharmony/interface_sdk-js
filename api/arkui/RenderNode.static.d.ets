@@ -19,7 +19,7 @@
  * @kit ArkUI
  * @arkts 1.2
  */
-import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit } from 'arkui.Graphics';
+import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit } from 'arkui.Graphics';
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
@@ -188,20 +188,20 @@ export declare class RenderNode {
   /**
    * Set frame position of the RenderNode.
    *
-   * @param { Position } position - The position of the RenderNode frame.
+   * @param { NodePosition } position - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set position(position: Position);
+  set position(position: NodePosition);
 
   /**
    * Get frame position of the RenderNode.
    *
-   * @returns { Position } - The position of the RenderNode frame.
+   * @returns { NodePosition } - The position of the RenderNode frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get position(): Position;
+  get position(): NodePosition;
 
   /**
    * Set frame info of the RenderNode.
@@ -334,20 +334,20 @@ export declare class RenderNode {
   /**
    * Set shadow offset of the RenderNode.
    *
-   * @param { Offset } offset - the shadow offset of the RenderNode.
+   * @param { NodeOffset } offset - the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set shadowOffset(offset: Offset);
+  set shadowOffset(offset: NodeOffset);
 
   /**
    * Get shadow offset of the RenderNode.
    *
-   * @returns { Offset } - Returns the shadow offset of the RenderNode.
+   * @returns { NodeOffset } - Returns the shadow offset of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get shadowOffset(): Offset;
+  get shadowOffset(): NodeOffset;
 
   /**
    * Set label of the RenderNode.
@@ -424,58 +424,58 @@ export declare class RenderNode {
   /**
    * Set border style of the RenderNode.
    *
-   * @param { Edges<BorderStyle> } style - the border style of the RenderNode.
+   * @param { NodeEdges<BorderStyle> } style - the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set borderStyle(style: Edges<BorderStyle>);
+  set borderStyle(style: NodeEdges<BorderStyle>);
 
   /**
    * Get border style of the RenderNode.
    *
-   * @returns { Edges<BorderStyle> } - Returns the border style of the RenderNode.
+   * @returns { NodeEdges<BorderStyle> } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get borderStyle(): Edges<BorderStyle>;
+  get borderStyle(): NodeEdges<BorderStyle>;
 
   /**
    * Set border width of the RenderNode.
    *
-   * @param { Edges<number> } width - the border width of the RenderNode.
+   * @param { NodeEdges<number> } width - the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set borderWidth(width: Edges<number>);
+  set borderWidth(width: NodeEdges<number>);
 
   /**
    * Get border width of the RenderNode.
    *
-   * @returns { Edges<number> } - Returns the border width of the RenderNode.
+   * @returns { NodeEdges<number> } - Returns the border width of the RenderNode.
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get borderWidth(): Edges<number>;
+  get borderWidth(): NodeEdges<number>;
 
   /**
    * Set border color of the RenderNode.
    *
-   * @param { Edges<number> } color - the border color of the RenderNode.
+   * @param { NodeEdges<number> } color - the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  set borderColor(color: Edges<number>);
+  set borderColor(color: NodeEdges<number>);
 
   /**
    * Get border color of the RenderNode.
    *
-   * @returns { Edges<number> } - Returns the border color of the RenderNode.
+   * @returns { NodeEdges<number> } - Returns the border color of the RenderNode.
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20
    */
-  get borderColor(): Edges<number>;
+  get borderColor(): NodeEdges<number>;
 
   /**
    * Set border radius of the RenderNode.
