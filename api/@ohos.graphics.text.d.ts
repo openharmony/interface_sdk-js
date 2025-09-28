@@ -69,8 +69,7 @@ import { Resource } from './global/resource';
  * @namespace text
  * @syscap SystemCapability.Graphics.Drawing
  * @form
- * @since 22
- * @arkts 1.1&1.2
+ * @since 22 dynamic&static
  */
 declare namespace text {
 
@@ -136,31 +135,31 @@ declare namespace text {
    * Enumerates the vertical alignment modes.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum TextVerticalAlign {
     /**
      * Baseline alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     BASELINE = 0,
     /**
      * Bottom alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     BOTTOM = 1,
     /**
      * Center alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     CENTER = 2,
     /**
      * Top alignment in the vertical direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TOP = 3
   }
@@ -796,23 +795,20 @@ declare namespace text {
    * Enumerates line height scaling type.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 21
-   * @arkts 1.1&1.2
+   * @since 21 dynamic
    */
   enum LineHeightStyle {
     /**
      * Use the font size as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     FONT_SIZE = 0,
 
     /**
      * Use the text height after shaping as the scale factor for line height scaling.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     FONT_HEIGHT = 1
   }
@@ -873,25 +869,25 @@ declare namespace text {
    * Describes badge type of text.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum TextBadgeType {
     /**
      * No badge.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_BADGE_NONE,
     /**
      * Superscript.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_SUPERSCRIPT,
     /**
      * Subscript.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_SUBSCRIPT,
   }
@@ -994,8 +990,7 @@ declare namespace text {
      * Maximum line height. The value is a double number.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     lineHeightMaximum?: double;
 
@@ -1003,8 +998,7 @@ declare namespace text {
      * Minimum line height. The value is a double number.
      * @type { ?double } it is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     lineHeightMinimum?: double;
 
@@ -1012,8 +1006,7 @@ declare namespace text {
      * Line height scaling base style. The default value is FONT_SIZE.
      * @type { ?LineHeightStyle } Line height scaling style.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     lineHeightStyle?: LineHeightStyle;
 
@@ -1126,7 +1119,7 @@ declare namespace text {
      * Text style available badge type.
      * @type { ?TextBadgeType } The type of text badge type.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     badgeType?: TextBadgeType;
 
@@ -1134,8 +1127,7 @@ declare namespace text {
      * Font width. The default value is NORMAL.
      * @type {  ?FontWidth  } it is uint32_t type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     fontWidth?: FontWidth;
   }
@@ -1150,8 +1142,7 @@ declare namespace text {
    * Implements a collection of fonts.
    * @syscap SystemCapability.Graphics.Drawing
    * @form
-   * @since 22
-   * @arkts 1.1&1.2
+   * @since 22 dynamic&static
    */
   class FontCollection {
     /**
@@ -1169,8 +1160,7 @@ declare namespace text {
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     static getLocalInstance(): FontCollection;
 
@@ -1194,8 +1184,7 @@ declare namespace text {
      * **file://**absolute path of the font file or **rawfile/**directory or file name.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     loadFontSync(name: string, path: string | Resource): void;
 
@@ -1225,8 +1214,7 @@ declare namespace text {
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     loadFont(name: string, path: string | Resource): Promise<void>;
 
@@ -1241,7 +1229,7 @@ declare namespace text {
      * @param { string } name - The alias of the font to unload.
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     /**
      * Unloads a custom font synchronously. This API returns the result synchronously.
@@ -1255,8 +1243,7 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     unloadFontSync(name: string): void;
 
@@ -1272,7 +1259,7 @@ declare namespace text {
      * This must exactly match the name used when loading the font through.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     /**
      * Unloads a custom font. This API uses a promise to return the result.
@@ -1287,8 +1274,7 @@ declare namespace text {
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
     unloadFont(name: string): Promise<void>;
 
@@ -1306,8 +1292,7 @@ declare namespace text {
      * You are not advised to clear it unless otherwise required.
      * @syscap SystemCapability.Graphics.Drawing
      * @form
-     * @since 22
-     * @arkts 1.1&1.2
+     * @since 22 dynamic&static
      */
      clearCaches(): void;
   }
@@ -1523,7 +1508,7 @@ declare namespace text {
      * Whether to optimize white spaces at the end of each line.
      * @type { ?boolean } Boolean type data.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     trailingSpaceOptimized?: boolean;
 
@@ -1531,7 +1516,7 @@ declare namespace text {
      * Whether to enable automatic spacing between Chinese and English for paragraph.
      * @type { ?boolean }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     autoSpace?: boolean;
 
@@ -1539,7 +1524,7 @@ declare namespace text {
      * Vertical alignment mode of the paragraph.
      * @type { ?TextVerticalAlign }
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     verticalAlign?: TextVerticalAlign;
 
@@ -1547,8 +1532,7 @@ declare namespace text {
      * Line spacing. The value is a double number.
      * @type { ?double } It is double type data
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 21
-     * @arkts 1.1&1.2
+     * @since 21 dynamic
      */
     lineSpacing?: double;
   }
@@ -1617,7 +1601,7 @@ declare namespace text {
     /**
      * Follow Paragraph setting,
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     FOLLOW_PARAGRAPH,
   }
@@ -2114,7 +2098,7 @@ declare namespace text {
      * Synchronously updates the text color of the typography.
      * @param { common2D.Color } color - Color of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     updateColor(color: common2D.Color): void;
 
@@ -2122,7 +2106,7 @@ declare namespace text {
      * Synchronously updates text decoration.
      * @param { Decoration } decoration - Decoration of text.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     updateDecoration(decoration: Decoration): void;
   }
@@ -2816,7 +2800,7 @@ declare namespace text {
      * Obtains the text direction of the run.
      * @returns { TextDirection } Returns the text direction.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getTextDirection(): TextDirection;
 
@@ -2827,7 +2811,7 @@ declare namespace text {
      * the run.
      * @returns { Array<common2D.Point> } Array holding the advance width and height of each glyph.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     getAdvances(range: Range): Array<common2D.Point>;
   }
@@ -3047,25 +3031,25 @@ declare namespace text {
    * Defines text rendering high contrast mode to enhance readability.
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum TextHighContrast {
     /**
      * Follow system's high contrast settings for text rendering.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_FOLLOW_SYSTEM_HIGH_CONTRAST,
     /**
      * Disables high contrast rendering regardless of system settings.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_APP_DISABLE_HIGH_CONTRAST,
     /**
      * Enable high contrast rendering regardless of system settings.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     TEXT_APP_ENABLE_HIGH_CONTRAST,
   }
@@ -3074,7 +3058,7 @@ declare namespace text {
    * Sets high contrast mode of text rendering.
    * @param { TextHighContrast } action - High contrast mode.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function setTextHighContrast(action: TextHighContrast): void;
 
@@ -3083,14 +3067,14 @@ declare namespace text {
    *
    * @enum { number }
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   enum TextUndefinedGlyphDisplay {
     /**
      * Use the font's built-in .notdef glyph. This respects font's internal .notdef glyph design,
      * which might be an empty box, blank space, or custom symbol.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     USE_DEFAULT,
     /**
@@ -3098,7 +3082,7 @@ declare namespace text {
      * overriding the font's default behavior. Useful for debugging missing characters
      * or enforcing consistent missing symbol display.
      * @syscap SystemCapability.Graphics.Drawing
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     USE_TOFU,
   }
@@ -3111,7 +3095,7 @@ declare namespace text {
    * - Tofu blocks explicitly show missing characters as visible squares
    * @param { TextUndefinedGlyphDisplay } noGlyphShow - The strategy for handling undefined glyphs.
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 20 dynamic
+   * @since 20 dynamic&static
    */
   function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
 
