@@ -61,7 +61,7 @@ declare interface AbilityStartCallback {
   /**
    * Called when some error occurred except disconnected from UIAbility or UIExtensionAbility.
    *
-   * @param { number } code - The code returned if the UIAbility or UIExtensionAbility failed to start.
+   * @param { int } code - The code returned if the UIAbility or UIExtensionAbility failed to start.
    * @param { string } name - The name returned if the UIAbility or UIExtensionAbility failed to start.
    * @param { string } message - The message returned if the UIAbility or UIExtensionAbility failed to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -70,7 +70,7 @@ declare interface AbilityStartCallback {
    * @since 11 dynamic
    * @since 20 static
    */
-  onError(code: number, name: string, message: string): void;
+  onError(code: int, name: string, message: string): void;
   
   /**
    * Called when UIExtensionAbility terminate with result.

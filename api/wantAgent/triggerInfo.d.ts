@@ -51,13 +51,13 @@ export interface TriggerInfo {
   /**
    * Result code.
    *
-   * @type { number }
+   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice
    * @since 12 dynamic
    * @since 20 static
    */
-  code: number;
+  code: int;
 
   /**
    * Extra Want.
