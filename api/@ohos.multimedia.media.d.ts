@@ -1115,7 +1115,6 @@ declare namespace media {
      * @param { Record<string, string> } [headers] - Optional request headers.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20
-     * @arkts 1.1&1.2
      */
     setUrlSource(url: string, headers?: Record<string, string>): void;
 
@@ -3628,7 +3627,8 @@ declare namespace media {
      * It reports a **MediaKeySystemInfo** array.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice
-     * @since 12 dynamic
+     * @since arkts {'1.1':'12','1.2':'20'}
+     * @arkts 1.1&1.2
      */
     on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
