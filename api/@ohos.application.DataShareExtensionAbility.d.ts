@@ -55,13 +55,13 @@ type OnCreateFn = (want: Want, callback: AsyncCallback<void>) => void;
  * @typedef { function }
  * @param { string } uri - Indicates the position where the data is to insert.
  * @param { ValuesBucket } valueBucket - Indicates the data to insert.
- * @param { AsyncCallback<number> } callback - Returns the index of the newly inserted data record.
+ * @param { AsyncCallback<int> } callback - Returns the index of the newly inserted data record.
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
  * @since 20 static
  */
-type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<number>) => void;
+type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback<int>) => void;
 
 /**
  * Updates one or more data records in the database. This method should be implemented by a data share.
@@ -71,7 +71,7 @@ type InsertFn = (uri: string, valueBucket: ValuesBucket, callback: AsyncCallback
  * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria. If this parameter is
  *                                                               null, all data records will be updated by default.
  * @param { ValuesBucket } valueBucket - Indicates the data to update. This parameter can be null.
- * @param { AsyncCallback<number> } callback - Returns the number of data records updated.
+ * @param { AsyncCallback<int> } callback - Returns the number of data records updated.
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
@@ -81,7 +81,7 @@ type UpdateFn = (
   uri: string,
   predicates: dataSharePredicates.DataSharePredicates,
   valueBucket: ValuesBucket,
-  callback: AsyncCallback<number>
+  callback: AsyncCallback<int>
 ) => void;
 
 /**
@@ -91,7 +91,7 @@ type UpdateFn = (
  * @param { string } uri - Indicates the database table storing the data to delete.
  * @param { dataSharePredicates.DataSharePredicates } predicates - Indicates filter criteria. If this parameter is
  *                                                                 null, all data records will be deleted by default.
- * @param { AsyncCallback<number> } callback - Returns the number of data records deleted.
+ * @param { AsyncCallback<int> } callback - Returns the number of data records deleted.
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
@@ -100,7 +100,7 @@ type UpdateFn = (
 type DeleteFn = (
   uri: string,
   predicates: dataSharePredicates.DataSharePredicates,
-  callback: AsyncCallback<number>
+  callback: AsyncCallback<int>
 ) => void;
 
 /**
@@ -132,13 +132,13 @@ type QueryFn = (
  * @typedef { function }
  * @param { string } uri - Indicates the position where the data is to insert.
  * @param { Array<ValuesBucket> } valueBuckets - Indicates the data to insert.
- * @param { AsyncCallback<number> } callback - Returns the number of data records inserted.
+ * @param { AsyncCallback<int> } callback - Returns the number of data records inserted.
  * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
  * @systemapi
  * @StageModelOnly
  * @since 20 static
  */
-type BatchInsertFn = (uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<number>) => void;
+type BatchInsertFn = (uri: string, valueBuckets: Array<ValuesBucket>, callback: AsyncCallback<int>) => void;
 
 /**
  * This module provides data sharing and expansion capabilities.
