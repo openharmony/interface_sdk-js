@@ -35,6 +35,7 @@ import { Position3, Color, GeometryDefinition, Vec2, Vec3, Vec4 } from './SceneT
  * @since 20 static
  */
 declare type ResourceStr = string | Resource;
+
 /**
  * The scene resource parameters type.
  *

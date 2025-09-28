@@ -34,6 +34,7 @@ import { Callback } from '../@ohos.base';
  * @since 20 static
  */
 declare type ResourceStr = string | Resource;
+
 /**
  * The enum of SceneResource type.
  *
