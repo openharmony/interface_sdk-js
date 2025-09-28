@@ -91,6 +91,7 @@ export interface ToneMappingSettings {
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
+ * @since 20 static
  */
 export interface BloomSettings {
   /**
@@ -99,6 +100,7 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   thresholdHard?: double;
 
@@ -108,6 +110,7 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   thresholdSoft?: double;
 
@@ -119,6 +122,7 @@ export interface BloomSettings {
    * @type { ?double}
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   scaleFactor?: double;
 
@@ -128,6 +132,7 @@ export interface BloomSettings {
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   scatter?: double;
 }
@@ -157,6 +162,7 @@ export interface PostProcessSettings {
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
+   * @since 20 static
    */
   bloom?: BloomSettings;
 }
