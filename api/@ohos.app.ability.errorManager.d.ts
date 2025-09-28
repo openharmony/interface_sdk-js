@@ -77,7 +77,7 @@ declare namespace errorManager {
    *
    * @param { 'error' } type - error.
    * @param { ErrorObserver } observer - The error observer.
-   * @returns { int } Returns the number code of the observer.
+   * @returns { number } Returns the number code of the observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
@@ -86,7 +86,21 @@ declare namespace errorManager {
    * @atomicservice
    * @since 19 dynamic
    */
-  function on(type: 'error', observer: ErrorObserver): int;
+  /**
+   * Register error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { ErrorObserver } observer - The error observer.
+   * @returns { number } Returns the number code of the observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function on(type: 'error', observer: ErrorObserver): number;
 
   /**
    * Unregister error observer.
@@ -117,7 +131,7 @@ declare namespace errorManager {
    * Unregister error observer.
    *
    * @param { 'error' } type - error.
-   * @param { int } observerId - Indicates the number code of the observer.
+   * @param { number } observerId - Indicates the number code of the observer.
    * @param { AsyncCallback<void> } callback - The callback of off.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -127,7 +141,21 @@ declare namespace errorManager {
    * @atomicservice
    * @since 19 dynamic
    */
-  function off(type: 'error', observerId: int, callback: AsyncCallback<void>): void;
+  /**
+   * Unregister error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @param { AsyncCallback<void> } callback - The callback of off.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function off(type: 'error', observerId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Unregister error observer.
@@ -158,7 +186,7 @@ declare namespace errorManager {
    * Unregister error observer.
    *
    * @param { 'error' } type - error.
-   * @param { int } observerId - Indicates the number code of the observer.
+   * @param { number } observerId - Indicates the number code of the observer.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -168,7 +196,21 @@ declare namespace errorManager {
    * @atomicservice
    * @since 19 dynamic
    */
-  function off(type: 'error', observerId: int): Promise<void>;
+  /**
+   * Unregister error observer.
+   *
+   * @param { 'error' } type - error.
+   * @param { number } observerId - Indicates the number code of the observer.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000003 - The specified ID does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function off(type: 'error', observerId: number): Promise<void>;
 
   /**
    * Register an error observer for all VM instances include worker and taskpool.
@@ -266,7 +308,7 @@ declare namespace errorManager {
 
   /**
    * Define the instance type of VM.
-   * @enum { int }
+   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @atomicservice
    * @since 18 dynamic
@@ -329,7 +371,7 @@ declare namespace errorManager {
    * modification will overwrite the previous one.
    * 
    * @param { 'loopObserver' } type - loopObserver.
-   * @param { int } timeout - Indicates timeout(ms) value of loop observer.
+   * @param { number } timeout - Indicates timeout(ms) value of loop observer.
    * @param { LoopObserver } observer - The loop observer.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -338,7 +380,22 @@ declare namespace errorManager {
    * @atomicservice
    * @since 19 dynamic
    */
-  function on(type: 'loopObserver', timeout: int, observer: LoopObserver): void;
+  /**
+   * Register loop observer. This function can only by called from main thread,
+   * and if call this function multiple times, the last
+   * modification will overwrite the previous one.
+   * 
+   * @param { 'loopObserver' } type - loopObserver.
+   * @param { number } timeout - Indicates timeout(ms) value of loop observer.
+   * @param { LoopObserver } observer - The loop observer.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  function on(type: 'loopObserver', timeout: number, observer: LoopObserver): void;
 
   /**
    * Unregister loop observer. This function can only by called from main thread.

@@ -198,16 +198,25 @@ declare namespace common2D {
   }
 
   /**
+   * Provides the definition of the point in 3D.
+   *
+   * @typedef Point3d
+   * @extends Point
+   * @syscap SystemCapability.Graphics.Drawing
+   * @since 12
+   */
+  /**
    * Describes a 3D coordinate point.
    *
    * @typedef Point3d
    * @extends Point
    * @syscap SystemCapability.Graphics.Drawing
-   * @since 12 dynamic
+   * @crossplatform
+   * @since 20 dynamic&static
    */
   interface Point3d extends Point {
     /**
-     * Z-axis coordinate. The value is a floating point number.
+     * Z-axis coordinate.
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @since 12
@@ -217,7 +226,7 @@ declare namespace common2D {
      * @type { double }
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform
-     * @since 20 dynamic
+     * @since 20 dynamic&static
      */
     z: double;
   }

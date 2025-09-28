@@ -35,6 +35,7 @@ declare namespace rpc {
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 9 dynamic
+   * @since 20 static
    */
   enum ErrorCode {
     /**
@@ -42,6 +43,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     CHECK_PARAM_ERROR = 401,
 
@@ -50,6 +52,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     OS_MMAP_ERROR = 1900001,
 
@@ -58,6 +61,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     OS_IOCTL_ERROR = 1900002,
 
@@ -66,6 +70,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     WRITE_TO_ASHMEM_ERROR = 1900003,
 
@@ -74,6 +79,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     READ_FROM_ASHMEM_ERROR = 1900004,
 
@@ -82,6 +88,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     ONLY_PROXY_OBJECT_PERMITTED_ERROR = 1900005,
 
@@ -90,6 +97,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     ONLY_REMOTE_OBJECT_PERMITTED_ERROR = 1900006,
 
@@ -98,6 +106,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     COMMUNICATION_ERROR = 1900007,
 
@@ -106,6 +115,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     PROXY_OR_REMOTE_OBJECT_INVALID_ERROR = 1900008,
 
@@ -114,6 +124,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     WRITE_DATA_TO_MESSAGE_SEQUENCE_ERROR = 1900009,
 
@@ -122,6 +133,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     READ_DATA_FROM_MESSAGE_SEQUENCE_ERROR = 1900010,
 
@@ -130,6 +142,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     PARCEL_MEMORY_ALLOC_ERROR = 1900011,
 
@@ -138,6 +151,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     CALL_JS_METHOD_ERROR = 1900012,
 
@@ -146,6 +160,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     OS_DUP_ERROR = 1900013
   }
@@ -156,6 +171,7 @@ declare namespace rpc {
    * @enum { number }
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 12 dynamic
+   * @since 20 static
    */
   enum TypeCode {
     /**
@@ -163,6 +179,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     INT8_ARRAY = 0,
 
@@ -171,6 +188,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     UINT8_ARRAY = 1,
 
@@ -179,6 +197,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     INT16_ARRAY = 2,
 
@@ -187,6 +206,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     UINT16_ARRAY = 3,
 
@@ -195,6 +215,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     INT32_ARRAY = 4,
 
@@ -203,6 +224,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     UINT32_ARRAY = 5,
 
@@ -211,6 +233,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     FLOAT32_ARRAY = 6,
 
@@ -219,6 +242,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     FLOAT64_ARRAY = 7,
 
@@ -227,6 +251,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     BIGINT64_ARRAY = 8,
 
@@ -235,6 +260,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     BIGUINT64_ARRAY = 9
   }
@@ -1250,11 +1276,12 @@ declare namespace rpc {
     /**
      * Obtains the size of data (in bytes) contained in the {@link MessageSequence} object.
      *
-     * @returns { number } Return the size of data contained in the {@link MessageSequence} object.
+     * @returns { int } Return the size of data contained in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getSize(): number;
+    getSize(): int;
 
     /**
      * Obtains the storage capacity (in bytes) of the {@link MessageSequence} object.
@@ -1271,15 +1298,16 @@ declare namespace rpc {
      * <p>{@code false} is returned if the data size set in this method is greater
      * than the storage capacity of the {@link MessageSequence}.
      *
-     * @param { number } size - Indicates the data size of the {@link MessageSequence} object.
+     * @param { int } size - Indicates the data size of the {@link MessageSequence} object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    setSize(size: number): void;
+    setSize(size: int): void;
 
     /**
      * Sets the storage capacity (in bytes) of the {@link MessageSequence} object.
@@ -1303,69 +1331,75 @@ declare namespace rpc {
      * <p>Writable data space = Storage capacity of the {@link MessageSequence} – Size of data contained in
      * the {@link MessageSequence}.
      *
-     * @returns { number } Return the writable data space of the {@link MessageSequence} object.
+     * @returns { int } Return the writable data space of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getWritableBytes(): number;
+    getWritableBytes(): int;
 
     /**
      * Obtains the readable data space (in bytes) in the {@link MessageSequence} object.
      * <p>Readable data space = Size of data contained in the {@link MessageSequence} – Size of data that has been read.
      *
-     * @returns { number } Return the readable data space of the {@link MessageSequence} object.
+     * @returns { int } Return the readable data space of the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getReadableBytes(): number;
+    getReadableBytes(): int;
 
     /**
      * Obtains the current read position in the {@link MessageSequence} object.
      *
-     * @returns { number } Return the current read position in the {@link MessageSequence} object.
+     * @returns { int } Return the current read position in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getReadPosition(): number;
+    getReadPosition(): int;
 
     /**
      * Obtains the current write position in the {@link MessageSequence} object.
      *
-     * @returns { number } Return the current write position in the {@link MessageSequence} object.
+     * @returns { int } Return the current write position in the {@link MessageSequence} object.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getWritePosition(): number;
+    getWritePosition(): int;
 
     /**
      * Changes the current read position in the {@link MessageSequence} object.
      * <p>Generally, you are advised not to change the current read position. If you must
      * change it, change it to an accurate position. Otherwise, the read data may be incorrect.
      *
-     * @param { number } pos - Indicates the target position to start data reading.
+     * @param { int } pos - Indicates the target position to start data reading.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    rewindRead(pos: number): void;
+    rewindRead(pos: int): void;
 
     /**
      * Changes the current write position in the {@link MessageSequence} object.
      * <p>Generally, you are advised not to change the current write position. If you must
      * change it, change it to an accurate position. Otherwise, the data to be read may be incorrect.
      *
-     * @param { number } pos - Indicates the target position to start data writing.
+     * @param { int } pos - Indicates the target position to start data writing.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    rewindWrite(pos: number): void;
+    rewindWrite(pos: int): void;
 
     /**
      * Writes information to this MessageSequence object indicating that no exception occurred.
@@ -1395,28 +1429,30 @@ declare namespace rpc {
     /**
      * Writes a byte value into the {@link MessageSequence} object.
      *
-     * @param { number } val - Indicates the byte value to write.
+     * @param { int } val - Indicates the byte value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeByte(val: number): void;
+    writeByte(val: int): void;
 
     /**
      * Writes a short integer value into the {@link MessageSequence} object.
      *
-     * @param { number } val - Indicates the short integer value to write.
+     * @param { int } val - Indicates the short integer value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeShort(val: number): void;
+    writeShort(val: int): void;
 
     /**
      * Writes an integer value into the {@link MessageSequence} object.
@@ -1449,28 +1485,30 @@ declare namespace rpc {
     /**
      * Writes a floating point value into the {@link MessageSequence} object.
      *
-     * @param { number } val - Indicates the floating point value to write.
+     * @param { double } val - Indicates the floating point value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeFloat(val: number): void;
+    writeFloat(val: double): void;
 
     /**
      * Writes a double-precision floating point value into the {@link MessageSequence} object.
      *
-     * @param { number } val - Indicates the double-precision floating point value to write.
+     * @param { double } val - Indicates the double-precision floating point value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeDouble(val: number): void;
+    writeDouble(val: double): void;
 
     /**
      * Writes a boolean value into the {@link MessageSequence} object.
@@ -1489,15 +1527,16 @@ declare namespace rpc {
     /**
      * Writes a single character value into the {@link MessageSequence} object.
      *
-     * @param { number } val - Indicates the single character value to write.
+     * @param { int } val - Indicates the single character value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeChar(val: number): void;
+    writeChar(val: int): void;
 
     /**
      * Writes a string value into the {@link MessageSequence} object.
@@ -1551,7 +1590,7 @@ declare namespace rpc {
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { number[] } shortArray - Indicates the short integer array to write.
+     * @param { int[] } shortArray - Indicates the short integer array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1561,8 +1600,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeShortArray(shortArray: number[]): void;
+    writeShortArray(shortArray: int[]): void;
 
     /**
      * Writes an integer array into the {@link MessageSequence} object.
@@ -1588,7 +1628,7 @@ declare namespace rpc {
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { number[] } longArray - Indicates the long integer array to write.
+     * @param { long[] } longArray - Indicates the long integer array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1598,15 +1638,16 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeLongArray(longArray: number[]): void;
+    writeLongArray(longArray: long[]): void;
 
     /**
      * Writes a floating point array into the {@link MessageSequence} object.
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { number[] } floatArray - Indicates the floating point array to write.
+     * @param { double[] } floatArray - Indicates the floating point array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1616,8 +1657,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeFloatArray(floatArray: number[]): void;
+    writeFloatArray(floatArray: double[]): void;
 
     /**
      * Writes a double-precision floating point array into the {@link MessageSequence} object.
@@ -1661,7 +1703,7 @@ declare namespace rpc {
      * Ensure that the data type and size comply with the interface definition.
      * Otherwise,data may be truncated.
      *
-     * @param { number[] } charArray - Indicates the single character array to write.
+     * @param { int[] } charArray - Indicates the single character array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1670,8 +1712,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    writeCharArray(charArray: number[]): void;
+    writeCharArray(charArray: int[]): void;
 
     /**
      * Writes a string array into the {@link MessageSequence} object.
@@ -1721,28 +1764,31 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     writeRemoteObjectArray(objectArray: IRemoteObject[]): void;
 
     /**
      * Reads a byte value from the {@link MessageSequence} object.
      *
-     * @returns { number } Return a byte value.
+     * @returns { int } Return a byte value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readByte(): number;
+    readByte(): int;
 
     /**
      * Reads a short integer value from the {@link MessageSequence} object.
      *
-     * @returns { number } Return a short integer value.
+     * @returns { int } Return a short integer value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readShort(): number;
+    readShort(): int;
 
     /**
      * Reads an integer value from the {@link MessageSequence} object.
@@ -1769,22 +1815,24 @@ declare namespace rpc {
     /**
      * Reads a floating point value from the {@link MessageSequence} object.
      *
-     * @returns { number } Return a floating point value.
+     * @returns { double } Return a floating point value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readFloat(): number;
+    readFloat(): double;
 
     /**
      * Reads a double-precision floating point value from the {@link MessageSequence} object.
      *
-     * @returns { number } Return a double-precision floating point value.
+     * @returns { double } Return a double-precision floating point value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readDouble(): number;
+    readDouble(): double;
 
     /**
      * Reads a boolean value from the {@link MessageSequence} object.
@@ -1800,12 +1848,13 @@ declare namespace rpc {
     /**
      * Reads a single character value from the {@link MessageSequence} object.
      *
-     * @returns { number } Return a single character value.
+     * @returns { int } Return a single character value.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readChar(): number;
+    readChar(): int;
 
     /**
      * Reads a string value from the {@link MessageSequence} object.
@@ -1836,7 +1885,7 @@ declare namespace rpc {
     /**
      * Writes a byte array into the {@link MessageSequence} object.
      *
-     * @param { number[] } dataIn - Indicates the byte array read from MessageSequence.
+     * @param { int[] } dataIn - Indicates the byte array read from MessageSequence.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1844,23 +1893,25 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readByteArray(dataIn: number[]): void;
+    readByteArray(dataIn: int[]): void;
 
     /**
      * Reads a byte array from the {@link MessageSequence} object.
      *
-     * @returns { number[] } Return a byte array.
+     * @returns { int[] } Return a byte array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readByteArray(): number[];
+    readByteArray(): int[];
 
     /**
      * Reads a short integer array from the {@link MessageSequence} object.
      *
-     * @param { number[] } dataIn - Indicates the short integer array read from MessageSequence.
+     * @param { int[] } dataIn - Indicates the short integer array read from MessageSequence.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1868,18 +1919,20 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readShortArray(dataIn: number[]): void;
+    readShortArray(dataIn: int[]): void;
 
     /**
      * Reads a short integer array from the {@link MessageSequence} object.
      *
-     * @returns { number[] } Return a short integer array.
+     * @returns { int[] } Return a short integer array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readShortArray(): number[];
+    readShortArray(): int[];
 
     /**
      * Reads an integer array from the {@link MessageSequence} object.
@@ -1910,7 +1963,7 @@ declare namespace rpc {
     /**
      * Reads a long integer array from the {@link MessageSequence} object.
      *
-     * @param { number[] } dataIn - Indicates the long integer array to read.
+     * @param { long[] } dataIn - Indicates the long integer array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1918,23 +1971,25 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readLongArray(dataIn: number[]): void;
+    readLongArray(dataIn: long[]): void;
 
     /**
      * Reads a long integer array from the {@link MessageSequence} object.
      *
-     * @returns { number[] } Return a long integer array.
+     * @returns { long[] } Return a long integer array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readLongArray(): number[];
+    readLongArray(): long[];
 
     /**
      * Reads a floating point array from the {@link MessageSequence} object.
      *
-     * @param { number[] } dataIn - Indicates the floating point array to read.
+     * @param { double[] } dataIn - Indicates the floating point array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1942,18 +1997,20 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readFloatArray(dataIn: number[]): void;
+    readFloatArray(dataIn: double[]): void;
 
     /**
      * Reads a floating point array from the {@link MessageSequence} object.
      *
-     * @returns { number[] } Return a floating point array.
+     * @returns { double[] } Return a floating point array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readFloatArray(): number[];
+    readFloatArray(): double[];
 
     /**
      * Reads a double-precision floating point array from the {@link MessageSequence} object.
@@ -2010,7 +2067,7 @@ declare namespace rpc {
     /**
      * Reads a single character array from the {@link MessageSequence} object.
      *
-     * @param { number[] } dataIn - Indicates the single character array to read.
+     * @param { int[] } dataIn - Indicates the single character array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2018,18 +2075,20 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readCharArray(dataIn: number[]): void;
+    readCharArray(dataIn: int[]): void;
 
     /**
      * Reads a single character array from the {@link MessageSequence} object.
      *
-     * @returns { number[] } Return a single character array.
+     * @returns { int[] } Return a single character array.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    readCharArray(): number[];
+    readCharArray(): int[];
 
     /**
      * Reads a string array from the {@link MessageSequence} object.
@@ -2088,6 +2147,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     readRemoteObjectArray(objects: IRemoteObject[]): void;
 
@@ -2098,6 +2158,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     readRemoteObjectArray(): IRemoteObject[];
 
@@ -2118,16 +2179,18 @@ declare namespace rpc {
     /**
      * Duplicates the specified file descriptor.
      *
-     * @param { number } fd - File descriptor to be duplicated.
-     * @returns { number } Return a duplicated file descriptor.
+     * @param { int } fd - File descriptor to be duplicated.
+     * @returns { int } Return a duplicated file descriptor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900013 - Failed to call dup.
+     * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    static dupFileDescriptor(fd: number): number;
+    static dupFileDescriptor(fd: int): int;
 
     /**
      * Checks whether this {@link MessageSequence} object contains a file descriptor.
@@ -2136,6 +2199,7 @@ declare namespace rpc {
      *                      return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     containFileDescriptors(): boolean;
 
@@ -2192,11 +2256,12 @@ declare namespace rpc {
     /**
      * Obtains the maximum amount of raw data that can be sent in a time.
      *
-     * @returns { number } 128 MB.
+     * @returns { int } 128 MB.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    getRawDataCapacity(): number;
+    getRawDataCapacity(): int;
 
     /**
      * Writes raw data to this {@link MessageSequence} object.
@@ -2285,6 +2350,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence. 
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
+     * @since 20 static
      */
     writeArrayBuffer(buf: ArrayBuffer, typeCode: TypeCode): void;
 
@@ -2300,6 +2366,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core 
      * @since 12 dynamic
+     * @since 20 static
      */
     readArrayBuffer(typeCode: TypeCode): ArrayBuffer;
   }
@@ -2529,6 +2596,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     getLocalInterface(descriptor: string): IRemoteBroker;
 
@@ -2847,11 +2915,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static TF_SYNC: number;
+    static readonly TF_SYNC: number;
 
     /**
      * Indicates synchronous call.
@@ -2868,11 +2937,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static TF_ASYNC: number;
+    static readonly TF_ASYNC: number;
 
     /**
      * Indicates asynchronous call.
@@ -2889,11 +2959,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 16
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static TF_ACCEPT_FDS: number;
+    static readonly TF_ACCEPT_FDS: number;
 
     /**
      * Indicates the sendRequest API for returning the file descriptor.
@@ -2909,6 +2980,7 @@ declare namespace rpc {
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
      *
      * @default 4
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7
@@ -2918,11 +2990,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 8
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
      */
-    static TF_WAIT_TIME: number;
+    static readonly TF_WAIT_TIME: number;
 
     /**
      * Indicates the wait time for RPC, in seconds. It is NOT used in IPC case.
@@ -2966,20 +3039,22 @@ declare namespace rpc {
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @returns { number } Return whether the SendRequest is called synchronously or asynchronously.
+     * @returns { int } Return whether the SendRequest is called synchronously or asynchronously.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
-    getFlags(): number;
+    getFlags(): int;
 
     /**
      * Sets the SendRequest call flag, which can be synchronous or asynchronous.
      *
-     * @param { number } flags - Indicates the call flag, which can be synchronous or asynchronous.
+     * @param { int } flags - Indicates the call flag, which can be synchronous or asynchronous.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
-    setFlags(flags: number): void;
+    setFlags(flags: int): void;
 
     /**
      * Obtains the SendRequest call flag, which can be synchronous or asynchronous.
@@ -3005,20 +3080,22 @@ declare namespace rpc {
     /**
      * Obtains the maximum wait time for this RPC call.
      *
-     * @returns { number } Return maximum wait time obtained.
+     * @returns { int } Return maximum wait time obtained.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
-    getWaitTime(): number;
+    getWaitTime(): int;
 
     /**
      * Sets the maximum wait time for this RPC call.
      *
-     * @param { number } waitTime - Indicates maximum wait time to set.
+     * @param { int } waitTime - Indicates maximum wait time to set.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
-    setWaitTime(waitTime: number): void;
+    setWaitTime(waitTime: int): void;
   }
 
   /**
@@ -3071,6 +3148,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     getLocalInterface(descriptor: string): IRemoteBroker;
 
@@ -3309,6 +3387,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     modifyLocalInterface(localInterface: IRemoteBroker, descriptor: string): void;
   }
@@ -3331,11 +3410,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1599098439
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static PING_TRANSACTION: number;
+    static readonly PING_TRANSACTION: number;
 
     /**
      * Indicates the message code for a Ping operation.
@@ -3352,11 +3432,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1598311760
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static DUMP_TRANSACTION: number;
+    static readonly DUMP_TRANSACTION: number;
 
     /**
      * Indicates the message code for a dump operation.
@@ -3373,11 +3454,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1598968902
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static INTERFACE_TRANSACTION: number;
+    static readonly INTERFACE_TRANSACTION: number;
 
     /**
      * Indicates the message code for a transmission.
@@ -3395,11 +3477,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0x1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static MIN_TRANSACTION_ID: number;
+    static readonly MIN_TRANSACTION_ID: number;
 
     /**
      * Indicates the minimum value of a valid message code.
@@ -3418,11 +3501,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0x00FFFFFF
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      */
-    static MAX_TRANSACTION_ID: number;
+    static readonly MAX_TRANSACTION_ID: number;
 
     /**
      * Indicates the maximum value of a valid message code.
@@ -3756,6 +3840,7 @@ declare namespace rpc {
      * @returns { string } Return the ID of the device where the peer process resides.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
     static getCallingDeviceID(): string;
 
@@ -3766,6 +3851,7 @@ declare namespace rpc {
      * @returns { string } Return the ID of the local device.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
     static getLocalDeviceID(): string;
 
@@ -3776,6 +3862,7 @@ declare namespace rpc {
      * @returns { boolean } Return {@code true} if the call is made on the same device; return {@code false} otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
     static isLocalCalling(): boolean;
 
@@ -3803,6 +3890,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     static flushCmdBuffer(object: IRemoteObject): void;
 
@@ -3813,6 +3901,7 @@ declare namespace rpc {
      * @returns { string } Return a string containing the UID and PID of the remote user.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
+     * @since 20 static
      */
     static resetCallingIdentity(): string;
 
@@ -3845,6 +3934,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     static restoreCallingIdentity(identity: string): void;
   }
@@ -3865,11 +3955,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 4
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      */
-    static PROT_EXEC: number;
+    static readonly PROT_EXEC: number;
 
     /**
      * The mapped memory is executable.
@@ -3886,11 +3977,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 0
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      */
-    static PROT_NONE: number;
+    static readonly PROT_NONE: number;
 
     /**
      * The mapped memory is inaccessible.
@@ -3907,11 +3999,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 1
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      */
-    static PROT_READ: number;
+    static readonly PROT_READ: number;
 
     /**
      * The mapped memory is readable.
@@ -3928,11 +4021,12 @@ declare namespace rpc {
      *
      * @type { number }
      * @default 2
+     * @readonly
      * @static
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
      */
-    static PROT_WRITE: number;
+    static readonly PROT_WRITE: number;
 
     /**
      * The mapped memory is writable.
@@ -4009,6 +4103,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
+     * @since 20 static
      */
     closeAshmem(): void;
 
@@ -4017,6 +4112,7 @@ declare namespace rpc {
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamic
+     * @since 20 static
      */
     unmapAshmem(): void;
 
@@ -4047,7 +4143,7 @@ declare namespace rpc {
      * Creates the shared file mapping on the virtual address space of this process.
      * The size of the mapping region is specified by this Ashmem object.
      *
-     * @param { number } mapType - Protection level of the memory region to which the shared file is mapped.
+     * @param { int } mapType - Protection level of the memory region to which the shared file is mapped.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -4055,8 +4151,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    mapTypedAshmem(mapType: number): void;
+    mapTypedAshmem(mapType: int): void;
 
     /**
      * Maps the shared file to the readable and writable virtual address space of the process.
@@ -4096,6 +4193,7 @@ declare namespace rpc {
      * @throws { BusinessError } 1900001 - Failed to call mmap.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
     mapReadonlyAshmem(): void;
 
@@ -4114,15 +4212,16 @@ declare namespace rpc {
     /**
      * Sets the protection level of the memory region to which the shared file is mapped.
      *
-     * @param { number } protectionType - Protection type to set.
+     * @param { int } protectionType - Protection type to set.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900002 - Failed to call ioctl.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
+     * @since 20 static
      */
-    setProtectionType(protectionType: number): void;
+    setProtectionType(protectionType: int): void;
 
     /**
      * Writes data to the shared file associated with this Ashmem object.
@@ -4162,8 +4261,8 @@ declare namespace rpc {
      * Writes data to the shared file associated with this Ashmem object.
      *
      * @param { ArrayBuffer } buf - Data to write
-     * @param { number } size - Size of the data to write
-     * @param { number } offset - Start position of the data to write in the memory region associated
+     * @param { int } size - Size of the data to write
+     * @param { int } offset - Start position of the data to write in the memory region associated
      *                   with this Ashmem object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -4172,8 +4271,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900003 - Failed to write data to the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
+     * @since 20 static
      */
-    writeDataToAshmem(buf: ArrayBuffer, size: number, offset: number): void;
+    writeDataToAshmem(buf: ArrayBuffer, size: int, offset: int): void;
 
     /**
      * Reads data from the shared file associated with this Ashmem object.
@@ -4210,8 +4310,8 @@ declare namespace rpc {
     /**
      * Reads data from the shared file associated with this Ashmem object.
      *
-     * @param { number } size - Size of the data to read.
-     * @param { number } offset - Start position of the data to read in the memory region associated
+     * @param { int } size - Size of the data to read.
+     * @param { int } offset - Start position of the data to read in the memory region associated
      *                   with this Ashmem object.
      * @returns { ArrayBuffer } Data read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4220,8 +4320,9 @@ declare namespace rpc {
      * @throws { BusinessError } 1900004 - Failed to read data from the shared memory.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 11 dynamic
+     * @since 20 static
      */
-    readDataFromAshmem(size: number, offset: number): ArrayBuffer;
+    readDataFromAshmem(size: int, offset: int): ArrayBuffer;
   }
 }
 

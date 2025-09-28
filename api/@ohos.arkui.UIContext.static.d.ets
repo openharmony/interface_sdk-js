@@ -2115,11 +2115,11 @@ export declare class MeasureUtils {
    * Obtains the width of the specified text in a single line layout.
    *
    * @param { MeasureOptions } options - Options.
-   * @returns { number }
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  measureText(options: MeasureOptions): number;
+  measureText(options: MeasureOptions): double;
 
   /**
    * Obtains the width and height of the specified text in a single line layout.
@@ -2666,6 +2666,26 @@ export declare class UIContext {
    * @since 20 static
    */
   showTextPickerDialog(options: TextPickerDialogOptions): void;
+
+  /**
+   * Set image cache capacity of decoded image count.
+   * if not set, the application will not cache any decoded image.
+   *
+   * @param { int } value - capacity of decoded image count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setImageCacheCount(value: int): void;
+
+  /**
+   * Set image cache capacity of raw image data size in bytes before decode.
+   * if not set, the application will not cache any raw image data.
+   *
+   * @param { int } value - capacity of raw image data size in bytes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  setImageRawDataCacheSize(value: int): void;
 
   /**
    * Run custom functions inside the UIContext scope.
@@ -3236,6 +3256,15 @@ export declare class UIContext {
    * @since 20 static
    */
   static getFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Get id of the UI instance.
+   *
+   * @returns { int } Returns id of the UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @since 22 static
+   */
+  getId(): int;
 }
 
 /**

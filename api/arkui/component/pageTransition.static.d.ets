@@ -20,9 +20,9 @@
  */
 
 import { ICurve, TranslateOptions, ScaleOptions } from './common';
-import { Curve } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
-import { AttributeModifier, CommonMethod } from "./common";
+import { Curve } from './enums';
+import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare the jump method.
  *

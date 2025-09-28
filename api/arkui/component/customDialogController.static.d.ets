@@ -20,7 +20,7 @@
 import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
-import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles } from './units';
+import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles, VoidCallback } from './units';
 import { BorderStyle } from './enums';
 import { LengthMetrics } from '../Graphics';
 import { LevelMode, LevelOrder, ImmersiveMode } from '../../@ohos.promptAction';
@@ -268,35 +268,35 @@ export declare interface CustomDialogControllerOptions {
     /**
      * Callback function when the dialog appears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDidAppear?: Callback<void>;
+    onDidAppear?: VoidCallback;
     /**
      * Callback function when the dialog disappears.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onDidDisappear?: Callback<void>;
+    onDidDisappear?: VoidCallback;
     /**
      * Callback function before the dialog openAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onWillAppear?: Callback<void>;
+    onWillAppear?: VoidCallback;
     /**
      * Callback function before the dialog closeAnimation starts.
      *
-     * @type { ?Callback<void> }
+     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onWillDisappear?: Callback<void>;
+    onWillDisappear?: VoidCallback;
     /**
      * Defines the distance between the customDialog and system keyboard.
      *

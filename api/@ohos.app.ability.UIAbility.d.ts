@@ -168,7 +168,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   on(type: 'release', callback: OnReleaseCallback): void;
 
@@ -183,7 +182,6 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release', callback: OnReleaseCallback): void;
 
@@ -197,9 +195,27 @@ export interface Caller {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
-   * @since 20 static
    */
   off(type: 'release'): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   *
+   * @param { OnReleaseCallback } callback - Callback used to return the result.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(callback: OnReleaseCallback): void;
+
+  /**
+   * Unregisters all death listener notification callback.
+   * 
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 22 static
+   */
+  offRelease(): void;
 }
 
 /**
@@ -598,15 +614,7 @@ declare class UIAbility extends Ability {
   onForeground(): void;
 
   /**
-   * Triggered just before the application transitions to the foreground.
-   * It is called before onForeground.
-   * It can be used to capture the moment when the application starts to transition to the foreground.
-   * When paired with onDidForeground, it can also measure the duration from the application's initial
-   * foreground entry to its full transition into the foreground state.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -616,15 +624,7 @@ declare class UIAbility extends Ability {
   onWillForeground(): void;
 
   /**
-   * Triggered after the application has transitioned to the foreground.
-   * It is called after onForeground.
-   * It can be used to capture the moment when the application fully transitions to the foreground.
-   * When paired with onWillForeground, it can also measure the duration from the application's initial foreground
-   * entry to its full transition into the foreground state.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability changes to foreground.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -663,14 +663,7 @@ declare class UIAbility extends Ability {
   onBackground(): void;
 
   /**
-   * Triggered just when the application transitions to the background.
-   * It is called before onBackground.
-   * It can be used to log various types of data, such as faults, statistics, security information, and user behavior
-   * that occur during application running.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -680,14 +673,7 @@ declare class UIAbility extends Ability {
   onWillBackground(): void;
 
   /**
-   * Triggered after the application has transitioned to the background.
-   * It is called after onBackground.
-   * It can be used to release resources after the application has entered the background, for example, stopping
-   * audio playback.
-   * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * <p/>
+   * Called back when the state of an ability changes to background.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly

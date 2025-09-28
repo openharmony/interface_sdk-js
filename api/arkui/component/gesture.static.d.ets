@@ -18,6 +18,7 @@
  */
 import { BaseEvent, SourceTool, Callback } from './common';
 import { InteractionHand } from './enums';
+import { VoidCallback } from "./units";
 /**
  * Creating an Object
  *
@@ -32,56 +33,112 @@ export declare enum PanDirection {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    None,
-    /**
-     * Sliding horizontally.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    Horizontal,
+    None = 0,
     /**
      * Sliding left.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Left,
+    Left = 1,
     /**
      * Sliding right.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Right,
+    Right = 2,
     /**
-     * Sliding Vertical
+     * Sliding horizontally.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Vertical,
+    Horizontal = 3,
     /**
      * Sliding up.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Up,
+    Up = 4,
     /**
-     * Sliding Down.
+     * Sliding up or left.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    Down,
+    UP_LEFT = 5,
+    /**
+     * Sliding up or right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    UP_RIGHT = 6,
+    /**
+     * Sliding up or horizontally.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    UP_HORIZONTAL = 7,
+    /**
+     * Sliding down.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    Down = 8,
+    /**
+     * Sliding down or left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DOWN_LEFT = 9,
+    /**
+     * Sliding down or right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DOWN_RIGHT = 10,
+    /**
+     * Sliding down or horizontally.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    DOWN_HORIZONTAL = 11,
+    /**
+     * Sliding vertical.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    Vertical = 12,
+    /**
+     * Sliding vertical or left.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    VERTICAL_LEFT = 13,
+    /**
+     * Sliding vertical or right.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 20 static
+     */
+    VERTICAL_RIGHT = 14,
     /**
      * Sliding in all directions.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    All
+    All = 15
 }
 /**
  * Creating an Object
@@ -1118,12 +1175,12 @@ export declare class GestureGroup {
     /**
      * The Gesture group is successfully recognized and a callback is triggered when the touch cancel event is received.
      *
-     * @param { Callback<void> } event
+     * @param { VoidCallback } event
      * @returns { GestureGroup }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onCancel(event: Callback<void>): GestureGroup;
+    onCancel(event: VoidCallback): GestureGroup;
 }
 /**
  * Defines the gesture handler.
@@ -1648,12 +1705,12 @@ export declare class GestureGroupHandler extends GestureHandler {
      * The GestureGroup gesture is successfully recognized and a callback is triggered when the touch cancel event is
      * received.
      *
-     * @param { Callback<void> } event
+     * @param { VoidCallback } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    onCancel(event: Callback<void>): this;
+    onCancel(event: VoidCallback): this;
 }
 /**
  * Creating an Object

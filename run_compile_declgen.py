@@ -39,7 +39,7 @@ def ensure_dir_exists(target_path):
 def traverse_function(source_root_dir: str, input_path: str, out_interop_path: str, node_js: str):
     source_root_dir = os.path.abspath(source_root_dir)
     input_dir = os.path.abspath(input_path)
-    out_path = os.path.abspath(os.path.join(out_interop_path, 'ets1.1interop'))
+    out_path = os.path.abspath(os.path.join(out_interop_path, 'dynamic-interop'))
     package_path = os.path.abspath(os.path.join(source_root_dir, PACKAGE_PATH))
     nodejs = os.path.abspath(node_js)
     output_dir = ensure_dir_exists(out_path)

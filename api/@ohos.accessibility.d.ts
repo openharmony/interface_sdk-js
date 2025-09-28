@@ -1232,18 +1232,9 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   */
-  function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
-
-  /**
-   * Send accessibility event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @param { AsyncCallback<void> } callback Asynchronous callback interface.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 static
    */
-  function sendAccessibilityEventWithCallback(event: EventInfo, callback: AsyncCallback<void>): void;
+  function sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback<void>): void;
 
   /**
    * Send accessibility event.
@@ -1256,23 +1247,9 @@ declare namespace accessibility {
    *     3. Parameter verification failed.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamic
-   */
-  function sendAccessibilityEvent(event: EventInfo): Promise<void>;
-
-  /**
-   * Send accessibility event.
-   *
-   * @param { EventInfo } event The object of the accessibility {@code EventInfo} .
-   * @returns { Promise<void> } Returns {@code true} if success ; returns {@code false} otherwise.
-   * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 20 static
    */
-  function sendAccessibilityEventReturnsPromise(event: EventInfo): Promise<void>;
-
-  /**
-   * @arkts 1.2
-   */
-  overload sendAccessibilityEvent { sendAccessibilityEventWithCallback, sendAccessibilityEventReturnsPromise };
+  function sendAccessibilityEvent(event: EventInfo): Promise<void>;
 
   /**
    * Gets touch mode type.
@@ -1312,13 +1289,12 @@ declare namespace accessibility {
   /**
    * Register the observe of the accessibility state changed.
    *
-   * @param { 'accessibilityStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
-  function onAccessibilityStateChange(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
+  function onAccessibilityStateChange(callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the touchGuide state changed.
@@ -1337,12 +1313,11 @@ declare namespace accessibility {
   /**
    * Register the observe of the touchGuide state changed.
    *
-   * @param { 'touchGuideStateChange' } type state event type.
    * @param { Callback<boolean> } callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
-   * @since 20 static
+   * @since 22 static
    */
-  function onTouchGuideStateChange(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
+  function onTouchGuideStateChange(callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the screen reader state changed.
@@ -1359,12 +1334,11 @@ declare namespace accessibility {
 
   /**
    * Register the observe of the screen reader state changed.
-   * @param { 'screenReaderStateChange' } type state event type.
    * @param { Callback<boolean> } callback callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20 static
+   * @since 22 static
    */
-  function onScreenReaderStateChange(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
+  function onScreenReaderStateChange(callback: Callback<boolean>): void;
 
   /**
    * Register the observe of the touch mode changed.
@@ -1378,11 +1352,6 @@ declare namespace accessibility {
    * @since 20 dynamic
    */
   function on(type: 'touchModeChange', callback: Callback<string>): void;
-
-  /**
-   * @arkts 1.2
-   */
-  overload on { onAccessibilityStateChange, onTouchGuideStateChange, onScreenReaderStateChange};
 
   /**
    * Unregister the observe of the accessibility state changed.
@@ -1400,7 +1369,7 @@ declare namespace accessibility {
    * Unregister the observe of the accessibility state changed.
    *
    * @param { 'accessibilityStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1414,19 +1383,18 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the accessibility state changed.
    *
-   * @param { 'accessibilityStateChange' } type state event type
    * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
-   * @since 20 static
+   * @since 22 static
    */
-  function offAccessibilityStateChange(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
+  function offAccessibilityStateChange(callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the touchGuide state changed.
    *
    * @param { 'touchGuideStateChange' } type state event type
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -1439,17 +1407,16 @@ declare namespace accessibility {
   /**
    * Unregister the observe of the touchGuide state changed.
    *
-   * @param { 'touchGuideStateChange' } type state event type
    * @param { Callback<boolean> } [callback] Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20 static
+   * @since 22 static
    */
-  function offTouchGuideStateChange(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
+  function offTouchGuideStateChange(callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the screen reader state changed.
    * @param { 'screenReaderStateChange' } type state event type
-   * @param { Callback<boolean> } callback callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] callback Asynchronous callback interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
@@ -1461,17 +1428,16 @@ declare namespace accessibility {
 
   /**
    * Unregister the observe of the screen reader state changed.
-   * @param { 'screenReaderStateChange' } type state event type
    * @param { Callback<boolean> } [callback] callback Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
-   * @since 20 static
+   * @since 22 static
    */
-  function offScreenReaderStateChange(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
+  function offScreenReaderStateChange(callback?: Callback<boolean>): void;
 
   /**
    * Unregister the observe of the touch mode changed.
    * @param { 'touchModeChange' } type touch mode change.
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
    * @throws { BusinessError } 401 Parameter error. Possible causes:
    * 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types;
@@ -1482,16 +1448,11 @@ declare namespace accessibility {
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
   /**
-   * @since 20 static
-   */
-  overload off { offAccessibilityStateChange, offTouchGuideStateChange, offScreenReaderStateChange};
-
-  /**
    * Get the captions manager.
    *
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
@@ -1531,7 +1492,7 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 12
      */
     on(type: 'enableChange', callback: Callback<boolean>): void;
@@ -1546,7 +1507,7 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 12
      */
     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
@@ -1561,7 +1522,7 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 12
      */
     off(type: 'enableChange', callback?: Callback<boolean>): void;
@@ -1576,7 +1537,7 @@ declare namespace accessibility {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 12
      */
     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
@@ -1781,11 +1742,18 @@ declare namespace accessibility {
     /**
      * A constructor used to create a EventInfo object.
      *
-     * @param jsonObject - Character string in JSON format required for creating an object.
+     * @param { Object } jsonObject - Character string in JSON format required for creating an object.
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @since 7 dynamic
      */
-    constructor(jsonObject);
+    constructor(jsonObject: Object);
+    /**
+     * A constructor used to create a EventInfo object.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @since 22 static
+     */
+    constructor();
     /**
      * A constructor used to create a EventInfo object.
      *

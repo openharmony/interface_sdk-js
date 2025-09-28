@@ -74,11 +74,11 @@ export declare interface InputCounterOptions {
      * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
      * </p>
      *
-     * @type { ?number }
+     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    thresholdPercentage?: number;
+    thresholdPercentage?: double;
     /**
      * If the current input character count reaches the maximum character count and users want to exceed the
      * normal input, the border will turn red. If this parameter is true, the red border displayed.
@@ -144,12 +144,11 @@ export declare interface DividerStyle {
     /**
      * Define the stroke width of the divider
      *
-     * @type { Length }
-     * @default 0
+     * @type { Length | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    strokeWidth: Length;
+    strokeWidth: Length | undefined;
     /**
      * Define the color of the divider
      *
@@ -2692,36 +2691,6 @@ export declare function animateTo(value: AnimateParam, event: () => void): void;
  * @since 20 static
  */
 export declare function animateToImmediately(value: AnimateParam, event: () => void): void;
-/**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#vp2px
- */
-export declare function vp2px(value: number): number;
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 20 static
- * @deprecated since 18
- * @useinstead ohos.arkui.UIContext.UIContext#px2vp
- */
-export declare function px2vp(value: number): number;
 /**
  * Defines the namespace of focus controller.
  *
@@ -5341,11 +5310,11 @@ export declare interface DragEvent {
      *   1. Please set useCustomDropAnimation to true as well when using this method.
      *   2. Do not implement the animation no-related logics in the callback.
      *
-     * @param { Callback<void> } customDropAnimation - the custom drop animation function.
+     * @param { VoidCallback } customDropAnimation - the custom drop animation function.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    executeDropAnimation(customDropAnimation: Callback<void>): void;
+    executeDropAnimation(customDropAnimation: VoidCallback): void;
 
     /**
      * Enable the internal drop animation, which is only avaiable for system applications.
@@ -6742,38 +6711,38 @@ export declare interface PopupCommonOptions {
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 }
 /**
  * Defines the Tips options.
@@ -7120,38 +7089,38 @@ export declare interface PopupOptions {
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 }
 /**
  * Defines the custom popup options.
@@ -7422,38 +7391,38 @@ export declare interface CustomPopupOptions {
   /**
    * Callback function when the popup appears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidAppear?: Callback<void>;
+  onDidAppear?: VoidCallback;
 
   /**
    * Callback function before the popup closeAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillDisappear?: Callback<void>;
+  onWillDisappear?: VoidCallback;
 
   /**
    * Callback function when the popup disappears.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onDidDisappear?: Callback<void>;
+  onDidDisappear?: VoidCallback;
 
   /**
    * Callback function before the popup openAnimation starts.
    *
-   * @type { ?Callback<void> }
+   * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
-  onWillAppear?: Callback<void>;
+  onWillAppear?: VoidCallback;
 }
 
 /**
@@ -9408,15 +9377,6 @@ export declare interface CommonMethod {
     /**
      * Keyboard input
      *
-     * @param { ((event: KeyEvent) => void) | undefined } event
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default onKeyEvent(event: ((event: KeyEvent) => void) | undefined): this;
-    /**
-     * Keyboard input
-     *
      * @param { Callback<KeyEvent, boolean> | undefined } event - Callback for handling the key event.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9564,16 +9524,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default focusBox(style: FocusBoxStyle | undefined): this;
-    /**
-    * Set container as a focus group with a specific identifier.
-    *
-    * @param { string | undefined } id - focus scope identifier.
-    * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 20 static
-    */
-    default focusScopeId(id: string | undefined, isGroup?: boolean): this;
     /**
     * Set container as a focus group with a specific identifier.
     *
@@ -10278,12 +10228,12 @@ export declare interface CommonMethod {
      * This callback is triggered when the drag behavior is stopped within the scope of the component.
      *
      * @param { OnDragEventCallback | undefined } eventCallback - event callback.
-     * @param { DropOptions } [dropOptions] - the drop handling options.
+     * @param { DropOptions } dropOptions - the drop handling options.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions?: DropOptions): this;
+    default onDrop(eventCallback: OnDragEventCallback | undefined, dropOptions: DropOptions): this;
     /**
      * This function is called when the drag event is end.
      *
@@ -10312,15 +10262,6 @@ export declare interface CommonMethod {
      * @since 20 static
      */
     default draggable(value: boolean | undefined): this;
-    /**
-     * Set preview of the component for dragging process
-     *
-     * @param { CustomBuilder | DragItemInfo | string | undefined } value - preview of the component for dragging process
-     * @returns { this } return the component attribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default dragPreview(value: CustomBuilder | DragItemInfo | string | undefined): this;
     /**
      * Set preview of the component for dragging process
      *
@@ -10782,18 +10723,8 @@ export declare interface CommonMethod {
      * <p><strong>NOTE</strong>
      * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
      * <br>the component and all its children are treated as a single selectable unit, and the accessibility
-     * <br>service will no longer focus on the individual child components.</p>
+     * <br>service will no longer focus on the individual child components.
      *
-     * @param { boolean | undefined } value - set group with accessibility, default value is false.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityGroupWithValue(value: boolean | undefined): this;
-    /**
-     * Sets whether to enable accessibility grouping.
-     *
-     * <p><strong>NOTE</strong>
      * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
      * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
      * <br>its child components to form a merged text for the component. If a child component lacks a universal
@@ -10805,27 +10736,12 @@ export declare interface CommonMethod {
      * <br>If a child component lacks both, it will be ignored.</p>
      *
      * @param { boolean | undefined } isGroup - set group with accessibility, default value is false.
-     * @param { AccessibilityOptions | undefined } config - accessibilityOptions for accessibility, default value is false.
+     * @param { ?AccessibilityOptions } [accessibilityOptions] - options for accessibility, default value is false.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityGroupWithConfig(isGroup: boolean | undefined, config: AccessibilityOptions | undefined): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityGroup { accessibilityGroupWithValue, accessibilityGroupWithConfig };
-    /**
-     * Sets the accessibility text.
-     * When a component does not contain a text attribute, you can use this API to set an accessibility
-     * text attribute, so that accessibility services can announce the specified content for the component.
-     *
-     * @param { string | undefined } value - set accessibility text, default value is "".
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityTextOfStringType(value: string | undefined): this;
+    default accessibilityGroup(isGroup: boolean | undefined, accessibilityOptions?: AccessibilityOptions): this;
     /**
      * Sets accessibility next focus id
      * @param { string | undefined } nextId - set component next accessibility focus id
@@ -10861,21 +10777,19 @@ export declare interface CommonMethod {
     /**
      * Sets the accessibility text.
      * <p><strong>NOTE</strong>
-     * If a component has both text content and accessibility text, only the accessibility text is announced.
+     * <br>When a component does not contain a text attribute, you can use this API to set an accessibility
+     * <br>text attribute, so that accessibility services can announce the specified content for the component.
+     * <br>If a component has both text content and accessibility text, only the accessibility text is announced.
      * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
      * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
      * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
      * </p>
-     * @param { Resource } text - set accessibility text
+     * @param { Resource | string | undefined } text - set accessibility text, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityTextOfResourceType(text: Resource): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityText { accessibilityTextOfStringType, accessibilityTextOfResourceType };
+    default accessibilityText(text: Resource | string | undefined): this;
     /**
      * Sets accessibility role,role indicates the custom type of the component
      * @param { AccessibilityRoleType | undefined } role - set accessibility component type
@@ -10904,15 +10818,6 @@ export declare interface CommonMethod {
     /**
      * Sets accessibilityDescription
      *
-     * @param { string | undefined } value - set description of accessibility, default value is "".
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default accessibilityDescriptionOfStringType(value: string | undefined): this;
-    /**
-     * Sets accessibilityDescription
-     *
      * with support for resource references using Resource.
      * This property provides additional context or explanation for the component,
      * helping users understand the action or function it performs.
@@ -10922,16 +10827,12 @@ export declare interface CommonMethod {
      * <br>cannot be learned from component attributes and accessibility text. If a component contains
      * <br>both text information and the accessibility description, the text is read first and then the
      * <br>accessibility description, when the component is selected.</p>
-     * @param { Resource } description - set description of accessibility
+     * @param { Resource | string | undefined } description - set description of accessibility, default value is "".
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
+     * @since 22 static
      */
-    default accessibilityDescriptionOfResourceType(description: Resource): this;
-    /**
-     * @since 20 static
-     */
-    overload accessibilityDescription { accessibilityDescriptionOfStringType, accessibilityDescriptionOfResourceType };
+    default accessibilityDescription(description: Resource | string | undefined): this;
     /**
      * Sets the accessibility level.
      * This property determines whether the component can be recognized by accessibility services.
@@ -11724,35 +11625,35 @@ export declare interface RectResult {
     /**
      * Horizontal coordinate.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    x: number;
+    x: double;
     /**
      * Vertical coordinate.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    y: number;
+    y: double;
     /**
      * Content width.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    width: number;
+    width: double;
     /**
      * Content height.
      *
-     * @type { number }
+     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    height: number;
+    height: double;
 }
 /**
  * CaretOffset info.
@@ -11848,21 +11749,21 @@ export declare abstract class TextContentControllerBase {
      * Get the lines number of the text content.
      * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
      *
-     * @returns { number } Text content line count
+     * @returns { int } Text content line count
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    getTextContentLineCount(): number;
+    getTextContentLineCount(): int;
     /**
      * Add a text.
      *
      * @param { string } text - text value.
      * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
-     * @returns { number } caret index
+     * @returns { int } caret index
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
+    addText(text: string, textOperationOptions?: TextContentControllerOptions): int;
     /**
      * Delete text in TextRange.
      *
@@ -12673,19 +12574,19 @@ export declare interface UICommonEvent {
     /**
      * Set or reset the callback is triggered when a component mounts a display.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setOnAppear(callback: Callback<void> | undefined): void;
+    setOnAppear(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback is triggered when component uninstallation disappears.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setOnDisappear(callback: Callback<void> | undefined): void;
+    setOnDisappear(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback is triggered when component has keyboard input.
      *
@@ -12697,19 +12598,19 @@ export declare interface UICommonEvent {
     /**
      * Set or reset the callback which is triggered when component get focus.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setOnFocus(callback: Callback<void> | undefined): void;
+    setOnFocus(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback which is triggered when lose focus.
      *
-     * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+     * @param { VoidCallback | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 20 static
      */
-    setOnBlur(callback: Callback<void> | undefined): void;
+    setOnBlur(callback: VoidCallback | undefined): void;
     /**
      * Set or reset the callback which is triggered when has a hover event.
      *

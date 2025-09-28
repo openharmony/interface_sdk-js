@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
  
-import contextConstant from '@ohos.app.ability.contextConstant'
+import contextConstant from '@ohos.app.ability.contextConstant';
 
 /**
  * Function that returns default creator.

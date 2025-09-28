@@ -18,28 +18,41 @@
  * @kit AccessibilityKit
  */
 
-/*** if arkts dynamic&static */
+/*** if arkts dynamic */
 import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
-import AccessibilityExtensionAbility, {
-  AccessibilityElement, ElementAttributeKeys, AccessibilityExtensionContext,
-  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent
-} from '@ohos.application.AccessibilityExtensionAbility';
-/*** endif */
-/*** if arkts dynamic */
 import { GesturePath } from '@ohos.accessibility.GesturePath';
 import { GesturePoint } from '@ohos.accessibility.GesturePoint';
-import { Parameter, AccessibilityEventInfo
+import AccessibilityExtensionAbility, {
+  AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
+  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent, AccessibilityEventInfo,
+  Parameter
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityAction, AccessibilityEventType } from '@ohos.accessibility';
 /*** endif */
-/*** if arkts dynamic&static */
+
+/*** if arkts static */
+import config from '@ohos.accessibility.config';
+import accessibility from '@ohos.accessibility';
+import AccessibilityExtensionAbility, {
+  AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
+  ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent
+} from '@ohos.application.AccessibilityExtensionAbility';
+/*** endif */
+
+/*** if arkts dynamic */
+export {
+  AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
+  ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType, GesturePath,
+  GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
+  AccessibilityAction, AccessibilityEventType, Parameter
+};
+/*** endif */
+
+/*** if arkts static */
 export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext,
   ElementAttributeKeys, ElementAttributeValues, FocusDirection, FocusType,
   Rect, WindowType, accessibility, config, AccessibilityEvent
 };
-/*** endif */
-/*** if arkts dynamic */
-export { GesturePath, GesturePoint, Parameter, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType };
 /*** endif */

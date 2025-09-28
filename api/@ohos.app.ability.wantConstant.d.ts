@@ -375,15 +375,6 @@ declare namespace wantConstant {
     LAUNCH_REASON_MESSAGE = 'ohos.params.launchReasonMessage',
 
     /**
-    * Indicates the dest ability refers to a plugin ability.
-    *
-    * @syscap SystemCapability.Ability.AbilityBase
-    * @since 19 dynamic
-    * @since 20 static
-    */
-    DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
-
-    /**
     * Indicates the param of the appIdentifier trustlist when implicitly launching applications.
     *
     * @syscap SystemCapability.Ability.AbilityBase
@@ -392,6 +383,15 @@ declare namespace wantConstant {
     * @since 20 static
     */
     APP_LAUNCH_TRUSTLIST = 'ohos.params.appLaunchTrustList',
+
+    /**
+    * Indicates the dest ability refers to a plugin ability.
+    *
+    * @syscap SystemCapability.Ability.AbilityBase
+    * @since 19 dynamic
+    * @since 20 static
+    */
+    DESTINATION_PLUGIN_ABILITY = 'ohos.params.pluginAbility',
 
     /**
     * Indicates the unified data key used to share file uri.

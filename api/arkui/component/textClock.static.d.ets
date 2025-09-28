@@ -142,21 +142,6 @@ export declare interface TextClockAttribute extends CommonMethod {
      */
     default format(value: ResourceStr | undefined): this;
     /**
-     * set display time format,such as "yyyy/mm/dd","yyyy-mm-dd".
-     * support time format：yyyy,mm,mmm(English month abbreviation),mmmm(Full name of the month in English),
-     * dd,ddd(English Week abbreviation),dddd(Full name of the week in English),
-     * HH/hh(24-hour clock/12-hour clock),MM/mm(minute),SS/ss(second).
-     * The default value is "hh:mm:ss" when TextClock is not in a form.
-     * The default value is "hh:mm" when TextClock is in a form.
-     * If the value has second or millisecond, the value will be set to the default value.
-     *
-     * @param { string | undefined } value
-     * @returns { TextClockAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 20 static
-     */
-    default format(value: string | undefined): this;
-    /**
      * Provides a date change callback.
      * The callback parameter is Unix Time Stamp,
      * The number of milliseconds that have elapsed since January 1, 1970 (UTC).

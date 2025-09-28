@@ -393,7 +393,7 @@ function tsTransform(utFiles, callback) {
       isTransformer = false;
     }
     if (etsType === 'ets2') {
-      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.d.ets') {
+      if (!/\@systemapi/.test(content) && apiBaseName !== '@ohos.arkui.component.static.d.ets') {
         isTransformer = false;
       }
     }
@@ -513,7 +513,7 @@ function readFile(dir, utFiles) {
  */
 function sortApiList(apiFiles) {
   const newApiFiles = [];
-  const specFileName = '@ohos.arkui.component.d.ets';
+  const specFileName = '@ohos.arkui.component.static.d.ets';
   let specApiFilePath = '';
   apiFiles.forEach(filePath => {
     if (filePath.endsWith(specFileName)) {

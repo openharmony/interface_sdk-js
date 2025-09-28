@@ -33,7 +33,7 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 export interface LiveFormInfo {
   /**
-   * The form id.
+   * The form id of the live form.
    *
    * @type { string }
    * @syscap SystemCapability.Ability.Form

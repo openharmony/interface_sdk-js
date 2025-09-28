@@ -416,6 +416,20 @@ export { RadioModifier } from './arkui/RadioModifier';
 export { RatingModifier } from './arkui/RatingModifier';
 
 /**
+ * Export MenuModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export { MenuModifier } from './arkui/MenuModifier';
+
+/**
+ * Export MenuItemModifier, which is used to update attributes to native side.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @since 20 static
+ */
+export { MenuItemModifier } from './arkui/MenuItemModifier';
+
+/**
  * Export ImageModifier, which is used to update attributes to native side.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 22 static

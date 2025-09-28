@@ -27,6 +27,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10 dynamic
+ * @since 20 static
  */
 
 declare namespace shortKey {
@@ -36,7 +37,7 @@ declare namespace shortKey {
    * 
    * @param { string } businessKey - Unique service ID registered on the multimodal side. 
    * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. 
    * If the operation is successful, err is undefined. Otherwise, err is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
@@ -45,8 +46,9 @@ declare namespace shortKey {
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
-  function setKeyDownDuration(businessKey: string, delay: number, callback: AsyncCallback<void>): void;
+  function setKeyDownDuration(businessKey: string, delay: int, callback: AsyncCallback<void>): void;
 
   /**
    * Sets the delay for starting an ability using shortcut keys. 
@@ -54,7 +56,7 @@ declare namespace shortKey {
    * 
    * @param { string } businessKey - Unique service ID registered on the multimodal side. 
    * It corresponds to businessId in the ability_launch_config.json file. You need to query this parameter on your own before calling the API.
-   * @param { number } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
+   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is invalid only when shortcut keys are used.
    * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -62,8 +64,9 @@ declare namespace shortKey {
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
+   * @since 20 static
    */
-  function setKeyDownDuration(businessKey: string, delay: number): Promise<void>;
+  function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
 
 }
 export default shortKey;

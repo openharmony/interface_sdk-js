@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -97,19 +98,19 @@ declare namespace font {
         /**
          * The weight of the font.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        weight: number;
+        weight: int;
         /**
          * The width of the font style.
          *
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        width: number;
+        width: int;
         /**
          * Whether it is italic.
          *
@@ -207,11 +208,11 @@ declare namespace font {
         /**
          * Weight the font set contains only fonts with, if weight = 0,
          * this font set can contain fonts with any weight.
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        weight: number;
+        weight: double;
     }
     /**
      * @typedef UIFontAdjustInfo
@@ -221,18 +222,18 @@ declare namespace font {
     interface UIFontAdjustInfo {
         /**
          * Original weight of the font
-         * @type { number }
+         * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        weight: number;
+        weight: double;
         /**
          * Font weight displayed in the app
-         * @type { number }
+         * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @since 20 static
          */
-        to: number;
+        to: int;
     }
     /**
      * @typedef UIFontFallbackGroupInfo

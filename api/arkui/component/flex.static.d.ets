@@ -155,7 +155,7 @@ export declare interface FlexAttribute extends CommonMethod {
 @memo
 @ComponentBuilder
 export declare function Flex(
-    value?: FlexOptions, 
+    value?: FlexOptions,
     @memo
     content_?: () => void,
 ): FlexAttribute

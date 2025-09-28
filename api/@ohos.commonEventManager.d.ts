@@ -193,6 +193,22 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 20 dynamic&static
    */
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { int } userId - Specified the user to receive the common events.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500006 - Invalid userId.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 21 dynamic&static
+   */
   function publishAsUser(event: string, userId: int, callback: AsyncCallback<void>): void;
 
   /**
@@ -213,7 +229,7 @@ declare namespace commonEventManager {
    * @systemapi
    * @since 9
    */
-    /**
+  /**
    * Publishes an ordered, sticky, or standard common event to a specified user.
    *
    * @param { string } event - Specified the names of the common events.
@@ -229,6 +245,24 @@ declare namespace commonEventManager {
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 20 dynamic&static
+   */
+  /**
+   * Publishes an ordered, sticky, or standard common event to a specified user.
+   *
+   * @param { string } event - Specified the names of the common events.
+   * @param { int } userId - Specified the user to receive the common events.
+   * @param { CommonEventPublishData } options - Indicates the CommonEventPublishData containing the common event
+   *                                             content and attributes.
+   * @param { AsyncCallback<void> } callback - The callback of publishAsUser.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high.
+   * @throws { BusinessError } 1500006 - Invalid userId.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi
+   * @since 21 dynamic&static
    */
   function publishAsUser(
     event: string,
@@ -529,16 +563,33 @@ declare namespace commonEventManager {
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 202 - not system app
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi Hide this for inner system use.
    * @StageModelOnly
    * @since 12 dynamic
-   * @since 20 static
    */
   function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
+
+  /**
+   * Set static subscriber state.
+   *
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { Array<string> } events - The events array.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
+   * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
+   * @syscap SystemCapability.Notification.CommonEvent
+   * @systemapi Hide this for inner system use.
+   * @StageModelOnly
+   * @since 22 static
+   */
+  function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
   /**
    * The event type that the commonEvent supported.

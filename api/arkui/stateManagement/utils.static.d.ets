@@ -64,7 +64,7 @@ export declare class UIUtils {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  static makeBindingReadonly<T>(getter: GetterCallback<T>): Binding<T>;
+  static makeBinding<T>(getter: GetterCallback<T>): Binding<T>;
 
   /**
    * Creates a mutable data binding.
@@ -76,23 +76,16 @@ export declare class UIUtils {
    * Supports getter-setter pairs for mutable data.
    * Intended for primitive value parameters when calling a @Builder
    * function where arguments are of type MutableBinding.
+   * If provided, a MutableBinding is created.
    *
    * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
    * @param { SetterCallback<T> } setter - A function to set a new value of type T. 
-   * If provided, a MutableBinding is created.
    * @returns { MutableBinding<T> } mutable data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 20 static
    */
-  static makeBindingMutable<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
-
-  /**
-   * Creates data binding.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  static overload makeBinding { makeBindingReadonly, makeBindingMutable }
+  static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>;
 }
 
 /**

@@ -240,28 +240,6 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
 
   /**
    * Sets the min length of sidebar.
-   * default value is 240vp.
-   *
-   * @param { number | undefined } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  default minSideBarWidth(value: number | undefined): this;
-
-  /**
-   * Sets the max length of sidebar.
-   * default value is 280vp.
-   *
-   * @param { number | undefined } value
-   * @returns { SideBarContainerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 static
-   */
-  default maxSideBarWidth(value: number | undefined): this;
-
-  /**
-   * Sets the min length of sidebar.
    * default value is 200vp.
    *
    * @param { Length | undefined } value
