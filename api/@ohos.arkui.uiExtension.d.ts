@@ -69,9 +69,17 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'avoidAreaChange', callback: Callback<AvoidAreaInfo>): void;
+
+    /**
+     * Subscribes to the event indicating changes to the area where the window cannot be displayed.
+     *
+     * @param { Callback<AvoidAreaInfo> } callback - Callback used to return the avoid area information.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    onAvoidAreaChange(callback: Callback<AvoidAreaInfo>): void;
 
     /**
      * Unsubscribes from the event indicating changes to the area where the window cannot be displayed.
@@ -86,9 +94,18 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'avoidAreaChange', callback?: Callback<AvoidAreaInfo>): void;
+
+    /**
+     * Unsubscribes from the event indicating changes to the area where the window cannot be displayed.
+     *
+     * @param { Callback<AvoidAreaInfo> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    offAvoidAreaChange(callback?: Callback<AvoidAreaInfo>): void;
 
     /**
      * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
@@ -104,9 +121,17 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
+
+    /**
+     * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    onWindowSizeChange(callback: Callback<window.Size>): void;
 
     /**
      * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
@@ -127,6 +152,17 @@ declare namespace uiExtension {
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
 
     /**
+     * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { Callback<window.Size> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
+    offWindowSizeChange(callback?: Callback<window.Size>): void;
+
+    /**
      * Subscribes to changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent). This API can be used only on 2-in-1 devices.
      *
      * @param { 'rectChange' } type - Event type. The value is fixed at 'rectChange',
@@ -141,9 +177,21 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
      */
     on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void;
+
+    /**
+     * Subscribes to changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent).
+     *     This API can be used only on 2-in-1 devices.
+     *
+     * @param { int } reasons - The reasons of component rect change.
+     * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    onRectChange(reasons: int, callback: Callback<RectChangeOptions>): void;
 
     /**
      * Unsubscribes from changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent).
@@ -160,9 +208,21 @@ declare namespace uiExtension {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice
      * @since 14 dynamic
-     * @since 20 static
      */
     off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void;
+
+    /**
+     * Unsubscribes from changes in the position and size of the component (EmbeddedComponent or UIExtensionComponent).
+     *     This API can be used only on 2-in-1 devices.
+     *
+     * @param { Callback<RectChangeOptions> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 22 static
+     */
+    offRectChange(callback?: Callback<RectChangeOptions>): void;
 
     /**
      * Sets whether to hide insecure windows.

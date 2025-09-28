@@ -65,9 +65,19 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     on(type: 'avoidAreaChange', callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+
+    /**
+     * Register the callback of avoidAreaChange
+     *
+     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } callback
+     *     - Callback used to return the area.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
+    onAvoidAreaChange(callback: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
     /**
      * Unregister the callback of avoidAreaChange
@@ -81,9 +91,19 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'avoidAreaChange', callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
+
+    /**
+     * Unregister the callback of avoidAreaChange
+     *
+     * @param { Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }> } [callback]
+     *     - Unregister the callback function. If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
+    offAvoidAreaChange(callback?: Callback<{ type: window.AvoidAreaType, area: window.AvoidArea }>): void;
 
     /**
      * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
@@ -104,6 +124,16 @@ declare namespace uiExtensionHost {
     on(type: 'windowSizeChange', callback: Callback<window.Size>): void;
 
     /**
+     * Subscribes to the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { Callback<window.Size> } callback - Callback used to return the window size.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
+    onWindowSizeChange(callback: Callback<window.Size>): void;
+
+    /**
      * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
      *
      * @param { 'windowSizeChange' } type - The value is fixed at 'windowSizeChange',
@@ -117,9 +147,19 @@ declare namespace uiExtensionHost {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 11 dynamic
-     * @since 20 static
      */
     off(type: 'windowSizeChange', callback?: Callback<window.Size>): void;
+
+    /**
+     * Unsubscribes from the component (EmbeddedComponent or UIExtensionComponent) size change event.
+     *
+     * @param { Callback<window.Size> } [callback] - Unregister the callback function.
+     *     If not provided, all callbacks for the given event type will be removed.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 22 static
+     */
+    offWindowSizeChange(callback?: Callback<window.Size>): void;
 
     /**
      * The properties of the UIExtension window
