@@ -3497,7 +3497,7 @@ declare namespace audio {
      * Unsubscribes to audio scene change events.
      * @param { 'audioSceneChange' } type - Type of the event to listen for. Only the audioSceneChange event is
      * supported.
-     * @param { Callback<AudioScene> } callback - Callback used in subscription.
+     * @param { Callback<AudioScene> } [callback] - Callback used in subscription.
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @since 20
      */
@@ -5946,7 +5946,7 @@ declare namespace audio {
      * Unsubscribes from active volume type changes.
      * @param { 'activeVolumeTypeChange' } type - Type of the event to unregister.
      * Only the activeVolumeTypeChange event is supported.
-     * @param { Callback<AudioVolumeType> } callback - Callback used to return the active volume type.
+     * @param { Callback<AudioVolumeType> } [callback] - Callback used to return the active volume type.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6035,7 +6035,7 @@ declare namespace audio {
      * Unsubscribes to the system volume change events.
      * @param { 'systemVolumeChange' } type - Type of the event to be unregistered.
      * Only the systemVolumeChange event is supported.
-     * @param { Callback<VolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @param { Callback<VolumeEvent> } [callback] - Callback used to obtain the invoking volume change event.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6147,7 +6147,7 @@ declare namespace audio {
      * Unsubscribes to the stream volume change events.
      * @param { 'streamVolumeChange' } type - Type of the event to be unregistered.
      * Only the streamVolumeChange event is supported.
-     * @param { Callback<StreamVolumeEvent> } callback - Callback used to obtain the invoking volume change event.
+     * @param { Callback<StreamVolumeEvent> } [callback] - Callback used to obtain the invoking volume change event.
      * If there is no callback parameter, all callbacks will be unregistered.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20
@@ -7472,7 +7472,7 @@ declare namespace audio {
     /**
      * Unsubscribes to the spatialization enable state change events by the current device.
      * @param { 'spatializationEnabledChangeForCurrentDevice' } type - Type of the event to listen for.
-     * @param { Callback<boolean> } callback - Callback used to get the spatialization enable state.
+     * @param { Callback<boolean> } [callback] - Callback used to get the spatialization enable state.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since arkts {'1.1':'18','1.2':'20'}
@@ -12955,7 +12955,7 @@ declare namespace audio {
     /**
      * Unsubscribes audio loopback status change event callback.
      * @param { 'statusChange' } type - Type of the event to listen for.
-     * @param { Callback<AudioLoopbackStatus> } callback - Callback used to listen for the audio loopback status
+     * @param { Callback<AudioLoopbackStatus> } [callback] - Callback used to listen for the audio loopback status
      * change event.
      * @throws  { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
