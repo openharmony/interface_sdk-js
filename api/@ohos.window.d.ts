@@ -7607,7 +7607,6 @@ declare namespace window {
      * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     onWindowEvent(callback: Callback<WindowEventType>): void;
@@ -7642,10 +7641,9 @@ declare namespace window {
      * Unsubscribes from the window lifecycle change event.
      *
      * @param { Callback<WindowEventType> } [callback] - Unregister the callback function.
-     *		If not provided, all callbacks for the given event type will be removed.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     offWindowEvent(callback?: Callback<WindowEventType>): void;
@@ -11981,7 +11979,6 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     onWindowStageEvent(callback: Callback<WindowStageEventType>): void;
@@ -12036,13 +12033,12 @@ declare namespace window {
      * Unsubscribes from the window stage lifecycle change event.
      *
      * @param { Callback<WindowStageEventType> } [callback] - Unregister the callback function.
-     *		If not provided, all callbacks for the given event type will be removed.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @stagemodelonly
      * @crossplatform
-     * @atomicservice
      * @since 22 static
      */
     offWindowStageEvent(callback?: Callback<WindowStageEventType>): void;
@@ -12102,7 +12098,7 @@ declare namespace window {
      * Unsubscribes from the window stage lifecycle change event.
      *
      * @param { Callback<WindowStageLifecycleEventType> } [callback] - Unregister the callback function.
-     *		If not provided, all callbacks for the given event type will be removed.
+     *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
