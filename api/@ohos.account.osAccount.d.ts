@@ -1916,7 +1916,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
      */
     on(type: 'activate' | 'activating', name: string, callback: Callback<int>): void;
 
@@ -1936,7 +1935,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 20 static
      */
     off(type: 'activate' | 'activating', name: string, callback?: Callback<int>): void;
 
@@ -1955,7 +1953,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -1974,7 +1971,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -1993,7 +1989,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
@@ -2012,7 +2007,6 @@ declare namespace osAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
-     * @since 20 static
      */
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
@@ -2065,6 +2059,132 @@ declare namespace osAccount {
      * @since 20 static
      */
     getBundleIdForUidSync(uid: int): int;
+
+    /**
+     * Subscribes to the change events of accounts.
+     * <p>
+     * When user change the account, the subscriber will receive a notification
+     * about the account change event.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onActivate(name: string, callback: Callback<int>): void;
+
+    /**
+     * Subscribes to the change events of accounts.
+     * <p>
+     * When user change the account, the subscriber will receive a notification
+     * about the account change event.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onActivating(name: string, callback: Callback<int>): void;
+
+    /**
+     * Unsubscribes from account events.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offActivate(name: string, callback?: Callback<int>): void;
+
+    /**
+     * Unsubscribes from account events.
+     *
+     * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
+     * @param { string } name - Indicates the name of subscriber.
+     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @throws { BusinessError } 12300002 - Invalid name.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offActivating(name: string, callback?: Callback<int>): void;
+
+    /**
+     * Subscribes to the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onSwitching(callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switching event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offSwitching(callback?: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Subscribes to the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    onSwitched(callback: Callback<OsAccountSwitchEventData>): void;
+
+    /**
+     * Unsubscribes from the OS account switched event.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - The system service works abnormally.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @since 22 static
+     */
+    offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
      * Check whether current process belongs to the main account.
