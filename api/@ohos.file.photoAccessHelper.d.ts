@@ -11568,6 +11568,141 @@ declare namespace photoAccessHelper {
      * @arkts 1.1&1.2
      */
     getCloudMediaAssetStatus(): Promise<CloudMediaAssetStatus>;
+
+    /**
+     * Start download cloud assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string[] } assetUris - Asset uris which will download 
+     * @returns { Promise<Map<string, CloudAssetDownloadCode>> } Returns start task result.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes: 
+     *     1. The assetUris is empty; 
+     *     2. The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    startDownloadSpecificCloudMedia(assetUris: string[]): Promise<Map<string, CloudAssetDownloadCode>>;
+
+    /**
+     * Pause download cloud assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string[] | null } assetUris - Asset uris which will pause, null or empty array means pause all 
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes: 
+     *     The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    pauseDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
+
+    /**
+     * Resume download cloud assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string[] | null } assetUris - Asset uris which will resume, null or empty array means resume all 
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes: 
+     *     The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    resumeDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
+
+    /**
+     * Cancel download cloud assets.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { string[] | null } assetUris - Asset uris which will cancel, null or empty array means cancel all 
+     * @returns { Promise<void> } Returns void
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes: 
+     *     The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    cancelDownloadSpecificCloudMedia(assetUris: string[] | null): Promise<void>;
+
+    /**
+     * Query download cloud assets task infomation.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Filter parameter.
+     * @returns { Promise<CloudAssetDownloadStatus> } Returns download cloud assets task infomation.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    queryDownloadSpecificCloudMediaDetails(predicates: dataSharePredicates.DataSharePredicates): Promise<CloudAssetDownloadStatus>;
+
+    /**
+     * Query download cloud assets task count.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { dataSharePredicates.DataSharePredicates } predicates - Filter parameter.
+     * @returns { Promise<int> } Returns download cloud assets task count.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
+
+    /**
+     * Register callback of download cloud assets task.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param {  Callback<CloudAssetDownloadProgressInfo> } callback - event callback
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    onDownloadProgressChange(callback: Callback<CloudAssetDownloadProgressInfo>): void;
+
+    /**
+     * Unregister callback of download cloud assets task.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param {  Callback<CloudAssetDownloadProgressInfo> } [callback] - event callback
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    offDownloadProgressChange(callback?: Callback<CloudAssetDownloadProgressInfo>): void;
   }
 
   /**
@@ -11944,6 +12079,182 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic&static
      */
     HDR_VIVID_DUAL = 5,
+  }
+
+  /**
+   * Download cloud asset callback info.
+   *
+   * @interface CloudAssetDownloadProgressInfo
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface CloudAssetDownloadProgressInfo {
+    /**
+     * Download cloud asset callback event type.
+     *
+     * @type { CloudAssetDownloadNotifyType }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    readonly downloadEventType: CloudAssetDownloadNotifyType;
+    
+    /**
+     * Download cloud asset file id.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    readonly fileId: int;
+
+    /**
+     * Download cloud asset progress.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    readonly percent: int;
+
+    /**
+     * Download cloud asset auto pause reason.
+     *
+     * @type { int }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    readonly autoPauseReason: int;
+  }
+
+  /**
+   * Download cloud asset status info.
+   *
+   * @interface CloudAssetDownloadStatus
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  interface CloudAssetDownloadStatus {
+    /**
+     * Download cloud asset auto status info.
+     *
+     * @type { string[] }
+     * @readonly
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    readonly taskInfos: string[];
+  }
+
+  /**
+   * Add download cloud asset task result code.
+   *
+   * @enum { int } CloudAssetDownloadCode
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum CloudAssetDownloadCode {
+    /**
+     * Add download cloud asset success
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    ADD_DOWNLOAD_TASK_SUCCESS = 0,
+
+    /**
+     * The asset is not exist when adding download cloud asset
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_ASSET_NOT_EXIST = 1,
+  }
+
+  /**
+   * Enumerates download cloud asset event type.
+   *
+   * @enum { int } CloudAssetDownloadNotifyType
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @since 22 dynamic&static
+   */
+  enum CloudAssetDownloadNotifyType {
+    /**
+     * Progress info event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_PROGRESS = 0,
+
+    /**
+     * Download finish event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_FINISHED = 1,
+
+    /**
+     * Download failed event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_FAILED = 2,
+
+    /**
+     * Download asset is deleted event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_ASSET_DELETED = 3,
+
+    /**
+     * Download asset auto pause event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_AUTO_PAUSED = 4,
+
+    /**
+     * Download asset auto resume event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_AUTO_RESUMED = 5,
+
+    /**
+     * Many Download assets status changed event
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 22 dynamic&static
+     */
+    DOWNLOAD_REFRESHED = 6,
   }
 
 }
