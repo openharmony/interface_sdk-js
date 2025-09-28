@@ -7911,6 +7911,158 @@ declare interface SelectionMenuOptionsExt {
 }
 
 /**
+ * The details of this blank screen detection result.
+ *
+ * @typedef BlankScreenDetails
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare interface BlankScreenDetails {
+  /**
+   * The count of detected contentful nodes. This value only exists when developers configure a threshold.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  detectedContentfulNodesCount?: int;
+}
+
+/**
+ * Enum type supplied to {@link BlankScreenDetectionEventInfo} when onDetectedBlankScreen being called.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare enum DetectedBlankScreenReason {
+  /**
+   * None of any contentful nodes have been detected.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  NO_CONTENTFUL_NODES = 0,
+  /**
+   * Web has detected a few of contentful nodes but below the threshold.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  SUB_THRESHOLD_CONTENTFUL_NODES = 1
+}
+
+/**
+ * Defines the blank screen detection event info.
+ *
+ * @typedef BlankScreenDetectionEventInfo
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare interface BlankScreenDetectionEventInfo {
+  /**
+   * The url of detected blank screen page.
+   *
+   * @type { string }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  url: string;
+
+  /**
+   * The reason why we consider this page is blank.
+   *
+   * @type { DetectedBlankScreenReason }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  blankScreenReason: DetectedBlankScreenReason;
+
+  /**
+   * The details of this detection result.
+   *
+   * @type { ?BlankScreenDetails }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  blankScreenDetails?: BlankScreenDetails;
+}
+
+/**
+ * The callback when web engine detects current page is blank or nearly blank.
+ *
+ * @typedef { function } DetectBlankScreenCallback
+ * @param { BlankScreenDetectionEventInfo } event - the detection event info.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+type OnDetectBlankScreenCallback = (event: BlankScreenDetectionEventInfo) => void;
+
+/**
+ * The methods can be chosen to detect if current page is blank or nearly blank.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare enum BlankScreenDetectionMethod {
+  /**
+   * This detection method is used to probe whether there are rendered contentful nodes
+   * at 17 coordinates distributed around the center of the page.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  DETECTION_CONTENTFUL_NODES_SEVENTEEN = 0
+}
+
+/**
+ * The strategy of blank screen detection.
+ *
+ * @typedef BlankScreenDetectionConfig
+ * @syscap SystemCapability.Web.Webview.Core
+ * @since 22 dynamic&static
+ */
+declare interface BlankScreenDetectionConfig {
+  /**
+   * Enable blank screen detection or not.
+   *
+   * @type { boolean }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  enable: boolean;
+
+  /**
+   * The settings of the timing when web try to detect current page is blank or not.
+   * The timing is the duration after web navigation.
+   *
+   * @type { ?double[] }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  detectionTiming?: double[];
+  /**
+   * The combination of blank screen detection methods.
+   *
+   * @type { ?BlankScreenDetectionMethod[] }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  detectionMethods?: BlankScreenDetectionMethod[];
+  /**
+   * When using the specific detection method of detecting contentful nodes, the threshold is used
+   * to determine how close the detection is to being blank screen page.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  contentfulNodesCountThreshold?: int;
+}
+
+
+/**
  * Defines the Web attribute functions.
  *
  * @extends CommonMethod<WebAttribute>
@@ -11223,6 +11375,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 22 dynamic&static
    */
   backToTop(backToTop: boolean): WebAttribute;
+
+  /**
+   * Triggered when web engine detects the current page is blank screen or nearly blank.
+   *
+   * @param { OnDetectBlankScreenCallback } callback - callback triggered when web engine detects
+   *     current page is blank or nearly blank.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  onDetectedBlankScreen(callback: OnDetectBlankScreenCallback): WebAttribute;
+
+  /**
+   * The options for blank screen detection.
+   *
+   * @param { BlankScreenDetectionConfig } detectConfig - the strategy config for detection.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 22 dynamic&static
+   */
+  blankScreenDetectionConfig(detectConfig: BlankScreenDetectionConfig): WebAttribute;
 }
 
 /**
