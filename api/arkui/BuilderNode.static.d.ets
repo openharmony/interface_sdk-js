@@ -24,7 +24,7 @@ import { FrameNode } from 'arkui.FrameNode';
 import { Size } from 'arkui.Graphics';
 import { TouchEvent, MouseEvent, AxisEvent } from '@ohos.arkui.component';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
-import { RecordData } from '../@ohos.base';
+import { RecordData } from '@ohos.base';
 
 /**
  * Render type of the node using for indicating that
