@@ -20,7 +20,7 @@ import { Resource } from '../../global/resource';
 import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier } from "./common";
-import { VoidCallback } from "./units";
+import { VoidCallback, ColorMetrics } from "./units";
 import { memo, ComponentBuilder } from "./../stateManagement/runtime";
 
 /**
@@ -497,6 +497,17 @@ export declare interface VideoAttribute extends CommonMethod {
      * @since 20 static
      */
     default enableShortcutKey(enabled: boolean | undefined): this;
+    /**
+     * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent).
+     *
+     * @param { ColorMetrics | undefined } color - The surface background color.
+     *     Default value is Color.Black, `undefined` means setting to the default value.
+     * @returns { VideoAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @since 20 static
+     */
+    default surfaceBackgroundColor(color: ColorMetrics | undefined): this;
     /**
      * Call attributeModifier.
      *
