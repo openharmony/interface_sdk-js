@@ -499,6 +499,18 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   columnsTemplate(value: string): GridAttribute;
 
   /**
+   * This parameter specifies the number of columns in the current grid layout.
+   *
+   * @param { string | ItemFillPolicy } value
+   * @returns { GridAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 22
+   */
+  columnsTemplate(value: string | ItemFillPolicy): GridAttribute;
+
+  /**
    * Lets you set the number of rows in the current grid layout,
    *
    * @param { string } value
